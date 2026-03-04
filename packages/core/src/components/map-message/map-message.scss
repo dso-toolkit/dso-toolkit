@@ -8,63 +8,69 @@
 @use "~dso-toolkit/src/components/button-row/button-row.scss" as buttonRow;
 
 @include utilities.box-sizing();
-@mixin map-message-button-layout {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 500;
-  max-block-size: 36px;
-}
 
 .dso-map-message-content {
   @include set-colors.apply(rgba(0, 0, 0, 0.8), "background-dark");
-  display: flex;
-  flex-wrap: wrap;
-  gap: units.$u1;
   margin-block: 32px;
   margin-inline: 32px;
-  inline-size: fit-content;
   padding-inline: units.$u3;
   padding-block: units.$u2;
+  inline-size: fit-content;
+
+  &.has-actions {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 24px 1fr;
+    gap: units.$u1;
+    padding-inline: units.$u2;
+  }
+
+  .dso-map-message-icon {
+    align-self: flex-start;
+    margin-block-start: 0.1rem;
+    inline-size: 24px;
+    block-size: 24px;
+    padding: 3px;
+  }
 
   .dso-map-message-text {
     font-size: 16px;
     letter-spacing: 0;
     line-height: 1.5;
-    flex: 1 1 0;
-    inline-size: 100%;
+    padding-inline-end: units.$u1;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
-  .dso-map-message-body {
+  .dso-map-message-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: units.$u1;
-
-    dso-icon {
-      inline-size: 24px;
-      block-size: 24px;
-      padding: 3px;
-    }
   }
 
   &.variant-success,
   &.variant-error {
-    display: flex;
-    align-items: center;
     padding-inline: units.$u2;
   }
 }
 
 .dso-button-row {
-  .dso-action-button {
-    &.dso-secondary {
-      @include buttonMixins.primary($base-styling: true, $modifiers: true);
-      @include map-message-button-layout();
-    }
+  .dso-secondary {
+    @include buttonMixins.primary($base-styling: true, $modifiers: true);
+  }
 
-    &.dso-primary {
-      @include buttonMixins.secondary($base-styling: true, $modifiers: true);
-      @include map-message-button-layout();
-    }
+  .dso-primary {
+    @include buttonMixins.secondary($base-styling: true, $modifiers: true);
+  }
+
+  .dso-secondary,
+  .dso-primary {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    max-block-size: 36px;
   }
 }
