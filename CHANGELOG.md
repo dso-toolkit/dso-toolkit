@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Icon Button: HidePopover alleen aanroepen als de tooltip connected is met de DOM ([#3503](https://github.com/dso-toolkit/dso-toolkit/issues/3503))
+* Button Tertiary: Min-inline-size breekt de layout ([#3606](https://github.com/dso-toolkit/dso-toolkit/issues/3606))
 
 ### Task
 * Document Component: types toevoegen ([#3500](https://github.com/dso-toolkit/dso-toolkit/issues/3500))
