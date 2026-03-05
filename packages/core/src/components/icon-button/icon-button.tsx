@@ -117,9 +117,11 @@ export class IconButton implements ComponentInterface {
 
   private handleHideTooltip = () => {
     this.clearToolTipTimeout();
-
     this.showTooltip = false;
-    this.tooltipElRef?.hidePopover();
+
+    if (this.tooltipElRef?.isConnected && this.tooltipElRef.matches(":popover-open")) {
+      this.tooltipElRef.hidePopover();
+    }
 
     if (!this.showTooltip && this.cleanUp) {
       this.cleanUp();
