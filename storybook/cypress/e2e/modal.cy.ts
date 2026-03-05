@@ -23,7 +23,7 @@ describe("Modal", () => {
       .and("have.attr", "role", "document")
       .find("#close-modal")
       .shadow()
-      .find("button[aria-label='Sluiten'] > #tooltip")
+      .find("button[aria-label='Sluiten'] > .dso-tooltip")
       .should("have.css", "opacity", "1")
       .and("have.class", "visible");
 
