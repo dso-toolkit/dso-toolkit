@@ -9,6 +9,8 @@
 
 @include utilities.box-sizing();
 
+$_icon-size: 24px;
+
 .dso-map-message-content {
   @include set-colors.apply(rgba(0, 0, 0, 0.8), "background-dark");
   margin-block: 32px;
@@ -18,19 +20,25 @@
   inline-size: fit-content;
 
   &.has-actions {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    grid-template-columns: 24px 1fr;
     gap: units.$u1;
     padding-inline: units.$u2;
-  }
 
-  .dso-map-message-icon {
-    align-self: flex-start;
-    margin-block-start: 0.1rem;
-    inline-size: 24px;
-    block-size: 24px;
-    padding: 3px;
+    .dso-map-message-body {
+      position: relative;
+      padding-inline-start: calc($_icon-size + units.$u1);
+    }
+
+    .dso-map-message-icon {
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-start: 0;
+      inline-size: $_icon-size;
+      block-size: $_icon-size;
+      padding: 3px;
+    }
   }
 
   .dso-map-message-text {
@@ -38,25 +46,13 @@
     letter-spacing: 0;
     line-height: 1.5;
     padding-inline-end: units.$u1;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-
-  .dso-map-message-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: units.$u1;
-  }
-
-  &.variant-success,
-  &.variant-error {
-    padding-inline: units.$u2;
+    overflow-wrap: break-word;
   }
 }
 
 .dso-button-row {
+  margin-inline-start: calc($_icon-size + units.$u1);
+
   .dso-secondary {
     @include buttonMixins.primary($base-styling: true, $modifiers: true);
   }

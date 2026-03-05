@@ -100,14 +100,13 @@ export class MapMessage implements ComponentInterface {
             role={liveRole}
             aria-atomic="true"
           >
-            {this.variant !== "instruction" && (
-              <dso-icon class="dso-map-message-icon" icon={`status-${this.variant}`} aria-hidden="true"></dso-icon>
-            )}
-
-            <div class="dso-map-message-container">
+            <div class="dso-map-message-body">
+              {this.variant !== "instruction" && (
+                <dso-icon class="dso-map-message-icon" icon={`status-${this.variant}`} aria-hidden="true"></dso-icon>
+              )}
               <span class="dso-map-message-text">{this.message}</span>
-              {this.variant !== "instruction" && this.renderButtons()}
             </div>
+            {this.variant !== "instruction" && this.renderButtons()}
           </div>
         </dso-highlight-box>
       </Host>
