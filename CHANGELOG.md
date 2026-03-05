@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Button Tertiary: Min-inline-size breekt de layout ([#3606](https://github.com/dso-toolkit/dso-toolkit/issues/3606))
+
 ## 🌹 Release 89.0.0 - 2026-03-02
 
 ### Changed
