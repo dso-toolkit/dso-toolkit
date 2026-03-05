@@ -23,10 +23,11 @@ $_icon-size: 24px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: units.$u2;
     padding-inline: units.$u2;
 
     .dso-map-message-body {
+      display: flex;
+      align-items: center;
       position: relative;
       padding-inline-start: calc($_icon-size + units.$u1);
     }
@@ -46,6 +47,7 @@ $_icon-size: 24px;
     letter-spacing: 0;
     line-height: 1.5;
     padding-inline-end: units.$u1;
+    margin-block-end: units.$u1;
     overflow-wrap: break-word;
   }
 }
