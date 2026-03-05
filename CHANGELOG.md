@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Icon: Nieuwe iconenset ([#2542](https://github.com/dso-toolkit/dso-toolkit/issues/2542))
 
+### Removed
+* **BREAKING** Label: Remove HTML/CSS implementatie ([#3318](https://github.com/dso-toolkit/dso-toolkit/issues/3318))
+
 ### Task
 * Document Component: types toevoegen ([#3500](https://github.com/dso-toolkit/dso-toolkit/issues/3500))
 * Visueel Regressietesten: Optimaliseer `failureThreshold` ([#3201](https://github.com/dso-toolkit/dso-toolkit/issues/3201))
@@ -22,6 +25,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Viewer Grid: Gesloten Filter Panel kan focus krijgen ([#3546](https://github.com/dso-toolkit/dso-toolkit/issues/3546))
 * Autosuggest: Onterechte scrollbar ([#3284](https://github.com/dso-toolkit/dso-toolkit/issues/3284))
 * Ozon Content: Toggletip focus out handler verwerkt interactieve element niet goed ([#3560](https://github.com/dso-toolkit/dso-toolkit/issues/3560))
+
+### Removed
+* **BREAKING** Label: Remove HTML/CSS implementatie ([#3318](https://github.com/dso-toolkit/dso-toolkit/issues/3318))
 
 ### Task
 * Packages: Dependencies updates ([#3495](https://github.com/dso-toolkit/dso-toolkit/issues/3495))
