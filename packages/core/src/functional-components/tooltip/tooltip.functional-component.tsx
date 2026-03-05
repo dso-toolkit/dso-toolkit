@@ -14,7 +14,6 @@ export const Tooltip: FunctionalComponent<TooltipProps> = (
 ) => (
   <div
     popover="manual"
-    id="tooltip"
     class={clsx(["dso-tooltip", { visible }])}
     ref={tipElementRef}
     onTransitionEnd={(e) => {
