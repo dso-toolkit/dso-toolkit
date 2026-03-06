@@ -15,6 +15,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Document Component: types toevoegen ([#3500](https://github.com/dso-toolkit/dso-toolkit/issues/3500))
 * Visueel Regressietesten: Optimaliseer `failureThreshold` ([#3201](https://github.com/dso-toolkit/dso-toolkit/issues/3201))
 
+## ✂️ Release 88.1.1 - 2026-03-06
+
+### Fixed
+* Button Tertiary: Min-inline-size breekt de layout ([#3606](https://github.com/dso-toolkit/dso-toolkit/issues/3606))
+
 ## 🌹 Release 89.0.0 - 2026-03-02
 
 ### Changed
