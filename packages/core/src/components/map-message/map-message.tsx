@@ -1,131 +1,114 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
-
-import { ButtonConfig, MapMessageActionClickEvent } from "./map-message.interfaces";
+import { Component, ComponentInterface, Element, Prop, forceUpdate, h } from "@stencil/core";
 
 @Component({
   tag: "dso-map-message",
   styleUrl: "map-message.scss",
   shadow: true,
 })
+/**
+ * @slot message - The message content announced as status/alert text.
+ * @slot actions - Optional action controls shown for success and error variants.
+ */
 export class MapMessage implements ComponentInterface {
   @Element()
   host!: HTMLDsoMapMessageElement;
 
   /**
    * Variant determines the icon and actions shown.
-   * Allowed values: "success", "error", "instruction".
    * Default is "instruction".
    */
   @Prop({ reflect: true })
   variant: "success" | "error" | "instruction" = "instruction";
 
-  /**
-   * The message text to display in the map message component.
-   */
-  @Prop({ reflect: true })
-  message: string = "";
+  private mutationObserver?: MutationObserver;
 
-  /**
-   * The labels for the action buttons in the map message component.
-   */
-  @Prop()
-  buttonLabels: string[] = [];
+  connectedCallback(): void {
+    this.mutationObserver = new MutationObserver(() => {
+      forceUpdate(this.host);
+      this.syncActionClasses();
+    });
 
-  /**
-   * Emitted when an action button is activated in the map message component.
-   */
-  @Event({ bubbles: false })
-  dsoActionClick!: EventEmitter<MapMessageActionClickEvent>;
-
-  // Returns button configuration based on variant
-  private getButtonConfig(): ButtonConfig[] {
-    if (this.variant === "instruction") {
-      return [];
-    }
-
-    if (this.variant === "success") {
-      return [
-        {
-          label: this.buttonLabels[0] || "Ongedaan maken",
-          class: "dso-action-button dso-primary",
-          icon: "undo",
-          type: "button",
-          iconMode: "after",
-        },
-        {
-          label: this.buttonLabels[1] || "Volgende",
-          class: "dso-action-button dso-secondary",
-          icon: "chevron-right",
-          type: "button",
-          iconMode: "after",
-        },
-      ];
-    }
-
-    // Variant error
-    return [
-      {
-        label: this.buttonLabels[0] || "Sluiten",
-        class: "dso-action-button dso-primary",
-        icon: "times",
-        iconMode: "after",
-        type: "button",
-      },
-      {
-        label: this.buttonLabels[1] || "Opnieuw proberen",
-        class: "dso-action-button dso-secondary",
-        icon: "undo",
-        iconMode: "after",
-        type: "button",
-      },
-    ];
+    this.mutationObserver.observe(this.host, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["class", "variant", "slot"],
+    });
   }
 
-  private renderButtons() {
-    const buttons = this.getButtonConfig();
+  disconnectedCallback(): void {
+    this.mutationObserver?.disconnect();
 
-    if (!buttons.length) {
-      return null;
-    }
+    delete this.mutationObserver;
+  }
 
-    return (
-      <div class="dso-button-row" role="group" aria-label="Acties voor melding">
-        {buttons.map((btn, idx) => (
-          <button
-            type={btn.type}
-            class={btn.class}
-            onClick={(event) => this.dsoActionClick.emit({ actionIndex: idx, originalEvent: event })}
-          >
-            <span>{btn.label}</span>
-            {btn.iconMode === "after" && <dso-icon icon={btn.icon} />}
-          </button>
-        ))}
-      </div>
-    );
+  componentDidLoad() {
+    this.syncActionClasses();
+  }
+
+  componentDidRender() {
+    this.syncActionClasses();
+  }
+
+  private syncActionClasses() {
+    this.host.querySelectorAll<HTMLElement>("[slot='actions']").forEach((element) => {
+      if (!(element instanceof HTMLElement)) {
+        return;
+      }
+
+      const variant = element.getAttribute("variant");
+      const isPrimary = element.classList.contains("dso-primary") || variant === "primary";
+      const isSecondary = element.classList.contains("dso-secondary") || variant === "secondary";
+
+      if (isPrimary) {
+        element.classList.add("dso-primary");
+        element.classList.remove("dso-secondary");
+      } else if (isSecondary) {
+        element.classList.add("dso-secondary");
+        element.classList.remove("dso-primary");
+      }
+    });
+  }
+
+  private get messageSlottedElement() {
+    return this.host.querySelector("[slot='message']");
+  }
+
+  private get actionsSlottedElement() {
+    return this.host.querySelector("[slot='actions']");
   }
 
   render() {
     const isError = this.variant === "error";
     const liveRole = isError ? "alert" : "status";
-    const hasActions = this.variant !== "instruction";
+    const hasMessageSlot = this.messageSlottedElement !== null;
+    const hasActionsSlot = this.actionsSlottedElement !== null;
+    const hasActions = this.variant !== "instruction" && hasActionsSlot;
+
     return (
-      <Host>
-        <dso-highlight-box>
-          <div
-            class={`dso-map-message-content variant-${this.variant} ${hasActions ? "has-actions" : ""}`}
-            role={liveRole}
-            aria-atomic="true"
-          >
-            <div class="dso-map-message-body">
-              {this.variant !== "instruction" && (
-                <dso-icon class="dso-map-message-icon" icon={`status-${this.variant}`} aria-hidden="true"></dso-icon>
-              )}
-              <span class="dso-map-message-text">{this.message}</span>
-            </div>
-            {this.variant !== "instruction" && this.renderButtons()}
+      <dso-highlight-box>
+        <div
+          class={`map-message-content variant-${this.variant} ${hasActions ? "has-actions" : ""}`}
+          role={hasMessageSlot ? liveRole : undefined}
+          aria-atomic={hasMessageSlot ? "true" : undefined}
+        >
+          <div class="map-message-body">
+            {hasActions && this.variant !== "instruction" && (
+              <dso-icon class="map-message-icon" icon={`status-${this.variant}`} aria-hidden="true"></dso-icon>
+            )}
+            {hasMessageSlot && (
+              <span class="map-message-text">
+                <slot name="message"></slot>
+              </span>
+            )}
           </div>
-        </dso-highlight-box>
-      </Host>
+          {hasActions && hasActionsSlot && (
+            <div class="map-message-actions">
+              <slot name="actions"></slot>
+            </div>
+          )}
+        </div>
+      </dso-highlight-box>
     );
   }
 }

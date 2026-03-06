@@ -37,7 +37,6 @@ import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
 import { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
-import { MapMessageActionClickEvent } from "./components/map-message/map-message.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
@@ -89,7 +88,6 @@ export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
 export { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
-export { MapMessageActionClickEvent } from "./components/map-message/map-message.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
@@ -1016,17 +1014,7 @@ export namespace Components {
     }
     interface DsoMapMessage {
         /**
-          * The labels for the action buttons in the map message component.
-          * @default []
-         */
-        "buttonLabels": string[];
-        /**
-          * The message text to display in the map message component.
-          * @default ""
-         */
-        "message": string;
-        /**
-          * Variant determines the icon and actions shown. Allowed values: "success", "error", "instruction". Default is "instruction".
+          * Variant determines the icon and actions shown. Default is "instruction".
           * @default "instruction"
          */
         "variant": "success" | "error" | "instruction";
@@ -1612,10 +1600,6 @@ export interface DsoMapLayerCustomEvent<T> extends CustomEvent<T> {
 export interface DsoMapLayerObjectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoMapLayerObjectElement;
-}
-export interface DsoMapMessageCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLDsoMapMessageElement;
 }
 export interface DsoMapOverlaysCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2317,18 +2301,7 @@ declare global {
         prototype: HTMLDsoMapLayerObjectElement;
         new (): HTMLDsoMapLayerObjectElement;
     };
-    interface HTMLDsoMapMessageElementEventMap {
-        "dsoActionClick": MapMessageActionClickEvent;
-    }
     interface HTMLDsoMapMessageElement extends Components.DsoMapMessage, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLDsoMapMessageElementEventMap>(type: K, listener: (this: HTMLDsoMapMessageElement, ev: DsoMapMessageCustomEvent<HTMLDsoMapMessageElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLDsoMapMessageElementEventMap>(type: K, listener: (this: HTMLDsoMapMessageElement, ev: DsoMapMessageCustomEvent<HTMLDsoMapMessageElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoMapMessageElement: {
         prototype: HTMLDsoMapMessageElement;
@@ -3911,21 +3884,7 @@ declare namespace LocalJSX {
     }
     interface DsoMapMessage {
         /**
-          * The labels for the action buttons in the map message component.
-          * @default []
-         */
-        "buttonLabels"?: string[];
-        /**
-          * The message text to display in the map message component.
-          * @default ""
-         */
-        "message"?: string;
-        /**
-          * Emitted when an action button is activated in the map message component.
-         */
-        "onDsoActionClick"?: (event: DsoMapMessageCustomEvent<MapMessageActionClickEvent>) => void;
-        /**
-          * Variant determines the icon and actions shown. Allowed values: "success", "error", "instruction". Default is "instruction".
+          * Variant determines the icon and actions shown. Default is "instruction".
           * @default "instruction"
          */
         "variant"?: "success" | "error" | "instruction";
@@ -4749,6 +4708,9 @@ declare namespace LocalJSX {
     interface DsoMapLayerObjectAttributes {
         "active": boolean;
     }
+    interface DsoMapMessageAttributes {
+        "variant": "success" | "error" | "instruction";
+    }
     interface DsoMapOverlaysAttributes {
         "group": string;
     }
@@ -4905,7 +4867,6 @@ declare namespace LocalJSX {
         "dso-input-range": Omit<DsoInputRange, keyof DsoInputRangeAttributes> & { [K in keyof DsoInputRange & keyof DsoInputRangeAttributes]?: DsoInputRange[K] } & { [K in keyof DsoInputRange & keyof DsoInputRangeAttributes as `attr:${K}`]?: DsoInputRangeAttributes[K] } & { [K in keyof DsoInputRange & keyof DsoInputRangeAttributes as `prop:${K}`]?: DsoInputRange[K] };
         "dso-label": Omit<DsoLabel, keyof DsoLabelAttributes> & { [K in keyof DsoLabel & keyof DsoLabelAttributes]?: DsoLabel[K] } & { [K in keyof DsoLabel & keyof DsoLabelAttributes as `attr:${K}`]?: DsoLabelAttributes[K] } & { [K in keyof DsoLabel & keyof DsoLabelAttributes as `prop:${K}`]?: DsoLabel[K] };
         "dso-legend": DsoLegend;
-<<<<<<< HEAD
         "dso-legend-group": Omit<DsoLegendGroup, keyof DsoLegendGroupAttributes> & { [K in keyof DsoLegendGroup & keyof DsoLegendGroupAttributes]?: DsoLegendGroup[K] } & { [K in keyof DsoLegendGroup & keyof DsoLegendGroupAttributes as `attr:${K}`]?: DsoLegendGroupAttributes[K] } & { [K in keyof DsoLegendGroup & keyof DsoLegendGroupAttributes as `prop:${K}`]?: DsoLegendGroup[K] };
         "dso-legend-item": Omit<DsoLegendItem, keyof DsoLegendItemAttributes> & { [K in keyof DsoLegendItem & keyof DsoLegendItemAttributes]?: DsoLegendItem[K] } & { [K in keyof DsoLegendItem & keyof DsoLegendItemAttributes as `attr:${K}`]?: DsoLegendItemAttributes[K] } & { [K in keyof DsoLegendItem & keyof DsoLegendItemAttributes as `prop:${K}`]?: DsoLegendItem[K] };
         "dso-list-button": Omit<DsoListButton, keyof DsoListButtonAttributes> & { [K in keyof DsoListButton & keyof DsoListButtonAttributes]?: DsoListButton[K] } & { [K in keyof DsoListButton & keyof DsoListButtonAttributes as `attr:${K}`]?: DsoListButtonAttributes[K] } & { [K in keyof DsoListButton & keyof DsoListButtonAttributes as `prop:${K}`]?: DsoListButton[K] };
@@ -4914,6 +4875,7 @@ declare namespace LocalJSX {
         "dso-map-controls": Omit<DsoMapControls, keyof DsoMapControlsAttributes> & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes]?: DsoMapControls[K] } & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes as `attr:${K}`]?: DsoMapControlsAttributes[K] } & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes as `prop:${K}`]?: DsoMapControls[K] };
         "dso-map-layer": Omit<DsoMapLayer, keyof DsoMapLayerAttributes> & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes]?: DsoMapLayer[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `attr:${K}`]?: DsoMapLayerAttributes[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `prop:${K}`]?: DsoMapLayer[K] } & OneOf<"label", DsoMapLayer["label"], DsoMapLayerAttributes["label"]>;
         "dso-map-layer-object": Omit<DsoMapLayerObject, keyof DsoMapLayerObjectAttributes> & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes]?: DsoMapLayerObject[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `attr:${K}`]?: DsoMapLayerObjectAttributes[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `prop:${K}`]?: DsoMapLayerObject[K] };
+        "dso-map-message": Omit<DsoMapMessage, keyof DsoMapMessageAttributes> & { [K in keyof DsoMapMessage & keyof DsoMapMessageAttributes]?: DsoMapMessage[K] } & { [K in keyof DsoMapMessage & keyof DsoMapMessageAttributes as `attr:${K}`]?: DsoMapMessageAttributes[K] } & { [K in keyof DsoMapMessage & keyof DsoMapMessageAttributes as `prop:${K}`]?: DsoMapMessage[K] };
         "dso-map-overlays": Omit<DsoMapOverlays, keyof DsoMapOverlaysAttributes> & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes]?: DsoMapOverlays[K] } & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes as `attr:${K}`]?: DsoMapOverlaysAttributes[K] } & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes as `prop:${K}`]?: DsoMapOverlays[K] };
         "dso-mark-bar": Omit<DsoMarkBar, keyof DsoMarkBarAttributes> & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes]?: DsoMarkBar[K] } & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes as `attr:${K}`]?: DsoMarkBarAttributes[K] } & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes as `prop:${K}`]?: DsoMarkBar[K] };
         "dso-modal": Omit<DsoModal, keyof DsoModalAttributes> & { [K in keyof DsoModal & keyof DsoModalAttributes]?: DsoModal[K] } & { [K in keyof DsoModal & keyof DsoModalAttributes as `attr:${K}`]?: DsoModalAttributes[K] } & { [K in keyof DsoModal & keyof DsoModalAttributes as `prop:${K}`]?: DsoModal[K] };
@@ -4926,28 +4888,6 @@ declare namespace LocalJSX {
         "dso-progress-indicator": Omit<DsoProgressIndicator, keyof DsoProgressIndicatorAttributes> & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes]?: DsoProgressIndicator[K] } & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes as `attr:${K}`]?: DsoProgressIndicatorAttributes[K] } & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes as `prop:${K}`]?: DsoProgressIndicator[K] };
         "dso-project-item": Omit<DsoProjectItem, keyof DsoProjectItemAttributes> & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes]?: DsoProjectItem[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `attr:${K}`]?: DsoProjectItemAttributes[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `prop:${K}`]?: DsoProjectItem[K] };
         "dso-renvooi": Omit<DsoRenvooi, keyof DsoRenvooiAttributes> & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes]?: DsoRenvooi[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `attr:${K}`]?: DsoRenvooiAttributes[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `prop:${K}`]?: DsoRenvooi[K] };
-=======
-        "dso-legend-item": DsoLegendItem;
-        "dso-list-button": DsoListButton;
-        "dso-logo": DsoLogo;
-        "dso-map-base-layers": DsoMapBaseLayers;
-        "dso-map-controls": DsoMapControls;
-        "dso-map-layer": DsoMapLayer;
-        "dso-map-layer-object": DsoMapLayerObject;
-        "dso-map-message": DsoMapMessage;
-        "dso-map-overlays": DsoMapOverlays;
-        "dso-mark-bar": DsoMarkBar;
-        "dso-modal": DsoModal;
-        "dso-onboarding-tip": DsoOnboardingTip;
-        "dso-ozon-content": DsoOzonContent;
-        "dso-ozon-content-toggletip": DsoOzonContentToggletip;
-        "dso-pagination": DsoPagination;
-        "dso-panel": DsoPanel;
-        "dso-plekinfo-card": DsoPlekinfoCard;
-        "dso-progress-indicator": DsoProgressIndicator;
-        "dso-project-item": DsoProjectItem;
-        "dso-renvooi": DsoRenvooi;
->>>>>>> db471721 (#3365 [Added] Map Message: Nieuw component)
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
         "dso-selectable": Omit<DsoSelectable, keyof DsoSelectableAttributes> & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes]?: DsoSelectable[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `attr:${K}`]?: DsoSelectableAttributes[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `prop:${K}`]?: DsoSelectable[K] } & OneOf<"type", DsoSelectable["type"], DsoSelectableAttributes["type"]> & OneOf<"value", DsoSelectable["value"], DsoSelectableAttributes["value"]>;
@@ -4982,7 +4922,6 @@ declare module "@stencil/core" {
             /**
              * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
              */
-<<<<<<< HEAD
             "dso-annotation-omgevingsnormwaarde": LocalJSX.IntrinsicElements["dso-annotation-omgevingsnormwaarde"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationOmgevingsnormwaardeElement>;
             "dso-attachments-counter": LocalJSX.IntrinsicElements["dso-attachments-counter"] & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-autosuggest": LocalJSX.IntrinsicElements["dso-autosuggest"] & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
@@ -5017,6 +4956,7 @@ declare module "@stencil/core" {
             "dso-map-controls": LocalJSX.IntrinsicElements["dso-map-controls"] & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-layer": LocalJSX.IntrinsicElements["dso-map-layer"] & JSXBase.HTMLAttributes<HTMLDsoMapLayerElement>;
             "dso-map-layer-object": LocalJSX.IntrinsicElements["dso-map-layer-object"] & JSXBase.HTMLAttributes<HTMLDsoMapLayerObjectElement>;
+            "dso-map-message": LocalJSX.IntrinsicElements["dso-map-message"] & JSXBase.HTMLAttributes<HTMLDsoMapMessageElement>;
             "dso-map-overlays": LocalJSX.IntrinsicElements["dso-map-overlays"] & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-mark-bar": LocalJSX.IntrinsicElements["dso-mark-bar"] & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
             "dso-modal": LocalJSX.IntrinsicElements["dso-modal"] & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
@@ -5028,53 +4968,6 @@ declare module "@stencil/core" {
             "dso-plekinfo-card": LocalJSX.IntrinsicElements["dso-plekinfo-card"] & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
             "dso-progress-indicator": LocalJSX.IntrinsicElements["dso-progress-indicator"] & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-project-item": LocalJSX.IntrinsicElements["dso-project-item"] & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
-=======
-            "dso-annotation-omgevingsnormwaarde": LocalJSX.DsoAnnotationOmgevingsnormwaarde & JSXBase.HTMLAttributes<HTMLDsoAnnotationOmgevingsnormwaardeElement>;
-            "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
-            "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
-            "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
-            "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
-            "dso-button-group": LocalJSX.DsoButtonGroup & JSXBase.HTMLAttributes<HTMLDsoButtonGroupElement>;
-            "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
-            "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
-            "dso-contact-information": LocalJSX.DsoContactInformation & JSXBase.HTMLAttributes<HTMLDsoContactInformationElement>;
-            "dso-cursor-tooltip": LocalJSX.DsoCursorTooltip & JSXBase.HTMLAttributes<HTMLDsoCursorTooltipElement>;
-            "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
-            "dso-document-card": LocalJSX.DsoDocumentCard & JSXBase.HTMLAttributes<HTMLDsoDocumentCardElement>;
-            "dso-document-component": LocalJSX.DsoDocumentComponent & JSXBase.HTMLAttributes<HTMLDsoDocumentComponentElement>;
-            "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
-            "dso-expandable": LocalJSX.DsoExpandable & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
-            "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
-            "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
-            "dso-history-item": LocalJSX.DsoHistoryItem & JSXBase.HTMLAttributes<HTMLDsoHistoryItemElement>;
-            "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
-            "dso-icon-button": LocalJSX.DsoIconButton & JSXBase.HTMLAttributes<HTMLDsoIconButtonElement>;
-            "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
-            "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
-            "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
-            "dso-input-range": LocalJSX.DsoInputRange & JSXBase.HTMLAttributes<HTMLDsoInputRangeElement>;
-            "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
-            "dso-legend": LocalJSX.DsoLegend & JSXBase.HTMLAttributes<HTMLDsoLegendElement>;
-            "dso-legend-item": LocalJSX.DsoLegendItem & JSXBase.HTMLAttributes<HTMLDsoLegendItemElement>;
-            "dso-list-button": LocalJSX.DsoListButton & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
-            "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
-            "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
-            "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
-            "dso-map-layer": LocalJSX.DsoMapLayer & JSXBase.HTMLAttributes<HTMLDsoMapLayerElement>;
-            "dso-map-layer-object": LocalJSX.DsoMapLayerObject & JSXBase.HTMLAttributes<HTMLDsoMapLayerObjectElement>;
-            "dso-map-message": LocalJSX.DsoMapMessage & JSXBase.HTMLAttributes<HTMLDsoMapMessageElement>;
-            "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
-            "dso-mark-bar": LocalJSX.DsoMarkBar & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
-            "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
-            "dso-onboarding-tip": LocalJSX.DsoOnboardingTip & JSXBase.HTMLAttributes<HTMLDsoOnboardingTipElement>;
-            "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
-            "dso-ozon-content-toggletip": LocalJSX.DsoOzonContentToggletip & JSXBase.HTMLAttributes<HTMLDsoOzonContentToggletipElement>;
-            "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
-            "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
-            "dso-plekinfo-card": LocalJSX.DsoPlekinfoCard & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
-            "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
-            "dso-project-item": LocalJSX.DsoProjectItem & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
->>>>>>> db471721 (#3365 [Added] Map Message: Nieuw component)
             /**
              * Met dit component kan een `RenvooiValue` worden gepresenteerd.
              */

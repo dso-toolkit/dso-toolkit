@@ -1,14 +1,10 @@
-import type { ArgTypes } from "@storybook/angular";
-import { fn } from "storybook/test";
-
-import { argTypeAction } from "../../storybook";
+import { ArgTypes } from "storybook/internal/types";
 
 import { MapMessage } from "./map-message.models.js";
 
 export const mapMessageArgs: MapMessage = {
   variant: "instruction",
   message: "Dit is een bericht",
-  dsoActionClick: fn(),
 };
 
 export const mapMessageArgTypes: ArgTypes<MapMessage> = {
@@ -25,9 +21,6 @@ export const mapMessageArgTypes: ArgTypes<MapMessage> = {
     name: "buttonLabels",
     description: "De labels voor de actieknoppen",
     control: { type: "object" },
-  },
-  dsoActionClick: {
-    ...argTypeAction(),
   },
 };
 
