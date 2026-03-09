@@ -1,0 +1,56 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+@use "~dso-toolkit/src/variables/typography" as typography;
+@use "~dso-toolkit/src/components/button/button.mixins" as buttonMixins;
+
+@include utilities.box-sizing();
+
+$_icon-size: 24px;
+
+:host {
+  display: block;
+}
+
+.map-message-content {
+  @include set-colors.apply(rgba(0, 0, 0, 0.8), "background-dark");
+
+  margin-block: units.$u4;
+  margin-inline: units.$u4;
+  padding-inline: units.$u3;
+  padding-block: units.$u2;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  font-size: 16px;
+  overflow-wrap: break-word;
+
+  &.has-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: units.$u2;
+    padding-inline-start: calc(#{$_icon-size} + #{units.$u1} + #{units.$u2});
+    padding-inline-end: units.$u2;
+  }
+
+  .map-message-body {
+    position: relative;
+
+    .map-message-icon {
+      position: absolute;
+      inset-inline-start: calc((#{$_icon-size} + #{units.$u1}) * -1);
+      inset-block-start: 0;
+    }
+  }
+
+  slot[name="actions"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: units.$u2;
+
+    &::slotted(button) {
+      margin-inline-start: 0 !important;
+    }
+  }
+}

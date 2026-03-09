@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Map Message: Nieuw component ([#3365](https://github.com/dso-toolkit/dso-toolkit/issues/3365))
 
+### Added
+* Map Message: Nieuw component ([#3365](https://github.com/dso-toolkit/dso-toolkit/issues/3365))
+
 ### Changed
 * Icon: Nieuwe iconenset ([#2542](https://github.com/dso-toolkit/dso-toolkit/issues/2542))
 * Form Group: Browser native focus styling toepassen voor upload ([#3226](https://github.com/dso-toolkit/dso-toolkit/issues/3226))
