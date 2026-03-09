@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Icon: Nieuwe iconenset ([#2542](https://github.com/dso-toolkit/dso-toolkit/issues/2542))
+* Form Group: Browser native focus styling toepassen voor upload ([#3226](https://github.com/dso-toolkit/dso-toolkit/issues/3226))
 
 ### Fixed
 * Icon Button: HidePopover alleen aanroepen als de tooltip connected is met de DOM ([#3503](https://github.com/dso-toolkit/dso-toolkit/issues/3503))
