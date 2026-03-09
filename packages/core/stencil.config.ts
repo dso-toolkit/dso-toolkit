@@ -24,6 +24,8 @@ export const config: Config = {
       outputType: "standalone",
       directivesProxyFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts",
+      /* Experimental: Enables type-checking and JSDoc in Angular templates via Angular Language Service. */
+      inlineProperties: true,
     }),
     reactOutputTarget({
       customElementsDir: "dist/components",

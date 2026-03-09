@@ -1,12 +1,15 @@
 ---
-authors: [iterox]
+authors: [iterox, wouterheldens]
 ---
 
 # DSO Toolkit v90.0.0 🧞‍♂️
 
 In deze release introduceren we een nieuwe set iconen. Alle iconen zijn nu op een 4px grid gebouwd. We hebben ook iconen verwijderd, hernoemd en toegevoegd.
 
+Daarnaast is de Angular-integratie verbeterd: builds falen nu correct bij niet-kloppende props op DSO Toolkit componenten.
+
 - Nieuwe iconenset
+- Angular: Stricter type-checking op component props
 
 <!-- truncate -->
 
@@ -97,3 +100,15 @@ In deze release introduceren we een nieuwe set iconen. Alle iconen zijn nu op ee
 | stop                |
 | table-solid         |
 | user-solid          |
+
+## Angular: Stricter type-checking op component props
+
+De Angular output target gebruikt nu `inlineProperties`. Hierdoor controleert de Angular Language Service (en daarmee ook de build) of properties op DSO Toolkit componenten correct zijn gebruikt.
+
+Voorheen werden fouten in component properties alleen runtime in de browserconsole gemeld. Vanaf nu worden deze fouten al tijdens de build gedetecteerd.
+
+### Wat betekent dit voor afnemers?
+
+Angular-projecten die DSO Toolkit componenten gebruiken met onjuiste properties zullen nu een **build-error** krijgen. Dit is gewenst gedrag: fouten worden eerder ontdekt in plaats van stilzwijgend genegeerd.
+
+Controleer na het updaten of je Angular-project nog succesvol bouwt. Eventuele build-fouten wijzen op properties die niet (meer) bestaan of een verkeerd type hebben. Corrigeer deze aan de hand van de foutmeldingen.
