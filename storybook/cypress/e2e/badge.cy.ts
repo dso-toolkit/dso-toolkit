@@ -6,11 +6,11 @@ describe("Badge", () => {
   const getComponent = () => cy.get("dso-badge.hydrated").should("exist");
 
   const openAndAssert = () => {
-    getComponent().realClick().shadow().find(".dso-tooltip + .dso-tooltip").should("be.visible");
+    getComponent().realClick().shadow().find(".dso-tooltip + .dso-tooltip").should("have.class", "visible");
 
     cy.matchImageSnapshot(Cypress.currentTest.title);
 
-    getComponent().realClick().shadow().find(".dso-tooltip + .dso-tooltip").should("not.be.visible");
+    getComponent().realClick().shadow().find(".dso-tooltip + .dso-tooltip").should("not.have.class", "visible");
   };
 
   // ---------- Variants ----------
