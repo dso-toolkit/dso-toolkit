@@ -1025,9 +1025,9 @@ export namespace Components {
     }
     interface DsoMapMessage {
         /**
-          * Variant determines the icon and actions shown. Default is "instruction".
+          * Variant determines the icon and actions shown.
          */
-        "variant": "success" | "error" | "instruction";
+        "variant": "success" | "error" | "instruction" | undefined;
     }
     interface DsoMapOverlays {
         /**
@@ -3947,9 +3947,9 @@ declare namespace LocalJSX {
     }
     interface DsoMapMessage {
         /**
-          * Variant determines the icon and actions shown. Default is "instruction".
+          * Variant determines the icon and actions shown.
          */
-        "variant": "success" | "error" | "instruction";
+        "variant": "success" | "error" | "instruction" | undefined;
     }
     interface DsoMapOverlays {
         /**
@@ -4799,7 +4799,7 @@ declare namespace LocalJSX {
         "active": boolean;
     }
     interface DsoMapMessageAttributes {
-        "variant": "success" | "error" | "instruction";
+        "variant": "success" | "error" | "instruction" | undefined;
     }
     interface DsoMapOverlaysAttributes {
         "group": string;

@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property               | Attribute | Description                                                              | Type                                    | Default     |
-| ---------------------- | --------- | ------------------------------------------------------------------------ | --------------------------------------- | ----------- |
-| `variant` _(required)_ | `variant` | Variant determines the icon and actions shown. Default is "instruction". | `"error" \| "instruction" \| "success"` | `undefined` |
+| Property               | Attribute | Description                                    | Type                                                 | Default     |
+| ---------------------- | --------- | ---------------------------------------------- | ---------------------------------------------------- | ----------- |
+| `variant` _(required)_ | `variant` | Variant determines the icon and actions shown. | `"error" \| "instruction" \| "success" \| undefined` | `undefined` |
 
 
 ## Slots
