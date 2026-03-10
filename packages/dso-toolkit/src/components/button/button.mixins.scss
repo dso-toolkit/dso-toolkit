@@ -20,7 +20,17 @@
   color: var(--_dso-button-#{$variant}#{$state}-color, #{map.get($map, "color")});
 }
 
-@mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only, $variant) {
+@mixin _shared(
+  $base-styling,
+  $modifiers,
+  $defaults-map,
+  $hover-map,
+  $active-map,
+  $disabled-map,
+  $icon-only,
+  $variant,
+  $min-inline-size: button-variables.$min-inline-size
+) {
   @if ($base-styling) {
     @include base($modifiers);
   }
@@ -31,7 +41,7 @@
   border-style: solid;
   border-radius: button-variables.$border-radius;
   line-height: typography.$line-height-base;
-  min-inline-size: button-variables.$min-inline-size;
+  min-inline-size: $min-inline-size;
   padding-block: button-variables.$block-padding;
   padding-inline: button-variables.$inline-padding;
 
@@ -376,7 +386,8 @@
     $active-map,
     $disabled-map,
     $icon-only,
-    "tertiary"
+    "tertiary",
+    auto
   );
 
   border: 0;
