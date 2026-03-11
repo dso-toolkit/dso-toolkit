@@ -14,6 +14,7 @@ export interface HistoryItem {
   href?: string;
   type: HistoryItemType;
   warning?: string;
+  current?: boolean;
   dsoClick?: (e: CustomEvent<HistoryItemClickEvent>) => void;
 }
 
