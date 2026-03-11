@@ -11,15 +11,15 @@ const meta: Meta<HistoryItemArgs> = {
 
 export default meta;
 
-const { Default } = historyItemStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { historyItemTemplate } = templates;
+const { InWerking, Besluit, TijdelijkRegelingdeel, TijdelijkRegelingdeelBesluit, Waarschuwing, Ontwerp } =
+  historyItemStories({
+    templateContainer,
+    storyTemplates: (templates) => {
+      const { historyItemTemplate } = templates;
+      return {
+        historyItemTemplate,
+      };
+    },
+  });
 
-    return {
-      historyItemTemplate,
-    };
-  },
-});
-
-export { Default };
+export { Besluit, InWerking, Ontwerp, TijdelijkRegelingdeel, TijdelijkRegelingdeelBesluit, Waarschuwing };

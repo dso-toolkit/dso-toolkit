@@ -1,14 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  Fragment,
-  Prop,
-  forceUpdate,
-  h,
-} from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, forceUpdate, h } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { IconAlias } from "../icon/icon.interfaces";
@@ -29,7 +19,7 @@ import { HistoryItemClickEvent, HistoryItemType } from "./history-item.interface
 })
 export class HistoryItem implements ComponentInterface {
   private typeIcons: Record<HistoryItemType, IconAlias> = {
-    ontwerp: "pencil",
+    ontwerp: "document-pencil",
     "in-werking": "document",
     "tijdelijk-regelingdeel": "document",
     "tijdelijk-regelingdeel-besluit": "hammer",
@@ -51,6 +41,12 @@ export class HistoryItem implements ComponentInterface {
    */
   @Prop({ reflect: true })
   href?: string;
+
+  /**
+   * Optional boolean indicating if this history item is the current/active one.
+   */
+  @Prop({ reflect: true })
+  current?: boolean;
 
   /**
    * Emitted when the History Item title is clicked.
@@ -93,7 +89,7 @@ export class HistoryItem implements ComponentInterface {
 
   render() {
     return (
-      <Fragment>
+      <Host class={{ current: !!this.current }}>
         <div class="history-item-date">
           <slot name="date"></slot>
         </div>
@@ -104,8 +100,14 @@ export class HistoryItem implements ComponentInterface {
           </div>
           {this.titleSlottedElement !== null && this.href && (
             <div class="history-item-title">
-              <a href={this.href} class="title-anchor" onClick={(e) => this.clickEventHandler(e)}>
+              <a
+                href={this.href}
+                class={`title-anchor ${this.current ? "current" : ""}`}
+                onClick={(e) => this.clickEventHandler(e)}
+                aria-current={this.current ? "true" : undefined}
+              >
                 <slot name="title"></slot>
+                {this.current && <dso-icon icon="chevron-right" class="current" aria-hidden="true" />}
               </a>
             </div>
           )}
@@ -121,7 +123,7 @@ export class HistoryItem implements ComponentInterface {
             </div>
           )}
         </div>
-      </Fragment>
+      </Host>
     );
   }
 }
