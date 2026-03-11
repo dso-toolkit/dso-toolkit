@@ -53,6 +53,12 @@ export class HistoryItem implements ComponentInterface {
   href?: string;
 
   /**
+   * Optional boolean indicating if this history item is the current/active one.
+   */
+  @Prop({ reflect: true })
+  current?: boolean;
+
+  /**
    * Emitted when the History Item title is clicked.
    */
   @Event({ bubbles: false })
@@ -102,11 +108,29 @@ export class HistoryItem implements ComponentInterface {
             <dso-icon icon={this.typeIcons[this.type]} aria-hidden="true"></dso-icon>
             <slot name="status"></slot>
           </div>
-          {this.titleSlottedElement !== null && this.href && (
-            <div class="history-item-title">
-              <a href={this.href} class="title-anchor" onClick={(e) => this.clickEventHandler(e)}>
-                <slot name="title"></slot>
-              </a>
+          {this.titleSlottedElement !== null && this.current && (
+            <div
+              class={{
+                "history-item-title": true,
+                current: this.current,
+              }}
+            >
+              {this.href ? (
+                <a
+                  href={this.href}
+                  class={this.current ? "title-current title-anchor" : "title-anchor"}
+                  onClick={(e) => this.clickEventHandler(e)}
+                  aria-current={this.current ? "true" : undefined}
+                >
+                  <slot name="title"></slot>
+                  {this.current && <dso-icon icon="chevron-right" class="chevron-after-title" aria-hidden="true" />}
+                </a>
+              ) : (
+                <span class={this.current ? "title-current" : undefined}>
+                  <slot name="title"></slot>
+                  {this.current && <dso-icon icon="chevron-right" class="chevron-after-title" aria-hidden="true" />}
+                </span>
+              )}
             </div>
           )}
           {this.explanationSlottedElement !== null && (

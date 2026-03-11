@@ -14,6 +14,7 @@ export interface HistoryItemArgs {
   href?: string;
   type: HistoryItemType;
   warning?: string;
+  current?: boolean;
   dsoClick: HandlerFunction;
 }
 
@@ -24,6 +25,7 @@ export const historyItemArgs: Omit<HistoryItemArgs, "href"> = {
   title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
   explanation: undefined,
   warning: undefined,
+  current: false,
   dsoClick: fn(),
 };
 
@@ -64,6 +66,11 @@ export const historyItemArgTypes: ArgTypes<HistoryItemArgs> = {
   warning: {
     control: {
       type: "text",
+    },
+  },
+  current: {
+    control: {
+      type: "boolean",
     },
   },
   dsoClick: argTypeAction(),

@@ -27,4 +27,13 @@ describe("History Item", () => {
       .its("args.0.detail.originalEvent")
       .should("exist");
   });
+
+  it("renders current state correctly", () => {
+    cy.get("dso-history-item[current]")
+      .shadow()
+      .within(() => {
+        cy.get(".history-item-title.current .title-current.title-anchor").should("exist");
+        cy.get(".chevron-after-title").should("exist");
+      });
+  });
 });
