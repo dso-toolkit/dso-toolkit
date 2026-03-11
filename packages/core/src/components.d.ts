@@ -746,6 +746,10 @@ export namespace Components {
     }
     interface DsoHistoryItem {
         /**
+          * Optional boolean indicating if this history item is the current/active one.
+         */
+        "current"?: boolean;
+        /**
           * The optional URL to which the History Item title links. Needs to be provided when slot `title` is used.
          */
         "href"?: string;
@@ -3582,6 +3586,10 @@ declare namespace LocalJSX {
     }
     interface DsoHistoryItem {
         /**
+          * Optional boolean indicating if this history item is the current/active one.
+         */
+        "current"?: boolean;
+        /**
           * The optional URL to which the History Item title links. Needs to be provided when slot `title` is used.
          */
         "href"?: string;
@@ -4717,6 +4725,7 @@ declare namespace LocalJSX {
     interface DsoHistoryItemAttributes {
         "type": HistoryItemType;
         "href": string;
+        "current": boolean;
     }
     interface DsoIconAttributes {
         "icon": IconAlias;

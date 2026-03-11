@@ -1,6 +1,6 @@
 describe("History Item", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-history-item--default");
+    cy.visit("http://localhost:45000/iframe.html?id=core-history-item--in-werking");
   });
 
   it("should be accessible", () => {
@@ -26,5 +26,17 @@ describe("History Item", () => {
       .invoke("at", -1)
       .its("args.0.detail.originalEvent")
       .should("exist");
+  });
+
+  it("renders current state correctly", () => {
+    cy.get("dso-history-item").then(($el) => {
+      $el[0].current = true;
+    });
+    cy.get("dso-history-item")
+      .shadow()
+      .within(() => {
+        cy.get(".title-anchor.current").should("exist");
+        cy.get(".current dso-icon").should("exist");
+      });
   });
 });

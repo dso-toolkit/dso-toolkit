@@ -1,16 +1,22 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-import { HistoryItemArgs, historyItemArgTypes, historyItemArgs, historyItemArgsMapper } from "./history-item.args.js";
+import { HistoryItemArgs, historyItemArgTypes, historyItemArgsMapper } from "./history-item.args.js";
 import { HistoryItem } from "./history-item.models.js";
 
 type HistoryItemStory = StoryObj<HistoryItemArgs, Renderer>;
 
 interface HistoryItemStories {
-  Default: HistoryItemStory;
+  Besluit: HistoryItemStory;
+  InWerking: HistoryItemStory;
+  Ontwerp: HistoryItemStory;
+  TijdelijkRegelingdeel: HistoryItemStory;
+  TijdelijkRegelingdeelBesluit: HistoryItemStory;
+  Waarschuwing: HistoryItemStory;
 }
 
 interface HistoryItemStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -30,7 +36,6 @@ export function historyItemMeta<TRenderer extends Renderer>({ readme }: MetaOpti
 > {
   return {
     argTypes: historyItemArgTypes,
-    args: historyItemArgs,
     parameters: {
       docs: readme
         ? {
@@ -46,7 +51,80 @@ export function historyItemStories<Implementation, Templates, TemplateFnReturnTy
   templateContainer,
 }: HistoryItemStoriesParameters<Implementation, Templates, TemplateFnReturnType>): HistoryItemStories {
   return {
-    Default: {
+    InWerking: {
+      args: {
+        date: "20-07-2025",
+        statusMessage: "Inzage tot 20-10-2025",
+        type: "in-werking",
+        title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
+        warning: "Waarschuwing message",
+        explanation: "Uitleg message",
+        dsoClick: fn(),
+      },
+      render: templateContainer.render(storyTemplates, (args, { historyItemTemplate }) =>
+        historyItemTemplate(historyItemArgsMapper(args)),
+      ),
+    },
+    Besluit: {
+      args: {
+        date: "20-07-2025",
+        statusMessage: "Inzage tot 20-10-2025",
+        type: "besluit",
+        title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
+        current: true,
+        dsoClick: fn(),
+      },
+      render: templateContainer.render(storyTemplates, (args, { historyItemTemplate }) =>
+        historyItemTemplate(historyItemArgsMapper(args)),
+      ),
+    },
+
+    TijdelijkRegelingdeel: {
+      args: {
+        date: "20-07-2025",
+        statusMessage: "Inzage tot 20-10-2025",
+        type: "tijdelijk-regelingdeel",
+        title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
+        dsoClick: fn(),
+      },
+      render: templateContainer.render(storyTemplates, (args, { historyItemTemplate }) =>
+        historyItemTemplate(historyItemArgsMapper(args)),
+      ),
+    },
+
+    TijdelijkRegelingdeelBesluit: {
+      args: {
+        date: "20-07-2025",
+        statusMessage: "Inzage tot 20-10-2025",
+        type: "tijdelijk-regelingdeel-besluit",
+        title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
+        dsoClick: fn(),
+      },
+      render: templateContainer.render(storyTemplates, (args, { historyItemTemplate }) =>
+        historyItemTemplate(historyItemArgsMapper(args)),
+      ),
+    },
+
+    Waarschuwing: {
+      args: {
+        date: "20-07-2025",
+        statusMessage: "Inzage tot 20-10-2025",
+        type: "waarschuwing",
+        dsoClick: fn(),
+      },
+      render: templateContainer.render(storyTemplates, (args, { historyItemTemplate }) =>
+        historyItemTemplate(historyItemArgsMapper(args)),
+      ),
+    },
+
+    Ontwerp: {
+      args: {
+        date: "20-07-2025",
+        statusMessage: "Inzage tot 20-10-2025",
+        type: "ontwerp",
+        title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
+        dsoClick: fn(),
+      },
       render: templateContainer.render(storyTemplates, (args, { historyItemTemplate }) =>
         historyItemTemplate(historyItemArgsMapper(args)),
       ),
