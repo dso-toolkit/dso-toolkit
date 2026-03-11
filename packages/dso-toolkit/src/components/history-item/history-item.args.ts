@@ -1,6 +1,5 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
-import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
 
@@ -14,18 +13,9 @@ export interface HistoryItemArgs {
   href?: string;
   type: HistoryItemType;
   warning?: string;
+  current?: boolean;
   dsoClick: HandlerFunction;
 }
-
-export const historyItemArgs: Omit<HistoryItemArgs, "href"> = {
-  date: "20-07-2025",
-  statusMessage: "Inzage tot 20-10-2025",
-  type: "ontwerp",
-  title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
-  explanation: undefined,
-  warning: undefined,
-  dsoClick: fn(),
-};
 
 export const historyItemArgTypes: ArgTypes<HistoryItemArgs> = {
   date: {
@@ -64,6 +54,11 @@ export const historyItemArgTypes: ArgTypes<HistoryItemArgs> = {
   warning: {
     control: {
       type: "text",
+    },
+  },
+  current: {
+    control: {
+      type: "boolean",
     },
   },
   dsoClick: argTypeAction(),
