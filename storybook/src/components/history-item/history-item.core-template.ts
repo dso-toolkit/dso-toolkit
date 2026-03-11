@@ -9,9 +9,10 @@ export const coreHistoryItem: ComponentImplementation<HistoryItem> = {
   component: "historyItem",
   implementation: "core",
   template: () =>
-    function historyItemTemplate({ date, explanation, statusMessage, title, href, type, warning, dsoClick }) {
+    function historyItemTemplate({ date, explanation, statusMessage, title, href, type, current, warning, dsoClick }) {
       return html`<dso-history-item
         .type=${type}
+        ?current=${current}
         href=${ifDefined(href)}
         @dsoClick=${(e: DsoHistoryItemCustomEvent<HistoryItemClickEvent>) => {
           if (!e.detail.isModifiedEvent) {
