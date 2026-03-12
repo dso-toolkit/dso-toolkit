@@ -18,11 +18,15 @@ export class RadioValueAccessor implements ControlValueAccessor {
 
   constructor(private el: ElementRef) {}
 
+  @HostListener("focusout")
+  onFocusOut() {
+    this.onTouched();
+  }
+
   @HostListener("dsoChange")
   onDsoChange() {
     this.el.nativeElement.checked = true;
     this.onChange(this.el.nativeElement.value);
-    this.onTouched();
   }
 
   writeValue(value: unknown) {

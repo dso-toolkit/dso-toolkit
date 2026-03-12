@@ -18,12 +18,16 @@ export class BooleanValueAccessor implements ControlValueAccessor {
 
   constructor(private el: ElementRef) {}
 
+  @HostListener("focusout")
+  onFocusOut() {
+    this.onTouched();
+  }
+
   @HostListener("dsoChange", ["$event"])
   onDsoChange(event: CustomEvent) {
     const checked = event.detail?.checked ?? false;
     this.el.nativeElement.checked = checked;
     this.onChange(checked);
-    this.onTouched();
   }
 
   writeValue(value: unknown) {
