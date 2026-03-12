@@ -1,5 +1,4 @@
 /* Since Storybook 7 we have support for export * from ''; */
-export * from "./components/segmented-button";
 export {
   BaseComponentImplementation,
   ComponentsToTemplates,
@@ -155,6 +154,8 @@ export * from "./components/row-equal-heights";
 export * from "./components/scrollable";
 
 export * from "./components/search-bar";
+
+export * from "./components/segmented-button";
 
 export * from "./components/selectable";
 

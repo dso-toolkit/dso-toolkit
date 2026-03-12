@@ -1205,24 +1205,23 @@ export namespace Components {
         /**
           * Index of the currently active option
          */
-        "activeOption"?: number;
+        "activeOption": SegmentedButtonOption | undefined;
         /**
           * Optional custom group name
          */
         "groupName"?: string;
         /**
+          * Label for the segmented button group.
+         */
+        "label": string | undefined;
+        /**
           * Options to render in the segmented button
-          * @default []
          */
-        "options": SegmentedButtonOption[];
+        "options": SegmentedButtonOption[] | undefined;
         /**
-          * Accessible label for the radio group
+          * Whether selection is required
          */
-        "segmentedAriaLabel"?: string;
-        /**
-          * Whether selection is required (adds aria-required)
-         */
-        "segmentedAriaRequired"?: boolean;
+        "required"?: boolean;
     }
     interface DsoSelectable {
         /**
@@ -4157,28 +4156,27 @@ declare namespace LocalJSX {
         /**
           * Index of the currently active option
          */
-        "activeOption"?: number;
+        "activeOption": SegmentedButtonOption | undefined;
         /**
           * Optional custom group name
          */
         "groupName"?: string;
+        /**
+          * Label for the segmented button group.
+         */
+        "label": string | undefined;
         /**
           * Emitted when active option changes
          */
         "onDsoChange"?: (event: DsoSegmentedButtonCustomEvent<SegmentedButtonChangeEvent>) => void;
         /**
           * Options to render in the segmented button
-          * @default []
          */
-        "options"?: SegmentedButtonOption[];
+        "options": SegmentedButtonOption[] | undefined;
         /**
-          * Accessible label for the radio group
+          * Whether selection is required
          */
-        "segmentedAriaLabel"?: string;
-        /**
-          * Whether selection is required (adds aria-required)
-         */
-        "segmentedAriaRequired"?: boolean;
+        "required"?: boolean;
     }
     interface DsoSelectable {
         /**
@@ -4815,9 +4813,8 @@ declare namespace LocalJSX {
     }
     interface DsoSegmentedButtonAttributes {
         "groupName": string;
-        "segmentedAriaLabel": string;
-        "segmentedAriaRequired": boolean;
-        "activeOption": number;
+        "label": string | undefined;
+        "required": boolean;
     }
     interface DsoSelectableAttributes {
         "type": "checkbox" | "radio";
@@ -4945,7 +4942,7 @@ declare namespace LocalJSX {
         "dso-renvooi": Omit<DsoRenvooi, keyof DsoRenvooiAttributes> & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes]?: DsoRenvooi[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `attr:${K}`]?: DsoRenvooiAttributes[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `prop:${K}`]?: DsoRenvooi[K] };
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
-        "dso-segmented-button": Omit<DsoSegmentedButton, keyof DsoSegmentedButtonAttributes> & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes]?: DsoSegmentedButton[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `attr:${K}`]?: DsoSegmentedButtonAttributes[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `prop:${K}`]?: DsoSegmentedButton[K] };
+        "dso-segmented-button": Omit<DsoSegmentedButton, keyof DsoSegmentedButtonAttributes> & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes]?: DsoSegmentedButton[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `attr:${K}`]?: DsoSegmentedButtonAttributes[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `prop:${K}`]?: DsoSegmentedButton[K] } & OneOf<"label", DsoSegmentedButton["label"], DsoSegmentedButtonAttributes["label"]>;
         "dso-selectable": Omit<DsoSelectable, keyof DsoSelectableAttributes> & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes]?: DsoSelectable[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `attr:${K}`]?: DsoSelectableAttributes[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `prop:${K}`]?: DsoSelectable[K] } & OneOf<"type", DsoSelectable["type"], DsoSelectableAttributes["type"]> & OneOf<"value", DsoSelectable["value"], DsoSelectableAttributes["value"]>;
         "dso-skiplink": Omit<DsoSkiplink, keyof DsoSkiplinkAttributes> & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes]?: DsoSkiplink[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `attr:${K}`]?: DsoSkiplinkAttributes[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `prop:${K}`]?: DsoSkiplink[K] } & OneOf<"to", DsoSkiplink["to"], DsoSkiplinkAttributes["to"]> & OneOf<"label", DsoSkiplink["label"], DsoSkiplinkAttributes["label"]>;
         "dso-slide-toggle": Omit<DsoSlideToggle, keyof DsoSlideToggleAttributes> & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes]?: DsoSlideToggle[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `attr:${K}`]?: DsoSlideToggleAttributes[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `prop:${K}`]?: DsoSlideToggle[K] };

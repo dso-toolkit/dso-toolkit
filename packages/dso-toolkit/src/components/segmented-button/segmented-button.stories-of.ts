@@ -58,31 +58,29 @@ export function segmentedButtonStories<Implementation, Templates, TemplateFnRetu
   const render = templateContainer.render(storyTemplates, (args: SegmentedButtonArgs, { segmentedButtonTemplate }) =>
     segmentedButtonTemplate(segmentedButtonArgsMapper(args)),
   );
+
   return {
     Default: {
-      args: {
-        options: [
-          { label: "Button 1", disabled: false },
-          { label: "Button 2", disabled: false },
-          { label: "Button 3", disabled: false },
-          { label: "Button 4" },
-        ],
-        activeOption: 0,
-        segmentedAriaRequired: true,
-        segmentedAriaLabel: "Segmented button options",
-      },
       render,
     },
     WithDisabledButton: {
       args: {
         options: [
-          { label: "Button 1", disabled: false },
-          { label: "Button 2", disabled: false },
-          { label: "Button 3", disabled: true },
-          { label: "Button 4", disabled: true },
+          {
+            label: "Button 1",
+          },
+          {
+            label: "Button 2",
+          },
+          {
+            label: "Button 3",
+            disabled: true,
+          },
+          {
+            label: "Button 4",
+            disabled: true,
+          },
         ],
-        segmentedAriaRequired: true,
-        segmentedAriaLabel: "Segmented button options",
       },
       render,
     },

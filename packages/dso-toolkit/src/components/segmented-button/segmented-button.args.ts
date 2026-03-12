@@ -16,11 +16,20 @@ export interface SegmentedButtonArgs {
 
 export const segmentedButtonArgs: SegmentedButtonArgs = {
   options: [
-    { label: "Button 1", disabled: false },
-    { label: "Button 2", disabled: true },
-    { label: "Button 3", disabled: false },
-    { label: "Button 4", disabled: false },
+    {
+      label: "Button 1",
+    },
+    {
+      label: "Button 2",
+    },
+    {
+      label: "Button 3",
+    },
+    {
+      label: "Button 4",
+    },
   ],
+  activeOption: 0,
   segmentedAriaRequired: true,
   segmentedAriaLabel: "Segmented button options",
   dsoChange: fn(),

@@ -275,7 +275,7 @@ export interface Components {
   image: Image;
   imageOverlay: ImageOverlay;
   info: Info<TemplateResult>;
-  infoButton: InfoButton<TemplateResult>;
+  infoButton: InfoButton;
   inputRange: InputRange;
   justifyFormGroups: JustifyFormGroups<TemplateResult>;
   label: Label;
@@ -396,6 +396,7 @@ templateContainer.add(coreProjectItem);
 templateContainer.add(coreRenvooi);
 templateContainer.add(coreResponsiveElement);
 templateContainer.add(coreScrollable);
+templateContainer.add(coreSegmentedButton);
 templateContainer.add(coreSelectable);
 templateContainer.add(coreSkiplink);
 templateContainer.add(coreSlideToggle);
@@ -458,8 +459,4 @@ templateContainer.add(cssShoppingCart);
 templateContainer.add(cssTile);
 templateContainer.add(cssTileGrid);
 templateContainer.add(coreCursorTooltip);
-templateContainer.add(coreSegmentedButton);
 // End: add templates to container
-
-// Export segmentedButtonTemplate for Storybook usage
-export const segmentedButtonTemplate = coreSegmentedButton.template;

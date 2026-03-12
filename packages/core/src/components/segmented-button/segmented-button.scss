@@ -4,7 +4,11 @@
 
 @include utilities.box-sizing();
 
-.dso-segmented-button {
+:host {
+  display: inline-block;
+}
+
+.segmented-button {
   display: inline-flex;
   gap: units.$u1 * 0.5;
   border: 1px solid colors.$grijs-20;
@@ -13,17 +17,21 @@
 
   label {
     position: relative;
-    display: inline-flex;
-    cursor: pointer;
     user-select: none;
     flex-shrink: 0;
 
-    &.is-disabled .segment-label {
-      color: colors.$grasgroen-40;
+    &:has(input:not(:disabled)):hover {
+      cursor: pointer;
+
+      input:not(:checked) + .segment-label {
+        color: colors.$bosgroen;
+      }
     }
 
-    &:not(.is-disabled):hover input:not(:checked) + .segment-label {
-      color: colors.$bosgroen;
+    &:has(input:disabled) {
+      .segment-label {
+        color: colors.$grasgroen-40;
+      }
     }
   }
 

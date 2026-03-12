@@ -1,7 +1,8 @@
 export interface SegmentedButtonChangeEvent {
   originalEvent: Event;
-  option: number;
+  option: SegmentedButtonOption;
 }
+
 export interface SegmentedButton {
   options: SegmentedButtonOption[];
   activeOption?: number;
