@@ -50,8 +50,7 @@ export function mapMessageStories<Implementation, Templates, TemplateFnReturnTyp
     Instruction: {
       args: {
         variant: "instruction",
-        message: "This is an instruction map message.",
-        showButtons: false,
+        message: "Dit is een instructie kaartbericht.",
       },
       render: templateContainer.render(storyTemplates, (args, { mapMessageTemplate }) =>
         mapMessageTemplate(mapMessageArgsMapper(args)),
@@ -60,8 +59,7 @@ export function mapMessageStories<Implementation, Templates, TemplateFnReturnTyp
     Success: {
       args: {
         variant: "success",
-        message: "This is a success map message.",
-        showButtons: true,
+        message: "Dit is een succes kaartbericht.",
         buttons: [
           {
             label: "Ongedaan maken",
@@ -88,8 +86,7 @@ export function mapMessageStories<Implementation, Templates, TemplateFnReturnTyp
     Error: {
       args: {
         variant: "error",
-        message: "This is an error map message.",
-        showButtons: true,
+        message: "Dit is een fout kaartbericht.",
         buttons: [
           {
             label: "Sluiten",

@@ -109,7 +109,6 @@ import {
 import { TemplateResult } from "lit-html";
 
 // Start: import templates
-
 import { coreAccordion } from "./components/accordion/accordion.core-template";
 import { coreActionList } from "./components/action-list/action-list.core-template";
 import { coreAdvancedSelect } from "./components/advanced-select/advanced-select.core-template";

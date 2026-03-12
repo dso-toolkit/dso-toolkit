@@ -7,14 +7,13 @@ export const coreMapMessage: ComponentImplementation<MapMessage> = {
   component: "mapMessage",
   implementation: "core",
   template: ({ buttonTemplate }) =>
-    function mapMessageTemplate({ variant, message, showButtons, buttons }) {
-      const actionSlot =
-        variant !== "instruction" && showButtons && buttons?.length
-          ? html`${buttons?.map((button) => buttonTemplate({ ...button, slot: "actions" }))}`
-          : nothing;
+    function mapMessageTemplate({ variant, message, buttons }) {
+      const actionSlot = buttons?.length
+        ? html`${buttons.map((button) => buttonTemplate({ ...button, slot: "actions" }))}`
+        : nothing;
 
-      const messageSlot = message?.trim() ? html`<span slot="message">${message}</span>` : nothing;
+      const messageSlot = message ? html`<span slot="message">${message}</span>` : nothing;
 
-      return html` <dso-map-message .variant=${variant}> ${messageSlot} ${actionSlot} </dso-map-message> `;
+      return html`<dso-map-message .variant=${variant}>${messageSlot}${actionSlot}</dso-map-message>`;
     },
 };

@@ -24,13 +24,11 @@
 
 ### Depends on
 
-- [dso-highlight-box](../highlight-box)
 - [dso-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-map-message --> dso-highlight-box
   dso-map-message --> dso-icon
   style dso-map-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
