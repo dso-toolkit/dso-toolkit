@@ -50,9 +50,11 @@ export class SegmentedButton implements ComponentInterface {
   /*
    * Update active option unless it's disabled or already active
    */
-  private setActive(index: number, event: Event) {
-    const option = this.options?.[index];
-    if (!option || option.disabled || this.activeOption === option) {
+  private handleClick(option: SegmentedButtonOption, event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (option.disabled || this.activeOption === option) {
       return;
     }
 
@@ -65,16 +67,16 @@ export class SegmentedButton implements ComponentInterface {
   render() {
     return (
       <div class="segmented-button" role="radiogroup" aria-label={this.label} aria-required={this.required?.toString()}>
-        {this.options?.map((option, index) => {
+        {this.options?.map((option) => {
           return (
             <label>
               <input
                 type="radio"
-                name="thomas"
-                value={index.toString()}
+                name={this.groupName}
+                value={option.label}
                 checked={this.activeOption === option}
                 disabled={option.disabled}
-                onChange={(event) => this.setActive(index, event)}
+                onClick={(event) => this.handleClick(option, event)}
               />
               <span class="segment-label">{option.label}</span>
             </label>

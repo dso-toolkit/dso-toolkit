@@ -1,6 +1,5 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
-import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
@@ -39,7 +38,6 @@ export function segmentedButtonMeta<TRenderer extends Renderer>({ readme }: Meta
     argTypes: segmentedButtonArgTypes,
     args: {
       ...segmentedButtonArgs,
-      dsoChange: fn(),
     },
     parameters: {
       docs: readme
