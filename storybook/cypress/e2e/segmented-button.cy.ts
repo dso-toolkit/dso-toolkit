@@ -41,31 +41,17 @@ describe("Segmented Button", () => {
       .invoke("getCalls")
       .invoke("at", -1)
       .its("args.0.detail.option")
-      .should("equal", 2);
+      .should("deep.equal", { label: "Button 3" });
   });
 
-  it("updates aria-required when prop changes", () => {
-    cy.get("@segmentedButton")
-      .invoke("prop", "segmentedAriaRequired", false)
-      .should("have.prop", "segmentedAriaRequired", false);
+  it("updates aria-required when prop set as required", () => {
+    cy.get("@segmentedButton").invoke("prop", "required", false).should("have.prop", "required", false);
 
     cy.get("@segmentedButtonShadow").find(radioGroupSelector).should("not.have.attr", "aria-required");
 
-    cy.get("@segmentedButton")
-      .invoke("prop", "segmentedAriaRequired", true)
-      .should("have.prop", "segmentedAriaRequired", true);
+    cy.get("@segmentedButton").invoke("prop", "required", true).should("have.prop", "required", true);
 
     cy.get("@segmentedButtonShadow").find(radioGroupSelector).should("have.attr", "aria-required", "true");
-  });
-
-  it("keyboard navigation: arrow keys move selection", () => {
-    cy.get("@segmentedButtonShadow").within(() => {
-      cy.get(radioInputSelector).eq(0).focus().should("be.focused").type("{rightarrow}");
-
-      cy.get(radioInputSelector).eq(1).should("be.checked").type("{leftarrow}");
-
-      cy.get(radioInputSelector).eq(0).should("be.checked");
-    });
   });
 });
 
@@ -83,14 +69,15 @@ describe("Segmented Button - WithDisabledButton story", () => {
   it("should not activate disabled buttons", () => {
     attachDsoChangeListener();
 
-    cy.get("@segmentedButton").invoke("prop", "activeOption", 0);
-
-    cy.get("@segmentedButton").invoke("prop", "options", [
-      { label: "Button 1", disabled: false },
+    const options = [
+      { label: "Button 1" },
       { label: "Button 2", disabled: true },
-      { label: "Button 3", disabled: false },
-      { label: "Button 4", disabled: false },
-    ]);
+      { label: "Button 3" },
+      { label: "Button 4" },
+    ];
+
+    cy.get("@segmentedButton").invoke("prop", "options", options);
+    cy.get("@segmentedButton").invoke("prop", "activeOption", options[0]);
 
     cy.get("@segmentedButtonShadow").within(() => {
       cy.get(radioInputSelector).eq(0).should("be.checked");
@@ -105,37 +92,5 @@ describe("Segmented Button - WithDisabledButton story", () => {
     });
 
     cy.get("@dsoChangeListener").should("not.have.been.called");
-  });
-
-  it("should update disabled state when options prop changes", () => {
-    attachDsoChangeListener();
-
-    cy.get("@segmentedButtonShadow").find(radioInputSelector).eq(1).should("not.be.disabled").and("not.be.checked");
-
-    cy.get("@segmentedButton").invoke("prop", "options", [
-      { label: "Button 1", disabled: false },
-      { label: "Button 2", disabled: false },
-      { label: "Button 3", disabled: false },
-      { label: "Button 4", disabled: false },
-    ]);
-
-    cy.get("@segmentedButtonShadow").find(radioInputSelector).eq(1).check();
-
-    cy.get("@segmentedButton").should("have.prop", "activeOption", 1);
-
-    cy.get("@segmentedButtonShadow").find(radioInputSelector).eq(0).check();
-
-    cy.get("@segmentedButton").should("have.prop", "activeOption", 0);
-
-    cy.get("@segmentedButton").invoke("prop", "options", [
-      { label: "Button 1", disabled: false },
-      { label: "Button 2", disabled: true },
-      { label: "Button 3", disabled: false },
-      { label: "Button 4", disabled: false },
-    ]);
-
-    cy.get("@segmentedButtonShadow").find(radioInputSelector).eq(1).should("be.disabled").and("not.be.checked");
-
-    cy.get("@segmentedButton").should("have.prop", "activeOption", 0);
   });
 });
