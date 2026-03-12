@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Prop, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Fragment, Prop, h } from "@stencil/core";
 
 import { IconAlias } from "../..";
 
@@ -38,7 +38,7 @@ export class MapMessage implements ComponentInterface {
     const role: "alert" | "status" = this.variant === "error" ? "alert" : "status";
 
     return (
-      <dso-highlight-box>
+      <Fragment>
         <div
           class={{
             "map-message-content": true,
@@ -57,7 +57,7 @@ export class MapMessage implements ComponentInterface {
           </div>
           {hasActions && <slot name="actions" />}
         </div>
-      </dso-highlight-box>
+      </Fragment>
     );
   }
 }

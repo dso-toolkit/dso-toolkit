@@ -5,14 +5,14 @@
 @include utilities.box-sizing();
 
 $_icon-size: 24px;
+$_background-color: rgba(0, 0, 0, 0.8);
 
 :host {
   display: block;
 }
 
 .map-message-content {
-  @include set-colors.apply(rgba(0, 0, 0, 0.8), "background-dark");
-
+  @include set-colors.apply($_background-color, "background-dark");
   margin-block: units.$u4;
   margin-inline: units.$u4;
   padding-inline: units.$u3;
