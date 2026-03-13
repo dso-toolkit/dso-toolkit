@@ -121,6 +121,8 @@ export * from "./components/map-controls";
 
 export * from "./components/map-layer";
 
+export * from "./components/map-message";
+
 export * from "./components/mark-bar";
 
 export * from "./components/modal";
