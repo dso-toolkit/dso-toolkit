@@ -1,8 +1,12 @@
 ---
-authors: [iterox, wouterheldens]
+authors: [iterox, cvanderleij, wouterheldens]
 ---
 
 # DSO Toolkit v90.0.0 🧞‍♂️
+
+Deze release bevat een **BREAKING** change voor het volgende component:
+
+- Label (HTML/CSS implementatie)
 
 In deze release introduceren we een nieuwe set iconen. Alle iconen zijn nu op een 4px grid gebouwd. We hebben ook iconen verwijderd, hernoemd en toegevoegd.
 
@@ -12,6 +16,23 @@ Daarnaast is de Angular-integratie verbeterd: builds falen nu correct bij niet-k
 - Angular: Stricter type-checking op component props
 
 <!-- truncate -->
+
+## Label (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Label` is in 🧽 Release 79.0.0 deprecated. In deze
+release is deze implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Label.
+
+```html
+❌
+<span class="dso-label dso-label-primary">Label content</span>
+
+✅
+<dso-label status="primary">Label content</dso-label>
+```
 
 ## Nieuwe iconenset
 
