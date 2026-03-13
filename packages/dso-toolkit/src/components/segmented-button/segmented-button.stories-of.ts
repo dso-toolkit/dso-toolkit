@@ -1,0 +1,86 @@
+import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+import {
+  SegmentedButtonArgs,
+  segmentedButtonArgTypes,
+  segmentedButtonArgs,
+  segmentedButtonArgsMapper,
+} from "./segmented-button.args.js";
+import { SegmentedButton } from "./segmented-button.models.js";
+
+type SegmentedButtonStory = StoryObj<SegmentedButtonArgs, Renderer>;
+
+interface SegmentedButtonStories {
+  Default: SegmentedButtonStory;
+  WithDisabledButton: SegmentedButtonStory;
+}
+
+interface SegmentedButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  SegmentedButtonTemplates<TemplateFnReturnType>
+> {}
+
+interface SegmentedButtonTemplates<TemplateFnReturnType> {
+  segmentedButtonTemplate: (segmentedButtonProperties: SegmentedButton) => TemplateFnReturnType;
+}
+
+export function segmentedButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  SegmentedButtonArgs
+> {
+  return {
+    argTypes: segmentedButtonArgTypes,
+    args: {
+      ...segmentedButtonArgs,
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function segmentedButtonStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: SegmentedButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>): SegmentedButtonStories {
+  const render = templateContainer.render(storyTemplates, (args: SegmentedButtonArgs, { segmentedButtonTemplate }) =>
+    segmentedButtonTemplate(segmentedButtonArgsMapper(args)),
+  );
+
+  return {
+    Default: {
+      render,
+    },
+    WithDisabledButton: {
+      args: {
+        options: [
+          {
+            label: "Button 1",
+          },
+          {
+            label: "Button 2",
+          },
+          {
+            label: "Button 3",
+            disabled: true,
+          },
+          {
+            label: "Button 4",
+            disabled: true,
+          },
+        ],
+      },
+      render,
+    },
+  };
+}

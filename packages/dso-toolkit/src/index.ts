@@ -155,6 +155,8 @@ export * from "./components/scrollable";
 
 export * from "./components/search-bar";
 
+export * from "./components/segmented-button";
+
 export * from "./components/selectable";
 
 export * from "./components/shopping-cart";
