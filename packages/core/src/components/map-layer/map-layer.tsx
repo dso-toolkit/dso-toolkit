@@ -3,7 +3,7 @@ import { Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, h }
 import { DsoSlideToggleCustomEvent } from "../../components";
 import { SlideToggleActiveEvent } from "../slide-toggle/slide-toggle.interfaces";
 
-import { MapLayerActiveChangeEvent } from "./map-layer.interfaces";
+import { MapLayerActiveChangeEvent, MapLayerWijzigactie } from "./map-layer.interfaces";
 
 /**
  * @slot - The dso-map-layer-object elements. These should be direct children of the dso-map-layer element.
@@ -14,12 +14,6 @@ import { MapLayerActiveChangeEvent } from "./map-layer.interfaces";
   shadow: true,
 })
 export class MapLayer implements ComponentInterface {
-  /**
-   * The label of the Map Layer.
-   */
-  @Prop({ reflect: true })
-  label!: string | undefined;
-
   /**
    * A boolean to indicate if the Map Layer is capable of being activated. When `true` a Slide Toggle displays
    * on the right.
@@ -32,6 +26,12 @@ export class MapLayer implements ComponentInterface {
    */
   @Prop({ reflect: true })
   active?: boolean;
+
+  /**
+   * An optional wijzigactie value for revision indication.
+   */
+  @Prop({ reflect: true })
+  wijzigactie!: MapLayerWijzigactie | undefined;
 
   /**
    * Emitted when user activates or deactivates the Map Layer.
@@ -51,7 +51,10 @@ export class MapLayer implements ComponentInterface {
     return (
       <Fragment>
         <div class="map-layer">
-          <span class="map-layer-label">{this.label}</span>
+          <div class="map-layer-heading">
+            <slot name="name" />
+            <slot name="label" />
+          </div>
           {this.activatable && (
             <div class="slide-toggle-container">
               <dso-slide-toggle

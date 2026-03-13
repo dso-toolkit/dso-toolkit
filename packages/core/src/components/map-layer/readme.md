@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property             | Attribute     | Description                                                                                                             | Type                   | Default     |
-| -------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `activatable`        | `activatable` | A boolean to indicate if the Map Layer is capable of being activated. When `true` a Slide Toggle displays on the right. | `boolean`              | `false`     |
-| `active`             | `active`      | An optional boolean indicating whether the Map Layer is active.                                                         | `boolean \| undefined` | `undefined` |
-| `label` _(required)_ | `label`       | The label of the Map Layer.                                                                                             | `string \| undefined`  | `undefined` |
+| Property                   | Attribute     | Description                                                                                                             | Type                                        | Default     |
+| -------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------- |
+| `activatable`              | `activatable` | A boolean to indicate if the Map Layer is capable of being activated. When `true` a Slide Toggle displays on the right. | `boolean`                                   | `false`     |
+| `active`                   | `active`      | An optional boolean indicating whether the Map Layer is active.                                                         | `boolean \| undefined`                      | `undefined` |
+| `wijzigactie` _(required)_ | `wijzigactie` | An optional wijzigactie value for revision indication.                                                                  | `"toegevoegd" \| "verwijderd" \| undefined` | `undefined` |
 
 
 ## Events

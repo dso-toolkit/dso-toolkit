@@ -12,24 +12,21 @@ export interface MapLayerArgs {
   dsoActiveChange: HandlerFunction;
   dsoMouseEnter: HandlerFunction;
   dsoMouseLeave: HandlerFunction;
-  label: string;
+  wijzigactie: "toegevoegd" | "verwijderd" | "undefined";
+  objectWijzigactie: "toegevoegd" | "verwijderd" | "undefined";
 }
 
 export const mapLayerArgs: MapLayerArgs = {
-  label: "Map layer",
   active: false,
   activatable: true,
   dsoActiveChange: fn(),
   dsoMouseEnter: fn(),
   dsoMouseLeave: fn(),
+  wijzigactie: "undefined",
+  objectWijzigactie: "undefined",
 };
 
 export const mapLayerArgTypes: ArgTypes<MapLayerArgs> = {
-  label: {
-    control: {
-      type: "text",
-    },
-  },
   active: {
     control: {
       type: "boolean",
@@ -40,6 +37,18 @@ export const mapLayerArgTypes: ArgTypes<MapLayerArgs> = {
       type: "boolean",
     },
   },
+  wijzigactie: {
+    control: {
+      type: "select",
+    },
+    options: ["undefined", "toegevoegd", "verwijderd"],
+  },
+  objectWijzigactie: {
+    control: {
+      type: "select",
+    },
+    options: ["undefined", "toegevoegd", "verwijderd"],
+  },
   dsoActiveChange: argTypeAction(),
   dsoMouseEnter: argTypeAction(),
   dsoMouseLeave: argTypeAction(),
@@ -48,13 +57,15 @@ export const mapLayerArgTypes: ArgTypes<MapLayerArgs> = {
 export function mapLayerArgsMapper<TemplateFnReturnType>(
   a: MapLayerArgs,
   objects: MapLayerObject<TemplateFnReturnType>[],
-): MapLayer<TemplateFnReturnType> {
+): Omit<MapLayer<TemplateFnReturnType>, "nameSlot"> {
   return {
     ...a,
+    wijzigactie: a.wijzigactie === "undefined" ? undefined : a.wijzigactie,
     dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
     objects: objects.map((o) => {
       return {
         ...o,
+        wijzigactie: a.objectWijzigactie === "undefined" ? undefined : a.objectWijzigactie,
         dsoMouseEnter: () => a.dsoMouseEnter(),
         dsoMouseLeave: () => a.dsoMouseLeave(),
       };

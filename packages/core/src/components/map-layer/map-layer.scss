@@ -5,6 +5,15 @@
 
 :host {
   display: block;
+  padding: 6px;
+}
+
+:host([wijzigactie="toegevoegd"]) {
+  background-color: map-layer-variables.$map-layer-wijzigactie-toegevoegd-background-color;
+}
+
+:host([wijzigactie="verwijderd"]) {
+  background-color: map-layer-variables.$map-layer-wijzigactie-verwijderd-background-color;
 }
 
 @include utilities.box-sizing();
@@ -13,13 +22,19 @@
   display: flex;
   justify-content: space-between;
   min-block-size: map-layer-variables.$map-layer-min-block-size;
+
+  &-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-block-end: units.$u1;
+  }
 }
 
-.map-layer-label {
+::slotted([slot="name"]) {
   font-weight: 600;
   line-height: 1.375em;
-  margin: 0;
-  position: relative;
+  margin-inline-end: calc(units.$u1 / 2);
 }
 
 .slide-toggle-container dso-slide-toggle {

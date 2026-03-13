@@ -35,7 +35,7 @@ import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
-import { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
+import { MapLayerActiveChangeEvent, MapLayerWijzigactie } from "./components/map-layer/map-layer.interfaces";
 import { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
@@ -87,7 +87,7 @@ export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
-export { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
+export { MapLayerActiveChangeEvent, MapLayerWijzigactie } from "./components/map-layer/map-layer.interfaces";
 export { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
@@ -1013,15 +1013,19 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
-          * The label of the Map Layer.
+          * An optional wijzigactie value for revision indication.
          */
-        "label": string | undefined;
+        "wijzigactie": MapLayerWijzigactie | undefined;
     }
     interface DsoMapLayerObject {
         /**
           * An optional boolean indicating whether the Map Layer Object is active.
          */
         "active"?: boolean;
+        /**
+          * An optional wijzigactie value for revision indication.
+         */
+        "wijzigactie": MapLayerWijzigactie | undefined;
     }
     interface DsoMapMessage {
         /**
@@ -3919,13 +3923,13 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * The label of the Map Layer.
-         */
-        "label": string | undefined;
-        /**
           * Emitted when user activates or deactivates the Map Layer.
          */
         "onDsoActiveChange"?: (event: DsoMapLayerCustomEvent<MapLayerActiveChangeEvent>) => void;
+        /**
+          * An optional wijzigactie value for revision indication.
+         */
+        "wijzigactie": MapLayerWijzigactie | undefined;
     }
     interface DsoMapLayerObject {
         /**
@@ -3944,6 +3948,10 @@ declare namespace LocalJSX {
           * Emitted when the mouse leaves the Map Layer Object.
          */
         "onDsoMouseLeave"?: (event: DsoMapLayerObjectCustomEvent<any>) => void;
+        /**
+          * An optional wijzigactie value for revision indication.
+         */
+        "wijzigactie": MapLayerWijzigactie | undefined;
     }
     interface DsoMapMessage {
         /**
@@ -4791,12 +4799,13 @@ declare namespace LocalJSX {
         "disableZoom": "in" | "out" | "both";
     }
     interface DsoMapLayerAttributes {
-        "label": string | undefined;
         "activatable": boolean;
         "active": boolean;
+        "wijzigactie": MapLayerWijzigactie | undefined;
     }
     interface DsoMapLayerObjectAttributes {
         "active": boolean;
+        "wijzigactie": MapLayerWijzigactie | undefined;
     }
     interface DsoMapMessageAttributes {
         "variant": "success" | "error" | "instruction" | undefined;
