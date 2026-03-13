@@ -1,3 +1,6 @@
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
 
 $map-layer-min-block-size: units.$u4;
+$map-layer-wijzigactie-toegevoegd-background-color: colors.$lime-20;
+$map-layer-wijzigactie-verwijderd-background-color: colors.$rood-20;

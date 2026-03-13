@@ -9,9 +9,17 @@
   display: block;
 }
 
+:host([wijzigactie="toegevoegd"]) {
+  background-color: map-layer-variables.$map-layer-wijzigactie-toegevoegd-background-color;
+}
+
+:host([wijzigactie="verwijderd"]) {
+  background-color: map-layer-variables.$map-layer-wijzigactie-verwijderd-background-color;
+}
+
 @include utilities.box-sizing();
 
-::slotted(span[slot="symbol"]) {
+::slotted([slot="symbol"]) {
   @include symbol-mixins.symbolContainer(
     map-layer-object-variables.$symbol-block-size,
     map-layer-object-variables.$symbol-inline-size
@@ -21,7 +29,16 @@
 .map-layer-object {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 2px;
   min-block-size: map-layer-variables.$map-layer-min-block-size;
+
+  &-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(units.$u1 / 2);
+  }
 }
 
 .slide-toggle-container {
@@ -29,7 +46,6 @@
 
   dso-slide-toggle {
     display: flex;
-
     padding-block-start: 0;
   }
 }

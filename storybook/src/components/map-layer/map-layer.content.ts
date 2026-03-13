@@ -9,6 +9,7 @@ const object1: MapLayerObject<TemplateResult> = {
 const object2: MapLayerObject<TemplateResult> = {
   active: true,
   label: html`<span>Map layer object 2 (Gebiedsoverschrijdingszone)</span>`,
+  badge: html`<dso-label slot="label" status="warning">Nieuw</dso-label>`,
   symboolCode: "vag000",
 };
 
@@ -32,4 +33,17 @@ export function multipleMapLayerObjects(): MapLayerObject<TemplateResult>[] {
 
 export function singleMapLayerObject(): MapLayerObject<TemplateResult>[] {
   return [object1];
+}
+
+export function nameSlotContent(): TemplateResult {
+  return html`<span slot="name">Map layer</span>`;
+}
+
+export function wijzigactieNameSlotContent(): TemplateResult {
+  return html`<dso-label slot="name" status="verwijderd">Label verwijderd</dso-label>
+    <dso-label slot="name" status="toegevoegd">Label toegevoegd</dso-label>`;
+}
+
+export function labelSlotContent(): TemplateResult {
+  return html`<dso-label slot="label" status="warning">Label</dso-label>`;
 }

@@ -2,12 +2,14 @@ import { Component, ComponentInterface, Event, EventEmitter, Host, Prop, h } fro
 
 import { DsoSlideToggleCustomEvent } from "../../../components";
 import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
+import { MapLayerWijzigactie } from "../map-layer.interfaces";
 
 import { MapLayerObjectActiveChangeEvent } from "./map-layer-object.interfaces";
 
 /**
  * @slot - The label for this Map Layer Object
  * @slot symbol - An optional slot to place a symbol in, representing the Map Layer Object.
+ * @slot label - An optional slot for badges or labels next to the object label.
  */
 @Component({
   tag: "dso-map-layer-object",
@@ -20,6 +22,12 @@ export class MapLayerObject implements ComponentInterface {
    */
   @Prop({ reflect: true })
   active?: boolean;
+
+  /**
+   * An optional wijzigactie value for revision indication.
+   */
+  @Prop({ reflect: true })
+  wijzigactie!: MapLayerWijzigactie | undefined;
 
   /**
    * Emitted when user activates or deactivates the Map Layer Object.
@@ -54,8 +62,9 @@ export class MapLayerObject implements ComponentInterface {
           <div>
             <slot name="symbol" />
           </div>
-          <div>
+          <div class="map-layer-object-heading">
             <slot />
+            <slot name="label" />
           </div>
           <div class="slide-toggle-container">
             <dso-slide-toggle

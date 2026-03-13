@@ -8,21 +8,23 @@ export const coreMapLayer: ComponentImplementation<MapLayer<TemplateResult>> = {
   component: "mapLayer",
   implementation: "core",
   template: () =>
-    function mapLayerTemplate({ label, active, activatable, dsoActiveChange, objects }) {
+    function mapLayerTemplate({ active, activatable, dsoActiveChange, wijzigactie, nameSlot, labelSlot, objects }) {
       return html`<dso-map-layer
         ?active=${active}
         ?activatable=${activatable}
         @dsoActiveChange=${dsoActiveChange}
-        label=${ifDefined(label)}
-        >${objects.map(
-          ({ label, active, dsoActiveChange, dsoMouseEnter, dsoMouseLeave, symboolCode }) =>
+        wijzigactie=${ifDefined(wijzigactie)}
+        >${nameSlot}${labelSlot ?? nothing}${objects.map(
+          ({ label, active, dsoActiveChange, dsoMouseEnter, dsoMouseLeave, symboolCode, wijzigactie: objectWijzigactie, badge }) =>
             html`<dso-map-layer-object
               ?active=${active}
               @dsoActiveChange=${dsoActiveChange}
               @dsoMouseEnter=${ifDefined(dsoMouseEnter)}
               @dsoMouseLeave=${ifDefined(dsoMouseLeave)}
+              wijzigactie=${ifDefined(objectWijzigactie)}
             >
               ${label}
+              ${badge ?? nothing}
               ${symboolCode
                 ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbol"></span>`
                 : nothing}</dso-map-layer-object
