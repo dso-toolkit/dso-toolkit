@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧞‍♂️ Release 90.0.0 - 2026-03-13
+
 ### Added
 * Angular Output: ngModel toevoegen aan form web components ([#3447](https://github.com/dso-toolkit/dso-toolkit/issues/3447))
 * Segmented Button: Nieuw component ([#3397](https://github.com/dso-toolkit/dso-toolkit/issues/3397))
