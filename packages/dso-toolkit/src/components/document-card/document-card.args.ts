@@ -9,20 +9,20 @@ import { Toggletip } from "../toggletip";
 
 import { DocumentCard } from "./document-card.models.js";
 
-export interface DocumentCardArgs {
+export interface DocumentCardArgs<TemplateFnReturnType> {
   label: string;
   href: string;
   active: boolean;
   typeToelichting: Toggletip<never>;
   meta: Label;
   status: string;
-  statusToelichtingOutline?: Badge;
-  statusToelichtingWarning?: Badge;
+  statusToelichtingOutline?: Badge<TemplateFnReturnType>;
+  statusToelichtingWarning?: Badge<TemplateFnReturnType>;
   dsoDocumentCardClick: HandlerFunction;
 }
 
 export const documentCardArgs: Omit<
-  DocumentCardArgs,
+  DocumentCardArgs<unknown>,
   "meta" | "typeToelichting" | "statusToelichtingOutline" | "statusToelichtingWarning"
 > = {
   href: "#",
@@ -33,7 +33,7 @@ export const documentCardArgs: Omit<
 };
 
 export const documentCardArgTypes: ArgTypes<
-  Omit<DocumentCardArgs, "meta" | "typeToelichting" | "statusToelichtingOutline" | "statusToelichtingWarning">
+  Omit<DocumentCardArgs<unknown>, "meta" | "typeToelichting" | "statusToelichtingOutline" | "statusToelichtingWarning">
 > = {
   label: {
     control: {
@@ -59,7 +59,7 @@ export const documentCardArgTypes: ArgTypes<
 };
 
 export function documentCardArgsMapper<TemplateFnReturnType>(
-  a: DocumentCardArgs,
+  a: DocumentCardArgs<TemplateFnReturnType>,
   typeItems: TemplateFnReturnType[],
 ): DocumentCard<TemplateFnReturnType> {
   return {
