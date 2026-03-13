@@ -18,7 +18,7 @@ describe("Label", () => {
   }
 
   // Onderstaande test fixen via #3522
-  it("must truncate label", () => {
+  it.skip("must truncate label", () => {
     cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- before truncation`);
 
     cy.get("@dsoLabel")

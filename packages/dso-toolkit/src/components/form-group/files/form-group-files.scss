@@ -58,10 +58,8 @@
       }
     }
 
-    &:focus-within {
-      label {
-        @include utilities.focus-outline();
-      }
+    input[type="file"]:focus + label {
+      @include utilities.focus-outline();
     }
   }
 
