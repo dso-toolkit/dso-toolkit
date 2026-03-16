@@ -69,7 +69,6 @@
 - [dso-icon-button](../icon-button)
 - [dso-ozon-content](../ozon-content)
 - [dso-badge](../badge)
-- [dso-tooltip](../tooltip)
 - [dso-label](../label)
 - [dso-panel](../panel)
 - [dso-alert](../alert)
@@ -80,7 +79,6 @@ graph TD;
   dso-document-component --> dso-icon-button
   dso-document-component --> dso-ozon-content
   dso-document-component --> dso-badge
-  dso-document-component --> dso-tooltip
   dso-document-component --> dso-label
   dso-document-component --> dso-panel
   dso-document-component --> dso-alert
