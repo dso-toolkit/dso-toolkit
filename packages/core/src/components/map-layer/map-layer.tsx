@@ -4,6 +4,7 @@ import { DsoSlideToggleCustomEvent } from "../../components";
 import { SlideToggleActiveEvent } from "../slide-toggle/slide-toggle.interfaces";
 
 import { MapLayerActiveChangeEvent, MapLayerWijzigactie } from "./map-layer.interfaces";
+import { wrapWijzigactie } from "./map-layer.utils";
 
 /**
  * @slot - The dso-map-layer-object elements. These should be direct children of the dso-map-layer element.
@@ -48,7 +49,8 @@ export class MapLayer implements ComponentInterface {
   };
 
   render() {
-    return (
+    return wrapWijzigactie(
+      this.wijzigactie,
       <Fragment>
         <div class="map-layer">
           <div class="map-layer-heading">
@@ -66,7 +68,7 @@ export class MapLayer implements ComponentInterface {
           )}
         </div>
         <slot />
-      </Fragment>
+      </Fragment>,
     );
   }
 }

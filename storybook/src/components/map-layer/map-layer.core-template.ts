@@ -15,7 +15,16 @@ export const coreMapLayer: ComponentImplementation<MapLayer<TemplateResult>> = {
         @dsoActiveChange=${dsoActiveChange}
         wijzigactie=${ifDefined(wijzigactie)}
         >${nameSlot}${labelSlot ?? nothing}${objects.map(
-          ({ label, active, dsoActiveChange, dsoMouseEnter, dsoMouseLeave, symboolCode, wijzigactie: objectWijzigactie, badge }) =>
+          ({
+            name,
+            active,
+            dsoActiveChange,
+            dsoMouseEnter,
+            dsoMouseLeave,
+            symboolCode,
+            wijzigactie: objectWijzigactie,
+            labelSlot,
+          }) =>
             html`<dso-map-layer-object
               ?active=${active}
               @dsoActiveChange=${dsoActiveChange}
@@ -23,8 +32,7 @@ export const coreMapLayer: ComponentImplementation<MapLayer<TemplateResult>> = {
               @dsoMouseLeave=${ifDefined(dsoMouseLeave)}
               wijzigactie=${ifDefined(objectWijzigactie)}
             >
-              ${label}
-              ${badge ?? nothing}
+              ${name} ${labelSlot ?? nothing}
               ${symboolCode
                 ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbol"></span>`
                 : nothing}</dso-map-layer-object
