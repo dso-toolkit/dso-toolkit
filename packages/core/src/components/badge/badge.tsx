@@ -68,6 +68,7 @@ export class Badge implements ComponentInterface {
   showTooltip = false;
 
   private handleToggle() {
+    this.lastClickTime = Date.now();
     this.toggletipActive = !this.toggletipActive;
     this.handleHideTooltip();
   }
@@ -106,7 +107,9 @@ export class Badge implements ComponentInterface {
     this.clearToolTipTimeout();
 
     this.showTooltip = false;
-    this.tooltipElRef?.hidePopover();
+    if (this.tooltipElRef?.isConnected && this.tooltipElRef.matches(":popover-open")) {
+      this.tooltipElRef.hidePopover();
+    }
 
     if (!this.showTooltip && this.cleanUpTooltip) {
       this.cleanUpTooltip();
