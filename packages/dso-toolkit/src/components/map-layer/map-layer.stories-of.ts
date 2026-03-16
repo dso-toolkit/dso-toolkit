@@ -83,7 +83,11 @@ export function mapLayerStories<Implementation, Templates, TemplateFnReturnType>
       render: templateContainer.render(
         storyTemplates,
         (args, { mapLayerTemplate, single, nameSlotContent, labelSlotContent }) =>
-          mapLayerTemplate({ ...mapLayerArgsMapper(args, single), nameSlot: nameSlotContent, labelSlot: labelSlotContent }),
+          mapLayerTemplate({
+            ...mapLayerArgsMapper(args, single),
+            nameSlot: nameSlotContent,
+            labelSlot: labelSlotContent,
+          }),
       ),
     },
   };
