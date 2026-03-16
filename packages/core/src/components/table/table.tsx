@@ -1,6 +1,5 @@
 import { Component, ComponentInterface, Element, Fragment, Host, Prop, State, h } from "@stencil/core";
 import debounce from "debounce";
-import { v4 } from "uuid";
 
 @Component({
   tag: "dso-table",
@@ -11,8 +10,6 @@ export class Table implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
 
   private dialogElement?: HTMLDialogElement;
-
-  private labelledbyId = v4();
 
   @Element()
   host!: HTMLDsoTableElement;
@@ -60,6 +57,7 @@ export class Table implements ComponentInterface {
 
   render() {
     const caption = this.host.querySelector(":scope > table > caption")?.textContent?.trim();
+    const dialogLabel = caption || "Uitvergrote tabel";
 
     return (
       <Host is-responsive={this.isResponsive?.toString()}>
@@ -72,12 +70,11 @@ export class Table implements ComponentInterface {
             class="dso-modal"
             ref={(element) => (this.dialogElement = element)}
             onClose={this.dialogCloseEventListener}
+            aria-label={dialogLabel}
           >
-            <div class="dso-dialog dso-table-dialog" aria-labelledby={this.labelledbyId}>
+            <div class="dso-dialog dso-table-dialog">
               <div class="dso-header">
-                <h2 id={this.labelledbyId} class={{ "sr-only": !caption }}>
-                  {caption || "Uitvergrote tabel dialoog"}
-                </h2>
+                <h2 class={{ "sr-only": !caption }}>{dialogLabel}</h2>
                 <dso-icon-button
                   icon="cross"
                   variant="tertiary"

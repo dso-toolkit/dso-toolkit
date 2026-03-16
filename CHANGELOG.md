@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Table: Bij vergroten van een tabel wordt de titel niet voorgelezen ([#3585](https://github.com/dso-toolkit/dso-toolkit/issues/3585))
+
 ## 🦡 Release 90.1.0 - 2026-03-18
 
 ### Added
