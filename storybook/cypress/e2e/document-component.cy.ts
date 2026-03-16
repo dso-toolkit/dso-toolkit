@@ -57,11 +57,11 @@ describe("Document Component", () => {
       .invoke("prop", "label", undefined)
       .shadow()
       .as("dsoDocumentComponent")
-      .find("dso-badge[aria-describedby='badge-description'].hydrated")
-      .should("have.text", "!")
-      .get("@dsoDocumentComponent")
-      .find("dso-tooltip#badge-description.hydrated")
-      .should("have.text", "Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp.");
+      .find("dso-badge.hydrated")
+      .should(
+        "have.html",
+        '!<div slot="toggletip">Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp.</div>',
+      );
   });
 
   it("shows a label with status", () => {

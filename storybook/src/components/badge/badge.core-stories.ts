@@ -4,6 +4,8 @@ import { BadgeArgs, badgeMeta, badgeStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
+import { children } from "./badge.content";
+
 const meta: Meta<BadgeArgs> = {
   ...badgeMeta({ readme }),
   title: "Core/Badge",
@@ -11,15 +13,16 @@ const meta: Meta<BadgeArgs> = {
 
 export default meta;
 
-const { Primary, Success, Info, Warning, Error, Outline, Attention, Plain } = badgeStories({
+const { Primary, Success, Info, Warning, Error, Outline, Attention, Plain, Information } = badgeStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { badgeTemplate } = templates;
 
     return {
       badgeTemplate,
+      children: children(templates),
     };
   },
 });
 
-export { Attention, Error, Info, Outline, Plain, Primary, Success, Warning };
+export { Attention, Error, Info, Information, Outline, Plain, Primary, Success, Warning };
