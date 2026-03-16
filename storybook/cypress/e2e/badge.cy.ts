@@ -30,7 +30,7 @@ describe("Badge", () => {
     });
 
     it("should show the tooltip on hover", () => {
-      getComponent().realHover().shadow().find(".toggletip-button + .dso-tooltip").should("be.visible");
+      getComponent().realHover().shadow().find(".toggletip-button + .dso-tooltip").should("have.class", "visible");
     });
 
     const placements = [
