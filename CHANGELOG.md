@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Badge: Toggletip functionaliteit ([#3396](https://github.com/dso-toolkit/dso-toolkit/issues/3396))
 
+### Docs
+* Docs: Vermeldingen van "Aan de slag met de Omgevingswet" weghalen ([#3542](https://github.com/dso-toolkit/dso-toolkit/issues/3542))
+
 ## 🧞‍♂️ Release 90.0.0 - 2026-03-13
 
 ### Added
