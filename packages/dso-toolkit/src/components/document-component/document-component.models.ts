@@ -79,7 +79,12 @@ export interface DocumentComponentToggleEvent {
   originalEvent: Event;
 }
 
-export interface DocumentComponentAnnotationToggleEvent {}
+export interface DocumentComponentAnnotationToggleEvent {
+  originalEvent: Event;
+  current: boolean;
+  next: boolean;
+  scrollRef?: HTMLElement;
+}
 
 type DocumentComponentSource = "kop" | "inhoud" | "alternativeTitle";
 

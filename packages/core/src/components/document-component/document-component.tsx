@@ -1,6 +1,7 @@
 import {
   Component,
   ComponentInterface,
+  Element,
   Event,
   EventEmitter,
   Fragment,
@@ -106,6 +107,9 @@ const AantekenAlert: FunctionalComponent<{
   shadow: true,
 })
 export class DocumentComponent implements ComponentInterface {
+  @Element()
+  host!: HTMLDsoDocumentComponentElement;
+
   /**
    * The heading element to use.
    */
@@ -308,13 +312,14 @@ export class DocumentComponent implements ComponentInterface {
   dsoTableOfContentsClick!: EventEmitter<DocumentComponentTableOfContentsClickEvent>;
 
   /**
-   * Emitted when the user interacts with Kop, IntRef or the Kenmerken en kaart button of IntIoRef in Ozon Content
+   * Emitted when the user interacts with IntRef in Ozon Content
    */
   @Event({ bubbles: false })
   dsoOzonContentClick!: EventEmitter<DocumentComponentOzonContentClickEvent>;
 
   /**
-   * Emitted when the user activates the annotation button.
+   * Emitted when the user clicks the annotation button, the close button of the annotation panel and the
+   * Kenmerken en Kaart button of IntIoRef in Ozon Content.
    */
   @Event({ bubbles: false })
   dsoAnnotationToggle!: EventEmitter<DocumentComponentToggleAnnotationEvent>;
@@ -340,10 +345,26 @@ export class DocumentComponent implements ComponentInterface {
   private handleOzonContentClick = (event: DsoOzonContentCustomEvent<OzonContentClickEvent>) => {
     const { detail } = event;
 
-    if (detail.type === "Kop") {
-      this.handleHeadingClick(detail.originalEvent);
-    } else {
-      this.dsoOzonContentClick.emit({ originalEvent: event, ozonContentClick: event.detail });
+    switch (detail.type) {
+      case "Kop":
+        this.handleHeadingClick(detail.originalEvent);
+        break;
+
+      case "IntIoRef":
+        this.dsoAnnotationToggle.emit({
+          current: this.openAnnotation,
+          next: true,
+          scrollRef: this.host,
+          originalEvent: event,
+        });
+        break;
+
+      case "IntRef":
+        this.dsoOzonContentClick.emit({ originalEvent: event, ozonContentClick: event.detail });
+        break;
+
+      default:
+        return;
     }
   };
 
@@ -493,7 +514,14 @@ export class DocumentComponent implements ComponentInterface {
                       label={`Kenmerken en kaartgegevens ${this.openAnnotation ? "verbergen" : "tonen"}`}
                       icon="label"
                       variant="tertiary"
-                      onDsoClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e.detail.originalEvent })}
+                      onDsoClick={(e) =>
+                        this.dsoAnnotationToggle.emit({
+                          current: this.openAnnotation,
+                          next: !this.openAnnotation,
+                          scrollRef: this.host,
+                          originalEvent: e.detail.originalEvent,
+                        })
+                      }
                     />
                   )}
                 </div>
@@ -506,7 +534,13 @@ export class DocumentComponent implements ComponentInterface {
           <div class="annotation-container" part="_annotation-container">
             <dso-panel
               id="annotations"
-              onDsoCloseClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
+              onDsoCloseClick={(e) =>
+                this.dsoAnnotationToggle.emit({
+                  current: true,
+                  next: false,
+                  originalEvent: e,
+                })
+              }
               closeButtonLabel="Kenmerken en kaartgegevens verbergen"
             >
               <h2 slot="heading">Kenmerken en kaart</h2>

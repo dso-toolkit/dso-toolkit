@@ -5,6 +5,7 @@ import sampleSize from "lodash.samplesize";
 import {
   BadgeStatus,
   DocumentComponentInputType,
+  DocumentComponentToggleAnnotationEvent,
   DsoDocumentComponentCustomEvent,
   LabelStatus,
   OzonContentBegripResolver,
@@ -208,10 +209,11 @@ export class DocumentComponentDemo implements ComponentInterface {
     }
   }
 
-  private handleAnnotationToggle(documentComponent: DocumentComponent) {
-    this.openedAnnotation = this.isOpenedAnnotation(documentComponent)
-      ? this.openedAnnotation.filter((d) => d !== documentComponent)
-      : [...this.openedAnnotation, documentComponent];
+  private handleAnnotationToggle(documentComponent: DocumentComponent, detail: DocumentComponentToggleAnnotationEvent) {
+    this.openedAnnotation =
+      this.isOpenedAnnotation(documentComponent) && !detail.next
+        ? this.openedAnnotation.filter((d) => d !== documentComponent)
+        : [...this.openedAnnotation, documentComponent];
 
     if (!this.isOpen(documentComponent)) {
       this.openOrClosed = [...this.openOrClosed, documentComponent];
@@ -369,7 +371,7 @@ export class DocumentComponentDemo implements ComponentInterface {
         inhoud={documentComponent.inhoud}
         openAnnotation={this.isOpenedAnnotation(documentComponent)}
         notApplicable={this.isNotApplicable(documentComponent) || path.some((p) => this.isNotApplicable(p))}
-        onDsoAnnotationToggle={() => this.handleAnnotationToggle(documentComponent)}
+        onDsoAnnotationToggle={(e) => this.handleAnnotationToggle(documentComponent, e.detail)}
         onDsoOpenToggle={() => this.handleOpenToggle(documentComponent)}
         open={this.isOpen(documentComponent)}
         type={documentComponent.type}

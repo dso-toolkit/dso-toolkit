@@ -9,6 +9,9 @@ export interface DocumentComponentOpenToggleEvent {
 
 export interface DocumentComponentToggleAnnotationEvent {
   originalEvent: Event;
+  current: boolean;
+  next: boolean;
+  scrollRef?: HTMLElement;
 }
 
 export type DocumentComponentWijzigactie = "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
