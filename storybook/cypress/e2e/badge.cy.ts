@@ -25,9 +25,9 @@ describe("Badge", () => {
     });
   });
 
-  describe("information toggletip", () => {
+  describe("WithToggletip toggletip", () => {
     beforeEach(() => {
-      visitStory("information");
+      visitStory("with-toggletip");
       cy.viewport(1400, 720);
     });
 

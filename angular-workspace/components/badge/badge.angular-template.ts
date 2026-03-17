@@ -14,8 +14,7 @@ export const angularBadge: ComponentImplementation<Badge<IStory>> = {
           <dso-badge
             [status]="status"
             [label]="label"
-            [toggletipPlacement]="toggletipPlacement"
-            [tooltipPlacement]="tooltipPlacement">
+            [toggletipPlacement]="toggletipPlacement">
               {{ message }}
               ${props.children ? `<div slot="toggletip">${props.children.template}</div>` : ""}
           </dso-badge>

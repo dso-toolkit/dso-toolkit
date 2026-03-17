@@ -18,7 +18,7 @@ interface BadgeStories {
   Error: BadgeStory;
   Outline: BadgeStory;
   Attention: BadgeStory;
-  Information: BadgeStory;
+  WithToggletip: BadgeStory;
 }
 
 interface BadgeStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -125,14 +125,13 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         badgeTemplate(badgeArgsMapper(args)),
       ),
     },
-    Information: {
+    WithToggletip: {
       args: {
         status: "primary",
         message: "1",
         toggletip: true,
         label: "Toon toelichting",
         toggletipPlacement: "top",
-        tooltipPlacement: "top",
       },
       parameters: { layout: "centered" },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate, children }) =>

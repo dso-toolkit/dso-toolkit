@@ -8,14 +8,9 @@ export const reactBadge: ComponentImplementation<Badge<JSX.Element>> = {
   component: "badge",
   implementation: "react",
   template: () =>
-    function badgeTemplate({ status, message, label, toggletipPlacement, tooltipPlacement, children }) {
+    function badgeTemplate({ status, message, label, toggletipPlacement, children }) {
       return (
-        <DsoBadge
-          status={status}
-          label={label}
-          toggletipPlacement={toggletipPlacement}
-          tooltipPlacement={tooltipPlacement}
-        >
+        <DsoBadge status={status} label={label} toggletipPlacement={toggletipPlacement}>
           {message} {children && <div slot="toggletip">{children}</div>}
         </DsoBadge>
       );

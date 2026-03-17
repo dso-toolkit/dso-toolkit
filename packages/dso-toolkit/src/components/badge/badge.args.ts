@@ -20,7 +20,6 @@ export interface BadgeArgs {
   message: string;
   label?: string;
   toggletipPlacement: BadgeTooltipPlacement;
-  tooltipPlacement: BadgeTooltipPlacement;
   toggletip?: boolean;
 }
 
@@ -43,13 +42,6 @@ export const badgeArgTypes: ArgTypes<BadgeArgs> = {
     },
   },
   toggletipPlacement: {
-    if: { arg: "toggletip", eq: true },
-    options: ["top", "left", "bottom", "right"],
-    control: {
-      type: "select",
-    },
-  },
-  tooltipPlacement: {
     if: { arg: "toggletip", eq: true },
     options: ["top", "left", "bottom", "right"],
     control: {

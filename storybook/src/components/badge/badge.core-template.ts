@@ -8,12 +8,11 @@ export const coreBadge: ComponentImplementation<Badge<TemplateResult>> = {
   component: "badge",
   implementation: "core",
   template: () =>
-    function badgeTemplate({ status, message, label, toggletipPlacement, tooltipPlacement, children }) {
+    function badgeTemplate({ status, message, label, toggletipPlacement, children }) {
       return html`<dso-badge
         .status=${ifDefined(status)}
         .label=${ifDefined(label)}
         .toggletipPlacement=${ifDefined(toggletipPlacement)}
-        .tooltipPlacement=${ifDefined(tooltipPlacement)}
       >
         ${message} ${children && html`<div slot="toggletip">${children}</div>`}
       </dso-badge>`;

@@ -52,12 +52,6 @@ export class Badge implements ComponentInterface {
   @Prop({ reflect: true })
   toggletipPlacement: TooltipPlacement = "top";
 
-  /**
-   * The placement of the tooltip on hover and focus of the interactive Badge with Toggletip.
-   */
-  @Prop({ reflect: true })
-  tooltipPlacement: TooltipPlacement = "top";
-
   @State()
   toggletipActive = false;
 
@@ -94,7 +88,7 @@ export class Badge implements ComponentInterface {
           referenceElement: this.buttonElRef,
           tipRef: this.tooltipElRef,
           tipArrowRef: this.tipArrowElRef,
-          placementTip: this.tooltipPlacement,
+          placementTip: "top",
           topPositionSmallViewPort: false,
           halfMainAxisOffset: false,
           forceVisible: true,

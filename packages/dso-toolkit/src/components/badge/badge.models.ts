@@ -7,6 +7,5 @@ export interface Badge<TemplateFnReturnType> {
   message: string;
   label?: string;
   toggletipPlacement?: BadgeTooltipPlacement;
-  tooltipPlacement?: BadgeTooltipPlacement;
   children?: TemplateFnReturnType;
 }

@@ -415,11 +415,6 @@ export namespace Components {
           * @default "top"
          */
         "toggletipPlacement": TooltipPlacement;
-        /**
-          * The placement of the tooltip on hover and focus of the interactive Badge with Toggletip.
-          * @default "top"
-         */
-        "tooltipPlacement": TooltipPlacement;
     }
     interface DsoBanner {
         /**
@@ -3179,11 +3174,6 @@ declare namespace LocalJSX {
           * @default "top"
          */
         "toggletipPlacement"?: TooltipPlacement;
-        /**
-          * The placement of the tooltip on hover and focus of the interactive Badge with Toggletip.
-          * @default "top"
-         */
-        "tooltipPlacement"?: TooltipPlacement;
     }
     interface DsoBanner {
         /**
@@ -4617,7 +4607,6 @@ declare namespace LocalJSX {
         "status": BadgeStatus;
         "label": string;
         "toggletipPlacement": TooltipPlacement;
-        "tooltipPlacement": TooltipPlacement;
     }
     interface DsoBannerAttributes {
         "status": "success" | "error" | "info" | "warning";
