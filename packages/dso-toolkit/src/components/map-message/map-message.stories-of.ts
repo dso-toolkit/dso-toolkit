@@ -19,6 +19,12 @@ export interface MapMessageTemplates<TemplateFnReturnType> {
   mapMessageTemplate: (mapMessageProperties: MapMessage) => TemplateFnReturnType;
 }
 
+const baseStoryParameters = {
+  parameters: {
+    layout: "centered",
+  },
+};
+
 export function mapMessageMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,
   MapMessage
@@ -48,6 +54,7 @@ export function mapMessageStories<Implementation, Templates, TemplateFnReturnTyp
 }: MapMessageStoriesParameters<Implementation, Templates, TemplateFnReturnType>): MapMessageStories {
   return {
     Instruction: {
+      ...baseStoryParameters,
       args: {
         variant: "instruction",
         message: "Dit is een instructie kaartbericht.",
@@ -57,6 +64,7 @@ export function mapMessageStories<Implementation, Templates, TemplateFnReturnTyp
       ),
     },
     Success: {
+      ...baseStoryParameters,
       args: {
         variant: "success",
         message: "Dit is een succes kaartbericht.",
@@ -84,6 +92,7 @@ export function mapMessageStories<Implementation, Templates, TemplateFnReturnTyp
       ),
     },
     Error: {
+      ...baseStoryParameters,
       args: {
         variant: "error",
         message: "Dit is een fout kaartbericht.",

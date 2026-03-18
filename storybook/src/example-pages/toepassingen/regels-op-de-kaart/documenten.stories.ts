@@ -32,6 +32,7 @@ const Documenten = examplePageStories((templates) => {
     highlightBoxTemplate,
     iconTemplate,
     mapControlsTemplate,
+    mapMessageTemplate,
     navbarTemplate,
     plekinfoCardTemplate,
     selectableTemplate,
@@ -52,6 +53,17 @@ const Documenten = examplePageStories((templates) => {
 
       .demo-main > dso-viewer-grid {
         block-size: 100%;
+      }
+
+      .demo-main > dso-viewer-grid [slot="map"] {
+        position: relative;
+      }
+
+      .demo-main > dso-viewer-grid [slot="map"] dso-map-message {
+        position: absolute;
+        top: 32px;
+        left: 50%;
+        transform: translateX(-50%);
       }
     </style>
     <div class="demo-container">
@@ -98,6 +110,10 @@ const Documenten = examplePageStories((templates) => {
             </ul>
           `,
           map: html`
+            ${mapMessageTemplate({
+              variant: "success",
+              message: "Valt alles wat u wilt weten binnen het getekende gebied?",
+            })}
             <img src="images/kaart.png" aria-hidden="true" />
             ${mapControlsTemplate({ baseLayers: [], open: false, overlays: [] })}
           `,

@@ -11,8 +11,7 @@
 
 .map-message-content {
   @include set-colors.apply($background, "map-message");
-  margin-block: units.$u4;
-  margin-inline: units.$u4;
+
   padding-inline: units.$u3;
   padding-block: units.$u2;
   inline-size: fit-content;
@@ -42,9 +41,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: units.$u2;
-
-    &::slotted(button) {
-      margin-inline-start: 0 !important;
-    }
   }
+}
+
+::slotted(button) {
+  margin-inline-start: 0 !important;
 }
