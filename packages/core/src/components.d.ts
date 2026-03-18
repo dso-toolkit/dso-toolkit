@@ -1023,6 +1023,12 @@ export namespace Components {
          */
         "active"?: boolean;
     }
+    interface DsoMapMessage {
+        /**
+          * Variant determines the icon and actions shown.
+         */
+        "variant": "success" | "error" | "instruction" | undefined;
+    }
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
@@ -2331,6 +2337,12 @@ declare global {
         prototype: HTMLDsoMapLayerObjectElement;
         new (): HTMLDsoMapLayerObjectElement;
     };
+    interface HTMLDsoMapMessageElement extends Components.DsoMapMessage, HTMLStencilElement {
+    }
+    var HTMLDsoMapMessageElement: {
+        prototype: HTMLDsoMapMessageElement;
+        new (): HTMLDsoMapMessageElement;
+    };
     interface HTMLDsoMapOverlaysElementEventMap {
         "dsoToggleOverlay": OverlayChangeEvent;
     }
@@ -2781,6 +2793,7 @@ declare global {
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-layer": HTMLDsoMapLayerElement;
         "dso-map-layer-object": HTMLDsoMapLayerObjectElement;
+        "dso-map-message": HTMLDsoMapMessageElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
         "dso-mark-bar": HTMLDsoMarkBarElement;
         "dso-modal": HTMLDsoModalElement;
@@ -3932,6 +3945,12 @@ declare namespace LocalJSX {
          */
         "onDsoMouseLeave"?: (event: DsoMapLayerObjectCustomEvent<any>) => void;
     }
+    interface DsoMapMessage {
+        /**
+          * Variant determines the icon and actions shown.
+         */
+        "variant": "success" | "error" | "instruction" | undefined;
+    }
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
@@ -4779,6 +4798,9 @@ declare namespace LocalJSX {
     interface DsoMapLayerObjectAttributes {
         "active": boolean;
     }
+    interface DsoMapMessageAttributes {
+        "variant": "success" | "error" | "instruction" | undefined;
+    }
     interface DsoMapOverlaysAttributes {
         "group": string;
     }
@@ -4948,6 +4970,7 @@ declare namespace LocalJSX {
         "dso-map-controls": Omit<DsoMapControls, keyof DsoMapControlsAttributes> & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes]?: DsoMapControls[K] } & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes as `attr:${K}`]?: DsoMapControlsAttributes[K] } & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes as `prop:${K}`]?: DsoMapControls[K] };
         "dso-map-layer": Omit<DsoMapLayer, keyof DsoMapLayerAttributes> & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes]?: DsoMapLayer[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `attr:${K}`]?: DsoMapLayerAttributes[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `prop:${K}`]?: DsoMapLayer[K] } & OneOf<"label", DsoMapLayer["label"], DsoMapLayerAttributes["label"]>;
         "dso-map-layer-object": Omit<DsoMapLayerObject, keyof DsoMapLayerObjectAttributes> & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes]?: DsoMapLayerObject[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `attr:${K}`]?: DsoMapLayerObjectAttributes[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `prop:${K}`]?: DsoMapLayerObject[K] };
+        "dso-map-message": Omit<DsoMapMessage, keyof DsoMapMessageAttributes> & { [K in keyof DsoMapMessage & keyof DsoMapMessageAttributes]?: DsoMapMessage[K] } & { [K in keyof DsoMapMessage & keyof DsoMapMessageAttributes as `attr:${K}`]?: DsoMapMessageAttributes[K] } & { [K in keyof DsoMapMessage & keyof DsoMapMessageAttributes as `prop:${K}`]?: DsoMapMessage[K] } & OneOf<"variant", DsoMapMessage["variant"], DsoMapMessageAttributes["variant"]>;
         "dso-map-overlays": Omit<DsoMapOverlays, keyof DsoMapOverlaysAttributes> & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes]?: DsoMapOverlays[K] } & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes as `attr:${K}`]?: DsoMapOverlaysAttributes[K] } & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes as `prop:${K}`]?: DsoMapOverlays[K] };
         "dso-mark-bar": Omit<DsoMarkBar, keyof DsoMarkBarAttributes> & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes]?: DsoMarkBar[K] } & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes as `attr:${K}`]?: DsoMarkBarAttributes[K] } & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes as `prop:${K}`]?: DsoMarkBar[K] };
         "dso-modal": Omit<DsoModal, keyof DsoModalAttributes> & { [K in keyof DsoModal & keyof DsoModalAttributes]?: DsoModal[K] } & { [K in keyof DsoModal & keyof DsoModalAttributes as `attr:${K}`]?: DsoModalAttributes[K] } & { [K in keyof DsoModal & keyof DsoModalAttributes as `prop:${K}`]?: DsoModal[K] };
@@ -5029,6 +5052,7 @@ declare module "@stencil/core" {
             "dso-map-controls": LocalJSX.IntrinsicElements["dso-map-controls"] & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-layer": LocalJSX.IntrinsicElements["dso-map-layer"] & JSXBase.HTMLAttributes<HTMLDsoMapLayerElement>;
             "dso-map-layer-object": LocalJSX.IntrinsicElements["dso-map-layer-object"] & JSXBase.HTMLAttributes<HTMLDsoMapLayerObjectElement>;
+            "dso-map-message": LocalJSX.IntrinsicElements["dso-map-message"] & JSXBase.HTMLAttributes<HTMLDsoMapMessageElement>;
             "dso-map-overlays": LocalJSX.IntrinsicElements["dso-map-overlays"] & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-mark-bar": LocalJSX.IntrinsicElements["dso-mark-bar"] & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
             "dso-modal": LocalJSX.IntrinsicElements["dso-modal"] & JSXBase.HTMLAttributes<HTMLDsoModalElement>;

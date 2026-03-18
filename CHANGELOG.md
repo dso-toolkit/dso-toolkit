@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Badge: Toggletip functionaliteit ([#3396](https://github.com/dso-toolkit/dso-toolkit/issues/3396))
+* Map Message: Nieuw component ([#3365](https://github.com/dso-toolkit/dso-toolkit/issues/3365))
 
 ### Docs
 * Docs: Vermeldingen van "Aan de slag met de Omgevingswet" weghalen ([#3542](https://github.com/dso-toolkit/dso-toolkit/issues/3542))

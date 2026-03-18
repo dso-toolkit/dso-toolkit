@@ -32,6 +32,7 @@ const Documenten = examplePageStories((templates) => {
     highlightBoxTemplate,
     iconTemplate,
     mapControlsTemplate,
+    mapMessageTemplate,
     navbarTemplate,
     plekinfoCardTemplate,
     selectableTemplate,
@@ -53,6 +54,19 @@ const Documenten = examplePageStories((templates) => {
       .demo-main > dso-viewer-grid {
         block-size: 100%;
       }
+
+      .demo-main > dso-viewer-grid [slot="map"] {
+        position: relative;
+      }
+
+      .demo-main > dso-viewer-grid [slot="map"] dso-map-message {
+        position: absolute;
+        top: 16px; /* Align with top of Map Control Buttons and Sizing Button of Main Panel Viewer Grid */
+        left: calc(40px + 32px); /* Width of Sizing Button of Main Panel Viewer Grid + margin */
+        right: calc(
+          16px + 40px + 16px + 132px + 32px
+        ); /* Width of Map Control Buttons and it's margin + width of Kaartlagen Button + margin */
+      }
     </style>
     <div class="demo-container">
       ${headerPartial(templates, header)}
@@ -61,9 +75,10 @@ const Documenten = examplePageStories((templates) => {
         ${viewerGridTemplate({
           filterPanelOpen: false,
           mainPanelExpanded: true,
+          mainPanelHidden: false,
           mainSize: "medium",
           documentPanelOpen: true,
-          documentPanelSize: "medium",
+          documentPanelSize: "small",
           topBar: bannerTemplate({
             status: "info",
             content: html`U bekijkt nu de informatie die op 05-02-2024 zichtbaar was.
@@ -98,6 +113,32 @@ const Documenten = examplePageStories((templates) => {
             </ul>
           `,
           map: html`
+            ${mapMessageTemplate({
+              variant: "success",
+              message: "Valt alles wat u wilt weten binnen het getekende gebied?",
+              buttons: [
+                {
+                  label: "Ongedaan maken",
+                  icon: {
+                    icon: "undo",
+                  },
+                  variant: "secondary",
+                  type: "button",
+                  modifier: "dso-extra-small",
+                  iconMode: "after",
+                },
+                {
+                  label: "Volgende",
+                  icon: {
+                    icon: "chevron-right",
+                  },
+                  variant: "primary",
+                  type: "button",
+                  modifier: "dso-extra-small",
+                  iconMode: "after",
+                },
+              ],
+            })}
             <img src="images/kaart.png" aria-hidden="true" />
             ${mapControlsTemplate({ baseLayers: [], open: false, overlays: [] })}
           `,
