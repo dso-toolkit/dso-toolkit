@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🦡 Release 90.1.0 - 2026-03-18
+
 ### Added
 * Badge: Toggletip functionaliteit ([#3396](https://github.com/dso-toolkit/dso-toolkit/issues/3396))
 * Map Message: Nieuw component ([#3365](https://github.com/dso-toolkit/dso-toolkit/issues/3365))
