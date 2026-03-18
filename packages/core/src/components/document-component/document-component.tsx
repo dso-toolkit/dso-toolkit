@@ -109,7 +109,7 @@ export class DocumentComponent implements ComponentInterface {
   /**
    * The heading element to use.
    */
-  @Prop()
+  @Prop({ reflect: true })
   heading: "h2" | "h3" | "h4" | "h5" | "h6" = "h2";
 
   private _kopInput?: DocumentComponentInputType;
@@ -161,31 +161,31 @@ export class DocumentComponent implements ComponentInterface {
   /**
    * Text to display in the badge (e.g. "!").
    */
-  @Prop()
+  @Prop({ reflect: true })
   badge?: string;
 
   /**
    * Status/color of the badge.
    */
-  @Prop()
+  @Prop({ reflect: true })
   badgeStatus?: BadgeStatus;
 
   /**
    * Tooltip text for the badge.
    */
-  @Prop()
+  @Prop({ reflect: true })
   badgeTooltip?: string;
 
   /**
    * Text to display in the label (e.g. "Ontwerp", "Besluitversie").
    */
-  @Prop()
+  @Prop({ reflect: true })
   label?: string;
 
   /**
    * Status/color of the label.
    */
-  @Prop()
+  @Prop({ reflect: true })
   labelStatus?: LabelStatus;
 
   /**
@@ -474,10 +474,10 @@ export class DocumentComponent implements ComponentInterface {
 
               {this.showBadge() && (
                 <Fragment>
-                  <dso-badge status={this.badgeStatus} aria-describedby="badge-description">
+                  <dso-badge status={this.badgeStatus} label={this.badgeTooltip ? "Toon toelichting" : undefined}>
                     {this.badge}
+                    {this.badgeTooltip && <div slot="toggletip">{this.badgeTooltip}</div>}
                   </dso-badge>
-                  {this.badgeTooltip && <dso-tooltip id="badge-description">{this.badgeTooltip}</dso-tooltip>}
                 </Fragment>
               )}
 

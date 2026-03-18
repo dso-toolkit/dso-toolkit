@@ -54,7 +54,7 @@ export interface Components {
   alert: Alert<IStory>;
   // autosuggest: Autosuggest<IStory>;
   attachmentsCounter: AttachmentsCounter;
-  badge: Badge;
+  badge: Badge<IStory>;
   // card: Card<IStory>;
   // cardContainer: CardContainer<IStory>;
   datePicker: DatePicker;

@@ -12,13 +12,13 @@ import {
 } from "./document-card.args.js";
 import { DocumentCard } from "./document-card.models.js";
 
-type DocumentCardStory = StoryObj<DocumentCardArgs, Renderer>;
+type DocumentCardStory<TemplateFnReturnType> = StoryObj<DocumentCardArgs<TemplateFnReturnType>, Renderer>;
 
-interface DocumentCardStories {
-  Default: DocumentCardStory;
-  WithLabel: DocumentCardStory;
-  WithTypeToelichting: DocumentCardStory;
-  WithStatusToelichting: DocumentCardStory;
+interface DocumentCardStories<TemplateFnReturnType> {
+  Default: DocumentCardStory<TemplateFnReturnType>;
+  WithLabel: DocumentCardStory<TemplateFnReturnType>;
+  WithTypeToelichting: DocumentCardStory<TemplateFnReturnType>;
+  WithStatusToelichting: DocumentCardStory<TemplateFnReturnType>;
 }
 
 interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -33,10 +33,9 @@ interface DocumentCardTemplates<TemplateFnReturnType> {
   typeItems: TemplateFnReturnType[];
 }
 
-export function documentCardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
-  TRenderer,
-  DocumentCardArgs
-> {
+export function documentCardMeta<TRenderer extends Renderer, TemplateFnReturnType>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer, DocumentCardArgs<TemplateFnReturnType>> {
   return {
     argTypes: documentCardArgTypes,
     args: documentCardArgs,
@@ -53,7 +52,11 @@ export function documentCardMeta<TRenderer extends Renderer>({ readme }: MetaOpt
 export function documentCardStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
-}: DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentCardStories {
+}: DocumentCardStoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType
+>): DocumentCardStories<TemplateFnReturnType> {
   return {
     Default: {
       render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>

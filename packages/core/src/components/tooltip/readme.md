@@ -49,7 +49,6 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [dso-document-component](../document-component)
  - [dso-label](../label)
  - [dso-ozon-content](../ozon-content)
  - [dso-toggletip](../toggletip)
@@ -57,7 +56,6 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
-  dso-document-component --> dso-tooltip
   dso-label --> dso-tooltip
   dso-ozon-content --> dso-tooltip
   dso-toggletip --> dso-tooltip

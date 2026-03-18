@@ -1,16 +1,125 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/components/badge";
+@use "~dso-toolkit/src/variables/units";
+
+@use "../../functional-components/tooltip";
+
+@use "./badge.variables" as badge-variables;
+@use "./badge.mixins" as badge-mixins;
+
+@include tooltip.include($padding-block-inner: 0, $padding-inline-inner: 0, $max-inline-size: 640px);
 
 :host {
+  --_dt-scrollable-border-radius: #{units.$u1 * 0.5};
+  --_dt-scrollable-container-padding-inline: #{tooltip.$padding-inline};
+  --_dt-scrollable-container-padding-block: #{tooltip.$padding-block};
+
   display: inline-block;
 }
 
 @include utilities.box-sizing();
 
-.sr-only {
-  @include utilities.sr-only();
-}
-
 .dso-badge {
   @include badge.root();
+
+  &.interactive {
+    &:hover,
+    &:focus-visible {
+      @include badge-mixins.variant(badge-variables.$default-hover-bg-color);
+    }
+
+    &.toggled {
+      @include badge-mixins.variant(badge-variables.$default-toggled-bg-color);
+    }
+
+    &.badge-info {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$info-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$info-toggled-bg-color);
+      }
+    }
+
+    &.badge-primary {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$primary-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$primary-toggled-bg-color);
+      }
+    }
+
+    &.badge-success {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$success-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$success-toggled-bg-color);
+      }
+    }
+
+    &.badge-warning {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$warning-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$warning-toggled-bg-color);
+      }
+    }
+
+    &.badge-error {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$error-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$error-toggled-bg-color);
+      }
+    }
+
+    &.badge-outline {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$outline-hover-bg-color, colors.$grijs-90);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$outline-toggled-bg-color, colors.$grijs-90);
+      }
+    }
+
+    &.badge-attention {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$attention-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$attention-toggled-bg-color);
+      }
+    }
+  }
+}
+
+.toggletip-button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+
+  + {
+    @include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1);
+  }
 }

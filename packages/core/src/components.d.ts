@@ -16,6 +16,7 @@ import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion, SuggestionGroup } from "./components/autosuggest/autosuggest.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
+import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { ButtonGroupDirection } from "./components/button-group/button-group.interfaces";
 import { CardClickEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
@@ -27,7 +28,6 @@ import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./co
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
-import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendItemActiveChangeEvent, LegendItemDeleteEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
@@ -68,6 +68,7 @@ export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion, SuggestionGroup } from "./components/autosuggest/autosuggest.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
+export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { ButtonGroupDirection } from "./components/button-group/button-group.interfaces";
 export { CardClickEvent } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
@@ -79,7 +80,6 @@ export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./co
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
-export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendItemActiveChangeEvent, LegendItemDeleteEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
@@ -403,9 +403,18 @@ export namespace Components {
     }
     interface DsoBadge {
         /**
+          * The accessible name of the interactive Badge with Toggletip.
+         */
+        "label"?: string;
+        /**
           * The status of the Badge.
          */
         "status"?: BadgeStatus;
+        /**
+          * The placement of the toggletip on click of the interactive Badge with Toggletip.
+          * @default "top"
+         */
+        "toggletipPlacement": TooltipPlacement;
     }
     interface DsoBanner {
         /**
@@ -3153,9 +3162,18 @@ declare namespace LocalJSX {
     }
     interface DsoBadge {
         /**
+          * The accessible name of the interactive Badge with Toggletip.
+         */
+        "label"?: string;
+        /**
           * The status of the Badge.
          */
         "status"?: BadgeStatus;
+        /**
+          * The placement of the toggletip on click of the interactive Badge with Toggletip.
+          * @default "top"
+         */
+        "toggletipPlacement"?: TooltipPlacement;
     }
     interface DsoBanner {
         /**
@@ -4587,6 +4605,8 @@ declare namespace LocalJSX {
     }
     interface DsoBadgeAttributes {
         "status": BadgeStatus;
+        "label": string;
+        "toggletipPlacement": TooltipPlacement;
     }
     interface DsoBannerAttributes {
         "status": "success" | "error" | "info" | "warning";

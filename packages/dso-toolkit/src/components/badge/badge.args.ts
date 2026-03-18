@@ -1,6 +1,8 @@
 import { ArgTypes } from "storybook/internal/types";
 
-import { Badge, BadgeStatus } from "./badge.models.js";
+import { argTypeAction } from "../../storybook";
+
+import { Badge, BadgeStatus, BadgeTooltipPlacement } from "./badge.models.js";
 
 const BADGE_STATUS_OPTIONS: (BadgeStatus | undefined)[] = [
   undefined,
@@ -16,6 +18,9 @@ const BADGE_STATUS_OPTIONS: (BadgeStatus | undefined)[] = [
 export interface BadgeArgs {
   status?: BadgeStatus;
   message: string;
+  label?: string;
+  toggletipPlacement: BadgeTooltipPlacement;
+  toggletip?: boolean;
 }
 
 export const badgeArgTypes: ArgTypes<BadgeArgs> = {
@@ -30,11 +35,28 @@ export const badgeArgTypes: ArgTypes<BadgeArgs> = {
       type: "text",
     },
   },
+  label: {
+    if: { arg: "toggletip", eq: true },
+    control: {
+      type: "text",
+    },
+  },
+  toggletipPlacement: {
+    if: { arg: "toggletip", eq: true },
+    options: ["top", "left", "bottom", "right"],
+    control: {
+      type: "select",
+    },
+  },
+  toggletip: argTypeAction(),
 };
 
-export function badgeArgsMapper(a: BadgeArgs): Badge {
+export function badgeArgsMapper<TemplateFnReturnType>(
+  a: BadgeArgs,
+  children?: TemplateFnReturnType,
+): Badge<TemplateFnReturnType> {
   return {
-    status: a.status,
-    message: a.message,
+    ...a,
+    children,
   };
 }

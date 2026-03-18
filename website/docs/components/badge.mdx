@@ -2,7 +2,13 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Badge
 
+## Statisch
+
 <StorybookComponent variant="plain" implementations={["core", "react", "angular"]} />
+
+## Met Toggletip
+
+<StorybookComponent variant="with-toggletip" implementations={["core", "react", "angular"]} />
 
 De HTML/CSS implementatie is **Deprecated**.
 
@@ -12,7 +18,12 @@ Een badge geeft de status aan van een systeem. Ook vestigt de badge aandacht op 
 
 ## Wanneer te gebruiken
 
-Gebruik een badge om aandacht op een element te vestigen en/of om elementen van elkaar te onderscheiden. Ook kan een badge ingezet worden als teller: zodra de teller oploopt wordt de gebruiker visueel daarop gewezen. Een badge bevat een numerieke waarde om een lopende telling of samenvatting aan te geven.
+- Een badge wordt gebruikt om snel informatie te tonen, zoals het aantal meldingen, de status van een item of een
+  speciale categorie. Badges helpen de aandacht te vestigen op belangrijke updates en onderscheiden elementen van elkaar.
+- De badge is in de basis een statisch component.
+- Als de waarde van een badge niet vanzelfsprekend is, kan een badge interactief worden gemaakt door tooltip inhoud
+  toe te voegen. De badge wordt daarmee interactief (een button) voor het weergeven van de toelichting in een tooltip.
+- Een interactieve badge kent geen disabled state.
 
 ## Hoe te gebruiken
 
