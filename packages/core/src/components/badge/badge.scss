@@ -5,6 +5,7 @@
 
 @use "../../functional-components/tooltip";
 
+@use "./badge.variables" as badge-variables;
 @use "./badge.mixins" as badge-mixins;
 
 @include tooltip.include($padding-block-inner: 0, $padding-inline-inner: 0, $max-inline-size: 640px);
@@ -23,7 +24,91 @@
   @include badge.root();
 
   &.interactive {
-    @include badge-mixins.interactive();
+    &:hover,
+    &:focus-visible {
+      @include badge-mixins.variant(badge-variables.$default-hover-bg-color);
+    }
+
+    &.toggled {
+      @include badge-mixins.variant(badge-variables.$default-toggled-bg-color);
+    }
+
+    &.badge-info {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$info-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$info-toggled-bg-color);
+      }
+    }
+
+    &.badge-primary {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$primary-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$primary-toggled-bg-color);
+      }
+    }
+
+    &.badge-success {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$success-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$success-toggled-bg-color);
+      }
+    }
+
+    &.badge-warning {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$warning-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$warning-toggled-bg-color);
+      }
+    }
+
+    &.badge-error {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$error-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$error-toggled-bg-color);
+      }
+    }
+
+    &.badge-outline {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$outline-hover-bg-color, colors.$grijs-90);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$outline-toggled-bg-color, colors.$grijs-90);
+      }
+    }
+
+    &.badge-attention {
+      &:hover,
+      &:focus-visible {
+        @include badge-mixins.variant(badge-variables.$attention-hover-bg-color);
+      }
+
+      &.toggled {
+        @include badge-mixins.variant(badge-variables.$attention-toggled-bg-color);
+      }
+    }
   }
 }
 

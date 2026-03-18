@@ -474,7 +474,7 @@ export class DocumentComponent implements ComponentInterface {
 
               {this.showBadge() && (
                 <Fragment>
-                  <dso-badge status={this.badgeStatus} label="Toon toelichting">
+                  <dso-badge status={this.badgeStatus} label={this.badgeTooltip ? "Toon toelichting" : undefined}>
                     {this.badge}
                     {this.badgeTooltip && <div slot="toggletip">{this.badgeTooltip}</div>}
                   </dso-badge>

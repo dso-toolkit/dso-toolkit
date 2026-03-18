@@ -1,5 +1,5 @@
 import { Badge } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { TemplateResult, html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
@@ -14,7 +14,7 @@ export const coreBadge: ComponentImplementation<Badge<TemplateResult>> = {
         .label=${ifDefined(label)}
         .toggletipPlacement=${ifDefined(toggletipPlacement)}
       >
-        ${message} ${children && html`<div slot="toggletip">${children}</div>`}
+        ${message} ${children ? html`<div slot="toggletip">${children}</div>` : nothing}
       </dso-badge>`;
     },
 };
