@@ -9,7 +9,7 @@ export class ProjectItem implements ComponentInterface {
   /**
    * The label of the project item.
    */
-  @Prop()
+  @Prop({ reflect: true })
   label?: string;
 
   render() {

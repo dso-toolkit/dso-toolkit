@@ -34,8 +34,8 @@
   column-gap: units.$u2;
 }
 
-::slotted([slot="status"]) {
-  --_dt-dl-font-size: 0.875rem;
+::slotted(dl[slot="status"]) {
+  justify-content: flex-end;
 }
 
 ::slotted([slot="title"]) {
@@ -74,7 +74,14 @@
 .project-item-info {
   display: flex;
   gap: units.$u2;
-  justify-content: space-between;
   flex-wrap: wrap;
-  align-items: flex-end;
+
+  .project-item-progress {
+    justify-content: flex-start;
+  }
+
+  .project-item-status {
+    justify-content: flex-end;
+    margin-inline-start: auto;
+  }
 }
