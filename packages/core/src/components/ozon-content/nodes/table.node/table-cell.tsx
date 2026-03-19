@@ -2,7 +2,10 @@ import { FunctionalComponent } from "@stencil/core";
 import { h } from "@stencil/core/internal";
 import { clsx } from "clsx";
 
-import { WrapWijzigactie, Wijzigactie } from "../../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+import {
+  Wijzigactie,
+  WrapWijzigactie,
+} from "../../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { wijzigactieToClassName } from "../../functions/wijzigactie-to-class-name.function";
 import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
 

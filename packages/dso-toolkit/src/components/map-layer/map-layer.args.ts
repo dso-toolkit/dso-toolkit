@@ -62,7 +62,6 @@ export function mapLayerArgsMapper<TemplateFnReturnType>(
     ...a,
     nameSlot,
     labelSlot,
-    wijzigactie: a.wijzigactie,
     dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
     objects: objects.map((o) => {
       return {

@@ -7,7 +7,10 @@ export interface WrapWijzigactieProps {
   class?: string;
 }
 
-export const WrapWijzigactie: FunctionalComponent<WrapWijzigactieProps> = ({ wijzigactie, class: className }, children) => {
+export const WrapWijzigactie: FunctionalComponent<WrapWijzigactieProps> = (
+  { wijzigactie, class: className },
+  children,
+) => {
   if (wijzigactie === "voegtoe") {
     return <ins class={className}>{children}</ins>;
   }

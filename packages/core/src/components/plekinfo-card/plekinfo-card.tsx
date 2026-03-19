@@ -1,6 +1,20 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Host, Prop, forceUpdate, h } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  Host,
+  Prop,
+  forceUpdate,
+  h,
+} from "@stencil/core";
 
-import { Wijzigactie, WrapWijzigactie } from "../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+import {
+  Wijzigactie,
+  WrapWijzigactie,
+} from "../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
 import { PlekinfoCardClickEvent } from "./plekinfo-card.interfaces";
