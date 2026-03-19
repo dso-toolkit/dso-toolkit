@@ -35,7 +35,8 @@ import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
-import { MapLayerActiveChangeEvent, MapLayerWijzigactie } from "./components/map-layer/map-layer.interfaces";
+import { Wijzigactie } from "./functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+import { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
 import { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
@@ -44,7 +45,7 @@ import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-
 import { MarkTextMarkFunction } from "./functional-components/mark-text/mark-text.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel.interfaces";
-import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
+import { PlekinfoCardClickEvent } from "./components/plekinfo-card/plekinfo-card.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
@@ -87,7 +88,8 @@ export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
-export { MapLayerActiveChangeEvent, MapLayerWijzigactie } from "./components/map-layer/map-layer.interfaces";
+export { Wijzigactie } from "./functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+export { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
 export { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
@@ -96,7 +98,7 @@ export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-
 export { MarkTextMarkFunction } from "./functional-components/mark-text/mark-text.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel.interfaces";
-export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
+export { PlekinfoCardClickEvent } from "./components/plekinfo-card/plekinfo-card.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
@@ -1015,7 +1017,7 @@ export namespace Components {
         /**
           * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
          */
-        "wijzigactie": MapLayerWijzigactie | undefined;
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapLayerObject {
         /**
@@ -1025,7 +1027,7 @@ export namespace Components {
         /**
           * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
          */
-        "wijzigactie": MapLayerWijzigactie | undefined;
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapMessage {
         /**
@@ -1176,7 +1178,7 @@ export namespace Components {
         /**
           * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
          */
-        "wijzigactie"?: PlekinfoWijzigactie;
+        "wijzigactie"?: Wijzigactie;
     }
     interface DsoProgressIndicator {
         /**
@@ -3929,7 +3931,7 @@ declare namespace LocalJSX {
         /**
           * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
          */
-        "wijzigactie": MapLayerWijzigactie | undefined;
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapLayerObject {
         /**
@@ -3951,7 +3953,7 @@ declare namespace LocalJSX {
         /**
           * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
          */
-        "wijzigactie": MapLayerWijzigactie | undefined;
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapMessage {
         /**
@@ -4146,7 +4148,7 @@ declare namespace LocalJSX {
         /**
           * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
          */
-        "wijzigactie"?: PlekinfoWijzigactie;
+        "wijzigactie"?: Wijzigactie;
     }
     interface DsoProgressIndicator {
         /**
@@ -4801,11 +4803,11 @@ declare namespace LocalJSX {
     interface DsoMapLayerAttributes {
         "activatable": boolean;
         "active": boolean;
-        "wijzigactie": MapLayerWijzigactie | undefined;
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapLayerObjectAttributes {
         "active": boolean;
-        "wijzigactie": MapLayerWijzigactie | undefined;
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapMessageAttributes {
         "variant": "success" | "error" | "instruction" | undefined;
@@ -4846,7 +4848,7 @@ declare namespace LocalJSX {
         "emphasized": boolean;
     }
     interface DsoPlekinfoCardAttributes {
-        "wijzigactie": PlekinfoWijzigactie;
+        "wijzigactie": Wijzigactie;
         "href": string | undefined;
         "targetBlank": boolean;
         "active": boolean;

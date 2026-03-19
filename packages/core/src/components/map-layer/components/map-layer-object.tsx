@@ -1,9 +1,8 @@
 import { Component, ComponentInterface, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
 
 import { DsoSlideToggleCustomEvent } from "../../../components";
-import { WrapWijzigactie } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+import { Wijzigactie, WrapWijzigactie } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
-import { MapLayerWijzigactie } from "../map-layer.interfaces";
 
 import { MapLayerObjectActiveChangeEvent } from "./map-layer-object.interfaces";
 
@@ -28,7 +27,7 @@ export class MapLayerObject implements ComponentInterface {
    * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
    */
   @Prop({ reflect: true })
-  wijzigactie!: MapLayerWijzigactie | undefined;
+  wijzigactie!: Wijzigactie | undefined;
 
   /**
    * Emitted when user activates or deactivates the Map Layer Object.
