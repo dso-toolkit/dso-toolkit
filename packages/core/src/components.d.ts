@@ -1218,7 +1218,7 @@ export namespace Components {
     }
     interface DsoSegmentedButton {
         /**
-          * Index of the currently active option
+          * The currently active option
          */
         "activeOption": SegmentedButtonOption | undefined;
         /**
@@ -4191,7 +4191,7 @@ declare namespace LocalJSX {
     }
     interface DsoSegmentedButton {
         /**
-          * Index of the currently active option
+          * The currently active option
          */
         "activeOption": SegmentedButtonOption | undefined;
         /**
