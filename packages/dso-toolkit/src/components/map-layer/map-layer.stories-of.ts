@@ -70,7 +70,7 @@ export function mapLayerStories<Implementation, Templates, TemplateFnReturnType>
       ),
     },
     WithWijzigactie: {
-      args: { ...mapLayerArgs, wijzigactie: "toegevoegd" },
+      args: { ...mapLayerArgs, wijzigactie: "voegtoe" },
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(
         storyTemplates,

@@ -1,36 +1,9 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  Fragment,
-  FunctionalComponent,
-  Host,
-  Prop,
-  forceUpdate,
-  h,
-} from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Host, Prop, forceUpdate, h } from "@stencil/core";
 
+import { WrapWijzigactie } from "../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./plekinfo-card.interfaces";
-
-interface WrapWijzigactieProps {
-  wijzigactie: PlekinfoWijzigactie | undefined;
-}
-
-const WrapWijzigactie: FunctionalComponent<WrapWijzigactieProps> = ({ wijzigactie }, children) => {
-  if (wijzigactie === "voegtoe") {
-    return <ins class="dso-plekinfo-card-container">{children}</ins>;
-  }
-
-  if (wijzigactie === "verwijder") {
-    return <del class="dso-plekinfo-card-container">{children}</del>;
-  }
-
-  return <div class="dso-plekinfo-card-container">{children}</div>;
-};
 
 /**
  * @slot symbol - An optional slot to place a symbol, representing the plekinfo item, in.
@@ -118,7 +91,7 @@ export class PlekinfoCard implements ComponentInterface {
 
     return (
       <Host has-symbol={hasSymbol}>
-        <WrapWijzigactie wijzigactie={this.wijzigactie}>
+        <WrapWijzigactie wijzigactie={this.wijzigactie} class="dso-plekinfo-card-container">
           <div class="dso-plekinfo-card-symbol" hidden={!hasSymbol}>
             <slot name="symbol" />
           </div>

@@ -1,9 +1,9 @@
 import { Component, ComponentInterface, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
 
 import { DsoSlideToggleCustomEvent } from "../../../components";
+import { WrapWijzigactie } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
 import { MapLayerWijzigactie } from "../map-layer.interfaces";
-import { wrapWijzigactie } from "../map-layer.utils";
 
 import { MapLayerObjectActiveChangeEvent } from "./map-layer-object.interfaces";
 
@@ -59,8 +59,7 @@ export class MapLayerObject implements ComponentInterface {
   render() {
     return (
       <Host onMouseEnter={() => this.dsoMouseEnter.emit()} onMouseLeave={() => this.dsoMouseLeave.emit()}>
-        {wrapWijzigactie(
-          this.wijzigactie,
+        <WrapWijzigactie wijzigactie={this.wijzigactie}>
           <div class="map-layer-object">
             <div>
               <slot name="symbol" />
@@ -76,8 +75,8 @@ export class MapLayerObject implements ComponentInterface {
                 onDsoActiveChange={this.handleActiveChange}
               />
             </div>
-          </div>,
-        )}
+          </div>
+        </WrapWijzigactie>
       </Host>
     );
   }
