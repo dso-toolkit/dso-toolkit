@@ -31,7 +31,7 @@ export class MapLayer implements ComponentInterface {
   active?: boolean;
 
   /**
-   * An optional wijzigactie value for revision indication.
+   * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
    */
   @Prop({ reflect: true })
   wijzigactie!: MapLayerWijzigactie | undefined;

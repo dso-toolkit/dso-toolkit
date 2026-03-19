@@ -12,8 +12,8 @@ export interface MapLayerArgs {
   dsoActiveChange: HandlerFunction;
   dsoMouseEnter: HandlerFunction;
   dsoMouseLeave: HandlerFunction;
-  wijzigactie: "voegtoe" | "verwijder" | "undefined";
-  objectWijzigactie: "voegtoe" | "verwijder" | "undefined";
+  wijzigactie?: "voegtoe" | "verwijder";
+  objectWijzigactie?: "voegtoe" | "verwijder";
 }
 
 export const mapLayerArgs: MapLayerArgs = {
@@ -22,8 +22,6 @@ export const mapLayerArgs: MapLayerArgs = {
   dsoActiveChange: fn(),
   dsoMouseEnter: fn(),
   dsoMouseLeave: fn(),
-  wijzigactie: "undefined",
-  objectWijzigactie: "undefined",
 };
 
 export const mapLayerArgTypes: ArgTypes<MapLayerArgs> = {
@@ -41,13 +39,13 @@ export const mapLayerArgTypes: ArgTypes<MapLayerArgs> = {
     control: {
       type: "select",
     },
-    options: ["undefined", "voegtoe", "verwijder"],
+    options: [undefined, "voegtoe", "verwijder"],
   },
   objectWijzigactie: {
     control: {
       type: "select",
     },
-    options: ["undefined", "voegtoe", "verwijder"],
+    options: [undefined, "voegtoe", "verwijder"],
   },
   dsoActiveChange: argTypeAction(),
   dsoMouseEnter: argTypeAction(),
@@ -57,15 +55,19 @@ export const mapLayerArgTypes: ArgTypes<MapLayerArgs> = {
 export function mapLayerArgsMapper<TemplateFnReturnType>(
   a: MapLayerArgs,
   objects: MapLayerObject<TemplateFnReturnType>[],
-): Omit<MapLayer<TemplateFnReturnType>, "nameSlot"> {
+  nameSlot: TemplateFnReturnType,
+  labelSlot?: TemplateFnReturnType,
+): MapLayer<TemplateFnReturnType> {
   return {
     ...a,
-    wijzigactie: a.wijzigactie === "undefined" ? undefined : a.wijzigactie,
+    nameSlot,
+    labelSlot,
+    wijzigactie: a.wijzigactie,
     dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
     objects: objects.map((o) => {
       return {
         ...o,
-        wijzigactie: a.objectWijzigactie === "undefined" ? undefined : a.objectWijzigactie,
+        wijzigactie: a.objectWijzigactie,
         dsoMouseEnter: () => a.dsoMouseEnter(),
         dsoMouseLeave: () => a.dsoMouseLeave(),
       };

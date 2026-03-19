@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property                   | Attribute     | Description                                                            | Type                                    | Default     |
-| -------------------------- | ------------- | ---------------------------------------------------------------------- | --------------------------------------- | ----------- |
-| `active`                   | `active`      | An optional boolean indicating whether the Map Layer Object is active. | `boolean \| undefined`                  | `undefined` |
-| `wijzigactie` _(required)_ | `wijzigactie` | An optional wijzigactie value for revision indication.                 | `"verwijder" \| "voegtoe" \| undefined` | `undefined` |
+| Property                   | Attribute     | Description                                                                  | Type                                    | Default     |
+| -------------------------- | ------------- | ---------------------------------------------------------------------------- | --------------------------------------- | ----------- |
+| `active`                   | `active`      | An optional boolean indicating whether the Map Layer Object is active.       | `boolean \| undefined`                  | `undefined` |
+| `wijzigactie` _(required)_ | `wijzigactie` | An optional 'wijzigactie' that signals if the Map Layer is added or removed. | `"verwijder" \| "voegtoe" \| undefined` | `undefined` |
 
 
 ## Events

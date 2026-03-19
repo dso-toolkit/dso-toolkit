@@ -1013,7 +1013,7 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
-          * An optional wijzigactie value for revision indication.
+          * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
          */
         "wijzigactie": MapLayerWijzigactie | undefined;
     }
@@ -1023,7 +1023,7 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
-          * An optional wijzigactie value for revision indication.
+          * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
          */
         "wijzigactie": MapLayerWijzigactie | undefined;
     }
@@ -3927,7 +3927,7 @@ declare namespace LocalJSX {
          */
         "onDsoActiveChange"?: (event: DsoMapLayerCustomEvent<MapLayerActiveChangeEvent>) => void;
         /**
-          * An optional wijzigactie value for revision indication.
+          * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
          */
         "wijzigactie": MapLayerWijzigactie | undefined;
     }
@@ -3949,7 +3949,7 @@ declare namespace LocalJSX {
          */
         "onDsoMouseLeave"?: (event: DsoMapLayerObjectCustomEvent<any>) => void;
         /**
-          * An optional wijzigactie value for revision indication.
+          * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
          */
         "wijzigactie": MapLayerWijzigactie | undefined;
     }
