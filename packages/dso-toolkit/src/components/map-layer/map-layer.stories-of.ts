@@ -59,14 +59,14 @@ export function mapLayerStories<Implementation, Templates, TemplateFnReturnType>
     Multiple: {
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { mapLayerTemplate, multiple, nameSlotContent }) =>
-        mapLayerTemplate({ ...mapLayerArgsMapper(args, multiple), nameSlot: nameSlotContent }),
+        mapLayerTemplate(mapLayerArgsMapper(args, multiple, nameSlotContent)),
       ),
     },
     Single: {
       args: { ...mapLayerArgs, activatable: false },
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { mapLayerTemplate, single, nameSlotContent }) =>
-        mapLayerTemplate({ ...mapLayerArgsMapper(args, single), nameSlot: nameSlotContent }),
+        mapLayerTemplate(mapLayerArgsMapper(args, single, nameSlotContent)),
       ),
     },
     WithWijzigactie: {
@@ -75,7 +75,7 @@ export function mapLayerStories<Implementation, Templates, TemplateFnReturnType>
       render: templateContainer.render(
         storyTemplates,
         (args, { mapLayerTemplate, single, wijzigactieNameSlotContent }) =>
-          mapLayerTemplate({ ...mapLayerArgsMapper(args, single), nameSlot: wijzigactieNameSlotContent }),
+          mapLayerTemplate(mapLayerArgsMapper(args, single, wijzigactieNameSlotContent)),
       ),
     },
     WithLabel: {
@@ -83,11 +83,7 @@ export function mapLayerStories<Implementation, Templates, TemplateFnReturnType>
       render: templateContainer.render(
         storyTemplates,
         (args, { mapLayerTemplate, single, nameSlotContent, labelSlotContent }) =>
-          mapLayerTemplate({
-            ...mapLayerArgsMapper(args, single),
-            nameSlot: nameSlotContent,
-            labelSlot: labelSlotContent,
-          }),
+          mapLayerTemplate(mapLayerArgsMapper(args, single, nameSlotContent, labelSlotContent)),
       ),
     },
   };

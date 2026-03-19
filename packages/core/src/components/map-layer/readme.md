@@ -9,7 +9,7 @@
 | -------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ----------- |
 | `activatable`              | `activatable` | A boolean to indicate if the Map Layer is capable of being activated. When `true` a Slide Toggle displays on the right. | `boolean`                               | `false`     |
 | `active`                   | `active`      | An optional boolean indicating whether the Map Layer is active.                                                         | `boolean \| undefined`                  | `undefined` |
-| `wijzigactie` _(required)_ | `wijzigactie` | An optional wijzigactie value for revision indication.                                                                  | `"verwijder" \| "voegtoe" \| undefined` | `undefined` |
+| `wijzigactie` _(required)_ | `wijzigactie` | An optional 'wijzigactie' that signals if the Map Layer is added or removed.                                            | `"verwijder" \| "voegtoe" \| undefined` | `undefined` |
 
 
 ## Events
