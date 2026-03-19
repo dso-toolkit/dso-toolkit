@@ -1,7 +1,10 @@
 import { Component, ComponentInterface, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
 
 import { DsoSlideToggleCustomEvent } from "../../../components";
-import { Wijzigactie, WrapWijzigactie } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+import {
+  Wijzigactie,
+  WrapWijzigactie,
+} from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
 
 import { MapLayerObjectActiveChangeEvent } from "./map-layer-object.interfaces";

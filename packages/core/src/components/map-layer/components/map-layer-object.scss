@@ -46,7 +46,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: calc(units.$u1 / 2);
+    gap: units.$u1 * 0.5;
   }
 
   .slide-toggle-container {

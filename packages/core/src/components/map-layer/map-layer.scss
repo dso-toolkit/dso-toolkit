@@ -41,7 +41,7 @@
     ::slotted([slot="name"]) {
       font-weight: 600;
       line-height: 1.375em;
-      margin-inline-end: calc(units.$u1 / 2);
+      margin-inline-end: units.$u1 * 0.5;
     }
   }
 
