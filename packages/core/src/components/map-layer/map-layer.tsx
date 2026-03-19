@@ -1,13 +1,15 @@
-import { Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Prop, h } from "@stencil/core";
 
 import { DsoSlideToggleCustomEvent } from "../../components";
+import { WrapWijzigactie } from "../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { SlideToggleActiveEvent } from "../slide-toggle/slide-toggle.interfaces";
 
 import { MapLayerActiveChangeEvent, MapLayerWijzigactie } from "./map-layer.interfaces";
-import { wrapWijzigactie } from "./map-layer.utils";
 
 /**
  * @slot - The dso-map-layer-object elements. These should be direct children of the dso-map-layer element.
+ * @slot name - The name of the Map Layer.
+ * @slot label - An optional slot for badges or labels next to the Map Layer name.
  */
 @Component({
   tag: "dso-map-layer",
@@ -49,9 +51,8 @@ export class MapLayer implements ComponentInterface {
   };
 
   render() {
-    return wrapWijzigactie(
-      this.wijzigactie,
-      <Fragment>
+    return (
+      <WrapWijzigactie wijzigactie={this.wijzigactie}>
         <div class="map-layer">
           <div class="map-layer-heading">
             <slot name="name" />
@@ -68,7 +69,7 @@ export class MapLayer implements ComponentInterface {
           )}
         </div>
         <slot />
-      </Fragment>,
+      </WrapWijzigactie>
     );
   }
 }

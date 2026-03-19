@@ -12,4 +12,4 @@ export interface MapLayerActiveChangeEvent {
   originalEvent: Event;
 }
 
-export type MapLayerWijzigactie = "toegevoegd" | "verwijderd";
+export type MapLayerWijzigactie = "voegtoe" | "verwijder";

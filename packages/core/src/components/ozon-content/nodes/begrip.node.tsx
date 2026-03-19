@@ -1,15 +1,14 @@
 import { FunctionalComponent, JSX, h } from "@stencil/core";
 
-import { WrapWijzigactie } from "../functional-components/wrap-wijzigactie.functional-component";
+import { WrapWijzigactie, Wijzigactie } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
 import { wijzigactieToClassName } from "../functions/wijzigactie-to-class-name.function";
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
-import { OzonContentWijzigActie } from "../ozon-content.interfaces";
 
 interface BegripProps {
-  begripWijzigactie: OzonContentWijzigActie | undefined;
+  begripWijzigactie: Wijzigactie | undefined;
   node: ChildNode;
   mapNodeToJsx: (node: Node | NodeList | Node[]) => JSX.Element;
 }

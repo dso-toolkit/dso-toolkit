@@ -2,10 +2,9 @@ import { FunctionalComponent } from "@stencil/core";
 import { h } from "@stencil/core/internal";
 import { clsx } from "clsx";
 
-import { WrapWijzigactie } from "../../functional-components/wrap-wijzigactie.functional-component";
+import { WrapWijzigactie, Wijzigactie } from "../../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { wijzigactieToClassName } from "../../functions/wijzigactie-to-class-name.function";
 import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
-import { OzonContentWijzigActie } from "../../ozon-content.interfaces";
 
 import { Colspecs } from "./colspec/colspec.interface";
 
@@ -63,7 +62,7 @@ export const Cell: FunctionalComponent<{
   context: OzonContentNodeContext;
   colspecs: Colspecs | undefined;
   cell: Element;
-  wijzigactie: OzonContentWijzigActie | undefined;
+  wijzigactie: Wijzigactie | undefined;
 }> = ({ context: { mapNodeToJsx }, colspecs, cell, wijzigactie }) => {
   const { moreRows, nameStart, nameEnd, colsep, rowsep } = getData(cell, colspecs);
 

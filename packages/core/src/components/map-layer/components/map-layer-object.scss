@@ -2,6 +2,9 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 
+@use "~dso-toolkit/src/components/insert";
+@use "~dso-toolkit/src/components/delete";
+
 @use "map-layer-object.variables" as map-layer-object-variables;
 @use "../map-layer.variables" as map-layer-variables;
 
@@ -17,13 +20,12 @@
   }
 }
 
-:host([wijzigactie="toegevoegd"]) {
-  background-color: map-layer-variables.$map-layer-wijzigactie-toegevoegd-background-color;
-  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.25);
+:host([wijzigactie="voegtoe"]) {
+  @include insert.root();
 }
 
-:host([wijzigactie="verwijderd"]) {
-  background-color: map-layer-variables.$map-layer-wijzigactie-verwijderd-background-color;
+:host([wijzigactie="verwijder"]) {
+  @include delete.root($strikethrough: false);
 }
 
 .map-layer-object {

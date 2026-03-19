@@ -12,8 +12,8 @@ export interface MapLayerArgs {
   dsoActiveChange: HandlerFunction;
   dsoMouseEnter: HandlerFunction;
   dsoMouseLeave: HandlerFunction;
-  wijzigactie: "toegevoegd" | "verwijderd" | "undefined";
-  objectWijzigactie: "toegevoegd" | "verwijderd" | "undefined";
+  wijzigactie: "voegtoe" | "verwijder" | "undefined";
+  objectWijzigactie: "voegtoe" | "verwijder" | "undefined";
 }
 
 export const mapLayerArgs: MapLayerArgs = {
@@ -41,13 +41,13 @@ export const mapLayerArgTypes: ArgTypes<MapLayerArgs> = {
     control: {
       type: "select",
     },
-    options: ["undefined", "toegevoegd", "verwijderd"],
+    options: ["undefined", "voegtoe", "verwijder"],
   },
   objectWijzigactie: {
     control: {
       type: "select",
     },
-    options: ["undefined", "toegevoegd", "verwijderd"],
+    options: ["undefined", "voegtoe", "verwijder"],
   },
   dsoActiveChange: argTypeAction(),
   dsoMouseEnter: argTypeAction(),
