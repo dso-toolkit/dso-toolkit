@@ -1,9 +1,9 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Host, Prop, forceUpdate, h } from "@stencil/core";
 
-import { WrapWijzigactie } from "../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+import { Wijzigactie, WrapWijzigactie } from "../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
-import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./plekinfo-card.interfaces";
+import { PlekinfoCardClickEvent } from "./plekinfo-card.interfaces";
 
 /**
  * @slot symbol - An optional slot to place a symbol, representing the plekinfo item, in.
@@ -26,7 +26,7 @@ export class PlekinfoCard implements ComponentInterface {
    * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
    */
   @Prop({ reflect: true })
-  wijzigactie?: PlekinfoWijzigactie;
+  wijzigactie?: Wijzigactie;
 
   /**
    * The URL to which the PlekinfoCard heading links.
