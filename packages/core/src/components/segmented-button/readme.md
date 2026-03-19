@@ -13,7 +13,7 @@ Beperk het aantal segmenten, houd labels kort en consistent. Het component kan n
 
 | Property                    | Attribute    | Description                               | Type                                   | Default     |
 | --------------------------- | ------------ | ----------------------------------------- | -------------------------------------- | ----------- |
-| `activeOption` _(required)_ | --           | Index of the currently active option      | `SegmentedButtonOption \| undefined`   | `undefined` |
+| `activeOption` _(required)_ | --           | The currently active option               | `SegmentedButtonOption \| undefined`   | `undefined` |
 | `groupName`                 | `group-name` | Optional custom group name                | `string \| undefined`                  | `undefined` |
 | `label` _(required)_        | `label`      | Label for the segmented button group.     | `string \| undefined`                  | `undefined` |
 | `options` _(required)_      | --           | Options to render in the segmented button | `SegmentedButtonOption[] \| undefined` | `undefined` |

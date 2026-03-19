@@ -42,7 +42,7 @@ export const segmentedButtonArgTypes: ArgTypes<SegmentedButtonArgs> = {
     },
   },
   activeOption: {
-    options: [undefined, 0, 1, 2, 3, 4],
+    options: [undefined, 0, 1, 2, 3],
     control: {
       type: "select",
     },
@@ -63,6 +63,7 @@ export const segmentedButtonArgTypes: ArgTypes<SegmentedButtonArgs> = {
 export function segmentedButtonArgsMapper(a: SegmentedButtonArgs): SegmentedButton {
   return {
     ...a,
+    activeOption: a.activeOption !== undefined ? a.options[a.activeOption] : undefined,
     dsoChange: (event) => {
       a.dsoChange(event.detail);
     },

@@ -33,10 +33,10 @@ export class SegmentedButton implements ComponentInterface {
    * Whether selection is required
    */
   @Prop({ reflect: true })
-  required?: boolean; // <dso-segmented-button required> | <dso-segmented-button>
+  required?: boolean;
 
   /**
-   * Index of the currently active option
+   * The currently active option
    */
   @Prop()
   activeOption!: SegmentedButtonOption | undefined;
