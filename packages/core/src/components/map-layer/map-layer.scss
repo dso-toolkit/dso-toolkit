@@ -3,9 +3,17 @@
 
 @use "map-layer.variables" as map-layer-variables;
 
+@include utilities.box-sizing();
+
 :host {
   display: block;
   padding: 6px;
+
+  ins,
+  del {
+    display: contents;
+    text-decoration: none;
+  }
 }
 
 :host([wijzigactie="toegevoegd"]) {
@@ -17,14 +25,6 @@
   background-color: map-layer-variables.$map-layer-wijzigactie-verwijderd-background-color;
 }
 
-ins,
-del {
-  display: contents;
-  text-decoration: none;
-}
-
-@include utilities.box-sizing();
-
 .map-layer {
   display: flex;
   justify-content: space-between;
@@ -35,16 +35,16 @@ del {
     flex-wrap: wrap;
     align-items: center;
     margin-block-end: units.$u1;
+
+    ::slotted([slot="name"]) {
+      font-weight: 600;
+      line-height: 1.375em;
+      margin-inline-end: calc(units.$u1 / 2);
+    }
   }
-}
 
-::slotted([slot="name"]) {
-  font-weight: 600;
-  line-height: 1.375em;
-  margin-inline-end: calc(units.$u1 / 2);
-}
-
-.slide-toggle-container dso-slide-toggle {
-  display: flex;
-  padding-block-start: 0;
+  .slide-toggle-container dso-slide-toggle {
+    display: flex;
+    padding-block-start: 0;
+  }
 }
