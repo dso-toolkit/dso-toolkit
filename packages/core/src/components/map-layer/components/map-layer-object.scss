@@ -5,8 +5,16 @@
 @use "map-layer-object.variables" as map-layer-object-variables;
 @use "../map-layer.variables" as map-layer-variables;
 
+@include utilities.box-sizing();
+
 :host {
   display: block;
+
+  ins,
+  del {
+    display: contents;
+    text-decoration: none;
+  }
 }
 
 :host([wijzigactie="toegevoegd"]) {
@@ -18,27 +26,19 @@
   background-color: map-layer-variables.$map-layer-wijzigactie-verwijderd-background-color;
 }
 
-ins,
-del {
-  display: contents;
-  text-decoration: none;
-}
-
-@include utilities.box-sizing();
-
-::slotted([slot="symbol"]) {
-  @include symbol-mixins.symbolContainer(
-    map-layer-object-variables.$symbol-block-size,
-    map-layer-object-variables.$symbol-inline-size
-  );
-}
-
 .map-layer-object {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2px;
-  min-block-size: map-layer-variables.$map-layer-min-block-size;
+  min-block-size: map-layer-variables.$map-layer-min-block-size - 4px;
+
+  ::slotted([slot="symbol"]) {
+    @include symbol-mixins.symbolContainer(
+      map-layer-object-variables.$symbol-block-size,
+      map-layer-object-variables.$symbol-inline-size
+    );
+  }
 
   &-heading {
     display: flex;
@@ -46,13 +46,15 @@ del {
     align-items: center;
     gap: calc(units.$u1 / 2);
   }
-}
 
-.slide-toggle-container {
-  margin-inline-start: auto;
-
-  dso-slide-toggle {
+  .slide-toggle-container {
     display: flex;
-    padding-block-start: 0;
+    align-items: center;
+    margin-inline-start: auto;
+
+    dso-slide-toggle {
+      display: flex;
+      padding-block: 0;
+    }
   }
 }
