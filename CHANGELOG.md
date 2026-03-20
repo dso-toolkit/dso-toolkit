@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* List: Variant unordered-action toevoegen ([#3511](https://github.com/dso-toolkit/dso-toolkit/issues/3511))
+
 ### Fixed
 * Table: Bij vergroten van een tabel wordt de titel niet voorgelezen ([#3585](https://github.com/dso-toolkit/dso-toolkit/issues/3585))
 * Ozon Content: IntIoRef toggletip icon niet op juiste positie in Firefox ([#3586](https://github.com/dso-toolkit/dso-toolkit/issues/3586))
