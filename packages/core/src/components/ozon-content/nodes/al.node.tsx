@@ -1,6 +1,6 @@
 import { h } from "@stencil/core";
 
-import { WrapWijzigactie } from "../functional-components/wrap-wijzigactie.functional-component";
+import { WrapWijzigactie } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
 import { wijzigactieToClassName } from "../functions/wijzigactie-to-class-name.function";
 import { getNodeName } from "../get-node-name.function";

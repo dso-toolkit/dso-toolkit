@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Map Layer: Renvooi en wijzigingen ([#3595](https://github.com/dso-toolkit/dso-toolkit/issues/3595))
+
 ### Fixed
 * Table: Bij vergroten van een tabel wordt de titel niet voorgelezen ([#3585](https://github.com/dso-toolkit/dso-toolkit/issues/3585))
 * Ozon Content: IntIoRef toggletip icon niet op juiste positie in Firefox ([#3586](https://github.com/dso-toolkit/dso-toolkit/issues/3586))

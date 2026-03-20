@@ -1,28 +1,52 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 
+@use "~dso-toolkit/src/components/insert";
+@use "~dso-toolkit/src/components/delete";
+
 @use "map-layer.variables" as map-layer-variables;
+
+@include utilities.box-sizing();
 
 :host {
   display: block;
+  padding: 6px;
+
+  ins,
+  del {
+    display: contents;
+    text-decoration: none;
+  }
 }
 
-@include utilities.box-sizing();
+:host([wijzigactie="voegtoe"]) {
+  @include insert.root();
+}
+
+:host([wijzigactie="verwijder"]) {
+  @include delete.root($strikethrough: false);
+}
 
 .map-layer {
   display: flex;
   justify-content: space-between;
   min-block-size: map-layer-variables.$map-layer-min-block-size;
-}
 
-.map-layer-label {
-  font-weight: 600;
-  line-height: 1.375em;
-  margin: 0;
-  position: relative;
-}
+  &-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-block-end: units.$u1;
 
-.slide-toggle-container dso-slide-toggle {
-  display: flex;
-  padding-block-start: 0;
+    ::slotted([slot="name"]) {
+      font-weight: 600;
+      line-height: 1.375em;
+      margin-inline-end: units.$u1 * 0.5;
+    }
+  }
+
+  .slide-toggle-container dso-slide-toggle {
+    display: flex;
+    padding-block-start: 0;
+  }
 }

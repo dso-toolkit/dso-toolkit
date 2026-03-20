@@ -1,12 +1,18 @@
-import { Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Prop, h } from "@stencil/core";
 
 import { DsoSlideToggleCustomEvent } from "../../components";
+import {
+  Wijzigactie,
+  WrapWijzigactie,
+} from "../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { SlideToggleActiveEvent } from "../slide-toggle/slide-toggle.interfaces";
 
 import { MapLayerActiveChangeEvent } from "./map-layer.interfaces";
 
 /**
  * @slot - The dso-map-layer-object elements. These should be direct children of the dso-map-layer element.
+ * @slot name - The name of the Map Layer.
+ * @slot label - An optional slot for badges or labels next to the Map Layer name.
  */
 @Component({
   tag: "dso-map-layer",
@@ -14,12 +20,6 @@ import { MapLayerActiveChangeEvent } from "./map-layer.interfaces";
   shadow: true,
 })
 export class MapLayer implements ComponentInterface {
-  /**
-   * The label of the Map Layer.
-   */
-  @Prop({ reflect: true })
-  label!: string | undefined;
-
   /**
    * A boolean to indicate if the Map Layer is capable of being activated. When `true` a Slide Toggle displays
    * on the right.
@@ -32,6 +32,12 @@ export class MapLayer implements ComponentInterface {
    */
   @Prop({ reflect: true })
   active?: boolean;
+
+  /**
+   * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
+   */
+  @Prop({ reflect: true })
+  wijzigactie!: Wijzigactie | undefined;
 
   /**
    * Emitted when user activates or deactivates the Map Layer.
@@ -49,9 +55,12 @@ export class MapLayer implements ComponentInterface {
 
   render() {
     return (
-      <Fragment>
+      <WrapWijzigactie wijzigactie={this.wijzigactie}>
         <div class="map-layer">
-          <span class="map-layer-label">{this.label}</span>
+          <div class="map-layer-heading">
+            <slot name="name" />
+            <slot name="label" />
+          </div>
           {this.activatable && (
             <div class="slide-toggle-container">
               <dso-slide-toggle
@@ -63,7 +72,7 @@ export class MapLayer implements ComponentInterface {
           )}
         </div>
         <slot />
-      </Fragment>
+      </WrapWijzigactie>
     );
   }
 }

@@ -2,13 +2,14 @@ import { MapLayerObject, RenvooiValue } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
 const object1: MapLayerObject<TemplateResult> = {
-  label: html`<span>Map layer object 1</span>`,
+  name: html`<span>Map layer object 1</span>`,
   symboolCode: "vszt030",
 };
 
 const object2: MapLayerObject<TemplateResult> = {
   active: true,
-  label: html`<span>Map layer object 2 (Gebiedsoverschrijdingszone)</span>`,
+  name: html`<span>Map layer object 2 (Gebiedsoverschrijdingszone)</span>`,
+  labelSlot: html`<dso-label slot="label" status="warning">Nieuw</dso-label>`,
   symboolCode: "vag000",
 };
 
@@ -22,7 +23,7 @@ const renvooiLabel: RenvooiValue[] = [
 
 const object3: MapLayerObject<TemplateResult> = {
   active: true,
-  label: html`<dso-renvooi .value=${renvooiLabel}></dso-renvooi>`,
+  name: html`<dso-renvooi .value=${renvooiLabel}></dso-renvooi>`,
   symboolCode: "vszt030",
 };
 
@@ -32,4 +33,20 @@ export function multipleMapLayerObjects(): MapLayerObject<TemplateResult>[] {
 
 export function singleMapLayerObject(): MapLayerObject<TemplateResult>[] {
   return [object1];
+}
+
+export function nameSlotContent(wijzigactie?: boolean): TemplateResult {
+  return wijzigactie
+    ? html`<dso-renvooi
+        slot="name"
+        .value=${{
+          was: "Label verwijderd",
+          wordt: "Label toegevoegd",
+        }}
+      ></dso-renvooi>`
+    : html`<span slot="name">Map layer</span>`;
+}
+
+export function labelSlotContent(): TemplateResult {
+  return html`<dso-label slot="label" status="warning">Label</dso-label>`;
 }

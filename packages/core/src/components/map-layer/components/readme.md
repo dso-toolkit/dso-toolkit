@@ -5,9 +5,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                            | Type                   | Default     |
-| -------- | --------- | ---------------------------------------------------------------------- | ---------------------- | ----------- |
-| `active` | `active`  | An optional boolean indicating whether the Map Layer Object is active. | `boolean \| undefined` | `undefined` |
+| Property                   | Attribute     | Description                                                                  | Type                                    | Default     |
+| -------------------------- | ------------- | ---------------------------------------------------------------------------- | --------------------------------------- | ----------- |
+| `active`                   | `active`      | An optional boolean indicating whether the Map Layer Object is active.       | `boolean \| undefined`                  | `undefined` |
+| `wijzigactie` _(required)_ | `wijzigactie` | An optional 'wijzigactie' that signals if the Map Layer is added or removed. | `"verwijder" \| "voegtoe" \| undefined` | `undefined` |
 
 
 ## Events
@@ -24,6 +25,7 @@
 | Slot       | Description                                                               |
 | ---------- | ------------------------------------------------------------------------- |
 |            | The label for this Map Layer Object                                       |
+| `"label"`  | An optional slot for badges or labels next to the object label.           |
 | `"symbol"` | An optional slot to place a symbol in, representing the Map Layer Object. |
 
 
