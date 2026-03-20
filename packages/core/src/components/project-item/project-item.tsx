@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Fragment, Prop, h } from "@stencil/core";
+import { Component, ComponentInterface, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "dso-project-item",
@@ -14,7 +14,7 @@ export class ProjectItem implements ComponentInterface {
 
   render() {
     return (
-      <Fragment>
+      <div class="project-item">
         <div class="project-item-header">
           <div class="project-item-title">
             <slot name="title" />
@@ -36,7 +36,7 @@ export class ProjectItem implements ComponentInterface {
             <slot name="status" />
           </div>
         </div>
-      </Fragment>
+      </div>
     );
   }
 }

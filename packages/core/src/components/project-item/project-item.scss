@@ -4,11 +4,6 @@
 
 :host {
   display: block;
-
-  padding: units.$u2;
-
-  border: 1px solid colors.$grijs-20;
-  border-radius: calc(units.$u1 / 2);
 }
 
 @include utilities.box-sizing();
@@ -34,7 +29,8 @@
   column-gap: units.$u2;
 }
 
-::slotted(dl[slot="status"]) {
+::slotted([slot="status"]) {
+  --_dt-dl-font-size: 0.875rem;
   justify-content: flex-end;
 }
 
@@ -47,41 +43,46 @@
   display: flex;
 }
 
-.project-item-header {
-  display: flex;
-  gap: units.$u2;
-  flex-wrap: nowrap;
-  align-items: flex-start;
+.project-item {
+  padding: units.$u2;
+  border: 1px solid colors.$grijs-20;
+  border-radius: units.$u1 * 0.5;
 
-  margin-block-end: units.$u2;
-}
-
-.project-item-title {
-  display: flex;
-  gap: units.$u2;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex-grow: 1;
-}
-
-.project-item-actions {
-  display: flex;
-  flex-shrink: 0;
-  flex-wrap: nowrap;
-}
-
-.project-item-info {
-  display: flex;
-  gap: units.$u2;
-  flex-wrap: wrap;
-
-  .project-item-progress {
-    justify-content: flex-start;
+  .project-item-header {
+    display: flex;
+    gap: units.$u2;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    margin-block-end: units.$u2;
   }
 
-  .project-item-status {
-    justify-content: flex-end;
-    margin-inline-start: auto;
+  .project-item-title {
+    display: flex;
+    gap: units.$u2;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
+
+  .project-item-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+  }
+
+  .project-item-info {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: units.$u2;
+
+    .project-item-progress {
+      justify-content: flex-start;
+    }
+
+    .project-item-status {
+      margin-inline-start: auto;
+    }
   }
 }
