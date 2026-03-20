@@ -11,7 +11,7 @@ const meta: Meta<ListArgs> = {
 
 export default meta;
 
-const { Columns, Group, Unordered, Unstyled, ImageList, Ordered, Icons, OrderedAction } = listStories({
+const { Columns, Group, Unordered, Unstyled, ImageList, Ordered, Icons, OrderedAction, UnorderedAction } = listStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { listTemplate } = templates;
@@ -22,4 +22,4 @@ const { Columns, Group, Unordered, Unstyled, ImageList, Ordered, Icons, OrderedA
   },
 });
 
-export { Columns, Group, Icons, ImageList, Ordered, OrderedAction, Unordered, Unstyled };
+export { Columns, Group, Icons, ImageList, Ordered, OrderedAction, Unordered, UnorderedAction, Unstyled };

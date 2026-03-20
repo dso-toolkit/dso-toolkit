@@ -15,6 +15,7 @@ interface ListStories {
   Icons: ListStory;
   ImageList: ListStory;
   OrderedAction: ListStory;
+  UnorderedAction: ListStory;
   Ordered: ListStory;
   Unordered: ListStory;
   Unstyled: ListStory;
@@ -130,6 +131,34 @@ export function listStories<Implementation, Templates, TemplateFnReturnType>({
           { titleLabel: "Vestibulum at eros", text: "Dapibus ac facilisis in" },
           { text: "Cras justo odio" },
         ],
+      },
+      argTypes: {
+        type: {
+          control: {
+            disable: true,
+          },
+        },
+      },
+      render,
+    },
+    UnorderedAction: {
+      args: {
+        type: Type.Ul,
+        modifier: "unordered-action",
+        items: [
+          { titleLabel: "Porta ac consectetur ac", text: "Cras justo odio" },
+          { titleLabel: "Vestibulum at eros", text: "Dapibus ac facilisis in" },
+          { titleLabel: "Porta ac consectetur ac", text: "Cras justo odio" },
+          { titleLabel: "Vestibulum at eros", text: "Dapibus ac facilisis in" },
+          { text: "Cras justo odio" },
+        ],
+      },
+      argTypes: {
+        type: {
+          control: {
+            disable: true,
+          },
+        },
       },
       render,
     },

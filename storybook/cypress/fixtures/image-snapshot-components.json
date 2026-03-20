@@ -258,14 +258,22 @@
   },
   {
     "name": "link-list",
-
     "stories": ["in-highlight-box"],
     "type": "html-css"
   },
   {
     "name": "list",
-
-    "stories": ["unordered", "ordered", "group", "columns", "image-list", "unstyled", "icons", "ordered-action"],
+    "stories": [
+      "unordered",
+      "ordered",
+      "group",
+      "columns",
+      "image-list",
+      "unstyled",
+      "icons",
+      "ordered-action",
+      "unordered-action"
+    ],
     "type": "html-css"
   },
   {
