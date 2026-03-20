@@ -143,7 +143,10 @@ ul:has(dso-project-item) {
   }
 }
 
-ol.dso-list-ordered-action {
+/* The ol.dso-list-ordered-action selector will be removed in #3655 */
+ol.dso-list-ordered-action,
+ol.dso-action-list,
+ul.dso-action-list {
   @include list.unstyled();
   counter-reset: item;
 
@@ -182,5 +185,13 @@ ol.dso-list-ordered-action {
     inset-block-start: 1.25rem;
     inset-inline-start: 1.375rem;
     inline-size: units.$u1 * 0.5;
+  }
+}
+
+ul.dso-action-list {
+  li::before {
+    @include step-counter.step-counter-styling(4px, 4px, 28px, 28px, 6px);
+
+    content: "";
   }
 }

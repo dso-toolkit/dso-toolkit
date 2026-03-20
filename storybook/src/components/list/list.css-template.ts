@@ -15,7 +15,7 @@ function listClassMap(
     "dso-img-list": modifier === "img-list",
     "dso-list-unstyled": modifier === "unstyled",
     "dso-img-list-spaced": modifier === "img-list" && !!spaced,
-    "dso-list-ordered-action": modifier === "ordered-action",
+    "dso-action-list": modifier === "ordered-action" || modifier === "unordered-action",
   });
 }
 
