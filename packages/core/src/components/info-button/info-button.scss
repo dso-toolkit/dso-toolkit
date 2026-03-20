@@ -19,14 +19,6 @@
   @include utilities.sr-only();
 }
 
-// ToDo: remove this part in https://github.com/dso-toolkit/dso-toolkit/issues/3350. Tertiary on color already working
-button {
-  @include info-button.root();
-
-  vertical-align: top;
-  line-height: 1;
-}
-
 dso-icon-button {
   vertical-align: top;
   margin-inline-start: var(--_dt-info-button-margin-inline-start, units.$u1);

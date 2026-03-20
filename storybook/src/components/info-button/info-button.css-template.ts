@@ -9,13 +9,12 @@ export const cssInfoButton: ComponentImplementation<InfoButton<TemplateResult>> 
   component: "infoButton",
   implementation: "html-css",
   template: () =>
-    function infoButtonTemplate({ active, label, secondary, dsoToggle }) {
+    function infoButtonTemplate({ active, label, dsoToggle }) {
       return html`
         <button
           type="button"
           class="dso-info-button ${classMap({
             "dso-open": !!active,
-            "dso-info-secondary": !!secondary,
           })}"
           aria-expanded=${ifDefined(active?.toString())}
           @click=${ifDefined(dsoToggle)}

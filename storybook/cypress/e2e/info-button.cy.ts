@@ -1,5 +1,5 @@
 describe("Info Button", () => {
-  const variants = ["default", "information", "secondary-inactive", "secondary-active"];
+  const variants = ["default", "information"];
 
   const visitStory = (story: string) => cy.visit(`http://localhost:45000/iframe.html?id=core-info-button--${story}`);
 

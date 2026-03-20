@@ -13,16 +13,6 @@
   &:active {
     @include di.variant("info-solid");
   }
-
-  &.dso-info-secondary {
-    @include di.variant("info-outline-secondary");
-
-    &.dso-open,
-    &:hover,
-    &:active {
-      @include di.variant("info-solid-secondary");
-    }
-  }
 }
 
 .control-label + .dso-info-button {

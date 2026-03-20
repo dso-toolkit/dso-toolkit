@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Table: Bij vergroten van een tabel wordt de titel niet voorgelezen ([#3585](https://github.com/dso-toolkit/dso-toolkit/issues/3585))
 * Ozon Content: IntIoRef toggletip icon niet op juiste positie in Firefox ([#3586](https://github.com/dso-toolkit/dso-toolkit/issues/3586))
 
+### Removed
+* **BREAKING** Info Button: `secondary` verwijderen ([#3350](https://github.com/dso-toolkit/dso-toolkit/issues/3350))
+
 ### Task
 * Segmented Button: Control `activeOption` werkt niet in Storybook ([#3639](https://github.com/dso-toolkit/dso-toolkit/issues/3639))
 
