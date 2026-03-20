@@ -106,10 +106,14 @@ export class ozonContentToggletip implements ComponentInterface {
           ref={(element) => (this.container = element)}
         >
           {this.icon && (
-            <span class="icon-container">
-              <slot name="label" />
+            <Fragment>
+              <span class="toggletip-label">
+                <slot name="label" />
+              </span>
+              {/* Word joiner: prevents a line break between label text and icon */}
+              {"\u2060"}
               <dso-icon icon={this.icon} />
-            </span>
+            </Fragment>
           )}
           {!this.icon && <slot name="label" />}
         </span>
