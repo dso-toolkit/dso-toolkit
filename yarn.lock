@@ -12863,7 +12863,7 @@ __metadata:
     gulp-svgstore: "npm:^9.0.0"
     gulp-typescript: "npm:^6.0.0-alpha.1"
     list-stream: "npm:^2.1.0"
-    markdown-to-jsx: "npm:^9.7.6"
+    markdown-to-jsx: "npm:^9.7.13"
     plugin-error: "npm:^2.0.1"
     postcss: "npm:^8.5.8"
     prettier: "npm:^3.8.1"
@@ -18489,9 +18489,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-to-jsx@npm:^9.7.6":
-  version: 9.7.6
-  resolution: "markdown-to-jsx@npm:9.7.6"
+"markdown-to-jsx@npm:^9.7.13":
+  version: 9.7.13
+  resolution: "markdown-to-jsx@npm:9.7.13"
   peerDependencies:
     react: ">= 16.0.0"
     solid-js: ">=1.0.0"
@@ -18505,7 +18505,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-  checksum: 10/3d90b6a9f25e7f240d5d1dd34a8e196b2038d060d6bf40357499003b356d4fb3be4ec9c41a643c8a58cc703cf7920d5ae3a22f40cbfe6ddcd10a71f54a6af34c
+  checksum: 10/3ca616d499552fcfd17433fdbf313e865cd9465a3737fd2a2a008b4d08f6b1041cb43ff0081833e573b670d48cad6e4112bb13dd597e4a18eba486171d696b1e
   languageName: node
   linkType: hard
 
