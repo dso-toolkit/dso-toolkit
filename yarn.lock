@@ -3949,9 +3949,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@easyops-cn/docusaurus-search-local@npm:^0.55.0":
-  version: 0.55.0
-  resolution: "@easyops-cn/docusaurus-search-local@npm:0.55.0"
+"@easyops-cn/docusaurus-search-local@npm:^0.55.1":
+  version: 0.55.1
+  resolution: "@easyops-cn/docusaurus-search-local@npm:0.55.1"
   dependencies:
     "@docusaurus/plugin-content-docs": "npm:^2 || ^3"
     "@docusaurus/theme-translations": "npm:^2 || ^3"
@@ -3978,7 +3978,7 @@ __metadata:
   peerDependenciesMeta:
     open-ask-ai:
       optional: true
-  checksum: 10/75c90fcd9cbe097ad8b133c4588326a89b3c746980b0737e9a7ca73a99efffddd497d4c24c0289cbaddb886d1009114a5d271648d8235ed34c38b57b36fb43ff
+  checksum: 10/7eaee8145ebd67357d30492d729cfe82ab55dbc71dbe3ecd71e3d56cc4a3b255feef3ee985300ab773b16659309c45d48d57dabf2d79fcb51c8904704aa3c344
   languageName: node
   linkType: hard
 
@@ -9888,7 +9888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.4.27":
+"autoprefixer@npm:10.4.27, autoprefixer@npm:^10.4.19, autoprefixer@npm:^10.4.23":
   version: 10.4.27
   resolution: "autoprefixer@npm:10.4.27"
   dependencies:
@@ -9902,23 +9902,6 @@ __metadata:
   bin:
     autoprefixer: bin/autoprefixer
   checksum: 10/5dd9ec57cc1c2af556e10d6c76d082f66d23275671b8b125f6c1d33ba7d9a984d80d3fb4fab7b5e092ac1a34f3aa5a131a392f131f5924029c3cb82faea15b0c
-  languageName: node
-  linkType: hard
-
-"autoprefixer@npm:^10.4.19, autoprefixer@npm:^10.4.23":
-  version: 10.4.24
-  resolution: "autoprefixer@npm:10.4.24"
-  dependencies:
-    browserslist: "npm:^4.28.1"
-    caniuse-lite: "npm:^1.0.30001766"
-    fraction.js: "npm:^5.3.4"
-    picocolors: "npm:^1.1.1"
-    postcss-value-parser: "npm:^4.2.0"
-  peerDependencies:
-    postcss: ^8.1.0
-  bin:
-    autoprefixer: bin/autoprefixer
-  checksum: 10/d09c4259a96001256e3150c2734aa0c5f7a53d98cc69ec42ef5fa167aadd804e857040dc3c732f62d80602212ebfd7d8783c9d27f1766a413f637eeac4fefa53
   languageName: node
   linkType: hard
 
@@ -10605,14 +10588,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001759, caniuse-lite@npm:^1.0.30001766":
-  version: 1.0.30001774
-  resolution: "caniuse-lite@npm:1.0.30001774"
-  checksum: 10/63c87aeac08548847ecd12746144029761707d9eae57750f673543a2b2a6126bca98584dd551818e8dc2a480d11489bebe0027af26de4ee46466e7b216109862
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001774":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001759, caniuse-lite@npm:^1.0.30001774":
   version: 1.0.30001781
   resolution: "caniuse-lite@npm:1.0.30001781"
   checksum: 10/13000e0bbb340d5b7d2543293c84439acf3ac6b643ae9a5b69e92138c95471b5e97067a8eb2b28e79b67d1390cc2a51ba2d5c474f745f7f1f7a955392fd0ec4f
@@ -27808,7 +27784,7 @@ __metadata:
     "@docusaurus/plugin-content-docs": "npm:3.9.2"
     "@docusaurus/preset-classic": "npm:3.9.2"
     "@docusaurus/theme-common": "npm:3.9.2"
-    "@easyops-cn/docusaurus-search-local": "npm:^0.55.0"
+    "@easyops-cn/docusaurus-search-local": "npm:^0.55.1"
     "@iframe-resizer/react": "npm:^5.5.9"
     "@mdx-js/react": "npm:^3.1.1"
     "@tsconfig/docusaurus": "npm:^2.0.9"
