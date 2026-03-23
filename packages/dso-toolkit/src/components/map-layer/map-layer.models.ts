@@ -2,17 +2,21 @@ export interface MapLayer<TemplateFnReturnType> {
   active?: boolean;
   activatable?: boolean;
   dsoActiveChange?: (e: CustomEvent<MapLayerActiveChangeEvent>) => void;
-  label: string;
+  nameSlot: TemplateFnReturnType;
   objects: MapLayerObject<TemplateFnReturnType>[];
+  wijzigactie?: string;
+  labelSlot?: TemplateFnReturnType;
 }
 
 export interface MapLayerObject<TemplateFnReturnType> {
-  label: TemplateFnReturnType;
+  name: TemplateFnReturnType;
   dsoActiveChange?: (e: CustomEvent<MapLayerObjectActiveChangeEvent>) => void;
   dsoMouseEnter?: (e: CustomEvent<MouseEvent>) => void;
   dsoMouseLeave?: (e: CustomEvent<MouseEvent>) => void;
   symboolCode?: string;
   active?: boolean;
+  wijzigactie?: string;
+  labelSlot?: TemplateFnReturnType;
 }
 
 export interface MapLayerActiveChangeEvent {

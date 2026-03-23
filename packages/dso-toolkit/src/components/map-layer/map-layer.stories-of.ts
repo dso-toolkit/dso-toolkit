@@ -14,6 +14,8 @@ type MapLayerStory = StoryObj<MapLayerArgs, Renderer>;
 interface MapLayerStories {
   Multiple: MapLayerStory;
   Single: MapLayerStory;
+  WithWijzigactie: MapLayerStory;
+  WithLabel: MapLayerStory;
 }
 
 interface MapLayerStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -27,6 +29,9 @@ interface MapLayerTemplates<TemplateFnReturnType> {
   mapLayerTemplate: (mapLayerProperties: MapLayer<TemplateFnReturnType>) => TemplateFnReturnType;
   multiple: MapLayerObject<TemplateFnReturnType>[];
   single: MapLayerObject<TemplateFnReturnType>[];
+  nameSlotContent: TemplateFnReturnType;
+  wijzigactieNameSlotContent: TemplateFnReturnType;
+  labelSlotContent: TemplateFnReturnType;
 }
 
 export function mapLayerMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -53,15 +58,32 @@ export function mapLayerStories<Implementation, Templates, TemplateFnReturnType>
   return {
     Multiple: {
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { mapLayerTemplate, multiple }) =>
-        mapLayerTemplate(mapLayerArgsMapper(args, multiple)),
+      render: templateContainer.render(storyTemplates, (args, { mapLayerTemplate, multiple, nameSlotContent }) =>
+        mapLayerTemplate(mapLayerArgsMapper(args, multiple, nameSlotContent)),
       ),
     },
     Single: {
       args: { ...mapLayerArgs, activatable: false },
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { mapLayerTemplate, single }) =>
-        mapLayerTemplate(mapLayerArgsMapper(args, single)),
+      render: templateContainer.render(storyTemplates, (args, { mapLayerTemplate, single, nameSlotContent }) =>
+        mapLayerTemplate(mapLayerArgsMapper(args, single, nameSlotContent)),
+      ),
+    },
+    WithWijzigactie: {
+      args: { ...mapLayerArgs, wijzigactie: "voegtoe" },
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { mapLayerTemplate, single, wijzigactieNameSlotContent }) =>
+          mapLayerTemplate(mapLayerArgsMapper(args, single, wijzigactieNameSlotContent)),
+      ),
+    },
+    WithLabel: {
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { mapLayerTemplate, single, nameSlotContent, labelSlotContent }) =>
+          mapLayerTemplate(mapLayerArgsMapper(args, single, nameSlotContent, labelSlotContent)),
       ),
     },
   };

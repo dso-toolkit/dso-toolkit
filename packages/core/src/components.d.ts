@@ -35,6 +35,7 @@ import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
+import { Wijzigactie } from "./functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 import { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
 import { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
@@ -44,7 +45,7 @@ import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-
 import { MarkTextMarkFunction } from "./functional-components/mark-text/mark-text.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel.interfaces";
-import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
+import { PlekinfoCardClickEvent } from "./components/plekinfo-card/plekinfo-card.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
@@ -87,6 +88,7 @@ export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
+export { Wijzigactie } from "./functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 export { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
 export { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
@@ -96,7 +98,7 @@ export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-
 export { MarkTextMarkFunction } from "./functional-components/mark-text/mark-text.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel.interfaces";
-export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
+export { PlekinfoCardClickEvent } from "./components/plekinfo-card/plekinfo-card.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
@@ -1013,15 +1015,19 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
-          * The label of the Map Layer.
+          * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
          */
-        "label": string | undefined;
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapLayerObject {
         /**
           * An optional boolean indicating whether the Map Layer Object is active.
          */
         "active"?: boolean;
+        /**
+          * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
+         */
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapMessage {
         /**
@@ -1172,7 +1178,7 @@ export namespace Components {
         /**
           * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
          */
-        "wijzigactie"?: PlekinfoWijzigactie;
+        "wijzigactie"?: Wijzigactie;
     }
     interface DsoProgressIndicator {
         /**
@@ -3919,13 +3925,13 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * The label of the Map Layer.
-         */
-        "label": string | undefined;
-        /**
           * Emitted when user activates or deactivates the Map Layer.
          */
         "onDsoActiveChange"?: (event: DsoMapLayerCustomEvent<MapLayerActiveChangeEvent>) => void;
+        /**
+          * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
+         */
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapLayerObject {
         /**
@@ -3944,6 +3950,10 @@ declare namespace LocalJSX {
           * Emitted when the mouse leaves the Map Layer Object.
          */
         "onDsoMouseLeave"?: (event: DsoMapLayerObjectCustomEvent<any>) => void;
+        /**
+          * An optional 'wijzigactie' that signals if the Map Layer is added or removed.
+         */
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapMessage {
         /**
@@ -4138,7 +4148,7 @@ declare namespace LocalJSX {
         /**
           * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
          */
-        "wijzigactie"?: PlekinfoWijzigactie;
+        "wijzigactie"?: Wijzigactie;
     }
     interface DsoProgressIndicator {
         /**
@@ -4791,12 +4801,13 @@ declare namespace LocalJSX {
         "disableZoom": "in" | "out" | "both";
     }
     interface DsoMapLayerAttributes {
-        "label": string | undefined;
         "activatable": boolean;
         "active": boolean;
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapLayerObjectAttributes {
         "active": boolean;
+        "wijzigactie": Wijzigactie | undefined;
     }
     interface DsoMapMessageAttributes {
         "variant": "success" | "error" | "instruction" | undefined;
@@ -4837,7 +4848,7 @@ declare namespace LocalJSX {
         "emphasized": boolean;
     }
     interface DsoPlekinfoCardAttributes {
-        "wijzigactie": PlekinfoWijzigactie;
+        "wijzigactie": Wijzigactie;
         "href": string | undefined;
         "targetBlank": boolean;
         "active": boolean;
@@ -4968,8 +4979,8 @@ declare namespace LocalJSX {
         "dso-logo": Omit<DsoLogo, keyof DsoLogoAttributes> & { [K in keyof DsoLogo & keyof DsoLogoAttributes]?: DsoLogo[K] } & { [K in keyof DsoLogo & keyof DsoLogoAttributes as `attr:${K}`]?: DsoLogoAttributes[K] } & { [K in keyof DsoLogo & keyof DsoLogoAttributes as `prop:${K}`]?: DsoLogo[K] };
         "dso-map-base-layers": Omit<DsoMapBaseLayers, keyof DsoMapBaseLayersAttributes> & { [K in keyof DsoMapBaseLayers & keyof DsoMapBaseLayersAttributes]?: DsoMapBaseLayers[K] } & { [K in keyof DsoMapBaseLayers & keyof DsoMapBaseLayersAttributes as `attr:${K}`]?: DsoMapBaseLayersAttributes[K] } & { [K in keyof DsoMapBaseLayers & keyof DsoMapBaseLayersAttributes as `prop:${K}`]?: DsoMapBaseLayers[K] };
         "dso-map-controls": Omit<DsoMapControls, keyof DsoMapControlsAttributes> & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes]?: DsoMapControls[K] } & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes as `attr:${K}`]?: DsoMapControlsAttributes[K] } & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes as `prop:${K}`]?: DsoMapControls[K] };
-        "dso-map-layer": Omit<DsoMapLayer, keyof DsoMapLayerAttributes> & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes]?: DsoMapLayer[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `attr:${K}`]?: DsoMapLayerAttributes[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `prop:${K}`]?: DsoMapLayer[K] } & OneOf<"label", DsoMapLayer["label"], DsoMapLayerAttributes["label"]>;
-        "dso-map-layer-object": Omit<DsoMapLayerObject, keyof DsoMapLayerObjectAttributes> & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes]?: DsoMapLayerObject[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `attr:${K}`]?: DsoMapLayerObjectAttributes[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `prop:${K}`]?: DsoMapLayerObject[K] };
+        "dso-map-layer": Omit<DsoMapLayer, keyof DsoMapLayerAttributes> & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes]?: DsoMapLayer[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `attr:${K}`]?: DsoMapLayerAttributes[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `prop:${K}`]?: DsoMapLayer[K] } & OneOf<"wijzigactie", DsoMapLayer["wijzigactie"], DsoMapLayerAttributes["wijzigactie"]>;
+        "dso-map-layer-object": Omit<DsoMapLayerObject, keyof DsoMapLayerObjectAttributes> & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes]?: DsoMapLayerObject[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `attr:${K}`]?: DsoMapLayerObjectAttributes[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `prop:${K}`]?: DsoMapLayerObject[K] } & OneOf<"wijzigactie", DsoMapLayerObject["wijzigactie"], DsoMapLayerObjectAttributes["wijzigactie"]>;
         "dso-map-message": Omit<DsoMapMessage, keyof DsoMapMessageAttributes> & { [K in keyof DsoMapMessage & keyof DsoMapMessageAttributes]?: DsoMapMessage[K] } & { [K in keyof DsoMapMessage & keyof DsoMapMessageAttributes as `attr:${K}`]?: DsoMapMessageAttributes[K] } & { [K in keyof DsoMapMessage & keyof DsoMapMessageAttributes as `prop:${K}`]?: DsoMapMessage[K] } & OneOf<"variant", DsoMapMessage["variant"], DsoMapMessageAttributes["variant"]>;
         "dso-map-overlays": Omit<DsoMapOverlays, keyof DsoMapOverlaysAttributes> & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes]?: DsoMapOverlays[K] } & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes as `attr:${K}`]?: DsoMapOverlaysAttributes[K] } & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes as `prop:${K}`]?: DsoMapOverlays[K] };
         "dso-mark-bar": Omit<DsoMarkBar, keyof DsoMarkBarAttributes> & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes]?: DsoMarkBar[K] } & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes as `attr:${K}`]?: DsoMarkBarAttributes[K] } & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes as `prop:${K}`]?: DsoMarkBar[K] };

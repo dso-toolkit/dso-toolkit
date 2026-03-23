@@ -3,6 +3,7 @@
 @use "~dso-toolkit/src/components/insert/insert";
 @use "~dso-toolkit/src/components/delete/delete";
 @use "~dso-toolkit/src/components/mark/mark";
+@use "~dso-toolkit/src/variables/units";
 
 :host {
   display: inline;

@@ -5,7 +5,7 @@ import { MapLayerArgs, mapLayerMeta, mapLayerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import { multipleMapLayerObjects, singleMapLayerObject } from "./map-layer.content";
+import { labelSlotContent, multipleMapLayerObjects, nameSlotContent, singleMapLayerObject } from "./map-layer.content";
 import { decorator } from "./map-layer.decorator";
 
 const meta: Meta<MapLayerArgs> = {
@@ -15,7 +15,7 @@ const meta: Meta<MapLayerArgs> = {
 
 export default meta;
 
-const { Multiple, Single } = mapLayerStories(
+const { Multiple, Single, WithWijzigactie, WithLabel } = mapLayerStories(
   {
     templateContainer,
     storyTemplates: (templates) => {
@@ -25,10 +25,13 @@ const { Multiple, Single } = mapLayerStories(
         mapLayerTemplate,
         multiple: multipleMapLayerObjects(),
         single: singleMapLayerObject(),
+        nameSlotContent: nameSlotContent(),
+        wijzigactieNameSlotContent: nameSlotContent(true),
+        labelSlotContent: labelSlotContent(),
       };
     },
   },
   decorator,
 );
 
-export { Multiple, Single };
+export { Multiple, Single, WithLabel, WithWijzigactie };
