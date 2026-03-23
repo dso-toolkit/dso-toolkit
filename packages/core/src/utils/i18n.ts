@@ -33,6 +33,7 @@ export function i18n(
     resources,
     defaultNS: element.tagName.toLowerCase(),
     interpolation: { escapeValue: false },
+    showSupportNotice: false,
   });
 
   let detectedLanguage = false;
