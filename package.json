@@ -39,7 +39,7 @@
     "axe-core": "^4.11.1",
     "concurrently": "^9.2.1",
     "cpy-cli": "^7.0.0",
-    "danger": "13.0.5",
+    "danger": "13.0.7",
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
