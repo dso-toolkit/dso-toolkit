@@ -42,7 +42,7 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*;
 
 # AzCopy install
-RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.32.0/azcopy_linux_amd64_10.32.0.tar.gz \
+RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.32.2/azcopy_linux_amd64_10.32.2.tar.gz \
   | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
 
 WORKDIR /usr/src/app
