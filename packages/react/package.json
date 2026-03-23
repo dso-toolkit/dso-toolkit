@@ -18,11 +18,11 @@
     "dist/"
   ],
   "dependencies": {
-    "@stencil/react-output-target": "^1.4.1"
+    "@stencil/react-output-target": "^1.4.2"
   },
   "devDependencies": {
     "@iframe-resizer/child": "^5.5.9",
-    "@stencil/core": "4.43.0",
+    "@stencil/core": "4.43.3",
     "@storybook/addon-a11y": "10.2.10",
     "@storybook/addon-docs": "10.2.10",
     "@storybook/builder-vite": "10.2.10",
