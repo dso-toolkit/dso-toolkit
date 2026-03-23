@@ -12056,9 +12056,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^15.10.0":
-  version: 15.10.0
-  resolution: "cypress@npm:15.10.0"
+"cypress@npm:^15.12.0":
+  version: 15.12.0
+  resolution: "cypress@npm:15.12.0"
   dependencies:
     "@cypress/request": "npm:^3.0.10"
     "@cypress/xvfb": "npm:^1.2.4"
@@ -12097,14 +12097,15 @@ __metadata:
     proxy-from-env: "npm:1.0.0"
     request-progress: "npm:^3.0.0"
     supports-color: "npm:^8.1.1"
-    systeminformation: "npm:^5.27.14"
+    systeminformation: "npm:^5.31.1"
     tmp: "npm:~0.2.4"
     tree-kill: "npm:1.2.2"
+    tslib: "npm:1.14.1"
     untildify: "npm:^4.0.0"
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: 10/d32e501737f48580ba28072b680b8ad53fd1da3bcfca101c6c6fffcc8e5692a280bd01b792dffdc4e1e37407883bb1979669ea11bc8f2f49c59c118c72d8acce
+  checksum: 10/22ed809a60c8c2e7a9732f7a9bdcd49b0f9f13359b9a4c52d62a4fba6f1b5a1333ab2ea9743acf0b5c236402fb46c892aa37fbbe631c40856d8533962a5741b6
   languageName: node
   linkType: hard
 
@@ -12773,7 +12774,7 @@ __metadata:
     "@types/lodash.startcase": "npm:^4.4.9"
     axe-core: "npm:^4.11.1"
     cheerio: "npm:^1.2.0"
-    cypress: "npm:^15.10.0"
+    cypress: "npm:^15.12.0"
     cypress-axe: "npm:^1.7.0"
     cypress-real-events: "npm:^1.15.0"
     dso-toolkit: "workspace:^"
@@ -25943,12 +25944,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:^5.27.14":
-  version: 5.31.1
-  resolution: "systeminformation@npm:5.31.1"
+"systeminformation@npm:^5.31.1":
+  version: 5.31.5
+  resolution: "systeminformation@npm:5.31.5"
   bin:
     systeminformation: lib/cli.js
-  checksum: 10/1fff0b2827f7de2ec5379385c9bb12896db92186ee1d721cb08791ae7277a02f39fb8f3060df47312b70fe88c5b91a70726e7265ca8e5bab1f87780fb2acb991
+  checksum: 10/6efe04b1873bf3e6488064a9462575dc6d83fc4b509bd8922304c87b658964e3ce598db8e1af123e0fa49d76b2cc85c7211b8f6c8a6b8c69846698f8ce65ca2c
   conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
@@ -26449,17 +26450,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:1.14.1, tslib@npm:^1.8.1, tslib@npm:^1.9.3":
+  version: 1.14.1
+  resolution: "tslib@npm:1.14.1"
+  checksum: 10/7dbf34e6f55c6492637adb81b555af5e3b4f9cc6b998fb440dac82d3b42bdc91560a35a5fb75e20e24a076c651438234da6743d139e4feabf0783f3cdfe1dddb
+  languageName: node
+  linkType: hard
+
 "tslib@npm:2.8.1, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.4.0, tslib@npm:^2.6.0, tslib@npm:^2.6.2, tslib@npm:^2.8.1":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^1.8.1, tslib@npm:^1.9.3":
-  version: 1.14.1
-  resolution: "tslib@npm:1.14.1"
-  checksum: 10/7dbf34e6f55c6492637adb81b555af5e3b4f9cc6b998fb440dac82d3b42bdc91560a35a5fb75e20e24a076c651438234da6743d139e4feabf0783f3cdfe1dddb
   languageName: node
   linkType: hard
 
