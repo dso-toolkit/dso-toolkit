@@ -3878,7 +3878,7 @@ __metadata:
     debounce: "npm:^3.0.0"
     dso-toolkit: "workspace:^"
     escape-string-regexp: "npm:^5.0.0"
-    focus-trap: "npm:^8.0.0"
+    focus-trap: "npm:^8.0.1"
     i18next: "npm:^25.10.5"
     lodash.kebabcase: "npm:^4.1.1"
     lodash.random: "npm:^3.2.0"
@@ -14588,12 +14588,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-trap@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "focus-trap@npm:8.0.0"
+"focus-trap@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "focus-trap@npm:8.0.1"
   dependencies:
     tabbable: "npm:^6.4.0"
-  checksum: 10/ffc737f567e3c66d51b3872778de324f28c013e195e3813f2bbe3d39e895581e6a231dc24aba222a37c5db11867671f8acce3ae96e959499f100978e343e15a2
+  checksum: 10/9ab20848f2cbf2a8554ec2294260043d516fb98697ade07e9519ac4077315e88ba7474833aab5db4997f7f1e64ca11bafdc959f49a230d00a5759ef470c57412
   languageName: node
   linkType: hard
 

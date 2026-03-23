@@ -26,7 +26,7 @@
     "clsx": "^2.1.1",
     "dso-toolkit": "workspace:^",
     "escape-string-regexp": "^5.0.0",
-    "focus-trap": "^8.0.0",
+    "focus-trap": "^8.0.1",
     "i18next": "^25.10.5",
     "popper-max-size-modifier": "^0.2.0",
     "tabbable": "^6.4.0",
