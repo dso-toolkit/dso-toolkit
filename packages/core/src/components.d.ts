@@ -3402,7 +3402,7 @@ declare namespace LocalJSX {
          */
         "notApplicable"?: boolean;
         /**
-          * Emitted when the user activates the annotation button.
+          * Emitted when the user clicks the annotation button, the close button of the annotation panel and the Kenmerken en Kaart button of IntIoRef in Ozon Content.
          */
         "onDsoAnnotationToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentToggleAnnotationEvent>) => void;
         /**
@@ -3414,7 +3414,7 @@ declare namespace LocalJSX {
          */
         "onDsoOpenToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOpenToggleEvent>) => void;
         /**
-          * Emitted when the user interacts with Kop, IntRef or the Kenmerken en kaart button of IntIoRef in Ozon Content
+          * Emitted when the user interacts with IntRef in Ozon Content
          */
         "onDsoOzonContentClick"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentClickEvent>) => void;
         /**

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Map Layer: Renvooi en wijzigingen ([#3595](https://github.com/dso-toolkit/dso-toolkit/issues/3595))
+* Document Component: Annotation Toggle emit gewenste staat ([#3505](https://github.com/dso-toolkit/dso-toolkit/issues/3505))
 
 ### Fixed
 * Table: Bij vergroten van een tabel wordt de titel niet voorgelezen ([#3585](https://github.com/dso-toolkit/dso-toolkit/issues/3585))

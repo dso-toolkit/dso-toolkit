@@ -1,6 +1,7 @@
 import escapeStringRegexp from "escape-string-regexp";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { argTypeAction, isOdd } from "../../storybook";
 import { BadgeStatus } from "../badge/badge.models.js";
@@ -101,7 +102,7 @@ export interface DocumentComponentArgs {
 
 export const documentComponentArgs: Omit<
   DocumentComponentArgs,
-  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick" | "dsoOzonContentClick"
+  "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick" | "dsoOzonContentClick"
 > = {
   annotated: true,
   badge: undefined,
@@ -123,6 +124,7 @@ export const documentComponentArgs: Omit<
   annotationsWijzigactie: "voegtoe",
   mode: "document",
   kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>13.12c</Nummer><Opschrift>NootInKop III <Noot type='voet' id='N8'><NootNummer>8</NootNummer><Al>Thomas en Eric test 3.</Al></Noot>Opschrift</Opschrift></Kop>",
+  dsoAnnotationToggle: fn(),
 };
 
 export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
@@ -302,5 +304,6 @@ export function documentComponentMapper<TemplateFnReturnType>(
               isOdd(index) ? { text: item, highlight: !highlighted && (highlighted = true) } : item,
             )
       : undefined,
+    dsoAnnotationToggle: (e) => a.dsoAnnotationToggle(e.detail),
   };
 }
