@@ -48,7 +48,7 @@
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.4.0",
     "minimist": "^1.2.8",
-    "nx": "22.5.2",
+    "nx": "22.6.1",
     "plop": "^4.0.5",
     "postcss": "^8.5.8",
     "prettier": "^3.8.1",
