@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Removed
 * **BREAKING** Info Button: `secondary` verwijderen ([#3350](https://github.com/dso-toolkit/dso-toolkit/issues/3350))
 
+### Task
+* Packages: Dependencies updates ([#3559](https://github.com/dso-toolkit/dso-toolkit/issues/3559))
+
 ## 🧞‍♀️ Release 90.2.0 - 2026-03-25
 
 ### Added
