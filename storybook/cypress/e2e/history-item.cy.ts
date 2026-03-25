@@ -29,14 +29,12 @@ describe("History Item", () => {
   });
 
   it("renders current state correctly", () => {
-    cy.get("dso-history-item").then(($el) => {
-      $el[0].current = true;
-    });
-    cy.get("dso-history-item")
+    cy.get("dso-history-item.hydrated")
+      .invoke("prop", "current", true)
       .shadow()
-      .within(() => {
-        cy.get(".title-anchor.current").should("exist");
-        cy.get(".current dso-icon").should("exist");
-      });
+      .find(".history-item")
+      .should("have.css", "background-color", "rgb(242, 242, 242)")
+      .find(".title-anchor")
+      .should("have.attr", "aria-current", "true");
   });
 });

@@ -7,6 +7,7 @@ export const historyItemsOntwerp: HistoryItem[] = [
     type: "ontwerp",
     title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
     href: "#",
+    current: true,
   },
   {
     date: "02-07-2025",
@@ -52,6 +53,7 @@ export const historyItemsInWerking: HistoryItem[] = [
     type: "besluit",
     title: "Intrekking Omgevingsprogramma Veenendaal per 16-08-2025",
     href: "#",
+    current: true,
   },
   {
     date: "20-07-2025",

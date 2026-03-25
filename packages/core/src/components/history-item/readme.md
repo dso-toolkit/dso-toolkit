@@ -1,13 +1,5 @@
 # `<dso-history-item>`
 
-## Note
-The default story is `InWerking`. Other available variants are:
-- Besluit 
-- TijdelijkRegelingdeel
-- TijdelijkRegelingdeelBesluit
-- Waarschuwing
-- Ontwerp
-
 <!-- Auto Generated Below -->
 
 

@@ -4,6 +4,12 @@
 
 @use "history-item.variables" as history-item-variables;
 
+:host {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
 .history-item {
   border-block-end: 1px solid history-item-variables.$border-color;
   display: flex;
@@ -11,12 +17,11 @@
   inline-size: 100%;
   padding-block: units.$u2;
   padding-inline: units.$u1;
+}
 
-  :host(:not([type="waarschuwing"])) & {
-    &:hover,
-    &:has(.history-item-title a:is(:hover, :focus-visible)) {
-      background-color: history-item-variables.$background-color-hover;
-    }
+:host(:not([type="waarschuwing"])) {
+  .history-item:has(.history-item-title a:is(:hover, :focus-visible)) {
+    background-color: history-item-variables.$background-color-hover;
   }
 }
 
@@ -25,8 +30,6 @@
     background-color: history-item-variables.$background-color-current;
   }
 }
-
-@include utilities.box-sizing();
 
 :host([type="tijdelijk-regelingdeel"]) {
   .history-item-status-message {
@@ -78,10 +81,6 @@
 }
 
 .history-item-title {
-  display: inline;
-  vertical-align: baseline;
-  overflow-wrap: break-word;
-  user-select: text;
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap after icon
 
   .title-anchor {

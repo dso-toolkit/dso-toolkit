@@ -102,7 +102,7 @@ export class HistoryItem implements ComponentInterface {
             <div class="history-item-title">
               <a
                 href={this.href}
-                class={`title-anchor ${this.current ? "current" : ""}`}
+                class="title-anchor"
                 onClick={(e) => this.clickEventHandler(e)}
                 aria-current={this.current ? "true" : undefined}
               >
