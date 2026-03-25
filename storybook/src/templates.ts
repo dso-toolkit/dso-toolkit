@@ -276,7 +276,7 @@ export interface Components {
   image: Image;
   imageOverlay: ImageOverlay;
   info: Info<TemplateResult>;
-  infoButton: InfoButton;
+  infoButton: InfoButton<TemplateResult>;
   inputRange: InputRange;
   justifyFormGroups: JustifyFormGroups<TemplateResult>;
   label: Label;
