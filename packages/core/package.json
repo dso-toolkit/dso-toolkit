@@ -42,7 +42,6 @@
     "@types/lodash.samplesize": "^4.2.9",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@types/uuid": "^11.0.0",
     "concurrently": "^9.2.1",
     "debounce": "^3.0.0",
     "lodash.kebabcase": "^4.1.1",
