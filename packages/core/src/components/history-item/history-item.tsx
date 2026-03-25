@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, forceUpdate, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Prop, forceUpdate, h } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { IconAlias } from "../icon/icon.interfaces";
@@ -108,10 +108,10 @@ export class HistoryItem implements ComponentInterface {
               >
                 <span class="history-item-title-content">
                   <slot name="title"></slot>
-                  <span class="history-item-icon">
-                    <dso-icon icon="chevron-right" aria-hidden="true" />
-                  </span>
                 </span>
+                {/* Word joiner: prevents a line break between label text and icon */}
+                {"\u2060"}
+                <dso-icon icon="chevron-right" aria-hidden="true" />
               </a>
             </div>
           )}

@@ -1,9 +1,12 @@
 @use "~dso-toolkit/src/variables/colors";
 
 $background-color-hover: colors.$grijs-5;
+$background-color-current: colors.$grijs-10;
 
 $title-anchor-color: colors.$bosgroen;
 
 $tijdelijke-regeldingdeel-color: colors.$mauve;
 $tijdelijke-regeldingdeel-besluit-color: colors.$mauve;
 $waarschuwing-color: colors.$rood-110;
+
+$border-color: colors.$grijs-10;

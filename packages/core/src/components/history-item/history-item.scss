@@ -5,25 +5,24 @@
 @use "history-item.variables" as history-item-variables;
 
 .history-item {
-  border-block-end: 1px solid colors.$grijs-10;
+  border-block-end: 1px solid history-item-variables.$border-color;
   display: flex;
   gap: units.$u1;
   inline-size: 100%;
   padding-block: units.$u2;
   padding-inline: units.$u1;
 
-  &:hover {
-    background: colors.$grijs-5;
-  }
-
-  &:has(.history-item-title a:is(:hover, :focus-visible)) {
-    background: history-item-variables.$background-color-hover;
+  :host(:not([type="waarschuwing"])) & {
+    &:hover,
+    &:has(.history-item-title a:is(:hover, :focus-visible)) {
+      background-color: history-item-variables.$background-color-hover;
+    }
   }
 }
 
-:host([current]) {
+:host([current]:not([type="waarschuwing"])) {
   .history-item {
-    background: colors.$grijs-10;
+    background-color: history-item-variables.$background-color-current;
   }
 }
 
@@ -42,16 +41,8 @@
 }
 
 :host([type="waarschuwing"]) {
-  background: unset;
-  .history-item {
-    background: unset !important;
-  }
   .history-item-status-message {
     color: history-item-variables.$waarschuwing-color;
-  }
-  .history-item:hover,
-  .history-item:has(.history-item-title a:is(:hover, :focus-visible)) {
-    background: unset !important;
   }
 }
 
@@ -87,39 +78,31 @@
 }
 
 .history-item-title {
-  max-inline-size: 100%;
+  display: inline;
+  vertical-align: baseline;
   overflow-wrap: break-word;
-}
-
-.title-anchor {
-  color: history-item-variables.$title-anchor-color;
-  font-weight: 600;
-  text-decoration: none;
-
-  &:hover {
-    color: history-item-variables.$title-anchor-color;
-    text-decoration: underline;
-  }
-
-  &:visited {
-    color: history-item-variables.$title-anchor-color;
-  }
-}
-
-.history-item-title-content {
-  display: inline;
-}
-
-.history-item-icon {
-  display: inline;
+  user-select: text;
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap after icon
-  margin-inline-start: units.$u1 * 0.5;
 
-  &::before {
-    content: "\00a0";
+  .title-anchor {
+    color: history-item-variables.$title-anchor-color;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: history-item-variables.$title-anchor-color;
+    }
+  }
+
+  .history-item-title-content {
+    white-space: normal;
   }
 
   dso-icon {
-    vertical-align: middle;
+    margin-inline-start: units.$u1 * 0.5;
   }
 }
