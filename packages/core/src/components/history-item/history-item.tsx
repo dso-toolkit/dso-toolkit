@@ -89,7 +89,7 @@ export class HistoryItem implements ComponentInterface {
 
   render() {
     return (
-      <Host class={{ current: !!this.current }}>
+      <div class="history-item">
         <div class="history-item-date">
           <slot name="date"></slot>
         </div>
@@ -106,8 +106,12 @@ export class HistoryItem implements ComponentInterface {
                 onClick={(e) => this.clickEventHandler(e)}
                 aria-current={this.current ? "true" : undefined}
               >
-                <slot name="title"></slot>
-                {this.current && <dso-icon icon="chevron-right" class="current" aria-hidden="true" />}
+                <span class="history-item-title-content">
+                  <slot name="title"></slot>
+                  <span class="history-item-icon">
+                    <dso-icon icon="chevron-right" aria-hidden="true" />
+                  </span>
+                </span>
               </a>
             </div>
           )}
@@ -123,7 +127,7 @@ export class HistoryItem implements ComponentInterface {
             </div>
           )}
         </div>
-      </Host>
+      </div>
     );
   }
 }

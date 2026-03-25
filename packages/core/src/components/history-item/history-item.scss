@@ -4,7 +4,7 @@
 
 @use "history-item.variables" as history-item-variables;
 
-:host {
+.history-item {
   border-block-end: 1px solid colors.$grijs-10;
   display: flex;
   gap: units.$u1;
@@ -21,8 +21,10 @@
   }
 }
 
-:host(.current) {
-  background: colors.$grijs-10;
+:host([current]) {
+  .history-item {
+    background: colors.$grijs-10;
+  }
 }
 
 @include utilities.box-sizing();
@@ -41,8 +43,15 @@
 
 :host([type="waarschuwing"]) {
   background: unset;
+  .history-item {
+    background: unset !important;
+  }
   .history-item-status-message {
     color: history-item-variables.$waarschuwing-color;
+  }
+  .history-item:hover,
+  .history-item:has(.history-item-title a:is(:hover, :focus-visible)) {
+    background: unset !important;
   }
 }
 
@@ -77,6 +86,11 @@
   margin-inline-start: units.$u4;
 }
 
+.history-item-title {
+  max-inline-size: 100%;
+  overflow-wrap: break-word;
+}
+
 .title-anchor {
   color: history-item-variables.$title-anchor-color;
   font-weight: 600;
@@ -92,11 +106,20 @@
   }
 }
 
-.current {
-  color: colors.$bosgroen;
+.history-item-title-content {
+  display: inline;
+}
+
+.history-item-icon {
+  display: inline;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap after icon
+  margin-inline-start: units.$u1 * 0.5;
+
+  &::before {
+    content: "\00a0";
+  }
 
   dso-icon {
-    margin-inline-start: 4px;
     vertical-align: middle;
   }
 }
