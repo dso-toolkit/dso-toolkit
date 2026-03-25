@@ -108,6 +108,14 @@
   }
 }
 
+h2,
+h3,
+h4 {
+  &.heading-element {
+    color: colors.$grijs-90;
+  }
+}
+
 .alternative-title {
   cursor: pointer;
   @include link.pseudo();
@@ -162,10 +170,6 @@
 :host([mode="table-of-contents"]) {
   .heading-container {
     padding-inline-start: document-component.$indent-table-of-contents;
-  }
-
-  .heading-element {
-    color: inherit;
   }
 
   .editaction-label {

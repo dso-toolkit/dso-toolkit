@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Document Component: Inhoudsopgave aanpassing kleur h2, h3 en h4 ([#3561](https://github.com/dso-toolkit/dso-toolkit/issues/3561))
+
 ### Removed
 * **BREAKING** Info Button: `secondary` verwijderen ([#3350](https://github.com/dso-toolkit/dso-toolkit/issues/3350))
 
