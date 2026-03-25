@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧞‍♀️ Release 90.2.0 - 2026-03-25
+
 ### Added
 * Map Layer: Renvooi en wijzigingen ([#3595](https://github.com/dso-toolkit/dso-toolkit/issues/3595))
 * Document Component: Annotation Toggle emit gewenste staat ([#3505](https://github.com/dso-toolkit/dso-toolkit/issues/3505))
