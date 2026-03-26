@@ -4,7 +4,13 @@ authors: [iterox]
 
 # DSO Toolkit v91.0.0 🧱
 
-Deze release bevat **BREAKING** changes voor de volgende componenten:
+Deze release bevat een **deprecation** voor het component:
+
+- Toggletip
+
+Tevens brengen we de **deprecation** van het component **Tooltip** nogmaals onder de aandacht.
+
+Verder bevat deze release **BREAKING** changes voor de componenten:
 
 - Info Button
 - Toggletip
@@ -37,13 +43,15 @@ ondergebracht in het component `Icon Button` in de tertiary variant op een licht
 
 ## Toggletip
 
-De property `secondary` is verwijderd. Onder de motorkap maakt `Toggletip` gebruik van `Info Button`. De property
+Dit component hebben we deprecated. In een toekomstige **BREAKING** release zal dit component verwijderd worden.
+Gebruik in plaats van Toggletip het component `Info Button` met Toggletip functionaliteit (sinds 🤧 Release 88.0.0).
+Daarnaast bieden wij sinds 🦡 Release 90.1.0 ook het component `Badge` aan met Toggletip functionaliteit.
+
+Ook is de property `secondary` verwijderd. Onder de motorkap maakt `Toggletip` gebruik van `Info Button`. De property
 `secondary` werd gebruikt om `Info Button` als `secondary` in te stellen, maar met de verwijdering van die property
 op het component `Info Button` is deze ook komen te vervallen voor `Toggletip`.
 
-Overigens raden wij sinds 🤧 Release 88.0.0 aan om in plaats van het component `Toggletip` het component `Info
-Button` met Toggletip functionaliteit te gebruiken. Daarnaast bieden wij sinds 🦡 Release 90.1.0 ook het component
-`Badge` aan met Toggletip functionaliteit.
+### Migratiepad
 
 ```html
 ❌
@@ -55,6 +63,52 @@ Button` met Toggletip functionaliteit te gebruiken. Daarnaast bieden wij sinds �
 <dso-toggletip>
   <div class="dso-rich-content">...</div>
 </dso-toggletip>
+
+✅
+<dso-info-button label="Toelichting bij vraag">
+  <div slot="toggletip">
+    <div class="dso-rich-content">...</div>
+  </div>
+</dso-info-button>
+
+✅
+<dso-badge>
+  <div slot="toggletip">
+    <div class="dso-rich-content">...</div>
+  </div>
+</dso-badge>
+```
+
+## Tooltip
+
+**Tooltip** hebben we eerder in 🐻 Release 73.2.0 deprecated. In de blogpost van die release schreven we: "In een van de komende releases
+zal Tooltip worden vervangen door verbeterde alternatieven, zoals het nieuwe **Icon Button** Web Component of
+vernieuwde varianten van het **Toggletip** webcomponent."
+
+De verbeterde alternatieven zijn inmiddels via een aantal releases beschikbaar gekomen:
+
+- In 🌯 Release 79.1.0 hebben we het component **Icon Button** geïntroduceerd.
+- In 🤧 Release 88.0.0 hebben we het component **Info Button** uitgebreid met ondersteuning voor Toggletip
+  functionaliteit.
+- In 🦡 Release 90.1.0 hebben we het component **Badge** uitgebreid met ondersteuning voor toggletip functionaliteit.
+
+### Migratiepad
+
+```html
+❌
+<button type="button" aria-describedby="40990d71-60c2-46d2-9822-e619f4783e74">
+  <span>Hover or focus me</span>
+  <dso-tooltip position="right" id="40990d71-60c2-46d2-9822-e619f4783e74"> Ik sta "right" </dso-tooltip>
+</button>
+
+❌
+<button type="button" aria-describedby="92fdc476-3588-4c97-80b5-d42289d00184">
+  <span>Hover or focus me</span>
+</button>
+<dso-tooltip position="bottom" id="92fdc476-3588-4c97-80b5-d42289d00184"> Ik sta "bottom" </dso-tooltip>
+
+✅
+<dso-icon-button varaint="map | secondary | tertiary" label="Toelichting bij vraag" icon="trash"></dso-icon-button>
 
 ✅
 <dso-info-button label="Toelichting bij vraag">

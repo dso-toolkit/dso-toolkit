@@ -14,7 +14,7 @@ const meta: Meta<ToggletipArgs> = {
       imports: [DsoToggletip],
     }),
   ],
-  title: "Toggletip",
+  title: "Toggletip (Deprecated)",
 };
 
 export default meta;

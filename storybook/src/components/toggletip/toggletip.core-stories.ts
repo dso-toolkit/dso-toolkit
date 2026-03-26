@@ -8,7 +8,7 @@ import { children } from "./toggletip.content";
 
 const meta: Meta<ToggletipArgs> = {
   ...toggletipMeta({ readme }),
-  title: "Core/Toggletip",
+  title: "Core/Toggletip (Deprecated)",
 };
 
 export default meta;
