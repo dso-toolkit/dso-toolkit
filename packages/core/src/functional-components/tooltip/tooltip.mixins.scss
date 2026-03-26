@@ -24,13 +24,7 @@
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
     opacity: 0;
     visibility: hidden;
-    transition: opacity tooltip-variables.$transition-duration;
     max-inline-size: $max-inline-size;
-
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-    }
 
     .tooltip-inner {
       --_dt-span-role-paragraph-margin-block: #{units.$u1};

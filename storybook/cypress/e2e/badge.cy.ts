@@ -7,12 +7,20 @@ describe("Badge", () => {
 
   const openAndAssert = () => {
     getComponent().shadow().find(".toggletip-button").realClick();
-    getComponent().shadow().find(".dso-tooltip + .dso-tooltip").should("have.class", "visible");
+    getComponent()
+      .shadow()
+      .find(".dso-tooltip + .dso-tooltip")
+      .should("have.css", "visibility", "visible")
+      .should("have.css", "opacity", "1");
 
     cy.matchImageSnapshot(Cypress.currentTest.title);
 
     getComponent().shadow().find(".toggletip-button").realClick();
-    getComponent().shadow().find(".dso-tooltip + .dso-tooltip").should("not.have.class", "visible");
+    getComponent()
+      .shadow()
+      .find(".dso-tooltip + .dso-tooltip")
+      .should("have.css", "visibility", "hidden")
+      .should("have.css", "opacity", "0");
   };
 
   // ---------- Variants ----------
@@ -32,7 +40,12 @@ describe("Badge", () => {
     });
 
     it("should show the tooltip on hover", () => {
-      getComponent().realHover().shadow().find(".toggletip-button + .dso-tooltip").should("have.class", "visible");
+      getComponent()
+        .realHover()
+        .shadow()
+        .find(".toggletip-button + .dso-tooltip")
+        .should("have.css", "visibility", "visible")
+        .should("have.css", "opacity", "1");
     });
 
     const placements = [

@@ -268,8 +268,19 @@ describe("Ozon Content", () => {
       cy.get("dso-ozon-content.hydrated")
         .shadow()
         .find("dso-ozon-content-toggletip")
-        .find("button")
+        .shadow()
+        .find(".dso-tooltip")
+        .should("have.css", "visibility", "visible")
+        .should("have.css", "opacity", "1");
+
+      cy.get("dso-ozon-content.hydrated")
+        .shadow()
+        .find("dso-ozon-content-toggletip")
+        .shadow()
+        .find(".dso-tooltip button")
         .should("not.exist");
+
+      cy.window().then((win) => new Cypress.Promise((resolve) => win.requestAnimationFrame(() => resolve(null))));
 
       cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
     });

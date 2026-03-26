@@ -6,11 +6,21 @@ describe("Info Button", () => {
   const getComponent = () => cy.get("dso-info-button.hydrated");
 
   const openAndAssert = () => {
-    getComponent().realClick().shadow().find("> .dso-tooltip").should("have.class", "visible");
+    getComponent()
+      .realClick()
+      .shadow()
+      .find("> .dso-tooltip")
+      .should("have.css", "visibility", "visible")
+      .should("have.css", "opacity", "1");
 
     cy.matchImageSnapshot(Cypress.currentTest.title);
 
-    getComponent().realClick().shadow().find("> .dso-tooltip").should("not.have.class", "visible");
+    getComponent()
+      .realClick()
+      .shadow()
+      .find("> .dso-tooltip")
+      .should("have.css", "visibility", "hidden")
+      .should("have.css", "opacity", "0");
   };
 
   // ---------- Variants ----------

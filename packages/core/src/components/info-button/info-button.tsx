@@ -147,7 +147,6 @@ export class InfoButton {
           <Tooltip
             tipElementRef={(element) => (this.toggletipElRef = element)}
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
-            visible={this.toggletipActive}
           >
             <dso-scrollable ref={(element) => (this.restrictContentElement = element)}>
               <slot name="toggletip" />
