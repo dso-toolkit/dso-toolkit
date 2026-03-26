@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Typografie Headings: Aanpassing kleur in context van Accordion compact ([#3561](https://github.com/dso-toolkit/dso-toolkit/issues/3561))
+
 ### Deprecated
 * Toggletip: Deprecate ([#3398](https://github.com/dso-toolkit/dso-toolkit/issues/3398))
 

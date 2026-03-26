@@ -31,7 +31,7 @@
 }
 
 @mixin h2() {
-  color: colors.$bosgroen;
+  color: var(--_dt-heading-h2-color, colors.$bosgroen);
   font-size: units.$font-size-h3;
   font-weight: 700;
 
@@ -41,7 +41,7 @@
 }
 
 @mixin h3() {
-  color: colors.$bosgroen;
+  color: var(--_dt-heading-h3-color, colors.$bosgroen);
   font-size: units.$font-size-h3s;
   font-weight: 600;
 
@@ -51,7 +51,7 @@
 }
 
 @mixin h4() {
-  color: colors.$bosgroen;
+  color: var(--_dt-heading-h4-color, colors.$bosgroen);
   font-size: units.$font-size-h4;
   font-weight: 600;
 }
