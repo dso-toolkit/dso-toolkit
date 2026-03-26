@@ -20,7 +20,10 @@ export function positionTooltip(options: TooltipOptions) {
     restrictContentElement,
   } = options;
 
-  return autoUpdate(referenceElement, tipRef, () => {
+  let animationFrameId: number | undefined;
+  let disposed = false;
+
+  const cleanup = autoUpdate(referenceElement, tipRef, () => {
     const padding = 5;
     const arrowOffsetWidth = tipArrowRef.offsetWidth;
     const axisOffsetCalc = Math.sqrt(2 * arrowOffsetWidth ** 2);
@@ -63,63 +66,89 @@ export function positionTooltip(options: TooltipOptions) {
       ],
       placement,
     }).then(({ x, y, middlewareData, placement: computedPlacement, strategy }) => {
-      if (middlewareData.hide) {
-        // Tooltip needs to be visible at all times on small viewports or when forceVisible is true
-        const disappear = !smallViewport && !forceVisible && middlewareData.hide.referenceHidden;
+      if (disposed) {
+        return;
+      }
+
+      if (animationFrameId !== undefined) {
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      // Defer DOM writes until the next frame so ResizeObserver notifications
+      // can settle before the tooltip mutates its own layout again.
+      animationFrameId = requestAnimationFrame(() => {
+        if (disposed) {
+          return;
+        }
+
+        if (middlewareData.hide) {
+          // Tooltip needs to be visible at all times on small viewports or when forceVisible is true
+          const disappear = !smallViewport && !forceVisible && middlewareData.hide.referenceHidden;
+
+          Object.assign(tipRef.style, {
+            // Both of these properties have a CSS transition
+            visibility: disappear ? "hidden" : "visible",
+            opacity: disappear ? 0 : 1,
+          });
+        }
 
         Object.assign(tipRef.style, {
-          // Both of these properties have a CSS transition
-          visibility: disappear ? "hidden" : "visible",
-          opacity: disappear ? 0 : 1,
+          left: `${x}px`,
+          top: `${y}px`,
+          strategy,
         });
-      }
 
-      Object.assign(tipRef.style, {
-        left: `${x}px`,
-        top: `${y}px`,
-        strategy,
+        const side = computedPlacement.split("-")[0];
+
+        const staticSide = side
+          ? {
+              top: "bottom",
+              right: "left",
+              bottom: "top",
+              left: "right",
+            }[side]
+          : "top";
+
+        let angle;
+        switch (staticSide) {
+          default:
+          case "top":
+            angle = 45;
+            break;
+          case "right":
+            angle = 135;
+            break;
+          case "bottom":
+            angle = 225;
+            break;
+          case "left":
+            angle = 315;
+            break;
+        }
+
+        if (middlewareData.arrow && staticSide) {
+          const { x: arrowX, y: arrowY } = middlewareData.arrow;
+
+          Object.assign(tipArrowRef.style, {
+            right: "",
+            bottom: "",
+            left: arrowX ? `${arrowX}px` : "",
+            top: arrowY ? `${arrowY}px` : "",
+            [staticSide]: `${-arrowOffsetWidth / 2}px`,
+            transform: `rotate(${angle}deg)`,
+          });
+        }
       });
-
-      const side = computedPlacement.split("-")[0];
-
-      const staticSide = side
-        ? {
-            top: "bottom",
-            right: "left",
-            bottom: "top",
-            left: "right",
-          }[side]
-        : "top";
-
-      let angle;
-      switch (staticSide) {
-        default:
-        case "top":
-          angle = 45;
-          break;
-        case "right":
-          angle = 135;
-          break;
-        case "bottom":
-          angle = 225;
-          break;
-        case "left":
-          angle = 315;
-          break;
-      }
-
-      if (middlewareData.arrow && staticSide) {
-        const { x: arrowX, y: arrowY } = middlewareData.arrow;
-
-        Object.assign(tipArrowRef.style, {
-          right: "",
-          bottom: "",
-          left: arrowX ? `${arrowX}px` : "",
-          top: arrowY ? `${arrowY}px` : "",
-          [staticSide]: `${-arrowOffsetWidth / 2}px`,
-          transform: `rotate(${angle}deg)`,
-        });
-      }
     });
   });
+
+  return () => {
+    disposed = true;
+
+    if (animationFrameId !== undefined) {
+      cancelAnimationFrame(animationFrameId);
+    }
+
+    cleanup();
+  };
 }
