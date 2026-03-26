@@ -9,8 +9,11 @@ export const coreToggletip: ComponentImplementation<Toggletip<TemplateResult>> =
   implementation: "core",
   template: () =>
     function toggletipTemplate({ children, label, position, small }) {
-      return html`<dso-toggletip label=${ifDefined(label)} position=${ifDefined(position)} ?small=${small}
-        >${children}</dso-toggletip
-      >`;
+      return html`<!-- START DEPRECATED: use <dso-info-button><div slot="toggletip">...</div></dso-info-button> --><dso-toggletip
+          label=${ifDefined(label)}
+          position=${ifDefined(position)}
+          ?small=${small}
+          >${children}</dso-toggletip
+        ><!-- END DEPRECATED -->`;
     },
 };

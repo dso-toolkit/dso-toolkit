@@ -9,7 +9,7 @@ export const coreTooltip: ComponentImplementation<Tooltip> = {
   implementation: "core",
   template: () =>
     function tooltipTemplate({ active, descriptive, position, label, id }) {
-      return html`<!-- START DEPRECATED -->
+      return html`<!-- START DEPRECATED use <dso-icon-button>, <dso-info-button><div slot="toggletip">...</div></dso-info-button> or <dso-badge><div slot="toggletip">...</div></dso-badge>-->
         <dso-tooltip ?descriptive=${ifDefined(descriptive)} position=${position} id=${ifDefined(id)} ?active=${active}>
           ${label}
         </dso-tooltip>

@@ -1,6 +1,6 @@
 describe("Toggletip", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-toggletip--toggletip");
+    cy.visit("http://localhost:45000/iframe.html?id=core-toggletip-deprecated--toggletip");
   });
 
   it("should be accessible", () => {
