@@ -1,11 +1,13 @@
 import { WaitForAccordion } from "./wait-for-accordion";
 import { WaitForComponent } from "./wait-for-component.interface";
 import { WaitForHeader } from "./wait-for-header";
+import { WaitForOnboardingTip } from "./wait-for-onboarding-tip";
 import { WaitForTable } from "./wait-for-table";
 
 const waitableComponents: WaitForComponent<HTMLElement>[] = [
   new WaitForAccordion(),
   new WaitForHeader(),
+  new WaitForOnboardingTip(),
   new WaitForTable(),
 ];
 

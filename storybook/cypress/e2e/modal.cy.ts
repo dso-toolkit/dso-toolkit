@@ -24,8 +24,8 @@ describe("Modal", () => {
       .find("#close-modal")
       .shadow()
       .find("button[aria-label='Sluiten'] > .dso-tooltip")
-      .should("have.css", "opacity", "1")
-      .and("have.class", "visible");
+      .should("have.css", "visibility", "visible")
+      .should("have.css", "opacity", "1");
 
     cy.matchImageSnapshot();
   });

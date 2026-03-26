@@ -223,8 +223,6 @@ export class Badge implements ComponentInterface {
             </span>
           </button>
           <Tooltip
-            visible={this.showTooltip}
-            onAfterHidden={this.handleHideTooltip}
             tipElementRef={(element) => (this.tooltipElRef = element)}
             tipArrowElementRef={(element) => (this.tipArrowElRef = element)}
           >
@@ -233,7 +231,6 @@ export class Badge implements ComponentInterface {
           <Tooltip
             tipElementRef={(element) => (this.toggletipElRef = element)}
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
-            visible={this.toggletipActive}
           >
             <dso-scrollable ref={(element) => (this.restrictContentElement = element)}>
               <slot name="toggletip" />

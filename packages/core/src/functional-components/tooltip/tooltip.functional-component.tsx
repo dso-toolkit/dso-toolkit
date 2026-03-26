@@ -1,29 +1,12 @@
 import { FunctionalComponent, h } from "@stencil/core";
-import { clsx } from "clsx";
 
 interface TooltipProps {
-  visible: boolean;
-  onAfterHidden?: () => void;
   tipElementRef: (ref: HTMLDivElement | undefined) => void;
   tipArrowElementRef: (ref: HTMLSpanElement | undefined) => void;
 }
 
-export const Tooltip: FunctionalComponent<TooltipProps> = (
-  { visible, onAfterHidden, tipElementRef, tipArrowElementRef },
-  children,
-) => (
-  <div
-    popover="manual"
-    class={clsx(["dso-tooltip", { visible }])}
-    ref={tipElementRef}
-    onTransitionEnd={(e) => {
-      e.stopPropagation();
-
-      if (e.propertyName === "opacity" && !visible) {
-        onAfterHidden?.();
-      }
-    }}
-  >
+export const Tooltip: FunctionalComponent<TooltipProps> = ({ tipElementRef, tipArrowElementRef }, children) => (
+  <div popover="manual" class="dso-tooltip" ref={tipElementRef}>
     <span class="tooltip-arrow" ref={tipArrowElementRef}></span>
     <div class="tooltip-inner">{children}</div>
   </div>
