@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Button: Anchor element een onterecht underline ([#3476](https://github.com/dso-toolkit/dso-toolkit/issues/3476))
+* Icon Button: ResizeObserver loop completed with undeliverd notifications ([#3567](https://github.com/dso-toolkit/dso-toolkit/issues/3567))
 
 ## 🧱 Release 91.0.0 - 2026-03-30
 
@@ -473,7 +474,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Viewer Grid: Top bar in het grid plaatsen ([#3103](https://github.com/dso-toolkit/dso-toolkit/issues/3103))
 * Survey Rating: Vraagteken achter de vraag en role alert toevoegen ([#3046](https://github.com/dso-toolkit/dso-toolkit/issues/3046))
-
+  
 ### Task
 * Packages: Dependencies updates ([#3091](https://github.com/dso-toolkit/dso-toolkit/issues/3091))
 
