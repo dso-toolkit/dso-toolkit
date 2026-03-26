@@ -73,6 +73,19 @@ const section4: AccordionSection<React.JSX.Element> = {
   ),
 };
 
+const sectionWithHeadings: AccordionSection<React.JSX.Element> = {
+  handleTitle: "Inhoudsopgave",
+  heading: "h2",
+  open: true,
+  content: (
+    <>
+      <h2>Aanvullende regels</h2>
+      <h3>Uit andere besluiten</h3>
+      <h4>Uit hoofdregeling omgevingsplan</h4>
+    </>
+  ),
+};
+
 export const basicSections: AccordionSection<React.JSX.Element>[] = [
   section1,
   section2,
@@ -82,6 +95,8 @@ export const basicSections: AccordionSection<React.JSX.Element>[] = [
   },
   section4,
 ];
+
+export const compactSections: AccordionSection<React.JSX.Element>[] = [...basicSections, sectionWithHeadings];
 
 export const anchorSections: AccordionSection<React.JSX.Element>[] = [
   {

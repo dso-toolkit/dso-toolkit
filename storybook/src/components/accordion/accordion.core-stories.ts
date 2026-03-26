@@ -12,6 +12,7 @@ import {
   anchorSections,
   animatedFormGroupSections,
   basicSections,
+  compactSections,
   nestedSections,
   renvooiSections,
 } from "./accordion.content";
@@ -48,7 +49,7 @@ const {
       alignmentSections,
       anchorSections: anchorSections(templates),
       conclusionSections: basicSections(templates),
-      compactSections: basicSections(templates),
+      compactSections: compactSections(templates),
       compactBlackSections: basicSections(templates),
       neutralSections: basicSections(templates),
       nestedSections: nestedSections(templates),
