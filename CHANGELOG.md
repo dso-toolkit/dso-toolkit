@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Icon Button: ResizeObserver loop completed with undeliverd notifications ([#3567](https://github.com/dso-toolkit/dso-toolkit/issues/3567))
+
 ### Changed
 * Advanced Select: Notificaties indicatoren buiten de advanced select weergeven als Badge met toggletip ([#3302](https://github.com/dso-toolkit/dso-toolkit/issues/3302))
 
