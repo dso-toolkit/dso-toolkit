@@ -167,9 +167,6 @@ ul.dso-action-list {
   }
 
   li::before {
-    @include step-counter.step-counter-styling(0, 0);
-
-    content: counter(step-count-item);
     display: flex;
     flex-shrink: 0;
     align-items: center;
@@ -188,9 +185,17 @@ ul.dso-action-list {
   }
 }
 
+ol.dso-action-list {
+  li::before {
+    @include step-counter.ordered-action-list();
+
+    content: counter(step-count-item);
+  }
+}
+
 ul.dso-action-list {
   li::before {
-    @include step-counter.step-counter-styling(4px, 4px, 28px, 28px, 6px);
+    @include step-counter.unordered-action-list();
 
     content: "";
   }
