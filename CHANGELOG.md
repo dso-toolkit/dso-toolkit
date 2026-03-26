@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Project Item: Baseline en uitlijning klopt niet meer ([#3607](https://github.com/dso-toolkit/dso-toolkit/issues/3607))
+
 ### Removed
 * **BREAKING** Info Button: `secondary` verwijderen ([#3350](https://github.com/dso-toolkit/dso-toolkit/issues/3350))
 
