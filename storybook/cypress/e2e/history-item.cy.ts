@@ -1,6 +1,6 @@
 describe("History Item", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-history-item--default");
+    cy.visit("http://localhost:45000/iframe.html?id=core-history-item--besluit");
   });
 
   it("should be accessible", () => {

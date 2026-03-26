@@ -71,14 +71,12 @@ export function historyItemStories<Implementation, Templates, TemplateFnReturnTy
         statusMessage: "Inzage tot 20-10-2025",
         type: "besluit",
         title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
-        current: true,
         dsoClick: fn(),
       },
       render: templateContainer.render(storyTemplates, (args, { historyItemTemplate }) =>
         historyItemTemplate(historyItemArgsMapper(args)),
       ),
     },
-
     TijdelijkRegelingdeel: {
       args: {
         date: "20-07-2025",
@@ -91,7 +89,6 @@ export function historyItemStories<Implementation, Templates, TemplateFnReturnTy
         historyItemTemplate(historyItemArgsMapper(args)),
       ),
     },
-
     TijdelijkRegelingdeelBesluit: {
       args: {
         date: "20-07-2025",
@@ -104,7 +101,6 @@ export function historyItemStories<Implementation, Templates, TemplateFnReturnTy
         historyItemTemplate(historyItemArgsMapper(args)),
       ),
     },
-
     Waarschuwing: {
       args: {
         date: "20-07-2025",
@@ -116,7 +112,6 @@ export function historyItemStories<Implementation, Templates, TemplateFnReturnTy
         historyItemTemplate(historyItemArgsMapper(args)),
       ),
     },
-
     Ontwerp: {
       args: {
         date: "20-07-2025",
