@@ -11,43 +11,43 @@ export class InputRange implements ComponentInterface {
   /**
    * The minimum value of the range.
    */
-  @Prop()
+  @Prop({ reflect: true })
   min?: number;
 
   /**
    * The maximum value of the range.
    */
-  @Prop()
+  @Prop({ reflect: true })
   max?: number;
 
   /**
    * The value of the range.
    */
-  @Prop()
+  @Prop({ reflect: true })
   value?: number;
 
   /**
    * The step to increment the value by.
    */
-  @Prop()
+  @Prop({ reflect: true })
   step?: number;
 
   /**
    * The label of the range.
    */
-  @Prop()
+  @Prop({ reflect: true })
   label?: string;
 
   /**
    * The unit of the range.
    */
-  @Prop()
+  @Prop({ reflect: true })
   unit: string = "";
 
   /**
    * The description of the range.
    */
-  @Prop()
+  @Prop({ reflect: true })
   description?: string;
 
   /**
@@ -77,8 +77,9 @@ export class InputRange implements ComponentInterface {
         </span>
         <input
           type="range"
-          min={this.min}
-          max={this.max}
+          min={min}
+          max={max}
+          step={step}
           value={this.value}
           class="input"
           aria-label={this.label}
