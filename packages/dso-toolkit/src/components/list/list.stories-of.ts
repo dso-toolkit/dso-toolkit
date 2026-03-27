@@ -40,11 +40,11 @@ export function listMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {
     argTypes: listArgTypes,
     args: {
       items: [
-        { text: "Cras justo odio" },
-        { text: "Dapibus ac facilisis in" },
-        { text: "Morbi leo risus" },
-        { text: "Porta ac consectetur ac" },
-        { text: "Vestibulum at eros" },
+        { text: "Ingediende verzoeken" },
+        { text: "Verder met aanvragen" },
+        { text: "Opgeslagen Vergunningscheck" },
+        { text: "Opgeslagen Maatregel op maat" },
+        { text: "Ingediende verzoeken" },
       ],
     },
     parameters: {
@@ -97,23 +97,23 @@ export function listStories<Implementation, Templates, TemplateFnReturnType>({
         modifier: "img-list",
         items: [
           {
-            text: "Cras justo odio",
+            text: "Ingediende verzoeken",
             imgSrc: "images/rectangle1.png",
           },
           {
-            text: "Dapibus ac facilisis in",
+            text: "Verder met aanvragen",
             imgSrc: "images/rectangle2.png",
           },
           {
-            text: "Morbi leo risus",
+            text: "Opgeslagen Vergunningscheck",
             imgSrc: "images/rectangle1.png",
           },
           {
-            text: "Porta ac consectetur ac",
+            text: "Opgeslagen Maatregel op maat",
             imgSrc: "images/rectangle2.png",
           },
           {
-            text: "Vestibulum at eros",
+            text: "Ingediende verzoeken",
             imgSrc: "images/rectangle1.png",
           },
         ],
@@ -125,11 +125,11 @@ export function listStories<Implementation, Templates, TemplateFnReturnType>({
         type: Type.Ol,
         modifier: "ordered-action",
         items: [
-          { titleLabel: "Porta ac consectetur ac", text: "Cras justo odio" },
-          { titleLabel: "Vestibulum at eros", text: "Dapibus ac facilisis in" },
-          { titleLabel: "Porta ac consectetur ac", text: "Cras justo odio" },
-          { titleLabel: "Vestibulum at eros", text: "Dapibus ac facilisis in" },
-          { text: "Cras justo odio" },
+          { titleLabel: "Ingediende verzoeken", text: "Bekijk hier de ngediende verzoeken" },
+          { titleLabel: "Verder met aanvragen", text: "Bekijk hier aanvragen" },
+          { titleLabel: "Opgeslagen Vergunningscheck", text: 'Ga verder met de opgeslagen vergunningscheck"' },
+          { titleLabel: "Opgeslagen Maatregel op maat", text: "Ga verder met de opgeslagen Maatregel op maat" },
+          { titleLabel: "Ingediende verzoeken", text: "Bekijk ingediende verzoeken" },
         ],
       },
       argTypes: {
@@ -146,11 +146,11 @@ export function listStories<Implementation, Templates, TemplateFnReturnType>({
         type: Type.Ul,
         modifier: "unordered-action",
         items: [
-          { titleLabel: "Porta ac consectetur ac", text: "Cras justo odio" },
-          { titleLabel: "Vestibulum at eros", text: "Dapibus ac facilisis in" },
-          { titleLabel: "Porta ac consectetur ac", text: "Cras justo odio" },
-          { titleLabel: "Vestibulum at eros", text: "Dapibus ac facilisis in" },
-          { text: "Cras justo odio" },
+          { titleLabel: "Ingediende verzoeken", text: "Bekijk hier de ngediende verzoeken" },
+          { titleLabel: "Verder met aanvragen", text: "Bekijk hier aanvragen" },
+          { titleLabel: "Opgeslagen Vergunningscheck", text: 'Ga verder met de opgeslagen vergunningscheck"' },
+          { titleLabel: "Opgeslagen Maatregel op maat", text: "Ga verder met de opgeslagen Maatregel op maat" },
+          { titleLabel: "Ingediende verzoeken", text: "Bekijk ingediende verzoeken" },
         ],
       },
       argTypes: {
