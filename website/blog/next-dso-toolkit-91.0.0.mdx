@@ -1,12 +1,13 @@
 ---
-authors: [iterox]
+authors: [iterox, cvanderleij]
 ---
 
 # DSO Toolkit v91.0.0 🧱
 
-Deze release bevat een **deprecation** voor het component:
+Deze release bevat een **deprecation** voor de volgende componenten:
 
 - Toggletip
+- List
 
 Tevens brengen we de **deprecation** van het component **Tooltip** nogmaals onder de aandacht.
 
@@ -123,4 +124,24 @@ De verbeterde alternatieven zijn inmiddels via een aantal releases beschikbaar g
     <div class="dso-rich-content">...</div>
   </div>
 </dso-badge>
+```
+
+## List
+
+De selector `ol.dso-list-ordered-action` in het HTML/CSS component `List` is deprecated. In een toekomstige **BREAKING** release zal deze selector verwijderd worden.
+
+### Migratiepad
+
+Gebruik de `ol.dso-action-list` selector van de `List`.
+
+```html
+❌
+<ol class="dso-list-ordered-action">
+  <li>...</li>
+</ol>
+
+✅
+<ol class="dso-action-list">
+  <li>...</li>
+</ol>
 ```
