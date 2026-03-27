@@ -1,6 +1,6 @@
 describe("History Item", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-history-item--default");
+    cy.visit("http://localhost:45000/iframe.html?id=core-history-item--besluit");
   });
 
   it("should be accessible", () => {
@@ -26,5 +26,15 @@ describe("History Item", () => {
       .invoke("at", -1)
       .its("args.0.detail.originalEvent")
       .should("exist");
+  });
+
+  it("renders current state correctly", () => {
+    cy.get("dso-history-item.hydrated")
+      .invoke("prop", "current", true)
+      .shadow()
+      .find(".history-item")
+      .should("have.css", "background-color", "rgb(242, 242, 242)")
+      .find(".title-anchor")
+      .should("have.attr", "aria-current", "true");
   });
 });

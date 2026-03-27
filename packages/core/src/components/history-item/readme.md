@@ -1,7 +1,5 @@
 # `<dso-history-item>`
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -9,6 +7,7 @@
 
 | Property            | Attribute | Description                                                                                             | Type                                                                                                                       | Default     |
 | ------------------- | --------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `current`           | `current` | Optional boolean indicating if this history item is the current/active one.                             | `boolean \| undefined`                                                                                                     | `undefined` |
 | `href`              | `href`    | The optional URL to which the History Item title links. Needs to be provided when slot `title` is used. | `string \| undefined`                                                                                                      | `undefined` |
 | `type` _(required)_ | `type`    | The type of History Item                                                                                | `"besluit" \| "in-werking" \| "ontwerp" \| "tijdelijk-regelingdeel" \| "tijdelijk-regelingdeel-besluit" \| "waarschuwing"` | `undefined` |
 
