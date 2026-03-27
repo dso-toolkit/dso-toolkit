@@ -28,7 +28,7 @@ dl {
     > .dso-group {
       display: flex;
       flex-wrap: nowrap;
-      column-gap: calc(units.$u2 / 2);
+      column-gap: var(--_dt-dl-ddcolumn-gap, units.$u2 / 2);
     }
 
     dt,

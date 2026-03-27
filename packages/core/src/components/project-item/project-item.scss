@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+@use "../../../dso-toolkit/src/variables/media-query-breakpoints";
 
 :host {
   display: block;
@@ -43,32 +44,47 @@
   display: flex;
 }
 
+::slotted(.dso-grouped) {
+  --_dt-dl-ddcolumn-gap: 0;
+}
+
 .project-item {
   padding: units.$u2;
   border: 1px solid colors.$grijs-20;
   border-radius: units.$u1 * 0.5;
 
   .project-item-header {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
     gap: units.$u2;
-    flex-wrap: nowrap;
-    align-items: flex-start;
     margin-block-end: units.$u2;
   }
 
   .project-item-title {
     display: flex;
     gap: units.$u2;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    flex-grow: 1;
+    grid-row: 1;
+    grid-column: 1;
+    white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap
+  }
+
+  .project-item-subtitle {
+    display: flex;
+    justify-content: flex-end;
+    gap: units.$u2;
+    grid-row: 1;
+    grid-column: 2;
+    white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap
   }
 
   .project-item-actions {
     display: flex;
     flex-wrap: nowrap;
     flex-shrink: 0;
+    grid-row: 1;
+    grid-column: 3;
   }
 
   .project-item-info {
@@ -83,6 +99,35 @@
 
     .project-item-status {
       margin-inline-start: auto;
+    }
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    .project-item-header {
+      grid-template-columns: 1fr auto;
+      gap: units.$u2;
+    }
+
+    .project-item-title {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .project-item-actions {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .project-item-subtitle {
+      display: inline;
+      text-align: start;
+      white-space: normal;
+      grid-row: 2;
+      grid-column: 1 / span 2;
+
+      dso-label {
+        display: inline-block;
+      }
     }
   }
 }

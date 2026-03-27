@@ -18,14 +18,14 @@ describe("Project Item", () => {
     cy.get("@projectItem")
       .should("have.attr", "label", "InitialLabel")
       .shadow()
-      .find(".project-item-title dso-label")
+      .find(".project-item-subtitle dso-label")
       .should("contain.text", "InitialLabel");
 
     cy.get("@projectItem").invoke("attr", "label", "UpdatedLabel");
     cy.get("@projectItem")
       .should("have.attr", "label", "UpdatedLabel")
       .shadow()
-      .find(".project-item-title dso-label")
+      .find(".project-item-subtitle dso-label")
       .should("contain.text", "UpdatedLabel");
   });
 });
