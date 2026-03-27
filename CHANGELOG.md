@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Toggletip: Deprecate ([#3398](https://github.com/dso-toolkit/dso-toolkit/issues/3398))
 
+### Fixed
+* Input Range: Default values worden niet aan control doorgegeven ([#3360](https://github.com/dso-toolkit/dso-toolkit/issues/3360))
+
 ### Removed
 * **BREAKING** Info Button: `secondary` verwijderen ([#3350](https://github.com/dso-toolkit/dso-toolkit/issues/3350))
 
@@ -462,7 +465,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Viewer Grid: Top bar in het grid plaatsen ([#3103](https://github.com/dso-toolkit/dso-toolkit/issues/3103))
 * Survey Rating: Vraagteken achter de vraag en role alert toevoegen ([#3046](https://github.com/dso-toolkit/dso-toolkit/issues/3046))
-  
+
 ### Task
 * Packages: Dependencies updates ([#3091](https://github.com/dso-toolkit/dso-toolkit/issues/3091))
 
@@ -1569,10 +1572,10 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 ### Fixed
 * Date Picker: dso-date-picker[invalid] selector uitbreiden met :not() clausule ([#2116](https://github.com/dso-toolkit/dso-toolkit/issues/2116))
 * Header: ([#2081](https://github.com/dso-toolkit/dso-toolkit/issues/2081))
-  - Dropdown Menu op kleinste scherm klapt tegen de linker kant van het scherm. Deze moet net zoveel ruimte hebben als aan de rechterkant.
-  - Wanneer er geen hoofd-menu items zijn, maar wel inloggen en mijn omgevingsloket links zijn. Is er op een klein scherm geen dropdown menu.
-  - Dropdown opties moeten uitklappen vanaf de onder rand van de header.
-  - Met sublogo: Het menu staat te ver naar rechts en valt deels buiten beeld, zowel de knop als de dropdown.
+    - Dropdown Menu op kleinste scherm klapt tegen de linker kant van het scherm. Deze moet net zoveel ruimte hebben als aan de rechterkant.
+    - Wanneer er geen hoofd-menu items zijn, maar wel inloggen en mijn omgevingsloket links zijn. Is er op een klein scherm geen dropdown menu.
+    - Dropdown opties moeten uitklappen vanaf de onder rand van de header.
+    - Met sublogo: Het menu staat te ver naar rechts en valt deels buiten beeld, zowel de knop als de dropdown.
 * "@dso-toolkit/angular" productie code importeert uit "dso-toolkit" ([#2119](https://github.com/dso-toolkit/dso-toolkit/issues/2119))
 
 ## 53.0.0
@@ -1587,7 +1590,7 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 
 ### Fixed
 * **BREAKING** `.dso-justify-form-groups` Layout issue.\
-Instructie: Voeg een extra class toe met het aantal velden: `<div class="dso-justify-form-groups form-groups-n">`, waarbij `n` moet worden vervangen met het aantal `.form-group` velden er in het `.dso-justify-form-groups` staan. ([#2026](https://github.com/dso-toolkit/dso-toolkit/issues/2026))
+  Instructie: Voeg een extra class toe met het aantal velden: `<div class="dso-justify-form-groups form-groups-n">`, waarbij `n` moet worden vervangen met het aantal `.form-group` velden er in het `.dso-justify-form-groups` staan. ([#2026](https://github.com/dso-toolkit/dso-toolkit/issues/2026))
 * Card grid: schaalt niet. Kolom aantal is nu afhankelijk van viewport ([#2103](https://github.com/dso-toolkit/dso-toolkit/issues/2103))
 
 ## 52.0.3
@@ -1605,8 +1608,8 @@ De dso-toolkit.nl landingspagina is gewijzigd naar de introductiepagina ([#2082]
 
 ### Fixed
 * `<dso-label>` en `<dso-tooltip>` performance optimalisaties. ([#2065](https://github.com/dso-toolkit/dso-toolkit/issues/2065))
-  - `<dso-label>` leest de content nu uit door middel van `HTMLElement.textContent` in plaats van `HTMLElement.innerText`. Zie https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext. de textContent is nodig voor de tooltip bij `[truncate]` en de knop tekst bij `[removable]`.
-  - `<dso-tooltip>` instantieerde een popper instance bij initialisatie, de instantie wordt nu gemaakt wanneer de tooltip daadewerkelijk toont.
+    - `<dso-label>` leest de content nu uit door middel van `HTMLElement.textContent` in plaats van `HTMLElement.innerText`. Zie https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext. de textContent is nodig voor de tooltip bij `[truncate]` en de knop tekst bij `[removable]`.
+    - `<dso-tooltip>` instantieerde een popper instance bij initialisatie, de instantie wordt nu gemaakt wanneer de tooltip daadewerkelijk toont.
 * Viewer Grid: filterpaneel titel was `h2` en is nu `h1` ([#2075](https://github.com/dso-toolkit/dso-toolkit/issues/2075))
 
 ## 52.0.1
@@ -1628,7 +1631,7 @@ De dso-toolkit.nl landingspagina is gewijzigd naar de introductiepagina ([#2082]
 
 ### Changed
 * **BREAKING**: Winkelwagentje (Shopping cart) open en dicht net zoals accordion. Gebruik icoon `chevron-right` ([#1984](https://github.com/dso-toolkit/dso-toolkit/issues/1984))\
-Afnemers van dit html/css component moeten het icoon vervangen met `chevron-right`. Bij togglen mag dit icoon `chevron-right` blijven en wordt het icoon door css rotated.
+  Afnemers van dit html/css component moeten het icoon vervangen met `chevron-right`. Bij togglen mag dit icoon `chevron-right` blijven en wordt het icoon door css rotated.
 * Date picker: Property `invalid` voor invalid state (`<input>`: rode border en aria-invalid) ([#2040](https://github.com/dso-toolkit/dso-toolkit/issues/2040))
 
 ### Fixed
@@ -1761,7 +1764,7 @@ Het HTML/CSS Header component is deprecated en wordt binnenkort definitief verwi
 * Storybook Composition ([#1869](https://github.com/dso-toolkit/dso-toolkit/issues/1869)).
 * Angular package publish naar NPM met Nx workspaces ([#1928](https://github.com/dso-toolkit/dso-toolkit/issues/1928))
 * **core:** `dso-accordion-section` scrolled de content into view als dat nodig is bij uitklappen. Sections kunnen ook programmatisch in beeld gescrolled worden met `scrollSectionIntoView()`.\
-`toggleSection()` is uitgebreid met een param `scrollIntoView: boolean = true`. Door de param op false te zetten toggled de sectie zonder dat er gescrolled wordt. ([#1875](https://github.com/dso-toolkit/dso-toolkit/issues/1875))
+  `toggleSection()` is uitgebreid met een param `scrollIntoView: boolean = true`. Door de param op false te zetten toggled de sectie zonder dat er gescrolled wordt. ([#1875](https://github.com/dso-toolkit/dso-toolkit/issues/1875))
 
 ### Changed
 * Meta packages `@dso-toolkit/css` en `@dso-toolkit/sources` fuseren naar `dso-toolkit` ([#1871](https://github.com/dso-toolkit/dso-toolkit/issues/1871)).
@@ -1773,13 +1776,13 @@ Het HTML/CSS Header component is deprecated en wordt binnenkort definitief verwi
 
 ### Added
 * **core + react + sources + css:** Tabel class `.dso-table-vertical-lines` kan op `table` gezet worden om verticale borders toe te voegen ([#1913](https://github.com/dso-toolkit/dso-toolkit/issues/1913))\
-Voor tabellen in `<dso-ozon-content>` staan verticale borders altijd aan.
+  Voor tabellen in `<dso-ozon-content>` staan verticale borders altijd aan.
 * **angular:** Angular componenten documentatie in Angular Storybook toegevoegd ([#1908](https://github.com/dso-toolkit/dso-toolkit/issues/1908)).
 * **core:** Webcomponent Accordion: Animaties ([#1846](https://github.com/dso-toolkit/dso-toolkit/issues/1846))
 
 ### Fixed
 * **core + css + sources:** `<dso-modal>` Grijze overlay toont soms bovenop de modal. ([#1902](https://github.com/dso-toolkit/dso-toolkit/issues/1902))\
-Dit is ook fixed in de `<dso-table>` vergroot tabel modal.
+  Dit is ook fixed in de `<dso-table>` vergroot tabel modal.
 * percy.cy.ts faalt incidenteel ([#1899](https://github.com/dso-toolkit/dso-toolkit/issues/1899)).
 
 ### Changed
@@ -1831,7 +1834,7 @@ Dit is ook fixed in de `<dso-table>` vergroot tabel modal.
 
 ### Added
 * **BREAKING: core + css + react + sources:** `<dso-modal>` Web component ([#1793](https://github.com/dso-toolkit/dso-toolkit/issues/1793))\
-De optional `.dso-confirm` class op `div.dso-modal` is verwijderd. Deze class was verantwoordelijk voor `button:first-child { float: left; }`
+  De optional `.dso-confirm` class op `div.dso-modal` is verwijderd. Deze class was verantwoordelijk voor `button:first-child { float: left; }`
 * **core + css + sources + dso-toolkit:** Prettier en ESLint ([#1441](https://github.com/dso-toolkit/dso-toolkit/issues/1441))
 * **sources:** Highlightbox banner-image ([#1813](https://github.com/dso-toolkit/dso-toolkit/issues/1813))
 * **core + react:** Modal Webcomponent: Mogelijk maken sluitkruis te verbergen ([#1884](https://github.com/dso-toolkit/dso-toolkit/issues/1884))
@@ -1904,10 +1907,10 @@ De optional `.dso-confirm` class op `div.dso-modal` is verwijderd. Deze class wa
 
 ### Changed
 * **BREAKING: core + css:** Info: sluitknopje in DOM onderaan ([#1707](https://github.com/dso-toolkit/dso-toolkit/issues/1707))\
-Het sluitknopje is verplaatst, zie PR voor geldige markup ([#1765](https://github.com/dso-toolkit/dso-toolkit/pull/1765))
+  Het sluitknopje is verplaatst, zie PR voor geldige markup ([#1765](https://github.com/dso-toolkit/dso-toolkit/pull/1765))
 * **BREAKING: css + sources:** Invalid velden: `aria-errormessage` in plaats van `aria-describedby` gebruiken ([#1715](https://github.com/dso-toolkit/dso-toolkit/issues/1715))
 * **BREAKING: core:** Progress bar / indicator: WCAG verbeteringen ([#1714](https://github.com/dso-toolkit/dso-toolkit/issues/1714))\
-`Progress Bar` en `Progress Indicator` labels staan nu als eerste element en worden gevolgd door het visuele `progress` kenmerk ([#1748](https://github.com/dso-toolkit/dso-toolkit/pull/1748))
+  `Progress Bar` en `Progress Indicator` labels staan nu als eerste element en worden gevolgd door het visuele `progress` kenmerk ([#1748](https://github.com/dso-toolkit/dso-toolkit/pull/1748))
 * **core + sources + storybook:** Autosuggest: null kunnen meegeven aan suggestions voor 'nog niet gezocht' ([#1784](https://github.com/dso-toolkit/dso-toolkit/issues/1784))
 * **core + css + dso-toolkit:** Verhuizen van global stijling naar `@dso-toolkit/css/` ([#1751](https://github.com/dso-toolkit/dso-toolkit/issues/1751))
 * **core + css + sources:** /sources variables en mixins verhuizen naar /sources/components ([#1777](https://github.com/dso-toolkit/dso-toolkit/issues/1777))
@@ -1960,13 +1963,13 @@ Het sluitknopje is verplaatst, zie PR voor geldige markup ([#1765](https://githu
 
 ### Changed
 * **BREAKING: css:** Document Item uitbreiden met container voor regels ([#1657](https://github.com/dso-toolkit/dso-toolkit/issues/1657))\
-het element `.dso-document-list-item` omvat het hele item (heading + content). Wrap de huidige content in `.dso-document-list-item-heading` (dit is het grijze vlak). `.dso-document-list-item-content` kan gebruikt worden om content onder de heading te tonen in een wit vlak. ([#1687](https://github.com/dso-toolkit/dso-toolkit/pull/1687))
+  het element `.dso-document-list-item` omvat het hele item (heading + content). Wrap de huidige content in `.dso-document-list-item-heading` (dit is het grijze vlak). `.dso-document-list-item-content` kan gebruikt worden om content onder de heading te tonen in een wit vlak. ([#1687](https://github.com/dso-toolkit/dso-toolkit/pull/1687))
 * **core + css + dso-toolkit:** Formulier stijling overzetten ([#1194](https://github.com/dso-toolkit/dso-toolkit/issues/1194))
 * **dso-toolkit + sources + css:** Form Buttons verhuizen naar @dso-toolkit/css ([#1668](https://github.com/dso-toolkit/dso-toolkit/issues/1668))
 
 ### Fixed
 * **BREAKING: css:** Aanpassing document header ([#1681](https://github.com/dso-toolkit/dso-toolkit/issues/1681))\
-`.dso-document-header-type` en `.dso-document-header-owner` horen nu in een `.dso-document-header-owner-wrapper` te staan. Eventuele badges horen nu in een `.dso-document-header-badges` te staan
+  `.dso-document-header-type` en `.dso-document-header-owner` horen nu in een `.dso-document-header-owner-wrapper` te staan. Eventuele badges horen nu in een `.dso-document-header-badges` te staan
 * **core** Pagination prev/next button niet tonen als `current-page` out of bounds of undefined is ([#1680](https://github.com/dso-toolkit/dso-toolkit/issues/1680))
 * **core** Ozon Content: In Storybook markeren als "verwijderd" verschuift de elementen ([#1658](https://github.com/dso-toolkit/dso-toolkit/issues/1658))
 
@@ -2233,11 +2236,11 @@ De change uit GitHub issue [#1472](https://github.com/dso-toolkit/dso-toolkit/is
 * **BREAKING: sources:** CSS Component Image varianten `img-rounded` en `img-thumbnail` deprecated ([#1188](https://github.com/dso-toolkit/dso-toolkit/issues/1188))
 * **BREAKING: css + dso-toolkit + sources:** CSS Component List verhuizing ([#1397](https://github.com/dso-toolkit/dso-toolkit/issues/1397))
   De volgende selectors zijn niet meer beschikbaar:
-  * `a.list-group-item`
-  * `button.list-group-item`
-  * `.list-group-item.disabled` en `.list-group-item.active`
-  * `.list-group-item-heading` en `.list-group-item-text`
-  * `.list-group-item-success`, `.list-group-item-info`, `.list-group-item-warning`, `.list-group-item-danger`
+    * `a.list-group-item`
+    * `button.list-group-item`
+    * `.list-group-item.disabled` en `.list-group-item.active`
+    * `.list-group-item-heading` en `.list-group-item-text`
+    * `.list-group-item-success`, `.list-group-item-info`, `.list-group-item-warning`, `.list-group-item-danger`
 * **dso-toolkit:** Voorbeeldpagina conclusie Vergunningcheck aanpassen 'Opslaan in Mijn Omgevingswet' ([#1430](https://github.com/dso-toolkit/dso-toolkit/issues/1430))
 * **css + dso-toolkit + sources:** CSS Component Pagination verhuizing ([#1254](https://github.com/dso-toolkit/dso-toolkit/issues/1254))
 * **dso-toolkit:** Validatie bij verplichte confirmatie checkbox aanpassen ([#1420](https://github.com/dso-toolkit/dso-toolkit/issues/1420))
@@ -2478,7 +2481,7 @@ De change uit GitHub issue [#1472](https://github.com/dso-toolkit/dso-toolkit/is
 
 ### Added
 * **BREAKING: dso-toolkit + core + css + react:** Dropdown Menu (Web Component en CSS Component update) ([#1173](https://github.com/dso-toolkit/dso-toolkit/issues/1173))
-  * `.dropdown` wordt `.dso-dropdown-menu`, `.dropdown-menu` wordt `.dso-dropdown-options`, en... **Markup changes, see PR ([#1225](https://github.com/dso-toolkit/dso-toolkit/pull/1225))**
+    * `.dropdown` wordt `.dso-dropdown-menu`, `.dropdown-menu` wordt `.dso-dropdown-options`, en... **Markup changes, see PR ([#1225](https://github.com/dso-toolkit/dso-toolkit/pull/1225))**
 
 ### Changed
 * **sources:** Twee updated iconen: `land` en `layers` ([#1245](https://github.com/dso-toolkit/dso-toolkit/issues/1245))
@@ -2497,8 +2500,8 @@ De change uit GitHub issue [#1472](https://github.com/dso-toolkit/dso-toolkit/is
 
 ### Added
 * **BREAKING: dso-toolkit + core:** Web Component "Progress Indicator" ([#939](https://github.com/dso-toolkit/dso-toolkit/issues/939))
-  * `.dso-gray` op `.dso-progress-indicator` is komen te vervallen: Class is gemaakt voor demo mogelijkheden. Achtergrond moet met bv. Highlight Box worden gegenereerd
-  * `.dso-progress-indicator-looping` is komen te vervallen, stijling is gefuseerd met de root selector `.dso-progress-indicator`. Het kan geen kwaad om deze class te laten staan.
+    * `.dso-gray` op `.dso-progress-indicator` is komen te vervallen: Class is gemaakt voor demo mogelijkheden. Achtergrond moet met bv. Highlight Box worden gegenereerd
+    * `.dso-progress-indicator-looping` is komen te vervallen, stijling is gefuseerd met de root selector `.dso-progress-indicator`. Het kan geen kwaad om deze class te laten staan.
 * 7 Thema iconen: `energy`, `environment`, `health`, `land`, `procedures`, `safety` en `sound` ([#1227](https://github.com/dso-toolkit/dso-toolkit/issues/1227))
 
 ### Changed
@@ -2661,7 +2664,7 @@ Verder is er eerder onterecht versie gedeeltelijke versie `25.0.0` van de DSO To
 ## 22.0.0
 
 Note: This release was first released as v21.3.0. We missed that [#857](https://github.com/dso-toolkit/dso-toolkit/issues/857)
- was a breaking change, so we re-released this version with updated CHANGELOG instructions.
+was a breaking change, so we re-released this version with updated CHANGELOG instructions.
 
 ### Added
 * **dso-toolkit + core + styling:** Web component Banner ([#857](https://github.com/dso-toolkit/dso-toolkit/issues/857))
@@ -3269,8 +3272,8 @@ Moet worden:
 
 Notes:
 * Tijdens het upgraden zal het voorkomen dat een icoon niet meer beschikbaar is. In dat geval is samen met het UX team de volgende procedure bedacht:
-  1. Gebruik het placeholder icoon `wip-wip`.
-  2. Geef aan het UX team door welke iconen je mist.
+    1. Gebruik het placeholder icoon `wip-wip`.
+    2. Geef aan het UX team door welke iconen je mist.
 
   Het UX team zal het verzoek beoordelen en indien nodig een icoon in DSO huisstijl ontwerpen. Het icoon wordt dan opgenomen in de toolkit. In de CHANGELOG zal duidelijk aangegeven worden welke iconen er toegevoegd zijn.
 
@@ -3278,9 +3281,9 @@ Notes:
 * Een namespace attribuut is niet nodig als het icoon in een HTML5 applicatie wordt gebruikt (https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg).
 * In het `use` element mag direct `href` ipv `xlink:href` worden gebruikt. In SVG2 is `xlink:href` deprecated (https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:href).
 * In bovenstaand voorbeeld verwijs ik naar `dso-icons.svg`:
-  * Als de toolkit scss files worden gecompileerd, moet de implementatie zorg dragen dat uiteindelijk `node_modules/dso-toolkit/dist/toolkit/dso-icons.svg` wordt gebundled;
-  * Als de toolkit via de CDN wordt gebruikt werken SVG iconen direct;
-  * Als de toolkit de CSS uit de NPM package gebruikt moeten de bundlers/loaders rekening houden dat de SVG files worden meegenomen in de build;
+    * Als de toolkit scss files worden gecompileerd, moet de implementatie zorg dragen dat uiteindelijk `node_modules/dso-toolkit/dist/toolkit/dso-icons.svg` wordt gebundled;
+    * Als de toolkit via de CDN wordt gebruikt werken SVG iconen direct;
+    * Als de toolkit de CSS uit de NPM package gebruikt moeten de bundlers/loaders rekening houden dat de SVG files worden meegenomen in de build;
 * FontAwesome is geen dependency meer. Tevens wordt Bootstrap's Glyphicons niet meer gebundled.
 * IE11 heeft geen support voor `use href` naar een externe URI of data URI. Elke implementatie van de toolkit moet deze tekortkoming compenseren. De library is ook een implementatie van de toolkit en maakt gebruik van [svg4everybody](https://github.com/jonathantneal/svg4everybody).
 
@@ -3320,17 +3323,17 @@ Iconen in `.btn` krijgen geen `float: left` meer en is daarom geen block-element
 ```html
 <!-- OK -->
 <... class="btn ...">
-  <span>Label</span><svg class="di ..."></svg>
+<span>Label</span><svg class="di ..."></svg>
 </...>
 
 <!-- NOT OK -->
 <... class="btn ...">
-  <span>Label</span>
-  <svg class="di ..."></svg>
+<span>Label</span>
+<svg class="di ..."></svg>
 </...>
 
 <... class="btn ...">
-  <span>Label</span> <svg class="di ..."></svg>
+<span>Label</span> <svg class="di ..."></svg>
 </...>
 ```
 
@@ -3441,7 +3444,7 @@ De highlight-box had een aantal niet-prefixed modifiers:
 ### Changed
 * Redesigned "Accordion" component (#307)
 * Redesigned "Button" component (#308)
-  * Class modifier `.dso-no-top-border` op accordion's bestaat niet meer en kan veilig worden verwijderd.
+    * Class modifier `.dso-no-top-border` op accordion's bestaat niet meer en kan veilig worden verwijderd.
 * Headings typografie aangepast (#311)
 * Font Asap update improvement (#318)
 * Documentatie: Startgids en toelichting Modal component (#322)
@@ -3677,7 +3680,7 @@ De voorschriften zijn dus aangepast.
   <div class="dso-field-container">
     [..]
   </div>
-</div>
+  </div>
 ```
 
 `>= 1.2.1`
@@ -3689,7 +3692,7 @@ De voorschriften zijn dus aangepast.
   <div class="dso-field-container">
     [..]
   </div>
-</div>
+  </div>
 ```
 
 De verkeerde notatie is deprecated maar zal visueel blijven werken. Vanaf 2.0.0 niet meer.
@@ -3871,7 +3874,7 @@ Pagers bevatten geen iconen meer:
     <li class="previous">
       <a href="#">
         <span aria-hidden="true">&larr;</span> <!-- Dient niet meer gebruikt te worden -->
-         Vorige
+        Vorige
       </a>
     </li>
     <li class="next disabled">
