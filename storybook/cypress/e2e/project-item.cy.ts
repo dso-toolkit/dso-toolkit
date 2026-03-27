@@ -4,13 +4,13 @@ describe("Project Item", () => {
     cy.get("dso-project-item.hydrated").as("projectItem");
   });
 
-  it("should be accessible", () => {
+  it("should be accessible - default", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-project-item.hydrated");
   });
 
-  it("matches snapshot", () => {
-    cy.get("@projectItem").matchImageSnapshot("project-item");
+  it("should matchImageSnapshot", () => {
+    cy.get("@projectItem").matchImageSnapshot();
   });
 
   it("should render and update label prop", () => {
@@ -18,14 +18,14 @@ describe("Project Item", () => {
     cy.get("@projectItem")
       .should("have.attr", "label", "InitialLabel")
       .shadow()
-      .find(".project-item-title dso-label")
+      .find(".project-item-subtitle dso-label")
       .should("contain.text", "InitialLabel");
 
     cy.get("@projectItem").invoke("attr", "label", "UpdatedLabel");
     cy.get("@projectItem")
       .should("have.attr", "label", "UpdatedLabel")
       .shadow()
-      .find(".project-item-title dso-label")
+      .find(".project-item-subtitle dso-label")
       .should("contain.text", "UpdatedLabel");
   });
 });

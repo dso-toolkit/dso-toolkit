@@ -28,16 +28,12 @@ dl {
     > .dso-group {
       display: flex;
       flex-wrap: nowrap;
-      column-gap: calc(units.$u2 / 2);
-    }
-
-    dt,
-    dd {
-      /* stylelint-disable-next-line declaration-property-value-disallowed-list -- wrapping is done by child dt/dd elements */
-      white-space: nowrap;
+      column-gap: units.$u1;
     }
 
     dt {
+      /* stylelint-disable-next-line declaration-property-value-disallowed-list -- wrapping is done by child dt/dd elements */
+      white-space: nowrap;
       &::after {
         content: ":";
         display: inline-block;
@@ -62,6 +58,7 @@ dl {
 
     &:last-of-type {
       margin-inline-end: 0;
+      text-align: var(--_dt-dl-dd-text-align, left);
     }
 
     p:last-child {

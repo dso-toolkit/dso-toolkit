@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+@use "../../../dso-toolkit/src/variables/media-query-breakpoints";
 
 :host {
   display: block;
@@ -14,10 +15,11 @@
   --_dt-dl-before-display: none;
   --_dt-dl-dt-font-weight: normal;
   --_dt-dl-dd-margin-block-start: 0;
-  --_dt-dl-dd-margin-inline-start: #{units.$u1};
+  --_dt-dl-dd-margin-inline-start: 0;
   --_dt-dl-dd-padding-inline-start: 0;
   --_dt-dl-dt-inline-size: auto;
   --_dt-dl-dd-last-margin-block-end: 0;
+  --_dt-dl-dd-text-align: right;
 
   --_dt-mark-bg-color: none;
   --_dt-mark-padding-block: 0;
@@ -49,26 +51,36 @@
   border-radius: units.$u1 * 0.5;
 
   .project-item-header {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
     gap: units.$u2;
-    flex-wrap: nowrap;
-    align-items: flex-start;
     margin-block-end: units.$u2;
   }
 
-  .project-item-title {
+  .project-item-title,
+  .project-item-subtitle,
+  .project-item-actions {
     display: flex;
     gap: units.$u2;
-    align-items: center;
+    grid-row: 1;
+    white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap
+  }
+
+  .project-item-title {
     justify-content: space-between;
-    flex-wrap: wrap;
-    flex-grow: 1;
+    grid-column: 1;
+  }
+
+  .project-item-subtitle {
+    justify-content: flex-end;
+    grid-column: 2;
   }
 
   .project-item-actions {
-    display: flex;
     flex-wrap: nowrap;
     flex-shrink: 0;
+    grid-column: 3;
   }
 
   .project-item-info {
@@ -83,6 +95,33 @@
 
     .project-item-status {
       margin-inline-start: auto;
+    }
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    .project-item-header {
+      grid-template-columns: 1fr auto;
+      gap: units.$u2;
+    }
+
+    .project-item-title {
+      grid-row: 1;
+    }
+
+    .project-item-actions {
+      grid-column: 2;
+    }
+
+    .project-item-subtitle {
+      display: inline;
+      text-align: start;
+      white-space: normal;
+      grid-row: 2;
+      grid-column: 1 / span 2;
+
+      dso-label {
+        display: inline-block;
+      }
     }
   }
 }

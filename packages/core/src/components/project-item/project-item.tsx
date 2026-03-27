@@ -18,6 +18,9 @@ export class ProjectItem implements ComponentInterface {
         <div class="project-item-header">
           <div class="project-item-title">
             <slot name="title" />
+          </div>
+          <div class="project-item-subtitle">
+            <slot name="subtitle" />
             {this.label && (
               <dso-label status="error" compact>
                 {this.label}
