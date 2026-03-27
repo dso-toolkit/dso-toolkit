@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * History Item: Current state toevoegen + kopkleur aanpassen en chevron ([#3423](https://github.com/dso-toolkit/dso-toolkit/issues/3423))
+* List: Variant unordered-action toevoegen ([#3511](https://github.com/dso-toolkit/dso-toolkit/issues/3511))
 
 ### Deprecated
 * Toggletip: Deprecate ([#3398](https://github.com/dso-toolkit/dso-toolkit/issues/3398))
