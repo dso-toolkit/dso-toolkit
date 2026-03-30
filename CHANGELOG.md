@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧱 Release 91.0.0 - 2026-03-30
+
 ### Added
 * Typografie Headings: Aanpassing kleur in context van Accordion compact ([#3561](https://github.com/dso-toolkit/dso-toolkit/issues/3561))
 
