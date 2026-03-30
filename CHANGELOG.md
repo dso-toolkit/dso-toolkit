@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Toggletip: Deprecate ([#3398](https://github.com/dso-toolkit/dso-toolkit/issues/3398))
 
+### Fixed
+* Input Range: Default values worden niet aan control doorgegeven ([#3360](https://github.com/dso-toolkit/dso-toolkit/issues/3360))
+
 ### Removed
 * **BREAKING** Info Button: `secondary` verwijderen ([#3350](https://github.com/dso-toolkit/dso-toolkit/issues/3350))
 
@@ -462,7 +465,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Viewer Grid: Top bar in het grid plaatsen ([#3103](https://github.com/dso-toolkit/dso-toolkit/issues/3103))
 * Survey Rating: Vraagteken achter de vraag en role alert toevoegen ([#3046](https://github.com/dso-toolkit/dso-toolkit/issues/3046))
-  
+
 ### Task
 * Packages: Dependencies updates ([#3091](https://github.com/dso-toolkit/dso-toolkit/issues/3091))
 
