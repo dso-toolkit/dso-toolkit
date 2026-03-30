@@ -118,17 +118,21 @@ export class PlekinfoCard implements ComponentInterface {
                 class="heading-anchor"
                 onClick={(e) => this.clickEventHandler(e)}
               >
-                <span class="icon-container">
-                  {this.targetBlank ? (
-                    <>
-                      <dso-icon icon="external-link" />
-                      <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
-                    </>
-                  ) : (
-                    <dso-icon icon="chevron-right" />
-                  )}
+                <span class="heading-content">
                   <slot name="heading" />
                 </span>
+                {this.targetBlank ? (
+                  <>
+                    <dso-icon icon="external-link" />
+                    <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
+                  </>
+                ) : (
+                  <>
+                    {/* Word joiner: prevents a line break between label text and icon */}
+                    {"\u2060"}
+                    <dso-icon icon="chevron-right" />
+                  </>
+                )}
               </a>
             ) : (
               <slot name="heading" />
