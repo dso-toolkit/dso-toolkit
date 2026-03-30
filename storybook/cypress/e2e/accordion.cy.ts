@@ -410,22 +410,16 @@ describe("Accordion", () => {
     });
   });
 
-  describe("Accordion", () => {
+  describe("Compact", () => {
     beforeEach(() => {
       cy.visit("http://localhost:45000/iframe.html?id=core-accordion--compact");
     });
 
     it("shows h2, h3 and h4 with color: colors.grijs-90", () => {
-      cy.get("dso-accordion.hydrated").matchImageSnapshot();
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-accordion.hydrated");
 
-      cy.get("dso-accordion.hydrated")
-        .find("dso-accordion-section:nth-child(5)")
-        .as("accordionSection")
-        .find("h2")
-        .should("have.css", "color", "rgb(25, 25, 25)");
-
-      cy.get("@accordionSection").find("h3").should("have.css", "color", "rgb(25, 25, 25)");
-      cy.get("@accordionSection").find("h4").should("have.css", "color", "rgb(25, 25, 25)");
+      cy.get("dso-accordion.hydrated").matchImageSnapshot({ failureThreshold: 0 });
     });
   });
 });
