@@ -409,4 +409,17 @@ describe("Accordion", () => {
         .should("exist");
     });
   });
+
+  describe("Compact", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-accordion--compact");
+    });
+
+    it("shows h2, h3 and h4 with color: colors.grijs-90", () => {
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-accordion.hydrated");
+
+      cy.get("dso-accordion.hydrated").matchImageSnapshot({ failureThreshold: 0 });
+    });
+  });
 });

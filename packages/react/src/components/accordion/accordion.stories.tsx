@@ -10,6 +10,7 @@ import {
   alignmentSections,
   anchorSections,
   basicSections,
+  compactSections,
   nestedSections,
   renvooiSections,
 } from "./accordion.content";
@@ -45,7 +46,7 @@ const {
       alignmentSections,
       anchorSections,
       conclusionSections: basicSections,
-      compactSections: basicSections,
+      compactSections,
       compactBlackSections: basicSections,
       neutralSections: basicSections,
       nestedSections: nestedSections(templates),

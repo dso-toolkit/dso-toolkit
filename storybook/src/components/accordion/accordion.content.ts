@@ -71,6 +71,15 @@ function section4({ richContentTemplate }: Templates): AccordionSection<Template
   };
 }
 
+const sectionWithHeadings: AccordionSection<TemplateResult> = {
+  handleTitle: "Inhoudsopgave",
+  heading: "h2",
+  open: true,
+  content: html`<h2>Aanvullende regels</h2>
+    <h3>Uit andere besluiten</h3>
+    <h4>Uit hoofdregeling omgevingsplan</h4>`,
+};
+
 export function basicSections(templates: Templates): AccordionSection<TemplateResult>[] {
   return [
     section1,
@@ -81,6 +90,10 @@ export function basicSections(templates: Templates): AccordionSection<TemplateRe
     },
     section4(templates),
   ];
+}
+
+export function compactSections(templates: Templates): AccordionSection<TemplateResult>[] {
+  return [...basicSections(templates), sectionWithHeadings];
 }
 
 export function anchorSections(templates: Templates): AccordionSection<TemplateResult>[] {
