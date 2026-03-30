@@ -248,11 +248,14 @@
 }
 
 @mixin anchor-primary() {
-  text-decoration: none;
-
   &,
   &:visited {
     color: colors.$wit;
+  }
+
+  &,
+  &:hover {
+    text-decoration: none;
   }
 }
 
@@ -350,10 +353,11 @@
   &,
   &:visited {
     color: button-variables.$secondary-color;
+  }
 
-    &:hover {
-      color: button-variables.$secondary-hover-color;
-    }
+  &:hover {
+    color: button-variables.$secondary-hover-color;
+    text-decoration: none;
   }
 }
 
