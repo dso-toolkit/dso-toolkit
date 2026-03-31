@@ -125,6 +125,15 @@ del.dso-plekinfo-card-container {
 .heading-anchor {
   color: plekinfo-card.$heading-anchor-color;
   text-decoration: none;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap after icon
+
+  .heading-content {
+    white-space: normal;
+  }
+
+  dso-icon {
+    margin-inline-start: units.$u1 * 0.5;
+  }
 
   &:hover {
     color: plekinfo-card.$heading-anchor-hover-color;
@@ -137,18 +146,5 @@ del.dso-plekinfo-card-container {
 
   .sr-only {
     @include utilities.sr-only();
-  }
-
-  .icon-container {
-    position: relative;
-    padding-inline-end: units.$u3;
-
-    dso-icon {
-      position: absolute;
-      inset-inline-end: 0;
-      inset-block-end: -3px;
-      block-size: units.$u3;
-      inline-size: units.$u3;
-    }
   }
 }
