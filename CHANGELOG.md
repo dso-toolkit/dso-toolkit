@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Button: Anchor element een onterecht underline ([#3476](https://github.com/dso-toolkit/dso-toolkit/issues/3476))
+
 ## 🧱 Release 91.0.0 - 2026-03-30
 
 ### Added
