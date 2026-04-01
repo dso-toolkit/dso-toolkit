@@ -34,8 +34,20 @@
   column-gap: units.$u2;
 }
 
-::slotted([slot="status"]) {
+::slotted(dl.dso-inline[slot="status"]) {
+  --_dt-dl-margin-block-end: 0;
+  --_dt-dl-dd-last-margin-block-end: 0;
+
+  --_dt-dl-before-display: none;
+  --_dt-dl-dt-font-weight: normal;
+
+  --_dt-mark-bg-color: none;
+  --_dt-mark-padding-block: 0;
+  --_dt-mark-color: inherit;
+  --_dt-mark-font-weight: 600;
   --_dt-dl-font-size: 0.875rem;
+
+  display: inline !important;
 }
 
 ::slotted([slot="title"]) {
@@ -74,7 +86,11 @@
 .project-item-info {
   display: flex;
   gap: units.$u2;
-  justify-content: space-between;
   flex-wrap: wrap;
   align-items: flex-end;
+}
+
+.project-item-status {
+  margin-inline-start: auto;
+  text-align: end;
 }

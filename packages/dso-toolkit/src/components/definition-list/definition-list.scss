@@ -24,11 +24,41 @@ dl {
     }
   }
 
+  &.dso-inline {
+    .dso-inline-group {
+      display: inline-block;
+
+      + .dso-inline-group {
+        margin-inline-start: units.$u2;
+      }
+
+      dd,
+      dt {
+        display: inline;
+
+        &::before,
+        &::after {
+          display: inline;
+        }
+      }
+
+      dt {
+        &::after {
+          content: ":";
+        }
+      }
+
+      dd {
+        margin-inline-start: calc(units.$u1 * 0.5);
+      }
+    }
+  }
+
   &.dso-grouped {
     > .dso-group {
       display: flex;
       flex-wrap: nowrap;
-      column-gap: calc(units.$u2 / 2);
+      column-gap: units.$u1;
     }
 
     dt,
@@ -124,7 +154,8 @@ dl {
   }
 
   @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
-    &:not(.dso-vertical):not(.dso-columns) {
+    &:not(.dso-vertical):not(.dso-columns),
+    &:not(.dso-inline):not(.dso-columns) {
       dd + dt,
       dd + dt + dd {
         margin-block-start: var(--_dt-dl-dd-margin-block-start, css-definition-list-variables.$block-space);
@@ -132,7 +163,8 @@ dl {
     }
   }
 
-  &:not(.dso-vertical) {
+  &:not(.dso-vertical),
+  &:not(.dso-inline) {
     @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
       dt {
         clear: inline-start;
