@@ -11,6 +11,7 @@ type DefinitionListStory = StoryObj<DefinitionListArgs, Renderer>;
 
 interface DefinitionListStories {
   Default: DefinitionListStory;
+  Inline: DefinitionListStory;
   Vertical: DefinitionListStory;
   EmphasizeDescription: DefinitionListStory;
   VerticalWithEmphasizeDescription: DefinitionListStory;
@@ -63,6 +64,14 @@ export function definitionListStories<Implementation, Templates, TemplateFnRetur
 }: DefinitionListStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DefinitionListStories {
   return {
     Default: {
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, definitions }) =>
+        definitionListTemplate(definitionListArgsMapper(args, definitions)),
+      ),
+    },
+    Inline: {
+      args: {
+        modifier: "dso-inline",
+      },
       render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, definitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, definitions)),
       ),

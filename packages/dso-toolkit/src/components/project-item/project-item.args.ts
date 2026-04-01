@@ -55,11 +55,11 @@ export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<string> {
       definitions: [
         {
           term: "Ingediende verzoeken",
-          descriptions: [{ content: "4" }],
+          descriptions: [{ content: "(4)" }],
         },
         {
           term: "In te dienen activiteiten",
-          descriptions: [{ content: "16" }],
+          descriptions: [{ content: "(16)" }],
         },
       ],
     },
@@ -67,7 +67,7 @@ export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<string> {
       definitions: [
         {
           term: "Locatie",
-          descriptions: [{ content: "Getekend gebied" }],
+          descriptions: [{ content: "Amsterdamsestraatweg 144C-A, 3513AM Utrecht" }],
         },
         {
           term: "Mijn rol",
