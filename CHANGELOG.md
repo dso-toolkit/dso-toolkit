@@ -7,10 +7,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Document Header: Vervangen icon `pencil` door `document-pencil` ([#3434](https://github.com/dso-toolkit/dso-toolkit/issues/3434))
+* Advanced Select: Notificaties indicatoren buiten de advanced select weergeven als Badge met toggletip ([#3302](https://github.com/dso-toolkit/dso-toolkit/issues/3302))
 
 ### Fixed
 * Button: Anchor element een onterecht underline ([#3476](https://github.com/dso-toolkit/dso-toolkit/issues/3476))
 * Plekinfo Card: Chevron valt over tekst in Firefox ([#3616](https://github.com/dso-toolkit/dso-toolkit/issues/3616))
+* Advanced Select: Type `AdvancedSelectOption<...>` is not assignable to type `AdvancedSelectOption<never>` ([#3632](https://github.com/dso-toolkit/dso-toolkit/issues/3632))
 
 ## 🧱 Release 91.0.0 - 2026-03-30
 

@@ -15,22 +15,11 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
     ],
   },
   {
-    label: "Toekomstige versies",
-    activeLabel: "Toekomstig",
-    summaryCounter: true,
-    options: [
-      {
-        label: "Citeertitel van het besluit (In werking per 01-03-2024)",
-      },
-      {
-        label: "Citeertitel van het besluit (In werking per 01-04-2024)",
-      },
-    ],
-  },
-  {
     label: "Ontwerp versies ter inzage",
     activeLabel: "Ontwerp",
     variant: "warning",
+    toggletip:
+      "Er zijn één of meer ontwerpbesluiten genomen. Bekijk een ontwerpbesluit om de voorgestelde veranderingen te zien.",
     redirect: {
       href: "#",
       label: "Bekijk ontwerpen met afgeronde inzage termijn",
@@ -46,6 +35,21 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
       {
         label:
           "Algemene regels voor het beheer en onderhoud van waterstaatswerken en het gebruik van watersystemen (Keur waterschap Vechtstromen 2020) (Einde inzage: 09-02-2024)",
+      },
+    ],
+  },
+  {
+    label: "Toekomstige besluitversies",
+    activeLabel: "Besluit",
+    variant: "primary",
+    toggletip: "Er zijn wijzigingsbesluiten genomen. Bekijk een besluit om de veranderingen te zien.",
+    summaryCounter: true,
+    options: [
+      {
+        label: "Citeertitel van het besluit (In werking per 01-03-2024)",
+      },
+      {
+        label: "Citeertitel van het besluit (In werking per 01-04-2024)",
       },
     ],
   },

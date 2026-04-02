@@ -17,6 +17,7 @@ export interface AdvancedSelectGroup<T> {
   redirect?: AdvancedSelectGroupRedirect;
   options: AdvancedSelectOption<T>[];
   variant?: AdvancedSelectVariant;
+  toggletip?: string;
 }
 
 export interface AdvancedSelectPlaceholder {
