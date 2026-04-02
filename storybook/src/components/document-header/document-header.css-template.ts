@@ -33,7 +33,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
         >
           ${statusMessage && !!variant
             ? html`<div class="dso-document-header-status">
-                ${variant === "ontwerp" ? html`<dso-icon icon="pencil"></dso-icon>` : nothing}
+                ${variant === "ontwerp" ? html`<dso-icon icon="document-pencil"></dso-icon>` : nothing}
                 ${variant === "besluitversie" ? html`<dso-icon icon="hammer"></dso-icon>` : nothing} ${statusMessage}
               </div>`
             : nothing}
