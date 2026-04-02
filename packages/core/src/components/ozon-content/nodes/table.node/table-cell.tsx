@@ -23,7 +23,7 @@ function getColspecStartRowsep({ columns }: Colspecs, nameStart: string): string
   return colspecStart ? colspecStart.rowsep : null;
 }
 
-function getData(cell: Element, colspecs?: Colspecs) {
+export function getData(cell: Element, colspecs?: Colspecs) {
   const nameStart = cell.getAttribute("namest");
   const row = cell.parentElement;
   const tgroup = row?.parentElement?.parentElement;
@@ -49,7 +49,7 @@ function getData(cell: Element, colspecs?: Colspecs) {
   };
 }
 
-function getColspan({ columns }: Colspecs, nameStart: string, nameEnd: string): number | undefined {
+export function getColspan({ columns }: Colspecs, nameStart: string, nameEnd: string): number | undefined {
   const colspecStart = columns.find((c) => c.name === nameStart);
   const colspecEnd = columns.find((c) => c.name === nameEnd);
   if (!colspecStart || !colspecEnd) {
