@@ -17,7 +17,6 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
   {
     label: "Toekomstige versies",
     activeLabel: "Toekomstig",
-    summaryCounter: true,
     options: [
       {
         label: "Citeertitel van het besluit (In werking per 01-03-2024)",
@@ -35,7 +34,6 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
       href: "#",
       label: "Bekijk ontwerpen met afgeronde inzage termijn",
     },
-    summaryCounter: true,
     options: [
       {
         label: "Verandering in annotaties (Einde inzage: 01-02-2024)",

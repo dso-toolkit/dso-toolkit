@@ -24,7 +24,6 @@
 
 ### Used by
 
- - [dso-advanced-select](../advanced-select)
  - [dso-document-component](../document-component)
 
 ### Depends on
@@ -35,7 +34,6 @@
 ```mermaid
 graph TD;
   dso-badge --> dso-scrollable
-  dso-advanced-select --> dso-badge
   dso-document-component --> dso-badge
   style dso-badge fill:#f9f,stroke:#333,stroke-width:4px
 ```

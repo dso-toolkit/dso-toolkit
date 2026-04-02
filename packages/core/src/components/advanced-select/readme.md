@@ -26,17 +26,14 @@
 
 ### Depends on
 
-- [dso-badge](../badge)
 - [dso-icon](../icon)
 - [dso-label](../label)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-advanced-select --> dso-badge
   dso-advanced-select --> dso-icon
   dso-advanced-select --> dso-label
-  dso-badge --> dso-scrollable
   dso-label --> dso-icon-button
   dso-label --> dso-tooltip
   dso-icon-button --> dso-icon

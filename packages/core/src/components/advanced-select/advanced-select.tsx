@@ -154,20 +154,6 @@ export class AdvancedSelect implements ComponentInterface {
           <ActiveGroupLabel active={this.active} options={this.options} />
           <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
           <span class="active-option-aside">
-            {this.options.some(
-              (optionOrGroup) => "summaryCounter" in optionOrGroup && optionOrGroup?.summaryCounter,
-            ) && (
-              <span class="badges">
-                {this.options
-                  .filter(
-                    (option): option is AdvancedSelectGroup<never> =>
-                      "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
-                  )
-                  .map((group) => (
-                    <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>
-                  ))}
-              </span>
-            )}
             <dso-icon icon="caret-down"></dso-icon>
           </span>
         </button>
