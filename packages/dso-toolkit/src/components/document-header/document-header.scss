@@ -11,10 +11,6 @@
 @use "../../global/mixins/set-colors.mixin" as set-colors;
 @use "document-header.variables" as document-header-variables;
 
-:host {
-  display: block;
-}
-
 .dso-document-header {
   @include set-colors.apply(colors.$grijs-5, "document-header");
 
