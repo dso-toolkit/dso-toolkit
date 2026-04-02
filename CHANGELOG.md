@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Document Header: Vervangen icon `pencil` door `document-pencil` ([#3434](https://github.com/dso-toolkit/dso-toolkit/issues/3434))
+
 ### Fixed
 * Button: Anchor element een onterecht underline ([#3476](https://github.com/dso-toolkit/dso-toolkit/issues/3476))
 * Plekinfo Card: Chevron valt over tekst in Firefox ([#3616](https://github.com/dso-toolkit/dso-toolkit/issues/3616))

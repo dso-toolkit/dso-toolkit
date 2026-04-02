@@ -11,6 +11,10 @@
 @use "../../global/mixins/set-colors.mixin" as set-colors;
 @use "document-header.variables" as document-header-variables;
 
+:host {
+  display: block;
+}
+
 .dso-document-header {
   @include set-colors.apply(colors.$grijs-5, "document-header");
 
@@ -44,23 +48,12 @@
   &.dso-variant-ontwerp {
     .dso-document-header-status {
       @include set-colors.apply(colors.$geel, "document-header");
-
-      // To do: remove in #2542
-      dso-icon[icon="pencil"] {
-        padding: 5px;
-      }
     }
   }
 
   &.dso-variant-besluitversie {
     .dso-document-header-status {
       @include set-colors.apply(colors.$bosgroen, "document-header");
-
-      // To do: remove in #2542
-      dso-icon[icon="hammer"] {
-        padding-block: 3px;
-        padding-inline: 2px;
-      }
     }
   }
 
