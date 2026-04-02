@@ -44,6 +44,10 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList<TemplateR
               return html`<div class="dso-group">${definitionTemplate(definition)}</div>`;
             }
 
+            if (m?.includes("dso-inline")) {
+              return html`<div class="dso-inline-group">${definitionTemplate(definition)}</div>`;
+            }
+
             return definitionTemplate(definition);
           })}
         </dl>

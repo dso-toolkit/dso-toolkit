@@ -21,6 +21,7 @@ export default meta;
 
 const {
   Default,
+  Inline,
   Vertical,
   EmphasizeDescription,
   VerticalWithEmphasizeDescription,
@@ -57,6 +58,7 @@ export {
   ColumnsList,
   Default,
   EmphasizeDescription,
+  Inline,
   ThreeColumns,
   ThreeColumnsSmall,
   TwoColumns,
