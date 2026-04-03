@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* info-button: WCAG - toggletip content wordt niet voorgelezen bij openen van de tooltip ([#3638](https://github.com/toolkit/dso-toolkit/issues/3638))
+
 ## 🥞 Release 91.1.0 - 2026-04-07
 
 ### Changed
