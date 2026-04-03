@@ -279,6 +279,23 @@ describe("Viewer Grid", () => {
   });
 });
 
+it("should have the correct aria-label on the filter panel", () => {
+  cy.visit("http://localhost:45000/iframe.html?id=core-viewer-grid--viewer-grid");
+  cy.get("dso-viewer-grid.hydrated")
+    .invoke("attr", "filter-panel-title", "Filter toegankelijkheidstest")
+    .invoke("attr", "filter-panel-open", "");
+  cy.get("dso-viewer-grid.hydrated")
+    .shadow()
+    .find(".filter-panel")
+    .should("have.attr", "aria-label", "Filter toegankelijkheidstest");
+});
+
+it("should render h3 with sr-only class when no title is provided", () => {
+  cy.visit("http://localhost:45000/iframe.html?id=core-viewer-grid--viewer-grid");
+  cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-open", "");
+  cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("have.class", "sr-only");
+});
+
 function shrink() {
   cy.get("dso-viewer-grid.hydrated")
     .shadow()
