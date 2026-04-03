@@ -142,6 +142,8 @@ export class InfoButton {
           onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
           icon={this.active || this.toggletipActive ? "info-solid" : "info-outline"}
           ref={(element) => (this.button = element)}
+          aria-expanded={this.toggletipActive ? "true" : "false"}
+          aria-controls="toggletip-content"
         />
         {this.hasToggletip && (
           <Tooltip
@@ -149,7 +151,11 @@ export class InfoButton {
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
             visible={this.toggletipActive}
           >
-            <dso-scrollable ref={(element) => (this.restrictContentElement = element)}>
+            <dso-scrollable
+              ref={(element) => (this.restrictContentElement = element)}
+              id="toggletip-content"
+              aria-live="polite"
+            >
               <slot name="toggletip" />
             </dso-scrollable>
           </Tooltip>
