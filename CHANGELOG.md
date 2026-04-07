@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🥞 Release 91.1.0 - 2026-04-07
+
 ### Changed
 * Document Header: Vervangen icon `pencil` door `document-pencil` ([#3434](https://github.com/dso-toolkit/dso-toolkit/issues/3434))
 * Ozon Content: Table Data Cell elementen in Table Head vervangen met Table Header ([#3590](https://github.com/dso-toolkit/dso-toolkit/issues/3590))
