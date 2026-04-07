@@ -219,7 +219,10 @@ export class AdvancedSelect implements ComponentInterface {
                   "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
               )
               .map((group) => (
-                <dso-badge status={group.variant ?? "outline"} label="Toelichting">
+                <dso-badge
+                  status={group.variant ?? "outline"}
+                  label={`Toon toelichting voor ${group.label.toLowerCase()}`}
+                >
                   {group.options.length}
                   <div slot="toggletip">{group.toggletip}</div>
                 </dso-badge>
