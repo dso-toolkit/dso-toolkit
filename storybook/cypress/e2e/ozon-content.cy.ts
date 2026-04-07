@@ -353,9 +353,9 @@ describe("Ozon Content", () => {
       );
     });
     cy.get("dso-ozon-content.hydrated").shadow().find("table").should("exist").children("thead").as("head");
-    cy.get("@head").should("exist").children("tr").should("exist").children("td").should("exist");
-    cy.get("@head").find("tr:nth-child(1) td:nth-child(1)").contains("een");
-    cy.get("@head").find("tr:nth-child(1) td:nth-child(2)").contains("twee");
+    cy.get("@head").should("exist").children("tr").should("exist").children("th").should("exist");
+    cy.get("@head").find("tr:nth-child(1) th:nth-child(1)").contains("een");
+    cy.get("@head").find("tr:nth-child(1) th:nth-child(2)").contains("twee");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });

@@ -51,7 +51,7 @@ export class OzonContentTableNode implements OzonContentNode {
           {colspecs && <Colgroup colspecs={colspecs} />}
           {headRows.length > 0 && (
             <thead>
-              <Rows rows={headRows} colspecs={colspecs} context={context}></Rows>
+              <Rows head rows={headRows} colspecs={colspecs} context={context}></Rows>
             </thead>
           )}
           {bodyRows.length > 0 && (
