@@ -1,9 +1,9 @@
 import { Button } from "../button/button.models.js";
+import { InfoButton } from "../info-button";
 import { Label } from "../label/label.models.js";
 import { Link } from "../link/link.models.js";
 import { Selectable } from "../selectable/selectable.models.js";
 import { SlideToggle } from "../slide-toggle";
-import { Toggletip } from "../toggletip/toggletip.models.js";
 
 export interface Card<TemplateFnReturnType> {
   label: string;
@@ -12,7 +12,7 @@ export interface Card<TemplateFnReturnType> {
   mode?: Link["mode"];
   selectable?: Selectable<TemplateFnReturnType>;
   content?: TemplateFnReturnType;
-  interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType> | SlideToggle>;
+  interactions?: Array<Button | Label | InfoButton<TemplateFnReturnType> | SlideToggle>;
   dsoCardClick?: (e: CustomEvent<CardClickEvent>) => void;
 }
 

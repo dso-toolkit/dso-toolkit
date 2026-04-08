@@ -4,7 +4,7 @@ import { CardArgs, cardMeta, cardStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import { content } from "./card.content";
+import { content, infoButton } from "./card.content";
 
 const meta: Meta<CardArgs> = {
   ...cardMeta({ readme }),
@@ -13,16 +13,18 @@ const meta: Meta<CardArgs> = {
 
 export default meta;
 
-const { Default, WithButton, WithSlideToggle, WithToggletip, WithLabel, WithSelectableAndButton } = cardStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { cardTemplate } = templates;
+const { Default, WithButton, WithSlideToggle, WithInfoButtonWithToggletip, WithLabel, WithSelectableAndButton } =
+  cardStories({
+    templateContainer,
+    storyTemplates: (templates) => {
+      const { cardTemplate } = templates;
 
-    return {
-      cardTemplate,
-      content,
-    };
-  },
-});
+      return {
+        cardTemplate,
+        content,
+        infoButton: infoButton(templates),
+      };
+    },
+  });
 
-export { Default, WithButton, WithLabel, WithSelectableAndButton, WithSlideToggle, WithToggletip };
+export { Default, WithButton, WithInfoButtonWithToggletip, WithLabel, WithSelectableAndButton, WithSlideToggle };

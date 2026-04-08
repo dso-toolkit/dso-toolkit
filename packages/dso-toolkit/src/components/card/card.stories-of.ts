@@ -4,6 +4,7 @@ import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
+import { InfoButton } from "../info-button";
 
 import {
   CardArgs,
@@ -13,7 +14,6 @@ import {
   cardContentButton,
   cardContentLabel,
   cardContentSlideToggle,
-  cardContentToggletip,
 } from "./card.args.js";
 import { Card } from "./card.models.js";
 
@@ -22,7 +22,7 @@ type CardStory = StoryObj<CardArgs, Renderer>;
 interface CardStories {
   Default: CardStory;
   WithButton: CardStory;
-  WithToggletip: CardStory;
+  WithInfoButtonWithToggletip: CardStory;
   WithLabel: CardStory;
   WithSelectableAndButton: CardStory;
   WithSlideToggle: CardStory;
@@ -31,6 +31,7 @@ interface CardStories {
 export interface CardTemplates<TemplateFnReturnType> {
   cardTemplate: (cardProperties: Card<TemplateFnReturnType>) => TemplateFnReturnType;
   content: TemplateFnReturnType;
+  infoButton?: InfoButton<TemplateFnReturnType>;
 }
 
 interface CardStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -100,10 +101,10 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
         cardTemplate(cardArgsMapper(args, content)),
       ),
     },
-    WithToggletip: {
-      args: cardContentToggletip,
-      render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
-        cardTemplate(cardArgsMapper(args, content)),
+    WithInfoButtonWithToggletip: {
+      args: cardContent,
+      render: templateContainer.render(storyTemplates, (args, { cardTemplate, content, infoButton }) =>
+        cardTemplate(cardArgsMapper(args, content, infoButton)),
       ),
     },
   };

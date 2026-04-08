@@ -2,9 +2,9 @@ import {
   Card,
   CardClickEvent,
   isButtonInterface,
+  isInfoButtonInterface,
   isLabelInterface,
   isSlideToggleInterface,
-  isToggletipInterface,
 } from "dso-toolkit";
 import React, { JSX } from "react";
 
@@ -14,7 +14,7 @@ import { ComponentImplementation } from "../../templates";
 export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
-  template: ({ iconTemplate, labelTemplate, toggletipTemplate, selectableTemplate, slideToggleTemplate }) =>
+  template: ({ iconTemplate, labelTemplate, infoButtonTemplate, selectableTemplate, slideToggleTemplate }) =>
     function cardTemplate({ label, selectable, content, interactions, href, active, mode, dsoCardClick }) {
       return (
         <DsoCard
@@ -62,7 +62,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
                     </button>
                   )}
                   {isLabelInterface(interaction) && labelTemplate(interaction)}
-                  {isToggletipInterface(interaction) && toggletipTemplate(interaction)}
+                  {isInfoButtonInterface(interaction) && infoButtonTemplate(interaction)}
                   {isSlideToggleInterface(interaction) && slideToggleTemplate(interaction)}
                 </div>
               ))}

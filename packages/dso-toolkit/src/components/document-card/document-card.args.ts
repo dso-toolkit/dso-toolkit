@@ -4,8 +4,8 @@ import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
 import { Badge } from "../badge";
+import { InfoButton } from "../info-button";
 import { Label } from "../label";
-import { Toggletip } from "../toggletip";
 
 import { DocumentCard } from "./document-card.models.js";
 
@@ -13,7 +13,6 @@ export interface DocumentCardArgs<TemplateFnReturnType> {
   label: string;
   href: string;
   active: boolean;
-  typeToelichting: Toggletip<never>;
   meta: Label;
   status: string;
   statusToelichtingOutline?: Badge<TemplateFnReturnType>;
@@ -33,7 +32,7 @@ export const documentCardArgs: Omit<
 };
 
 export const documentCardArgTypes: ArgTypes<
-  Omit<DocumentCardArgs<unknown>, "meta" | "typeToelichting" | "statusToelichtingOutline" | "statusToelichtingWarning">
+  Omit<DocumentCardArgs<unknown>, "meta" | "statusToelichtingOutline" | "statusToelichtingWarning">
 > = {
   label: {
     control: {
@@ -61,9 +60,10 @@ export const documentCardArgTypes: ArgTypes<
 export function documentCardArgsMapper<TemplateFnReturnType>(
   a: DocumentCardArgs<TemplateFnReturnType>,
   typeItems: TemplateFnReturnType[],
+  infoButton?: InfoButton<TemplateFnReturnType>,
 ): DocumentCard<TemplateFnReturnType> {
   return {
-    typeToelichting: a.typeToelichting,
+    typeToelichting: infoButton,
     label: a.label,
     href: a.href,
     active: a.active,

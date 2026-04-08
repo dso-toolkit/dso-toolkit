@@ -1362,22 +1362,6 @@ export namespace Components {
     }
     interface DsoTijdreisBanner {
     }
-    interface DsoToggletip {
-        /**
-          * Toggletip label.
-          * @default "Toelichting"
-         */
-        "label": string;
-        /**
-          * Toggletip position.
-          * @default "right"
-         */
-        "position": Placement;
-        /**
-          * Set to true for small Toggletip.
-         */
-        "small"?: boolean;
-    }
     interface DsoTooltip {
         /**
           * Activate the tooltip (Sets the `active` attribute)
@@ -2678,12 +2662,6 @@ declare global {
         prototype: HTMLDsoTijdreisBannerElement;
         new (): HTMLDsoTijdreisBannerElement;
     };
-    interface HTMLDsoToggletipElement extends Components.DsoToggletip, HTMLStencilElement {
-    }
-    var HTMLDsoToggletipElement: {
-        prototype: HTMLDsoToggletipElement;
-        new (): HTMLDsoToggletipElement;
-    };
     interface HTMLDsoTooltipElement extends Components.DsoTooltip, HTMLStencilElement {
     }
     var HTMLDsoTooltipElement: {
@@ -2819,7 +2797,6 @@ declare global {
         "dso-table": HTMLDsoTableElement;
         "dso-tabs": HTMLDsoTabsElement;
         "dso-tijdreis-banner": HTMLDsoTijdreisBannerElement;
-        "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
         "dso-tree-view": HTMLDsoTreeViewElement;
         "dso-viewer-grid": HTMLDsoViewerGridElement;
@@ -4357,22 +4334,6 @@ declare namespace LocalJSX {
     }
     interface DsoTijdreisBanner {
     }
-    interface DsoToggletip {
-        /**
-          * Toggletip label.
-          * @default "Toelichting"
-         */
-        "label"?: string;
-        /**
-          * Toggletip position.
-          * @default "right"
-         */
-        "position"?: Placement;
-        /**
-          * Set to true for small Toggletip.
-         */
-        "small"?: boolean;
-    }
     interface DsoTooltip {
         /**
           * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
@@ -4894,11 +4855,6 @@ declare namespace LocalJSX {
     interface DsoTableAttributes {
         "noModal": boolean;
     }
-    interface DsoToggletipAttributes {
-        "label": string;
-        "position": Placement;
-        "small": boolean;
-    }
     interface DsoTooltipAttributes {
         "descriptive": boolean;
         "position": Placement;
@@ -4996,7 +4952,6 @@ declare namespace LocalJSX {
         "dso-table": Omit<DsoTable, keyof DsoTableAttributes> & { [K in keyof DsoTable & keyof DsoTableAttributes]?: DsoTable[K] } & { [K in keyof DsoTable & keyof DsoTableAttributes as `attr:${K}`]?: DsoTableAttributes[K] } & { [K in keyof DsoTable & keyof DsoTableAttributes as `prop:${K}`]?: DsoTable[K] };
         "dso-tabs": DsoTabs;
         "dso-tijdreis-banner": DsoTijdreisBanner;
-        "dso-toggletip": Omit<DsoToggletip, keyof DsoToggletipAttributes> & { [K in keyof DsoToggletip & keyof DsoToggletipAttributes]?: DsoToggletip[K] } & { [K in keyof DsoToggletip & keyof DsoToggletipAttributes as `attr:${K}`]?: DsoToggletipAttributes[K] } & { [K in keyof DsoToggletip & keyof DsoToggletipAttributes as `prop:${K}`]?: DsoToggletip[K] };
         "dso-tooltip": Omit<DsoTooltip, keyof DsoTooltipAttributes> & { [K in keyof DsoTooltip & keyof DsoTooltipAttributes]?: DsoTooltip[K] } & { [K in keyof DsoTooltip & keyof DsoTooltipAttributes as `attr:${K}`]?: DsoTooltipAttributes[K] } & { [K in keyof DsoTooltip & keyof DsoTooltipAttributes as `prop:${K}`]?: DsoTooltip[K] };
         "dso-tree-view": DsoTreeView;
         "dso-viewer-grid": Omit<DsoViewerGrid, keyof DsoViewerGridAttributes> & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes]?: DsoViewerGrid[K] } & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes as `attr:${K}`]?: DsoViewerGridAttributes[K] } & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes as `prop:${K}`]?: DsoViewerGrid[K] };
@@ -5081,7 +5036,6 @@ declare module "@stencil/core" {
             "dso-table": LocalJSX.IntrinsicElements["dso-table"] & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
             "dso-tabs": LocalJSX.IntrinsicElements["dso-tabs"] & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;
             "dso-tijdreis-banner": LocalJSX.IntrinsicElements["dso-tijdreis-banner"] & JSXBase.HTMLAttributes<HTMLDsoTijdreisBannerElement>;
-            "dso-toggletip": LocalJSX.IntrinsicElements["dso-toggletip"] & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.IntrinsicElements["dso-tooltip"] & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
             "dso-tree-view": LocalJSX.IntrinsicElements["dso-tree-view"] & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
             "dso-viewer-grid": LocalJSX.IntrinsicElements["dso-viewer-grid"] & JSXBase.HTMLAttributes<HTMLDsoViewerGridElement>;

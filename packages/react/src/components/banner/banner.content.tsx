@@ -76,13 +76,18 @@ export const richWarningRichContent = (templates: Templates) => (
   </>
 );
 
-export const richInfoRichContent = ({ toggletipTemplate }: Templates) => (
+export const richInfoRichContent = ({ infoButtonTemplate }: Templates) => (
   <div className="dso-rich-content">
     <p>
       Deze variant van de <strong>banner</strong> is wat minder opvallend.
-      {toggletipTemplate({
-        position: "right",
-        children: <p>Een toggletip bij de banner</p>,
+      {infoButtonTemplate({
+        label: "Toelichting",
+        toggletipPlacement: "right",
+        children: (
+          <div className="dso-rich-content">
+            <p>Een Info Button met toggletip in de banner</p>
+          </div>
+        ),
       })}
     </p>
     <p>Maar kan ook rich content bevatten, bijvoorbeeld een extra paragraaf om meer uit te kunnen leggen</p>

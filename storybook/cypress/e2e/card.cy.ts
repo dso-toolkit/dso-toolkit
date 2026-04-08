@@ -33,16 +33,17 @@ describe("Card", () => {
       .should("have.been.calledOnce");
   });
 
-  it("should not call dsoCardClick on toggletip", () => {
+  it("should not call dsoCardClick on click on info button with toggletip", () => {
     cy.get("dso-card.hydrated")
       .find("div[slot='interactions']")
       .then(($cardInteractions) => {
         $cardInteractions.append(
-          '<div class="dso-card-interaction"><dso-toggletip label="Toon informatie" position="left" class="hydrated">Extra informatie</dso-toggletip></div>',
+          '<div class="dso-card-interaction"><dso-info-button label="Toon informatie" toggletip-placement="left"' +
+            ' class="hydrated"><div slot="toggletip">Extra informatie</div></dso-info-button></div>',
         );
       })
       .get("dso-card.hydrated")
-      .find(".dso-card-interaction > dso-toggletip")
+      .find(".dso-card-interaction > dso-info-button")
       .click()
       .get("@dsoCardClickListener")
       .should("not.have.been.called");

@@ -11,3 +11,13 @@ export interface InfoButton<TemplateFnReturnType> {
 export interface InfoButtonToggleEvent {
   originalEvent?: MouseEvent;
 }
+
+export function isInfoButtonInterface<TemplateFnReturnType>(
+  object: unknown,
+): object is InfoButton<TemplateFnReturnType> {
+  return (
+    "toggletipPlacement" in (object as InfoButton<TemplateFnReturnType>) &&
+    "label" in (object as InfoButton<TemplateFnReturnType>) &&
+    "children" in (object as InfoButton<TemplateFnReturnType>)
+  );
+}

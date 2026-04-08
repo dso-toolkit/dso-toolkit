@@ -4,9 +4,9 @@ import { DocumentCardArgs, documentCardMeta, documentCardStories } from "dso-too
 
 import { templateContainer } from "../../templates";
 
-import { typeItems } from "./document-card.content";
+import { infoButton, typeItems } from "./document-card.content";
 
-const meta: Meta<DocumentCardArgs> = {
+const meta: Meta<DocumentCardArgs<unknown>> = {
   ...documentCardMeta({ readme }),
   title: "Core/Document Card",
 };
@@ -21,6 +21,7 @@ const { Default, WithLabel, WithTypeToelichting, WithStatusToelichting } = docum
     return {
       documentCardTemplate,
       typeItems,
+      infoButton: infoButton(templates),
     };
   },
 });

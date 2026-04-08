@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
   component: "documentCard",
   implementation: "core",
-  template: ({ labelTemplate, toggletipTemplate, badgeTemplate }) =>
+  template: ({ labelTemplate, infoButtonTemplate, badgeTemplate }) =>
     function documentCardTemplate({
       label,
       href,
@@ -32,7 +32,7 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
         }}
         >${html`<h2 slot="heading">${label}</h2>`}
         ${typeItems
-          ? html`<div slot="type">${typeItems} ${typeToelichting ? toggletipTemplate(typeToelichting) : nothing}</div>`
+          ? html`<div slot="type">${typeItems} ${typeToelichting ? infoButtonTemplate(typeToelichting) : nothing}</div>`
           : nothing}
         ${meta ? html`<span slot="meta">${labelTemplate(meta)}</span>` : nothing}
         ${status ? html`<span slot="status">${status}</span>` : nothing}

@@ -35,12 +35,16 @@ export const mainMenu = [
   },
 ];
 
-export function definitions1({ linkTemplate, toggletipTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions1({ linkTemplate, infoButtonTemplate }: Templates): Definition<TemplateResult>[] {
   return [
     {
       term: html`
         Voorkeursterm<span class="sr-only">:</span>
-        ${toggletipTemplate({ children: html`Dit is een toggletip met platte content.` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`Dit is een toggletip met platte content.`,
+        })}
       `,
       descriptions: [
         {
@@ -51,7 +55,11 @@ export function definitions1({ linkTemplate, toggletipTemplate }: Templates): De
     {
       term: html`
         Omschrijving<span class="sr-only">:</span>
-        ${toggletipTemplate({ children: html`Dit is een toggletip met platte content.` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`Dit is een toggletip met platte content.`,
+        })}
       `,
       descriptions: [
         {
@@ -63,7 +71,11 @@ export function definitions1({ linkTemplate, toggletipTemplate }: Templates): De
     {
       term: html`
         Toelichting<span class="sr-only">:</span>
-        ${toggletipTemplate({ children: html`Dit is een toggletip met platte content.` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`Dit is een toggletip met platte content.`,
+        })}
       `,
       descriptions: [
         {
@@ -82,12 +94,16 @@ export function definitions1({ linkTemplate, toggletipTemplate }: Templates): De
   ];
 }
 
-export function definitions2({ toggletipTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions2({ infoButtonTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
   return [
     {
       term: html`
         URI<span class="sr-only">:</span>
-        ${toggletipTemplate({ children: html`Dit is een toggletip met platte content.` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`Dit is een toggletip met platte content.`,
+        })}
       `,
       descriptions: [
         {
@@ -102,12 +118,16 @@ export function definitions2({ toggletipTemplate, linkTemplate }: Templates): De
   ];
 }
 
-export function definitions3({ toggletipTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions3({ infoButtonTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
   return [
     {
       term: html`
         Vergelijkbaar met<span class="sr-only">:</span>
-        ${toggletipTemplate({ children: html`Dit is een toggletip met platte content.` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`Dit is een toggletip met platte content.`,
+        })}
       `,
       descriptions: [
         {
@@ -118,12 +138,16 @@ export function definitions3({ toggletipTemplate, linkTemplate }: Templates): De
   ];
 }
 
-export function definitions4({ toggletipTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions4({ infoButtonTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
   return [
     {
       term: html`
         Zie ook<span class="sr-only">:</span>
-        ${toggletipTemplate({ children: html`Dit is een toggletip met platte content.` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`Dit is een toggletip met platte content.`,
+        })}
       `,
       descriptions: [
         {
@@ -134,12 +158,16 @@ export function definitions4({ toggletipTemplate, linkTemplate }: Templates): De
   ];
 }
 
-export function definitions5({ toggletipTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions5({ infoButtonTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
   return [
     {
       term: html`
         Bron<span class="sr-only">:</span>
-        ${toggletipTemplate({ children: html`Dit is een toggletip met platte content.` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`Dit is een toggletip met platte content.`,
+        })}
       `,
       descriptions: [
         {
@@ -150,7 +178,11 @@ export function definitions5({ toggletipTemplate, linkTemplate }: Templates): De
     {
       term: html`
         Type<span class="sr-only">:</span>
-        ${toggletipTemplate({ children: html`Dit is een toggletip met platte content.` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`Dit is een toggletip met platte content.`,
+        })}
       `,
       descriptions: [
         {
@@ -165,7 +197,11 @@ export function definitions5({ toggletipTemplate, linkTemplate }: Templates): De
     {
       term: html`
         Metadata<span class="sr-only">:</span>
-        ${toggletipTemplate({ children: html`Dit is een toggletip met platte content.` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`Dit is een toggletip met platte content.`,
+        })}
       `,
       descriptions: [
         {
