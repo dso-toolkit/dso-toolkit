@@ -4,7 +4,6 @@ import {
   Element,
   Event,
   EventEmitter,
-  Fragment,
   FunctionalComponent,
   Listen,
   Prop,
@@ -143,88 +142,94 @@ export class AdvancedSelect implements ComponentInterface {
 
   render() {
     return (
-      <Fragment>
-        <button
-          aria-expanded={this.open.toString()}
-          class={clsx(["active-option", { open: this.open }])}
-          type="button"
-          onClick={this.toggleOpen}
-          ref={(element) => (this.toggleButtonElementRef = element)}
-        >
-          <ActiveGroupLabel active={this.active} options={this.options} />
-          <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
-          <span class="active-option-aside">
-            {this.options.some(
-              (optionOrGroup) => "summaryCounter" in optionOrGroup && optionOrGroup?.summaryCounter,
-            ) && (
-              <span class="badges">
-                {this.options
-                  .filter(
-                    (option): option is AdvancedSelectGroup<never> =>
-                      "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
-                  )
-                  .map((group) => (
-                    <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>
-                  ))}
-              </span>
-            )}
-            <dso-icon icon="caret-down"></dso-icon>
+      <div class="advanced-select">
+        <div class="advanced-select-button">
+          <button
+            aria-expanded={this.open.toString()}
+            class={clsx(["active-option", { open: this.open }])}
+            type="button"
+            onClick={this.toggleOpen}
+            ref={(element) => (this.toggleButtonElementRef = element)}
+          >
+            <ActiveGroupLabel active={this.active} options={this.options} />
+            <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
+            <span class="active-option-aside">
+              <dso-icon icon="caret-down"></dso-icon>
+            </span>
+          </button>
+          {this.open && (
+            <div class="groups-container">
+              <ul class="groups">
+                {this.options.map(
+                  (optionOrGroup) =>
+                    ("options" in optionOrGroup && (
+                      <li class={clsx(["group", { [`group-${optionOrGroup.variant}`]: !!optionOrGroup.variant }])}>
+                        <p class="group-label">{optionOrGroup.label}</p>
+                        <ul class="options">
+                          {optionOrGroup.options.map((option) => (
+                            <li>
+                              <OptionButton
+                                option={option}
+                                active={this.active}
+                                activeHint={this.activeHint}
+                                callback={this.handleOptionClick}
+                              />
+                            </li>
+                          ))}
+                        </ul>
+                        {optionOrGroup.redirect && (
+                          <RedirectAnchor
+                            redirect={optionOrGroup.redirect}
+                            callback={this.handleRedirectClick}
+                          ></RedirectAnchor>
+                        )}
+                      </li>
+                    )) ||
+                    ("placeholder" in optionOrGroup && (
+                      <li class="group">
+                        <p class="group-label">{optionOrGroup.label}</p>
+                        <p class="placeholder">{optionOrGroup.placeholder}</p>
+                        {optionOrGroup.redirect && (
+                          <RedirectAnchor
+                            redirect={optionOrGroup.redirect}
+                            callback={this.handleRedirectClick}
+                          ></RedirectAnchor>
+                        )}
+                      </li>
+                    )) || (
+                      <li>
+                        <OptionButton
+                          option={optionOrGroup}
+                          active={this.active}
+                          activeHint={this.activeHint}
+                          callback={this.handleOptionClick}
+                        />
+                      </li>
+                    ),
+                )}
+              </ul>
+            </div>
+          )}
+        </div>
+        {this.options.some((optionOrGroup) => "summaryCounter" in optionOrGroup && optionOrGroup?.summaryCounter) && (
+          <span class="badges">
+            {this.options
+              .filter(
+                (option): option is AdvancedSelectGroup<never> =>
+                  "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
+              )
+              .map((group) => (
+                <dso-badge
+                  status={group.variant ?? "outline"}
+                  label={`Toon toelichting voor ${group.label.toLowerCase()}`}
+                >
+                  {group.options.length}
+                  <div slot="toggletip">{group.toggletip}</div>
+                </dso-badge>
+              ))}
           </span>
-        </button>
-        {this.open && (
-          <div class="groups-container">
-            <ul class="groups">
-              {this.options.map(
-                (optionOrGroup) =>
-                  ("options" in optionOrGroup && (
-                    <li class={clsx(["group", { [`group-${optionOrGroup.variant}`]: !!optionOrGroup.variant }])}>
-                      <p class="group-label">{optionOrGroup.label}</p>
-                      <ul class="options">
-                        {optionOrGroup.options.map((option) => (
-                          <li>
-                            <OptionButton
-                              option={option}
-                              active={this.active}
-                              activeHint={this.activeHint}
-                              callback={this.handleOptionClick}
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                      {optionOrGroup.redirect && (
-                        <RedirectAnchor
-                          redirect={optionOrGroup.redirect}
-                          callback={this.handleRedirectClick}
-                        ></RedirectAnchor>
-                      )}
-                    </li>
-                  )) ||
-                  ("placeholder" in optionOrGroup && (
-                    <li class="group">
-                      <p class="group-label">{optionOrGroup.label}</p>
-                      <p class="placeholder">{optionOrGroup.placeholder}</p>
-                      {optionOrGroup.redirect && (
-                        <RedirectAnchor
-                          redirect={optionOrGroup.redirect}
-                          callback={this.handleRedirectClick}
-                        ></RedirectAnchor>
-                      )}
-                    </li>
-                  )) || (
-                    <li>
-                      <OptionButton
-                        option={optionOrGroup}
-                        active={this.active}
-                        activeHint={this.activeHint}
-                        callback={this.handleOptionClick}
-                      />
-                    </li>
-                  ),
-              )}
-            </ul>
-          </div>
         )}
-      </Fragment>
+      </div>
     );
   }
 }

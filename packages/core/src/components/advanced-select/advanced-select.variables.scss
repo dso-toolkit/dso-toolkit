@@ -1,8 +1,8 @@
 @use "sass:math";
-@use "../../variables/units";
-@use "../../variables/colors";
-@use "../../variables/typography";
-@use "../../variables/scaffolding";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/scaffolding";
 
 $border-color: colors.$bosgroen;
 $border-radius: scaffolding.$border-radius-base;
@@ -15,7 +15,7 @@ $redirect-icon-color: colors.$grasgroen;
 $hr-color: colors.$grijs-20;
 
 $inline-padding: units.$u2;
-$block-padding: math.div(units.$u1, 2);
+$block-padding: units.$u1 * 0.5;
 
 $option-dot-size: 10px;
 
@@ -23,7 +23,7 @@ $group-label-color: colors.$grijs-60;
 $group-label-font-size: typography.$font-size-small;
 $group-label-font-weight: 500;
 
-$group-link-inline-padding: math.div(units.$u1, 2);
+$group-link-inline-padding: units.$u1 * 0.5;
 $group-link-block-padding: units.$u1;
 $group-link-color: colors.$zwart;
 
