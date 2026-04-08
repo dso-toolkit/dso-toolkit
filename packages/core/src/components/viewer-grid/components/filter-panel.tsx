@@ -12,20 +12,23 @@ export const FilterPanel: FunctionalComponent<ViewerGridFilterPanelProps> = ({
   title,
   ref,
   dsoCloseFilterPanel,
-}) => (
-  <dialog class="filter-panel" ref={ref} inert={!open}>
-    {open && (
-      <Fragment>
-        {title && <h3>{title}</h3>}
-        <dso-icon-button
-          class="dso-close"
-          icon="cross"
-          variant="tertiary"
-          label="Sluiten"
-          onDsoClick={dsoCloseFilterPanel}
-        />
-        <slot name="filter-panel" />
-      </Fragment>
-    )}
-  </dialog>
-);
+}) => {
+  const label = title || "Filterpaneel";
+  return (
+    <dialog class="filter-panel" ref={ref} inert={!open} aria-label={label}>
+      {open && (
+        <Fragment>
+          <h3 class={{ "sr-only": !title }}>{label}</h3>
+          <dso-icon-button
+            class="dso-close"
+            icon="cross"
+            variant="tertiary"
+            label="Sluiten"
+            onDsoClick={dsoCloseFilterPanel}
+          />
+          <slot name="filter-panel" />
+        </Fragment>
+      )}
+    </dialog>
+  );
+};
