@@ -1,6 +1,6 @@
 import { List, ListItem, Type } from "dso-toolkit";
 import { TemplateResult, html, nothing } from "lit-html";
-import { DirectiveResult } from "lit-html/directive";
+import { DirectiveResult } from "lit-html/directive.js";
 import { ClassInfo, ClassMapDirective, classMap } from "lit-html/directives/class-map.js";
 
 import { ComponentImplementation } from "../../templates";
