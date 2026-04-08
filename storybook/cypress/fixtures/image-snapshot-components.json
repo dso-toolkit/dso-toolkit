@@ -219,7 +219,7 @@
     "type": "html-css"
   },
   {
-    "name": "highlight-box",
+    "name": "highlight-box-deprecated",
     "selector": ".dso-highlight-box",
     "stories": [
       "default",

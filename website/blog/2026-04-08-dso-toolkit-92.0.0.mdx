@@ -1,0 +1,47 @@
+---
+## authors: [xiangjuzou-prog]
+---
+
+# DSO Toolkit v92.0.0 🦺
+
+Deze release bevat een **deprecation** voor de volgende componenten:
+
+- Highlight Box (HTML/CSS component)
+
+Tevens brengen we de **deprecation** van het component **Highlight Box** nogmaals onder de aandacht.
+
+<!-- truncate -->
+
+## Highlight Box
+
+Het HTML/CSS component Highlight Box werd niet meer gebruikt. Daarom hebben we het in deze release verwijderd.
+
+## Highlight Box (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Highlight Box` is deprecated. In een toekomstige **BREAKING** release zal de
+HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Highlight Box.
+
+```html
+❌
+<div class="dso-highlight-box  dso-yellow dso-has-counter">
+  <div class="dso-step-counter">
+    <dso-icon icon="plus"></dso-icon>
+  </div>
+  <div class="dso-rich-content">
+    <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten</p>
+  </div>
+</div>
+
+✅
+<dso-highlight-box yellow>
+  <dso-icon icon="plus" slot="icon"></dso-icon>
+  <div class="dso-rich-content">
+    <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
+    <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten</p>
+  </div>
+</dso-highlight-box>
+```

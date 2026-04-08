@@ -1,6 +1,6 @@
 describe("Highlight box", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=html-css-row-equal-heights--highlight-boxes");
+    cy.visit("http://localhost:45000/iframe.html?id=html-css-row-equal-heights--highlight-boxes-deprecated");
   });
 
   it("Gives each box the same height", () => {

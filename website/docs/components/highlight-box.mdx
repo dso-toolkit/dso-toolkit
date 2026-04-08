@@ -2,7 +2,11 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Highlight Box
 
-<StorybookComponent variant="default" />
+<StorybookComponent variant="default" implementations={["core", "react", "angular"]} />
+
+De HTML/CSS implementatie is **Deprecated**:
+
+<StorybookComponent variant="default" name="highlight-box-deprecated" implementations={["html-css"]} />
 
 Standaard achtergrondkleur grijs, andere varianten zijn:
 

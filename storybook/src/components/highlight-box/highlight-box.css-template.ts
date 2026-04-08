@@ -34,6 +34,7 @@ export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
       }
 
       return html`
+        <!-- START DEPRECATED: use <dso-highlight-box> -->
         <div
           class="dso-highlight-box ${classMap({
             "dso-yellow": !!yellow,
@@ -55,6 +56,7 @@ export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
             : nothing}
           ${typeof content === "string" ? unsafeHTML(content) : content}
         </div>
+        <!-- END DEPRECATED -->
       `;
     },
 };
