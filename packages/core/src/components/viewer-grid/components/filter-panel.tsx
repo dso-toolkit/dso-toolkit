@@ -15,7 +15,7 @@ export const FilterPanel: FunctionalComponent<ViewerGridFilterPanelProps> = ({
 }) => {
   const label = title || "Filterpaneel";
   return (
-    <dialog class="filter-panel" ref={ref} inert={!open} open={open} aria-label={label}>
+    <dialog class="filter-panel" ref={ref} inert={!open} aria-label={label}>
       {open && (
         <Fragment>
           <h3 class={{ "sr-only": !title }}>{label}</h3>
