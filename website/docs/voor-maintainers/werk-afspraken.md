@@ -14,6 +14,15 @@ Uitgangspunt is: De voertaal van de DSO Toolkit is Nederlands, tenzij:
 - (Lokale) code is Engels, uitgezonderd domeinspecifieke termen (zoals Renvooi).
 - Teksten (voor de eindgebruiker) in code worden vertaald met i18n-files. Zie [Internationalization](./internationalization) voor meer informatie.
 
+## Branch namen
+
+- Gebruik geen speciale tekens in branch namen. Gebruik alleen letters, cijfers en koppeltekens (`-`).
+- Verwijder branches na het mergen van een PR.
+
+## Pull Requests
+
+- Alle UX feedback moet worden verwerkt in de PR van de betreffende story.
+
 ## Change Management Notatie
 
 Zie [Change Management Notatie](./change-management-notatie).
