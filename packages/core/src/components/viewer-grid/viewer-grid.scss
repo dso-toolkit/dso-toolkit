@@ -342,16 +342,20 @@ button {
     font-weight: 300;
   }
 
+  .overlay {
+    inline-size: calc(100vw - units.$u4);
+  }
+
   .filter-panel,
   .overlay {
     margin-inline: 0;
     max-inline-size: 100vw;
     inset-block-start: 0;
-    inline-size: 100vw;
   }
 
   .filter-panel {
     inset-inline-start: -100vw;
+    inline-size: 100vw;
   }
 }
 
