@@ -52,7 +52,7 @@ export function passiveFooter({ buttonTemplate }: Templates) {
   return buttonTemplate({ label: "Sluiten", variant: "tertiary", type: "button" });
 }
 
-export function confirmBody({ linkTemplate }: Templates) {
+export function confirmBody({ infoButtonTemplate, linkTemplate, richContentTemplate }: Templates) {
   return html`
     <p>
       Welkom op het nieuwe Omgevingsloket. Deze website is nog in ontwikkeling. Dat betekent dat bepaalde onderdelen nog
@@ -63,6 +63,11 @@ export function confirmBody({ linkTemplate }: Templates) {
       De website ${linkTemplate({ label: "Aan de slag met de omgevingswet", url: "#" })} biedt extra uitleg over het
       Omgevingsloket en de ontwikkeling ervan. Ook vindt u informatie over hoe u kunt oefenen met aansluiten van uw
       lokale systemen op het loket.
+      ${infoButtonTemplate({
+        label: "Toon extra informatie",
+        children: richContentTemplate({ children: html`<p>Extra informatie over dit loket</p>` }),
+        toggletipPlacement: "right",
+      })}
     </p>
   `;
 }
