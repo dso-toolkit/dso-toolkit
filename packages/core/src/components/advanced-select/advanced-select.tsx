@@ -40,13 +40,13 @@ export class AdvancedSelect implements ComponentInterface {
    * The options to display in the select.
    */
   @Prop()
-  options: AdvancedSelectOptionOrGroup<never>[] = [];
+  options: AdvancedSelectOptionOrGroup<unknown>[] = [];
 
   /**
    * The active option. By object reference.
    */
   @Prop()
-  active?: AdvancedSelectOption<never>;
+  active?: AdvancedSelectOption<unknown>;
 
   /**
    * An extra text for the active option. Only visible in the list of options.
@@ -64,7 +64,7 @@ export class AdvancedSelect implements ComponentInterface {
    * Emitted when user selects an option
    */
   @Event({ bubbles: false })
-  dsoChange!: EventEmitter<AdvancedSelectChangeEvent<never>>;
+  dsoChange!: EventEmitter<AdvancedSelectChangeEvent<unknown>>;
 
   /**
    * Emitted when user activates a group redirect link.
@@ -130,7 +130,7 @@ export class AdvancedSelect implements ComponentInterface {
     elements[nextIndex]?.focus();
   }
 
-  private handleOptionClick = (event: MouseEvent, option: AdvancedSelectOption<never>) => {
+  private handleOptionClick = (event: MouseEvent, option: AdvancedSelectOption<unknown>) => {
     this.dsoChange.emit({ originalEvent: event, option });
     this.open = false;
   };
@@ -215,7 +215,7 @@ export class AdvancedSelect implements ComponentInterface {
           <span class="badges">
             {this.options
               .filter(
-                (option): option is AdvancedSelectGroup<never> =>
+                (option): option is AdvancedSelectGroup<unknown> =>
                   "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
               )
               .map((group) => (
@@ -235,10 +235,10 @@ export class AdvancedSelect implements ComponentInterface {
 }
 
 interface OptionButtonProps {
-  option: AdvancedSelectOption<never>;
-  active: AdvancedSelectOption<never> | undefined;
+  option: AdvancedSelectOption<unknown>;
+  active: AdvancedSelectOption<unknown> | undefined;
   activeHint: string | undefined;
-  callback: (event: MouseEvent, value: AdvancedSelectOption<never>) => void;
+  callback: (event: MouseEvent, value: AdvancedSelectOption<unknown>) => void;
 }
 
 const OptionButton: FunctionalComponent<OptionButtonProps> = ({ option, active, activeHint, callback }) => (
@@ -265,13 +265,13 @@ const RedirectAnchor: FunctionalComponent<RedirectAnchorProps> = ({ redirect, ca
 );
 
 interface ActiveGroupLabelProps {
-  active: AdvancedSelectOption<never> | undefined;
-  options: AdvancedSelectOptionOrGroup<never>[];
+  active: AdvancedSelectOption<unknown> | undefined;
+  options: AdvancedSelectOptionOrGroup<unknown>[];
 }
 
 const ActiveGroupLabel: FunctionalComponent<ActiveGroupLabelProps> = ({ active, options }) => {
   const group = options.find(
-    (optionOrGroup): optionOrGroup is AdvancedSelectGroup<never> =>
+    (optionOrGroup): optionOrGroup is AdvancedSelectGroup<unknown> =>
       "options" in optionOrGroup &&
       !!optionOrGroup.options.find((option) => option === active) &&
       !!optionOrGroup.activeLabel,
