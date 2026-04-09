@@ -1,3 +1,5 @@
+import { isObject } from "../../utils/is-object";
+
 export interface SlideToggle {
   dsoActiveChange?: (e: CustomEvent<SlideToggleChangeEvent>) => void;
   checked: boolean;
@@ -14,5 +16,5 @@ export interface SlideToggleChangeEvent {
 }
 
 export function isSlideToggleInterface(object: unknown): object is SlideToggle {
-  return "checked" in (object as SlideToggle);
+  return isObject(object) && "checked" in object;
 }

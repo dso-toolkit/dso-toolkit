@@ -1,3 +1,5 @@
+import { isObject } from "../../utils/is-object";
+
 export type LabelStatus =
   | "primary"
   | "success"
@@ -21,5 +23,5 @@ export interface Label {
 }
 
 export function isLabelInterface(object: unknown): object is Label {
-  return "compact" in (object as Label);
+  return isObject(object) && "compact" in object;
 }

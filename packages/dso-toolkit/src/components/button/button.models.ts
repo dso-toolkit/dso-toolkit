@@ -1,3 +1,4 @@
+import { isObject } from "../../utils/is-object";
 import { Icon } from "../icon/icon.models.js";
 
 interface ButtonBase {
@@ -47,5 +48,5 @@ export interface ButtonAnchor extends ButtonBase {
 }
 
 export function isButtonInterface(object: unknown): object is Button {
-  return "variant" in (object as Button);
+  return isObject(object) && "variant" in object;
 }
