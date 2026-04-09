@@ -9,13 +9,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Advanced Select: Notificaties indicatoren buiten de advanced select weergeven als Badge met toggletip ([#3302](https://github.com/dso-toolkit/dso-toolkit/issues/3302))
 * Project Item: Baseline en uitlijning klopt niet meer ([#3607](https://github.com/dso-toolkit/dso-toolkit/issues/3607))
 
+### Deprecated
+* Highlight Box: Deprecate HTML/CSS implementatie ([#3676](https://github.com/dso-toolkit/dso-toolkit/issues/3676))
+
 ### Fixed
 * Viewer Grid: Screenreader spreekt titel van `filter-panel` niet juist uit ([#3583](https://github.com/dso-toolkit/dso-toolkit/issues/3583))
 * Advanced Select: Type `AdvancedSelectOption<...>` is not assignable to type `AdvancedSelectOption<never>` ([#3632](https://github.com/dso-toolkit/dso-toolkit/issues/3632))
 * Viewer Grid: Overlay op mobile valt links buiten viewport ([#3647](https://github.com/dso-toolkit/dso-toolkit/issues/3647))
-
-### Deprecated
-* Highlight Box: Deprecate HTML/CSS implementatie ([#3676](https://github.com/dso-toolkit/dso-toolkit/issues/3676))
 
 ## 🥞 Release 91.1.0 - 2026-04-07
 
