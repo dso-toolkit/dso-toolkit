@@ -1,4 +1,4 @@
-describe("History Item", () => {
+describe("Project Item", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-project-item--default");
   });

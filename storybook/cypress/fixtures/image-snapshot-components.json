@@ -139,6 +139,8 @@
       "columns-list",
       "default",
       "emphasize-description",
+      "inline",
+      "inline-end",
       "three-columns",
       "three-columns-small",
       "two-columns",
