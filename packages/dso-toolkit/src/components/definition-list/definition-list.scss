@@ -24,11 +24,56 @@ dl {
     }
   }
 
+  &.dso-inline,
+  &.dso-inline-end {
+    .dso-inline-group {
+      display: inline-block;
+
+      dd,
+      dt {
+        display: inline;
+
+        &::before,
+        &::after {
+          display: inline;
+        }
+      }
+
+      dt {
+        &::after {
+          content: ":";
+        }
+      }
+
+      dd {
+        margin-inline-start: calc(units.$u1 * 0.5);
+
+        p {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  &.dso-inline-end {
+    text-align: end;
+
+    .dso-inline-group + .dso-inline-group {
+      margin-inline-start: units.$u2;
+    }
+  }
+
+  &.dso-inline {
+    .dso-inline-group {
+      margin-inline-end: units.$u2;
+    }
+  }
+
   &.dso-grouped {
     > .dso-group {
       display: flex;
       flex-wrap: nowrap;
-      column-gap: calc(units.$u2 / 2);
+      column-gap: units.$u1;
     }
 
     dt,
@@ -124,7 +169,7 @@ dl {
   }
 
   @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
-    &:not(.dso-vertical):not(.dso-columns) {
+    &:not(.dso-vertical, .dso-inline-group):not(.dso-columns) {
       dd + dt,
       dd + dt + dd {
         margin-block-start: var(--_dt-dl-dd-margin-block-start, css-definition-list-variables.$block-space);
@@ -132,7 +177,7 @@ dl {
     }
   }
 
-  &:not(.dso-vertical) {
+  &:not(.dso-vertical, .dso-inline, .dso-inline-end) {
     @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
       dt {
         clear: inline-start;

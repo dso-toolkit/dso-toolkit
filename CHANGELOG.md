@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Advanced Select: Notificaties indicatoren buiten de advanced select weergeven als Badge met toggletip ([#3302](https://github.com/dso-toolkit/dso-toolkit/issues/3302))
+* Project Item: Baseline en uitlijning klopt niet meer ([#3607](https://github.com/dso-toolkit/dso-toolkit/issues/3607))
 
 ### Fixed
 * Viewer Grid: Screenreader spreekt titel van `filter-panel` niet juist uit ([#3583](https://github.com/dso-toolkit/dso-toolkit/issues/3583))
@@ -17,7 +18,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Document Header: Vervangen icon `pencil` door `document-pencil` ([#3434](https://github.com/dso-toolkit/dso-toolkit/issues/3434))
-* Ozon Content: Table Data Cell elementen in Table Head vervangen met Table Header ([#3590](https://github.com/dso-toolkit/dso-toolkit/issues/3590))
 
 ### Fixed
 * Button: Anchor element een onterecht underline ([#3476](https://github.com/dso-toolkit/dso-toolkit/issues/3476))
