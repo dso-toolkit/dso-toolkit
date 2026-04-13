@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 📶 Release 92.0.0-ghi-3567.0 - 2026-04-13
+
 ### Fixed
 * Icon Button: ResizeObserver loop completed with undeliverd notifications ([#3567](https://github.com/dso-toolkit/dso-toolkit/issues/3567))
 
