@@ -156,7 +156,15 @@ export function accordionArgsMapper<TemplateFnReturnType>(
     sections: sections.map((s, i) => {
       const section: AccordionSection<TemplateFnReturnType> = {
         ...s,
-        dsoToggleClick: (e) => a.dsoToggleClick(e.detail),
+        dsoToggleClick: (e) => {
+          const target = e.target as (EventTarget & { open?: boolean }) | null;
+
+          if (target) {
+            target.open = e.detail.open;
+          }
+
+          a.dsoToggleClick(e.detail);
+        },
         dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
       };
 

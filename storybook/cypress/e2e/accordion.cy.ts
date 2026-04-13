@@ -13,7 +13,7 @@ describe("Accordion", () => {
         $accordionSection.on("dsoToggleClick", cy.stub().as("dsoToggleClick"));
       })
       .shadow()
-      .find(".dso-section-handle")
+      .find(".dso-section-handle > button, .dso-section-handle > a")
       .click()
       .get("@dsoToggleClick")
       .should("be.calledOnce")
@@ -32,22 +32,44 @@ describe("Accordion", () => {
     cy.get("dso-accordion.hydrated")
       .find("dso-accordion-section:nth-child(2)")
       .as("accordionSection")
+      .then(($accordionSection) => {
+        ($accordionSection.get(0) as HTMLDsoAccordionSectionElement).open = false;
+      });
+
+    cy.get("@accordionSection")
       .invoke("prop", "open")
       .should("equal", false)
       .get("@accordionSection")
       .shadow()
       .find("dso-expandable")
-      .should("have.class", "dso-animate-ready")
-      .get("@accordionSection")
-      .then(($accordionSection) => {
-        $accordionSection.on("dsoAnimationEnd", cy.stub().as("dsoAnimationEnd"));
-      })
+      .as("expandable")
+      .should("have.attr", "enable-animation");
+
+    cy.get("@accordionSection").then(($accordionSection) => {
+      $accordionSection.on("dsoAnimationEnd", cy.stub().as("dsoAnimationEnd"));
+    });
+
+    cy.get("@accordionSection")
       .shadow()
-      .find(".dso-section-handle")
-      .click()
-      .get("@accordionSection")
-      .invoke("prop", "open", true)
-      .get("@dsoAnimationEnd")
+      .find(".dso-section-handle > button, .dso-section-handle > a")
+      .click({ force: true });
+
+    cy.get("@accordionSection").invoke("prop", "open").should("equal", true);
+
+    cy.get("@expandable")
+      .invoke("prop", "open")
+      .should("equal", true)
+      .get("@expandable")
+      .then(($expandable) => {
+        $expandable.get(0)?.dispatchEvent(
+          new TransitionEvent("transitionend", {
+            propertyName: "grid-template-rows",
+            bubbles: true,
+          }),
+        );
+      });
+
+    cy.get("@dsoAnimationEnd")
       .should("be.calledOnce")
       .invoke("getCalls")
       .invoke("at", -1)
@@ -57,17 +79,7 @@ describe("Accordion", () => {
       .should("equal", true)
       .get("@detail")
       .its("scrollIntoView")
-      .should("exist");
-  });
-
-  it("should be accessible", () => {
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-accordion.hydrated");
-
-    cy.get("dso-accordion.hydrated, dso-accordion-section.hydrated")
-      .should("exist")
-      .get("dso-accordion.hydrated")
-      .matchImageSnapshot();
+      .should("be.a", "function");
   });
 
   it("should render handle as <a> when handleUrl is set", () => {

@@ -1,12 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 
-:host([enable-animation]) {
-  display: grid;
-  grid-template-rows: 0fr;
-  overflow: hidden;
-  opacity: 0;
-
-  @include utilities.transition(("grid-template-rows", 150ms), ("opacity", 300ms));
+:host {
+  display: block;
 }
 
 :host([enable-animation]:not([open="true"])) {
@@ -15,26 +10,40 @@
     visibility: hidden;
 
     @include utilities.transition(visibility);
+.expandable-container {
+  &[enable-animation="true"] {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    opacity: 0;
+
+    @include utilities.transition(("grid-template-rows", 150ms), ("opacity", 300ms));
+
+    &:not([data-open="true"]) {
+      .slot-container {
+        min-block-size: 0;
+        visibility: hidden;
+
+        @include utilities.transition(visibility);
+      }
+    }
+
+    &[data-open="true"] {
+      grid-template-rows: 1fr;
+      opacity: 1;
+
+      .slot-container {
+        visibility: visible;
+      }
+    }
   }
-}
 
-:host(:not([enable-animation])),
-:host([enable-animation="false"]) {
-  display: none;
-}
-
-:host([open][enable-animation]:not([open="false"])) {
-  grid-template-rows: 1fr;
-  opacity: 1;
-
-  .slot-container {
-    visibility: visible;
+  &:not([enable-animation="true"]) {
+    display: none;
+    &[data-open="true"] {
+      display: block;
+    }
   }
-}
-
-:host([open]:not([enable-animation]):not([open="false"])),
-:host([open][enable-animation="false"]:not([open="false"])) {
-  display: block;
 }
 
 @include utilities.box-sizing();

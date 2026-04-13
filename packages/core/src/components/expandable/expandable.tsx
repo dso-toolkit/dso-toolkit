@@ -4,14 +4,12 @@ import {
   Element,
   Event,
   EventEmitter,
-  Host,
   Listen,
   Prop,
   State,
   Watch,
   h,
 } from "@stencil/core";
-import { clsx } from "clsx";
 
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./expandable.interfaces";
 
@@ -96,17 +94,16 @@ export class Expandable implements ComponentInterface {
 
   render() {
     return (
-      <Host
+      <div
         aria-hidden={this.open ? "false" : "true"}
-        class={clsx({
-          "dso-animate-ready": this.enableAnimation,
-          "dso-hide": this.isClosed,
-        })}
+        class="expandable-container"
+        data-open={this.open ? "true" : undefined}
+        enable-animation={this.enableAnimation ? "true" : undefined}
       >
         <div class="slot-container">
           <slot />
         </div>
-      </Host>
+      </div>
     );
   }
 }

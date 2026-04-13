@@ -7,8 +7,7 @@ export const decorator: ExpandableDecorator<TemplateResult> = (story) => html`
       ${story()}
 
       <style>
-        dso-expandable[open],
-        dso-expandable:not(.dso-hide) {
+        dso-expandable[open] {
           border: 1px solid #000;
         }
       </style>
