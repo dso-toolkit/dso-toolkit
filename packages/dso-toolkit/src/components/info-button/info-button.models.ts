@@ -1,3 +1,5 @@
+import { isObject } from "../../utils/is-object";
+
 export type InfoButtonTooltipPlacement = "top" | "bottom" | "left" | "right";
 
 export interface InfoButton<TemplateFnReturnType> {
@@ -10,4 +12,10 @@ export interface InfoButton<TemplateFnReturnType> {
 
 export interface InfoButtonToggleEvent {
   originalEvent?: MouseEvent;
+}
+
+export function isInfoButtonInterface<TemplateFnReturnType>(
+  object: unknown,
+): object is InfoButton<TemplateFnReturnType> {
+  return isObject(object) && "toggletipPlacement" in object && "label" in object && "children" in object;
 }

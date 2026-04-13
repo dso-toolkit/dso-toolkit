@@ -3,10 +3,10 @@ import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../storybook";
 import { Button } from "../button/button.models.js";
+import { InfoButton } from "../info-button";
 import { Label } from "../label/label.models.js";
 import { LinkArgs } from "../link/link.args.js";
 import { SlideToggle } from "../slide-toggle";
-import { Toggletip } from "../toggletip/toggletip.models.js";
 
 import { Card } from "./card.models.js";
 
@@ -16,7 +16,7 @@ export interface CardArgs {
   active: boolean;
   mode?: LinkArgs["mode"];
   selectable: boolean;
-  interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
+  interactions: Array<Button | InfoButton<never> | Label | SlideToggle>;
   dsoCardClick: HandlerFunction;
 }
 
@@ -69,18 +69,6 @@ export const cardContentButton: Omit<CardArgs, "dsoCardClick"> = {
   ],
 };
 
-export const cardContentToggletip: Omit<CardArgs, "dsoCardClick"> = {
-  ...cardContent,
-  interactions: [
-    {
-      children: "Extra informatie",
-      label: `Toon informatie over "${cardContent.label}"`,
-      position: "left",
-      small: false,
-    },
-  ],
-};
-
 export const cardContentLabel: Omit<CardArgs, "dsoCardClick"> = {
   ...cardContent,
   interactions: [
@@ -105,13 +93,14 @@ export const cardContentSlideToggle: Omit<CardArgs, "dsoCardClick"> = {
 export function cardArgsMapper<TemplateFnReturnType>(
   a: CardArgs,
   content: TemplateFnReturnType,
+  infoButton?: InfoButton<TemplateFnReturnType>,
 ): Card<TemplateFnReturnType> {
   return {
     label: a.label,
     href: a.href,
     active: a.active,
     mode: a.mode || undefined,
-    interactions: a.interactions,
+    interactions: infoButton ? [infoButton] : a.interactions,
     selectable: a.selectable
       ? {
           id: "1",

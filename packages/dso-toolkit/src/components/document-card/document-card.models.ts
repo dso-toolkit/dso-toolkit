@@ -1,6 +1,6 @@
 import { Badge } from "../badge";
+import { InfoButton } from "../info-button";
 import { Label } from "../label";
-import { Toggletip } from "../toggletip";
 
 export interface DocumentCard<TemplateFnReturnType> {
   label: string;
@@ -8,7 +8,7 @@ export interface DocumentCard<TemplateFnReturnType> {
   active?: boolean;
   meta?: Label;
   typeItems: TemplateFnReturnType[];
-  typeToelichting: Toggletip<never>;
+  typeToelichting?: InfoButton<TemplateFnReturnType>;
   status: string;
   statusToelichtingOutline?: Badge<TemplateFnReturnType>;
   statusToelichtingWarning?: Badge<TemplateFnReturnType>;

@@ -23,7 +23,6 @@ import {
   Selectable,
   SlideToggle,
   TemplateContainer,
-  Toggletip,
 } from "dso-toolkit";
 
 import { angularActionList } from "./components/action-list/action-list.angular-template";
@@ -47,7 +46,6 @@ import { angularProgressIndicator } from "./components/progress-indicator/progre
 import { angularScrollable } from "./components/scrollable/scrollable.angular-template";
 import { angularSelectable } from "./components/selectable/selectable.angular-template";
 import { angularSlideToggle } from "./components/slide-toggle/slide-toggle.angular-template";
-import { angularToggletip } from "./components/toggletip/toggletip.angular-template";
 
 export interface Components {
   actionList: ActionList<IStory>;
@@ -77,7 +75,6 @@ export interface Components {
   selectable: Selectable<IStory>;
   slideToggle: SlideToggle;
   // table: Table<IStory>;
-  toggletip: Toggletip<IStory>;
   // tooltip: Tooltip;
   // treeView: TreeView;
   // viewerGrid: ViewerGrid<IStory>;
@@ -133,4 +130,3 @@ templateContainer.add(angularProgressIndicator);
 templateContainer.add(angularScrollable);
 templateContainer.add(angularSelectable);
 templateContainer.add(angularSlideToggle);
-templateContainer.add(angularToggletip);

@@ -54,7 +54,6 @@ Type: `Promise<void>`
 
  - [dso-legend-item](../legend/legend-item)
  - [dso-selectable](../selectable)
- - [dso-toggletip](../toggletip)
 
 ### Depends on
 
@@ -69,7 +68,6 @@ graph TD;
   dso-icon-button --> dso-icon
   dso-legend-item --> dso-info-button
   dso-selectable --> dso-info-button
-  dso-toggletip --> dso-info-button
   style dso-info-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

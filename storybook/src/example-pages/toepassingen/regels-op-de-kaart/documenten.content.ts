@@ -96,10 +96,9 @@ const documentCardDefault: DocumentCard<TemplateResult> = {
     html`<span class="dso-document-card-type-item">Gemeente Apeldoorn</span>`,
   ],
   typeToelichting: {
-    children: "Extra informatie",
+    children: html`<div class="dso-rich-content"><p>Extra informatie</p></div>`,
     label: "Toon informatie over type",
-    position: "right",
-    small: false,
+    toggletipPlacement: "right",
   },
 };
 

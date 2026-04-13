@@ -97,12 +97,18 @@ export function richWarningRichContent(templates: Templates) {
   ${closeButton(templates)} `;
 }
 
-export function richInfoRichContent({ richContentTemplate, toggletipTemplate }: Templates) {
+export function richInfoRichContent({ richContentTemplate, infoButtonTemplate }: Templates) {
   return richContentTemplate({
     children: html`
       <p>
         Deze variant van de <strong>banner</strong> is wat minder opvallend.
-        ${toggletipTemplate({ position: "right", children: html`<p>Een toggletip bij de banner</p>` })}
+        ${infoButtonTemplate({
+          label: "Toelichting",
+          toggletipPlacement: "right",
+          children: html`${richContentTemplate({
+            children: html` <p>Een Info Button met toggletip in de banner</p> `,
+          })}`,
+        })}
       </p>
       <p>Maar kan ook rich content bevatten, bijvoorbeeld een extra paragraaf om meer uit te kunnen leggen</p>
     `,

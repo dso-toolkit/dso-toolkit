@@ -14,6 +14,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Advanced Select: Type `AdvancedSelectOption<...>` is not assignable to type `AdvancedSelectOption<never>` ([#3632](https://github.com/dso-toolkit/dso-toolkit/issues/3632))
 * Viewer Grid: Overlay op mobile valt links buiten viewport ([#3647](https://github.com/dso-toolkit/dso-toolkit/issues/3647))
 
+### Removed
+* **BREAKING** Toggletip: Remove ([#3399](https://github.com/dso-toolkit/dso-toolkit/issues/3399))
+
 ## 🥞 Release 91.1.0 - 2026-04-07
 
 ### Changed

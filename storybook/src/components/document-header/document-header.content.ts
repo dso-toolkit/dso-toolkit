@@ -1,8 +1,9 @@
-import { html } from "lit-html";
+import { featuresContentType } from "dso-toolkit";
+import { TemplateResult, html } from "lit-html";
 
 import { Templates } from "../../templates";
 
-export function featuresContent({ linkTemplate }: Templates) {
+export function featuresContent({ linkTemplate }: Templates): featuresContentType<TemplateResult> {
   return new Map([
     [
       "vastgesteld",

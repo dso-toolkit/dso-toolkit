@@ -44,10 +44,10 @@ describe("Document Card", () => {
     cy.get("dso-document-card.hydrated").matchImageSnapshot();
   });
 
-  it("should show toggletip next to type", () => {
+  it("should show info button with toggletip next to type", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-document-card--with-type-toelichting")
       .get("dso-document-card.hydrated")
-      .find("[slot='type'] > dso-toggletip")
+      .find("[slot='type'] > dso-info-button")
       .should("exist");
 
     cy.get("dso-document-card.hydrated").matchImageSnapshot();

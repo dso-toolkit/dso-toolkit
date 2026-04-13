@@ -1,0 +1,41 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v92.0.0 🚚
+
+Deze release bevat **Breaking** changes voor het volgende component:
+
+- Toggletip
+
+<!-- truncate -->
+
+## Toggletip
+
+Dit component is in 🧱 Release 91.0.0 deprecated. In deze release is dit component verwijderd.
+
+Gebruik in plaats van Toggletip het component `Info Button` met Toggletip functionaliteit (sinds 🤧 Release 88.0.0).
+Daarnaast bieden wij sinds 🦡 Release 90.1.0 ook het component `Badge` aan met Toggletip functionaliteit.
+
+### Migratiepad
+
+```html
+❌
+<dso-toggletip>
+  <div class="dso-rich-content">...</div>
+</dso-toggletip>
+
+✅
+<dso-info-button label="Toelichting bij vraag">
+  <div slot="toggletip">
+    <div class="dso-rich-content">...</div>
+  </div>
+</dso-info-button>
+
+✅
+<dso-badge>
+  <div slot="toggletip">
+    <div class="dso-rich-content">...</div>
+  </div>
+</dso-badge>
+```

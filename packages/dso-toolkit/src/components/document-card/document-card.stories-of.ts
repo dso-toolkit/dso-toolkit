@@ -3,6 +3,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { InfoButton } from "../info-button";
 
 import {
   DocumentCardArgs,
@@ -31,6 +32,7 @@ interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnRet
 interface DocumentCardTemplates<TemplateFnReturnType> {
   documentCardTemplate: (documentCardProperties: DocumentCard<TemplateFnReturnType>) => TemplateFnReturnType;
   typeItems: TemplateFnReturnType[];
+  infoButton: InfoButton<TemplateFnReturnType>;
 }
 
 export function documentCardMeta<TRenderer extends Renderer, TemplateFnReturnType>({
@@ -77,17 +79,9 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
       ),
     },
     WithTypeToelichting: {
-      args: {
-        ...documentCardArgs,
-        typeToelichting: {
-          children: "Extra informatie",
-          label: `Toon informatie over type`,
-          position: "right",
-          small: false,
-        },
-      },
-      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>
-        documentCardTemplate(documentCardArgsMapper(args, typeItems)),
+      args: documentCardArgs,
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems, infoButton }) =>
+        documentCardTemplate(documentCardArgsMapper(args, typeItems, infoButton)),
       ),
     },
     WithStatusToelichting: {
