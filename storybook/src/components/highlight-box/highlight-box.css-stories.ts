@@ -7,7 +7,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<HighlightBoxArgs> = {
   ...highlightBoxMeta({ readme }),
-  title: "HTML|CSS/Highlight Box",
+  title: "HTML|CSS/Highlight Box (Deprecated)",
 };
 
 export default meta;

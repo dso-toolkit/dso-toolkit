@@ -1,5 +1,5 @@
 ---
-authors: [iterox]
+authors: [iterox, xiangjuzou-prog]
 ---
 
 # DSO Toolkit v92.0.0 🚚
@@ -7,6 +7,10 @@ authors: [iterox]
 Deze release bevat **Breaking** changes voor het volgende component:
 
 - Toggletip
+
+In deze release is het volgende component **deprecated**:
+
+- Highlight Box (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -38,4 +42,34 @@ Daarnaast bieden wij sinds 🦡 Release 90.1.0 ook het component `Badge` aan met
     <div class="dso-rich-content">...</div>
   </div>
 </dso-badge>
+```
+
+## Highlight Box (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Highlight Box` is deprecated. In een toekomstige **BREAKING** release zal de
+HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Highlight Box.
+
+```html
+❌
+<div class="dso-highlight-box  dso-yellow dso-has-counter">
+  <div class="dso-step-counter">
+    <dso-icon icon="plus"></dso-icon>
+  </div>
+  <div class="dso-rich-content">
+    <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten</p>
+  </div>
+</div>
+
+✅
+<dso-highlight-box yellow>
+  <dso-icon icon="plus" slot="icon"></dso-icon>
+  <div class="dso-rich-content">
+    <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
+    <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten</p>
+  </div>
+</dso-highlight-box>
 ```
