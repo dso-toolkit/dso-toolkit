@@ -13,7 +13,7 @@
     "e2e": "pnpm --filter dso-storybook e2e",
     "release": "pnpm exec tsx scripts/release",
     "icons": "pnpm exec tsx scripts/icons",
-    "clear-node-modules": "npx rimraf node_modules angular-workspace/node_modules angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/react/node_modules storybook/node_modules",
+    "clear-node-modules": "pnpm exec rimraf node_modules angular-workspace/node_modules angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/react/node_modules storybook/node_modules",
     "website": "pnpm --filter website start",
     "start": "tsx scripts/start.ts"
   },

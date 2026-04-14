@@ -26,7 +26,7 @@ Installeer de nieuwste pnpm.
 corepack install --global pnpm@latest
 ```
 
-Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan.
+Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan. De `Dockerfile` leest de versie automatisch uit dit veld, dus die hoeft niet apart aangepast te worden.
 
 ## Dependencies update
 
