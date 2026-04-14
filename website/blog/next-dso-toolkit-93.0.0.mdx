@@ -1,0 +1,27 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v93.0.0 🦺
+
+Deze release bevat **Breaking** changes voor het volgende component:
+
+- Badge (HTML/CSS implementatie)
+
+<!-- truncate -->
+
+## Badge (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component Badge is in 💃 Release 81.0.0 **deprecated**. In deze release is de HTML/CSS implementatie van het component Badge verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Badge.
+
+```html
+❌
+<span class="dso-badge badge-attention">Attention</span>
+
+✅
+<dso-badge status="attention">Attention</dso-badge>
+```

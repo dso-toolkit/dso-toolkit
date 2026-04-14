@@ -1,6 +1,5 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
-@use "~dso-toolkit/src/components/badge";
 @use "~dso-toolkit/src/variables/units";
 
 @use "../../functional-components/tooltip";
@@ -21,7 +20,46 @@
 @include utilities.box-sizing();
 
 .dso-badge {
-  @include badge.root();
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 1em;
+  display: inline-block;
+  font-size: 0.875em;
+  line-height: 1;
+  min-inline-size: 1.5rem;
+  padding-block: units.$u1 * 0.5;
+  padding-inline: units.$u1;
+  text-align: center;
+
+  @include badge-mixins.variant(badge-variables.$default-bg-color);
+
+  &.badge-info {
+    @include badge-mixins.variant(badge-variables.$info-bg-color);
+  }
+
+  &.badge-primary {
+    @include badge-mixins.variant(badge-variables.$primary-bg-color);
+  }
+
+  &.badge-success {
+    @include badge-mixins.variant(badge-variables.$success-bg-color);
+  }
+
+  &.badge-warning {
+    @include badge-mixins.variant(badge-variables.$warning-bg-color);
+  }
+
+  &.badge-error {
+    @include badge-mixins.variant(badge-variables.$error-bg-color);
+  }
+
+  &.badge-outline {
+    @include badge-mixins.variant(colors.$wit, colors.$grijs-90);
+  }
+
+  &.badge-attention {
+    @include badge-mixins.variant(badge-variables.$attention-bg-color);
+  }
 
   &.interactive {
     &:hover,

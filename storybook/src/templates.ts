@@ -119,7 +119,6 @@ import { coreAttachmentsCounter } from "./components/attachments-counter/attachm
 import { cssAttachmentsCounter } from "./components/attachments-counter/attachments-counter.css-template";
 import { coreAutosuggest } from "./components/autosuggest/autosuggest.core-template";
 import { coreBadge } from "./components/badge/badge.core-template";
-import { cssBadge } from "./components/badge/badge.css-template";
 import { coreBanner } from "./components/banner/banner.core-template";
 import { cssBanner } from "./components/banner/banner.css-template";
 import { cssBreadcrumbs } from "./components/breadcrumbs/breadcrumbs.css-template";
@@ -411,7 +410,6 @@ templateContainer.add(coreViewerGrid);
 templateContainer.add(cssAlert);
 templateContainer.add(cssApplicationHeading);
 templateContainer.add(cssAttachmentsCounter);
-templateContainer.add(cssBadge);
 templateContainer.add(cssBanner);
 templateContainer.add(cssBreadcrumbs);
 templateContainer.add(cssButton);
