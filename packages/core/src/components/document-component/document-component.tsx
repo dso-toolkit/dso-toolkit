@@ -531,7 +531,12 @@ export class DocumentComponent implements ComponentInterface {
         )}
 
         {this.openAnnotation && (
-          <div class="annotation-container" part="_annotation-container">
+          <div
+            class="annotation-container"
+            part="_annotation-container"
+            role="dialog"
+            aria-labelledby="annotations-heading"
+          >
             <dso-panel
               id="annotations"
               onDsoCloseClick={(e) =>
@@ -543,7 +548,9 @@ export class DocumentComponent implements ComponentInterface {
               }
               closeButtonLabel="Kenmerken en kaartgegevens verbergen"
             >
-              <h2 slot="heading">Kenmerken en kaart</h2>
+              <h2 id="annotations-heading" slot="heading">
+                Kenmerken en kaart
+              </h2>
               <slot name="annotations" />
             </dso-panel>
           </div>
