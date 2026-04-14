@@ -47,5 +47,21 @@ describe("Info Button", () => {
         openAndAssert();
       });
     });
+
+    it("should have correct aria attributes when toggletip is opened with keyboard (Enter)", () => {
+      visitStory("information");
+      getComponent()
+        .shadow()
+        .find("dso-icon-button")
+        .should("be.visible")
+        .should("not.be.disabled")
+        .then(($el) => {
+          cy.wrap($el[0].shadowRoot.querySelector("button")).focus().type("{enter}", { force: true });
+          cy.wrap($el)
+            .should("have.attr", "aria-expanded", "true")
+            .should("have.attr", "aria-controls", "toggletip-content");
+        });
+      getComponent().shadow().find("#toggletip-content").should("exist");
+    });
   });
 });

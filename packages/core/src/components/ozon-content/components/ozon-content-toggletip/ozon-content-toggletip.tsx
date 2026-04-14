@@ -12,9 +12,10 @@ import { IconAlias } from "../../../icon/icon.interfaces";
 })
 export class ozonContentToggletip implements ComponentInterface {
   private cleanUp: TooltipClean | undefined;
-  private container: HTMLSpanElement | undefined;
+  private container: HTMLButtonElement | undefined;
   private tooltip: HTMLElement | undefined;
   private tooltipArrow: HTMLElement | undefined;
+  private contentSlot: HTMLSlotElement | undefined;
 
   @Element()
   host!: HTMLDsoOzonContentToggletipElement;
@@ -26,6 +27,9 @@ export class ozonContentToggletip implements ComponentInterface {
 
   @State()
   active = false;
+
+  @State()
+  announcement = "";
 
   @Listen("click", { target: "window" })
   handleWindowClick(event: MouseEvent) {
@@ -49,12 +53,29 @@ export class ozonContentToggletip implements ComponentInterface {
 
   private toggle = () => {
     this.active = !this.active;
+    this.announcement = "";
+
+    if (!this.active) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      this.announcement =
+        this.contentSlot
+          ?.assignedNodes({ flatten: true })
+          .map((n) => n.textContent || "")
+          .join(" ")
+          .replace(/\s+/g, " ")
+          .trim() || "Toelichting geopend";
+    });
   };
 
   private keyDownHandler = (event: KeyboardEvent) => {
     switch (event.key) {
       case "Escape":
-        this.toggle();
+        if (this.active) {
+          this.toggle();
+        }
         return;
       case " ":
       case "Enter":
@@ -77,9 +98,9 @@ export class ozonContentToggletip implements ComponentInterface {
 
     if (this.cleanUp && this.tooltip) {
       if (this.active) {
-        this.tooltip?.showPopover();
+        this.tooltip.showPopover();
       } else {
-        this.tooltip?.hidePopover();
+        this.tooltip.hidePopover();
         this.cleanupTooltip();
       }
     }
@@ -87,6 +108,10 @@ export class ozonContentToggletip implements ComponentInterface {
 
   disconnectedCallback() {
     this.cleanupTooltip();
+  }
+
+  connectedCallback() {
+    this.host.setAttribute("role", "none");
   }
 
   private cleanupTooltip() {
@@ -97,10 +122,10 @@ export class ozonContentToggletip implements ComponentInterface {
   render() {
     return (
       <Fragment>
-        <span
+        <button
+          type="button"
           class="toggletip-button"
-          role="button"
-          tabindex={0}
+          aria-expanded={this.active ? "true" : "false"}
           onClick={this.toggle}
           onKeyDown={this.keyDownHandler}
           ref={(element) => (this.container = element)}
@@ -116,14 +141,17 @@ export class ozonContentToggletip implements ComponentInterface {
             </Fragment>
           )}
           {!this.icon && <slot name="label" />}
+        </button>
+        <span class="sr-only" aria-live="polite" aria-atomic="true">
+          {this.announcement}
         </span>
         <Tooltip
-          visible
+          visible={this.active}
           onAfterHidden={() => {}}
           tipElementRef={(element) => (this.tooltip = element)}
           tipArrowElementRef={(element) => (this.tooltipArrow = element)}
         >
-          <slot />
+          <slot ref={(element) => (this.contentSlot = element)} />
         </Tooltip>
       </Fragment>
     );
