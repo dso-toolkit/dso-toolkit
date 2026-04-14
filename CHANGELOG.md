@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **BREAKING** Badge: Remove HTML/CSS implementatie ([#3314](https://github.com/dso-toolkit/dso-toolkit/issues/3314))
+* **BREAKING** Modal: Remove HTML/CSS implementatie ([#3320](https://github.com/dso-toolkit/dso-toolkit/issues/3320))
 
 ## 🚚 Release 92.0.0 - 2026-04-13
 
