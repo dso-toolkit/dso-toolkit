@@ -1,0 +1,73 @@
+---
+authors: [cvanderleij]
+---
+
+# DSO Toolkit v94.0.0 🦈
+
+Deze release bevat **Breaking** changes voor het volgende component:
+
+- Modal (HTML/CSS implementatie)
+
+<!-- truncate -->
+
+## Modal (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component Modal is in 🍔 Release 82.0.0 **deprecated**. In deze release is de HTML/CSS implementatie van het component Modal verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Modal.
+
+```html
+❌
+<dialog aria-modal="true" class="dso-modal" role="alertdialog" aria-labelledby="c7934734-e6aa-4d9c-a76c-32dde50fe078">
+  <div class="dso-dialog" role="document">
+    <div class="dso-header">
+      <h2 id="c7934734-e6aa-4d9c-a76c-32dde50fe078">Verwijderen werkzaamheid</h2>
+      <button type="button" class="dso-close">
+        <span class="sr-only">Sluiten</span>
+      </button>
+    </div>
+    <dso-scrollable>
+      <div class="dso-body" tabindex="0">
+        <p>
+          U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw antwoorden
+          op de vragen worden dan ook verwijderd. Wilt u doorgaan?
+        </p>
+      </div>
+    </dso-scrollable>
+    <div class="dso-footer">
+      <button type="button" class="dso-tertiary">
+        <span>Annuleren</span>
+      </button>
+      <button type="button" class="dso-secondary">
+        <span>Secundaire actie</span>
+      </button>
+      <button type="button" class="dso-primary">
+        <span>Bevestigen</span>
+      </button>
+    </div>
+  </div>
+</dialog>
+
+✅
+<dso-modal dialog-role="alertdialog" modal-title="Verwijderen werkzaamheid" closable>
+  <div slot="body">
+    <p>
+      U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw antwoorden op
+      de vragen worden dan ook verwijderd. Wilt u doorgaan?
+    </p>
+  </div>
+  <div slot="footer">
+    <button type="button" class="dso-tertiary">
+      <span>Annuleren</span>
+    </button>
+    <button type="button" class="dso-secondary">
+      <span>Secundaire actie</span>
+    </button>
+    <button type="button" class="dso-primary">
+      <span>Bevestigen</span>
+    </button>
+  </div>
+</dso-modal>
+```

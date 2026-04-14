@@ -10,8 +10,6 @@ describe("Modal", () => {
   });
 
   it("should be accessible", () => {
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-modal.hydrated");
     cy.get("@dsoModal")
       .find(".dso-modal")
       .should("have.attr", "role", "dialog")
@@ -20,7 +18,13 @@ describe("Modal", () => {
       .get("@dsoModal")
       .find(".dso-dialog")
       .should("have.css", "opacity", "1")
-      .and("have.attr", "role", "document")
+      .and("have.attr", "role", "document");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-modal.hydrated");
+
+    cy.get("@dsoModal")
+      .find(".dso-dialog")
       .find("#close-modal")
       .shadow()
       .find("button[aria-label='Sluiten'] > .dso-tooltip")
