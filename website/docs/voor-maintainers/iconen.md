@@ -10,10 +10,10 @@ De DSO Toolkit biedt een iconenset aan. Deze set is op een aantal manieren te ge
 - Plaats de gedownloade svg-bestanden in een folder naar keuze of in de repository in de folder
   `packages/dso-toolkit/src/icons-new`.
 - Indien de nieuwe iconen in een folder naar keuze zijn geplaatst voer dan in de root van de repository het volgende
-  commando uit: `yarn icons --newIconsDir <folder naar keuze>`.
+  commando uit: `pnpm icons --newIconsDir <folder naar keuze>`.
 - Indien de nieuwe iconen in de folder `packages/dso-toolkit/src/icons-new` in de repository geplaatst, dan
-  is het commando simpelweg `yarn icons`. Het commando beschouwt die locatie als de default locatie.
-- Het commando `yarn icons` voert het script `scripts/icons` uit.
+  is het commando simpelweg `pnpm icons`. Het commando beschouwt die locatie als de default locatie.
+- Het commando `pnpm icons` voert het script `scripts/icons` uit.
   Dit script:
   - transformeert de naam van de uit Figma gedownloade svg-bestanden naar de gewenste naam
   - optimaliseert de svg-bestanden met de node.js library [SVG Optimizer](https://github.com/svg/svgo). De custom plugin `setFillCurrentColor`

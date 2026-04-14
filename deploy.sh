@@ -6,8 +6,8 @@ SAS_TOKEN=$(az storage container generate-sas --name "$DT_AZURE_STORAGE_CONTAINE
 # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-a-log
 echo "::add-mask::$SAS_TOKEN"
 
-yarn workspace dso-toolkit pack --dry-run --json | yarn tsx scripts/create-hashes
-yarn workspace @dso-toolkit/core pack --dry-run --json | yarn tsx scripts/create-hashes
+pnpm --filter dso-toolkit pack --dry-run --json | pnpm exec tsx scripts/create-hashes
+pnpm --filter @dso-toolkit/core pack --dry-run --json | pnpm exec tsx scripts/create-hashes
 
 azcopy sync --from-to=LocalBlob --delete-destination=true ./storybook/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/storybook.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
 azcopy sync --from-to=LocalBlob --delete-destination=true ./packages/react/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/react.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
@@ -18,16 +18,16 @@ azcopy sync --from-to=LocalBlob --delete-destination=true ./packages/core/ "http
 
 if [[ -n ${DT_DIST_TAG+x} && $DT_DIST_TAG == "latest" ]]
 then
-  yarn config set npmAuthToken "${DT_DEPLOY_NPM_TOKEN}"
+  pnpm config set //registry.npmjs.org/:_authToken "${DT_DEPLOY_NPM_TOKEN}"
   npm config set //registry.npmjs.org/:_authToken ${DT_DEPLOY_NPM_TOKEN}
 
-  yarn workspace dso-toolkit npm publish --access public
-  yarn workspace @dso-toolkit/core npm publish --access public
-  yarn workspace @dso-toolkit/react npm publish --access public
+  pnpm --filter dso-toolkit publish --access public --no-git-checks
+  pnpm --filter @dso-toolkit/core publish --access public --no-git-checks
+  pnpm --filter @dso-toolkit/react publish --access public --no-git-checks
 
   cd angular-workspace/dist/component-library
   npm publish
   cd ../../..
 fi
 
-yarn tsx ./scripts/update-azure-blob-storage/main --azureStorageAccountName "$DT_AZURE_STORAGE_ACCOUNT_NAME" --azureStorageAccountKey "$DT_AZURE_STORAGE_ACCOUNT_KEY" --azureStorageHostDfs "$DT_AZURE_STORAGE_HOST_DFS" --azureStorageContainer "$DT_AZURE_STORAGE_CONTAINER"  --githubToken "$GH_TOKEN"
+pnpm exec tsx ./scripts/update-azure-blob-storage/main --azureStorageAccountName "$DT_AZURE_STORAGE_ACCOUNT_NAME" --azureStorageAccountKey "$DT_AZURE_STORAGE_ACCOUNT_KEY" --azureStorageHostDfs "$DT_AZURE_STORAGE_HOST_DFS" --azureStorageContainer "$DT_AZURE_STORAGE_CONTAINER"  --githubToken "$GH_TOKEN"

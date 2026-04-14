@@ -5,7 +5,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["yarn clear", "ng build component-library"],
+        "commands": ["pnpm clear", "ng build component-library"],
         "cwd": "angular-workspace"
       },
       "dependsOn": ["^build"],
@@ -14,7 +14,7 @@
     "build-www": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["yarn clear", "yarn storybook:build"],
+        "commands": ["pnpm clear", "pnpm storybook:build"],
         "cwd": "angular-workspace"
       },
       "dependsOn": ["build"],

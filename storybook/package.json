@@ -5,7 +5,7 @@
   "scripts": {
     "start": "storybook dev --port 45000",
     "storybook:build": "storybook build --output-dir ./www && tsx scripts/postbuild-transform.ts",
-    "e2e": "start-server-and-test 'yarn e2e:start' http-get://127.0.0.1:45000 'yarn e2e:test'",
+    "e2e": "start-server-and-test 'pnpm e2e:start' http-get://127.0.0.1:45000 'pnpm e2e:test'",
     "e2e:start": "http-server --silent --port 45000 www",
     "e2e:test": "cypress run"
   },

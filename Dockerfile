@@ -47,7 +47,7 @@ RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.
 
 WORKDIR /usr/src/app
 
-COPY package.json yarn.lock .yarnrc.yml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 
 COPY angular-workspace/package.json ./angular-workspace/package.json
 COPY packages/core/package.json ./packages/core/package.json
@@ -56,22 +56,20 @@ COPY packages/react/package.json ./packages/react/package.json
 COPY storybook/package.json ./storybook/package.json
 COPY website/package.json ./website/package.json
 
-COPY .yarn ./.yarn
-
 ARG CI
 
-RUN yarn install --immutable
+RUN npm install -g pnpm@10.33.0 && pnpm install --frozen-lockfile
 
 COPY . .
 
-RUN yarn dedupe --check
-RUN (yarn npm audit --all --recursive || true)
-RUN yarn lint
+RUN pnpm dedupe --check
+RUN (pnpm audit --recursive || true)
+RUN pnpm lint
 
 ARG DT_REF
 
-RUN yarn build
+RUN pnpm build
 
-RUN yarn build-www
+RUN pnpm build-www
 
 ENTRYPOINT ["/bin/bash", "-c"]

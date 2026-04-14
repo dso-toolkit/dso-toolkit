@@ -1,7 +1,7 @@
 *.hbs
 /.nx
+/pnpm-lock.yaml
 **/CHANGELOG.md
-/.yarn
 /dependency-graph.svg
 /angular-workspace/.angular
 /angular-workspace/dist

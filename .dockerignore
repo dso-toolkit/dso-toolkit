@@ -8,8 +8,7 @@
 Dockerfile
 .github
 
-.yarn/cache
-.yarn/install-state.gz
+.pnpm-store/
 
 angular-workspace/.angular
 

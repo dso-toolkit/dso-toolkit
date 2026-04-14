@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "clear": "rimraf dist && rimraf loader",
-    "watch": "yarn clear && yarn node scripts/watch.js"
+    "watch": "pnpm clear && node scripts/watch.js"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.7.6",
