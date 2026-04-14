@@ -29,7 +29,7 @@ h3,
 
 h1,
 .h1 {
-  line-height: units.$font-line-height-h1;
+  line-height: var(--_dt-heading-h1-line-height, units.$font-line-height-h1);
 }
 
 h1 {
@@ -38,7 +38,7 @@ h1 {
 
 h2,
 .h2 {
-  line-height: units.$font-line-height-h2;
+  line-height: var(--_dt-heading-h2-line-height, units.$font-line-height-h2);
 }
 
 h2 {
@@ -47,7 +47,7 @@ h2 {
 
 h3,
 .h3 {
-  line-height: units.$font-line-height-h3;
+  line-height: var(--_dt-heading-h3-line-height, units.$font-line-height-h3);
 }
 
 h3 {
@@ -65,7 +65,7 @@ h6,
 
 h4,
 .h4 {
-  line-height: units.$font-line-height-h4;
+  line-height: var(--_dt-heading-h4-line-height, units.$font-line-height-h4);
 }
 
 h4 {
@@ -74,7 +74,7 @@ h4 {
 
 h5,
 .h5 {
-  line-height: units.$font-line-height-h5;
+  line-height: var(--_dt-heading-h5-line-height, units.$font-line-height-h5);
 }
 
 h5 {
@@ -83,5 +83,6 @@ h5 {
 
 h6,
 .h6 {
-  line-height: units.$font-line-height-h6;
+  font-size: var(--_dt-heading-h6-font-size, inherit);
+  line-height: var(--_dt-heading-h6-line-height, units.$font-line-height-h6);
 }

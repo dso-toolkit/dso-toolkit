@@ -55,6 +55,14 @@ export function alertArgsMapper<TemplateFnReturnType>(
     status: a.status,
     compact: a.compact,
     onClick: a.withButton ? () => a.click(a) : undefined,
+    interaction: a.withButton
+      ? {
+          compact: true,
+          variant: "primary",
+          type: "button",
+          label: "Button",
+        }
+      : undefined,
     withRoleAlert: a.withRoleAlert,
     closable: a.closable,
     dsoClose: (e) => a.dsoClose(e.detail),

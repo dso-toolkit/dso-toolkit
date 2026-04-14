@@ -10,7 +10,7 @@ describe("Alert", () => {
   });
 
   it("should have button in the content", () => {
-    cy.get("@dsoAlert").get(".dso-alert-button");
+    cy.get("@dsoAlert").get(".dso-rich-content button");
   });
 
   it("should hide the close button when closable prop is false", () => {

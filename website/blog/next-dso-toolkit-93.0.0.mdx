@@ -4,11 +4,42 @@ authors: [iterox]
 
 # DSO Toolkit v93.0.0 🦺
 
-Deze release bevat **Breaking** changes voor het volgende component:
+Deze release bevat **Breaking** changes voor de volgende componenten:
 
+- Alert (Core implementatie)
 - Badge (HTML/CSS implementatie)
 
 <!-- truncate -->
+
+## Alert (Core implementatie)
+
+Vooruitlopend op de deprecation en verwijdering van de HTML/CSS implementatie van het component Alert hebben wij het
+markup voorschrift van de Core implementatie aangepast. De Button, die voorheen gestyled werd met class
+`dso-alert-button`, wordt nu gestyled met de classes `dso-primary` en `dso-small`.
+
+### Migratiepad
+
+```html
+❌
+<dso-alert status="success" closable>
+  <div class="dso-rich-content">
+    <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
+    <button type="button" class="dso-alert-button">
+      <span>Button</span>
+    </button>
+  </div>
+</dso-alert>
+
+✅
+<dso-alert status="success" closable>
+  <div class="dso-rich-content">
+    <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
+    <button type="button" class="dso-primary dso-small">
+      <span>Button</span>
+    </button>
+  </div>
+</dso-alert>
+```
 
 ## Badge (HTML/CSS implementatie)
 

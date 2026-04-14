@@ -1,4 +1,6 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/alert";
 
@@ -28,4 +30,47 @@
   &.dso-compact {
     min-block-size: alert.$inline-padding;
   }
+}
+
+::slotted(.dso-rich-content) {
+  --_dt-rich-content-margin-block-end: 0;
+  --_dt-rich-content-margin-block-start: 0;
+
+  --_dso-button-primary-color: #{colors.$zwart};
+  --_dso-button-primary-background-color: rgba(25, 25, 25, 0.05);
+  --_dso-button-primary-border-color: rgba(25, 25, 25, 0.05);
+  --_dso-button-primary-hover-color: #{colors.$zwart};
+  --_dso-button-primary-hover-background-color: rgba(25, 25, 25, 0.2);
+  --_dso-button-primary-hover-border-color: rgba(25, 25, 25, 0.2);
+  --_dso-button-primary-active-color: #{colors.$zwart};
+  --_dso-button-primary-active-background-color: rgba(25, 25, 25, 0.2);
+  --_dso-button-primary-active-border-color: rgba(25, 25, 25, 0.2);
+
+  --_dt-heading-base-color: #{colors.$zwart};
+  --_dt-heading-h2-color: #{colors.$zwart};
+  --_dt-heading-h3-color: #{colors.$zwart};
+  --_dt-heading-h4-color: #{colors.$zwart};
+  --_dt-heading-h5-color: #{colors.$zwart};
+
+  --_dt-heading-h1-font-size-xs: 1em;
+  --_dt-heading-h1-font-size: 1em;
+  --_dt-heading-h2-font-size-xs: 1em;
+  --_dt-heading-h2-font-size: 1em;
+  --_dt-heading-h3-font-size-xs: 1em;
+  --_dt-heading-h3-font-size: 1em;
+  --_dt-heading-h4-font-size: 1em;
+  --_dt-heading-h5-font-size: 1em;
+  --_dt-heading-h6-font-size: 1em;
+
+  --_dt-heading-h1-line-height: #{typography.$line-height-base};
+  --_dt-heading-h2-line-height: #{typography.$line-height-base};
+  --_dt-heading-h3-line-height: #{typography.$line-height-base};
+  --_dt-heading-h4-line-height: #{typography.$line-height-base};
+  --_dt-heading-h5-line-height: #{typography.$line-height-base};
+  --_dt-heading-h6-line-height: #{typography.$line-height-base};
+
+  --_dt-heading-margin-large-margin-block-end: #{units.$u1};
+  --_dt-heading-margin-large-margin-block-start: #{units.$u1};
+  --_dt-heading-margin-small-margin-block-end: #{units.$u1};
+  --_dt-heading-margin-small-margin-block-start: #{units.$u1};
 }

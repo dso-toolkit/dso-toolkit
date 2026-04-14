@@ -4,17 +4,17 @@
 @use "../../variables/media-query-breakpoints";
 
 @mixin base() {
-  color: colors.$bosgroen;
+  color: var(--_dt-heading-base-color, colors.$bosgroen);
 }
 
 @mixin margin-large() {
-  margin-block-end: units.$block-spacing-medium;
-  margin-block-start: typography.$line-height-computed;
+  margin-block-end: var(--_dt-heading-margin-large-margin-block-end, units.$block-spacing-medium);
+  margin-block-start: var(--_dt-heading-margin-large-margin-block-start, typography.$line-height-computed);
 }
 
 @mixin margin-small() {
-  margin-block-end: units.$block-spacing-medium;
-  margin-block-start: (typography.$line-height-computed * 0.5);
+  margin-block-end: var(--_dt-heading-margin-small-margin-block-end, units.$block-spacing-medium);
+  margin-block-start: var(--_dt-heading-margin-small-margin-block-start, (typography.$line-height-computed * 0.5));
 }
 
 @mixin no-margin() {
@@ -22,42 +22,42 @@
 }
 
 @mixin h1() {
-  font-size: units.$font-size-h2;
+  font-size: var(--_dt-heading-h1-font-size-xs, units.$font-size-h2);
   font-weight: 700;
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-    font-size: units.$font-size-h1;
+    font-size: var(--_dt-heading-h1-font-size, units.$font-size-h1);
   }
 }
 
 @mixin h2() {
   color: var(--_dt-heading-h2-color, colors.$bosgroen);
-  font-size: units.$font-size-h3;
+  font-size: var(--_dt-heading-h2-font-size-xs, units.$font-size-h3);
   font-weight: 700;
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-    font-size: units.$font-size-h2;
+    font-size: var(--_dt-heading-h2-font-size, units.$font-size-h2);
   }
 }
 
 @mixin h3() {
   color: var(--_dt-heading-h3-color, colors.$bosgroen);
-  font-size: units.$font-size-h3s;
+  font-size: var(--_dt-heading-h3-font-size-xs, units.$font-size-h3s);
   font-weight: 600;
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-    font-size: units.$font-size-h3;
+    font-size: var(--_dt-heading-h3-font-size, units.$font-size-h3);
   }
 }
 
 @mixin h4() {
   color: var(--_dt-heading-h4-color, colors.$bosgroen);
-  font-size: units.$font-size-h4;
+  font-size: var(--_dt-heading-h4-font-size, units.$font-size-h4);
   font-weight: 600;
 }
 
 @mixin h5() {
-  color: colors.$grijs-90;
-  font-size: units.$font-size-h5;
+  color: var(--_dt-heading-h5-color, colors.$grijs-90);
+  font-size: var(--_dt-heading-h5-font-size, units.$font-size-h5);
   font-weight: 600;
 }

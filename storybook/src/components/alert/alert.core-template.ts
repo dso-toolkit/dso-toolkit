@@ -8,8 +8,8 @@ import { ComponentImplementation } from "../../templates";
 export const coreAlert: ComponentImplementation<Alert<TemplateResult>> = {
   component: "alert",
   implementation: "core",
-  template: ({ richContentTemplate }) =>
-    function alertTemplate({ status, message, compact, onClick, withRoleAlert, closable, dsoClose }) {
+  template: ({ buttonTemplate, richContentTemplate }) =>
+    function alertTemplate({ status, message, compact, interaction, withRoleAlert, closable, dsoClose }) {
       return html`
         <dso-alert
           status=${status}
@@ -19,12 +19,8 @@ export const coreAlert: ComponentImplementation<Alert<TemplateResult>> = {
           @dsoClose=${dsoClose}
         >
           ${richContentTemplate({
-            children: html`
-              ${typeof message === "string" ? unsafeHTML(message) : message}
-              ${onClick
-                ? html`<button type="button" class="dso-alert-button" @click=${onClick}><span>Button</span></button>`
-                : nothing}
-            `,
+            children: html` ${typeof message === "string" ? unsafeHTML(message) : message}
+            ${interaction ? html`${buttonTemplate(interaction)}` : nothing}`,
           })}
         </dso-alert>
       `;

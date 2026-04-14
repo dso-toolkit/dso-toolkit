@@ -1,3 +1,5 @@
+import { Button } from "../button";
+
 export type AlertStatus = "success" | "info" | "warning" | "error";
 
 export interface Alert<TemplateFnReturnType> {
@@ -7,6 +9,7 @@ export interface Alert<TemplateFnReturnType> {
   closable?: boolean;
   dsoClose?: (e: CustomEvent<AlertCloseEvent>) => void;
   onClick?: (e: MouseEvent) => void;
+  interaction?: Button;
   withRoleAlert?: boolean;
 }
 
