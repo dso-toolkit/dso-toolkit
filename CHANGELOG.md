@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Info Button: WCAG - toggletip content wordt niet voorgelezen bij openen van de tooltip ([#3638](https://github.com/dso-toolkit/dso-toolkit/issues/3638))
+
 ### Removed
 * **BREAKING** Badge: Remove HTML/CSS implementatie ([#3314](https://github.com/dso-toolkit/dso-toolkit/issues/3314))
 
