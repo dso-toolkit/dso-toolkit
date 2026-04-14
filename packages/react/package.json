@@ -18,9 +18,12 @@
     "dist/"
   ],
   "dependencies": {
-    "@stencil/react-output-target": "^1.4.2"
+    "@stencil/react-output-target": "^1.4.2",
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
+    "@dso-toolkit/core": "workspace:^",
+    "@dso-toolkit/react": "workspace:^",
     "@iframe-resizer/child": "^5.5.9",
     "@stencil/core": "4.43.3",
     "@storybook/addon-a11y": "10.3.3",

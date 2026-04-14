@@ -56,6 +56,9 @@
   },
   "packageManager": "pnpm@10.33.0",
   "pnpm": {
+    "overrides": {
+      "webpack": "5.105.2"
+    },
     "onlyBuiltDependencies": [
       "@compodoc/compodoc",
       "@parcel/watcher",
@@ -67,5 +70,8 @@
       "msgpackr-extract",
       "nx"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-storybook": "10.3.3"
   }
 }
