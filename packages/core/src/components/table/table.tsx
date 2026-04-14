@@ -9,8 +9,6 @@ import debounce from "debounce";
 export class Table implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
 
-  private dialogElement?: HTMLDialogElement;
-
   @Element()
   host!: HTMLDsoTableElement;
 
@@ -33,22 +31,12 @@ export class Table implements ComponentInterface {
     this.resizeObserver?.observe(this.host);
   }
 
-  private dialogCloseEventListener = () => {
-    this.closeModal();
-  };
-
   componentWillLoad(): void {
     this.resizeObserver = new ResizeObserver(debounce((entries) => this.setResponsiveTable(entries), 200));
   }
 
   componentDidLoad(): void {
     this.startResponsiveBehavior();
-  }
-
-  componentDidRender() {
-    if (this.modalActive) {
-      this.dialogElement?.showModal();
-    }
   }
 
   disconnectedCallback() {
@@ -66,29 +54,21 @@ export class Table implements ComponentInterface {
         )}
 
         {this.modalActive ? (
-          <dialog
-            class="dso-modal"
-            ref={(element) => (this.dialogElement = element)}
-            onClose={this.dialogCloseEventListener}
-            aria-label={dialogLabel}
+          <dso-modal
+            modalTitle={caption ? dialogLabel : undefined}
+            closable
+            returnFocus={false}
+            onDsoClose={() => this.closeModal()}
           >
-            <div class="dso-dialog dso-table-dialog">
-              <div class="dso-header">
-                <h2 class={{ "sr-only": !caption }}>{dialogLabel}</h2>
-                <dso-icon-button
-                  icon="cross"
-                  variant="tertiary"
-                  class="dso-close"
-                  label="Sluiten"
-                  onClick={() => this.closeModal()}
-                />
-              </div>
-
-              <div class="dso-body dso-table-body">
-                <slot />
-              </div>
+            {!caption && (
+              <span slot="body" class="sr-only">
+                {dialogLabel}
+              </span>
+            )}
+            <div slot="body" class="dso-table-body">
+              <slot />
             </div>
-          </dialog>
+          </dso-modal>
         ) : (
           <Fragment>
             <div class="dso-table-utilities" hidden={!this.isResponsive && this.noModal}>
@@ -123,7 +103,6 @@ export class Table implements ComponentInterface {
 
   private closeModal() {
     this.placeholderHeight = undefined;
-    this.dialogElement?.close();
     this.modalActive = false;
   }
 
