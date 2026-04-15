@@ -58,24 +58,18 @@ The referenced scripts are very small: Only the actually used Web Components are
 
 ### Develop or mockups
 
-To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 24 and Yarn. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 24 and pnpm. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
-Either install Yarn with
-
-```
-npm install --global yarn
-```
-
-or use Yarn with `npx`:
+Enable pnpm via corepack (ships with Node):
 
 ```
-npx yarn <<<my commands here>>>
+corepack enable
 ```
 
 ```
 git clone git@github.com:dso-toolkit/dso-toolkit.git
 cd dso-toolkit
-yarn install
+pnpm install
 ```
 
 ### Environments
@@ -89,10 +83,10 @@ This environment is used to develop new components in Storybook. Storybook is bu
 The easiest way to start this environment is with one of the following commands:
 
 ```
-yarn start
-yarn start --react
-yarn start --angular
-yarn start --all
+pnpm start
+pnpm start --react
+pnpm start --angular
+pnpm start --all
 ```
 
 This will run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
@@ -108,7 +102,7 @@ This will start Stencil on http://localhost:45333, Storybook on http://localhost
 
 ## Requirements
 
-Node 24. For development on the DSO Toolkit you also need Yarn.
+Node 24. For development on the DSO Toolkit you also need pnpm (enabled via `corepack enable`).
 
 ## Ports
 

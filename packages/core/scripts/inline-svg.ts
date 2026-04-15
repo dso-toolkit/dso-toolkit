@@ -17,7 +17,7 @@ interface PluginTransformResultsWithMap {
 }
 
 /*
-    Ter voorkoming van onderstaande waarschuwing na `yarn start` hebben we zelf een fix geimplementeerd gebaseerd op
+    Ter voorkoming van onderstaande waarschuwing na `pnpm start` hebben we zelf een fix geimplementeerd gebaseerd op
     https://github.com/fabriciomendonca/stencil-inline-svg/issues/16#issuecomment-2310081917.
 
     [core] [stencil] [ WARN  ]  Bundling Warning SOURCEMAP_BROKEN
