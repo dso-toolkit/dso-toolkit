@@ -169,7 +169,7 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)(keycharm@0.4.0)(typescript@5.9.3)(vis-data@8.0.3(uuid@11.1.0)(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)))(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0))
       '@dso-toolkit/core':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../packages/core
       '@iframe-resizer/child':
         specifier: ^5.5.9
@@ -190,7 +190,7 @@ importers:
         specifier: ^24.0.0
         version: 24.12.2
       dso-toolkit:
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../packages/dso-toolkit
       eslint:
         specifier: ^9.39.4
@@ -250,7 +250,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       dso-toolkit:
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../dso-toolkit
       escape-string-regexp:
         specifier: ^5.0.0
@@ -468,10 +468,10 @@ importers:
         version: 2.1.1
     devDependencies:
       '@dso-toolkit/core':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../core
       '@dso-toolkit/react':
-        specifier: workspace:^
+        specifier: workspace:*
         version: 'link:'
       '@iframe-resizer/child':
         specifier: ^5.5.9
@@ -501,7 +501,7 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
       dso-toolkit:
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../dso-toolkit
       eslint:
         specifier: ^9.39.4
@@ -543,7 +543,7 @@ importers:
   storybook:
     dependencies:
       '@dso-toolkit/core':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../packages/core
       '@iframe-resizer/child':
         specifier: ^5.5.9
@@ -582,7 +582,7 @@ importers:
         specifier: ^1.15.0
         version: 1.15.0(cypress@15.13.1)
       dso-toolkit:
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../packages/dso-toolkit
       eslint:
         specifier: ^9.39.4
@@ -663,7 +663,7 @@ importers:
         specifier: ^0.2.6
         version: 0.2.6(@docusaurus/core@3.9.2(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@5.9.3))(sass-embedded@1.99.0)(sass@1.98.0)(webpack@5.105.2)
       dso-toolkit:
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../packages/dso-toolkit
       prism-react-renderer:
         specifier: ^2.4.1

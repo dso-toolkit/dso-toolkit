@@ -10,7 +10,7 @@
     "e2e:test": "cypress run"
   },
   "dependencies": {
-    "@dso-toolkit/core": "workspace:^",
+    "@dso-toolkit/core": "workspace:*",
     "@iframe-resizer/child": "^5.5.9",
     "@simonsmith/cypress-image-snapshot": "^10.0.3",
     "@storybook/addon-a11y": "10.3.3",
@@ -23,7 +23,7 @@
     "cypress": "^15.13.0",
     "cypress-axe": "^1.7.0",
     "cypress-real-events": "^1.15.0",
-    "dso-toolkit": "workspace:^",
+    "dso-toolkit": "workspace:*",
     "eslint": "^9.39.4",
     "eslint-plugin-storybook": "10.3.3",
     "http-proxy-middleware": "^3.0.5",

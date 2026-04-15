@@ -9,7 +9,7 @@
     "url": "https://github.com/dso-toolkit/dso-toolkit.git"
   },
   "scripts": {
-    "storybook:start": "wait-on file:./src/components.ts && pnpm exec storybook dev --port 45600",
+    "storybook:start": "wait-on file:./src/components.ts && storybook dev --port 45600",
     "storybook:build": "storybook build --output-dir ./www"
   },
   "main": "dist/index.js",
@@ -22,8 +22,8 @@
     "clsx": "^2.1.1"
   },
   "devDependencies": {
-    "@dso-toolkit/core": "workspace:^",
-    "@dso-toolkit/react": "workspace:^",
+    "@dso-toolkit/core": "workspace:*",
+    "@dso-toolkit/react": "workspace:*",
     "@iframe-resizer/child": "^5.5.9",
     "@stencil/core": "4.43.3",
     "@storybook/addon-a11y": "10.3.3",
@@ -33,7 +33,7 @@
     "@types/lodash.startcase": "^4.4.9",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "dso-toolkit": "workspace:^",
+    "dso-toolkit": "workspace:*",
     "eslint": "^9.39.4",
     "eslint-plugin-storybook": "10.3.3",
     "http-proxy-middleware": "^3.0.5",
