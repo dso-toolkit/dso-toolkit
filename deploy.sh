@@ -19,15 +19,18 @@ azcopy sync --from-to=LocalBlob --delete-destination=true ./packages/core/ "http
 if [[ -n ${DT_DIST_TAG+x} && $DT_DIST_TAG == "latest" ]]
 then
   pnpm config set //registry.npmjs.org/:_authToken "${DT_DEPLOY_NPM_TOKEN}"
-  npm config set //registry.npmjs.org/:_authToken ${DT_DEPLOY_NPM_TOKEN}
 
   pnpm --filter dso-toolkit publish --access public --no-git-checks
   pnpm --filter @dso-toolkit/core publish --access public --no-git-checks
   pnpm --filter @dso-toolkit/react publish --access public --no-git-checks
 
-  cd angular-workspace/dist/component-library
-  npm publish
-  cd ../../..
+  # @dso-toolkit/angular must be built first by ng-packagr before it can be published.
+  # Unlike the other packages, the source cannot be published directly — only the compiled dist/ can.
+  # Because dist/ doesn't exist until after the build, it can't be added to pnpm-workspace.yaml
+  # (pnpm reads that file during install, before any build has run).
+  # So that's why we publish directly from the compiled dist/ folder here.
+  # The build itself happens in the Dockerfile via `pnpm build` (nx run-many --target=build).
+  pnpm publish angular-workspace/dist/component-library --no-git-checks
 fi
 
 pnpm exec tsx ./scripts/update-azure-blob-storage/main --azureStorageAccountName "$DT_AZURE_STORAGE_ACCOUNT_NAME" --azureStorageAccountKey "$DT_AZURE_STORAGE_ACCOUNT_KEY" --azureStorageHostDfs "$DT_AZURE_STORAGE_HOST_DFS" --azureStorageContainer "$DT_AZURE_STORAGE_CONTAINER"  --githubToken "$GH_TOKEN"
