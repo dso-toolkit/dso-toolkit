@@ -198,7 +198,7 @@
   gap: units.$u1;
 }
 
-:host([type="ARTIKEL"]:not([alternative-title])) {
+:host([type="ARTIKEL"]:not([alternative-title]):not([mode="table-of-contents"])) {
   dso-ozon-content.kop::part(_kop),
   .toggle-button {
     --_dso-icon-button-tertiary-color: #{colors.$zwart};

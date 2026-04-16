@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Document Component: Kenmerken en kaart paneel - Heading structuur kloppend maken ([#3636](https://github.com/dso-toolkit/dso-toolkit/issues/3636))
+* Document Component: Link van artikel bij mode="table-of-contents" grasgroen ([#3514](https://github.com/dso-toolkit/dso-toolkit/issues/3514))
 
 ### Fixed
 * Info Button: WCAG - toggletip content wordt niet voorgelezen bij openen van de tooltip ([#3638](https://github.com/dso-toolkit/dso-toolkit/issues/3638))
