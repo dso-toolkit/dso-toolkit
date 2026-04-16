@@ -72,6 +72,7 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^24.12.2",
     "eslint-plugin-storybook": "10.3.3"
   }
 }

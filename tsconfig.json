@@ -4,6 +4,10 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": ["ES2020"],
+    "types": ["node"],
+    "module": "node16",
+    "moduleResolution": "node16"
   }
 }

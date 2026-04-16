@@ -23,10 +23,10 @@ Pas de TypeScript-versie dus alleen aan als alle gebruikte tools deze ondersteun
 Installeer de nieuwste pnpm.
 
 ```sh
-corepack install --global pnpm@latest
+pnpm self-update
 ```
 
-Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan. De `Dockerfile` leest de versie automatisch uit dit veld, dus die hoeft niet apart aangepast te worden.
+Dit past het `packageManager`-veld in de root `package.json` automatisch aan. De `Dockerfile` leest de versie automatisch uit dit veld, dus die hoeft niet apart aangepast te worden.
 
 ## Dependencies update
 
@@ -36,10 +36,9 @@ Angular en Storybook hebben een eigen update procedure. Prettier, Stylelint en E
 
 De dependencies `typescript` en `tslib` moeten voor alle packages onderling identiek zijn. Hetzelfde geldt voor de Angular en Storybook dependencies.
 
-Let erop dat er aan het einde van de update procedure geen onverklaarbare `node_modules` directories in onze packages zijn ontstaan. Dit kan duiden op versie conflicten.
 
 ```sh
-pnpm update --interactive --recursive
+pnpm update --interactive --recursive --latest
 ```
 
 ```sh

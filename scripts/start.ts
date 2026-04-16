@@ -29,7 +29,7 @@ const watchCore = {
 };
 
 const startCypress = {
-  command: "wait-on http://localhost:45000 && pnpm --filter dso-storybook cypress open",
+  command: "wait-on http://localhost:45000 && pnpm --filter dso-storybook exec cypress open",
   name: "cypress",
   prefixColor: "bgGreen",
 };
