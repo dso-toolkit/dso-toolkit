@@ -23,6 +23,7 @@
 }
 
 @mixin root($is-html-a-element: true) {
+  overflow-wrap: anywhere;
   background-color: transparent;
   color: var(--link-color);
   text-decoration: underline;
