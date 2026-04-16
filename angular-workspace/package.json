@@ -32,7 +32,6 @@
     "@types/lodash.startcase": "^4.4.9",
     "dso-toolkit": "workspace:*",
     "eslint": "^9.39.4",
-    "eslint-plugin-storybook": "10.3.3",
     "http-proxy-middleware": "^3.0.5",
     "lodash.startcase": "^4.4.0",
     "mkdirp": "^3.0.1",

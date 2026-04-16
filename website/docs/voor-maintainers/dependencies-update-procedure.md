@@ -23,10 +23,10 @@ Pas de TypeScript-versie dus alleen aan als alle gebruikte tools deze ondersteun
 Installeer de nieuwste pnpm.
 
 ```sh
-pnpm self-update
+corepack install --global pnpm@latest
 ```
 
-Dit past het `packageManager`-veld in de root `package.json` automatisch aan. De `Dockerfile` leest de versie automatisch uit dit veld, dus die hoeft niet apart aangepast te worden.
+Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan. De `Dockerfile` leest de versie automatisch uit dit veld, dus die hoeft niet apart aangepast te worden.
 
 ## Dependencies update
 

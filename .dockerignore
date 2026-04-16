@@ -8,8 +8,6 @@
 Dockerfile
 .github
 
-.pnpm-store/
-
 angular-workspace/.angular
 
 packages/core/loader
