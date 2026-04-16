@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Ozon Content: Deel inhoud wordt buiten container geplaatst door lange URL en tekst ([#3724](https://github.com/dso-toolkit/dso-toolkit/issues/3724))
+
 ## 🦺 Release 93.0.0 - 2026-04-20
 
 ### Changed
