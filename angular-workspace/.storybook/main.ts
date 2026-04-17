@@ -1,4 +1,9 @@
+import { createRequire } from "module";
+import path from "path";
+
 import type { StorybookConfig } from "@storybook/angular";
+
+const require = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   typescript: {
@@ -11,8 +16,8 @@ const config: StorybookConfig = {
       to: "/dso-toolkit",
     },
     {
-      from: "../../node_modules/@iframe-resizer",
-      to: "iframe-resizer",
+      from: path.dirname(require.resolve("@iframe-resizer/child/package.json")),
+      to: "iframe-resizer/child",
     },
   ],
   stories: ["../components/*/*.stories.ts"],

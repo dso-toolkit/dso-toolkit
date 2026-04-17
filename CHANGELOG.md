@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Package Manager: Gebruik pnpm ipv Yarn ([#3717](https://github.com/dso-toolkit/dso-toolkit/issues/3717))
+
 ### Fixed
 * Link: Deel inhoud wordt buiten container geplaatst door lange content ([#3591](https://github.com/dso-toolkit/dso-toolkit/issues/3591))
 * Icon Button: ResizeObserver loop completed with undelivered notifications ([#3567](https://github.com/dso-toolkit/dso-toolkit/issues/3567))
@@ -22,9 +25,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **BREAKING** Badge: Remove HTML/CSS implementatie ([#3314](https://github.com/dso-toolkit/dso-toolkit/issues/3314))
-
-### Task
-* Package Manager: Gebruik PNPM ipv Yarn ([#3717](https://github.com/dso-toolkit/dso-toolkit/issues/3717))
 
 ## 🚚 Release 92.0.0 - 2026-04-13
 

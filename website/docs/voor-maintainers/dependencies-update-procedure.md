@@ -26,7 +26,7 @@ Installeer de nieuwste pnpm.
 corepack install --global pnpm@latest
 ```
 
-Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan. De `Dockerfile` leest de versie automatisch uit dit veld, dus die hoeft niet apart aangepast te worden.
+Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan. De `Dockerfile` gebruikt corepack, die de versie automatisch uit dit veld leest, dus die hoeft niet apart aangepast te worden.
 
 ## Dependencies update
 
@@ -35,7 +35,6 @@ Niet elke dependency maakt gebruik van SemVer, in het bijzonder `sass`. Elke bre
 Angular en Storybook hebben een eigen update procedure. Prettier, Stylelint en ESLint updaten we in een eigen issue.
 
 De dependencies `typescript` en `tslib` moeten voor alle packages onderling identiek zijn. Hetzelfde geldt voor de Angular en Storybook dependencies.
-
 
 ```sh
 pnpm update --interactive --recursive --latest

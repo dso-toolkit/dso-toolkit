@@ -463,9 +463,6 @@ importers:
       '@stencil/react-output-target':
         specifier: ^1.4.2
         version: 1.5.0(@stencil/core@4.43.3)(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
     devDependencies:
       '@dso-toolkit/core':
         specifier: workspace:*
@@ -500,6 +497,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       dso-toolkit:
         specifier: workspace:*
         version: link:../dso-toolkit

@@ -58,7 +58,7 @@ COPY website/package.json ./website/package.json
 
 ARG CI
 
-RUN npm install -g $(node -e "const p=require('./package.json'); console.log(p.packageManager)") && pnpm install --frozen-lockfile
+RUN corepack enable && corepack install && pnpm install --frozen-lockfile
 
 COPY . .
 
