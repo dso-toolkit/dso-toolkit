@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🦺 Release 93.0.0 - 2026-04-20
+
 ### Changed
 * Document Component: Kenmerken en kaart paneel - Heading structuur kloppend maken ([#3636](https://github.com/dso-toolkit/dso-toolkit/issues/3636))
 * Document Component: Link van artikel bij mode="table-of-contents" grasgroen ([#3514](https://github.com/dso-toolkit/dso-toolkit/issues/3514))
