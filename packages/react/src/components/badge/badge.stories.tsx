@@ -1,10 +1,10 @@
-import readme from "@dso-toolkit/react/src/components/badge/readme.md?raw";
 import type { Meta } from "@storybook/react-vite";
 import { BadgeArgs, badgeMeta, badgeStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
 import { children } from "./badge.content";
+import readme from "./readme.md?raw";
 
 const meta: Meta<BadgeArgs> = {
   ...badgeMeta({ readme }),

@@ -1,8 +1,9 @@
-import readme from "@dso-toolkit/react/src/components/contact-information/readme.md?raw";
 import type { Meta } from "@storybook/react-vite";
 import { CardContainerArgs, contactInformationMeta, contactInformationStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 
 const meta: Meta<CardContainerArgs> = {
   ...contactInformationMeta({ readme }),

@@ -467,9 +467,6 @@ importers:
       '@dso-toolkit/core':
         specifier: workspace:*
         version: link:../core
-      '@dso-toolkit/react':
-        specifier: workspace:*
-        version: 'link:'
       '@iframe-resizer/child':
         specifier: ^5.5.9
         version: 5.5.9

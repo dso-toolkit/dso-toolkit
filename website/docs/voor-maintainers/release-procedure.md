@@ -82,9 +82,9 @@ wijziging in een component veilig gereleased kan worden.
 - Voordat je begint aan de onderstaande stappen is het zaak dat je een npm-account hebt met toegang tot alle DSO packages: dso-toolkit, @dso-toolkit/core, @dso-toolkit/angular, @dso-toolkit/react.
 - Tak de branch af van de laatste release
 - Kies een emoji.
-- Voer `yarn release --version 67.0.0-ghi-2345.0 --emoji <emoji>` uit, of voor een pre-release:
-  `yarn release --version 67.0.0-pre.0 --emoji <emoji>`.
-- Voer daarna nogmaals `yarn` uit, zodat ook `yarn.lock` wordt aangepast.
+- Voer `pnpm release --version 67.0.0-ghi-2345.0 --emoji <emoji>` uit, of voor een pre-release:
+  `pnpm release --version 67.0.0-pre.0 --emoji <emoji>`.
+- Voer daarna nogmaals `pnpm install` uit, zodat ook `pnpm-lock.yaml` wordt aangepast.
 - Breng eventuele blogposts in lijn met de nieuwe versie.
 - Commit en push de resulterende bestanden met als commit message bijvoorbeeld `Release 67.0.0-ghi-2345.0`.
 - Wacht tot de CI/CD action klaar is.
@@ -93,7 +93,7 @@ wijziging in een component veilig gereleased kan worden.
 Let op: Voor angular is een apart release proces nodig voor de branch release. NPM kan de branch release niet
 automatisch publiceren wanneer het geen `latest` tag heeft.
 
-- Build eerst angular workspace: `yarn workspace angular-workspace build`
+- Build eerst angular workspace: `pnpm --filter angular-workspace build`
 - Voer vanuit de `angular-wordspace` folder een npm publish script uit: `npm publish --tag 67.0.0-ghi-2345.0`
 
 ### Tagging corrigeren na branch release
