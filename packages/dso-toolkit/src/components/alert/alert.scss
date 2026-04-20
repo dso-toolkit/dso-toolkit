@@ -4,7 +4,6 @@
 @use "../../di";
 @use "../../variables/units";
 
-// HTML/CSS
 .alert {
   @include alert.root();
   @include alert.children();
@@ -65,9 +64,4 @@
       @include di.base("status-info-solid", alert.$icon-size);
     }
   }
-}
-
-// Web Component
-dso-alert {
-  @include alert.children();
 }
