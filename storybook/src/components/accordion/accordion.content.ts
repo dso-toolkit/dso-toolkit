@@ -32,6 +32,18 @@ const section2: AccordionSection<TemplateResult> = {
       Neem contact op met de gemeente en het waterschap. Zij helpen u verder. Houd de informatie bij de hand die te
       maken heeft met 'Bouwwerk of deel van een bouwwerk slopen, of asbest verwijderen'.
     </p>
+    <h5>Sanerings- en verplaatsingslocatie agrarisch bedrijf</h5>
+    <p>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://identifier.overheid.nl/join/id/regdata/pv30/2023/locatiegroep_6b52b6b882854b0d989513c22c96b19f/nld@2023-12-07;1"
+        class="ext-io-ref"
+        title="Opent andere website in nieuw tabblad"
+        ><span>/join/id/regdata/pv30/2023/locatiegroep_6b52b6b882854b0d989513c22c96b19f/nld@2023-12-07;1</span
+        ><dso-icon class="hydrated"></dso-icon
+      ></a>
+    </p>
   </div>`,
 };
 
