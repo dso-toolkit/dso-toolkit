@@ -9,13 +9,13 @@
 @use "~dso-toolkit/src/components/table";
 
 :host {
-  --dso-modal-inline-size: 100dvi;
-  --dso-modal-margin: 0;
-  --dso-modal-dialog-inline-size: calc(100% - 2rem);
-  --dso-modal-dialog-margin-block-start: 1rem;
-  --dso-modal-dialog-margin-inline-start: 1rem;
-  --dso-modal-dialog-margin-inline-end: 1rem;
-  --dso-modal-body-max-block-size: calc(
+  --_dt-modal-inline-size: 100dvi;
+  --_dt-modal-margin: 0;
+  --_dt-modal-dialog-inline-size: calc(100% - 2rem);
+  --_dt-modal-dialog-margin-block-start: 1rem;
+  --_dt-modal-dialog-margin-inline-start: 1rem;
+  --_dt-modal-dialog-margin-inline-end: 1rem;
+  --_dt-modal-body-max-block-size: calc(
     100vh - #{(2 * modal.$header-padding) + (modal.$footer-button-block-size + modal.$footer-padding)} - 1.5em - 2rem
   );
 
