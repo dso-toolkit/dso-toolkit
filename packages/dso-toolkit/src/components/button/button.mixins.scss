@@ -42,6 +42,7 @@
   border-radius: button-variables.$border-radius;
   line-height: typography.$line-height-base;
   min-inline-size: $min-inline-size;
+  inline-size: var(--_dt-button-inline-size, inherit);
   padding-block: button-variables.$block-padding;
   padding-inline: button-variables.$inline-padding;
 
@@ -176,7 +177,7 @@
   margin-block-end: 0;
   text-decoration: none;
   touch-action: manipulation;
-  text-align: start;
+  text-align: var(--_dt-button-text-align, start);
   user-select: none;
   vertical-align: middle;
   background-clip: padding-box;
