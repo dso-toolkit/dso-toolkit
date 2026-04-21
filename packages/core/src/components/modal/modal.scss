@@ -3,10 +3,11 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/rich-content";
-@use "~dso-toolkit/src/components/modal/modal.variables" as modal-variables;
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/units";
+
+@use "modal.variables" as modal-variables;
 
 @keyframes ModalFadeIn {
   0% {
@@ -126,32 +127,20 @@ button {
   }
 
   > .dso-dialog > .dso-body {
-    // stylelint-disable-next-line scss/operator-no-newline-after -- disabled because of prettier newline
-    $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-      (modal-variables.$footer-button-block-size + modal-variables.$footer-padding);
-
     @include rich-content.children();
 
     block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-block-size: var(
-      --_dt-modal-body-max-block-size,
-      calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em)
-    );
+    /* prettier-ignore */
+    max-block-size: var(--_dt-modal-body-max-block-size, calc(#{modal-variables.$max-block-size} - #{(2 * modal-variables.$header-padding) + (modal-variables.$footer-button-block-size + modal-variables.$footer-padding) + units.$u4} - 1.5em));
     min-block-size: 1.5rem;
     overflow-x: auto;
     padding: modal-variables.$body-padding;
   }
 
   > .dso-dialog > dso-scrollable {
-    // stylelint-disable-next-line scss/operator-no-newline-after -- disabled because of prettier newline
-    $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-      (modal-variables.$footer-button-block-size + modal-variables.$footer-padding);
-
     block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-block-size: var(
-      --_dt-modal-body-max-block-size,
-      calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em)
-    );
+    /* prettier-ignore */
+    max-block-size: var(--_dt-modal-body-max-block-size, calc(#{modal-variables.$max-block-size} - #{(2 * modal-variables.$header-padding) + (modal-variables.$footer-button-block-size + modal-variables.$footer-padding) + units.$u4} - 1.5em));
     min-block-size: modal-variables.$body-min-block-size;
 
     .dso-body {
@@ -186,32 +175,12 @@ button {
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    .dso-dialog {
-      max-inline-size: 100%;
-      margin-block-start: 0;
-    }
+    --_dt-button-inline-size: 100%;
+    --_dt-button-after-button-margin-inline-start: 0;
+    --_dt-button-after-button-margin-block-start: #{units.$u1};
+    --_dt-button-text-align: center;
 
-    .dso-footer {
-      #{button.$button-adjacent} {
-        margin-inline-start: 0;
-      }
-
-      button {
-        inline-size: 100%;
-        text-align: center;
-
-        + button {
-          margin-block-start: units.$u1;
-        }
-
-        &.dso-tertiary {
-          &,
-          span {
-            float: none;
-          }
-        }
-      }
-    }
+    max-inline-size: 100%;
   }
 
   @media screen and (max-height: modal-variables.$small-modal-vh) {
