@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Link: Deel inhoud wordt buiten container geplaatst door lange content ([#3591](https://github.com/dso-toolkit/dso-toolkit/issues/3591))
+* Icon Button: ResizeObserver loop completed with undeliverd notifications ([#3567](https://github.com/dso-toolkit/dso-toolkit/issues/3567))
 
 ## 🦺 Release 93.0.0 - 2026-04-20
 
@@ -18,7 +19,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Info Button: WCAG - toggletip content wordt niet voorgelezen bij openen van de tooltip ([#3638](https://github.com/dso-toolkit/dso-toolkit/issues/3638))
-* Icon Button: ResizeObserver loop completed with undeliverd notifications ([#3567](https://github.com/dso-toolkit/dso-toolkit/issues/3567))
 
 ### Removed
 * **BREAKING** Badge: Remove HTML/CSS implementatie ([#3314](https://github.com/dso-toolkit/dso-toolkit/issues/3314))

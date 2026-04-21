@@ -25,7 +25,7 @@ Dit is de release procedure:
     - In de `package.json` van `angular-workspace/projects/component-library`, `packages/react`, `packages/core` en `packages/dso-toolkit` wordt het versienummer bijgewerkt.
     - In de `package.json` van `angular-workspace/projects/component-library` en `packages/react` wordt het versienummer van de peerDependency `@dso-toolkit/core` bijgewerkt.
 
-4.  Voer het commando `yarn` uit, zodat `yarn.lock` wordt geupdate met de aangepaste peerDependency naar `@dso-toolkit/core`.
+4.  Voer het commando `yarn` uit, zodat `yarn.lock` wordt geüpdatet met de aangepaste peerDependency naar `@dso-toolkit/core`.
 5.  Controleer de filenaam van de blogpost de juiste datum en naam bevatten (datum/versie) b.v.: 2024-11-14-dso-toolkit-67.0.0.mdx.
     Controleer ook in de blogpost of de versie en emoji correct staan.
 6.  De 6 of 7 resulterende gewijzigde bestanden (4x `package.json`, `CHANGELOG.md` en `yarn.lock`, eventueel aangevuld
@@ -94,7 +94,7 @@ Let op: Voor angular is een apart release proces nodig voor de branch release. N
 automatisch publiceren wanneer het geen `latest` tag heeft.
 
 - Build eerst angular workspace: `yarn workspace angular-workspace build`
-- Voer daar een npm publish script uit: `npm publish --tag 67.0.0-ghi-2345.0`
+- Voer vanuit de `angular-wordspace` folder een npm publish script uit: `npm publish --tag 67.0.0-ghi-2345.0`
 
 ### Tagging corrigeren na branch release
 
