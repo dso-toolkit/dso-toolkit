@@ -179,8 +179,6 @@ export * from "./components/tile";
 
 export * from "./components/tile-grid";
 
-export * from "./components/tooltip";
-
 export * from "./components/tree-view";
 
 export * from "./components/viewer-grid";
