@@ -87,19 +87,18 @@ button {
   overflow: visible;
   padding: 0;
   border: 0;
-  inline-size: var(--dso-modal-inline-size, auto);
-  max-inline-size: var(--dso-modal-max-inline-size, none);
-  margin: var(--dso-modal-margin, auto);
+  inline-size: var(--_dt-modal-inline-size, auto);
+  margin: var(--_dt-modal-margin, auto);
 
   &::backdrop {
     background-color: color.scale(modal-variables.$backdrop-bg, $alpha: modal-variables.$backdrop-opacity);
   }
 
   .dso-dialog {
-    inline-size: var(--dso-modal-dialog-inline-size, #{modal-variables.$max-inline-size});
-    margin-block-start: var(--dso-modal-dialog-margin-block-start, 0);
-    margin-inline-start: var(--dso-modal-dialog-margin-inline-start, auto);
-    margin-inline-end: var(--dso-modal-dialog-margin-inline-end, auto);
+    inline-size: var(--_dt-modal-dialog-inline-size, #{modal-variables.$max-inline-size});
+    margin-block-start: var(--_dt-modal-dialog-margin-block-start, 0);
+    margin-inline-start: var(--_dt-modal-dialog-margin-inline-start, auto);
+    margin-inline-end: var(--_dt-modal-dialog-margin-inline-end, auto);
 
     background-color: modal-variables.$content-bg;
 
@@ -135,7 +134,7 @@ button {
 
     block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
     max-block-size: var(
-      --dso-modal-body-max-block-size,
+      --_dt-modal-body-max-block-size,
       calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em)
     );
     min-block-size: 1.5rem;
@@ -150,7 +149,7 @@ button {
 
     block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
     max-block-size: var(
-      --dso-modal-body-max-block-size,
+      --_dt-modal-body-max-block-size,
       calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em)
     );
     min-block-size: modal-variables.$body-min-block-size;
