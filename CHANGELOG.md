@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Legend: Kaartlagen bewerken knop na Slide Toggle plaatsen ([#3849](https://github.com/dso-toolkit/dso-toolkit/issues/3849))
 * Viewer Grid: Actief item submenu WCAG proof maken ([#3852](https://github.com/dso-toolkit/dso-toolkit/issues/3852))
 
+### Removed
+* **BREAKING** Tooltip: Remove ([#3377](https://github.com/dso-toolkit/dso-toolkit/issues/3377))
+
 ## 🧩 Release 99.2.0 - 2026-07-17
 
 ### Changed
@@ -53,13 +56,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING** Dropdown Menu: Aanpassen markup voorschrift ([#3493](https://github.com/dso-toolkit/dso-toolkit/issues/3493))
 
-### Fixed
-* ResizeObserver: ResizeObserver loop completed with undelivered notifications ([#3767](https://github.com/dso-toolkit/dso-toolkit/issues/3767))
-* Modal: Witte achtergrond breder dan dialog ([#3798](https://github.com/dso-toolkit/dso-toolkit/issues/3798))
-
-### Removed
-* **BREAKING** Info Button: Remove HTML/CSS implementatie ([#3570](https://github.com/dso-toolkit/dso-toolkit/issues/3570))
-* **BREAKING** Alert: Remove HTML/CSS implementatie ([#3669](https://github.com/dso-toolkit/dso-toolkit/issues/3669))
 
 ### Task
 * CSS: Private custom properties namespace aanpassen ([#3515](https://github.com/dso-toolkit/dso-toolkit/issues/3515))
