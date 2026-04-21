@@ -49,3 +49,85 @@ Dit is de release procedure:
 10. Als laatste kan de Github milestone gesloten worden door op
     https://github.com/dso-toolkit/dso-toolkit/milestones van milestone `67.0.0` eerst op "edit" te klikken,
     de Due date in te vullen en vervolgens op "Close milestone" te klikken.
+
+## Een branch release uitbrengen
+
+Een branch release gebruiken we als we een afnemer een sneak preview willen geven of als we willen verifiëren of een
+wijziging in een component veilig gereleased kan worden.
+
+- Een branch release wordt gemaakt vanuit de branch van het GitHub issue of vanuit de branch van de pre-release.
+- Zorg dat de branch direct aftakt van de laatste officiële release commit.
+- Voorbeeld: `67.0.0`.
+- Als het GitHub issue nummer `2345` is, dan wordt de eerste branch-releaseversie `67.0.0-ghi-2345.0`.
+- Elke volgende branch release voor hetzelfde issue verhoogt alleen het nummer achter de laatste punt: `67.0.0-ghi-2345.1`,
+  `67.0.0-ghi-2345.2`, enzovoort.
+- Loopt de doorlooptijd over meerdere reguliere releases heen, dan moet de branch release of pre-release worden
+  aangepast naar de meest recente officiële release.
+- Voorbeeld: als `67.1.0` inmiddels is uitgekomen, dan wordt `67.0.0-ghi-2345.0` aangepast naar
+  `67.1.0-ghi-2345.1`.
+
+### Meerdere issues in één branch release
+
+- Soms willen we meerdere GitHub issues tegelijk releasen in één branch release.
+- Gebruik daarvoor een pre-release als meerdere issues door een afnemer geverifieerd moeten worden.
+- Voorbeeld branch: `79.0.0-pre`.
+- Voorbeelden van tags: `v79.0.0-pre.0`, `v79.0.0-pre.1`, enzovoort.
+- De resulterende versies zijn dan `79.0.0-pre.0`, `79.0.0-pre.1`, enzovoort.
+- De eerste versie van zo'n pre-release begint op de eerstvolgende officiële release, bijvoorbeeld `79.0.0-pre.0`.
+- Let op dat een tag zoals `79.0.0-pre` niet gebruikt moet worden als npm-tag, omdat die als een geldige SemVer-range
+  wordt gezien.
+
+### Branch release uitvoeren
+
+- Voordat je begint aan de onderstaande stappen is het zaak dat je een npm-account hebt met toegang tot alle DSO packages: dso-toolkit, @dso-toolkit/core, @dso-toolkit/angular, @dso-toolkit/react.
+- Tak de branch af van de laatste release
+- Kies een emoji.
+- Voer `yarn release --version 67.0.0-ghi-2345.0 --emoji <emoji>` uit, of voor een pre-release:
+  `yarn release --version 67.0.0-pre.0 --emoji <emoji>`.
+- Voer daarna nogmaals `yarn` uit, zodat ook `yarn.lock` wordt aangepast.
+- Breng eventuele blogposts in lijn met de nieuwe versie.
+- Commit en push de resulterende bestanden met als commit message bijvoorbeeld `Release 67.0.0-ghi-2345.0`.
+- Wacht tot de CI/CD action klaar is.
+- Push daarna de tag `v67.0.0-ghi-2345.0`, of de tag voor de pre-release.
+
+Let op: Voor angular is een apart release proces nodig voor de branch release. NPM kan de branch release niet
+automatisch publiceren wanneer het geen `latest` tag heeft.
+
+- Build eerst angular workspace: `yarn workspace angular-workspace build`
+- Voer vanuit de `angular-wordspace` folder een npm publish script uit: `npm publish --tag 67.0.0-ghi-2345.0`
+
+### Tagging corrigeren na branch release
+
+- Na afloop van de CI/CD action moet de tagging in GitHub en npm weer worden rechtgezet.
+- Voor GitHub betekent dit dat de `latest` tag teruggezet moet worden op de laatste reguliere release, of dat de
+  pre-release expliciet als pre-release wordt gemarkeerd.
+- Voor npm moeten de dist-tags worden gecorrigeerd voor de volgende packages:
+  - `dso-toolkit`
+  - `@dso-toolkit/core`
+  - `@dso-toolkit/angular`
+  - `@dso-toolkit/react`
+- Zet `latest` terug op de laatste reguliere release, bijvoorbeeld `67.0.0`:
+
+```bash
+  npm login
+  npm dist-tag add dso-toolkit@67.0.0 latest
+  npm dist-tag add @dso-toolkit/core@67.0.0 latest
+  npm dist-tag add @dso-toolkit/angular@67.0.0 latest
+  npm dist-tag add @dso-toolkit/react@67.0.0 latest
+```
+
+- Zet de branch-release-tag, bijvoorbeeld `ghi-2345`, op de branch release:
+
+  ```bash
+  npm dist-tag add dso-toolkit@67.0.0-ghi-2345.0 ghi-2345
+  npm dist-tag add @dso-toolkit/core@67.0.0-ghi-2345.0 ghi-2345
+  npm dist-tag add @dso-toolkit/angular@67.0.0-ghi-2345.0 ghi-2345
+  npm dist-tag add @dso-toolkit/react@67.0.0-ghi-2345.0 ghi-2345
+  ```
+
+- Stuur daarna een bericht naar de afnemer waarvoor de branch release is gemaakt.
+
+### Branch release goed bevonden
+
+- Drop de release commit waarin de versie naar de betreffende github issue is gezet. Bijv `67.0.0-ghi-2345`.
+- Bied de code via een PR aan zodat deze mee gaat in het reguliere release proces.
