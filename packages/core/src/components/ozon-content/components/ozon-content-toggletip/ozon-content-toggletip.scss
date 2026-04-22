@@ -15,10 +15,6 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   --_dt-rich-content-margin-block: #{units.$u1};
 }
 
-.sr-only {
-  @include utilities.sr-only();
-}
-
 ::slotted(:not([slot="label"])) {
   cursor: default !important;
 }
