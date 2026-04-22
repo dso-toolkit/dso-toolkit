@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Deprecated
+* Card Grid & Card List: Deprecate ([#3674](https://github.com/dso-toolkit/dso-toolkit/issues/3674))
+
 ### Fixed
 * Link: Deel inhoud wordt buiten container geplaatst door lange content ([#3591](https://github.com/dso-toolkit/dso-toolkit/issues/3591))
 * Icon Button: ResizeObserver loop completed with undelivered notifications ([#3567](https://github.com/dso-toolkit/dso-toolkit/issues/3567))
