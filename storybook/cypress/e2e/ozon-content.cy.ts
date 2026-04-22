@@ -1,26 +1,6 @@
 import { isOdd } from "../support/is-odd";
 
 describe("Ozon Content", () => {
-  it("should have correct ARIA attributes on toggletip", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-ref-begrip");
-
-    cy.get("dso-ozon-content.hydrated")
-      .shadow()
-      .find("dso-ozon-content-toggletip")
-      .shadow()
-      .find(".toggletip-button")
-      .should("have.attr", "aria-expanded");
-
-    cy.get("dso-ozon-content.hydrated")
-      .shadow()
-      .find("dso-ozon-content-toggletip")
-      .shadow()
-      .find(".sr-only")
-      .should("have.attr", "role", "status")
-      .and("have.attr", "aria-live", "polite")
-      .and("have.attr", "aria-atomic", "true");
-  });
-
   it("emits click with node='IntRef' on click of IntRef Link", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-ref");
 
@@ -56,7 +36,23 @@ describe("Ozon Content", () => {
       .find("dso-ozon-content-toggletip")
       .shadow()
       .find(".toggletip-button")
+      .should("have.attr", "aria-expanded", "false")
+      .and("not.have.attr", "aria-describedby");
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .shadow()
+      .find(".toggletip-button")
       .realClick();
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .shadow()
+      .find(".toggletip-button")
+      .should("have.attr", "aria-expanded", "true")
+      .and("have.attr", "aria-describedby", "toggletip-tooltip");
 
     cy.get("dso-ozon-content.hydrated")
       .shadow()

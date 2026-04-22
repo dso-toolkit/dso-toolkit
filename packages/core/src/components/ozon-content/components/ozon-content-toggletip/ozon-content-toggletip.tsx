@@ -27,12 +27,6 @@ export class ozonContentToggletip implements ComponentInterface {
   @State()
   active = false;
 
-  /**
-   * Tooltip announcement for screen readers
-   */
-  @State()
-  announcement = "";
-
   @Listen("click", { target: "window" })
   handleWindowClick(event: MouseEvent) {
     if (!this.active) return;
@@ -55,14 +49,6 @@ export class ozonContentToggletip implements ComponentInterface {
 
   private toggle = () => {
     this.active = !this.active;
-
-    if (this.active) {
-      const tooltipText = this.tooltip?.textContent?.trim();
-      const fallbackText = this.host.textContent?.replace(this.host.id, "").trim() || "";
-      this.announcement = tooltipText || fallbackText;
-    } else {
-      this.announcement = "";
-    }
   };
 
   private keyDownHandler = (event: KeyboardEvent) => {
@@ -112,32 +98,34 @@ export class ozonContentToggletip implements ComponentInterface {
     return (
       <Fragment>
         <span
+          aria-describedby={this.active ? "toggletip-tooltip" : undefined}
+          aria-expanded={this.active.toString()}
           class="toggletip-button"
           role="button"
           tabIndex={0}
-          aria-expanded={this.active.toString()}
           onClick={this.toggle}
           onKeyDown={this.keyDownHandler}
           ref={(element) => (this.container = element)}
         >
-          <slot name="label" />
           {this.icon && (
             <Fragment>
+              <span class="toggletip-label">
+                <slot name="label" />
+              </span>
               {/* Word joiner: prevents a line break between label text and icon */}
               {"\u2060"}
               <dso-icon icon={this.icon} />
             </Fragment>
           )}
+          {!this.icon && <slot name="label" />}
         </span>
         <Tooltip
+          id="toggletip-tooltip"
           tipElementRef={(element) => (this.tooltip = element)}
           tipArrowElementRef={(element) => (this.tooltipArrow = element)}
         >
           <slot />
         </Tooltip>
-        <div role="status" aria-live="polite" aria-atomic="true" class="sr-only">
-          {this.announcement}
-        </div>
       </Fragment>
     );
   }
