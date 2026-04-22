@@ -26,22 +26,22 @@ describe("Scrollable", () => {
   });
 
   it("should emit event when scroll has reached top or bottom", () => {
-    const events: string[] = [];
+    const scrollEndEvents: string[] = [];
 
-    cy.get("dso-scrollable.hydrated")
-      .then(($scrollable) => {
-        $scrollable.on("dsoScrollEnd", (e: CustomEvent) => events.push(e.detail.scrollEnd));
+    cy.get<HTMLDsoScrollableElement>("dso-scrollable.hydrated")
+      .then(([scrollable]) => {
+        scrollable.addEventListener("dsoScrollEnd", (e) => scrollEndEvents.push(e.detail.scrollEnd));
       })
       .get("@scrollContainer")
       .scrollTo("bottom")
       .get("@scrollContainer")
       .should("have.class", "dso-scroll-bottom")
-      .then(() => expect(events).to.include("bottom"))
+      .then(() => expect(scrollEndEvents).to.include("bottom"))
       .get("@scrollContainer")
       .scrollTo("top")
       .get("@scrollContainer")
       .should("have.class", "dso-scroll-top")
-      .then(() => expect(events).to.include("top"));
+      .then(() => expect(scrollEndEvents).to.include("top"));
   });
 
   it("should update scroll state on resize", () => {
@@ -54,17 +54,22 @@ describe("Scrollable", () => {
   });
 
   it("should update scroll state with dynamic content", () => {
-    cy.visit("http://localhost:45000/iframe.html?args=&id=core-scrollable--dynamic-content")
-      .get("dso-scrollable.hydrated")
-      .get("@scrollContainer")
+    cy.visit("http://localhost:45000/iframe.html?args=&id=core-scrollable--dynamic-content");
+    const scrollContainer = () => cy.get("dso-scrollable.hydrated").shadow().find(".dso-scroll-container");
+
+    scrollContainer()
       .should("not.have.class", "dso-scroll-top")
       .and("not.have.class", "dso-scroll-middle")
-      .and("not.have.class", "dso-scroll-bottom")
-      .get("dso-scrollable.hydrated")
-      .find("> dso-accordion > dso-accordion-section")
-      .invoke("attr", "open", true)
-      .get("dso-scrollable.hydrated")
-      .get("@scrollContainer")
-      .should("have.class", "dso-scroll-top");
+      .and("not.have.class", "dso-scroll-bottom");
+
+    cy.get<HTMLDsoAccordionSectionElement>("dso-scrollable.hydrated > dso-accordion > dso-accordion-section").then(
+      ([section]) =>
+        new Cypress.Promise<void>((resolve) => {
+          section.addEventListener("dsoAnimationEnd", () => resolve(), { once: true });
+          section.open = true;
+        }),
+    );
+
+    scrollContainer().should("have.class", "dso-scroll-top");
   });
 });
