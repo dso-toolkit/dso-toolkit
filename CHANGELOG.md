@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Link: Deel inhoud wordt buiten container geplaatst door lange content ([#3591](https://github.com/dso-toolkit/dso-toolkit/issues/3591))
 * Icon Button: ResizeObserver loop completed with undelivered notifications ([#3567](https://github.com/dso-toolkit/dso-toolkit/issues/3567))
+* Kaartlagen: Scrollbug ([#3738](https://github.com/dso-toolkit/dso-toolkit/issues/3738))
 
 ## 🦺 Release 93.0.0 - 2026-04-20
 
