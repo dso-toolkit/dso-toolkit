@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Icon Button: ResizeObserver loop completed with undelivered notifications ([#3567](https://github.com/dso-toolkit/dso-toolkit/issues/3567))
 * Scrollable: Scrollbar niet zichtbaar ([#3738](https://github.com/dso-toolkit/dso-toolkit/issues/3738))
 * Ozon Content: Toggletip bij IntRef Begrip en IntIoRef wordt niet voorgelezen ([#3592](https://github.com/dso-toolkit/dso-toolkit/issues/3592))
+* Label: Tooltip soms niet goed zichtbaar (bv in `document-panel` in Viewer Grid) ([#3600](https://github.com/dso-toolkit/dso-toolkit/issues/3600))
 
 ### Task
 * Package Manager: Gebruik pnpm ipv Yarn ([#3717](https://github.com/dso-toolkit/dso-toolkit/issues/3717))
