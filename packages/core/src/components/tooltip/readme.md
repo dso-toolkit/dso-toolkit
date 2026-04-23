@@ -49,12 +49,12 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [dso-ozon-content](../ozon-content)
+ - [dso-label](../label)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-ozon-content --> dso-tooltip
+  dso-label --> dso-tooltip
   style dso-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

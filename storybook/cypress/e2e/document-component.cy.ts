@@ -288,6 +288,7 @@ describe("Document Component", () => {
           .find("dso-ozon-content.hydrated")
           .shadow()
           .find("dso-ozon-content-toggletip")
+          .eq(1)
           .shadow()
           .find(".toggletip-button")
           .realClick();

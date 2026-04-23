@@ -23,8 +23,9 @@
   display: inline;
 }
 
-button.toggle-note {
-  @include button-mixins.tertiary($modifiers: false);
+.toggle-note {
+  --_dt-ozon-content-toggletip-text-decoration: none;
+  --_dt-ozon-content-toggletip-color: #{colors.$grasgroen};
 }
 
 span[role="section"],
