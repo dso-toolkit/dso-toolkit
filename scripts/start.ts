@@ -17,37 +17,37 @@ rimraf.sync("angular-workspace/www");
 rimraf.sync("angular-workspace/projects/component-library/src/lib/stencil-generated");
 
 const startStorybook = {
-  command: "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace dso-storybook start",
+  command: "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter dso-storybook start",
   name: "storybook",
   prefixColor: "bgMagenta",
 };
 
 const watchCore = {
   command:
-    "wait-on file:./packages/dso-toolkit/dist/index.js file:./packages/dso-toolkit/dist/dso.css && yarn workspace @dso-toolkit/core watch",
+    "wait-on file:./packages/dso-toolkit/dist/index.js file:./packages/dso-toolkit/dist/dso.css && pnpm --filter @dso-toolkit/core watch",
   name: "core",
 };
 
 const startCypress = {
-  command: "wait-on http://localhost:45000 && yarn workspace dso-storybook cypress open",
+  command: "wait-on http://localhost:45000 && pnpm --filter dso-storybook exec cypress open",
   name: "cypress",
   prefixColor: "bgGreen",
 };
 
 const watchToolkit = {
-  command: "yarn workspace dso-toolkit watch",
+  command: "pnpm --filter dso-toolkit watch",
   name: "toolkit",
 };
 
 const startReact = {
   command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace @dso-toolkit/react storybook:start",
+    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter @dso-toolkit/react storybook:start",
   name: "react",
 };
 
 const startAngular = {
   command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace angular-workspace storybook:start",
+    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter angular-workspace storybook:start",
   name: "angular",
 };
 

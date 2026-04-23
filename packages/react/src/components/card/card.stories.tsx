@@ -1,10 +1,10 @@
-import readme from "@dso-toolkit/react/src/components/card/readme.md?raw";
 import type { Meta } from "@storybook/react-vite";
 import { CardArgs, cardMeta, cardStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
 import { content, infoButton } from "./card.content";
+import readme from "./readme.md?raw";
 
 const meta: Meta<CardArgs> = {
   ...cardMeta({ readme }),

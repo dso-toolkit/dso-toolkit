@@ -2,17 +2,13 @@
 
 Dependency updates doen we bij voorkeur aan het begin van een sprint zodat we de nieuwe versies zelf kunnen ervaren. Dit sluit bevindingen van afnemers natuurlijk niet uit.
 
-## Patches
-
-Inventariseer voor welke packages er patches zijn gemaakt in `/.yarn/patches`. Voor een update van een package met 'n patch betekent onderzoek naar de gevolgen.
-
 ## TypeScript-versiebeleid
 
 Bij het updaten van TypeScript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
 
-- Stencil ondersteunt momenteel TypeScript tot en met versie 5.8.3 (Stencil v4.43.0). Echter draait versie v4.43.0 ook goed met typescript 5.9.3.
+- Stencil ondersteunt momenteel TypeScript tot en met versie 5.8.3 (Stencil v4.43.3). Echter draait versie v4.43.3 ook goed met typescript 5.9.3.
 - Storybook (v10) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
-- Angular (v21.1.4) ondersteunt TypeScript \>=5.8.0 \<6.0.0
+- Angular (v21.2.6) ondersteunt TypeScript \>=5.8.0 \<6.0.0
 
 Stencil loopt traditioneel achter op de laatste TypeScript-releases. Houd bij toekomstige updates daarom altijd rekening met de maximale ondersteunde TypeScript-versie van Stencil. Voer een check uit op:
 
@@ -22,13 +18,15 @@ Stencil loopt traditioneel achter op de laatste TypeScript-releases. Houd bij to
 
 Pas de TypeScript-versie dus alleen aan als alle gebruikte tools deze ondersteunen, óf als de build én ontwikkelervaring (IDE) geen fouten opleveren.
 
-## Yarn update
+## pnpm update
 
-Installeer de nieuwste Yarn.
+Installeer de nieuwste pnpm.
 
 ```sh
-yarn set version berry
+corepack install --global pnpm@latest
 ```
+
+Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan. De `Dockerfile` gebruikt corepack, die de versie automatisch uit dit veld leest, dus die hoeft niet apart aangepast te worden.
 
 ## Dependencies update
 
@@ -38,14 +36,12 @@ Angular en Storybook hebben een eigen update procedure. Prettier, Stylelint en E
 
 De dependencies `typescript` en `tslib` moeten voor alle packages onderling identiek zijn. Hetzelfde geldt voor de Angular en Storybook dependencies.
 
-Let erop dat er aan het einde van de update procedure geen onverklaarbare `node_modules` directories in onze packages zijn ontstaan. Dit kan duiden op versie conflicten.
-
 ```sh
-yarn upgrade-interactive
+pnpm update --interactive --recursive --latest
 ```
 
 ```sh
-yarn dedupe --check # zonder --check als nodig
+pnpm dedupe --check # zonder --check als nodig
 ```
 
 ## Sass
@@ -77,19 +73,19 @@ Controleer op https://github.com/Azure/azure-storage-azcopy/releases of er een n
 In `/storybook`:
 
 ```sh
-yarn dlx storybook@latest upgrade
+pnpm dlx storybook@latest upgrade
 ```
 
 In `/packages/react`:
 
 ```sh
-yarn dlx storybook@latest upgrade
+pnpm dlx storybook@latest upgrade
 ```
 
 In `/angular-workspace`:
 
 ```sh
-yarn dlx storybook@latest upgrade
+pnpm dlx storybook@latest upgrade
 ```
 
 Doorzoek alle `package.json` in de repository op de oude versie van Storybook, er zijn meer `@storybook/` packages die buiten een Storybook installatie worden gebruikt. Let erop dat alle Storybook packages exact dezelfde versie hebben.
@@ -97,14 +93,12 @@ Doorzoek alle `package.json` in de repository op de oude versie van Storybook, e
 Daarna weer dedupe:
 
 ```sh
-yarn dedupe --check # zonder --check als nodig
+pnpm dedupe --check # zonder --check als nodig
 ```
 
 ## Angular
 
-Zolang https://github.com/angular/angular-cli/issues/14841 niet is opgelost heeft de Angular CLI geen ondersteuning voor Yarn Workspaces. Het update proces gaat fout door de entries met `workspace:^` in `/angular-workspace/package.json`.
-
-Het update proces is een handmatige handeling waarbij een beetje met `yarn workspace angular-workspace ng update @angular/cli @angular/core` wordt gedaan en versie nummers updaten (handmatig of met `yarn upgrade-interactive`).
+Het update proces is een handmatige handeling waarbij een beetje met `pnpm --filter angular-workspace ng update @angular/cli @angular/core` wordt gedaan en versie nummers updaten (handmatig of met `pnpm update --interactive --recursive`).
 
 Als er een major release zijn er mogelijk migrations zijn:
 
@@ -117,13 +111,13 @@ Zie ook https://update.angular.io/
 ## Sub dependencies update
 
 ```sh
-yarn up * --recursive
+pnpm update --recursive
 ```
 
 En dedupe:
 
 ```sh
-yarn dedupe --check # zonder --check als nodig
+pnpm dedupe --check # zonder --check als nodig
 ```
 
 ## Afronden

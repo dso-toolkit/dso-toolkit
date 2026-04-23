@@ -5,7 +5,7 @@
     "build-www": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "yarn storybook:build",
+        "command": "pnpm storybook:build",
         "cwd": "storybook"
       },
       "dependsOn": ["^build"],

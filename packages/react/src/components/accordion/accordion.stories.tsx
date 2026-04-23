@@ -1,4 +1,3 @@
-import readme from "@dso-toolkit/react/src/components/accordion/readme.md?raw";
 import type { Meta } from "@storybook/react-vite";
 import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
 
@@ -14,6 +13,7 @@ import {
   nestedSections,
   renvooiSections,
 } from "./accordion.content";
+import readme from "./readme.md?raw";
 
 const meta: Meta<AccordionArgs> = {
   ...accordionMeta({ readme }),

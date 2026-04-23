@@ -14,7 +14,7 @@ Dit is de release procedure:
 2.  Controleer dat de Github milestone `67.0.0` volledig is. Zijn de issues van alle squash-commits in de
     `master`-branch sinds de vorige release toegevoegd aan de milestone? De Github milestones van DSO Toolkit
     zijn hier te vinden: https://github.com/dso-toolkit/dso-toolkit/milestones.
-3.  Voer het commando `yarn release --version 67.0.0 --emoji 😍` uit:
+3.  Voer het commando `pnpm release --version 67.0.0 --emoji 😍` uit:
 
     Toelichting:
     - In `CHANGELOG.md` voegt dit script bovenin onder `## Next` een kop toe met daarin de emoji van de release, het
@@ -25,10 +25,10 @@ Dit is de release procedure:
     - In de `package.json` van `angular-workspace/projects/component-library`, `packages/react`, `packages/core` en `packages/dso-toolkit` wordt het versienummer bijgewerkt.
     - In de `package.json` van `angular-workspace/projects/component-library` en `packages/react` wordt het versienummer van de peerDependency `@dso-toolkit/core` bijgewerkt.
 
-4.  Voer het commando `yarn` uit, zodat `yarn.lock` wordt geüpdatet met de aangepaste peerDependency naar `@dso-toolkit/core`.
+4.  Voer het commando `pnpm install` uit, zodat `pnpm-lock.yaml` wordt geüpdatet met de aangepaste peerDependency naar `@dso-toolkit/core`.
 5.  Controleer de filenaam van de blogpost de juiste datum en naam bevatten (datum/versie) b.v.: 2024-11-14-dso-toolkit-67.0.0.mdx.
     Controleer ook in de blogpost of de versie en emoji correct staan.
-6.  De 6 of 7 resulterende gewijzigde bestanden (4x `package.json`, `CHANGELOG.md` en `yarn.lock`, eventueel aangevuld
+6.  De 6 of 7 resulterende gewijzigde bestanden (4x `package.json`, `CHANGELOG.md` en `pnpm-lock.yaml`, eventueel aangevuld
     met de gecorrigeerde naam van de blogpost) moeten gecommit worden op de `master`-branch met de volgende
     commit-message: `😍 Release 67.0.0`.
     Vervolgens pushen we deze release-commit naar origin. Dit triggert een build van de `master`-branch.
@@ -82,9 +82,9 @@ wijziging in een component veilig gereleased kan worden.
 - Voordat je begint aan de onderstaande stappen is het zaak dat je een npm-account hebt met toegang tot alle DSO packages: dso-toolkit, @dso-toolkit/core, @dso-toolkit/angular, @dso-toolkit/react.
 - Tak de branch af van de laatste release
 - Kies een emoji.
-- Voer `yarn release --version 67.0.0-ghi-2345.0 --emoji <emoji>` uit, of voor een pre-release:
-  `yarn release --version 67.0.0-pre.0 --emoji <emoji>`.
-- Voer daarna nogmaals `yarn` uit, zodat ook `yarn.lock` wordt aangepast.
+- Voer `pnpm release --version 67.0.0-ghi-2345.0 --emoji <emoji>` uit, of voor een pre-release:
+  `pnpm release --version 67.0.0-pre.0 --emoji <emoji>`.
+- Voer daarna nogmaals `pnpm install` uit, zodat ook `pnpm-lock.yaml` wordt aangepast.
 - Breng eventuele blogposts in lijn met de nieuwe versie.
 - Commit en push de resulterende bestanden met als commit message bijvoorbeeld `Release 67.0.0-ghi-2345.0`.
 - Wacht tot de CI/CD action klaar is.
@@ -93,7 +93,7 @@ wijziging in een component veilig gereleased kan worden.
 Let op: Voor angular is een apart release proces nodig voor de branch release. NPM kan de branch release niet
 automatisch publiceren wanneer het geen `latest` tag heeft.
 
-- Build eerst angular workspace: `yarn workspace angular-workspace build`
+- Build eerst angular workspace: `pnpm --filter angular-workspace build`
 - Voer vanuit de `angular-wordspace` folder een npm publish script uit: `npm publish --tag 67.0.0-ghi-2345.0`
 
 ### Tagging corrigeren na branch release

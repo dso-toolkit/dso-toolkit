@@ -1,0 +1,5 @@
+packages:
+  - "angular-workspace"
+  - "packages/*"
+  - "storybook"
+  - "website"

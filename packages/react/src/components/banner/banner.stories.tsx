@@ -1,4 +1,3 @@
-import readme from "@dso-toolkit/react/src/components/banner/readme.md?raw";
 import type { Meta } from "@storybook/react-vite";
 import { BannerArgs, bannerMeta, bannerStories } from "dso-toolkit";
 
@@ -14,6 +13,7 @@ import {
   warningNonRemovableRichContent,
   warningRichContent,
 } from "./banner.content";
+import readme from "./readme.md?raw";
 
 const meta: Meta<BannerArgs> = {
   ...bannerMeta({ readme }),

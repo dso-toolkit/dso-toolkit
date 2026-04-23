@@ -1,13 +1,8 @@
+import { execSync } from "node:child_process";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
-import readline from "node:readline";
-
-interface InputLine {
-  location?: string;
-  base?: string;
-}
 
 interface HashRecord {
   file: string;
@@ -15,11 +10,9 @@ interface HashRecord {
   sha512: string;
 }
 
-main().catch((error) => {
-  console.error(error);
-
-  process.exit(1);
-});
+interface PnpmPackOutput {
+  files: { path: string }[];
+}
 
 function createFileHash(algorithm: string, filename: string, base: string) {
   const fileBuffer = fs.readFileSync(path.join(base, filename));
@@ -35,31 +28,29 @@ function includeFile(filename: string) {
 }
 
 async function main() {
-  const hashes: HashRecord[] = [];
-  let base;
-  const rl = readline.createInterface({
-    input: process.stdin,
-  });
+  const filter = process.argv[2];
 
-  for await (const line of rl) {
-    // process a line at a time
-    const inputLine: InputLine = JSON.parse(line);
-
-    if (inputLine.base && !base) {
-      // base is the first ndjson line
-      base = inputLine.base;
-    } else if (base && inputLine.location && includeFile(inputLine.location)) {
-      hashes.push({
-        file: inputLine.location,
-        sha384: createFileHash("sha384", inputLine.location, base),
-        sha512: createFileHash("sha512", inputLine.location, base),
-      });
-    }
+  if (!filter) {
+    throw new Error("Missing package filter argument. Usage: tsx scripts/create-hashes <filter>");
   }
 
-  if (base) {
-    await writeFile(path.join(base, "hashes.json"), JSON.stringify(hashes, null, 2));
-  } else {
-    throw new Error("Base path not found!");
-  }
+  const base = execSync(`pnpm --filter ${filter} exec pwd`).toString().trim();
+  const json = execSync(`pnpm --filter ${filter} pack --dry-run --json`).toString();
+  const { files }: PnpmPackOutput = JSON.parse(json);
+
+  const hashes: HashRecord[] = files
+    .filter(({ path: filePath }) => includeFile(filePath))
+    .map(({ path: filePath }) => ({
+      file: filePath,
+      sha384: createFileHash("sha384", filePath, base),
+      sha512: createFileHash("sha512", filePath, base),
+    }));
+
+  await writeFile(path.join(base, "hashes.json"), JSON.stringify(hashes, null, 2));
 }
+
+main().catch((error) => {
+  console.error(error);
+
+  process.exit(1);
+});

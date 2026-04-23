@@ -8,9 +8,6 @@
 Dockerfile
 .github
 
-.yarn/cache
-.yarn/install-state.gz
-
 angular-workspace/.angular
 
 packages/core/loader

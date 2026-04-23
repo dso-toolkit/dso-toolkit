@@ -4,7 +4,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "stylelint.validate": ["css", "scss"],
   "search.exclude": {
-    ".yarn": true,
     "**/dist": true,
     "**/www": true,
     "**/.docusaurus": true,
