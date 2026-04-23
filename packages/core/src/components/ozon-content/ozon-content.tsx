@@ -121,7 +121,6 @@ const dependencies = () => {
       <dso-icon />
       <dso-image-overlay />
       <dso-ozon-content-toggletip />
-      <dso-tooltip />
       <dso-table />
     </Fragment>
   );
