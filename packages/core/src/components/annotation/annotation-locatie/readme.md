@@ -48,7 +48,6 @@ graph TD;
   dso-annotation-locatie --> dso-slide-toggle
   dso-annotation-locatie --> dso-label
   dso-label --> dso-icon-button
-  dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
   dsot-document-component-demo --> dso-annotation-locatie
   style dso-annotation-locatie fill:#f9f,stroke:#333,stroke-width:4px

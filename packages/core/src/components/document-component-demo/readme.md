@@ -58,7 +58,6 @@ graph TD;
   dso-table --> dso-icon
   dso-badge --> dso-scrollable
   dso-label --> dso-icon-button
-  dso-label --> dso-tooltip
   dso-panel --> dso-icon-button
   dso-alert --> dso-icon
   dso-alert --> dso-icon-button

@@ -47,7 +47,6 @@ graph TD;
   dso-annotation-activiteit --> dso-slide-toggle
   dso-annotation-activiteit --> dso-label
   dso-label --> dso-icon-button
-  dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
   style dso-annotation-activiteit fill:#f9f,stroke:#333,stroke-width:4px
 ```
