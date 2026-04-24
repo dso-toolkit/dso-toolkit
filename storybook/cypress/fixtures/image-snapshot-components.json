@@ -114,8 +114,8 @@
     ],
     "type": "html-css"
   },
-  { "name": "card-grid", "selector": ".dso-card-grid", "stories": ["card-grid"], "type": "html-css" },
-  { "name": "card-list", "selector": ".dso-card-list", "stories": ["card-list"], "type": "html-css" },
+  { "name": "card-grid-deprecated", "selector": ".dso-card-grid", "stories": ["card-grid"], "type": "html-css" },
+  { "name": "card-list-deprecated", "selector": ".dso-card-list", "stories": ["card-list"], "type": "html-css" },
   {
     "name": "context",
 

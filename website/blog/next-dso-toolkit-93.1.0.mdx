@@ -1,0 +1,62 @@
+---
+authors: [xiangjuzou-prog]
+---
+
+# DSO Toolkit v93.1.0 🎭
+
+Deze release bevat een **deprecation** voor de volgende componenten:
+
+- Card Grid (HTML/CSS implementatie)
+- Card List (HTML/CSS implementatie)
+
+<!-- truncate -->
+
+## Card Grid (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Card Grid` is deprecated. In een toekomstige **BREAKING** release zal de
+HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Card Container.
+
+```html
+❌
+<div class="dso-card-grid">
+  <dso-card href="#"></dso-card>
+  [...]
+</div>
+
+✅
+<dso-card-container mode="grid">
+  <dso-card href="#">
+  [...]
+</dso-card-containe
+```
+
+## Card List (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Card List` is deprecated. In een toekomstige **BREAKING** release zal de
+HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Card Container.
+
+```html
+❌
+<ul class="dso-card-list">
+  <li>
+    <dso-card></dso-card>
+  </li>
+  [...]
+</ul>
+
+✅
+<dso-card-container mode="list">
+  <li>
+    <dso-card href="#">
+  </li>
+  [...]
+</dso-card-container>
+```

@@ -9,9 +9,11 @@ export const cssCardList: ComponentImplementation<CardList<TemplateResult>> = {
   template: ({ cardTemplate }) =>
     function cardListTemplate({ cards }) {
       return html`
+        <!-- START DEPRECATED: use <dso-card-container mode="list"> -->
         <ul class="dso-card-list">
           ${cards.map((card) => html`<li>${cardTemplate(card)}</li>`)}
         </ul>
+        <!-- END DEPRECATED -->
       `;
     },
 };

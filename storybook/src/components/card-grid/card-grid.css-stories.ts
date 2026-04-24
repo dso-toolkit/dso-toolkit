@@ -8,7 +8,7 @@ import { cards } from "./card-grid.content";
 
 const meta: Meta = {
   ...cardGridMeta({ readme }),
-  title: "HTML|CSS/Card Grid",
+  title: "HTML|CSS/Card Grid (Deprecated)",
 };
 
 export default meta;
