@@ -54,7 +54,6 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-import { Placement } from "@popperjs/core";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentBegripResolver as OzonContentBegripResolver1, OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -107,7 +106,6 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-export { Placement } from "@popperjs/core";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentBegripResolver as OzonContentBegripResolver1, OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -1361,49 +1359,6 @@ export namespace Components {
     interface DsoTabs {
     }
     interface DsoTijdreisBanner {
-    }
-    interface DsoTooltip {
-        /**
-          * Activate the tooltip (Sets the `active` attribute)
-         */
-        "activate": () => Promise<void>;
-        /**
-          * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
-          * @default false
-         */
-        "active": boolean;
-        /**
-          * Deactivate the tooltip (Removes the `active` attribute)
-         */
-        "deactivate": () => Promise<void>;
-        /**
-          * Defines if the tooltip is descriptive. A descriptive tooltip contains a meaningful message. Tooltips that are not descriptive are hidden from screenreaders using `aria-hidden`.
-          * @default false
-         */
-        "descriptive": boolean;
-        /**
-          * Set attribute `no-arrow` to hide the arrow
-          * @default false
-         */
-        "noArrow": boolean;
-        /**
-          * Set position of tooltip relative to target
-          * @default "top"
-         */
-        "position": Placement;
-        /**
-          * Defines if the tooltip has a smaller max-width
-         */
-        "small"?: boolean;
-        /**
-          * Deactivates mouseover behaviour
-         */
-        "stateless"?: boolean;
-        /**
-          * Set position strategy of tooltip
-          * @default "auto"
-         */
-        "strategy": "auto" | "absolute" | "fixed";
     }
     interface DsoTreeView {
         /**
@@ -2662,12 +2617,6 @@ declare global {
         prototype: HTMLDsoTijdreisBannerElement;
         new (): HTMLDsoTijdreisBannerElement;
     };
-    interface HTMLDsoTooltipElement extends Components.DsoTooltip, HTMLStencilElement {
-    }
-    var HTMLDsoTooltipElement: {
-        prototype: HTMLDsoTooltipElement;
-        new (): HTMLDsoTooltipElement;
-    };
     interface HTMLDsoTreeViewElementEventMap {
         "dsoOpenItem": TreeViewItem[];
         "dsoCloseItem": TreeViewItem[];
@@ -2797,7 +2746,6 @@ declare global {
         "dso-table": HTMLDsoTableElement;
         "dso-tabs": HTMLDsoTabsElement;
         "dso-tijdreis-banner": HTMLDsoTijdreisBannerElement;
-        "dso-tooltip": HTMLDsoTooltipElement;
         "dso-tree-view": HTMLDsoTreeViewElement;
         "dso-viewer-grid": HTMLDsoViewerGridElement;
         "dsot-document-component-demo": HTMLDsotDocumentComponentDemoElement;
@@ -4334,41 +4282,6 @@ declare namespace LocalJSX {
     }
     interface DsoTijdreisBanner {
     }
-    interface DsoTooltip {
-        /**
-          * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
-          * @default false
-         */
-        "active"?: boolean;
-        /**
-          * Defines if the tooltip is descriptive. A descriptive tooltip contains a meaningful message. Tooltips that are not descriptive are hidden from screenreaders using `aria-hidden`.
-          * @default false
-         */
-        "descriptive"?: boolean;
-        /**
-          * Set attribute `no-arrow` to hide the arrow
-          * @default false
-         */
-        "noArrow"?: boolean;
-        /**
-          * Set position of tooltip relative to target
-          * @default "top"
-         */
-        "position"?: Placement;
-        /**
-          * Defines if the tooltip has a smaller max-width
-         */
-        "small"?: boolean;
-        /**
-          * Deactivates mouseover behaviour
-         */
-        "stateless"?: boolean;
-        /**
-          * Set position strategy of tooltip
-          * @default "auto"
-         */
-        "strategy"?: "auto" | "absolute" | "fixed";
-    }
     interface DsoTreeView {
         /**
           * The collection of TreeViewItems
@@ -4855,15 +4768,6 @@ declare namespace LocalJSX {
     interface DsoTableAttributes {
         "noModal": boolean;
     }
-    interface DsoTooltipAttributes {
-        "descriptive": boolean;
-        "position": Placement;
-        "strategy": "auto" | "absolute" | "fixed";
-        "noArrow": boolean;
-        "stateless": boolean;
-        "small": boolean;
-        "active": boolean;
-    }
     interface DsoViewerGridAttributes {
         "filterPanelTitle": string;
         "filterPanelOpen": boolean;
@@ -4952,7 +4856,6 @@ declare namespace LocalJSX {
         "dso-table": Omit<DsoTable, keyof DsoTableAttributes> & { [K in keyof DsoTable & keyof DsoTableAttributes]?: DsoTable[K] } & { [K in keyof DsoTable & keyof DsoTableAttributes as `attr:${K}`]?: DsoTableAttributes[K] } & { [K in keyof DsoTable & keyof DsoTableAttributes as `prop:${K}`]?: DsoTable[K] };
         "dso-tabs": DsoTabs;
         "dso-tijdreis-banner": DsoTijdreisBanner;
-        "dso-tooltip": Omit<DsoTooltip, keyof DsoTooltipAttributes> & { [K in keyof DsoTooltip & keyof DsoTooltipAttributes]?: DsoTooltip[K] } & { [K in keyof DsoTooltip & keyof DsoTooltipAttributes as `attr:${K}`]?: DsoTooltipAttributes[K] } & { [K in keyof DsoTooltip & keyof DsoTooltipAttributes as `prop:${K}`]?: DsoTooltip[K] };
         "dso-tree-view": DsoTreeView;
         "dso-viewer-grid": Omit<DsoViewerGrid, keyof DsoViewerGridAttributes> & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes]?: DsoViewerGrid[K] } & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes as `attr:${K}`]?: DsoViewerGridAttributes[K] } & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes as `prop:${K}`]?: DsoViewerGrid[K] };
         "dsot-document-component-demo": Omit<DsotDocumentComponentDemo, keyof DsotDocumentComponentDemoAttributes> & { [K in keyof DsotDocumentComponentDemo & keyof DsotDocumentComponentDemoAttributes]?: DsotDocumentComponentDemo[K] } & { [K in keyof DsotDocumentComponentDemo & keyof DsotDocumentComponentDemoAttributes as `attr:${K}`]?: DsotDocumentComponentDemoAttributes[K] } & { [K in keyof DsotDocumentComponentDemo & keyof DsotDocumentComponentDemoAttributes as `prop:${K}`]?: DsotDocumentComponentDemo[K] };
@@ -5036,7 +4939,6 @@ declare module "@stencil/core" {
             "dso-table": LocalJSX.IntrinsicElements["dso-table"] & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
             "dso-tabs": LocalJSX.IntrinsicElements["dso-tabs"] & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;
             "dso-tijdreis-banner": LocalJSX.IntrinsicElements["dso-tijdreis-banner"] & JSXBase.HTMLAttributes<HTMLDsoTijdreisBannerElement>;
-            "dso-tooltip": LocalJSX.IntrinsicElements["dso-tooltip"] & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
             "dso-tree-view": LocalJSX.IntrinsicElements["dso-tree-view"] & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
             "dso-viewer-grid": LocalJSX.IntrinsicElements["dso-viewer-grid"] & JSXBase.HTMLAttributes<HTMLDsoViewerGridElement>;
             "dsot-document-component-demo": LocalJSX.IntrinsicElements["dsot-document-component-demo"] & JSXBase.HTMLAttributes<HTMLDsotDocumentComponentDemoElement>;

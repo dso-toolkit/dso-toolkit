@@ -237,9 +237,6 @@ importers:
       '@floating-ui/dom':
         specifier: ^1.7.6
         version: 1.7.6
-      '@popperjs/core':
-        specifier: ^2.11.8
-        version: 2.11.8
       '@stencil/core':
         specifier: 4.43.3
         version: 4.43.3
@@ -261,9 +258,6 @@ importers:
       i18next:
         specifier: ^25.10.9
         version: 25.10.10(typescript@5.9.3)
-      popper-max-size-modifier:
-        specifier: ^0.2.0
-        version: 0.2.0(@popperjs/core@2.11.8)
       tabbable:
         specifier: ^6.4.0
         version: 6.4.0
@@ -3797,9 +3791,6 @@ packages:
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
-
-  '@popperjs/core@2.11.8':
-    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
   '@prettier/plugin-xml@3.4.2':
     resolution: {integrity: sha512-/UyNlHfkuLXG6Ed85KB0WBF283xn2yavR+UtRibBRUcvEJId2DSLdGXwJ/cDa1X++SWDPzq3+GSFniHjkNy7yg==}
@@ -9685,12 +9676,6 @@ packages:
 
   polka@0.5.2:
     resolution: {integrity: sha512-FVg3vDmCqP80tOrs+OeNlgXYmFppTXdjD5E7I4ET1NjvtNmQrb1/mJibybKkb/d4NA7YWAr1ojxuhpL3FHqdlw==}
-
-  popper-max-size-modifier@0.2.0:
-    resolution: {integrity: sha512-UerPt9pZfTFnpSpIBVJrR3ibHMuU1k5K01AyNLfMUWCr4z1MFH+dsayPlAF9ZeYExa02HPiQn5OIMqUSVtJEbg==}
-    deprecated: 'We recommend switching to Floating UI which supports this modifier out of the box: https://floating-ui.com/docs/size'
-    peerDependencies:
-      '@popperjs/core': ^2.2.0
 
   portfinder@1.0.38:
     resolution: {integrity: sha512-rEwq/ZHlJIKw++XtLAO8PPuOQA/zaPJOZJ37BVuN97nLpMJeuDVLVGRwbFoBgLudgdTMP2hdRJP++H+8QOA3vg==}
@@ -17411,8 +17396,6 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@popperjs/core@2.11.8': {}
-
   '@prettier/plugin-xml@3.4.2(prettier@3.8.2)':
     dependencies:
       '@xml-tools/parser': 1.0.11
@@ -24564,10 +24547,6 @@ snapshots:
     dependencies:
       '@polka/url': 0.5.0
       trouter: 2.0.1
-
-  popper-max-size-modifier@0.2.0(@popperjs/core@2.11.8):
-    dependencies:
-      '@popperjs/core': 2.11.8
 
   portfinder@1.0.38:
     dependencies:
