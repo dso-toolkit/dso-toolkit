@@ -67,7 +67,6 @@ graph TD;
   dso-accordion-section --> dso-slide-toggle
   dso-accordion-section --> dso-attachments-counter
   dso-label --> dso-icon-button
-  dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
   dso-attachments-counter --> dso-icon
   style dso-accordion-section fill:#f9f,stroke:#333,stroke-width:4px
