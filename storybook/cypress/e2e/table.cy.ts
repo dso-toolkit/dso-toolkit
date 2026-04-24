@@ -37,13 +37,19 @@ describe("Table", () => {
       .find(".open-modal-button")
       .click()
       .get("@dsoTableShadow")
-      .find("dialog.dso-modal")
-      .should("have.attr", "aria-label", "Overzicht van gebruikersnamen")
+      .find("dso-modal")
+      .as("dsoModal")
+      .should("exist")
+      .shadow()
+      .find(".dso-header h2")
+      .should("have.text", "Overzicht van gebruikersnamen")
       .get("@dsoTableShadow")
-      .find(".dso-close")
+      .find("dso-modal")
+      .shadow()
+      .find("#close-modal")
       .click()
       .get("@dsoTableShadow")
-      .find("dialog.dso-modal")
+      .find("dso-modal")
       .should("not.exist");
   });
 
@@ -55,11 +61,11 @@ describe("Table", () => {
       .find(".open-modal-button")
       .click()
       .get("@dsoTableShadow")
-      .find(".dso-modal")
+      .find("dso-modal")
       .should("exist")
       .realPress("Escape")
       .get("@dsoTableShadow")
-      .find(".dso-modal")
+      .find("dso-modal")
       .should("not.exist");
   });
 
@@ -71,8 +77,11 @@ describe("Table", () => {
       .find(".open-modal-button")
       .click()
       .get("@dsoTableShadow")
-      .find(".dso-close")
+      .find("dso-modal")
+      .shadow()
+      .find("#close-modal")
       .should("be.focused")
+      .realPress("Tab")
       .realPress("Tab")
       .get('dso-table a[href="#fabien"]')
       .should("be.focused");

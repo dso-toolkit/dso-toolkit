@@ -147,6 +147,7 @@ a {
   + .dso-primary,
   + .dso-secondary,
   + .dso-tertiary {
-    margin-inline-start: units.$u2;
+    margin-block-start: var(--_dt-button-after-button-margin-block-start, 0);
+    margin-inline-start: var(--_dt-button-after-button-margin-inline-start, units.$u2);
   }
 }

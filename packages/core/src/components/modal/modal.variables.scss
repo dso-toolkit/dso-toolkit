@@ -1,5 +1,5 @@
-@use "../../variables/colors";
-@use "../../variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
 
 $max-inline-size: 640px;
 $max-block-size: 70vh;
@@ -11,9 +11,6 @@ $backdrop-bg: colors.$wit;
 $backdrop-opacity: -20%;
 $content-bg: colors.$wit;
 $border-color: colors.$grijs-20;
-
-$close-icon-size: units.$u4;
-$close-icon-color: colors.$grasgroen;
 
 $header-padding: units.$u2;
 $body-min-block-size: 6.5rem;

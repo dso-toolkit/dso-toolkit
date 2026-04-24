@@ -10,8 +10,6 @@ describe("Modal", () => {
   });
 
   it("should be accessible", () => {
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-modal.hydrated");
     cy.get("@dsoModal")
       .find(".dso-modal")
       .should("have.attr", "role", "dialog")
@@ -20,7 +18,13 @@ describe("Modal", () => {
       .get("@dsoModal")
       .find(".dso-dialog")
       .should("have.css", "opacity", "1")
-      .and("have.attr", "role", "document")
+      .and("have.attr", "role", "document");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-modal.hydrated");
+
+    cy.get("@dsoModal")
+      .find(".dso-dialog")
       .find("#close-modal")
       .shadow()
       .find("button[aria-label='Sluiten'] > .dso-tooltip")
@@ -143,5 +147,26 @@ describe("Modal", () => {
     cy.realPress("Escape");
 
     cy.get("@activate-button").should("have.focus");
+  });
+
+  it("should be rendered in fullscreen", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--fullscreen");
+
+    cy.get("dso-modal.hydrated")
+      .should("have.attr", "fullscreen")
+      .get("dso-modal.hydrated")
+      .shadow()
+      .find(".dso-dialog")
+      .should("have.css", "opacity", "1");
+
+    cy.matchImageSnapshot();
+  });
+
+  it("should be rendered with Datepicker", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--with-datepicker");
+
+    cy.get("dso-modal.hydrated").shadow().find(".dso-dialog").should("have.css", "opacity", "1");
+
+    cy.matchImageSnapshot();
   });
 });
