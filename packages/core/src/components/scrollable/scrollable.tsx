@@ -1,16 +1,31 @@
 import { Component, Element, Event, EventEmitter, Method, State, h } from "@stencil/core";
 import { clsx } from "clsx";
-import debounce from "debounce";
 
 import { DsoScrollEndEvent, ScrollPosition } from "./scrollable.interfaces";
 
-const resizeObserver = new ResizeObserver(
-  debounce(
-    (entries: ResizeObserverEntry[]) =>
-      entries.forEach((entry) => getScrollableComponentFromResizeObserverEntry(entry)?._setScrollState()),
-    50,
-  ),
-);
+// Accumulate resized targets in a Set and flush once per animation frame.
+const pendingTargets = new Set<HTMLDsoScrollableElement>();
+let flushRafId: number | null = null;
+
+function flushPendingTargets() {
+  flushRafId = null;
+  pendingTargets.forEach((el) => el._setScrollState());
+  pendingTargets.clear();
+}
+
+const resizeObserver = new ResizeObserver((entries) => {
+  entries.forEach((entry) => {
+    const el = getScrollableComponentFromResizeObserverEntry(entry);
+    if (el) {
+      pendingTargets.add(el);
+    }
+  });
+
+  // RAF throttling, to prevent multiple calls to flushPendingTargets within the same frame
+  if (flushRafId === null) {
+    flushRafId = requestAnimationFrame(flushPendingTargets);
+  }
+});
 
 function getScrollableComponentFromResizeObserverEntry({
   target,
