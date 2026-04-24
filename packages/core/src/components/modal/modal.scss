@@ -50,8 +50,8 @@
 }
 
 // Go to fullscreen on =< 480px viewport
-@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-  :host dialog {
+:host dialog {
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     inline-size: 100dvi;
     block-size: 100dvb;
 
@@ -84,12 +84,30 @@ button {
 }
 
 .dso-modal {
+  --_dt-button-float-tertiary: inline-start;
+  --_dt-button-padding-block-tertiary: 14px;
+
   // overwrite UA styles:
   overflow: visible;
   padding: 0;
   border: 0;
   inline-size: var(--_dt-modal-inline-size, auto);
   margin: var(--_dt-modal-margin, auto);
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    --_dt-button-inline-size: 100%;
+    --_dt-button-after-button-margin-inline-start: 0;
+    --_dt-button-after-button-margin-block-start: #{units.$u1};
+    --_dt-button-text-align: center;
+
+    inline-size: 100%;
+  }
+
+  @media screen and (max-height: modal-variables.$small-modal-vh) {
+    min-block-size: modal-variables.$min-modal-block-size;
+    margin-block-start: units.$u1;
+    margin-block-end: units.$u1;
+  }
 
   &::backdrop {
     background-color: color.scale(modal-variables.$backdrop-bg, $alpha: modal-variables.$backdrop-opacity);
@@ -106,6 +124,11 @@ button {
     opacity: 1;
     box-shadow: 0 #{units.$u1} #{units.$u3} 0 rgba(25, 25, 25, 0.4);
     animation: 200ms ease-out 0s 1 ModalFadeIn;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      max-inline-size: 100%;
+      margin-block-start: 0;
+    }
   }
 
   .dso-header {
@@ -123,6 +146,11 @@ button {
       position: absolute;
       inset-block-start: 22px;
       inset-inline-end: 17px;
+    }
+
+    @media screen and (max-height: modal-variables.$small-modal-vh) {
+      padding-block: units.$u1;
+      padding-inline: units.$u2;
     }
   }
 
@@ -150,6 +178,11 @@ button {
   }
 
   .dso-body {
+    @media screen and (max-height: modal-variables.$small-modal-vh) {
+      padding-block: units.$u2;
+      padding-inline: units.$u3;
+    }
+
     &:focus-visible {
       outline: none;
     }
@@ -160,10 +193,8 @@ button {
     padding-block: calc(modal-variables.$footer-padding / 2);
     padding-inline: modal-variables.$footer-padding;
     text-align: end;
-  }
 
-  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-    .dso-footer {
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       #{button.$button-adjacent-secondary} {
         margin-inline-start: units.$u2;
       }
@@ -172,35 +203,8 @@ button {
         margin-inline-start: 0;
       }
     }
-  }
 
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    --_dt-button-inline-size: 100%;
-    --_dt-button-after-button-margin-inline-start: 0;
-    --_dt-button-after-button-margin-block-start: #{units.$u1};
-    --_dt-button-text-align: center;
-
-    max-inline-size: 100%;
-  }
-
-  @media screen and (max-height: modal-variables.$small-modal-vh) {
-    .dso-dialog {
-      min-block-size: modal-variables.$min-modal-block-size;
-      margin-block-start: units.$u1;
-      margin-block-end: units.$u1;
-    }
-
-    .dso-header {
-      padding-block: units.$u1;
-      padding-inline: units.$u2;
-    }
-
-    .dso-body {
-      padding-block: units.$u2;
-      padding-inline: units.$u3;
-    }
-
-    .dso-footer {
+    @media screen and (max-height: modal-variables.$small-modal-vh) {
       min-block-size: auto;
       overflow: auto;
       padding-block: modal-variables.$footer-padding-small-modal-vh;
