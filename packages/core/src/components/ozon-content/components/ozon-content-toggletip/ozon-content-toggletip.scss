@@ -23,7 +23,7 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   @include button.base($modifiers: false);
 
   border: 0;
-  color: var(--_dso-ozon-content-toggletip-color, colors.$donkerblauw);
+  color: var(--_dt-ozon-content-toggletip-color, colors.$donkerblauw);
   line-height: 1;
   padding: 0;
   background-color: transparent;
@@ -38,7 +38,7 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   &:hover,
   &:focus-visible,
   &:active {
-    text-decoration-line: var(--_dso-ozon-content-toggletip-text-decoration, underline);
+    text-decoration-line: var(--_dt-ozon-content-toggletip-text-decoration, underline);
     text-decoration-style: dotted;
     text-underline-offset: 15%;
   }

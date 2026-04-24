@@ -13,7 +13,7 @@ export class OzonContentNootNode implements OzonContentNode {
     return "Noot";
   }
 
-  render(node: Element, { mapNodeToJsx, state: openNoteId, setState }: OzonContentNodeContext<string | undefined>) {
+  render(node: Element, { mapNodeToJsx }: OzonContentNodeContext<string | undefined>) {
     const noteId = node.getAttribute("id");
     if (!noteId) {
       console.error("Noot node without id", node);
@@ -21,28 +21,17 @@ export class OzonContentNootNode implements OzonContentNode {
       return <Fragment />;
     }
 
-    const noteControlsId = `dso-ozon-note-${noteId}`;
-
     const childNodes = Array.from(node.childNodes);
     const nootNummer = childNodes.find((n) => getNodeName(n) === "NootNummer")?.textContent ?? noteId;
 
     return (
       <Fragment>
         <sup>
-          <button
-            type="button"
-            class="toggle-note"
-            aria-describedby={noteControlsId}
-            onClick={() => setState?.(openNoteId === noteId ? undefined : noteId)}
-            onBlur={() => setState?.(undefined)}
-            aria-expanded={openNoteId === noteId ? "true" : "false"}
-          >
-            {nootNummer}
-          </button>
+          <dso-ozon-content-toggletip class="toggle-note">
+            <span slot="label">{nootNummer}</span>
+            <span role="section">{mapNodeToJsx(Array.from(node.querySelectorAll(":scope > Al")))}</span>
+          </dso-ozon-content-toggletip>
         </sup>
-        <dso-tooltip active={openNoteId === noteId} id={noteControlsId} stateless descriptive>
-          <span role="section">{mapNodeToJsx(Array.from(node.querySelectorAll(":scope > Al")))}</span>
-        </dso-tooltip>
       </Fragment>
     );
   }
