@@ -9,11 +9,7 @@ describe("Mark Bar", () => {
   });
 
   it("should have correct ARIA attributes", () => {
-    cy.get("dso-mark-bar.hydrated")
-      .shadow()
-      .find(".dso-button-container span[aria-live]")
-      .should("have.attr", "aria-live", "polite")
-      .and("have.attr", "aria-atomic", "true");
+    cy.get("dso-mark-bar.hydrated").shadow().find(".dso-button-container span[role='status']").should("exist");
   });
 
   it("shows current and totalCount", () => {
@@ -51,7 +47,7 @@ describe("Mark Bar", () => {
       .shadow()
       .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Volgend zoekresultaat 1/10']")
+      .find("button[aria-label='Volgend zoekresultaat 2/10']")
       .should("not.be.disabled")
       .get("dso-mark-bar.hydrated")
       .invoke("prop", "current", 2)
@@ -64,7 +60,7 @@ describe("Mark Bar", () => {
       .shadow()
       .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Volgend zoekresultaat 2/10']")
+      .find("button[aria-label='Volgend zoekresultaat 3/10']")
       .should("not.be.disabled")
       .get("dso-mark-bar.hydrated")
       .invoke("prop", "current", 10)
@@ -77,7 +73,7 @@ describe("Mark Bar", () => {
       .shadow()
       .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Volgend zoekresultaat 10/10']")
+      .find("button[aria-label='Volgend zoekresultaat 11/10']")
       .should("be.disabled");
   });
 
@@ -101,7 +97,7 @@ describe("Mark Bar", () => {
       .get("@shadow")
       .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Volgend zoekresultaat 2/10']")
+      .find("button[aria-label='Volgend zoekresultaat 3/10']")
       .click()
       .get("@shadow")
       .find('input[type="text"]')
