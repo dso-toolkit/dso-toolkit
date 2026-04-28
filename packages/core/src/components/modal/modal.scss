@@ -8,6 +8,7 @@
 @use "~dso-toolkit/src/variables/units";
 
 @use "modal.variables" as modal-variables;
+@use "modal.mixins" as modal-mixins;
 
 @keyframes ModalFadeIn {
   0% {
@@ -27,51 +28,13 @@
 
 // fullscreen option
 :host([fullscreen]) dialog {
-  inline-size: 100dvi;
-  block-size: 100dvb;
-
-  .dso-dialog {
-    display: flex;
-    flex-direction: column;
-
-    inline-size: 100%;
-    block-size: 100%;
-
-    > dso-scrollable {
-      flex-grow: 1;
-
-      max-block-size: unset;
-    }
-  }
-
-  .dso-footer {
-    flex-shrink: 0;
-  }
+  @include modal-mixins.fullscreen();
 }
 
 // Go to fullscreen on =< 480px viewport
 :host dialog {
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    inline-size: 100dvi;
-    block-size: 100dvb;
-
-    .dso-dialog {
-      display: flex;
-      flex-direction: column;
-
-      inline-size: 100%;
-      block-size: 100%;
-
-      > dso-scrollable {
-        flex-grow: 1;
-
-        max-block-size: unset;
-      }
-    }
-
-    .dso-footer {
-      flex-shrink: 0;
-    }
+    @include modal-mixins.fullscreen();
   }
 }
 
@@ -144,7 +107,7 @@ button {
 
     dso-icon-button {
       position: absolute;
-      inset-block-start: 22px;
+      inset-block-start: var(--_dt-modal-header-close-btn, 22px);
       inset-inline-end: 17px;
     }
 
@@ -190,7 +153,7 @@ button {
 
   .dso-footer {
     min-block-size: modal-variables.$footer-button-block-size + modal-variables.$footer-padding;
-    padding-block: calc(modal-variables.$footer-padding / 2);
+    padding-block: modal-variables.$footer-padding * 0.5;
     padding-inline: modal-variables.$footer-padding;
     text-align: end;
 

@@ -1,0 +1,22 @@
+@mixin fullscreen() {
+  inline-size: 100dvi;
+  block-size: 100dvb;
+
+  .dso-dialog {
+    display: flex;
+    flex-direction: column;
+
+    inline-size: 100%;
+    block-size: 100%;
+
+    > dso-scrollable {
+      flex-grow: 1;
+
+      max-block-size: unset;
+    }
+  }
+
+  .dso-footer {
+    flex-shrink: 0;
+  }
+}
