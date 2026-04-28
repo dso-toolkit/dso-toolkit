@@ -141,7 +141,7 @@ export class InfoButton {
 
   render() {
     return (
-      <Host onKeydown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
+      <Host onKeyDown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
         <dso-icon-button
           variant="tertiary"
           label={this.label}

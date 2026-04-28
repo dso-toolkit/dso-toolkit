@@ -20,7 +20,7 @@ import { BadgeStatus } from "./badge.interfaces";
 export class Badge implements ComponentInterface {
   private buttonElRef?: HTMLButtonElement;
   private tooltipElRef?: HTMLDivElement;
-  private tipArrowElRef?: HTMLSpanElement;
+  private tooltipArrowElRef?: HTMLSpanElement;
   private toggletipElRef?: HTMLDivElement;
   private toggletipArrowElRef?: HTMLSpanElement;
   private cleanUpFunctionToggletip: TooltipClean | undefined;
@@ -79,11 +79,11 @@ export class Badge implements ComponentInterface {
 
       this.tooltipElRef?.showPopover();
 
-      if (!this.cleanUpFunctionTooltip && this.buttonElRef && this.tooltipElRef && this.tipArrowElRef) {
+      if (!this.cleanUpFunctionTooltip && this.buttonElRef && this.tooltipElRef && this.tooltipArrowElRef) {
         this.cleanUpFunctionTooltip = positionTooltip({
           referenceElement: this.buttonElRef,
           tipRef: this.tooltipElRef,
-          tipArrowRef: this.tipArrowElRef,
+          tipArrowRef: this.tooltipArrowElRef,
           placementTip: "top",
           topPositionSmallViewPort: false,
           halfMainAxisOffset: false,
@@ -219,7 +219,7 @@ export class Badge implements ComponentInterface {
           </button>
           <Tooltip
             tipElementRef={(element) => (this.tooltipElRef = element)}
-            tipArrowElementRef={(element) => (this.tipArrowElRef = element)}
+            tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}
           >
             {this.label}
           </Tooltip>

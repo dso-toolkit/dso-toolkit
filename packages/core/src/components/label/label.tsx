@@ -48,7 +48,7 @@ export class Label implements ComponentInterface {
   private labelContent: HTMLSpanElement | undefined;
   private mutationObserver?: MutationObserver;
   private tooltipElRef?: HTMLDivElement;
-  private tipArrowElRef?: HTMLSpanElement;
+  private tooltipArrowElRef?: HTMLSpanElement;
   private cleanUpFunction: TooltipClean | undefined;
 
   @Element()
@@ -161,11 +161,11 @@ export class Label implements ComponentInterface {
   private handleShowTooltip = () => {
     this.tooltipElRef?.showPopover();
 
-    if (!this.cleanUpFunction && this.labelContent && this.tooltipElRef && this.tipArrowElRef) {
+    if (!this.cleanUpFunction && this.labelContent && this.tooltipElRef && this.tooltipArrowElRef) {
       this.cleanUpFunction = positionTooltip({
         referenceElement: this.labelContent,
         tipRef: this.tooltipElRef,
-        tipArrowRef: this.tipArrowElRef,
+        tipArrowRef: this.tooltipArrowElRef,
         placementTip: "top",
         topPositionSmallViewPort: false,
         halfMainAxisOffset: false,
@@ -255,7 +255,7 @@ export class Label implements ComponentInterface {
         {this.isTruncated && (
           <Tooltip
             tipElementRef={(element) => (this.tooltipElRef = element)}
-            tipArrowElementRef={(element) => (this.tipArrowElRef = element)}
+            tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}
           >
             <span id="toggle-anchor">{this.labelText}</span>
           </Tooltip>

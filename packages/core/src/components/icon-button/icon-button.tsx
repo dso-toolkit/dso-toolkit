@@ -15,7 +15,7 @@ import { IconButtonClickEvent, IconButtonVariant } from "./icon-button.interface
 export class IconButton implements ComponentInterface {
   private buttonElRef?: HTMLButtonElement;
   private tooltipElRef?: HTMLDivElement;
-  private tipArrowElRef?: HTMLSpanElement;
+  private tooltipArrowElRef?: HTMLSpanElement;
   private tooltipTimeout?: number;
   private cleanUpFunction: TooltipClean | undefined;
   private lastClickTime = 0;
@@ -84,11 +84,11 @@ export class IconButton implements ComponentInterface {
 
       this.tooltipElRef?.showPopover();
 
-      if (!this.cleanUpFunction && this.buttonElRef && this.tooltipElRef && this.tipArrowElRef) {
+      if (!this.cleanUpFunction && this.buttonElRef && this.tooltipElRef && this.tooltipArrowElRef) {
         this.cleanUpFunction = positionTooltip({
           referenceElement: this.buttonElRef,
           tipRef: this.tooltipElRef,
-          tipArrowRef: this.tipArrowElRef,
+          tipArrowRef: this.tooltipArrowElRef,
           placementTip: this.tooltipPlacement,
           topPositionSmallViewPort: false,
           halfMainAxisOffset: false,
@@ -148,7 +148,7 @@ export class IconButton implements ComponentInterface {
         <dso-icon icon={this.icon} />
         <Tooltip
           tipElementRef={(element) => (this.tooltipElRef = element)}
-          tipArrowElementRef={(element) => (this.tipArrowElRef = element)}
+          tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}
         >
           {this.label}
         </Tooltip>

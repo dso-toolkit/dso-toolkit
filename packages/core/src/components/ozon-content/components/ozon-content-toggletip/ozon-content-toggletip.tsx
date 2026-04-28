@@ -10,11 +10,11 @@ import { IconAlias } from "../../../icon/icon.interfaces";
   styleUrl: "./ozon-content-toggletip.scss",
   shadow: true,
 })
-export class ozonContentToggletip implements ComponentInterface {
+export class OzonContentToggletip implements ComponentInterface {
   private cleanUpFunction: TooltipClean | undefined;
   private container: HTMLSpanElement | undefined;
-  private tooltip: HTMLElement | undefined;
-  private tooltipArrow: HTMLElement | undefined;
+  private tooltipElRef: HTMLDivElement | undefined;
+  private tooltipArrowElRef: HTMLSpanElement | undefined;
 
   @Element()
   host!: HTMLDsoOzonContentToggletipElement;
@@ -33,7 +33,7 @@ export class ozonContentToggletip implements ComponentInterface {
 
     const path = event.composedPath();
     const clickedInsideHost = path.includes(this.host);
-    const clickedInsideTooltip = this.tooltip && path.includes(this.tooltip);
+    const clickedInsideTooltip = this.tooltipElRef && path.includes(this.tooltipElRef);
 
     if (!clickedInsideHost && !clickedInsideTooltip) {
       this.toggle();
@@ -54,7 +54,7 @@ export class ozonContentToggletip implements ComponentInterface {
   private keyDownHandler = (event: KeyboardEvent) => {
     switch (event.key) {
       case "Escape":
-        this.toggle();
+        this.active = false;
         return;
       case " ":
       case "Enter":
@@ -66,20 +66,20 @@ export class ozonContentToggletip implements ComponentInterface {
   };
 
   componentDidRender() {
-    if (!this.cleanUpFunction && this.active && this.container && this.tooltip && this.tooltipArrow) {
+    if (!this.cleanUpFunction && this.active && this.container && this.tooltipElRef && this.tooltipArrowElRef) {
       this.cleanUpFunction = positionTooltip({
         referenceElement: this.container,
-        tipRef: this.tooltip,
-        tipArrowRef: this.tooltipArrow,
+        tipRef: this.tooltipElRef,
+        tipArrowRef: this.tooltipArrowElRef,
         placementTip: "top",
       });
     }
 
-    if (this.cleanUpFunction && this.tooltip) {
+    if (this.cleanUpFunction && this.tooltipElRef) {
       if (this.active) {
-        this.tooltip?.showPopover();
+        this.tooltipElRef?.showPopover();
       } else {
-        this.tooltip?.hidePopover();
+        this.tooltipElRef?.hidePopover();
         this.cleanUpTooltip();
       }
     }
@@ -121,8 +121,8 @@ export class ozonContentToggletip implements ComponentInterface {
         </span>
         <Tooltip
           id="toggletip-tooltip"
-          tipElementRef={(element) => (this.tooltip = element)}
-          tipArrowElementRef={(element) => (this.tooltipArrow = element)}
+          tipElementRef={(element) => (this.tooltipElRef = element)}
+          tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}
         >
           <slot />
         </Tooltip>
