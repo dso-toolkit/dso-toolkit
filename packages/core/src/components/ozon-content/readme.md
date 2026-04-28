@@ -36,7 +36,6 @@ Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 - [dso-icon](../icon)
 - [dso-image-overlay](../image-overlay)
 - [dso-ozon-content-toggletip](./components/ozon-content-toggletip)
-- [dso-tooltip](../tooltip)
 - [dso-table](../table)
 
 ### Graph
@@ -45,7 +44,6 @@ graph TD;
   dso-ozon-content --> dso-icon
   dso-ozon-content --> dso-image-overlay
   dso-ozon-content --> dso-ozon-content-toggletip
-  dso-ozon-content --> dso-tooltip
   dso-ozon-content --> dso-table
   dso-image-overlay --> dso-icon-button
   dso-icon-button --> dso-icon

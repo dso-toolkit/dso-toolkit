@@ -63,45 +63,68 @@ describe("Ozon Content", () => {
   });
 
   it("should open and close notes", () => {
-    function button(n: string) {
-      return cy.get("dso-ozon-content.hydrated").shadow().find(`button[aria-describedby="dso-ozon-note-${n}"]`);
-    }
-
-    function tooltip(n: string) {
-      return cy
-        .get("dso-ozon-content.hydrated")
-        .shadow()
-        .find(`sup:has(button[aria-describedby="dso-ozon-note-${n}"]) + dso-tooltip`);
-    }
-
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--inhoud-al-noot");
 
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
-    button("N6").should("have.attr", "aria-expanded", "false");
-    tooltip("N6").should("be.not.visible");
-    button("N7").should("have.attr", "aria-expanded", "false");
-    tooltip("N7").should("be.not.visible");
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .first()
+      .shadow()
+      .find(".toggletip-button")
+      .realClick();
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .first()
+      .find("span[role=paragraph]")
+      .should("be.visible");
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .eq(1)
+      .find("span[role=paragraph]")
+      .should("be.not.visible");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
 
-    button("N7").click();
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .first()
+      .shadow()
+      .find(".toggletip-button")
+      .realClick();
 
-    button("N6").should("have.attr", "aria-expanded", "false");
-    tooltip("N6").should("be.not.visible");
-    button("N7").should("have.attr", "aria-expanded", "true");
-    tooltip("N7").should("be.visible");
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .first()
+      .find("span[role=paragraph]")
+      .should("be.not.visible");
 
-    // The wait equals the tooltip transition-duration of 0.15s
-    cy.get("dso-ozon-content.hydrated").wait(150).matchImageSnapshot(`${Cypress.currentTest.title} -- visible notes`);
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .eq(1)
+      .shadow()
+      .find(".toggletip-button")
+      .realClick();
 
-    button("N7").click();
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .eq(1)
+      .find("span[role=paragraph]")
+      .should("be.visible");
 
-    button("N6").should("have.attr", "aria-expanded", "false");
-    tooltip("N6").should("be.not.visible");
-    button("N7").should("have.attr", "aria-expanded", "false");
-    tooltip("N7").should("be.not.visible");
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- visible notes`);
   });
 
   it("should render unknown element to span", () => {

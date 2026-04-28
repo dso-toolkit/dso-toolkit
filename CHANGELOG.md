@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Scrollable: Scrollbar niet zichtbaar ([#3738](https://github.com/dso-toolkit/dso-toolkit/issues/3738))
 * Ozon Content: Toggletip bij IntRef Begrip en IntIoRef wordt niet voorgelezen ([#3592](https://github.com/dso-toolkit/dso-toolkit/issues/3592))
 * Label: Tooltip soms niet goed zichtbaar (bv in `document-panel` in Viewer Grid) ([#3600](https://github.com/dso-toolkit/dso-toolkit/issues/3600))
+* Document Component: Tooltip bij noot wordt verplaatst tijdens scrollen ([#3659](https://github.com/dso-toolkit/dso-toolkit/issues/3659))
 
 ### Removed
 * **BREAKING** Modal: Remove HTML/CSS implementatie ([#3320](https://github.com/dso-toolkit/dso-toolkit/issues/3320))
