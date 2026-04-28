@@ -25,14 +25,12 @@ export class OzonContentNootNode implements OzonContentNode {
     const nootNummer = childNodes.find((n) => getNodeName(n) === "NootNummer")?.textContent ?? noteId;
 
     return (
-      <Fragment>
-        <sup>
-          <dso-ozon-content-toggletip class="toggle-note">
-            <span slot="label">{nootNummer}</span>
-            <span role="section">{mapNodeToJsx(Array.from(node.querySelectorAll(":scope > Al")))}</span>
-          </dso-ozon-content-toggletip>
-        </sup>
-      </Fragment>
+      <sup>
+        <dso-ozon-content-toggletip class="toggle-note">
+          <span slot="label">{nootNummer}</span>
+          <span role="section">{mapNodeToJsx(Array.from(node.querySelectorAll(":scope > Al")))}</span>
+        </dso-ozon-content-toggletip>
+      </sup>
     );
   }
 }
