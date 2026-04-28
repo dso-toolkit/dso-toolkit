@@ -18,6 +18,7 @@
   background-color: var(--_dso-button-#{$variant}#{$state}-background-color, #{map.get($map, "background-color")});
   border-color: var(--_dso-button-#{$variant}#{$state}-border-color, #{map.get($map, "border-color")});
   color: var(--_dso-button-#{$variant}#{$state}-color, #{map.get($map, "color")});
+  float: var(--_dt-button-float-#{$variant}, none);
 }
 
 @mixin _shared(
@@ -42,6 +43,7 @@
   border-radius: button-variables.$border-radius;
   line-height: typography.$line-height-base;
   min-inline-size: $min-inline-size;
+  inline-size: var(--_dt-button-inline-size, auto);
   padding-block: button-variables.$block-padding;
   padding-inline: button-variables.$inline-padding;
 
@@ -176,7 +178,7 @@
   margin-block-end: 0;
   text-decoration: none;
   touch-action: manipulation;
-  text-align: start;
+  text-align: var(--_dt-button-text-align, start);
   user-select: none;
   vertical-align: middle;
   background-clip: padding-box;
@@ -395,7 +397,8 @@
 
   border: 0;
   line-height: 1;
-  padding: 0;
+  padding-inline: 0;
+  padding-block: var(--_dt-button-padding-block-tertiary, 0);
   background-color: transparent;
 
   &[disabled] {

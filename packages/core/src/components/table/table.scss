@@ -1,62 +1,24 @@
-@use "sass:color";
-
 @use "~dso-toolkit/src/components/grid/grid.variables" as grid-variables;
-@use "~dso-toolkit/src/components/modal/modal.variables" as modal-variables;
 
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/variables/media-query-breakpoints";
-@use "~dso-toolkit/src/variables/colors";
-@use "~dso-toolkit/src/variables/zindex";
 @use "~dso-toolkit/src/utilities";
 
 @use "~dso-toolkit/src/components/button/button";
-@use "~dso-toolkit/src/components/modal";
 @use "~dso-toolkit/src/components/rich-content";
 @use "~dso-toolkit/src/components/table";
 
 :host {
+  --_dt-modal-inline-size: 100dvi;
+  --_dt-modal-margin: 0;
+  --_dt-modal-dialog-inline-size: 100%;
+  --_dt-modal-dialog-margin-block-start: 1rem;
+  --_dt-modal-dialog-margin-inline-start: 1rem;
+  --_dt-modal-dialog-margin-inline-end: 1rem;
+  --_dt-modal-body-max-block-size: calc(100vh - 100px);
+  --_dt-modal-header-close-btn: 16px;
+
   display: block;
   margin-block-end: units.$u3;
-}
-
-.dso-header {
-  min-block-size: units.$u4;
-
-  h2 {
-    color: colors.$bosgroen;
-    font-size: units.$font-size-h2;
-    font-weight: 700;
-  }
-
-  .dso-close {
-    color: colors.$bosgroen;
-  }
-}
-
-:host .dso-modal {
-  margin: 0;
-  background-color: transparent;
-  inline-size: 100dvi;
-
-  @include modal.root();
-}
-
-.dso-modal .dso-dialog.dso-table-dialog {
-  margin-block-start: 1rem;
-  margin-inline-start: 1rem;
-  margin-inline-end: 1rem;
-  inline-size: 100%;
-
-  .dso-body {
-    $dso-body-unavailable-height: (
-      (2 * modal.$header-padding) + (modal.$footer-button-block-size + modal.$footer-padding)
-    );
-    max-block-size: calc(100vh - #{$dso-body-unavailable-height} - 1.5em - 2rem); // margin
-  }
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    max-inline-size: 100%;
-  }
 }
 
 :host([is-responsive="true"]) {
@@ -65,10 +27,6 @@
     margin-block-end: 0;
     overflow-y: auto;
     inline-size: 100%;
-
-    &.dso-body {
-      inline-size: calc(100% - modal.$body-padding * 2);
-    }
   }
 }
 

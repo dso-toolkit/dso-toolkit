@@ -50,6 +50,37 @@ Als de conversatie is afgerond is het uiteindelijk de reviewer die de conversati
 
 We introduceren geen nieuwe HTML/CSS componenten meer omdat deze een groot koppelvlak hebben. Onderhoud verrichten we nog wel. We kiezen voor Web componenten omdat deze duurzamer zijn en er een duidelijke abstractie tussen koppelvlak en implementatie is. Het koppelvlak van een HTML/CSS component is voor een groot deel ook de implementatie. De enige beweegruimte die we als maintainers hebben is de CSS. Daarnaast kan je met een Web Component ook gedrag meeleveren, d.m.v scripting, i.p.v. documenteren.
 
+## CSS media queries
+
+We nesten media queries altijd in de selector waarop ze van toepassing zijn en gebruiken geen losse media-queryblokken met meerdere selectors erin. Dat geeft een duidelijk verwachtingspatroon: als je een selector leest, vind je de responsive varianten op dezelfde plek.
+
+```scss
+/* ✅ Media query genest in de selector */
+.dso-modal {
+  inline-size: 40rem;
+
+  @media screen and (max-width: 48rem) {
+    inline-size: 100%;
+  }
+}
+
+/* ❌ Los media-queryblok met meerdere selectors */
+@media screen and (max-width: 48rem) {
+  .dso-modal {
+    inline-size: 100%;
+  }
+
+  .dso-modal__footer {
+    padding: 0.5rem;
+  }
+}
+```
+
+- Stijlen blijven zo beter gegroepeerd per componentdeel
+- De kans op regressies bij refactors wordt kleiner en wordt onderhoud en review eenvoudiger omdat alle varianten van een selector bij elkaar staan
+- Dit maakt het eenvoudiger om selectors te verplaatsen of te verwijderen zonder responsive regels te missen
+- Conflicten in pull requests worden kleiner omdat aanpassingen vaker in hetzelfde, lokale selectorblok blijven
+
 ### Events
 
 - @Event() voorzien we altijd van \{ bubbles: false \}
