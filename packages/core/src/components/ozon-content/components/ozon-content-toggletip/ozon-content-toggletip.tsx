@@ -98,9 +98,11 @@ export class ozonContentToggletip implements ComponentInterface {
     return (
       <Fragment>
         <span
+          aria-describedby={this.active ? "toggletip-tooltip" : undefined}
+          aria-expanded={this.active.toString()}
           class="toggletip-button"
           role="button"
-          tabindex={0}
+          tabIndex={0}
           onClick={this.toggle}
           onKeyDown={this.keyDownHandler}
           ref={(element) => (this.container = element)}
@@ -118,6 +120,7 @@ export class ozonContentToggletip implements ComponentInterface {
           {!this.icon && <slot name="label" />}
         </span>
         <Tooltip
+          id="toggletip-tooltip"
           tipElementRef={(element) => (this.tooltip = element)}
           tipArrowElementRef={(element) => (this.tooltipArrow = element)}
         >

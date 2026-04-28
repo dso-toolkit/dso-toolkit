@@ -36,7 +36,23 @@ describe("Ozon Content", () => {
       .find("dso-ozon-content-toggletip")
       .shadow()
       .find(".toggletip-button")
+      .should("have.attr", "aria-expanded", "false")
+      .and("not.have.attr", "aria-describedby");
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .shadow()
+      .find(".toggletip-button")
       .realClick();
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .shadow()
+      .find(".toggletip-button")
+      .should("have.attr", "aria-expanded", "true")
+      .and("have.attr", "aria-describedby", "toggletip-tooltip");
 
     cy.get("dso-ozon-content.hydrated")
       .shadow()
