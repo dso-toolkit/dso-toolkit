@@ -11,7 +11,7 @@ import { IconAlias } from "../../../icon/icon.interfaces";
   shadow: true,
 })
 export class ozonContentToggletip implements ComponentInterface {
-  private cleanUp: TooltipClean | undefined;
+  private cleanUpFunction: TooltipClean | undefined;
   private container: HTMLSpanElement | undefined;
   private tooltip: HTMLElement | undefined;
   private tooltipArrow: HTMLElement | undefined;
@@ -66,8 +66,8 @@ export class ozonContentToggletip implements ComponentInterface {
   };
 
   componentDidRender() {
-    if (!this.cleanUp && this.active && this.container && this.tooltip && this.tooltipArrow) {
-      this.cleanUp = positionTooltip({
+    if (!this.cleanUpFunction && this.active && this.container && this.tooltip && this.tooltipArrow) {
+      this.cleanUpFunction = positionTooltip({
         referenceElement: this.container,
         tipRef: this.tooltip,
         tipArrowRef: this.tooltipArrow,
@@ -75,23 +75,23 @@ export class ozonContentToggletip implements ComponentInterface {
       });
     }
 
-    if (this.cleanUp && this.tooltip) {
+    if (this.cleanUpFunction && this.tooltip) {
       if (this.active) {
         this.tooltip?.showPopover();
       } else {
         this.tooltip?.hidePopover();
-        this.cleanupTooltip();
+        this.cleanUpTooltip();
       }
     }
   }
 
   disconnectedCallback() {
-    this.cleanupTooltip();
+    this.cleanUpTooltip();
   }
 
-  private cleanupTooltip() {
-    this.cleanUp?.();
-    this.cleanUp = undefined;
+  private cleanUpTooltip() {
+    this.cleanUpFunction?.();
+    this.cleanUpFunction = undefined;
   }
 
   render() {

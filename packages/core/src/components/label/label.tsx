@@ -49,7 +49,7 @@ export class Label implements ComponentInterface {
   private mutationObserver?: MutationObserver;
   private tooltipElRef?: HTMLDivElement;
   private tipArrowElRef?: HTMLSpanElement;
-  private cleanUpTooltip: TooltipClean | undefined;
+  private cleanUpFunction: TooltipClean | undefined;
 
   @Element()
   private host!: HTMLDsoLabelElement;
@@ -89,9 +89,6 @@ export class Label implements ComponentInterface {
    */
   @Prop({ reflect: true })
   truncate?: boolean;
-
-  @State()
-  showTooltip?: boolean;
 
   @State()
   isTruncated = false;
@@ -138,6 +135,11 @@ export class Label implements ComponentInterface {
     this.labelText = this.host.textContent?.trim() ?? "";
   }
 
+  private cleanUpTooltip() {
+    this.cleanUpFunction?.();
+    this.cleanUpFunction = undefined;
+  }
+
   componentDidLoad() {
     if (this.truncate) {
       this.startTruncate();
@@ -153,20 +155,14 @@ export class Label implements ComponentInterface {
 
     this.stopMutationObserver(true);
 
-    this.cleanupTooltip();
-  }
-
-  private cleanupTooltip() {
-    this.cleanUpTooltip?.();
-    this.cleanUpTooltip = undefined;
+    this.cleanUpTooltip();
   }
 
   private handleShowTooltip = () => {
-    this.showTooltip = true;
     this.tooltipElRef?.showPopover();
 
-    if (this.labelContent && this.tooltipElRef && this.tipArrowElRef) {
-      this.cleanUpTooltip = positionTooltip({
+    if (!this.cleanUpFunction && this.labelContent && this.tooltipElRef && this.tipArrowElRef) {
+      this.cleanUpFunction = positionTooltip({
         referenceElement: this.labelContent,
         tipRef: this.tooltipElRef,
         tipArrowRef: this.tipArrowElRef,
@@ -179,16 +175,11 @@ export class Label implements ComponentInterface {
   };
 
   private handleHideTooltip = () => {
-    this.showTooltip = false;
-
     if (this.tooltipElRef?.isConnected && this.tooltipElRef.matches(":popover-open")) {
       this.tooltipElRef.hidePopover();
     }
 
-    if (!this.showTooltip && this.cleanUpTooltip) {
-      this.cleanUpTooltip();
-      this.cleanUpTooltip = undefined;
-    }
+    this.cleanUpTooltip();
   };
 
   /** The mutationObserver fetches the text placed inside the label, this is then used for the remove button and tooltip. */
