@@ -15,6 +15,10 @@ import {
 import { clsx } from "clsx";
 import debounce from "debounce";
 
+import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
+import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
+import { TooltipClean } from "../../functional-components/tooltip/tooltip.interfaces";
+
 import { LabelStatus } from "./label.interfaces";
 
 const resizeObserver = new ResizeObserver(
@@ -42,8 +46,10 @@ function hasEllipses(el: HTMLElement): boolean {
 })
 export class Label implements ComponentInterface {
   private labelContent: HTMLSpanElement | undefined;
-
   private mutationObserver?: MutationObserver;
+  private tooltipElRef?: HTMLDivElement;
+  private tooltipArrowElRef?: HTMLSpanElement;
+  private cleanUpFunction: TooltipClean | undefined;
 
   @Element()
   private host!: HTMLDsoLabelElement;
@@ -85,12 +91,6 @@ export class Label implements ComponentInterface {
   truncate?: boolean;
 
   @State()
-  textHover?: boolean;
-
-  @State()
-  textFocus?: boolean;
-
-  @State()
   isTruncated = false;
 
   @State()
@@ -117,8 +117,7 @@ export class Label implements ComponentInterface {
   @Listen("keydown", { target: "document" })
   keyDownListener(event: KeyboardEvent) {
     if (event.key === "Escape") {
-      this.textHover = false;
-      this.textFocus = false;
+      this.handleHideTooltip();
     }
   }
 
@@ -136,6 +135,11 @@ export class Label implements ComponentInterface {
     this.labelText = this.host.textContent?.trim() ?? "";
   }
 
+  private cleanUpTooltip() {
+    this.cleanUpFunction?.();
+    this.cleanUpFunction = undefined;
+  }
+
   componentDidLoad() {
     if (this.truncate) {
       this.startTruncate();
@@ -150,7 +154,33 @@ export class Label implements ComponentInterface {
     this.stopTruncate();
 
     this.stopMutationObserver(true);
+
+    this.cleanUpTooltip();
   }
+
+  private handleShowTooltip = () => {
+    this.tooltipElRef?.showPopover();
+
+    if (!this.cleanUpFunction && this.labelContent && this.tooltipElRef && this.tooltipArrowElRef) {
+      this.cleanUpFunction = positionTooltip({
+        referenceElement: this.labelContent,
+        tipRef: this.tooltipElRef,
+        tipArrowRef: this.tooltipArrowElRef,
+        placementTip: "top",
+        topPositionSmallViewPort: false,
+        halfMainAxisOffset: false,
+        forceVisible: true,
+      });
+    }
+  };
+
+  private handleHideTooltip = () => {
+    if (this.tooltipElRef?.isConnected && this.tooltipElRef.matches(":popover-open")) {
+      this.tooltipElRef.hidePopover();
+    }
+
+    this.cleanUpTooltip();
+  };
 
   /** The mutationObserver fetches the text placed inside the label, this is then used for the remove button and tooltip. */
   private startMutationObserver(): void {
@@ -202,10 +232,10 @@ export class Label implements ComponentInterface {
             class="dso-label-content"
             ref={(element) => (this.labelContent = element)}
             tabindex={this.truncate && this.isTruncated ? 0 : undefined}
-            onMouseEnter={() => (this.textHover = true)}
-            onMouseLeave={() => (this.textHover = false)}
-            onFocus={() => (this.textFocus = true)}
-            onBlur={() => (this.textFocus = false)}
+            onMouseEnter={this.handleShowTooltip}
+            onMouseLeave={this.handleHideTooltip}
+            onFocus={this.handleShowTooltip}
+            onBlur={this.handleHideTooltip}
           >
             <slot></slot>
           </span>
@@ -223,15 +253,12 @@ export class Label implements ComponentInterface {
           )}
         </span>
         {this.isTruncated && (
-          <dso-tooltip
-            stateless
-            id="toggle-anchor"
-            active={this.textHover || this.textFocus}
-            position="top"
-            strategy="absolute"
+          <Tooltip
+            tipElementRef={(element) => (this.tooltipElRef = element)}
+            tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}
           >
-            {this.labelText}
-          </dso-tooltip>
+            <span id="toggle-anchor">{this.labelText}</span>
+          </Tooltip>
         )}
       </Fragment>
     );

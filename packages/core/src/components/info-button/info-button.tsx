@@ -15,7 +15,7 @@ export class InfoButton {
   private button?: HTMLDsoIconButtonElement;
   private toggletipElRef?: HTMLDivElement;
   private toggletipArrowElRef?: HTMLSpanElement;
-  private cleanUp: TooltipClean | undefined;
+  private cleanUpFunction: TooltipClean | undefined;
   private mutationObserver?: MutationObserver;
   private restrictContentElement?: HTMLElement;
 
@@ -83,20 +83,26 @@ export class InfoButton {
     }
   };
 
-  private cleanupTooltip() {
-    this.cleanUp?.();
-    this.cleanUp = undefined;
+  private cleanUpTooltip() {
+    this.cleanUpFunction?.();
+    this.cleanUpFunction = undefined;
   }
 
   componentDidRender() {
     if (!this.hasToggletip) {
       this.toggletipElRef?.hidePopover();
-      this.cleanupTooltip();
+      this.cleanUpTooltip();
       return;
     }
 
-    if (!this.cleanUp && this.toggletipActive && this.button && this.toggletipElRef && this.toggletipArrowElRef) {
-      this.cleanUp = positionTooltip({
+    if (
+      !this.cleanUpFunction &&
+      this.toggletipActive &&
+      this.button &&
+      this.toggletipElRef &&
+      this.toggletipArrowElRef
+    ) {
+      this.cleanUpFunction = positionTooltip({
         referenceElement: this.button,
         tipRef: this.toggletipElRef,
         tipArrowRef: this.toggletipArrowElRef,
@@ -105,12 +111,12 @@ export class InfoButton {
       });
     }
 
-    if (this.cleanUp) {
+    if (this.cleanUpFunction) {
       if (this.toggletipActive) {
         this.toggletipElRef?.showPopover();
       } else {
         this.toggletipElRef?.hidePopover();
-        this.cleanupTooltip();
+        this.cleanUpTooltip();
       }
     }
   }
@@ -127,7 +133,7 @@ export class InfoButton {
   }
 
   disconnectedCallback() {
-    this.cleanupTooltip();
+    this.cleanUpTooltip();
     this.mutationObserver?.disconnect();
 
     delete this.mutationObserver;
@@ -135,7 +141,7 @@ export class InfoButton {
 
   render() {
     return (
-      <Host onKeydown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
+      <Host onKeyDown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
         <dso-icon-button
           variant="tertiary"
           label={this.label}

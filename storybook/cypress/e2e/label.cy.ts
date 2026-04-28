@@ -50,13 +50,13 @@ describe("Label", () => {
       .should("have.attr", "tabindex", "0")
       .focus()
       .get("@dsoLabelShadow")
-      .find("dso-tooltip")
-      .should("not.have.class", "hidden")
+      .find(".dso-tooltip")
+      .should("be.visible")
       .should("have.text", defaultLabelText)
       .realPress("Tab")
       .get("@dsoLabelShadow")
-      .find("dso-tooltip")
-      .should("have.class", "hidden");
+      .find(".dso-tooltip")
+      .should("not.be.visible");
   });
 
   it("should close tooltip when escape is pressed", () => {
@@ -69,13 +69,13 @@ describe("Label", () => {
       .should("have.attr", "tabindex", "0")
       .focus()
       .get("@dsoLabelShadow")
-      .find("dso-tooltip")
-      .should("not.have.class", "hidden")
+      .find(".dso-tooltip")
+      .should("be.visible")
       .get("body")
       .trigger("keydown", { key: "Escape" })
       .get("@dsoLabelShadow")
-      .find("dso-tooltip")
-      .should("have.class", "hidden");
+      .find(".dso-tooltip")
+      .should("not.be.visible");
   });
 
   it("should emit removeClick event", () => {

@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, State, h } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, h } from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -13,6 +13,14 @@ import { IconButtonClickEvent, IconButtonVariant } from "./icon-button.interface
   shadow: true,
 })
 export class IconButton implements ComponentInterface {
+  private buttonElRef?: HTMLButtonElement;
+  private tooltipElRef?: HTMLDivElement;
+  private tooltipArrowElRef?: HTMLSpanElement;
+  private tooltipTimeout?: number;
+  private cleanUpFunction: TooltipClean | undefined;
+  private lastClickTime = 0;
+  private tooltipShowDelay = 500;
+
   /**
    * The alias of the icon in the button.
    */
@@ -49,9 +57,6 @@ export class IconButton implements ComponentInterface {
   @Event({ bubbles: false })
   dsoClick!: EventEmitter<IconButtonClickEvent>;
 
-  @State()
-  showTooltip = false;
-
   /**
    * Focuses the button.
    */
@@ -59,14 +64,6 @@ export class IconButton implements ComponentInterface {
   async setFocus() {
     this.buttonElRef?.focus();
   }
-
-  private buttonElRef?: HTMLButtonElement;
-  private tooltipElRef?: HTMLDivElement;
-  private tipArrowElRef?: HTMLSpanElement;
-  private tooltipTimeout?: number;
-  private cleanUp: TooltipClean | undefined;
-  private lastClickTime = 0;
-  private tooltipShowDelay = 500;
 
   private handleShowTooltip = () => {
     if (this.disabled) {
@@ -85,14 +82,13 @@ export class IconButton implements ComponentInterface {
         return;
       }
 
-      this.showTooltip = true;
       this.tooltipElRef?.showPopover();
 
-      if (!this.cleanUp && this.buttonElRef && this.tooltipElRef && this.tipArrowElRef) {
-        this.cleanUp = positionTooltip({
+      if (!this.cleanUpFunction && this.buttonElRef && this.tooltipElRef && this.tooltipArrowElRef) {
+        this.cleanUpFunction = positionTooltip({
           referenceElement: this.buttonElRef,
           tipRef: this.tooltipElRef,
-          tipArrowRef: this.tipArrowElRef,
+          tipArrowRef: this.tooltipArrowElRef,
           placementTip: this.tooltipPlacement,
           topPositionSmallViewPort: false,
           halfMainAxisOffset: false,
@@ -102,11 +98,15 @@ export class IconButton implements ComponentInterface {
     }, this.tooltipShowDelay);
   };
 
+  private cleanUpTooltip() {
+    this.cleanUpFunction?.();
+    this.cleanUpFunction = undefined;
+  }
+
   disconnectedCallback() {
     this.clearToolTipTimeout();
 
-    this.cleanUp?.();
-    this.cleanUp = undefined;
+    this.cleanUpTooltip();
   }
 
   private clearToolTipTimeout = () => {
@@ -117,16 +117,12 @@ export class IconButton implements ComponentInterface {
 
   private handleHideTooltip = () => {
     this.clearToolTipTimeout();
-    this.showTooltip = false;
 
     if (this.tooltipElRef?.isConnected && this.tooltipElRef.matches(":popover-open")) {
       this.tooltipElRef.hidePopover();
     }
 
-    if (!this.showTooltip && this.cleanUp) {
-      this.cleanUp();
-      this.cleanUp = undefined;
-    }
+    this.cleanUpTooltip();
   };
 
   private handleClick = (e: MouseEvent) => {
@@ -152,7 +148,7 @@ export class IconButton implements ComponentInterface {
         <dso-icon icon={this.icon} />
         <Tooltip
           tipElementRef={(element) => (this.tooltipElRef = element)}
-          tipArrowElementRef={(element) => (this.tipArrowElRef = element)}
+          tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}
         >
           {this.label}
         </Tooltip>

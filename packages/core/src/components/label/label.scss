@@ -7,7 +7,11 @@
 @use "~dso-toolkit/src/components/delete";
 @use "~dso-toolkit/src/components/insert";
 
+@use "../../functional-components/tooltip";
+
 @use "label.variables" as label-variables;
+
+@include tooltip.include($max-inline-size: 640px);
 
 @include utilities.box-sizing();
 
