@@ -2,13 +2,12 @@ import * as React from "react";
 
 import { Templates } from "../../templates";
 
-const closeButton = ({ iconTemplate }: Templates) => {
-  return (
-    <button type="button" className="dso-tertiary" onClick={() => null}>
-      <span className="sr-only">Sluiten</span>
-      {iconTemplate({ icon: "cross" })}
-    </button>
-  );
+const closeButton = ({ iconButtonTemplate }: Templates) => {
+  return iconButtonTemplate({
+    label: "Sluiten",
+    variant: "tertiary",
+    icon: "cross",
+  });
 };
 
 export const warningRichContent = (templates: Templates) => (

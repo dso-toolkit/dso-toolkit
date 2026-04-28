@@ -2,14 +2,11 @@ import { html } from "lit-html";
 
 import { Templates } from "../../templates";
 
-function closeButton({ buttonTemplate }: Templates) {
-  return buttonTemplate({
+function closeButton({ iconButtonTemplate }: Templates) {
+  return iconButtonTemplate({
     label: "Sluiten",
-    type: "button",
     variant: "tertiary",
-    onClick: () => null,
-    icon: { icon: "cross" },
-    iconMode: "only",
+    icon: "cross",
   });
 }
 
