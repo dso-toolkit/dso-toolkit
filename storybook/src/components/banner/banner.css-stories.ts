@@ -17,7 +17,7 @@ import {
 
 const meta: Meta<BannerArgs> = {
   ...bannerMeta({ readme }),
-  title: "HTML|CSS/Banner",
+  title: "HTML|CSS/Banner (Deprecated)",
 };
 
 export default meta;
