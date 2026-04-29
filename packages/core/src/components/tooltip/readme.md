@@ -45,19 +45,6 @@ Type: `Promise<void>`
 
 
 
-## Dependencies
-
-### Used by
-
- - [dso-label](../label)
-
-### Graph
-```mermaid
-graph TD;
-  dso-label --> dso-tooltip
-  style dso-tooltip fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
