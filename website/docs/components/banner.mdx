@@ -2,7 +2,21 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Banner
 
-<StorybookComponent variant="error" />
+<StorybookComponent variant="error" implementations={["core", "react"]} />
+
+De HTML/CSS implementatie is Deprecated:
+
+<StorybookComponent variant="error" name="banner-deprecated" implementations={["html-css"]} />
+
+Andere varianten zijn:
+
+- Info
+- InfoCompactNonRemovable
+- InfoNonRemovable
+- RichInfo
+- RichWarning
+- Success
+- Warning
 
 Banners verschijnen helemaal bovenaan het scherm en verschuiven de inhoud eronder. Ze laten algemene meldingen zien over het product of systeem, maar niet over specifieke gebruikersacties.
 
