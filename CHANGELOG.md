@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Banner: Deprecate HTML/CSS implementatie ([#3672](https://github.com/dso-toolkit/dso-toolkit/issues/3672))
 
 ### Fixed
+* Ozon Content: Tip bij begrip met veel tekst valt deels buiten beeld ([#3644](https://github.com/dso-toolkit/dso-toolkit/issues/3644))
 * Mark Bar: Uitspreken van `current` en `totalCount` bij verandering ([#3660](https://github.com/dso-toolkit/dso-toolkit/issues/3660))
 
 ### Task
