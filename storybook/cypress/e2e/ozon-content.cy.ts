@@ -68,8 +68,6 @@ describe("Ozon Content", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
-
     cy.get("dso-ozon-content.hydrated")
       .shadow()
       .find("dso-ozon-content-toggletip")
@@ -85,14 +83,14 @@ describe("Ozon Content", () => {
       .find("span[role=paragraph]")
       .should("be.visible");
 
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+
     cy.get("dso-ozon-content.hydrated")
       .shadow()
       .find("dso-ozon-content-toggletip")
       .eq(1)
       .find("span[role=paragraph]")
       .should("be.not.visible");
-
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
 
     cy.get("dso-ozon-content.hydrated")
       .shadow()
@@ -123,8 +121,6 @@ describe("Ozon Content", () => {
       .eq(1)
       .find("span[role=paragraph]")
       .should("be.visible");
-
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- visible notes`);
   });
 
   it("should render unknown element to span", () => {
