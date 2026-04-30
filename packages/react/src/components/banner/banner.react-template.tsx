@@ -11,11 +11,7 @@ export const reactBanner: ComponentImplementation<Banner<JSX.Element>> = {
     function bannerTemplate({ status, compact, icon, content }) {
       return (
         <DsoBanner status={status} compact={compact} icon={icon || !compact}>
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12">{content}</div>
-            </div>
-          </div>
+          <div className="dso-banner-inner">{content}</div>
         </DsoBanner>
       );
     },

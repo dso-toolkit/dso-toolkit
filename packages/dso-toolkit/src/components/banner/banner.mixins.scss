@@ -28,14 +28,11 @@
     position: relative;
     padding-inline: units.$u2;
 
-    button {
+    dso-icon-button {
       position: absolute;
       inset-inline-end: units.$u2;
       inset-block-start: 0;
-
-      dso-icon {
-        color: colors.$zwart;
-      }
+      --_dso-icon-button-tertiary-color: #000;
     }
 
     > .dso-rich-content {

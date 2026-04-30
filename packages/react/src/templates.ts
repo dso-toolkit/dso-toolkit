@@ -18,6 +18,7 @@ import {
   Heading,
   HighlightBox,
   Icon,
+  IconButton,
   ImageOverlay,
   Info,
   InfoButton,
@@ -55,6 +56,7 @@ import { reactExpandable } from "./components/expandable/expandable.react-templa
 import { reactHeader } from "./components/header/header.react-template";
 import { reactHighlightBox } from "./components/highlight-box/highlight-box.react-template";
 import { reactIcon } from "./components/icon/icon.react-template";
+import { reactIconButton } from "./components/icon-button/icon-button.react-template";
 import { reactImageOverlay } from "./components/image-overlay/image-overlay.react-template";
 import { reactInfo } from "./components/info/info.react-template";
 import { reactInfoButton } from "./components/info-button/info-button.react-template";
@@ -91,6 +93,7 @@ export interface Components {
   heading: Heading<JSX.Element>;
   highlightBox: HighlightBox<JSX.Element>;
   icon: Icon;
+  iconButton: IconButton;
   imageOverlay: ImageOverlay;
   info: Info<JSX.Element>;
   infoButton: InfoButton<JSX.Element>;
@@ -132,6 +135,7 @@ templateContainer.add(reactExpandable);
 templateContainer.add(reactHeader);
 templateContainer.add(reactHighlightBox);
 templateContainer.add(reactIcon);
+templateContainer.add(reactIconButton);
 templateContainer.add(reactImageOverlay);
 templateContainer.add(reactInfo);
 templateContainer.add(reactInfoButton);
