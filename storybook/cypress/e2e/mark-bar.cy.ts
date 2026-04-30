@@ -8,12 +8,20 @@ describe("Mark Bar", () => {
     cy.dsoCheckA11y("dso-mark-bar.hydrated");
   });
 
+  it("should have correct ARIA attributes", () => {
+    cy.get("dso-mark-bar.hydrated").shadow().find(".dso-button-container span[role='status']").should("exist");
+  });
+
   it("shows current and totalCount", () => {
-    cy.get("dso-mark-bar").invoke("prop", "current", 1).invoke("prop", "totalCount", 10).shadow().contains("1/10");
+    cy.get("dso-mark-bar.hydrated")
+      .invoke("prop", "current", 1)
+      .invoke("prop", "totalCount", 10)
+      .shadow()
+      .contains("1/10");
   });
 
   it("sets label", () => {
-    cy.get("dso-mark-bar")
+    cy.get("dso-mark-bar.hydrated")
       .invoke("prop", "label", "test")
       .shadow()
       .as("shadowRoot")
@@ -26,51 +34,52 @@ describe("Mark Bar", () => {
   });
 
   it("sets disabled states", () => {
-    cy.get("dso-mark-bar")
+    cy.get("dso-mark-bar.hydrated")
       .invoke("prop", "current", 1)
       .invoke("prop", "totalCount", 10)
       .shadow()
-      .find("dso-icon-button")
+      .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Vorig zoekresultaat'")
+
+      .find("button[aria-label='Vorig zoekresultaat 0/10']")
       .as("previous")
       .should("be.disabled")
-      .get("dso-mark-bar")
+      .get("dso-mark-bar.hydrated")
       .shadow()
-      .find("dso-icon-button")
+      .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Volgend zoekresultaat'")
+      .find("button[aria-label='Volgend zoekresultaat 2/10']")
       .should("not.be.disabled")
-      .get("dso-mark-bar")
+      .get("dso-mark-bar.hydrated")
       .invoke("prop", "current", 2)
       .shadow()
-      .find("dso-icon-button")
+      .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Vorig zoekresultaat'")
+      .find("button[aria-label='Vorig zoekresultaat 1/10']")
       .should("not.be.disabled")
-      .get("dso-mark-bar")
+      .get("dso-mark-bar.hydrated")
       .shadow()
-      .find("dso-icon-button")
+      .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Volgend zoekresultaat'")
+      .find("button[aria-label='Volgend zoekresultaat 3/10']")
       .should("not.be.disabled")
-      .get("dso-mark-bar")
+      .get("dso-mark-bar.hydrated")
       .invoke("prop", "current", 10)
       .shadow()
-      .find("dso-icon-button")
+      .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Vorig zoekresultaat'")
+      .find("button[aria-label='Vorig zoekresultaat 9/10']")
       .should("not.be.disabled")
-      .get("dso-mark-bar")
+      .get("dso-mark-bar.hydrated")
       .shadow()
-      .find("dso-icon-button")
+      .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Volgend zoekresultaat'")
+      .find("button[aria-label='Volgend zoekresultaat 11/10']")
       .should("be.disabled");
   });
 
   it("emits events", () => {
-    cy.get("dso-mark-bar")
+    cy.get("dso-mark-bar.hydrated")
       .invoke("prop", "current", 2)
       .invoke("prop", "totalCount", 10)
       .then(($markBar) =>
@@ -82,21 +91,21 @@ describe("Mark Bar", () => {
       )
       .shadow()
       .as("shadow")
-      .find("dso-icon-button")
+      .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Vorig zoekresultaat'")
+      .find("button[aria-label='Vorig zoekresultaat 1/10']")
       .click()
       .get("@shadow")
-      .find("dso-icon-button")
+      .find("dso-icon-button.hydrated")
       .shadow()
-      .find("button[aria-label='Volgend zoekresultaat'")
+      .find("button[aria-label='Volgend zoekresultaat 3/10']")
       .click()
       .get("@shadow")
       .find('input[type="text"]')
       .focus()
       .type("test")
       .get("@shadow")
-      .find("dso-icon-button")
+      .find("dso-icon-button.hydrated")
       .shadow()
       .find("button[aria-label='Zoekopdracht legen'")
       .click()
@@ -118,7 +127,7 @@ describe("Mark Bar", () => {
   });
 
   it("focuses the input when dsoFocus() is called", () => {
-    cy.get("dso-mark-bar")
+    cy.get("dso-mark-bar.hydrated")
       .invoke("get", 0)
       .as("markBarElement")
       .invoke("dsoFocus")
@@ -131,16 +140,16 @@ describe("Mark Bar", () => {
       .get("@markBarElement")
       .invoke("dsoFocus", { select: true })
       .get<HTMLInputElement>("@markBarInput")
-      .then(([input]) => [input.selectionStart, input.selectionEnd])
+      .then(([input]) => (input ? [input.selectionStart, input.selectionEnd] : [null, null]))
       .should("deep.equal", [0, 4]);
   });
 
   it('emits "dsoNext" when Enter is pressed', () => {
-    cy.get("dso-mark-bar")
+    cy.get("dso-mark-bar.hydrated")
       .invoke("prop", "current", 2)
       .invoke("prop", "totalCount", 10)
       .then(($markBar) => $markBar.on("dsoNext", cy.stub().as("dsoNext")))
-      .get("dso-mark-bar")
+      .get("dso-mark-bar.hydrated")
       .shadow()
       .find('label[for="search-input"]')
       .click()

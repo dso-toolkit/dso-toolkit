@@ -136,17 +136,17 @@ export class MarkBar implements ComponentInterface {
           <dso-icon-button
             icon="chevron-up"
             variant="tertiary"
-            label="Vorig zoekresultaat"
+            label={`Vorig zoekresultaat ${current - 1}/${totalCount}`}
             onDsoClick={(e) => this.handlePrevious(e.detail.originalEvent)}
             disabled={current <= 1}
           />
-          <span>
+          <span role="status">
             {current}/{totalCount}
           </span>
           <dso-icon-button
             icon="chevron-down"
             variant="tertiary"
-            label="Volgend zoekresultaat"
+            label={`Volgend zoekresultaat ${current + 1}/${totalCount}`}
             onDsoClick={(e) => this.handleNext(e.detail.originalEvent)}
             disabled={current >= totalCount}
           />
