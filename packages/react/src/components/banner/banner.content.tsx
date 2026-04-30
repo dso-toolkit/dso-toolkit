@@ -16,7 +16,11 @@ export const warningRichContent = (templates: Templates) => (
       <h2>Onderhoudsmelding:</h2>
       <p>
         Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het
-        Omgevingsloket. <a href="#">Meer informatie</a>
+        Omgevingsloket.
+        <span> &nbsp;</span>
+        <a href="#" className="download">
+          Meer informatie
+        </a>
       </p>
     </div>
     {closeButton(templates)}
@@ -33,7 +37,13 @@ export const errorRichContent = (templates: Templates) => (
   <>
     <div className="dso-rich-content">
       <h2>Storingsmelding:</h2>
-      <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+      <p>
+        Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een <span>&nbsp;</span>
+        <a href="#" className="download">
+          aanvraag
+        </a>
+        of melding indienen.
+      </p>
     </div>
     {closeButton(templates)}
   </>
@@ -42,7 +52,12 @@ export const errorRichContent = (templates: Templates) => (
 export const infoRichContent = (templates: Templates) => (
   <>
     <div className="dso-rich-content">
-      <p>Een informatieve banner die je weg kan klikken.</p>
+      <p>
+        Een informatieve banner die je weg kan klikken.<span>&nbsp;</span>
+        <a href="#" className="download">
+          Meer informatie
+        </a>
+      </p>
     </div>
     {closeButton(templates)}
   </>
