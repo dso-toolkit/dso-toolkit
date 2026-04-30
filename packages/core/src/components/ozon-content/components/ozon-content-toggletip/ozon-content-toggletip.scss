@@ -6,13 +6,17 @@
 @use "../../../../functional-components/tooltip";
 
 @include utilities.box-sizing();
-@include tooltip.include($max-inline-size: 60 * units.$u1);
+@include tooltip.include($padding-block-inner: 0, $padding-inline-inner: 0, $max-inline-size: 60 * units.$u1);
 
 $icon-margin-inline-start: units.$u1 * 0.5;
 
 :host {
-  display: inline;
   --_dt-rich-content-margin-block: #{units.$u1};
+  --_dt-scrollable-border-radius: #{units.$u1 * 0.5};
+  --_dt-scrollable-container-padding-inline: #{tooltip.$padding-inline};
+  --_dt-scrollable-container-padding-block: #{tooltip.$padding-block};
+
+  display: inline;
 }
 
 ::slotted(:not([slot="label"])) {

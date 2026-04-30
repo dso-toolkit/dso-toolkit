@@ -18,12 +18,15 @@ export function begripResolver(ref: string, element: Element): XMLDocument | str
 
 export const intIoRefContent = `
       <Inhoud>
+        <Al>Binnen dit planproces wegen we belangen zorgvuldig af, zodat uitvoering aansluit op vastgesteld gemeentelijk beleid. De toetsing richt zich op veiligheid, leefbaarheid en haalbaarheid, met duidelijke criteria voor initiatiefnemers lokaal. Samenhang tussen regels en praktijk voorkomt vertraging, omdat verantwoordelijkheden vooraf helder zijn vastgelegd voor iedereen. Toelichting bij besluiten maakt keuzes navolgbaar en ondersteunt een consistente beoordeling van vergelijkbare aanvragen regionaal. Tijdens uitvoering monitoren we effecten periodiek, zodat bijsturing tijdig mogelijk blijft binnen afgesproken beleidskaders steeds. Deze werkwijze versterkt transparantie, beperkt risico's en verbetert de kwaliteit van besluiten op locatieniveau aantoonbaar.</Al>
         <Al>
           Ter plaatse van het werkingsgebied van de functie '<IntIoRef eId="subchp_2.2__art_2.4__ref_o_1"
           ref="gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"
           wId="gm0037_1__subchp_2.2__art_2.4__ref_o_1">Bedrijf categorie 2</IntIoRef>'
           mogen de locatie en de daarop voorkomende bouwwerken in ieder geval worden
-          gebruikt voor het verrichten van de volgende gebruiksactiviteiten: </Al>
+          gebruikt voor het verrichten van de volgende gebruiksactiviteiten.
+        </Al>
+        <Al>Binnen dit planproces wegen we belangen zorgvuldig af, zodat uitvoering aansluit op vastgesteld gemeentelijk beleid. De toetsing richt zich op veiligheid, leefbaarheid en haalbaarheid, met duidelijke criteria voor initiatiefnemers lokaal. Samenhang tussen regels en praktijk voorkomt vertraging, omdat verantwoordelijkheden vooraf helder zijn vastgelegd voor iedereen. Toelichting bij besluiten maakt keuzes navolgbaar en ondersteunt een consistente beoordeling van vergelijkbare aanvragen regionaal. Tijdens uitvoering monitoren we effecten periodiek, zodat bijsturing tijdig mogelijk blijft binnen afgesproken beleidskaders steeds. Deze werkwijze versterkt transparantie, beperkt risico's en verbetert de kwaliteit van besluiten op locatieniveau aantoonbaar.</Al>
           <Lijst eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" type="expliciet">
               <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a">
                 <LiNummer>1.</LiNummer>
