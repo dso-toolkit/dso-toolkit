@@ -7,7 +7,6 @@ const defaultPropValues = {
   type: "type",
   identifier: "id",
   label: "label",
-  value: "value",
   name: "name",
   describedById: "describedById",
   labelledById: "labelledById",
@@ -50,7 +49,7 @@ export const angularSelectable: ComponentImplementation<Selectable<IStory>> = {
           <dso-selectable
             [type]="${type}"
             [identifier]="${identifier}"
-            [value]="${value}"
+            ${props.value ? `[value]="${value}"` : ""}
             ${props.name ? `[name] = "${name}"` : ""}
             ${props.describedById ? `[describedById]="${describedById}"` : ""}
             ${props.labelledById ? `[labelledById]="${labelledById}"` : ""}

@@ -1297,7 +1297,7 @@ export namespace Components {
         /**
           * The value of the Selectable.
          */
-        "value": string;
+        "value"?: string;
     }
     interface DsoSkiplink {
         /**
@@ -4250,7 +4250,7 @@ declare namespace LocalJSX {
         /**
           * The value of the Selectable.
          */
-        "value": string;
+        "value"?: string;
     }
     interface DsoSkiplink {
         /**
@@ -4944,7 +4944,7 @@ declare namespace LocalJSX {
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
         "dso-segmented-button": Omit<DsoSegmentedButton, keyof DsoSegmentedButtonAttributes> & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes]?: DsoSegmentedButton[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `attr:${K}`]?: DsoSegmentedButtonAttributes[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `prop:${K}`]?: DsoSegmentedButton[K] } & OneOf<"label", DsoSegmentedButton["label"], DsoSegmentedButtonAttributes["label"]>;
-        "dso-selectable": Omit<DsoSelectable, keyof DsoSelectableAttributes> & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes]?: DsoSelectable[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `attr:${K}`]?: DsoSelectableAttributes[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `prop:${K}`]?: DsoSelectable[K] } & OneOf<"type", DsoSelectable["type"], DsoSelectableAttributes["type"]> & OneOf<"value", DsoSelectable["value"], DsoSelectableAttributes["value"]>;
+        "dso-selectable": Omit<DsoSelectable, keyof DsoSelectableAttributes> & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes]?: DsoSelectable[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `attr:${K}`]?: DsoSelectableAttributes[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `prop:${K}`]?: DsoSelectable[K] } & OneOf<"type", DsoSelectable["type"], DsoSelectableAttributes["type"]>;
         "dso-skiplink": Omit<DsoSkiplink, keyof DsoSkiplinkAttributes> & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes]?: DsoSkiplink[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `attr:${K}`]?: DsoSkiplinkAttributes[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `prop:${K}`]?: DsoSkiplink[K] } & OneOf<"to", DsoSkiplink["to"], DsoSkiplinkAttributes["to"]> & OneOf<"label", DsoSkiplink["label"], DsoSkiplinkAttributes["label"]>;
         "dso-slide-toggle": Omit<DsoSlideToggle, keyof DsoSlideToggleAttributes> & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes]?: DsoSlideToggle[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `attr:${K}`]?: DsoSlideToggleAttributes[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `prop:${K}`]?: DsoSlideToggle[K] };
         "dso-survey-rating": DsoSurveyRating;

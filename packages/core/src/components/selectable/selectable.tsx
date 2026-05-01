@@ -53,7 +53,7 @@ export class Selectable implements ComponentInterface {
    * The value of the Selectable.
    */
   @Prop()
-  value!: string;
+  value?: string;
 
   /**
    * Set to true of the current value is not valid.
@@ -135,11 +135,13 @@ export class Selectable implements ComponentInterface {
   private input: HTMLInputElement | undefined;
 
   private handleOnChange = (e: Event) => {
-    const { target } = e;
+    const inputTarget = e.target instanceof HTMLInputElement ? e.target : undefined;
 
     this.dsoChange.emit({
       originalEvent: e,
-      checked: target instanceof HTMLInputElement && target.checked,
+      checked: !!inputTarget?.checked,
+      name: this.name,
+      value: this.value,
     });
 
     forceUpdate(this.host);
