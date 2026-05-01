@@ -15,10 +15,11 @@ export class OzonContentToggletip implements ComponentInterface {
   private container: HTMLSpanElement | undefined;
   private tooltipElRef: HTMLDivElement | undefined;
   private tooltipArrowElRef: HTMLSpanElement | undefined;
-  private restrictContentElement?: HTMLElement;
+  private restrictContentElement: HTMLElement | undefined;
 
   @Element()
   host!: HTMLDsoOzonContentToggletipElement;
+
   /**
    * The alias of the icon in the button.
    */
