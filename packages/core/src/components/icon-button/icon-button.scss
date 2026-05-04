@@ -47,7 +47,8 @@
       );
     }
 
-    &:active {
+    &:active,
+    &.icon-button-toggled {
       color: var(
         --_dso-icon-button-tertiary-active-color,
         var(--_dso-icon-button-tertiary-color, button.$tertiary-hover-color)
@@ -83,5 +84,16 @@
 
   &[disabled] {
     cursor: default;
+  }
+}
+
+.dso-secondary,
+.dso-map {
+  &:not([disabled]) {
+    &.icon-button-toggled {
+      background-color: colors.$bosgroen;
+      border-color: colors.$bosgroen;
+      color: colors.$wit;
+    }
   }
 }

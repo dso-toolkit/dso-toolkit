@@ -29,6 +29,23 @@ describe("Icon Button", () => {
       .should("have.text", "Hamburger menu");
   });
 
+  it("should set correct aria-label and aria-pressed for toggled and untoggled states", () => {
+    cy.get("dso-icon-button.hydrated")
+      .invoke("attr", "label", "Hamburger menu")
+      .invoke("prop", "isToggled", false)
+      .shadow()
+      .find("button")
+      .should("have.attr", "aria-pressed", "false")
+      .should("have.attr", "aria-label", "Hamburger menu");
+
+    cy.get("dso-icon-button.hydrated")
+      .invoke("prop", "isToggled", true)
+      .shadow()
+      .find("button")
+      .should("have.attr", "aria-pressed", "true")
+      .should("have.attr", "aria-label", "Hamburger menu");
+  });
+
   const placements: Record<TooltipPlacement, [number, number]> = {
     top: [275, 453],
     right: [318, 531],
@@ -52,9 +69,9 @@ function checkTooltipPosition(placement: TooltipPlacement, expectedTop: number, 
     .shadow()
     .find(".dso-tooltip")
     .should(($tooltip) => {
-      const style = $tooltip[0].style;
-      const top = Math.round(parseFloat(style.top || "0"));
-      const left = Math.round(parseFloat(style.left || "0"));
+      const style = $tooltip[0]?.style;
+      const top = Math.round(parseFloat(style?.top || "0"));
+      const left = Math.round(parseFloat(style?.left || "0"));
 
       expect(top).to.equal(expectedTop);
       expect(left).to.equal(expectedLeft);

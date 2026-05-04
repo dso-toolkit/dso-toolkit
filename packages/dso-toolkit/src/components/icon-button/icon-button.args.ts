@@ -14,6 +14,7 @@ export interface IconButtonArgs {
   tooltipPlacement?: IconButtonTooltipPlacement;
   dsoClick?: HandlerFunction;
   disabled: boolean;
+  isToggled?: boolean;
 }
 
 export const iconButtonArgs: IconButtonArgs = {
@@ -21,6 +22,7 @@ export const iconButtonArgs: IconButtonArgs = {
   icon: "bars",
   label: "Navigation",
   tooltipPlacement: "top",
+  isToggled: false,
   dsoClick: fn(),
   disabled: false,
 };
@@ -54,6 +56,12 @@ export function iconButtonArgTypes(icons: string[]): ArgTypes<IconButtonArgs> {
       control: {
         type: "boolean",
       },
+    },
+    isToggled: {
+      control: {
+        type: "boolean",
+      },
+      description: "Whether the button is toggled/active.",
     },
     dsoClick: argTypeAction(),
   };

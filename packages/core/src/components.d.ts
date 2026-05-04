@@ -777,6 +777,11 @@ export namespace Components {
          */
         "icon": IconAlias | undefined;
         /**
+          * Whether the button is active.
+          * @default false
+         */
+        "isToggled": boolean;
+        /**
           * The label of the Icon Button which is shown on hover in a tooltip.
          */
         "label": string | undefined;
@@ -3594,6 +3599,11 @@ declare namespace LocalJSX {
          */
         "icon": IconAlias | undefined;
         /**
+          * Whether the button is active.
+          * @default false
+         */
+        "isToggled"?: boolean;
+        /**
           * The label of the Icon Button which is shown on hover in a tooltip.
          */
         "label": string | undefined;
@@ -4691,6 +4701,7 @@ declare namespace LocalJSX {
         "variant": IconButtonVariant;
         "tooltipPlacement": TooltipPlacement;
         "disabled": boolean;
+        "isToggled": boolean;
     }
     interface DsoImageOverlayAttributes {
         "wijzigactie": string;
