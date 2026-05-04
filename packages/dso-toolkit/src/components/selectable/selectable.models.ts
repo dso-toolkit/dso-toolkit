@@ -5,7 +5,7 @@ export interface Selectable<TemplateFnReturnType> {
   id: string;
   name?: string;
   label?: string | TemplateFnReturnType;
-  value: string;
+  value?: string;
   required?: boolean;
   invalid?: boolean;
   describedById?: string;
@@ -22,4 +22,6 @@ export interface Selectable<TemplateFnReturnType> {
 export interface SelectableChangeEvent {
   originalEvent: Event;
   checked: boolean;
+  name?: string;
+  value?: string;
 }

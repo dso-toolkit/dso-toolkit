@@ -10,7 +10,7 @@ export interface SelectableArgs<TemplateFnReturnType> {
   id: string;
   name?: string;
   label: string;
-  value: string;
+  value?: string;
   required?: boolean;
   invalid?: boolean;
   describedById?: string;
@@ -51,7 +51,6 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
   },
   value: {
     control: "text",
-    required: true,
   },
   required: {
     control: {

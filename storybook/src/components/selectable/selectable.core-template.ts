@@ -33,7 +33,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
         <dso-selectable
           type=${type}
           identifier=${ifDefined(id || undefined)}
-          value=${value}
+          value=${ifDefined(value)}
           name=${ifDefined(name)}
           described-by-id=${ifDefined(describedById)}
           labelled-by-id=${ifDefined(labelledById)}
