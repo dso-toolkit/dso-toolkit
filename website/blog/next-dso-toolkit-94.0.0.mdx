@@ -1,0 +1,59 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v94.0.0 🪏
+
+Deze release bevat **Breaking** changes voor het volgende component:
+
+- Tooltip
+
+<!-- truncate -->
+
+## Tooltip
+
+In deze release is het component **Tooltip** verwijderd. **Tooltip** hebben we eerder in 🐻 Release 73.2.0 deprecated.
+In de blogpost van 🧱 Release 91.0.0 brachten we de deprecation van **Tooltip** nogmaals onder de aandacht.
+
+In de blogpost van 🐻 Release 73.2.0 schreven we: "In een van de komende releases zal Tooltip worden vervangen door
+verbeterde alternatieven, zoals het nieuwe **Icon Button** Web Component of vernieuwde varianten van het
+**Toggletip** webcomponent."
+
+De verbeterde alternatieven zijn inmiddels via een aantal releases beschikbaar gekomen:
+
+- In 🌯 Release 79.1.0 hebben we het component **Icon Button** geïntroduceerd.
+- In 🤧 Release 88.0.0 hebben we het component **Info Button** uitgebreid met ondersteuning voor Toggletip functionaliteit.
+- In 🦡 Release 90.1.0 hebben we het component **Badge** uitgebreid met ondersteuning voor toggletip functionaliteit.
+
+### Migratiepad
+
+```html
+❌
+<button type="button" aria-describedby="40990d71-60c2-46d2-9822-e619f4783e74">
+  <span>Hover or focus me</span>
+  <dso-tooltip position="right" id="40990d71-60c2-46d2-9822-e619f4783e74"> Ik sta "right" </dso-tooltip>
+</button>
+
+❌
+<button type="button" aria-describedby="92fdc476-3588-4c97-80b5-d42289d00184">
+  <span>Hover or focus me</span>
+</button>
+<dso-tooltip position="bottom" id="92fdc476-3588-4c97-80b5-d42289d00184"> Ik sta "bottom" </dso-tooltip>
+
+✅
+<dso-icon-button variant="map | secondary | tertiary" label="Toelichting bij vraag" icon="trash"></dso-icon-button>
+
+✅
+<dso-info-button label="Toelichting bij vraag">
+  <div slot="toggletip">
+    <div class="dso-rich-content">...</div>
+  </div>
+</dso-info-button>
+
+✅
+<dso-badge>
+  <div slot="toggletip">
+    <div class="dso-rich-content">...</div>
+  </div>
+</dso-badge>
+```

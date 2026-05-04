@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Mark Bar: Uitspreken van `current` en `totalCount` bij verandering ([#3660](https://github.com/dso-toolkit/dso-toolkit/issues/3660))
 
+### Removed
+* **BREAKING** Tooltip: Remove ([#3377](https://github.com/dso-toolkit/dso-toolkit/issues/3377))
+
 ### Task
 * Packages: Dependencies updates ([#3664](https://github.com/dso-toolkit/dso-toolkit/issues/3664))
 

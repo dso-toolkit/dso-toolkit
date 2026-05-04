@@ -35,7 +35,6 @@ import {
   Table,
   Tabs,
   TemplateContainer,
-  Tooltip,
   TreeView,
 } from "dso-toolkit";
 import { JSX } from "react";
@@ -72,7 +71,6 @@ import { reactSelectable } from "./components/selectable/selectable.react-templa
 import { reactSlideToggle } from "./components/slide-toggle/slide-toggle.react-template";
 import { reactTable } from "./components/table/table.react-template";
 import { reactTabs } from "./components/tabs/tabs.react-template";
-import { reactTooltip } from "./components/tooltip/tooltip.react-template";
 import { reactTreeView } from "./components/tree-view/tree-view.react-template";
 
 export interface Components {
@@ -109,7 +107,6 @@ export interface Components {
   slideToggle: SlideToggle;
   table: Table<JSX.Element>;
   tabs: Tabs<JSX.Element>;
-  tooltip: Tooltip;
   treeView: TreeView;
 }
 
@@ -151,5 +148,4 @@ templateContainer.add(reactSelectable);
 templateContainer.add(reactSlideToggle);
 templateContainer.add(reactTable);
 templateContainer.add(reactTabs);
-templateContainer.add(reactTooltip);
 templateContainer.add(reactTreeView);
