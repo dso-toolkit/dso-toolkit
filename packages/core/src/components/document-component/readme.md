@@ -89,6 +89,7 @@ graph TD;
   dso-ozon-content --> dso-table
   dso-image-overlay --> dso-icon-button
   dso-ozon-content-toggletip --> dso-icon
+  dso-ozon-content-toggletip --> dso-scrollable
   dso-table --> dso-modal
   dso-table --> dso-icon
   dso-modal --> dso-icon-button

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Banner: Vervang `icon-only` Button door Icon Button ([#3554](https://github.com/dso-toolkit/dso-toolkit/issues/3554))
 
 ### Fixed
+* Ozon Content: Tip bij begrip met veel tekst valt deels buiten beeld ([#3644](https://github.com/dso-toolkit/dso-toolkit/issues/3644))
 * Mark Bar: Uitspreken van `current` en `totalCount` bij verandering ([#3660](https://github.com/dso-toolkit/dso-toolkit/issues/3660))
 
 ### Task
