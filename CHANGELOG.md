@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Banner: Vervang `icon-only` Button door Icon Button ([#3554](https://github.com/dso-toolkit/dso-toolkit/issues/3554))
 * Selectable: `value` optioneel en SelectableChangeEvent uitbreidingen ([#3689](https://github.com/dso-toolkit/dso-toolkit/issues/3689))
 
+### Deprecated
+* Banner: Deprecate HTML/CSS implementatie ([#3672](https://github.com/dso-toolkit/dso-toolkit/issues/3672))
+
 ### Fixed
 * Mark Bar: Uitspreken van `current` en `totalCount` bij verandering ([#3660](https://github.com/dso-toolkit/dso-toolkit/issues/3660))
 

@@ -8,6 +8,10 @@ Deze release bevat een **BREAKING** change voor het volgende component:
 
 - Banner
 
+In deze release is het volgende component **deprecated**:
+
+- Banner (HTML/CSS implementatie)
+
 <!-- truncate -->
 
 ## Banner
@@ -49,7 +53,7 @@ Core implementatie
         of melding indienen.
       </p>
     </div>
-    <dso-icon-button variant="tertiary" icon="cross" label="Sluiten" tooltip-placement="top"></dso-icon-button>
+    <dso-icon-button variant="tertiary" icon="cross" label="Sluiten"></dso-icon-button>
   </div>
 </dso-banner>
 ```
@@ -64,7 +68,7 @@ HTML/CSS implementatie
       <h2>Storingsmelding:</h2>
       <p>
         Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een
-        <a href="#" class="download">aanvraag</a>
+        <a href="#" class="download"> aanvraag </a>
         of melding indienen.
       </p>
     </div>
@@ -82,11 +86,43 @@ HTML/CSS implementatie
       <h2>Storingsmelding:</h2>
       <p>
         Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een
-        <a href="#" class="download">aanvraag</a>
+        <a href="#" class="download"> aanvraag </a>
         of melding indienen.
       </p>
     </div>
     <dso-icon-button variant="tertiary" icon="cross" label="Sluiten"></dso-icon-button>
   </div>
 </section>
+```
+
+## Banner (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Banner` is deprecated. In een toekomstige **BREAKING** release zal de HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Banner.
+
+```html
+❌
+<section role="alert" class="dso-banner alert-success dso-icon">
+  <div class="dso-banner-inner">
+    <div class="dso-rich-content">
+      <h2>Gelukt!</h2>
+      <p>U bent succesvol ingelogd.</p>
+    </div>
+    <dso-icon-button variant="tertiary" icon="cross" label="Sluiten"></dso-icon-button>
+  </div>
+</section>
+
+✅
+<dso-banner status="success" icon="">
+  <div class="dso-banner-inner">
+    <div class="dso-rich-content">
+      <h2>Gelukt!</h2>
+      <p>U bent succesvol ingelogd.</p>
+    </div>
+    <dso-icon-button icon="cross" variant="tertiary" label="Sluiten"></dso-icon>
+  </div>
+</dso-banner>
 ```
