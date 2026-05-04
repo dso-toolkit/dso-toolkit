@@ -68,7 +68,7 @@
     "type": "html-css"
   },
   {
-    "name": "banner",
+    "name": "banner-deprecated",
     "selector": ".dso-banner",
     "stories": [
       "success",

@@ -10,6 +10,7 @@ export const cssBanner: ComponentImplementation<Banner<TemplateResult>> = {
   template: () =>
     function bannerTemplate({ status, compact, icon, content }) {
       return html`
+        <!-- START DEPRECATED: use <dso-banner> -->
         <section
           class="dso-banner ${classMap({
             [`alert-${status}`]: status,
@@ -20,6 +21,7 @@ export const cssBanner: ComponentImplementation<Banner<TemplateResult>> = {
         >
           <div class="dso-banner-inner">${content}</div>
         </section>
+        <!-- END DEPRECATED -->
       `;
     },
 };
