@@ -185,7 +185,8 @@ ul.dso-action-list {
   }
 }
 
-ol.dso-action-list {
+ol.dso-action-list,
+ol.dso-list-ordered-action {
   li::before {
     @include step-counter.ordered-action-list();
 

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* List: Class `dso-list-ordered-action` toont geen visual op ordered-list variant ([#3762](https://github.com/dso-toolkit/dso-toolkit/issues/3762))
+
 ## 🦺 Release 93.0.0 - 2026-04-20
 
 ### Changed
