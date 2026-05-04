@@ -8,7 +8,7 @@ Deze release bevat een **BREAKING** change voor het volgende component:
 
 - Banner
 
-In deze release is het volgende component deprecated:
+In deze release is het volgende component **deprecated**:
 
 - Banner (HTML/CSS implementatie)
 
@@ -97,7 +97,7 @@ HTML/CSS implementatie
 
 ## Banner (HTML/CSS implementatie)
 
-De HTML/CSS implementatie van het component Banner is deprecated. In een toekomstige BREAKING release zal de HTML/CSS implementatie verwijderd worden.
+De HTML/CSS implementatie van het component `Banner` is deprecated. In een toekomstige **BREAKING** release zal de HTML/CSS implementatie verwijderd worden.
 
 ### Migratiepad
 
@@ -111,10 +111,7 @@ Gebruik de Core implementatie van Banner.
       <h2>Gelukt!</h2>
       <p>U bent succesvol ingelogd.</p>
     </div>
-    <button type="button" class="dso-tertiary">
-      <span class="sr-only">Sluiten</span>
-      <dso-icon icon="cross"></dso-icon>
-    </button>
+    <dso-icon-button variant="tertiary" icon="cross" label="Sluiten"></dso-icon-button>
   </div>
 </section>
 
@@ -125,7 +122,6 @@ Gebruik de Core implementatie van Banner.
       <h2>Gelukt!</h2>
       <p>U bent succesvol ingelogd.</p>
     </div>
-    <!-- Let op! Dit is Icon Button, in bovenstaande markup wordt een icon-only Button gemaakt -->
     <dso-icon-button icon="cross" variant="tertiary" label="Sluiten"></dso-icon>
   </div>
 </dso-banner>
