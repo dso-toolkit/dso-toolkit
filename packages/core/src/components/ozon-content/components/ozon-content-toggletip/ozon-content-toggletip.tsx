@@ -15,9 +15,11 @@ export class OzonContentToggletip implements ComponentInterface {
   private container: HTMLSpanElement | undefined;
   private tooltipElRef: HTMLDivElement | undefined;
   private tooltipArrowElRef: HTMLSpanElement | undefined;
+  private restrictContentElement: HTMLElement | undefined;
 
   @Element()
   host!: HTMLDsoOzonContentToggletipElement;
+
   /**
    * The alias of the icon in the button.
    */
@@ -72,6 +74,7 @@ export class OzonContentToggletip implements ComponentInterface {
         tipRef: this.tooltipElRef,
         tipArrowRef: this.tooltipArrowElRef,
         placementTip: "top",
+        restrictContentElement: this.restrictContentElement,
       });
     }
 
@@ -124,7 +127,13 @@ export class OzonContentToggletip implements ComponentInterface {
           tipElementRef={(element) => (this.tooltipElRef = element)}
           tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}
         >
-          <slot />
+          <dso-scrollable
+            ref={(element) => (this.restrictContentElement = element)}
+            id="toggletip-content"
+            aria-live="polite"
+          >
+            <slot />
+          </dso-scrollable>
         </Tooltip>
       </Fragment>
     );
