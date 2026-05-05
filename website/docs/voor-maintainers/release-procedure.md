@@ -1,6 +1,7 @@
 # Release procedure
 
-Op deze pagina wordt de procedure van het releasen van een nieuwe versie van de DSO Toolkit beschreven.
+## Een release uitbrengen
+
 Een release heeft een [SemVer](https://www.semver.org/) versienummer en een emoji.
 De emoji wordt gebruikt in de `CHANGELOG.md`, de release commit message, de Github milestone en de aankondiging van de release in Slack.
 De emoji die gekozen wordt mag nog niet eerder gebruikt zijn. Controleer dit door de emoji te zoeken in de `CHANGELOG.md`. Komt de emoji niet voor dan mag die gebruikt worden.
@@ -10,45 +11,43 @@ Alle commando's moeten in de root van het project op de lokale computer van de d
 
 Dit is de release procedure:
 
-1.  Check lokaal de `master`-branch uit en zorgt dat deze up-to-date is.
-2.  Controleer dat de Github milestone `67.0.0` volledig is. Zijn de issues van alle squash-commits in de
-    `master`-branch sinds de vorige release toegevoegd aan de milestone? De Github milestones van DSO Toolkit
-    zijn hier te vinden: https://github.com/dso-toolkit/dso-toolkit/milestones.
-3.  Voer het commando `pnpm release --version 67.0.0 --emoji 😍` uit:
+1. Check lokaal de `master`-branch uit en zorgt dat deze up-to-date is.
+2. Controleer of de Github milestone `67.0.0` volledig is. Zijn de issues van alle squash-commits in de
+   `master`-branch sinds de vorige release toegevoegd aan de milestone? De Github milestones van DSO Toolkit
+   zijn hier te vinden: https://github.com/dso-toolkit/dso-toolkit/milestones.
+3. Voer het commando `pnpm release --version 67.0.0 --emoji 😍` uit:
 
-    Toelichting:
-    - In `CHANGELOG.md` voegt dit script bovenin onder `## Next` een kop toe met daarin de emoji van de release, het
-      versienummer en de datum van de release:
+   Toelichting:
+   - In `CHANGELOG.md` voegt dit script bovenin onder `## Next` een kop toe met daarin de emoji van de release, het
+     versienummer en de datum van de release:
 
-      `## 😍 Release 67.0.0 - 2024-11-14`.
+     `## 😍 Release 67.0.0 - 2024-11-14`.
 
-    - In de `package.json` van `angular-workspace/projects/component-library`, `packages/react`, `packages/core` en `packages/dso-toolkit` wordt het versienummer bijgewerkt.
-    - In de `package.json` van `angular-workspace/projects/component-library` en `packages/react` wordt het versienummer van de peerDependency `@dso-toolkit/core` bijgewerkt.
+   - In de `package.json` van `angular-workspace/projects/component-library`, `packages/react`, `packages/core` en `packages/dso-toolkit` wordt het versienummer bijgewerkt.
+   - In de `package.json` van `@dso-toolkit/core` wordt het versienummer van de peerDependency `dso-toolkit` bijgewerkt.
+   - In de `package.json` van `angular-workspace/projects/component-library` en `packages/react` wordt het versienummer van de peerDependency `@dso-toolkit/core` bijgewerkt.
 
-4.  Voer het commando `pnpm install` uit, zodat `pnpm-lock.yaml` wordt geüpdatet met de aangepaste peerDependency naar `@dso-toolkit/core`.
-5.  Controleer de filenaam van de blogpost de juiste datum en naam bevatten (datum/versie) b.v.: 2024-11-14-dso-toolkit-67.0.0.mdx.
-    Controleer ook in de blogpost of de versie en emoji correct staan.
-6.  De 6 of 7 resulterende gewijzigde bestanden (4x `package.json`, `CHANGELOG.md` en `pnpm-lock.yaml`, eventueel aangevuld
-    met de gecorrigeerde naam van de blogpost) moeten gecommit worden op de `master`-branch met de volgende
-    commit-message: `😍 Release 67.0.0`.
-    Vervolgens pushen we deze release-commit naar origin. Dit triggert een build van de `master`-branch.
-7.  Wanneer de build van de `master`-branch gereed is, voorzien we de release-commit van de tag `v67.0.0`. Dit
-    triggert de release-build, die resulteert in het publiceren van versie `67.0.0` van de 4 npm-packages:
-    `@dso-toolkit/core`, `dso-toolkit`, `@dso-toolkit/angular` en `@dso-toolkit/react`.
-8.  Als de release-build gereed is versturen we in Slack in 3 workspaces/channels een aankondiging. Dat doen we in
-    #general van DSO Toolkit, #dso-obo-release van Kadaster-IT en #release_toolkit van DSO-LV. Dit is een voorbeeld
-    van de aankondiging:
+4. Controleer of de filenaam van de blogpost de juiste datum en naam bevat (datum/versie). Bijv.:
+   2024-11-14-dso-toolkit-67.0.0.mdx. Controleer ook in de blogpost of de versie en emoji correct zijn.
+5. De 5 of 6 resulterende gewijzigde bestanden (4x `package.json` en `CHANGELOG.md`, eventueel aangevuld met de gecorrigeerde naam van de blogpost) moeten gecommit worden op de `master`-branch met de volgende commit-message: `😍 Release 67.0.0`.
+   Vervolgens pushen we deze release-commit naar origin. Dit triggert een build van de `master`-branch.
+6. Wanneer de build van de `master`-branch gereed is, voorzien we de release-commit van de tag `v67.0.0`. Dit
+   triggert de release-build, die resulteert in het publiceren van versie `67.0.0` van de 4 npm-packages:
+   `@dso-toolkit/core`, `dso-toolkit`, `@dso-toolkit/angular` en `@dso-toolkit/react`.
+7. Als de release-build gereed is versturen we in Slack in 3 workspaces/channels een aankondiging. Dat doen we in
+   #general van DSO Toolkit, #dso-obo-release van Kadaster-IT en #release_toolkit van DSO-LV. Dit is een voorbeeld
+   van de aankondiging:
 
-    > 😍 Zojuist is DSO Toolkit 67.0.0 uitgekomen. Bekijk de [CHANGELOG](https://github.com/dso-toolkit/dso-toolkit/blob/master/CHANGELOG.md#-release-6700---2024-11-14) en de [blogpost](https://www.dso-toolkit.nl/67.0.0/blog).
+   > 😍 Zojuist is DSO Toolkit 67.0.0 uitgekomen. Bekijk de [CHANGELOG](https://github.com/dso-toolkit/dso-toolkit/blob/master/CHANGELOG.md#-release-6700---2024-11-14) en de [blogpost](https://www.dso-toolkit.nl/67.0.0/blog).
 
-    De verwijzing in het bericht naar de blogpost is optioneel.
+   De verwijzing in het bericht naar de blogpost is optioneel.
 
-9.  Controleer vervolgens of `What's Changed`-sectie van de [release tag](https://github.
-    com/dso-toolkit/dso-toolkit/releases/tag/v67.0.0) in github volledig is. Is dit niet het geval  
-    dan moet deze nog handmatig worden aangevuld.
-10. Als laatste kan de Github milestone gesloten worden door op
-    https://github.com/dso-toolkit/dso-toolkit/milestones van milestone `67.0.0` eerst op "edit" te klikken,
-    de Due date in te vullen en vervolgens op "Close milestone" te klikken.
+8. Controleer vervolgens of `What's Changed`-sectie van de [release tag](https://github.
+   com/dso-toolkit/dso-toolkit/releases/tag/v67.0.0) in github volledig is. Is dit niet het geval  
+   dan moet deze nog handmatig worden aangevuld.
+9. Als laatste kan de Github milestone gesloten worden door op
+   https://github.com/dso-toolkit/dso-toolkit/milestones van milestone `67.0.0` eerst op "edit" te klikken,
+   de Due date in te vullen en vervolgens op "Close milestone" te klikken.
 
 ## Een branch release uitbrengen
 

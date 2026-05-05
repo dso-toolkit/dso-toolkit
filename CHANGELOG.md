@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## ⌚ Release 95.0.0 - 2026-05-05
+
 ### Changed
 * **BREAKING** Banner: Vervang `icon-only` Button door Icon Button ([#3554](https://github.com/dso-toolkit/dso-toolkit/issues/3554))
 * Selectable: `value` optioneel en SelectableChangeEvent uitbreidingen ([#3689](https://github.com/dso-toolkit/dso-toolkit/issues/3689))
