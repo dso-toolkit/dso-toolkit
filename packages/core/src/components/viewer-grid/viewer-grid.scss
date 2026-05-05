@@ -217,7 +217,7 @@ button {
   }
 }
 
-@media screen and (min-width: #{media-query-breakpoints.$screen-sm-min + units.$u5}) {
+@media screen and (min-width: #{media-query-breakpoints.$screen-md-min + units.$u5}) {
   :host([main-size="small"]) .dso-main-panel,
   :host([document-panel-size="small"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$small;
@@ -320,7 +320,7 @@ button {
   }
 }
 
-@media screen and (max-width: #{media-query-breakpoints.$screen-xs-max + units.$u5 + 0.99}) {
+@media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
   @include navbar.root();
 
   .dso-navbar {

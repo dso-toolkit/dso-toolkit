@@ -31,7 +31,7 @@ function isDsoViewerGridComponent(element: Element): element is HTMLDsoViewerGri
 
 const buttonWidth = 40;
 
-const tabViewBreakpoint = 768 + buttonWidth;
+const tabViewBreakpoint = 992 + buttonWidth;
 
 const minMapElementWidth = 440;
 
