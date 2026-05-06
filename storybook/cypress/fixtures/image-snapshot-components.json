@@ -359,11 +359,5 @@
     "selector": ".dso-tile-grid",
     "stories": ["tile-grid"],
     "type": "html-css"
-  },
-  {
-    "name": "viewer-grid",
-    "selector": "dso-viewer-grid",
-    "stories": ["document-panel", "filter-panel", "viewer-grid"],
-    "type": "core"
   }
 ]
