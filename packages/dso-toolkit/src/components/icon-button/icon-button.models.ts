@@ -13,5 +13,5 @@ export interface IconButton {
   tooltipPlacement?: IconButtonTooltipPlacement;
   disabled?: boolean;
   dsoClick?: HandlerFunction;
-  isToggled?: boolean;
+  toggled?: boolean;
 }

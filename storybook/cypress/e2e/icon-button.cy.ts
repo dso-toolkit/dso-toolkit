@@ -32,14 +32,14 @@ describe("Icon Button", () => {
   it("should set correct aria-label and aria-pressed for toggled and untoggled states", () => {
     cy.get("dso-icon-button.hydrated")
       .invoke("attr", "label", "Hamburger menu")
-      .invoke("prop", "isToggled", false)
+      .invoke("prop", "toggled", false)
       .shadow()
       .find("button")
       .should("have.attr", "aria-pressed", "false")
       .should("have.attr", "aria-label", "Hamburger menu");
 
     cy.get("dso-icon-button.hydrated")
-      .invoke("prop", "isToggled", true)
+      .invoke("prop", "toggled", true)
       .shadow()
       .find("button")
       .should("have.attr", "aria-pressed", "true")

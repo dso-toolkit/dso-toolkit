@@ -777,11 +777,6 @@ export namespace Components {
          */
         "icon": IconAlias | undefined;
         /**
-          * Whether the button is active.
-          * @default false
-         */
-        "isToggled": boolean;
-        /**
           * The label of the Icon Button which is shown on hover in a tooltip.
          */
         "label": string | undefined;
@@ -789,6 +784,11 @@ export namespace Components {
           * Focuses the button.
          */
         "setFocus": () => Promise<void>;
+        /**
+          * Whether the button is toggled.
+          * @default false
+         */
+        "toggled": boolean;
         /**
           * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
@@ -3599,11 +3599,6 @@ declare namespace LocalJSX {
          */
         "icon": IconAlias | undefined;
         /**
-          * Whether the button is active.
-          * @default false
-         */
-        "isToggled"?: boolean;
-        /**
           * The label of the Icon Button which is shown on hover in a tooltip.
          */
         "label": string | undefined;
@@ -3611,6 +3606,11 @@ declare namespace LocalJSX {
           * Emitted when the user clicks the Icon Button.
          */
         "onDsoClick"?: (event: DsoIconButtonCustomEvent<IconButtonClickEvent>) => void;
+        /**
+          * Whether the button is toggled.
+          * @default false
+         */
+        "toggled"?: boolean;
         /**
           * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
@@ -4701,7 +4701,7 @@ declare namespace LocalJSX {
         "variant": IconButtonVariant;
         "tooltipPlacement": TooltipPlacement;
         "disabled": boolean;
-        "isToggled": boolean;
+        "toggled": boolean;
     }
     interface DsoImageOverlayAttributes {
         "wijzigactie": string;
