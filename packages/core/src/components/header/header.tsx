@@ -1,3 +1,4 @@
+import { autoUpdate, computePosition, flip, offset } from "@floating-ui/dom";
 import {
   Component,
   ComponentInterface,
@@ -13,7 +14,11 @@ import {
   h,
 } from "@stencil/core";
 import { clsx } from "clsx";
+import { FocusableElement, tabbable } from "tabbable";
+import { v4 as uuidv4 } from "uuid";
 
+import { TooltipClean } from "../../functional-components/tooltip/tooltip.interfaces";
+import { getActiveElement } from "../../utils/get-active-element";
 import { i18n } from "../../utils/i18n";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
@@ -127,10 +132,71 @@ export class Header implements ComponentInterface {
   @State()
   dropdownOptionsOffset = 0;
 
+  @State()
+  open = false;
+
   @Watch("mainMenu")
   mainMenuChanged() {
     this.resetVisibleMenuItems();
   }
+
+  private tabInPopup(tabbables: FocusableElement[], direction: number) {
+    const currentIndex = tabbables.findIndex((e) => e === getActiveElement());
+
+    let nextIndex = currentIndex + direction;
+    if (nextIndex >= tabbables.length) {
+      nextIndex = 0;
+    } else if (nextIndex < 0) {
+      nextIndex = tabbables.length - 1;
+    }
+
+    tabbables[nextIndex]?.focus();
+  }
+
+  private escape = () => {
+    this.dropdownButtonElement?.focus();
+    this.toggleOptions();
+  };
+
+  private keyDownHandler = (event: KeyboardEvent) => {
+    if (event.defaultPrevented || !this.open) {
+      return;
+    }
+
+    switch (event.key) {
+      case "Tab":
+        if (event.shiftKey) {
+          this.tabInPopup(this.tabbables(true), -1);
+        } else {
+          this.tabInPopup(this.tabbables(true), 1);
+        }
+
+        break;
+      case "ArrowDown":
+        this.tabInPopup(this.tabbables(false), 1);
+        break;
+
+      case "ArrowUp":
+        this.tabInPopup(this.tabbables(false), -1);
+        break;
+
+      case "Escape":
+        this.escape();
+        break;
+
+      case " ":
+        if (event.target instanceof HTMLElement) {
+          event.target.click();
+        }
+
+        break;
+
+      default:
+        return;
+    }
+
+    event.preventDefault();
+  };
 
   private resetVisibleMenuItems = () => {
     this.visibleMenuItemsCount = undefined;
@@ -141,6 +207,8 @@ export class Header implements ComponentInterface {
   }
 
   private clickHandler = (e: MouseEvent, type: HeaderNavigationType, options?: ClickHandlerOptions) => {
+    this.toggleOptions(false);
+
     this.dsoHeaderClick.emit({
       originalEvent: e,
       isModifiedEvent: isModifiedEvent(e),
@@ -150,11 +218,15 @@ export class Header implements ComponentInterface {
     });
   };
 
-  private dropdownElement: HTMLDsoDropdownMenuElement | undefined;
+  private dropdownElement: HTMLDivElement | undefined;
   private navElement: HTMLUListElement | undefined;
   private menuItemElementRefs: (HTMLLIElement | undefined)[] = [];
   private dropdownMenuItemElementRef: HTMLLIElement | undefined;
   private userHomeMenuItemElementRef: HTMLLIElement | undefined;
+
+  private popoverElement: HTMLDivElement | undefined;
+  private dropdownButtonElement: HTMLButtonElement | undefined;
+  private cleanUp: TooltipClean | undefined;
 
   private text = i18n(() => this.host, translations);
 
@@ -230,6 +302,10 @@ export class Header implements ComponentInterface {
   private resizeObserver = new ResizeObserver(() => {
     this.resetVisibleMenuItems();
 
+    this.toggleOptions(false);
+
+    this.dropdownOptionsOffset = 0;
+
     forceUpdate(this.host);
   });
 
@@ -239,6 +315,8 @@ export class Header implements ComponentInterface {
 
   disconnectedCallback() {
     this.resizeObserver.disconnect();
+
+    this.toggleOptions(false);
   }
 
   componentDidRender() {
@@ -247,11 +325,35 @@ export class Header implements ComponentInterface {
     }
 
     if (this.isCompact && this.dropdownElement) {
-      this.dropdownElement.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
+      this.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
     }
 
     if (typeof this.visibleMenuItemsCount === "undefined" && this.navElement) {
       this.visibleMenuItemsCount = this.calculateOverflowMenuItemCount(this.navElement);
+    }
+
+    if (this.popoverElement && !this.cleanUp && this.dropdownButtonElement) {
+      const element = this.popoverElement;
+
+      this.cleanUp = autoUpdate(this.dropdownButtonElement, element, () => {
+        if (this.dropdownButtonElement) {
+          computePosition(this.dropdownButtonElement, element, {
+            strategy: "fixed",
+            middleware: [
+              offset(this.dropdownOptionsOffset),
+              flip({
+                padding: this.dropdownOptionsOffset,
+              }),
+            ],
+            placement: this.isCompact ? "bottom-end" : "bottom-start",
+          }).then(({ x, y }) => {
+            Object.assign(element.style, {
+              left: `${x}px`,
+              top: `${y}px`,
+            });
+          });
+        }
+      });
     }
   }
 
@@ -268,97 +370,142 @@ export class Header implements ComponentInterface {
     );
   }
 
+  private tabbables(withButton: boolean): FocusableElement[] {
+    const tabbables = this.dropdownElement ? tabbable(this.dropdownElement) : [];
+
+    return withButton ? tabbables : tabbables.filter((element) => element !== this.dropdownButtonElement);
+  }
+
+  private focusOutListener = (event: FocusEvent) => {
+    if (
+      this.open &&
+      (!(event.relatedTarget instanceof HTMLElement) || !this.tabbables(true).includes(event.relatedTarget))
+    ) {
+      this.toggleOptions(false);
+    }
+  };
+
+  private toggleOptions(force?: boolean) {
+    this.open = force ?? !this.open;
+
+    if (this.popoverElement?.isConnected) {
+      this.popoverElement?.togglePopover(this.open);
+    }
+
+    if (!this.open && this.cleanUp) {
+      this.cleanUp();
+      this.cleanUp = undefined;
+    }
+  }
+
   private renderCompact() {
     return (
       (this.mainMenu.length > 0 || this.userHomeUrl || this.authStatus !== "none") && (
         <div class="dropdown">
-          <dso-dropdown-menu
-            dropdown-align="right"
-            dropdownOptionsOffset={this.dropdownOptionsOffset}
+          <div
+            class="dropdown-menu"
+            onFocusout={this.focusOutListener}
             ref={(element) => (this.dropdownElement = element)}
           >
-            <button type="button" slot="toggle">
+            <button
+              id={uuidv4()}
+              type="button"
+              onClick={() => this.toggleOptions()}
+              ref={(element) => (this.dropdownButtonElement = element)}
+              aria-haspopup="menu"
+              aria-expanded={this.open ? "true" : "false"}
+            >
               <span>{this.text("menu")}</span>
               <dso-icon icon="chevron-down"></dso-icon>
             </button>
-            <div class="dso-dropdown-options">
-              <ul>
-                {this.mainMenu.map((menuItem) => (
-                  <MenuItem
-                    item={menuItem}
-                    onClick={(e) => this.clickHandler(e, "menuItem", { menuItem })}
-                    key={menuItem.label}
-                  />
-                ))}
-                {this.userHomeUrl && (
-                  <li>
-                    <a
-                      href={this.userHomeUrl}
-                      onClick={(e) => this.clickHandler(e, "userHome", { url: this.userHomeUrl })}
-                    >
-                      {this.text("userHome")}
-                    </a>
-                  </li>
-                )}
-                {this.userProfileUrl && this.userProfileName && this.authStatus === "loggedIn" && (
-                  <li>
-                    <a
-                      href={this.userProfileUrl}
-                      onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
-                    >
-                      {this.userProfileName}
-                      <span class="profile-label"> - Mijn profiel</span>
-                    </a>
-                  </li>
-                )}
-                {this.authStatus === "loggedOut" && (
-                  <li>
-                    {this.loginUrl ? (
-                      <a href={this.loginUrl} onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}>
-                        {this.text("login")}
-                      </a>
-                    ) : (
-                      <button type="button" onClick={(e) => this.clickHandler(e, "login")}>
-                        {this.text("login")}
-                      </button>
-                    )}
-                  </li>
-                )}
-                {this.authStatus === "loggedIn" && (
-                  <li>
-                    {this.logoutUrl ? (
-                      <a href={this.logoutUrl} onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}>
-                        {this.text("logout")}
-                      </a>
-                    ) : (
-                      <button type="button" onClick={(e) => this.clickHandler(e, "logout")}>
-                        {this.text("logout")}
-                      </button>
-                    )}
-                  </li>
-                )}
-                {this.showHelp && (
-                  <li>
-                    {this.helpUrl ? (
+            <div popover="manual" ref={(element) => (this.popoverElement = element)}>
+              <div
+                class="dropdown-menu-options"
+                role="menu"
+                aria-labelledby={this.dropdownButtonElement?.id}
+                onKeyDown={this.keyDownHandler}
+              >
+                <ul role="group">
+                  {this.mainMenu.map((menuItem) => (
+                    <MenuItem
+                      item={menuItem}
+                      onClick={(e) => this.clickHandler(e, "menuItem", { menuItem })}
+                      key={menuItem.label}
+                    />
+                  ))}
+                  {this.userHomeUrl && (
+                    <li role="menuitem">
                       <a
-                        href={this.helpUrl}
-                        class="dso-tertiary"
-                        onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
+                        href={this.userHomeUrl}
+                        onClick={(e) => this.clickHandler(e, "userHome", { url: this.userHomeUrl })}
                       >
-                        <span>{this.text("help")}</span>
-                        <dso-icon icon="help-outline"></dso-icon>
+                        {this.text("userHome")}
                       </a>
-                    ) : (
-                      <button type="button" class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help")}>
-                        <span>{this.text("help")}</span>
-                        <dso-icon icon="help-outline"></dso-icon>
-                      </button>
-                    )}
-                  </li>
-                )}
-              </ul>
+                    </li>
+                  )}
+                  {this.userProfileUrl && this.userProfileName && this.authStatus === "loggedIn" && (
+                    <li role="menuitem">
+                      <a
+                        href={this.userProfileUrl}
+                        onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
+                      >
+                        {this.userProfileName}
+                        <span class="profile-label"> - Mijn profiel</span>
+                      </a>
+                    </li>
+                  )}
+                  {this.authStatus === "loggedOut" && (
+                    <li role="menuitem">
+                      {this.loginUrl ? (
+                        <a href={this.loginUrl} onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}>
+                          {this.text("login")}
+                        </a>
+                      ) : (
+                        <button type="button" onClick={(e) => this.clickHandler(e, "login")}>
+                          {this.text("login")}
+                        </button>
+                      )}
+                    </li>
+                  )}
+                  {this.authStatus === "loggedIn" && (
+                    <li role="menuitem">
+                      {this.logoutUrl ? (
+                        <a
+                          href={this.logoutUrl}
+                          onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
+                        >
+                          {this.text("logout")}
+                        </a>
+                      ) : (
+                        <button type="button" onClick={(e) => this.clickHandler(e, "logout")}>
+                          {this.text("logout")}
+                        </button>
+                      )}
+                    </li>
+                  )}
+                  {this.showHelp && (
+                    <li role="menuitem">
+                      {this.helpUrl ? (
+                        <a
+                          href={this.helpUrl}
+                          class="dso-tertiary"
+                          onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
+                        >
+                          <span>{this.text("help")}</span>
+                          <dso-icon icon="help-outline"></dso-icon>
+                        </a>
+                      ) : (
+                        <button type="button" class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help")}>
+                          <span>{this.text("help")}</span>
+                          <dso-icon icon="help-outline"></dso-icon>
+                        </button>
+                      )}
+                    </li>
+                  )}
+                </ul>
+              </div>
             </div>
-          </dso-dropdown-menu>
+          </div>
         </div>
       )
     );
@@ -455,23 +602,41 @@ export class Header implements ComponentInterface {
                   ref={(el) => (this.dropdownMenuItemElementRef = el)}
                   class="dropdown-menu-item"
                 >
-                  <dso-dropdown-menu>
-                    <button type="button" slot="toggle">
+                  <div
+                    class="dropdown-menu"
+                    onFocusout={this.focusOutListener}
+                    ref={(element) => (this.dropdownElement = element)}
+                  >
+                    <button
+                      id={uuidv4()}
+                      type="button"
+                      onClick={() => this.toggleOptions()}
+                      ref={(element) => (this.dropdownButtonElement = element)}
+                      aria-haspopup="menu"
+                      aria-expanded={this.open ? "true" : "false"}
+                    >
                       <span>{this.text("overflowMenu")}</span>
                       <dso-icon icon="chevron-down" class="main-menu-item-icon"></dso-icon>
                     </button>
-                    <div class="dso-dropdown-options">
-                      <ul>
-                        {this.hiddenMainMenuItems.map((menuItem) => (
-                          <MenuItem
-                            item={menuItem}
-                            onClick={(e) => this.clickHandler(e, "menuItem", { menuItem })}
-                            key={menuItem.label}
-                          />
-                        ))}
-                      </ul>
+                    <div popover="manual" ref={(element) => (this.popoverElement = element)}>
+                      <div
+                        class="dropdown-menu-options"
+                        role="menu"
+                        aria-labelledby={this.dropdownButtonElement?.id}
+                        onKeyDown={this.keyDownHandler}
+                      >
+                        <ul>
+                          {this.hiddenMainMenuItems.map((menuItem) => (
+                            <MenuItem
+                              item={menuItem}
+                              onClick={(e) => this.clickHandler(e, "menuItem", { menuItem })}
+                              key={menuItem.label}
+                            />
+                          ))}
+                        </ul>
+                      </div>{" "}
                     </div>
-                  </dso-dropdown-menu>
+                  </div>
                 </li>
               )}
               {this.userHomeUrl && (

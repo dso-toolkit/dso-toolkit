@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Header: Eigen implementatie Dropdown Menu ([#3517](https://github.com/dso-toolkit/dso-toolkit/issues/3517))
+
 ### Removed
 * **BREAKING** Card Grid & Card List: Remove ([#3675](https://github.com/dso-toolkit/dso-toolkit/issues/3675))
 
