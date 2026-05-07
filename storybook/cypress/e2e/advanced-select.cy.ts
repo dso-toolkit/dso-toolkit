@@ -69,4 +69,26 @@ describe("AdvancedSelect", () => {
 
     cy.get("dso-advanced-select.hydrated").shadow().find("button.active-option").find("dso-label").should("exist");
   });
+
+  it("delegates focus to first interactive element when clicked on some non-interactive part", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
+
+    // Click between both Badges 30 pixels from the top
+    cy.get("dso-advanced-select.hydrated").realClick({ x: 954, y: 30 });
+
+    cy.get("dso-advanced-select.hydrated").shadow().find("button.active-option").should("be.focused");
+  });
+
+  it("delegates focus to first interactive element when focus() is called", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
+
+    cy.get("dso-advanced-select.hydrated")
+      .invoke("get", 0)
+      .as("advancedSelectElement")
+      .invoke("focus")
+      .get("dso-advanced-select.hydrated")
+      .shadow()
+      .find("button.active-option")
+      .should("be.focused");
+  });
 });

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Advanced Select: delegatesFocus ([#3683](https://github.com/dso-toolkit/dso-toolkit/issues/3683))
+
 ### Changed
 * Header: Eigen implementatie Dropdown Menu ([#3517](https://github.com/dso-toolkit/dso-toolkit/issues/3517))
 
