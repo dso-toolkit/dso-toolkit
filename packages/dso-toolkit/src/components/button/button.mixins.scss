@@ -76,7 +76,7 @@
     > span {
       @include utilities.sr-only();
     }
-  } @else {
+  } @else if $variant != tertiary {
     dso-icon:has(+ span:not(.sr-only)) {
       margin-inline-start: units.$u1 * -1;
     }
