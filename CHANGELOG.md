@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Viewer Grid: Main panel op tablet te groot ([#3645](https://github.com/dso-toolkit/dso-toolkit/issues/3645))
+
 ## ⌚ Release 95.0.0 - 2026-05-05
 
 ### Changed

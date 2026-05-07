@@ -3,8 +3,12 @@ const urlOverlayClosed = `${url}&args=overlayOpen:false`;
 const urlOverlayOpened = `${url}&args=overlayOpen:true`;
 
 describe("Viewer Grid", () => {
+  beforeEach(() => {
+    cy.viewport(1280, 600);
+  });
+
   // ToDo: Fix the 'matches snapshots -- filter-panel-open - small viewport` in #3199
-  it.skip("matches snapshots", () => {
+  it("matches snapshots", () => {
     cy.visit(url);
 
     cy.get("dso-viewer-grid.hydrated")
@@ -13,7 +17,7 @@ describe("Viewer Grid", () => {
       .invoke("attr", "main-panel-expanded", "")
       .invoke("attr", "document-panel-open", "")
       .invoke("attr", "document-panel-size", "small")
-      .matchImageSnapshot();
+      .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open-false - large viewport`);
 
     cy.get("@viewer-grid")
       .invoke("attr", "main-size", "medium")
@@ -22,18 +26,18 @@ describe("Viewer Grid", () => {
       .invoke("attr", "filter-panel-title", "De titel van het filter paneel")
       .invoke("attr", "filter-panel-open", true)
       .wait(250)
-      .matchImageSnapshot(`${Cypress.currentTest.title}" -- filter-panel-open - large viewport`);
+      .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open-true - large viewport`);
 
-    cy.viewport(900, 600)
+    cy.viewport(1124, 600)
       .wait(250)
       .get("@viewer-grid")
-      .matchImageSnapshot(`${Cypress.currentTest.title}" -- filter-panel-open - medium viewport`);
+      .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open - medium viewport`);
 
-    cy.viewport(800, 600)
+    cy.viewport(1024, 600)
       .get("@viewer-grid")
       .invoke("attr", "active-tab", "search")
       .wait(250)
-      .matchImageSnapshot(`${Cypress.currentTest.title}" -- filter-panel-open - small viewport`);
+      .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open - small viewport`);
   });
 
   it("should be accessible (overlay closed)", () => {
@@ -277,23 +281,38 @@ describe("Viewer Grid", () => {
       .should("exist")
       .and("be.visible");
   });
-});
 
-it("should have the correct aria-label on the filter panel", () => {
-  cy.visit("http://localhost:45000/iframe.html?id=core-viewer-grid--viewer-grid");
-  cy.get("dso-viewer-grid.hydrated")
-    .invoke("attr", "filter-panel-title", "Filter toegankelijkheidstest")
-    .invoke("attr", "filter-panel-open", "");
-  cy.get("dso-viewer-grid.hydrated")
-    .shadow()
-    .find(".filter-panel")
-    .should("have.attr", "aria-label", "Filter toegankelijkheidstest");
-});
+  it("should have the correct aria-label on the filter panel", () => {
+    cy.visit(url);
+    cy.get("dso-viewer-grid.hydrated")
+      .invoke("attr", "filter-panel-title", "Filter toegankelijkheidstest")
+      .invoke("attr", "filter-panel-open", "");
+    cy.get("dso-viewer-grid.hydrated")
+      .shadow()
+      .find(".filter-panel")
+      .should("have.attr", "aria-label", "Filter toegankelijkheidstest");
+  });
 
-it("should render h3 with sr-only class when no title is provided", () => {
-  cy.visit("http://localhost:45000/iframe.html?id=core-viewer-grid--viewer-grid");
-  cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-open", "");
-  cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("have.class", "sr-only");
+  it("should render h3 with sr-only class when no title is provided", () => {
+    cy.visit(url);
+    cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-open", "");
+    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("have.class", "sr-only");
+  });
+
+  const stories = ["document-panel", "filter-panel", "viewer-grid"];
+
+  for (const story of stories) {
+    it(`should be accessible (${story})`, () => {
+      cy.visit(`http://localhost:45000/iframe.html?id=core-viewer-grid--${story}`);
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-viewer-grid.hydrated");
+    });
+
+    it(`matches imageSnapshot (${story})`, () => {
+      cy.visit(`http://localhost:45000/iframe.html?id=core-viewer-grid--${story}`);
+      cy.get("dso-viewer-grid.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} - ${story}`);
+    });
+  }
 });
 
 function shrink() {
