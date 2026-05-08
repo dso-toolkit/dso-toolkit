@@ -95,6 +95,22 @@ describe("Modal", () => {
     cy.get("dso-modal:focus-within").realPress("Escape").get("@dsoCloseListener").should("have.been.calledOnce");
   });
 
+  it("should not emit dsoClose when mousedown starts in dialog and click ends outside", () => {
+    cy.get("@dsoModal").find(".dso-body").trigger("mousedown", { force: true });
+    cy.get("@dsoModal").find(".dso-modal").trigger("mouseup", "topLeft", { force: true });
+    cy.get("@dsoModal").find(".dso-modal").trigger("click", "topLeft", { force: true });
+
+    cy.get("@dsoCloseListener").should("not.have.been.called");
+  });
+
+  it("should not emit dsoClose when mousedown starts outside and mouseup ends in dialog", () => {
+    cy.get("@dsoModal").find(".dso-modal").trigger("mousedown", "topLeft", { force: true });
+    cy.get("@dsoModal").find(".dso-body").trigger("mouseup", { force: true });
+    cy.get("@dsoModal").find(".dso-modal").trigger("click", "topLeft", { force: true });
+
+    cy.get("@dsoCloseListener").should("not.have.been.called");
+  });
+
   it("should not emit dsoClose on escape press if closable is false", () => {
     cy.get("dso-modal.hydrated").invoke("prop", "closable", false);
     cy.realPress("Escape");

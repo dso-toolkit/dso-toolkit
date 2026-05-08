@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Button: Variant `tertiary` heeft onterecht `margin-inline-start: -8px;` ([#3747](https://github.com/dso-toolkit/dso-toolkit/issues/3747))
+* Modal: Mouseup buiten modal na Mousedown binnen de modal sluit de modal onverwacht ([#3509](https://github.com/dso-toolkit/dso-toolkit/issues/3509))
 
 ## ⌚ Release 95.0.0 - 2026-05-05
 

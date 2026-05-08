@@ -14,6 +14,8 @@ import { ModalCloseEvent } from "./modal.interfaces";
 })
 export class Modal implements ComponentInterface {
   private htmlDialogElement?: HTMLDialogElement;
+  private startedMouseDownOutsideDialog = false;
+  private endedMouseUpOutsideDialog = false;
 
   @Element()
   host!: HTMLDsoModalElement;
@@ -95,12 +97,20 @@ export class Modal implements ComponentInterface {
     (this.returnFocus ?? this.returnFocusElement)?.focus();
   }
 
+  private handleDialogMouseDown(e: MouseEvent) {
+    this.startedMouseDownOutsideDialog = e.target === this.htmlDialogElement;
+  }
+
+  private handleDialogMouseUp(e: MouseEvent) {
+    this.endedMouseUpOutsideDialog = e.target === this.htmlDialogElement;
+  }
+
   private handleDialogClick(e: MouseEvent) {
     if (!this.closable) {
       return;
     }
 
-    if (e.target === this.htmlDialogElement) {
+    if (this.startedMouseDownOutsideDialog && this.endedMouseUpOutsideDialog && e.target === this.htmlDialogElement) {
       this.dsoClose.emit({ originalEvent: e });
     }
   }
@@ -123,6 +133,8 @@ export class Modal implements ComponentInterface {
         aria-modal="true"
         aria-labelledby={this.ariaId}
         ref={(element) => (this.htmlDialogElement = element)}
+        onMouseDown={(e) => this.handleDialogMouseDown(e)}
+        onMouseUp={(e) => this.handleDialogMouseUp(e)}
         onClick={(e) => this.handleDialogClick(e)}
         onKeyDown={(e) => this.blockEscapeKey(e)}
       >
