@@ -17,7 +17,7 @@ Dit is de tweede en derde situatie in onderstaande afbeelding.
 
 Het kan voorkomen dat, afhankelijk van de beschikbare ruimte, kleine afbeeldingen uit `Ozon Content` zoomable zijn. 
 Dit wordt veroorzaakt doordat de gerenderde afmeting kleiner is dan de intrinsieke afmeting. De gerenderde afmeting 
-van een afbeelding uit `Ozon Content` wordt bepaald door te volgen berekeningsmethode voor de afmeting van een 
+van een afbeelding uit `Ozon Content` wordt bepaald door de te volgen berekeningsmethode voor de afmeting van een 
 afbeelding van de standaard die ten grondslag ligt aan `Ozon Content`. Daarnaast moet er rekening gehouden 
 worden met beperkingen ten gevolge van fouten in de content.
 

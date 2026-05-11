@@ -5,7 +5,7 @@ Officiële Publicaties(STOP). Deze XML wordt door de Ozon API aangeboden.
 
 ## Afbeeldingen
 STOP/TPOD kent het `<Illustratie>` element. Dit element bevat de attributen `dpi` en `breedte` en `hoogte`, die 
-gerbuikt moeten worden om de ruimte te reserveren in het DOM, zodat de Viewer Regels op de Kaart stabiel kan scrollen.
+gebruikt moeten worden om de ruimte te reserveren in het DOM, zodat de Viewer Regels op de Kaart stabiel kan scrollen.
 
 De hoogte en breedte van de afbeelding moeten worden uitgerekend volgens STOP richtlijnen: https://koop.gitlab.io/STOP/standaard/1.4.0-ic/regeltekst_afbeelding.html
 
@@ -21,7 +21,7 @@ de afbeelding getoond wordt. Afbeeldingen kunnen niet breder worden dan de conta
 
 Het component `Image Overlay` wordt ingezet om afbeeldingen (`<Illustratie>`) uit de XML in HTML te renderen.
 
-Zie ook  de documentatie van het component [Image Overlay](/?path=/docs/core-image-overlay--docs)
+Zie ook de documentatie van het component [Image Overlay](/?path=/docs/core-image-overlay--docs)
 
 ---
 
