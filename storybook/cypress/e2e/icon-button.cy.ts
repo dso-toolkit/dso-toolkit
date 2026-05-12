@@ -29,7 +29,7 @@ describe("Icon Button", () => {
       .should("have.text", "Hamburger menu");
   });
 
-  it("should set correct aria-label and aria-pressed for toggled and untoggled states", () => {
+  it("should set correct aria-label and aria-pressed when toggled", () => {
     cy.get("dso-icon-button.hydrated")
       .invoke("attr", "label", "Hamburger menu")
       .invoke("prop", "toggled", false)
