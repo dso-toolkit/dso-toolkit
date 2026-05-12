@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Viewer Grid: Main panel op tablet te groot ([#3645](https://github.com/dso-toolkit/dso-toolkit/issues/3645))
 
+### Docs
+* Image Overlay: Kleine afbeelding kan toch vergroot worden ([#3506](https://github.com/dso-toolkit/dso-toolkit/issues/3506))
+
 ### Fixed
 * Button: Variant `tertiary` heeft onterecht `margin-inline-start: -8px;` ([#3747](https://github.com/dso-toolkit/dso-toolkit/issues/3747))
 

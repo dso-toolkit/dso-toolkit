@@ -1,6 +1,29 @@
 # `<dso-ozon-content>`
 
-Het Ozon Content component verwerkt XML die uit de Ozon API komt.
+Het component `Ozon Content` verwerkt XML van het Toepassingsprofiel omgevingsdocumenten (TPOD) van de Standaard 
+Officiële Publicaties(STOP). Deze XML wordt door de Ozon API aangeboden.
+
+## Afbeeldingen
+STOP/TPOD kent het `<Illustratie>` element. Dit element bevat de attributen `dpi` en `breedte` en `hoogte`, die 
+gebruikt moeten worden om de ruimte te reserveren in het DOM, zodat de Viewer Regels op de Kaart stabiel kan scrollen.
+
+De hoogte en breedte van de afbeelding moeten worden uitgerekend volgens STOP richtlijnen: https://koop.gitlab.io/STOP/standaard/1.4.0-ic/regeltekst_afbeelding.html
+
+Er is een uitzondering: Een afbeelding mag nooit hoger zijn dan de height van de viewport. Er bestaan 
+afbeeldingen waar een fout in de content zit. De attributen `hoogte` en `breedte` geven de intrinsieke maten van de 
+afbeelding aan. Maar er zijn omgevingsdocumenten waar deze waardes afwijken van de intrinsieke maten, met soms 
+astronomische waardes als 17000 pixels. Dit was nooit de bedoeling maar is wel een probleem in de presentatielaag.
+
+Om de planmaker tegemoet te komen maken wij afbeeldingen nooit hoger dan de viewport height.
+
+De gerenderde breedte van een afbeelding is een percentage van de beschikbare breedte van de container waarbinnen 
+de afbeelding getoond wordt. Afbeeldingen kunnen niet breder worden dan de container. 
+
+Het component `Image Overlay` wordt ingezet om afbeeldingen (`<Illustratie>`) uit de XML in HTML te renderen.
+
+Zie ook de documentatie van het component Image Overlay
+
+---
 
 <!-- Auto Generated Below -->
 
