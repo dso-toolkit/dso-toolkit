@@ -21,7 +21,7 @@ de afbeelding getoond wordt. Afbeeldingen kunnen niet breder worden dan de conta
 
 Het component `Image Overlay` wordt ingezet om afbeeldingen (`<Illustratie>`) uit de XML in HTML te renderen.
 
-Zie ook de documentatie van het component [Image Overlay](/?path=/docs/core-image-overlay--docs)
+Zie ook de documentatie van het component Image Overlay
 
 ---
 

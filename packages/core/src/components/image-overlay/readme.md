@@ -21,8 +21,7 @@ van een afbeelding uit `Ozon Content` wordt bepaald door de te volgen berekening
 afbeelding van de standaard die ten grondslag ligt aan `Ozon Content`. Daarnaast moet er rekening gehouden 
 worden met beperkingen ten gevolge van fouten in de content.
 
-Zie ook de documentatie van het component [Ozon Content](/?path=/docs/core-ozon-content--docs) (onder de kop 
-Afbeeldingen).
+Zie ook de documentatie van het component Ozon Content (onder de kop Afbeeldingen).
 
 ---
 
