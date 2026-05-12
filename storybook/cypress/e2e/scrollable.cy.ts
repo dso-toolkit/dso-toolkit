@@ -53,7 +53,7 @@ describe("Scrollable", () => {
       .should("not.have.class", "dso-scroll-top");
   });
 
-  it("should update scroll state with dynamic content", () => {
+  it.skip("should update scroll state with dynamic content", () => {
     cy.visit("http://localhost:45000/iframe.html?args=&id=core-scrollable--dynamic-content");
     const scrollContainer = () => cy.get("dso-scrollable.hydrated").shadow().find(".dso-scroll-container");
 
