@@ -20,7 +20,7 @@ const ProjectOverzicht = examplePageStories((templates) => {
     linkTemplate,
     applicationHeadingTemplate,
     buttonRowTemplate,
-    cardListTemplate,
+    cardContainerTemplate,
     highlightBoxTemplate,
     linkListTemplate,
     richContentTemplate,
@@ -83,7 +83,8 @@ const ProjectOverzicht = examplePageStories((templates) => {
           </div>
           <div class="col-md-8">
             <h2>Verdergaan met aanvullen</h2>
-            ${cardListTemplate({
+            ${cardContainerTemplate({
+              mode: "list",
               cards: [
                 {
                   href: "#",
@@ -122,7 +123,8 @@ const ProjectOverzicht = examplePageStories((templates) => {
             })}
             <h2>Ingediende verzoeken</h2>
             <p>Kies hier het verzoek dat u wilt bekijken, aanvullen of intrekken.</p>
-            ${cardListTemplate({
+            ${cardContainerTemplate({
+              mode: "list",
               cards: [
                 {
                   href: "#",

@@ -12,12 +12,6 @@
     "type": "core"
   },
   {
-    "name": "card-container",
-    "selector": "dso-card-container.hydrated",
-    "stories": ["card-list", "card-grid"],
-    "type": "core"
-  },
-  {
     "name": "highlight-box",
     "selector": "dso-highlight-box.hydrated",
     "stories": ["default", "yellow", "green", "white-with-dropshadow", "with-border", "with-icon", "with-banner-image"],
@@ -114,8 +108,6 @@
     ],
     "type": "html-css"
   },
-  { "name": "card-grid-deprecated", "selector": ".dso-card-grid", "stories": ["card-grid"], "type": "html-css" },
-  { "name": "card-list-deprecated", "selector": ".dso-card-list", "stories": ["card-list"], "type": "html-css" },
   {
     "name": "context",
 

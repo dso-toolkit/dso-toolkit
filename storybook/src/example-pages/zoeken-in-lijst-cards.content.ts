@@ -1,7 +1,8 @@
-import { CardList } from "dso-toolkit";
+import { CardContainer } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
-export const cardList: CardList<TemplateResult> = {
+export const cardContainer: CardContainer<TemplateResult> = {
+  mode: "list",
   cards: [
     {
       href: "#",

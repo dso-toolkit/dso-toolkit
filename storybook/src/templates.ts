@@ -18,8 +18,6 @@ import {
   ButtonRow,
   Card,
   CardContainer,
-  CardGrid,
-  CardList,
   ComponentsToTemplates,
   ContactInformation,
   Context,
@@ -127,8 +125,6 @@ import { coreButtonGroup } from "./components/button-group/button-group.core-tem
 import { cssButtonRow } from "./components/button-row/button-row.css-template";
 import { coreCard } from "./components/card/card.core-template";
 import { coreCardContainer } from "./components/card-container/card-container.core-template";
-import { cssCardGrid } from "./components/card-grid/card-grid.css-template";
-import { cssCardList } from "./components/card-list/card-list.css-template";
 import { coreContactInformation } from "./components/contact-information/contact-information.core-template";
 import { cssContext } from "./components/context/context.css-template";
 import { coreCursorTooltip } from "./components/cursor-tooltip/cursor-tooltip.core-template";
@@ -234,8 +230,6 @@ export interface Components {
   buttonRow: ButtonRow;
   card: Card<TemplateResult>;
   cardContainer: CardContainer<TemplateResult>;
-  cardGrid: CardGrid<TemplateResult>;
-  cardList: CardList<TemplateResult>;
   contactInformation: ContactInformation<TemplateResult | string>;
   context: Context<TemplateResult>;
   cursorTooltip: CursorTooltip;
@@ -413,8 +407,6 @@ templateContainer.add(cssBanner);
 templateContainer.add(cssBreadcrumbs);
 templateContainer.add(cssButton);
 templateContainer.add(cssButtonRow);
-templateContainer.add(cssCardGrid);
-templateContainer.add(cssCardList);
 templateContainer.add(cssContext);
 templateContainer.add(cssDefinitionList);
 templateContainer.add(cssDescription);
