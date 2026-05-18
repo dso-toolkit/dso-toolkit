@@ -1,0 +1,43 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v95.2.0 ⛱️
+
+Deze release bevat een **deprecation** voor het volgende component:
+
+- Alert (HTML/CSS implementatie)
+
+<!-- truncate -->
+
+## Alert (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Alert` is deprecated. In een toekomstige **BREAKING** release zal de
+HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Alert.
+
+```html
+❌
+<div class="alert alert-success">
+  <span class="sr-only">Gelukt:</span>
+  <div class="dso-rich-content">
+    <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
+    <button type="button" class="dso-alert-button">
+      <span>Button</span>
+    </button>
+  </div>
+</div>
+
+✅
+<dso-alert status="success" closable>
+  <div class="dso-rich-content">
+    <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
+    <button type="button" class="dso-primary dso-small">
+      <span>Button</span>
+    </button>
+  </div>
+</dso-alert>
+```

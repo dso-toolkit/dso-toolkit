@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Deprecated
+* Alert: Deprecate HTML/CSS implementatie ([#3668](https://github.com/dso-toolkit/dso-toolkit/issues/3668))
+
 ## 🩵 Release 95.1.0 - 2026-05-18
 
 ### Changed
