@@ -3,6 +3,7 @@ export interface InputRange {
   max?: number;
   value?: number;
   step?: number;
+  name?: string;
   label?: string;
   unit: string;
   description?: string;

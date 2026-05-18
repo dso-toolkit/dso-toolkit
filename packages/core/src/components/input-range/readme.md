@@ -7,15 +7,16 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                         | Type                  | Default     |
-| ------------- | ------------- | ----------------------------------- | --------------------- | ----------- |
-| `description` | `description` | The description of the range.       | `string \| undefined` | `undefined` |
-| `label`       | `label`       | The label of the range.             | `string \| undefined` | `undefined` |
-| `max`         | `max`         | The maximum value of the range.     | `number \| undefined` | `undefined` |
-| `min`         | `min`         | The minimum value of the range.     | `number \| undefined` | `undefined` |
-| `step`        | `step`        | The step to increment the value by. | `number \| undefined` | `undefined` |
-| `unit`        | `unit`        | The unit of the range.              | `string`              | `""`        |
-| `value`       | `value`       | The value of the range.             | `number \| undefined` | `undefined` |
+| Property      | Attribute     | Description                                                                                           | Type                  | Default     |
+| ------------- | ------------- | ----------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
+| `description` | `description` | The description of the range.                                                                         | `string \| undefined` | `undefined` |
+| `label`       | `label`       | The label of the range.                                                                               | `string \| undefined` | `undefined` |
+| `max`         | `max`         | The maximum value of the range.                                                                       | `number \| undefined` | `undefined` |
+| `min`         | `min`         | The minimum value of the range.                                                                       | `number \| undefined` | `undefined` |
+| `name`        | `name`        | The name of the range. Used when this form-associated custom element participates in form submission. | `string \| undefined` | `undefined` |
+| `step`        | `step`        | The step to increment the value by.                                                                   | `number \| undefined` | `undefined` |
+| `unit`        | `unit`        | The unit of the range.                                                                                | `string`              | `""`        |
+| `value`       | `value`       | The value of the range.                                                                               | `number \| undefined` | `undefined` |
 
 
 ## Events

@@ -9,12 +9,13 @@ export const coreInputRange: ComponentImplementation<InputRange> = {
   component: "inputRange",
   implementation: "core",
   template: () =>
-    function inputRangeTemplate({ min, max, value, step, label, unit, description, dsoChange }) {
+    function inputRangeTemplate({ min, max, value, step, name, label, unit, description, dsoChange }) {
       return html`<dso-input-range
         min=${ifDefined(min)}
         max=${ifDefined(max)}
         value=${ifDefined(value)}
         step=${ifDefined(step)}
+        name=${ifDefined(name)}
         label=${ifDefined(label)}
         unit=${ifDefined(unit)}
         description=${ifDefined(description)}

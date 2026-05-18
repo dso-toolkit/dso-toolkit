@@ -11,6 +11,7 @@ export interface InputRangeArgs {
   min: number;
   max: number;
   step: number;
+  name?: string;
   label: string;
   description: string;
   dsoChange: (e: InputRangeChangeEvent) => void;
@@ -36,6 +37,9 @@ export const inputRangeArgTypes: ArgTypes<InputRangeArgs> = {
   },
   min: {
     control: "number",
+  },
+  name: {
+    control: "text",
   },
   step: {
     control: "number",

@@ -850,6 +850,10 @@ export namespace Components {
          */
         "min"?: number;
         /**
+          * The name of the range. Used when this form-associated custom element participates in form submission.
+         */
+        "name"?: string;
+        /**
           * The step to increment the value by.
          */
         "step"?: number;
@@ -3659,6 +3663,14 @@ declare namespace LocalJSX {
          */
         "description"?: string;
         /**
+          * If `true`, the user cannot interact with the element.
+         */
+        "disabled"?: boolean;
+        /**
+          * The `id` of a `<form>` element to associate this element with.
+         */
+        "form"?: string;
+        /**
           * The label of the range.
          */
         "label"?: string;
@@ -3670,6 +3682,10 @@ declare namespace LocalJSX {
           * The minimum value of the range.
          */
         "min"?: number;
+        /**
+          * The name of the range. Used when this form-associated custom element participates in form submission.
+         */
+        "name"?: string;
         /**
           * Emitted when the value has changed.
          */
@@ -4709,6 +4725,7 @@ declare namespace LocalJSX {
         "max": number;
         "value": number;
         "step": number;
+        "name": string;
         "label": string;
         "unit": string;
         "description": string;
