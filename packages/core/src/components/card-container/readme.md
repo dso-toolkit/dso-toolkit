@@ -1,6 +1,6 @@
 # `<dso-card-container>`
 
-
+Een Card Container bevat een lijst of een grid van Cards, Document Cards of Plekinfo Cards.
 
 <!-- Auto Generated Below -->
 

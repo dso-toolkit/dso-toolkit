@@ -27,7 +27,7 @@ const Documenten = examplePageStories((templates) => {
     linkTemplate,
     bannerTemplate,
     buttonTemplate,
-    documentCardTemplate,
+    cardContainerTemplate,
     documentHeaderTemplate,
     highlightBoxTemplate,
     iconTemplate,
@@ -104,13 +104,7 @@ const Documenten = examplePageStories((templates) => {
               variant: "tertiary",
               icon: { icon: "chevron-up" },
             })}
-            ${navbarTemplate(mainSubmenu)}
-
-            <ul class="dso-card-list">
-              ${documentCardList.map((documentCardItem) => {
-                return html`<li>${documentCardTemplate(documentCardItem)}</li>`;
-              })}
-            </ul>
+            ${navbarTemplate(mainSubmenu)} ${cardContainerTemplate({ mode: "list", cards: documentCardList })}
           `,
           map: html`
             ${mapMessageTemplate({

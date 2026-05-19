@@ -1,8 +1,9 @@
-@use "~dso-toolkit/src/components/card-container";
 @use "~dso-toolkit/src/components/list";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 
 @use "~dso-toolkit/src/components/grid/grid.variables" as grid-variables;
+
+@use "card-container.variables" as card-container;
 
 :host {
   .dso-card-list {
@@ -10,12 +11,20 @@
 
     border-block-end: card-container.$border-width solid card-container.$border-color;
     margin-block-start: card-container.$border-width * -1;
+
+    ::slotted(li) {
+      border-block-start: card-container.$border-width solid card-container.$border-color;
+    }
   }
 
   .dso-card-grid {
     display: grid;
     gap: grid-variables.$grid-gutter-width;
     grid-auto-rows: 1fr;
+
+    ::slotted(dso-card) {
+      box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    }
 
     @media (max-width: media-query-breakpoints.$screen-sm-max) {
       grid-template-columns: repeat(1, 1fr);

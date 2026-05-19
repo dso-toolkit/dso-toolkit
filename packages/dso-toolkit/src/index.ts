@@ -43,10 +43,6 @@ export * from "./components/card";
 
 export * from "./components/card-container";
 
-export * from "./components/card-grid";
-
-export * from "./components/card-list";
-
 export * from "./components/contact-information";
 
 export * from "./components/context";
