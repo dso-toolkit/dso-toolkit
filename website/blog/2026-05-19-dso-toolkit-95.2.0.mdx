@@ -4,9 +4,10 @@ authors: [iterox]
 
 # DSO Toolkit v95.2.0 ⛱️
 
-Deze release bevat een **deprecation** voor het volgende component:
+Deze release bevat 2 **deprecation**s voor de volgende componenten:
 
 - Alert (HTML/CSS implementatie)
+- Attachements Counter (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -40,4 +41,21 @@ Gebruik de Core implementatie van Alert.
     </button>
   </div>
 </dso-alert>
+```
+
+## Attachments Counter (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Attachments Counter` is deprecated. In een toekomstige **BREAKING**
+release zal de HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van `Attachments Counter`.
+
+```html
+❌
+<span class="dso-attachments"> 3 <span class="sr-only">bijlagen</span> </span>
+
+✅
+<dso-attachments-counter count="3"></dso-attachments-counter>
 ```

@@ -62,7 +62,7 @@
     "type": "html-css"
   },
   {
-    "name": "attachments-counter",
+    "name": "attachments-counter-deprecated",
     "selector": ".dso-attachments",
     "stories": ["attachments-counter"],
     "type": "html-css"

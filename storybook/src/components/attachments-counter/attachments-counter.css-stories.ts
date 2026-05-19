@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<AttachmentsCounterArgs> = {
   ...attachmentsCounterMeta({ readme }),
-  title: "HTML|CSS/Attachments Counter",
+  title: "HTML|CSS/Attachments Counter (Deprecated)",
 };
 
 export default meta;

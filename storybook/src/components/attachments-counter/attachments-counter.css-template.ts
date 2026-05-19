@@ -8,10 +8,10 @@ export const cssAttachmentsCounter: ComponentImplementation<AttachmentsCounter> 
   implementation: "html-css",
   template: () =>
     function attachmentsCounterTemplate({ count }) {
-      return html`
+      return html`<!-- START DEPRECATED: use <dso-attachments-counter> -->
         <span class="dso-attachments">
           ${count} <span class="sr-only">${count !== 1 ? "bijlagen" : "bijlage"}</span>
         </span>
-      `;
+        <!-- END DEPRECATED -->`;
     },
 };
