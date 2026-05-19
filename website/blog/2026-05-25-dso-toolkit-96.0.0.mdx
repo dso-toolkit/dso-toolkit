@@ -1,0 +1,60 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v96.0.0 🪁
+
+Deze release bevat **breaking** changes voor de volgende componenten:
+
+- Card Grid (HTML/CSS implementatie)
+- Card List (HTML/CSS implementatie)
+
+<!-- truncate -->
+
+## Card Grid (HTML/CSS implementatie)
+
+Het HTML/CSS component `Card Grid` is in 🦈 v94.0.0 **deprecated**. In deze release is dit component verwijderd.
+
+### Migratiepad
+
+Gebruik het Core component `Card Container` met mode `grid`.
+
+```html
+❌
+<div class="dso-card-grid">
+  <dso-card href="#"></dso-card>
+  [...]
+</div>
+
+✅
+<dso-card-container mode="grid">
+  <dso-card href="#">
+  [...]
+</dso-card-containe
+```
+
+## Card List (HTML/CSS implementatie)
+
+Het HTML/CSS component `Card List` is in 🦈 v94.0.0 **deprecated**. In deze release is dit component verwijderd.
+
+### Migratiepad
+
+Gebruik het Core component `Card Container` met mode `list`.
+
+```html
+❌
+<ul class="dso-card-list">
+  <li>
+    <dso-card href="#"></dso-card>
+  </li>
+  [...]
+</ul>
+
+✅
+<dso-card-container mode="list">
+  <li>
+    <dso-card href="#">
+  </li>
+  [...]
+</dso-card-container>
+```

@@ -6,7 +6,7 @@ import { examplePageStories } from "../example-page-stories";
 import { header } from "./content/header.content";
 import { footerPartial } from "./partials/footer";
 import { headerPartial } from "./partials/header";
-import { cardList } from "./zoeken-in-lijst-cards.content";
+import { cardContainer } from "./zoeken-in-lijst-cards.content";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Zoeken in lijst cards",
@@ -19,7 +19,7 @@ const ZoekenInLijstCards = examplePageStories((templates) => {
     applicationHeadingTemplate,
     searchBarTemplate,
     badgeTemplate,
-    cardListTemplate,
+    cardContainerTemplate,
     footnoteTemplate,
     footnotesTemplate,
     formTemplate,
@@ -64,7 +64,7 @@ const ZoekenInLijstCards = examplePageStories((templates) => {
                   status: "warning",
                 })}
               </h5>
-              ${cardListTemplate(cardList)}
+              ${cardContainerTemplate(cardContainer)}
             </div>
             <div class="col-md-4">
               <h2 class="dso-steps-indicator">Filters</h2>
