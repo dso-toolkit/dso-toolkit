@@ -634,7 +634,7 @@ export class Header implements ComponentInterface {
                             />
                           ))}
                         </ul>
-                      </div>{" "}
+                      </div>
                     </div>
                   </div>
                 </li>
