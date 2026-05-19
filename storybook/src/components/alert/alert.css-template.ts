@@ -19,7 +19,7 @@ export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
   implementation: "html-css",
   template: ({ richContentTemplate }) =>
     function alertTemplate({ status, message, compact, closable, onClick, withRoleAlert }) {
-      return html`
+      return html`<!-- START DEPRECATED: use <dso-alert> -->
         <div
           class="alert ${classMap({ [`alert-${status}`]: status, "dso-compact": !!compact })}"
           role=${ifDefined(withRoleAlert ? "alert" : undefined)}
@@ -39,6 +39,6 @@ export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
               </button>`
             : nothing}
         </div>
-      `;
+        <!-- END DEPRECATED -->`;
     },
 };

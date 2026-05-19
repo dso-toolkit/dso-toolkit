@@ -9,7 +9,7 @@ export const reactAlert: ComponentImplementation<Alert<JSX.Element>> = {
   component: "alert",
   implementation: "react",
   template: () =>
-    function alertTemplate({ message, onClick, status, compact, withRoleAlert, closable, dsoClose }) {
+    function alertTemplate({ message, interaction, status, compact, withRoleAlert, closable, dsoClose }) {
       return (
         <DsoAlert
           status={status}
@@ -20,8 +20,8 @@ export const reactAlert: ComponentImplementation<Alert<JSX.Element>> = {
         >
           <div className="dso-rich-content">
             {typeof message === "string" ? <div dangerouslySetInnerHTML={{ __html: message }} /> : message}
-            {onClick && (
-              <button type="button" className="dso-alert-button" onClick={(e) => onClick(e.nativeEvent)}>
+            {interaction && (
+              <button type="button" className="dso-primary dso-small">
                 Button
               </button>
             )}

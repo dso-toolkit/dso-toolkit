@@ -8,7 +8,7 @@ import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, wa
 
 const meta: Meta<AlertArgs> = {
   ...alertMeta({ readme }),
-  title: "HTML|CSS/Alert",
+  title: "HTML|CSS/Alert (Deprecated)",
 };
 
 export default meta;

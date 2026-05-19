@@ -13,8 +13,8 @@ export const angularAlert: ComponentImplementation<Alert<IStory>> = {
         template: `<dso-alert [status]="status" [roleAlert]="roleAlert" [compact]="compact" [closable]="closable" (dsoClose)="dsoClose?.($event)">
           <div class="dso-rich-content">
             ${typeof props.message === "string" ? props.message : props.message.template}
-            @if(onClick){
-              <button type="button" class="dso-alert-button" (click)="onClick($event)">Button</button>
+            @if(interaction){
+              <button type="button" class="dso-primary dso-small">Button</button>
             }
           </div>
         </dso-alert>`,
