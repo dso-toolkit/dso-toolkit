@@ -8,7 +8,6 @@ export interface Alert<TemplateFnReturnType> {
   compact?: boolean;
   closable?: boolean;
   dsoClose?: (e: CustomEvent<AlertCloseEvent>) => void;
-  onClick?: (e: MouseEvent) => void;
   interaction?: Button;
   withRoleAlert?: boolean;
 }

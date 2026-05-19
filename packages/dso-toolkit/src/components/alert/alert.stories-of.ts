@@ -43,7 +43,6 @@ export function alertMeta<TRenderer extends Renderer>({ readme }: MetaOptions = 
     args: {
       withButton: true,
       closable: false,
-      click: fn(),
       dsoClose: fn(),
     },
     parameters: {
