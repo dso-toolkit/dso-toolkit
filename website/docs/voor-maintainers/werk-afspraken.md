@@ -91,7 +91,7 @@ We nesten media queries altijd in de selector waarop ze van toepassing zijn en g
 
 ### Cypress tests
 
-- Alle Core Web componenten hebben een dedicated Cypress test file in `storybook/cypress/e2e`.
+Elk Core Web component heeft een dedicated Cypress test file in `storybook/cypress/e2e`. De test file bevat minimaal een visuele test (`matchImageSnapshot`) en een toegankelijkheidstest (`dsoCheckA11y`).
 
 ## Deprecated/removed blog migratiepad
 

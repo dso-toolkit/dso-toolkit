@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Removed
+* **BREAKING** Banner: Remove HTML/CSS implementatie ([#3673](https://github.com/dso-toolkit/dso-toolkit/issues/3673))
+
 ## 🪁 Release 96.0.0 - 2026-06-01
 
 ### Added
