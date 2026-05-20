@@ -20,6 +20,7 @@
  - [dso-alert](../alert)
  - [dso-annotation-kaart](../annotation/annotation-kaart)
  - [dso-attachments-counter](../attachments-counter)
+ - [dso-banner](../banner)
  - [dso-card](../card)
  - [dso-document-card](../document-card)
  - [dso-header](../header)
@@ -48,6 +49,7 @@ graph TD;
   dso-alert --> dso-icon
   dso-annotation-kaart --> dso-icon
   dso-attachments-counter --> dso-icon
+  dso-banner --> dso-icon
   dso-card --> dso-icon
   dso-document-card --> dso-icon
   dso-header --> dso-icon

@@ -1,12 +1,12 @@
 @use "../../variables/units";
-@use "../../variables/colors";
 @use "../../variables/typography";
+@use "../../variables/colors";
 @use "../../variables/media-query-breakpoints";
 
-@use "../../di";
-
-@use "banner.variables" as banner-variables;
+@use "./banner.variables" as banner-variables;
 @use "../../global/mixins/set-colors.mixin" as set-colors;
+
+@use "../../di";
 
 @mixin _variant($background, $border, $text-color) {
   color: $text-color;

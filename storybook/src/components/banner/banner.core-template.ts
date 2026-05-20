@@ -9,9 +9,7 @@ export const coreBanner: ComponentImplementation<Banner<TemplateResult>> = {
   template: () =>
     function bannerTemplate({ status, compact, icon, content }) {
       return html`
-        <dso-banner status=${status} ?compact=${compact} ?icon=${icon || !compact}>
-          <div class="dso-banner-inner">${content}</div>
-        </dso-banner>
+        <dso-banner status=${status} ?compact=${compact} ?icon=${icon || !compact}> ${content} </dso-banner>
       `;
     },
 };

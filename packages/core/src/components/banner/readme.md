@@ -12,6 +12,19 @@
 | `status` _(required)_ | `status`  | The status of the banner.                                                                         | `"error" \| "info" \| "success" \| "warning"` | `undefined` |
 
 
+## Dependencies
+
+### Depends on
+
+- [dso-icon](../icon)
+
+### Graph
+```mermaid
+graph TD;
+  dso-banner --> dso-icon
+  style dso-banner fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
