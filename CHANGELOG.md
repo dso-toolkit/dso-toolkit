@@ -5,8 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Deprecated
+* Info Button: Deprecate HTML/CSS implementatie ([#3678](https://github.com/dso-toolkit/dso-toolkit/issues/3678))
+
 ### Removed
 * **BREAKING** Card Grid & Card List: Remove ([#3675](https://github.com/dso-toolkit/dso-toolkit/issues/3675))
+* **BREAKING** Banner: Remove HTML/CSS implementatie ([#3673](https://github.com/dso-toolkit/dso-toolkit/issues/3673))
 
 ## 🥕 Release 95.2.0 - 2026-05-19
 

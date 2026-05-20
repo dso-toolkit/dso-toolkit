@@ -1,3 +1,3 @@
-export * from "./banner.args.js";
-export * from "./banner.models.js";
-export * from "./banner.stories-of.js";
+export * from "./banner.args";
+export * from "./banner.models";
+export * from "./banner.stories-of";

@@ -6,12 +6,6 @@
     "type": "core"
   },
   {
-    "name": "banner",
-    "selector": "dso-banner.hydrated",
-    "stories": ["success", "error", "info", "warning", "rich-warning"],
-    "type": "core"
-  },
-  {
     "name": "highlight-box",
     "selector": "dso-highlight-box.hydrated",
     "stories": ["default", "yellow", "green", "white-with-dropshadow", "with-border", "with-icon", "with-banner-image"],
@@ -59,21 +53,6 @@
     "name": "attachments-counter-deprecated",
     "selector": ".dso-attachments",
     "stories": ["attachments-counter"],
-    "type": "html-css"
-  },
-  {
-    "name": "banner-deprecated",
-    "selector": ".dso-banner",
-    "stories": [
-      "success",
-      "error",
-      "info",
-      "info-compact-non-removable",
-      "info-non-removable",
-      "rich-info",
-      "rich-warning",
-      "warning"
-    ],
     "type": "html-css"
   },
   { "name": "breadcrumbs", "selector": "ol.dso-breadcrumbs", "stories": ["breadcrumbs"], "type": "html-css" },
@@ -232,7 +211,7 @@
     "type": "html-css"
   },
   {
-    "name": "info-button",
+    "name": "info-button-deprecated",
     "selector": ".dso-info-button",
     "stories": ["default"],
     "type": "html-css"
