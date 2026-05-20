@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Deprecated
+* **BREAKING** Banner: Remove HTML/CSS implementatie ([#3673](https://github.com/dso-toolkit/dso-toolkit/issues/3673))
+
 ### Removed
 * **BREAKING** Card Grid & Card List: Remove ([#3675](https://github.com/dso-toolkit/dso-toolkit/issues/3675))
 

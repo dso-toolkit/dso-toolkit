@@ -1,12 +1,21 @@
 import { Component, Prop, h } from "@stencil/core";
 import { clsx } from "clsx";
 
+import { IconAlias } from "../icon/icon.interfaces";
+
 @Component({
   tag: "dso-banner",
   styleUrl: "banner.scss",
   shadow: true,
 })
 export class Banner {
+  private statusIconMap: Record<string, IconAlias> = {
+    success: "status-success",
+    error: "status-error",
+    info: "status-info-solid",
+    warning: "status-warning",
+  };
+
   /**
    * The status of the banner.
    */
@@ -28,6 +37,7 @@ export class Banner {
   icon = false;
 
   render() {
+    const iconName = this.statusIconMap[this.status];
     return (
       <section
         class={clsx("dso-banner", `alert-${this.status}`, {
@@ -35,7 +45,10 @@ export class Banner {
         })}
         role="alert"
       >
-        <slot></slot>
+        <div class="dso-banner-inner">
+          {this.icon && <dso-icon icon={iconName} aria-hidden="true"></dso-icon>}
+          <slot></slot>
+        </div>
       </section>
     );
   }
