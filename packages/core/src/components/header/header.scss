@@ -2,10 +2,11 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/scaffolding";
 @use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/zindex";
 
 @use "~dso-toolkit/src/components/link";
-@use "~dso-toolkit/src/components/dropdown-menu";
 
 @use "header.variables" as core-header-variables;
 
@@ -35,8 +36,8 @@
     flex-wrap: nowrap;
   }
 
-  dso-dropdown-menu {
-    .dso-dropdown-options {
+  .dropdown-menu {
+    .dropdown-menu-options {
       inline-size: 100%;
     }
   }
@@ -47,11 +48,20 @@
     align-items: center;
   }
 
-  dso-dropdown-menu {
-    .dso-dropdown-options {
+  .dropdown-menu {
+    .dropdown-menu-options {
       inline-size: 375px;
     }
   }
+}
+
+div[popover] {
+  margin: 0 !important;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  overflow: unset;
+  inline-size: max-content;
 }
 
 .dso-header {
@@ -129,16 +139,32 @@
   position: relative; // Needed for menu item calculations
 }
 
-dso-dropdown-menu {
-  @include dropdown-menu.children();
-
+.dropdown-menu {
   button {
+    align-items: center;
     background-color: transparent;
     border: 0;
+    color: colors.$grasgroen;
     display: flex;
     font-family: typography.$font-family-base;
-    align-items: center;
+    font-size: typography.$font-size-base;
+    font-weight: 600;
+    line-height: normal;
     position: relative;
+
+    &::after {
+      margin-inline-start: units.$u1;
+      position: absolute;
+      inset-inline-end: 0;
+      inset-block-start: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+      text-decoration: underline;
+    }
 
     dso-icon {
       inline-size: units.$u3;
@@ -154,25 +180,53 @@ dso-dropdown-menu {
     }
   }
 
-  .dso-dropdown-options {
+  .dropdown-menu-options {
+    background-clip: padding-box;
+    background-color: core-header-variables.$dropdown-menu-background-color;
     border: 0;
     border-radius: 0;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
+    font-size: typography.$root-font-size-base;
+    min-inline-size: 160px;
+    padding-block: 5px;
+    padding-inline: 0;
+    z-index: zindex.$dropdown-options;
 
     ul {
       margin: 0;
       padding: 0;
       list-style: none;
 
+      &:not(:last-child) {
+        border-block-end: 1px solid colors.$grijs-10;
+        margin-block-end: 11px;
+        padding-block-end: 11px;
+      }
+
       li {
+        list-style: none;
+
         a,
         button {
-          display: block;
-          padding: units.$u2;
+          @include link.reverse();
+
+          clear: both;
           color: colors.$bosgroen;
+          display: block;
           font-size: 1.25rem;
-          white-space: pre-wrap;
+          font-weight: 400;
+          line-height: 1.5;
+          padding: units.$u2;
           text-decoration: none;
+          white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
+
+          &:hover,
+          &:focus {
+            background-color: colors.$grasgroen;
+            border-color: colors.$grasgroen;
+            color: colors.$wit;
+            text-decoration: none;
+          }
 
           &:focus-visible {
             background-color: colors.$grasgroen;
@@ -185,17 +239,12 @@ dso-dropdown-menu {
             text-decoration: underline;
           }
 
-          &:visited:not(:hover):not(:focus-visible) {
-            color: colors.$bosgroen;
-          }
-        }
+          &:visited {
+            color: core-header-variables.$dropdown-menu-link-color;
 
-        button {
-          inline-size: 100%;
-          text-align: start;
-
-          dso-icon {
-            margin-inline-start: 0;
+            &:not(:hover):not(:focus-visible) {
+              color: colors.$bosgroen;
+            }
           }
         }
 
@@ -218,35 +267,13 @@ dso-dropdown-menu {
   display: flex;
   align-items: center;
 
-  dso-dropdown-menu {
+  .dropdown-menu {
     position: static;
 
-    .dso-dropdown-options {
+    .dropdown-menu-options {
       inset-inline-end: 0;
       inset-block-start: 100%;
       box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
-    }
-
-    > button {
-      color: colors.$grasgroen;
-      font-size: typography.$font-size-base;
-      font-weight: 600;
-      line-height: normal;
-      position: relative;
-
-      &::after {
-        margin-inline-start: units.$u1;
-        position: absolute;
-        inset-inline-end: 0px;
-        inset-block-start: 50%;
-        transform: translateY(-50%);
-      }
-
-      &:hover,
-      &:active {
-        cursor: pointer;
-        text-decoration: underline;
-      }
     }
   }
 }
@@ -305,8 +332,8 @@ dso-dropdown-menu {
       }
     }
 
-    dso-dropdown-menu {
-      .dso-dropdown-options {
+    .dropdown-menu {
+      .dropdown-menu-options {
         inset-inline-start: units.$ru2 * -1 !important;
         inset-block-start: 3px !important;
       }

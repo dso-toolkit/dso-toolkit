@@ -75,7 +75,7 @@ describe("Header", () => {
       .find(".dso-nav-main")
       .should("have.class", "ready")
       .get("@dsoHeaderShadow")
-      .find("dso-dropdown-menu.hydrated")
+      .find(".dropdown-menu")
       .should("not.exist")
       .get("dso-header.hydrated")
       .matchImageSnapshot();
@@ -95,21 +95,21 @@ describe("Header", () => {
       .find("nav")
       .should("be.visible")
       .get("@dsoHeaderShadow")
-      .find(".dropdown dso-dropdown-menu")
+      .find(".dropdown .dropdown-menu")
       .should("not.exist")
       .viewport(991, 600)
       .get("@dsoHeaderShadow")
       .find("nav")
       .should("not.exist")
       .get("@dsoHeaderShadow")
-      .find(".dropdown dso-dropdown-menu")
+      .find(".dropdown .dropdown-menu")
       .should("be.visible")
       .viewport(992, 600)
       .get("@dsoHeaderShadow")
       .find("nav")
       .should("be.visible")
       .get("@dsoHeaderShadow")
-      .find(".dropdown dso-dropdown-menu")
+      .find(".dropdown .dropdown-menu")
       .should("not.exist");
   });
 
@@ -124,7 +124,7 @@ describe("Header", () => {
       .find("nav")
       .should("not.exist")
       .get("@dsoHeaderShadow")
-      .find("dso-dropdown-menu")
+      .find(".dropdown-menu")
       .should("not.exist");
   });
 
@@ -405,14 +405,14 @@ describe("Header", () => {
           .shadow()
           .as("headerShadow")
           .find(".dso-nav-main.ready .dropdown-menu-item")
-          .find("dso-dropdown-menu.hydrated")
+          .find(".dropdown-menu")
           .should("exist")
           .and("be.visible");
 
-        cy.get("@headerShadow").find("dso-dropdown-menu > button[slot='toggle']")[trigger]();
+        cy.get("@headerShadow").find(".dropdown-menu > button")[trigger]();
 
         cy.get("@headerShadow")
-          .find("dso-dropdown-menu[open] button[aria-expanded='true'] + .dso-dropdown-options ul li")
+          .find(".dropdown-menu button[aria-expanded='true'] + div[popover=manual] > .dropdown-menu-options ul li")
           .contains(label)
           .should("be.visible")
           [trigger]()
@@ -439,11 +439,11 @@ describe("Header", () => {
         .shadow()
         .find(".dso-nav-main.ready")
         .find(".dropdown-menu-item")
-        .find("dso-dropdown-menu.hydrated")
+        .find(".dropdown-menu")
         .should("exist")
         .and("be.visible");
 
-      cy.get("@dsoHeaderShadow").find(".dso-dropdown-options ul li a").should("have.length", 2);
+      cy.get("@dsoHeaderShadow").find(".dropdown-menu-options ul li a").should("have.length", 2);
 
       cy.get("dso-header.hydrated").matchImageSnapshot();
     });
@@ -566,15 +566,15 @@ describe("Header", () => {
           .invoke("prop", "compact", "always")
           .get("dso-header[is-compact].hydrated")
           .shadow()
-          .find(".dropdown dso-dropdown-menu.hydrated")
+          .find(".dropdown .dropdown-menu")
           .should("exist")
           .and("be.visible");
 
-        cy.get("dso-header[is-compact].hydrated").shadow().find("button[slot='toggle']")[trigger]();
+        cy.get("dso-header[is-compact].hydrated").shadow().find("button")[trigger]();
 
         cy.get("dso-header[is-compact]")
           .shadow()
-          .find("dso-dropdown-menu[open] button[aria-expanded='true'] + .dso-dropdown-options ul li")
+          .find(".dropdown-menu button[aria-expanded='true'] + div[popover=manual] > .dropdown-menu-options ul li")
           .contains(label)
           .should("be.visible")
           [trigger]()
