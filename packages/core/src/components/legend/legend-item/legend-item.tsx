@@ -129,7 +129,7 @@ export class LegendItem implements ComponentInterface {
           label={this.text("options")}
           icon="more-horizontal"
           variant="tertiary"
-          class={{ active: this.showOptions }}
+          toggled={this.showOptions}
           id="options-button"
           onDsoClick={() => (this.showOptions = !this.showOptions)}
         />

@@ -61,7 +61,6 @@ export function iconButtonArgTypes(icons: string[]): ArgTypes<IconButtonArgs> {
       control: {
         type: "boolean",
       },
-      description: "Whether the button is toggled",
     },
     dsoClick: argTypeAction(),
   };

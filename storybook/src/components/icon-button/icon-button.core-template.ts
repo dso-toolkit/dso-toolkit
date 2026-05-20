@@ -15,7 +15,7 @@ export const coreIconButton: ComponentImplementation<IconButton> = {
           icon=${icon}
           label=${label}
           tooltip-placement=${ifDefined(tooltipPlacement)}
-          toggled=${toggled}
+          ?toggled=${toggled}
           ?disabled=${disabled}
           @dsoClick=${ifDefined(dsoClick)}
         ></dso-icon-button>
