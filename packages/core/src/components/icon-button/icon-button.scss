@@ -33,11 +33,11 @@
   &:not([disabled]) {
     &:active {
       background-color: var(
-        --_dso-icon-button-secondary-active-color,
+        --_dso-icon-button-secondary-active-background-color,
         icon-button-variables.$secondary-active-background-color
       );
       border-color: var(
-        --_dso-icon-button-secondary-active-color,
+        --_dso-icon-button-secondary-active-background-color,
         icon-button-variables.$secondary-active-background-color
       );
       color: var(--_dso-icon-button-secondary-active-color, colors.$wit);
@@ -45,14 +45,37 @@
 
     &.toggled {
       background-color: var(
-        --_dso-icon-button-secondary-toggled-color,
+        --_dso-icon-button-secondary-toggled-background-color,
         icon-button-variables.$secondary-toggled-background-color
       );
       border-color: var(
-        --_dso-icon-button-secondary-toggled-color,
+        --_dso-icon-button-secondary-toggled-background-color,
         icon-button-variables.$secondary-toggled-background-color
       );
       color: var(--_dso-icon-button-secondary-toggled-color, colors.$wit);
+
+      &:hover {
+        background-color: var(
+          --_dso-icon-button-secondary-toggled-hover-background-color,
+          icon-button-variables.$secondary-toggled-hover-background-color
+        );
+        border-color: var(
+          --_dso-icon-button-secondary-toggled-hover-background-color,
+          icon-button-variables.$secondary-toggled-hover-background-color
+        );
+      }
+
+      &:active {
+        background-color: var(
+          --_dso-icon-button-secondary-active-background-color,
+          icon-button-variables.$secondary-active-background-color
+        );
+        border-color: var(
+          --_dso-icon-button-secondary-active-background-color,
+          icon-button-variables.$secondary-active-background-color
+        );
+        color: var(--_dso-icon-button-secondary-active-color, colors.$wit);
+      }
     }
   }
 }
@@ -87,6 +110,20 @@
         --_dso-icon-button-tertiary-toggled-color,
         var(--_dso-icon-button-tertiary-color, icon-button-variables.$tertiary-toggled-color)
       );
+
+      &:hover {
+        color: var(
+          --_dso-icon-button-tertiary-toggled-hover-color,
+          var(--_dso-icon-button-tertiary-color, icon-button-variables.$tertiary-toggled-hover-color)
+        );
+      }
+
+      &:active {
+        color: var(
+          --_dso-icon-button-tertiary-active-color,
+          var(--_dso-icon-button-tertiary-color, icon-button-variables.$tertiary-active-color)
+        );
+      }
     }
   }
 
@@ -126,14 +163,36 @@
 
     &.toggled {
       background-color: var(
-        --_dso-icon-button-secondary-toggled-color,
+        --_dso-icon-button-secondary-toggled-background-color,
         icon-button-variables.$secondary-toggled-background-color
       );
       border-color: var(
-        --_dso-icon-button-secondary-toggled-color,
+        --_dso-icon-button-secondary-toggled-background-color,
         icon-button-variables.$secondary-toggled-background-color
       );
       color: var(--_dso-icon-button-secondary-toggled-color, colors.$wit);
+
+      &:hover {
+        background-color: var(
+          --_dso-icon-button-secondary-toggled-hover-background-color,
+          icon-button-variables.$secondary-toggled-hover-background-color
+        );
+        border-color: var(
+          --_dso-icon-button-secondary-toggled-hover-background-color,
+          icon-button-variables.$secondary-toggled-hover-background-color
+        );
+      }
+
+      &:active {
+        background-color: var(
+          --_dso-icon-button-secondary-active-color,
+          icon-button-variables.$secondary-active-background-color
+        );
+        border-color: var(
+          --_dso-icon-button-secondary-active-color,
+          icon-button-variables.$secondary-active-background-color
+        );
+      }
     }
   }
 }
