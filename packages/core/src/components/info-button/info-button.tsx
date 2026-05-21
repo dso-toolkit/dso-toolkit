@@ -1,4 +1,16 @@
-import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  h,
+} from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -11,7 +23,7 @@ import { InfoButtonToggleEvent } from "./info-button.interfaces";
   shadow: true,
   styleUrl: "info-button.scss",
 })
-export class InfoButton {
+export class InfoButton implements ComponentInterface {
   private button?: HTMLDsoIconButtonElement;
   private toggletipElRef?: HTMLDivElement;
   private toggletipArrowElRef?: HTMLSpanElement;
@@ -53,12 +65,35 @@ export class InfoButton {
   hasToggletip = false;
 
   /**
+   * Listen early to `focusin` at document level and only closes when `composedPath()` shows focus moved outside this component; this is more reliable in Safari.
+   */
+  @Listen("focusin", { target: "document", capture: true })
+  onDocumentFocusIn(event: FocusEvent) {
+    this.handleOutsideEvent(event);
+  }
+
+  /**
+   * Also catches clicks without focus via `pointerdown` and closes when `composedPath()` shows interaction outside the component, including Safari.
+   */
+  @Listen("pointerdown", { target: "document", capture: true })
+  onDocumentPointerDown(event: PointerEvent) {
+    this.handleOutsideEvent(event);
+  }
+
+  /**
    * To set focus to the toggle button.
    */
   @Method()
   async setFocus() {
     this.button?.setFocus?.();
   }
+
+  private handleOutsideEvent = (event: FocusEvent | PointerEvent) => {
+    if (!this.toggletipActive) return;
+
+    const isOutside = !event.composedPath().includes(this.host);
+    if (isOutside) this.closeToggletip();
+  };
 
   private handleToggle(originalEvent: MouseEvent) {
     if (this.hasToggletip) {
@@ -69,19 +104,24 @@ export class InfoButton {
   }
 
   private keyDownHandler = (event: KeyboardEvent) => {
-    if (!this.toggletipActive) return;
+    if (!this.toggletipActive) {
+      return;
+    }
 
     if (event.key === "Escape") {
-      this.toggletipActive = false;
+      this.closeToggletip();
     }
   };
 
-  private focusOutHandler = (event: FocusEvent) => {
-    if (!this.host.contains(event.relatedTarget as Node)) {
-      this.toggletipActive = false;
-      this.toggletipElRef?.hidePopover();
+  private closeToggletip() {
+    this.toggletipActive = false;
+
+    if (this.toggletipElRef?.isConnected && this.toggletipElRef.matches(":popover-open")) {
+      this.toggletipElRef.hidePopover();
     }
-  };
+
+    this.cleanUpTooltip();
+  }
 
   private cleanUpTooltip() {
     this.cleanUpFunction?.();
@@ -102,6 +142,8 @@ export class InfoButton {
       this.toggletipElRef &&
       this.toggletipArrowElRef
     ) {
+      this.toggletipElRef.showPopover();
+
       this.cleanUpFunction = positionTooltip({
         referenceElement: this.button,
         tipRef: this.toggletipElRef,
@@ -115,13 +157,14 @@ export class InfoButton {
       if (this.toggletipActive) {
         this.toggletipElRef?.showPopover();
       } else {
-        this.toggletipElRef?.hidePopover();
-        this.cleanUpTooltip();
+        this.closeToggletip();
       }
     }
   }
 
   connectedCallback(): void {
+    this.hasToggletip = !!this.host.querySelector("[slot='toggletip']");
+
     this.mutationObserver = new MutationObserver(() => {
       this.hasToggletip = !!this.host.querySelector("[slot='toggletip']");
     });
@@ -133,7 +176,7 @@ export class InfoButton {
   }
 
   disconnectedCallback() {
-    this.cleanUpTooltip();
+    this.closeToggletip();
     this.mutationObserver?.disconnect();
 
     delete this.mutationObserver;
@@ -141,7 +184,7 @@ export class InfoButton {
 
   render() {
     return (
-      <Host onKeyDown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
+      <Host onKeyDown={this.keyDownHandler}>
         <dso-icon-button
           variant="tertiary"
           label={this.label}
@@ -149,7 +192,7 @@ export class InfoButton {
           icon={this.active || this.toggletipActive ? "info-solid" : "info-outline"}
           ref={(element) => (this.button = element)}
           aria-expanded={this.toggletipActive ? "true" : "false"}
-          aria-controls="toggletip-content"
+          aria-controls={this.hasToggletip ? "toggletip-content" : undefined}
         />
         {this.hasToggletip && (
           <Tooltip
