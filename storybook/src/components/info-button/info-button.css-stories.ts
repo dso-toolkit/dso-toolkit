@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<InfoButtonArgs> = {
   ...infoButtonMeta({ readme }),
-  title: "HTML|CSS/Info Button",
+  title: "HTML|CSS/Info Button (Deprecated)",
 };
 
 export default meta;

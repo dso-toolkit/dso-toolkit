@@ -1,5 +1,5 @@
 ---
-authors: [iterox]
+authors: [iterox, xiangjuzou-prog]
 ---
 
 # DSO Toolkit v96.0.0 🪁
@@ -8,6 +8,10 @@ Deze release bevat **breaking** changes voor de volgende componenten:
 
 - Card Grid (HTML/CSS implementatie)
 - Card List (HTML/CSS implementatie)
+
+Deze release bevat een **deprecation** voor de volgende component:
+
+- Info Button (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -57,4 +61,22 @@ Gebruik het Core component `Card Container` met mode `list`.
   </li>
   [...]
 </dso-card-container>
+```
+
+## Info Button (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Info Button` is deprecated. In een toekomstige **BREAKING** release zal de HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik het Core component `Info Button`.
+
+```html
+❌
+<button type="button" class="dso-info-button">
+  <span class="sr-only">Toelichting bij vraag</span>
+</button>
+
+✅
+<dso-info-button label="Toelichting bij vraag"></dso-info-button>
 ```
