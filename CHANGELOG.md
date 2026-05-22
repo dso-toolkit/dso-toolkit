@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Header: Eigen implementatie Dropdown Menu ([#3517](https://github.com/dso-toolkit/dso-toolkit/issues/3517))
 
+### Deprecated
+* Info Button: Deprecate HTML/CSS implementatie ([#3678](https://github.com/dso-toolkit/dso-toolkit/issues/3678))
+
 ### Removed
 * **BREAKING** Card Grid & Card List: Remove ([#3675](https://github.com/dso-toolkit/dso-toolkit/issues/3675))
 
