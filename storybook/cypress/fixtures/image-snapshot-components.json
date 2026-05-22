@@ -232,7 +232,7 @@
     "type": "html-css"
   },
   {
-    "name": "info-button",
+    "name": "info-button-deprecated",
     "selector": ".dso-info-button",
     "stories": ["default"],
     "type": "html-css"

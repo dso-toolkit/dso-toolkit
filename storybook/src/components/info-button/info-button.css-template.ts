@@ -11,6 +11,7 @@ export const cssInfoButton: ComponentImplementation<InfoButton<TemplateResult>> 
   template: () =>
     function infoButtonTemplate({ active, label, dsoToggle }) {
       return html`
+        <!-- START DEPRECATED: use <dso-info-button> -->
         <button
           type="button"
           class="dso-info-button ${classMap({
@@ -21,6 +22,7 @@ export const cssInfoButton: ComponentImplementation<InfoButton<TemplateResult>> 
         >
           <span class="sr-only"> ${label ?? "Toelichting bij optie"} </span>
         </button>
+        <!-- END DEPRECATED -->
       `;
     },
 };
