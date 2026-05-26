@@ -73,8 +73,6 @@ export class MapControls implements ComponentInterface {
   watchOpen(open: boolean) {
     if (open) {
       this.hideContent = false;
-
-      setTimeout(() => this.#closeButtonElement?.focus(), transitionDuration);
     } else {
       setTimeout(() => {
         this.hideContent = true;
@@ -108,9 +106,10 @@ export class MapControls implements ComponentInterface {
 
   private text = i18n(() => this.host, translations);
 
-  #closeButtonElement: HTMLDsoIconButtonElement | undefined;
   #toggleButtonElement: HTMLButtonElement | undefined;
   #toggleIconButtonElement: HTMLDsoIconButtonElement | undefined;
+  #mapLayerPanelId = "maplayer-panel";
+  #mapLayerTitleId = "maplayer-title";
 
   render() {
     return (
@@ -119,6 +118,8 @@ export class MapControls implements ComponentInterface {
           label={this.text("layersButton")}
           icon="layers"
           variant="map"
+          aria-controls={this.#mapLayerPanelId}
+          aria-expanded={this.open}
           tooltipPlacement="left"
           class="toggle-visibility-icon-button"
           onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent)}
@@ -127,6 +128,8 @@ export class MapControls implements ComponentInterface {
         <button
           type="button"
           class="dso-map toggle-visibility-button"
+          aria-controls={this.#mapLayerPanelId}
+          aria-expanded={this.open}
           onClick={(e) => this.toggleVisibility(e)}
           ref={(element) => (this.#toggleButtonElement = element)}
         >
@@ -151,16 +154,22 @@ export class MapControls implements ComponentInterface {
             disabled={this.disableZoom === "out" || this.disableZoom === "both"}
           />
         </dso-button-group>
-        <section hidden={this.hideContent}>
+        <section
+          id={this.#mapLayerPanelId}
+          hidden={this.hideContent}
+          role="region"
+          aria-labelledby={this.#mapLayerTitleId}
+        >
           <header>
-            <h2>{this.text("title")}</h2>
+            <h2 id={this.#mapLayerTitleId} tabIndex={-1}>
+              {this.text("title")}
+            </h2>
             <dso-icon-button
               class="close-button"
               label={this.text("hidePanel", { title: this.text("title") })}
               icon="cross"
               variant="tertiary"
               onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent)}
-              ref={(element) => (this.#closeButtonElement = element)}
             />
           </header>
           <dso-scrollable>
