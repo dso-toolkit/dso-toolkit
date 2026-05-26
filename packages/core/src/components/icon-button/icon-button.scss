@@ -151,11 +151,11 @@
   &:not([disabled]) {
     &:active {
       background-color: var(
-        --_dso-icon-button-secondary-active-color,
+        --_dso-icon-button-secondary-active-background-color,
         icon-button-variables.$secondary-active-background-color
       );
       border-color: var(
-        --_dso-icon-button-secondary-active-color,
+        --_dso-icon-button-secondary-active-background-color,
         icon-button-variables.$secondary-active-background-color
       );
       color: var(--_dso-icon-button-secondary-active-color, colors.$wit);
@@ -185,11 +185,11 @@
 
       &:active {
         background-color: var(
-          --_dso-icon-button-secondary-active-color,
+          --_dso-icon-button-secondary-active-background-color,
           icon-button-variables.$secondary-active-background-color
         );
         border-color: var(
-          --_dso-icon-button-secondary-active-color,
+          --_dso-icon-button-secondary-active-background-color,
           icon-button-variables.$secondary-active-background-color
         );
       }

@@ -29,6 +29,7 @@ const allButtons = (templates: Templates) => {
     ${renderSection("Tertiary buttons", tertiaryButtons, buttonTemplate)}
     ${renderSection("Secondary Icon Buttons", secondaryIconButtons, iconButtonTemplate)}
     ${renderSection("Tertiary Icon Buttons", tertiaryIconButtons, iconButtonTemplate)}
+    ${renderSection("Map Icon Buttons", mapIconButtons, iconButtonTemplate)}
     ${renderSection("Info buttons", infoButtons, infoButtonTemplate)}
   `;
 };
@@ -77,13 +78,21 @@ const tertiaryButtons: Button[] = [
 ];
 
 const secondaryIconButtons: IconButton[] = [
-  { label: "Button", variant: "secondary", icon: "chevron-right" },
-  { label: "Button", variant: "secondary", icon: "chevron-right", disabled: true },
+  { label: "Secondary Icon Button", variant: "secondary", icon: "chevron-right" },
+  { label: "Secondary Icon Button (Toggled)", variant: "secondary", icon: "chevron-right", toggled: true },
+  { label: "Secondary Icon Button (Disabled)", variant: "secondary", icon: "chevron-right", disabled: true },
 ];
 
 const tertiaryIconButtons: IconButton[] = [
-  { label: "Button", variant: "tertiary", icon: "chevron-right" },
-  { label: "Button", variant: "tertiary", icon: "chevron-right", disabled: true },
+  { label: "Tertiary Icon Button", variant: "tertiary", icon: "chevron-right" },
+  { label: "Tertiary Icon Button (Toggled)", variant: "tertiary", icon: "chevron-right", toggled: true },
+  { label: "Tertiary Icon Button (Disabled)", variant: "tertiary", icon: "chevron-right", disabled: true },
+];
+
+const mapIconButtons: IconButton[] = [
+  { label: "Map Icon Button", variant: "map", icon: "chevron-right" },
+  { label: "Map Icon Button (Toggled)", variant: "map", icon: "chevron-right", toggled: true },
+  { label: "Map Icon Button (Disabled)", variant: "map", icon: "chevron-right", disabled: true },
 ];
 
 const infoButtons: InfoButton<TemplateResult>[] = [
