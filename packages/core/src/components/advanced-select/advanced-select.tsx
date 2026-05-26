@@ -28,7 +28,7 @@ import {
 @Component({
   tag: "dso-advanced-select",
   styleUrl: "advanced-select.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class AdvancedSelect implements ComponentInterface {
   private trap?: FocusTrap;
