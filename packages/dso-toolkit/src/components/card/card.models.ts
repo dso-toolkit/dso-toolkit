@@ -1,8 +1,9 @@
-import { Button } from "../button/button.models.js";
+import { isObject } from "../../utils/is-object";
+import { Button } from "../button";
 import { InfoButton } from "../info-button";
-import { Label } from "../label/label.models.js";
-import { Link } from "../link/link.models.js";
-import { Selectable } from "../selectable/selectable.models.js";
+import { Label } from "../label";
+import { Link } from "../link";
+import { Selectable } from "../selectable";
 import { SlideToggle } from "../slide-toggle";
 
 export interface Card<TemplateFnReturnType> {
@@ -20,4 +21,8 @@ export interface CardClickEvent {
   originalEvent: MouseEvent;
   /** True when user selected the page holding Ctrl, Alt or other modifiers. Can be used to determine navigation. */
   isModifiedEvent: boolean;
+}
+
+export function isCardInterface<TemplateFnReturnType>(object: unknown): object is Card<TemplateFnReturnType> {
+  return isObject(object) && !("targetBlank" in object) && !("status" in object);
 }

@@ -1,5 +1,6 @@
-import { Label } from "../label/label.models.js";
-import { Renvooi } from "../renvooi/renvooi.models.js";
+import { isObject } from "../../utils/is-object";
+import { Label } from "../label";
+import { Renvooi } from "../renvooi";
 import { SlideToggle } from "../slide-toggle";
 
 export interface PlekinfoCard<TemplateFnReturnType> {
@@ -22,3 +23,9 @@ export interface PlekinfoCardClickEvent {
 }
 
 export type PlekinfoWijzigactie = "voegtoe" | "verwijder";
+
+export function isPlekinfoCardInterface<TemplateFnReturnType>(
+  object: unknown,
+): object is PlekinfoCard<TemplateFnReturnType> {
+  return isObject(object) && "targetBlank" in object;
+}

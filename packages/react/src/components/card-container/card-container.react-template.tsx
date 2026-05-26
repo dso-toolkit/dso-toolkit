@@ -1,10 +1,10 @@
-import { CardContainer } from "dso-toolkit";
-import React, { JSX } from "react";
+import { CardContainer, isCardInterface } from "dso-toolkit";
+import React from "react";
 
 import { DsoCardContainer } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
-export const reactCardContainer: ComponentImplementation<CardContainer<JSX.Element>> = {
+export const reactCardContainer: ComponentImplementation<CardContainer<React.JSX.Element>> = {
   component: "cardContainer",
   implementation: "react",
   template: ({ cardTemplate }) =>
@@ -12,7 +12,11 @@ export const reactCardContainer: ComponentImplementation<CardContainer<JSX.Eleme
       return (
         <DsoCardContainer mode={mode}>
           {cards.map((card, index) =>
-            mode === "list" ? <li key={index}>{cardTemplate(card)}</li> : cardTemplate(card),
+            mode === "list" ? (
+              <li key={index}>{isCardInterface(card) && cardTemplate(card)}</li>
+            ) : (
+              isCardInterface(card) && cardTemplate(card)
+            ),
           )}
         </DsoCardContainer>
       );
