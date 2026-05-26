@@ -25,6 +25,28 @@ describe("Map Controls", () => {
     cy.dsoCheckA11y("dso-map-controls.hydrated");
   });
 
+  it("should render a section with role dialog", () => {
+    cy.get("@toggleVisibilityButton").click();
+    cy.wait(transitionDuration);
+
+    cy.get("dso-map-controls")
+      .shadow()
+      .find('section[role="dialog"]')
+      .should("exist")
+      .and("be.visible")
+      .and("have.attr", "role", "dialog")
+      .as("dialog");
+
+    cy.get("@dialog").should("have.attr", "aria-modal", "false").and("have.attr", "aria-labelledby");
+
+    cy.get("@dialog")
+      .invoke("attr", "aria-labelledby")
+      .should("be.a", "string")
+      .then((labelledby) => {
+        cy.get("@dialog").find(`#${labelledby}`).should("exist").and("contain.text", "Kaartlagen");
+      });
+  });
+
   it("shows a Button with Icon 'layers' and text 'Kaartlagen'", () => {
     cy.viewport(768, 660).get("@toggleVisibilityButton").matchImageSnapshot();
   });

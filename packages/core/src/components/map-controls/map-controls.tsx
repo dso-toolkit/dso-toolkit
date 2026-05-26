@@ -73,8 +73,9 @@ export class MapControls implements ComponentInterface {
   watchOpen(open: boolean) {
     if (open) {
       this.hideContent = false;
-
-      setTimeout(() => this.#closeButtonElement?.focus(), transitionDuration);
+      requestAnimationFrame(() => {
+        this.#closeButtonElement?.focus({ preventScroll: true });
+      });
     } else {
       setTimeout(() => {
         this.hideContent = true;
@@ -111,6 +112,7 @@ export class MapControls implements ComponentInterface {
   #closeButtonElement: HTMLDsoIconButtonElement | undefined;
   #toggleButtonElement: HTMLButtonElement | undefined;
   #toggleIconButtonElement: HTMLDsoIconButtonElement | undefined;
+  #titleId = "kaartlagen-title";
 
   render() {
     return (
@@ -151,9 +153,9 @@ export class MapControls implements ComponentInterface {
             disabled={this.disableZoom === "out" || this.disableZoom === "both"}
           />
         </dso-button-group>
-        <section hidden={this.hideContent}>
+        <section hidden={this.hideContent} role="dialog" aria-modal="false" aria-labelledby={this.#titleId}>
           <header>
-            <h2>{this.text("title")}</h2>
+            <h2 id={this.#titleId}>{this.text("title")}</h2>
             <dso-icon-button
               class="close-button"
               label={this.text("hidePanel", { title: this.text("title") })}
