@@ -8,6 +8,7 @@ Deze release bevat **breaking** changes voor de volgende componenten:
 
 - Card Grid (HTML/CSS implementatie)
 - Card List (HTML/CSS implementatie)
+- Attachments Counter (HTML/CSS implementatie)
 
 Deze release bevat een **deprecation** voor het volgende component:
 
@@ -61,6 +62,23 @@ Gebruik het Core component `Card Container` met mode `list`.
   </li>
   [...]
 </dso-card-container>
+```
+
+## Attachments Counter (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Attachments Counter` is in 🥕 v95.2.0 **deprecated**.
+In deze release is deze implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van `Attachments Counter`.
+
+```html
+❌
+<span class="dso-attachments"> 3 <span class="sr-only">bijlagen</span> </span>
+
+✅
+<dso-attachments-counter count="3"></dso-attachments-counter>
 ```
 
 ## Info Button (HTML/CSS implementatie)

@@ -1,5 +1,5 @@
 @use "~dso-toolkit/src/utilities";
-@use "~dso-toolkit/src/components/attachments-counter";
+@use "~dso-toolkit/src/variables/colors";
 
 :host {
   display: inline-block;
@@ -12,5 +12,9 @@
 }
 
 .dso-attachments {
-  @include attachments-counter.root();
+  color: var(--dso-attachments-counter-color, colors.$grijs-60);
+  display: inline-block;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- Make sure icon is always next to counter
 }

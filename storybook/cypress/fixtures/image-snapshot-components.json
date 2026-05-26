@@ -1,11 +1,5 @@
 [
   {
-    "name": "attachments-counter",
-    "selector": "dso-attachments-counter.hydrated",
-    "stories": ["attachments-counter"],
-    "type": "core"
-  },
-  {
     "name": "banner",
     "selector": "dso-banner.hydrated",
     "stories": ["success", "error", "info", "warning", "rich-warning"],
@@ -53,12 +47,6 @@
     "name": "application-heading",
     "selector": ".dso-app-heading",
     "stories": ["default", "with-subtitle", "with-subtitle-and-steps", "subtitle-only", "subtitle-and-steps-only"],
-    "type": "html-css"
-  },
-  {
-    "name": "attachments-counter-deprecated",
-    "selector": ".dso-attachments",
-    "stories": ["attachments-counter"],
     "type": "html-css"
   },
   {
