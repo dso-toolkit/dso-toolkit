@@ -20,6 +20,10 @@
   }
 }
 
+:host(:not(:last-child)) {
+  margin-block-end: units.$u1;
+}
+
 :host([wijzigactie="voegtoe"]) {
   @include insert.root();
 }
@@ -30,8 +34,7 @@
 
 .map-layer-object {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 2px;
   min-block-size: map-layer-variables.$map-layer-min-block-size - 4px;
 
@@ -44,15 +47,16 @@
 
   &-heading {
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
     align-items: center;
     gap: units.$u1 * 0.5;
+    min-inline-size: 0;
   }
 
   .slide-toggle-container {
     display: flex;
     align-items: center;
-    margin-inline-start: auto;
 
     dso-slide-toggle {
       display: flex;
