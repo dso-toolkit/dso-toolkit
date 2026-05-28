@@ -1,6 +1,10 @@
 import { Component, Prop, h } from "@stencil/core";
 import { clsx } from "clsx";
 
+import { IconAlias } from "../icon/icon.interfaces";
+
+type BannerStatusType = "success" | "error" | "info" | "warning";
+
 @Component({
   tag: "dso-banner",
   styleUrl: "banner.scss",
@@ -16,7 +20,7 @@ export class Banner {
   /**
    * Compact mode.
    */
-  @Prop()
+  @Prop({ reflect: true })
   compact = false;
 
   /**
@@ -27,6 +31,13 @@ export class Banner {
   @Prop({ reflect: true })
   icon = false;
 
+  private statusIcons: Record<BannerStatusType, IconAlias> = {
+    error: "status-error",
+    info: "status-info-solid",
+    success: "status-success",
+    warning: "status-warning",
+  };
+
   render() {
     return (
       <section
@@ -35,7 +46,10 @@ export class Banner {
         })}
         role="alert"
       >
-        <slot></slot>
+        <div class={clsx("banner-inner", { icon: this.icon })}>
+          {(this.icon || !this.compact) && <dso-icon icon={this.statusIcons[this.status]}></dso-icon>}
+          <slot></slot>
+        </div>
       </section>
     );
   }

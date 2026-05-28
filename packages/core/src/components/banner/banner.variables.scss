@@ -1,9 +1,10 @@
-@use "../../variables/units";
-@use "../../variables/states";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/states";
 
 $inline-start-padding: units.$u6;
 
 $small-padding-block-start: units.$u5 - 1px;
+$small-padding-inline: units.$u2;
 
 $warning-bg: states.$warning-bg;
 $warning-border: states.$warning-border;
