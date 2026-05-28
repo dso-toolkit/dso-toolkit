@@ -31,6 +31,7 @@ interface BannerTemplates<TemplateFnReturnType> {
   bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;
   errorRichContent: TemplateFnReturnType;
   infoRichContent: TemplateFnReturnType;
+  infoNonRemovableRichContent: TemplateFnReturnType;
   infoCompactNonRemovableRichContent: TemplateFnReturnType;
   warningRichContent: TemplateFnReturnType;
   warningNonRemovableRichContent: TemplateFnReturnType;
@@ -110,8 +111,8 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         status: "info",
       },
-      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, infoRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, infoRichContent)),
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, infoNonRemovableRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, infoNonRemovableRichContent)),
       ),
     },
     RichWarning: {

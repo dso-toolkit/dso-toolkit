@@ -32,6 +32,7 @@ const { Error, Info, InfoCompactNonRemovable, Warning, InfoNonRemovable, RichWar
         bannerTemplate,
         errorRichContent: errorRichContent(templates),
         infoRichContent: infoRichContent(templates),
+        infoNonRemovableRichContent: infoCompactNonRemovableRichContent,
         infoCompactNonRemovableRichContent,
         warningRichContent: warningRichContent(templates),
         warningNonRemovableRichContent,
