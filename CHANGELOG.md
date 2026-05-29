@@ -14,6 +14,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Info Button: Deprecate HTML/CSS implementatie ([#3678](https://github.com/dso-toolkit/dso-toolkit/issues/3678))
 
+### Fixed
+* Modal: geen role="document" ([#3783](https://github.com/dso-toolkit/dso-toolkit/issues/3783))
+
 ### Removed
 * **BREAKING** Card Grid & Card List: Remove ([#3675](https://github.com/dso-toolkit/dso-toolkit/issues/3675))
 
