@@ -138,7 +138,7 @@ export class Modal implements ComponentInterface {
         onClick={(e) => this.handleDialogClick(e)}
         onKeyDown={(e) => this.blockEscapeKey(e)}
       >
-        <div class="dso-dialog" role="document">
+        <div class="dso-dialog">
           {this.modalTitle ? (
             <div class="dso-header">
               <h2 id={this.ariaId}>{this.modalTitle}</h2>

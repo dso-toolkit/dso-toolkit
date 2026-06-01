@@ -17,8 +17,7 @@ describe("Modal", () => {
       .and("have.attr", "aria-labelledby")
       .get("@dsoModal")
       .find(".dso-dialog")
-      .should("have.css", "opacity", "1")
-      .and("have.attr", "role", "document");
+      .should("have.css", "opacity", "1");
 
     cy.injectAxe();
     cy.dsoCheckA11y("dso-modal.hydrated");
