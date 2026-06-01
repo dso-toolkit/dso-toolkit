@@ -52,6 +52,12 @@ export class IconButton implements ComponentInterface {
   disabled = false;
 
   /**
+   * Whether the button is toggled.
+   */
+  @Prop({ reflect: true })
+  toggled = false;
+
+  /**
    * Emitted when the user clicks the Icon Button.
    */
   @Event({ bubbles: false })
@@ -125,27 +131,28 @@ export class IconButton implements ComponentInterface {
     this.cleanUpTooltip();
   };
 
-  private handleClick = (e: MouseEvent) => {
+  private handleClick = (event: MouseEvent) => {
     this.lastClickTime = Date.now();
     this.handleHideTooltip();
-    this.dsoClick.emit({ originalEvent: e });
+    this.dsoClick.emit({ originalEvent: event, toggled: !this.toggled });
   };
 
   render() {
     return (
       <button
-        ref={(el) => (this.buttonElRef = el)}
+        ref={(element) => (this.buttonElRef = element)}
         type="button"
         disabled={this.disabled}
+        aria-pressed={this.toggled ? "true" : "false"}
         aria-label={this.label}
-        class={`icon-button dso-${this.variant}`}
+        class={`icon-button dso-${this.variant} ${this.toggled ? "toggled" : ""}`}
         onMouseEnter={this.handleShowTooltip}
         onMouseLeave={this.handleHideTooltip}
         onFocus={this.handleShowTooltip}
         onBlur={this.handleHideTooltip}
         onClick={this.handleClick}
       >
-        <dso-icon icon={this.icon} />
+        <dso-icon icon={this.icon} aria-hidden="true" />
         <Tooltip
           tipElementRef={(element) => (this.tooltipElRef = element)}
           tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}

@@ -1,0 +1,9 @@
+@use "~dso-toolkit/src/variables/colors";
+
+$secondary-active-background-color: colors.$bosgroen-120;
+$secondary-toggled-background-color: colors.$bosgroen;
+$secondary-toggled-hover-background-color: colors.$bosgroen-130;
+
+$tertiary-active-color: colors.$bosgroen-120;
+$tertiary-toggled-color: colors.$bosgroen;
+$tertiary-toggled-hover-color: colors.$bosgroen-130;

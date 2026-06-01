@@ -785,6 +785,11 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
+          * Whether the button is toggled.
+          * @default false
+         */
+        "toggled": boolean;
+        /**
           * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
          */
@@ -3602,6 +3607,11 @@ declare namespace LocalJSX {
          */
         "onDsoClick"?: (event: DsoIconButtonCustomEvent<IconButtonClickEvent>) => void;
         /**
+          * Whether the button is toggled.
+          * @default false
+         */
+        "toggled"?: boolean;
+        /**
           * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
          */
@@ -4691,6 +4701,7 @@ declare namespace LocalJSX {
         "variant": IconButtonVariant;
         "tooltipPlacement": TooltipPlacement;
         "disabled": boolean;
+        "toggled": boolean;
     }
     interface DsoImageOverlayAttributes {
         "wijzigactie": string;

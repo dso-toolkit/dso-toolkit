@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Advanced Select: delegatesFocus ([#3683](https://github.com/dso-toolkit/dso-toolkit/issues/3683))
+* Icon Button: Toggled state toevoegen ([#3658](https://github.com/dso-toolkit/dso-toolkit/issues/3658))
 
 ### Changed
 * Header: Eigen implementatie Dropdown Menu ([#3517](https://github.com/dso-toolkit/dso-toolkit/issues/3517))

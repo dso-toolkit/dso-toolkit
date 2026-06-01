@@ -8,13 +8,14 @@ export const reactIconButton: ComponentImplementation<IconButton> = {
   component: "iconButton",
   implementation: "react",
   template: () =>
-    function iconButtonTemplate({ label, variant, icon, disabled, tooltipPlacement, dsoClick }) {
+    function iconButtonTemplate({ label, variant, icon, disabled, tooltipPlacement, toggled, dsoClick }) {
       return (
         <DsoIconButton
           label={label}
           variant={variant}
           icon={icon}
           disabled={disabled}
+          toggled={toggled}
           tooltipPlacement={tooltipPlacement}
           onClick={dsoClick}
         />

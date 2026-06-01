@@ -5,6 +5,8 @@
 
 @use "../../functional-components/tooltip";
 
+@use "icon-button.variables" as icon-button-variables;
+
 @include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1);
 
 :host {
@@ -27,6 +29,55 @@
 
   border-block-end-width: var(--_dt-icon-button-border-block-end-width, button.$border-width);
   border-inline-end-width: var(--_dt-icon-button-border-inline-end-width, button.$border-width);
+
+  &:not([disabled]) {
+    &:active {
+      background-color: var(
+        --_dso-icon-button-secondary-active-background-color,
+        icon-button-variables.$secondary-active-background-color
+      );
+      border-color: var(
+        --_dso-icon-button-secondary-active-background-color,
+        icon-button-variables.$secondary-active-background-color
+      );
+      color: var(--_dso-icon-button-secondary-active-color, colors.$wit);
+    }
+
+    &.toggled {
+      background-color: var(
+        --_dso-icon-button-secondary-toggled-background-color,
+        icon-button-variables.$secondary-toggled-background-color
+      );
+      border-color: var(
+        --_dso-icon-button-secondary-toggled-background-color,
+        icon-button-variables.$secondary-toggled-background-color
+      );
+      color: var(--_dso-icon-button-secondary-toggled-color, colors.$wit);
+
+      &:hover {
+        background-color: var(
+          --_dso-icon-button-secondary-toggled-hover-background-color,
+          icon-button-variables.$secondary-toggled-hover-background-color
+        );
+        border-color: var(
+          --_dso-icon-button-secondary-toggled-hover-background-color,
+          icon-button-variables.$secondary-toggled-hover-background-color
+        );
+      }
+
+      &:active {
+        background-color: var(
+          --_dso-icon-button-secondary-active-background-color,
+          icon-button-variables.$secondary-active-background-color
+        );
+        border-color: var(
+          --_dso-icon-button-secondary-active-background-color,
+          icon-button-variables.$secondary-active-background-color
+        );
+        color: var(--_dso-icon-button-secondary-active-color, colors.$wit);
+      }
+    }
+  }
 }
 
 .dso-tertiary {
@@ -50,8 +101,29 @@
     &:active {
       color: var(
         --_dso-icon-button-tertiary-active-color,
-        var(--_dso-icon-button-tertiary-color, button.$tertiary-hover-color)
+        var(--_dso-icon-button-tertiary-color, icon-button-variables.$tertiary-active-color)
       );
+    }
+
+    &.toggled {
+      color: var(
+        --_dso-icon-button-tertiary-toggled-color,
+        var(--_dso-icon-button-tertiary-color, icon-button-variables.$tertiary-toggled-color)
+      );
+
+      &:hover {
+        color: var(
+          --_dso-icon-button-tertiary-toggled-hover-color,
+          var(--_dso-icon-button-tertiary-color, icon-button-variables.$tertiary-toggled-hover-color)
+        );
+      }
+
+      &:active {
+        color: var(
+          --_dso-icon-button-tertiary-active-color,
+          var(--_dso-icon-button-tertiary-color, icon-button-variables.$tertiary-active-color)
+        );
+      }
     }
   }
 
@@ -75,6 +147,54 @@
   border-start-end-radius: var(--_dt-icon-button-border-start-end-radius, button.$border-radius);
   border-end-end-radius: var(--_dt-icon-button-border-end-end-radius, button.$border-radius);
   border-end-start-radius: var(--_dt-icon-button-border-end-start-radius, button.$border-radius);
+
+  &:not([disabled]) {
+    &:active {
+      background-color: var(
+        --_dso-icon-button-secondary-active-background-color,
+        icon-button-variables.$secondary-active-background-color
+      );
+      border-color: var(
+        --_dso-icon-button-secondary-active-background-color,
+        icon-button-variables.$secondary-active-background-color
+      );
+      color: var(--_dso-icon-button-secondary-active-color, colors.$wit);
+    }
+
+    &.toggled {
+      background-color: var(
+        --_dso-icon-button-secondary-toggled-background-color,
+        icon-button-variables.$secondary-toggled-background-color
+      );
+      border-color: var(
+        --_dso-icon-button-secondary-toggled-background-color,
+        icon-button-variables.$secondary-toggled-background-color
+      );
+      color: var(--_dso-icon-button-secondary-toggled-color, colors.$wit);
+
+      &:hover {
+        background-color: var(
+          --_dso-icon-button-secondary-toggled-hover-background-color,
+          icon-button-variables.$secondary-toggled-hover-background-color
+        );
+        border-color: var(
+          --_dso-icon-button-secondary-toggled-hover-background-color,
+          icon-button-variables.$secondary-toggled-hover-background-color
+        );
+      }
+
+      &:active {
+        background-color: var(
+          --_dso-icon-button-secondary-active-background-color,
+          icon-button-variables.$secondary-active-background-color
+        );
+        border-color: var(
+          --_dso-icon-button-secondary-active-background-color,
+          icon-button-variables.$secondary-active-background-color
+        );
+      }
+    }
+  }
 }
 
 .icon-button {

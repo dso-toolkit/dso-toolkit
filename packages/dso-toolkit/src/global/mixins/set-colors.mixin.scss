@@ -62,13 +62,28 @@
 
   @if $self != "icon-button" and not $is-white-bg {
     @if $is-dark-contrast {
+      --_dso-icon-button-secondary-active-color: #{colors.$wit};
+      --_dso-icon-button-secondary-active-background-color: #{colors.$bosgroen-120};
+      --_dso-icon-button-secondary-toggled-color: #{colors.$wit};
+      --_dso-icon-button-secondary-toggled-background-color: #{colors.$bosgroen};
+      --_dso-icon-button-secondary-toggled-hover-background-color: #{colors.$bosgroen-130};
       --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
       --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
-      --_dso-icon-button-tertiary-active-color: #{colors.$bosgroen-140};
+      --_dso-icon-button-tertiary-active-color: #{colors.$bosgroen-120};
+      --_dso-icon-button-tertiary-toggled-color: #{colors.$bosgroen};
+      --_dso-icon-button-tertiary-toggled-hover-color: #{colors.$bosgroen-130};
       --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-40};
     } @else if $contrast-color == colors.$contrast-light {
-      --_dso-icon-button-tertiary-color: #{colors.$wit};
-      --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-10};
+      --_dso-icon-button-secondary-active-color: #{colors.$wit};
+      --_dso-icon-button-secondary-active-background-color: #{rgba(colors.$wit, 0.4)};
+      --_dso-icon-button-secondary-toggled-color: #{colors.$wit};
+      --_dso-icon-button-secondary-toggled-background-color: #{rgba(colors.$wit, 0.2)};
+      --_dso-icon-button-secondary-toggled-hover-background-color: #{rgba(colors.$wit, 0.3)};
+      --_dso-icon-button-tertiary-color: #{colors.$grijs-5};
+      --_dso-icon-button-tertiary-hover-color: #{colors.$wit};
+      --_dso-icon-button-tertiary-active-color: #{rgba(colors.$wit, 0.4)};
+      --_dso-icon-button-tertiary-toggled-color: #{colors.$wit};
+      --_dso-icon-button-tertiary-toggled-hover-color: #{rgba(colors.$wit, 0.3)};
       --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-30};
     }
   }
