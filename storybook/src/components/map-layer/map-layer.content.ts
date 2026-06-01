@@ -2,7 +2,10 @@ import { MapLayerObject, RenvooiValue } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
 const object1: MapLayerObject<TemplateResult> = {
-  name: html`<span>Map layer object 1</span>`,
+  name: html`<span
+    >Dit is een lange voorbeeldtekst om te testen hoe de kaartlaag omgaat met een langere naam die over meerdere regels
+    loopt</span
+  >`,
   symboolCode: "vszt030",
 };
 

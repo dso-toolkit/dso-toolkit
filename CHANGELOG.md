@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Header: Eigen implementatie Dropdown Menu ([#3517](https://github.com/dso-toolkit/dso-toolkit/issues/3517))
+* Map Layer: Visuele aanpassingen ([#3772](https://github.com/dso-toolkit/dso-toolkit/issues/3772))
 
 ### Deprecated
 * Info Button: Deprecate HTML/CSS implementatie ([#3678](https://github.com/dso-toolkit/dso-toolkit/issues/3678))
