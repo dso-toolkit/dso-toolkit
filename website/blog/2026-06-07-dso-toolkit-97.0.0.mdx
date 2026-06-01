@@ -1,0 +1,52 @@
+---
+authors: [iterox, xiangjuzou-prog]
+---
+
+# DSO Toolkit v97.0.0 🏴󠁧󠁢󠁳󠁣󠁴󠁿
+
+Deze release bevat **breaking** changes voor het volgende component:
+
+- Banner (HTML/CSS implementatie)
+
+<!-- truncate -->
+
+## Banner (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Banner` is in ⌚ v95.0.0 **deprecated**. In deze release is deze
+implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van `Banner`.
+
+```html
+❌
+<section role="alert" class="dso-banner alert-error dso-icon">
+  <div class="dso-banner-inner">
+    <div class="dso-rich-content">
+      <h2>Storingsmelding:</h2>
+      <p>
+        Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een
+        <a href="#" class="download">aanvraag</a>
+        of melding indienen.
+      </p>
+    </div>
+    <dso-icon-button variant="tertiary" icon="cross" label="Sluiten"></dso-icon-button>
+  </div>
+</section>
+
+✅
+<dso-banner status="error" icon="">
+  <div class="dso-banner-inner">
+    <div class="dso-rich-content">
+      <h2>Storingsmelding:</h2>
+      <p>
+        Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een
+        <a href="#" class="download">aanvraag</a>
+        of melding indienen.
+      </p>
+    </div>
+    <dso-icon-button variant="tertiary" icon="cross" label="Sluiten"></dso-icon-button>
+  </div>
+</dso-banner>
+```
