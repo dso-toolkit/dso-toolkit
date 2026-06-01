@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **BREAKING** Card Grid & Card List: Remove ([#3675](https://github.com/dso-toolkit/dso-toolkit/issues/3675))
+* **BREAKING** Attachments Counter: Remove HTML/CSS implementatie ([#3671](https://github.com/dso-toolkit/dso-toolkit/issues/3671))
 
 ## 🥕 Release 95.2.0 - 2026-05-19
 

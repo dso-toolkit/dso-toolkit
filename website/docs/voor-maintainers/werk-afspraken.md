@@ -89,6 +89,10 @@ We nesten media queries altijd in de selector waarop ze van toepassing zijn en g
 - Native events die door onze custom elements worden gemaakt laten we niet uit het custom element "ontsnappen", dmv.
   stopPropagation.
 
+### Cypress tests
+
+- Alle Core Web componenten hebben een dedicated Cypress test file in `storybook/cypress/e2e`.
+
 ## Deprecated/removed blog migratiepad
 
 In de blogpost van de deprecation én in de blogpost van de removed van één van de twee implementaties (HTML/CSS of Core) van dubbel geïmplementeerde componenten tonen we altijd het volledige migratiepad. Dit betekent dat binnen één HTML markup codeblock de deprecated/removed code én de voorgeschreven code worden getoond. Boven de deprecated/removed code staat binnen het codeblock een ❌ en boven de voorgeschreven code een ✅.

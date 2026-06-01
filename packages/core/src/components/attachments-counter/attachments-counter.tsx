@@ -9,7 +9,7 @@ export class AttachmentsCounter {
   /**
    * The number of attachments.
    */
-  @Prop()
+  @Prop({ reflect: true })
   count!: number;
 
   render() {
