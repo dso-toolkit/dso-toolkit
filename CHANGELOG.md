@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🪁 Release 96.0.0 - 2026-06-01
+
 ### Added
 * Advanced Select: delegatesFocus ([#3683](https://github.com/dso-toolkit/dso-toolkit/issues/3683))
 * Icon Button: Toggled state toevoegen ([#3658](https://github.com/dso-toolkit/dso-toolkit/issues/3658))
