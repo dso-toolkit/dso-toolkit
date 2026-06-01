@@ -29,8 +29,16 @@ export const coreCardContainer: ComponentImplementation<CardContainer<TemplateRe
 function template(
   card: Card<TemplateResult> | DocumentCard<TemplateResult> | PlekinfoCard<TemplateResult>,
   { cardTemplate, documentCardTemplate, plekinfoCardTemplate }: Templates,
-): TemplateResult {
-  return html` ${isCardInterface(card) ? cardTemplate(card) : nothing}
-  ${isDocumentCardInterface(card) ? documentCardTemplate(card) : nothing}
-  ${isPlekinfoCardInterface(card) ? plekinfoCardTemplate(card) : nothing}`;
+): TemplateResult | typeof nothing {
+  if (isCardInterface(card)) {
+    return cardTemplate(card);
+  }
+  if (isDocumentCardInterface(card)) {
+    return documentCardTemplate(card);
+  }
+  if (isPlekinfoCardInterface(card)) {
+    return plekinfoCardTemplate(card);
+  }
+
+  return nothing;
 }
