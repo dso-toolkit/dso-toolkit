@@ -35,7 +35,7 @@ const Option: FunctionalComponent<{
   id: string;
   mouseEnter: () => void;
   mouseLeave: () => void;
-  click: () => void;
+  click: (e: MouseEvent) => void;
   selected: string;
   suggestion: Suggestion;
   markedSuggestion: MarkedSuggestion;
@@ -567,6 +567,11 @@ export class Autosuggest {
     this.selectFirstSuggestion();
   }
 
+  private onOptionClick = (e: MouseEvent) => {
+    e.stopPropagation();
+    this.pickSelectedValue();
+  };
+
   private pickSelectedValue() {
     if (this.selectedSuggestion && this.showSuggestions) {
       this.dsoSelect.emit(this.selectedSuggestion);
@@ -716,7 +721,7 @@ export class Autosuggest {
                         id={this.listboxItemId(suggestion)}
                         mouseEnter={() => this.selectSuggestion(suggestion)}
                         mouseLeave={() => this.resetSelectedSuggestion()}
-                        click={() => this.pickSelectedValue()}
+                        click={this.onOptionClick}
                         selected={(suggestion === this.selectedSuggestion).toString()}
                         suggestion={suggestion}
                         ref={(element) => element && this.listboxItems.push(element)}
@@ -743,7 +748,7 @@ export class Autosuggest {
                                 id={this.listboxGroupedItemId(suggestionGroup, suggestion)}
                                 mouseEnter={() => this.selectSuggestion(suggestion, suggestionGroup)}
                                 mouseLeave={() => this.resetSelectedSuggestion()}
-                                click={() => this.pickSelectedValue()}
+                                click={this.onOptionClick}
                                 selected={(suggestion === this.selectedSuggestion).toString()}
                                 suggestion={suggestion}
                                 ref={(element) => element && this.listboxItems.push(element)}
