@@ -105,11 +105,11 @@
   }
 
   &.icon {
-    @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
+    @media (min-width: #{media-query-breakpoints.$screen-xs-min}) {
       padding-inline-start: banner-variables.$inline-start-padding;
     }
 
-    @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min - 0.99}) {
+    @media (max-width: #{media-query-breakpoints.$screen-xs-min - 0.99}) {
       padding-block-start: banner-variables.$small-padding-block-start;
       padding-inline: banner-variables.$small-padding-inline;
     }

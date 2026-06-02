@@ -25,7 +25,7 @@
   font-size: var(--_dt-heading-h1-font-size-xs, units.$font-size-h2);
   font-weight: 700;
 
-  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+  @media (min-width: media-query-breakpoints.$screen-xs-min) {
     font-size: var(--_dt-heading-h1-font-size, units.$font-size-h1);
   }
 }
@@ -36,7 +36,7 @@
   font-size: var(--_dt-heading-h2-font-size-xs, units.$font-size-h3);
   font-weight: 700;
 
-  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+  @media (min-width: media-query-breakpoints.$screen-xs-min) {
     font-size: var(--_dt-heading-h2-font-size, units.$font-size-h2);
   }
 }
@@ -46,7 +46,7 @@
   font-size: var(--_dt-heading-h3-font-size-xs, units.$font-size-h3s);
   font-weight: 600;
 
-  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+  @media (min-width: media-query-breakpoints.$screen-xs-min) {
     font-size: var(--_dt-heading-h3-font-size, units.$font-size-h3);
   }
 }

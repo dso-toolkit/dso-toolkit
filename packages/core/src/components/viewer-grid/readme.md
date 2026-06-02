@@ -5,17 +5,18 @@
 
 ## Properties
 
-| Property            | Attribute             | Description                                                       | Type                                           | Default     |
-| ------------------- | --------------------- | ----------------------------------------------------------------- | ---------------------------------------------- | ----------- |
-| `activeTab`         | `active-tab`          | Set active tab in tab view.                                       | `"document" \| "map" \| "search" \| undefined` | `undefined` |
-| `documentPanelOpen` | `document-panel-open` | Set to true when document panel should show.                      | `boolean`                                      | `false`     |
-| `documentPanelSize` | `document-panel-size` | Size of the panel when component loads.  Default size is `large`. | `"large" \| "medium" \| "small"`               | `"large"`   |
-| `filterPanelOpen`   | `filter-panel-open`   | Set to true when filter panel should show.                        | `boolean`                                      | `false`     |
-| `filterPanelTitle`  | `filter-panel-title`  | The title of the filter panel                                     | `string \| undefined`                          | `undefined` |
-| `mainPanelExpanded` | `main-panel-expanded` | Set to show main panel expanded.                                  | `boolean`                                      | `false`     |
-| `mainPanelHidden`   | `main-panel-hidden`   | Set to hide the main panel.                                       | `boolean`                                      | `false`     |
-| `mainSize`          | `main-size`           | Size of the panel when component loads.  Default size is `large`. | `"large" \| "medium" \| "small"`               | `"large"`   |
-| `overlayOpen`       | `overlay-open`        | Set to true when overlay should show.                             | `boolean`                                      | `false`     |
+| Property            | Attribute             | Description                                                                 | Type                                           | Default     |
+| ------------------- | --------------------- | --------------------------------------------------------------------------- | ---------------------------------------------- | ----------- |
+| `activeTab`         | `active-tab`          | Set active tab in tab view.                                                 | `"document" \| "map" \| "search" \| undefined` | `undefined` |
+| `documentPanelOpen` | `document-panel-open` | Set to true when document panel should show.                                | `boolean`                                      | `false`     |
+| `documentPanelSize` | `document-panel-size` | Size of the panel when component loads.  Default size is `large`.           | `"large" \| "medium" \| "small"`               | `"large"`   |
+| `filterPanelOpen`   | `filter-panel-open`   | Set to true when filter panel should show.                                  | `boolean`                                      | `false`     |
+| `filterPanelTitle`  | `filter-panel-title`  | The title of the filter panel                                               | `string \| undefined`                          | `undefined` |
+| `mainPanelExpanded` | `main-panel-expanded` | Set to show main panel expanded.                                            | `boolean`                                      | `false`     |
+| `mainPanelHidden`   | `main-panel-hidden`   | Set to hide the main panel.                                                 | `boolean`                                      | `false`     |
+| `mainSize`          | `main-size`           | Size of the panel when component loads.  Default size is `large`.           | `"large" \| "medium" \| "small"`               | `"large"`   |
+| `overlayOpen`       | `overlay-open`        | Set to true when overlay should show.                                       | `boolean`                                      | `false`     |
+| `print`             | `print`               | Set to true to apply print layout programmatically, e.g. for print preview. | `boolean`                                      | `false`     |
 
 
 ## Events

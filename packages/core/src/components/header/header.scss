@@ -373,3 +373,9 @@ div[popover] {
     margin-inline-end: 0;
   }
 }
+
+@media print {
+  .dropdown {
+    display: none;
+  }
+}

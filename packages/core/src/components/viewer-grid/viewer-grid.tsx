@@ -78,6 +78,12 @@ export class ViewerGrid {
   documentPanelOpen = false;
 
   /**
+   * Set to true to apply print layout programmatically, e.g. for print preview.
+   */
+  @Prop({ reflect: true })
+  print = false;
+
+  /**
    * Size of the panel when component loads.
    *
    * Default size is `large`.
@@ -303,7 +309,7 @@ export class ViewerGrid {
               </ul>
             </nav>
           )}
-          {(!this.tabView || (this.tabView && this.activeTab === "search")) && (
+          {(!this.tabView || (this.tabView && this.activeTab === "search") || this.print) && (
             <MainPanel
               tabView={this.tabView}
               mainSize={this.mainSize}
@@ -312,9 +318,19 @@ export class ViewerGrid {
               mainPanelHidden={this.mainPanelHidden}
               toggleMainPanel={this.toggleMainPanel}
               dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
+              printFilterPanel={
+                !this.tabView && this.filterPanelOpen && this.print ? (
+                  <FilterPanel
+                    open={this.filterPanelOpen}
+                    title={this.filterPanelTitle}
+                    ref={(element) => (this.filterPanel = element)}
+                    dsoCloseFilterPanel={(e) => this.dsoCloseFilterPanel.emit({ originalEvent: e })}
+                  ></FilterPanel>
+                ) : undefined
+              }
             ></MainPanel>
           )}
-          {(!this.tabView || (this.tabView && this.activeTab === "search")) && (
+          {(!this.tabView || (this.tabView && this.activeTab === "search")) && !this.print && (
             <FilterPanel
               open={this.filterPanelOpen}
               title={this.filterPanelTitle}
@@ -322,12 +338,14 @@ export class ViewerGrid {
               dsoCloseFilterPanel={(e) => this.dsoCloseFilterPanel.emit({ originalEvent: e })}
             ></FilterPanel>
           )}
-          {(!this.tabView || (this.tabView && this.activeTab === "map")) && (
+          {(!this.tabView || (this.tabView && this.activeTab === "map") || this.print) && (
             <div class="map" ref={(element) => (this.mapElement = element)}>
               <slot name="map" />
             </div>
           )}
-          {((!this.tabView && this.documentPanelOpen) || (this.tabView && this.activeTab === "document")) && (
+          {((!this.tabView && this.documentPanelOpen) ||
+            (this.tabView && this.activeTab === "document") ||
+            this.print) && (
             <DocumentPanel
               tabView={this.tabView}
               panelSize={this.documentPanelSize}

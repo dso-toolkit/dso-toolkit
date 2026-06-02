@@ -171,7 +171,7 @@ button {
   inline-size: 100%;
   transition: inset-inline-start core-viewer-grid-variables.$transition-time ease-in;
 
-  @media screen and (max-width: core-viewer-grid-variables.$filter-panel-inline-size) {
+  @media (max-width: core-viewer-grid-variables.$filter-panel-inline-size) {
     inline-size: 100vw;
 
     &::before {
@@ -179,7 +179,7 @@ button {
     }
   }
 
-  @media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
+  @media (min-width: #{media-query-breakpoints.$screen-md-min}) {
     max-inline-size: core-viewer-grid-variables.$filter-panel-max-inline-size;
   }
 
@@ -212,19 +212,19 @@ button {
     background-color: rgba(0, 0, 0, 0.5);
   }
 
-  @media screen and (max-width: core-viewer-grid-variables.$overlay-inline-size) {
+  @media (max-width: core-viewer-grid-variables.$overlay-inline-size) {
     inline-size: 100vw;
   }
 }
 
-@media screen and (min-width: #{media-query-breakpoints.$screen-md-min + units.$u5}) {
+@media (min-width: #{media-query-breakpoints.$screen-md-min + units.$u5}) {
   :host([main-size="small"]) .dso-main-panel,
   :host([document-panel-size="small"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$small;
     min-inline-size: 0;
     max-inline-size: core-viewer-grid-variables.$small;
 
-    @media screen and (max-width: core-viewer-grid-variables.$small) {
+    @media (max-width: core-viewer-grid-variables.$small) {
       flex-basis: 100vw;
       max-inline-size: 100vw;
       min-inline-size: 0;
@@ -238,7 +238,7 @@ button {
     min-inline-size: core-viewer-grid-variables.$small;
     max-inline-size: core-viewer-grid-variables.$medium;
 
-    @media screen and (max-width: core-viewer-grid-variables.$medium) {
+    @media (max-width: core-viewer-grid-variables.$medium) {
       flex-basis: 100vw;
       max-inline-size: 100vw;
       min-inline-size: core-viewer-grid-variables.$small;
@@ -252,7 +252,7 @@ button {
     min-inline-size: core-viewer-grid-variables.$large-min;
     max-inline-size: core-viewer-grid-variables.$large-max;
 
-    @media screen and (max-width: core-viewer-grid-variables.$large-min) {
+    @media (max-width: core-viewer-grid-variables.$large-min) {
       flex-basis: 100vw;
       max-inline-size: 100vw;
       min-inline-size: core-viewer-grid-variables.$large-min;
@@ -305,7 +305,7 @@ button {
     margin-inline: auto 0;
   }
 
-  @media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
+  @media (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
     :host([filter-panel-open]) {
       .dso-main-panel {
         margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
@@ -320,7 +320,7 @@ button {
   }
 }
 
-@media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
+@media (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
   @include navbar.root();
 
   .dso-navbar {
@@ -359,10 +359,89 @@ button {
   }
 }
 
-@media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
+@media (min-width: #{media-query-breakpoints.$screen-md-min}) {
   :host([filter-panel-open]) {
     .dso-main-panel {
       margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
     }
   }
+}
+
+@mixin print-layout {
+  .viewer-grid-columns {
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .map {
+    block-size: 400px;
+    flex-shrink: 0;
+    order: -1;
+  }
+
+  .dso-main-panel {
+    block-size: auto;
+    box-shadow: none;
+    inline-size: 100% !important;
+    max-inline-size: none !important;
+    min-inline-size: 0 !important;
+    position: relative;
+    margin-inline-start: 0px;
+
+    .content {
+      align-items: flex-start;
+      block-size: auto;
+      display: flex;
+      flex-direction: row;
+      gap: css-grid.$grid-gutter-width;
+      overflow-y: visible;
+
+      slot[name="main"] {
+        display: block;
+        flex: 1;
+        min-inline-size: 0;
+      }
+    }
+  }
+
+  .filter-panel {
+    block-size: auto;
+    box-shadow: none;
+    flex-shrink: 0;
+    inline-size: core-viewer-grid-variables.$filter-panel-max-inline-size !important;
+    margin-inline: 0;
+    max-inline-size: none !important;
+    min-inline-size: 0 !important;
+    position: relative;
+  }
+
+  .dso-document-panel {
+    block-size: auto;
+    box-shadow: none;
+    inline-size: 100% !important;
+    max-inline-size: none !important;
+    min-inline-size: 0 !important;
+    position: static;
+
+    .content {
+      block-size: auto;
+      overflow-y: visible;
+    }
+  }
+}
+
+:host([print]) {
+  block-size: auto;
+  overflow: visible;
+
+  @include print-layout();
+}
+
+@media print {
+  :host {
+    block-size: auto;
+    overflow: visible;
+  }
+
+  @include print-layout();
 }
