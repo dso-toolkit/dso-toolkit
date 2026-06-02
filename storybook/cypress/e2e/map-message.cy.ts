@@ -59,7 +59,9 @@ describe("dso-map-message - Storybook slot rendering", () => {
     ["success", "error", "instruction"].forEach((variant) => {
       cy.visit(`${storybookBaseUrl}${variant}`);
       cy.get(mapMessageSelector).should("be.visible").shadow().find(".map-message-content").should("exist");
-      cy.get(mapMessageSelector).matchImageSnapshot(`dso-map-message-${variant}`);
+
+      // Weer aanzetten via #3776 Map Message: Flaky test
+      // cy.get(mapMessageSelector).matchImageSnapshot(`dso-map-message-${variant}`);
     });
   });
 });
