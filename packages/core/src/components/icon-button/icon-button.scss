@@ -12,6 +12,9 @@
 :host {
   display: inline-block;
   line-height: 1;
+  position: var(--_dt-icon-button-position, static);
+  inset-block-start: var(--_dt-icon-button-inset-block-start, 0);
+  inset-inline-end: var(--_dt-icon-button-inset-inline-end, 0);
 }
 
 @include utilities.box-sizing();

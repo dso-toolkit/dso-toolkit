@@ -32,6 +32,7 @@
 
 @mixin h2() {
   color: var(--_dt-heading-h2-color, colors.$bosgroen);
+  float: var(--_dt-heading-h2-first-child-float, none);
   font-size: var(--_dt-heading-h2-font-size-xs, units.$font-size-h3);
   font-weight: 700;
 

@@ -22,7 +22,7 @@ const Landingspagina = examplePageStories((templates) => {
       <main>
         <div
           class="row dso-banner dso-banner-implementation-specific-image"
-          style="background-image: url('images/hands-on-trackpad.jpg')"
+          style="background-image: url('images/hands-on-trackpad.jpg'); padding-block-end: 16px;"
         >
           <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
