@@ -8,7 +8,7 @@ import { richContent } from "./info.content";
 
 const meta: Meta<InfoArgs> = {
   ...infoMeta({ readme }),
-  title: "HTML|CSS/Info",
+  title: "HTML|CSS/Info (Deprecated)",
 };
 
 export default meta;

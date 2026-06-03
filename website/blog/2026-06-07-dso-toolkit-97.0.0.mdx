@@ -8,6 +8,10 @@ Deze release bevat **breaking** changes voor het volgende component:
 
 - Banner (HTML/CSS implementatie)
 
+Deze release bevat een deprecation voor het volgende component:
+
+- Info (HTML/CSS implementatie)
+
 <!-- truncate -->
 
 ## Banner (HTML/CSS implementatie)
@@ -49,4 +53,27 @@ Gebruik de Core implementatie van `Banner`.
     <dso-icon-button variant="tertiary" icon="cross" label="Sluiten"></dso-icon-button>
   </div>
 </dso-banner>
+```
+
+## Info (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Info` is deprecated. In een toekomstige **BREAKING** release zal de HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik het Core component `Info`.
+
+```html
+❌
+<div class="dso-info">
+  <div class="dso-rich-content">...</div>
+  <button type="button" class="">
+    <span class="sr-only">Sluiten</span>
+  </button>
+</div>
+
+✅
+<dso-info fixed="" active="">
+  <div class="dso-rich-content">...</div>
+</dso-info>
 ```
