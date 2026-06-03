@@ -9,6 +9,10 @@
 
 @include utilities.box-sizing();
 
+.sr-only {
+  @include utilities.sr-only();
+}
+
 :host {
   @include step-counter.step-counter();
 

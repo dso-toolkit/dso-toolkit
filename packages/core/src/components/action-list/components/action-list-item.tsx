@@ -52,7 +52,8 @@ export class ActionListItem implements ComponentInterface {
               {this.step}
             </div>
           )}
-          <div class="action-list-item-content" aria-label={!this.warning ? `${this.step}` : undefined}>
+          <div class="action-list-item-content">
+            <span class="sr-only">{this.step}</span>
             {this.itemTitle && <h3>{this.itemTitle}</h3>}
             <slot />
           </div>
