@@ -9,12 +9,12 @@ export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
   component: "dropdownMenu",
   implementation: "html-css",
   template: ({ buttonTemplate }) =>
-    function dropdownMenuTemplate({ id, button, dropdownAlign, groups, isCheckable }) {
+    function dropdownMenuTemplate({ id, button, dropdownAlign, groups, checkable }) {
       return html`<!-- START DEPRECATED: use <dso-dropdown-menu> -->
         <div
           class="dso-dropdown-menu dso-open ${classMap({
             [`dso-dropdown-align-${dropdownAlign}`]: dropdownAlign === "right",
-            "dso-checkable": !!isCheckable,
+            "dso-checkable": !!checkable,
           })}"
         >
           ${buttonTemplate({ ...button, id })}
@@ -22,26 +22,26 @@ export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
             ${groups.map(
               (group) => html`
                 <ul role="group" aria-labelledby=${group.id}>
-                  ${group.header
-                    ? html`<li id=${group.id} class="dso-group-label" role="none">${group.header}</li>`
+                  ${group.label
+                    ? html`<li id=${group.id} class="dso-group-label" role="none">${group.label}</li>`
                     : nothing}
                   ${group.items.map(
                     (item) => html`
                       <li role="none" class=${ifDefined(item.checked ? "dso-checked" : undefined)}>
-                        ${item.type === "anchor"
+                        ${item.type === "link"
                           ? html`
                               <a
-                                role=${isCheckable ? "menuitemradio" : "menuitem"}
-                                href=${item.url}
-                                aria-checked=${ifDefined(isCheckable ? item.checked || false : undefined)}
+                                role=${checkable ? "menuitemradio" : "menuitem"}
+                                href=${item.href}
+                                aria-checked=${ifDefined(checkable ? item.checked || false : undefined)}
                                 >${item.label}</a
                               >
                             `
                           : html`
                               <button
-                                role=${isCheckable ? "menuitemradio" : "menuitem"}
+                                role=${checkable ? "menuitemradio" : "menuitem"}
                                 type="button"
-                                aria-checked=${ifDefined(isCheckable ? item.checked || false : undefined)}
+                                aria-checked=${ifDefined(checkable ? item.checked || false : undefined)}
                               >
                                 ${item.label}
                               </button>

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* **BREAKING** Dropdown Menu: Aanpassen markup voorschrift ([#3493](https://github.com/dso-toolkit/dso-toolkit/issues/3493))
+
 ## 👝 Release 97.1.1 - 2026-06-23
 
 ### Task

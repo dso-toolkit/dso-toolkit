@@ -4,25 +4,31 @@ describe("Dropdown menu - anchors", () => {
     cy.injectAxe();
 
     cy.get("dso-dropdown-menu.hydrated")
-      .should("exist")
-      .get("button[slot = 'toggle']")
+      .shadow()
+      .as("shadow")
+      .find("button.dso-secondary")
       .as("button")
-      .get(".dso-dropdown-options")
-      .as("options")
-      .get(".dso-dropdown-options ul li a")
-      .as("menuitems");
+      .get("@shadow")
+      .find(".dso-dropdown-options")
+      .as("options");
+
+    cy.get("dso-dropdown-menu.hydrated").get("dso-dropdown-menu-item").as("menuitems");
   });
 
   it("should open and close on button click", () => {
-    cy.get("dso-dropdown-menu.hydrated").matchImageSnapshot();
+    cy.get("dso-dropdown-menu.hydrated").matchImageSnapshot(`type=link -- ${Cypress.currentTest.title} -- not open`);
 
-    cy.get("@options").should("not.be.visible");
+    cy.get("@menuitems").should("not.be.visible");
 
     cy.dsoCheckA11y("dso-dropdown-menu.hydrated");
 
     cy.get("@button").should("be.visible").focus().click().should("have.focus");
 
-    cy.get("@options").should("be.visible");
+    cy.get("@menuitems").should("be.visible");
+
+    // Take the entire page, otherwise the list of menu items will not be snapped
+    cy.viewport(408, 408);
+    cy.matchImageSnapshot(`type=link -- ${Cypress.currentTest.title} -- open`);
 
     /**
      * Ignoring the 'color-contrast' violation on the anchor inside a disabled dso-tab:
@@ -36,12 +42,19 @@ describe("Dropdown menu - anchors", () => {
      */
     cy.get("dso-dropdown-menu.hydrated")
       .as("dropdownMenu")
+      .shadow()
       .find(".dso-dropdown-options")
       .should("have.attr", "role", "menu")
-      .find("ul")
+      .get("@dropdownMenu")
+      .get("dso-dropdown-menu-group")
+      .shadow()
+      .find("div[aria-labelledby]")
       .should("have.attr", "role", "group")
-      .find("li")
+      .find("div.group-label")
       .should("have.attr", "role", "none")
+      .get("@dropdownMenu")
+      .get("dso-dropdown-menu-item")
+      .shadow()
       .find("a")
       .should("have.attr", "role", "menuitemradio")
       .dsoCheckA11y("dso-dropdown-menu.hydrated", {
@@ -50,7 +63,7 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@button").click().should("have.focus");
 
-    cy.get("@options").should("not.be.visible");
+    cy.get("@menuitems").should("not.be.visible");
   });
 
   it("should have aria-expanded", () => {
@@ -75,21 +88,27 @@ describe("Dropdown menu - anchors", () => {
           .should("have.attr", "aria-labelledby", id);
       });
 
-    cy.get("dso-dropdown-menu.hydrated").find(".dso-checked a").should("have.attr", "aria-checked", "true");
+    cy.get("dso-dropdown-menu.hydrated")
+      .get("dso-dropdown-menu-item[checked]")
+      .shadow()
+      .find("a")
+      .should("have.attr", "aria-checked", "true");
 
-    cy.get(".dso-dropdown-options ul").should("have.attr", "role", "group");
-    cy.get(".dso-dropdown-options li.dso-group-label").should("have.attr", "role", "none");
-    cy.get(".dso-dropdown-options li:not(.dso-group-label)").should("have.attr", "role", "none");
-
-    cy.get("@menuitems").should("have.attr", "role", "menuitemradio");
+    cy.get("@menuitems").each((menuItem) =>
+      cy.wrap(menuItem).shadow().find("a").should("have.attr", "role", "menuitemradio"),
+    );
   });
 
   it("uncheckable should have role menuitem", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--anchors&args=isCheckable:false");
+    cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--anchors&args=checkable:false");
 
     cy.get("@button").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").find(".dso-dropdown-options ul li a").should("have.attr", "role", "menuitem");
+    cy.get("dso-dropdown-menu.hydrated")
+      .get("dso-dropdown-menu-item")
+      .shadow()
+      .find("a")
+      .each((a) => cy.wrap(a).should("have.attr", "role", "menuitem"));
   });
 
   it("tab should cycle through options and button", { browser: "!firefox" }, () => {
@@ -191,19 +210,19 @@ describe("Dropdown menu - anchors", () => {
   it("should close on item selection", () => {
     cy.get("@menuitems")
       .eq(1)
-      .then((a) => {
-        a.get(0).addEventListener("click", (e) => {
+      .then((menuItem) => {
+        menuItem.get(0).addEventListener("click", (e) => {
           e.preventDefault();
         });
       });
 
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("@options").should("be.visible");
+    cy.get("@menuitems").should("be.visible");
 
     cy.get("@menuitems").eq(1).click({ force: true });
 
-    cy.get("@options").should("not.be.visible");
+    cy.get("@menuitems").should("not.be.visible");
   });
 });
 
@@ -211,67 +230,57 @@ describe("Dropdown menu - buttons", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--buttons");
     cy.injectAxe();
-    cy.get("button[slot = 'toggle']").as("button");
-    cy.get(".dso-dropdown-options").as("options");
-    cy.get(".dso-dropdown-options ul li button").as("menuitems");
+
+    cy.get("dso-dropdown-menu.hydrated")
+      .shadow()
+      .as("shadow")
+      .find("button.dso-secondary")
+      .as("button")
+      .get("@shadow")
+      .find(".dso-dropdown-options")
+      .as("options");
+
+    cy.get("dso-dropdown-menu.hydrated").get("dso-dropdown-menu-item").as("menuitems");
   });
 
   it("should open and close on button click", () => {
-    cy.get("@options").should("not.be.visible");
+    cy.get("dso-dropdown-menu.hydrated").matchImageSnapshot(`type=button -- ${Cypress.currentTest.title} -- not open`);
+
+    cy.get("@menuitems").should("not.be.visible");
 
     cy.dsoCheckA11y("dso-dropdown-menu.hydrated");
 
-    cy.get("@button").focus().click().should("have.focus");
+    cy.get("@button").should("be.visible").focus().click().should("have.focus");
 
-    cy.get("@options").should("be.visible").find("ul").should("have.attr", "role", "group");
-    cy.get("@options").find("li button").should("have.attr", "role", "menuitem");
+    cy.get("@menuitems").should("be.visible");
 
-    cy.dsoCheckA11y("dso-dropdown-menu.hydrated");
+    // Take the entire page, otherwise the list of menu items will not be snapped
+    cy.viewport(200, 150);
+    cy.matchImageSnapshot(`type=button -- ${Cypress.currentTest.title} -- open`);
 
     cy.get("@button").click().should("have.focus");
 
-    cy.get("@options").should("not.be.visible");
-  });
-
-  it("should have aria-expanded", () => {
-    cy.get("@button")
-      .should("be.visible")
-      .focus()
-      .should("have.attr", "aria-expanded", "false")
-      .click()
-      .should("have.attr", "aria-expanded", "true")
-      .click()
-      .should("have.attr", "aria-expanded", "false");
+    cy.get("@menuitems").should("not.be.visible");
   });
 
   it("should have role menu with menuitem", () => {
-    cy.get("@button").should("have.attr", "aria-haspopup", "menu").click();
-
-    cy.get("@button")
-      .invoke("attr", "id")
-      .then((id) => {
-        cy.get("dso-dropdown-menu.hydrated")
-          .get("@options")
-          .should("have.attr", "role", "menu")
-          .should("have.attr", "aria-labelledby", id);
-      });
-
-    cy.get("dso-dropdown-menu.hydrated").find(".dso-dropdown-options ul").should("have.attr", "role", "group");
-    cy.get("dso-dropdown-menu.hydrated")
-      .find(".dso-dropdown-options li:not(.dso-group-label)")
-      .should("have.attr", "role", "none");
+    cy.get("@button").focus().click();
 
     cy.get("dso-dropdown-menu.hydrated")
-      .find(".dso-dropdown-options ul li button")
-      .should("have.attr", "role", "menuitem");
+      .get("dso-dropdown-menu-item")
+      .shadow()
+      .find("button")
+      .each((button) => cy.wrap(button).should("have.attr", "role", "menuitem"));
   });
 
   it("checkable should have role menuitemradio", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--buttons&args=isCheckable:true");
+    cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--buttons&args=checkable:true");
 
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("@menuitems").should("have.attr", "role", "menuitemradio");
+    cy.get("@menuitems").each((menuItem) =>
+      cy.wrap(menuItem).shadow().find("button").should("have.attr", "role", "menuitemradio"),
+    );
   });
 
   it("tab should cycle through options and button", { browser: "!firefox" }, () => {
@@ -286,7 +295,7 @@ describe("Dropdown menu - buttons", () => {
 
     cy.get("dso-dropdown-menu.hydrated").get("@button").should("have.focus");
 
-    cy.get("@options").should("be.visible");
+    cy.get("@menuitems").should("be.visible");
   });
 
   it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
@@ -298,7 +307,7 @@ describe("Dropdown menu - buttons", () => {
 
     cy.realPress(["Shift", "Tab"]);
 
-    cy.get("dso-dropdown-menu.hydrated").get("@options").should("be.visible");
+    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").should("be.visible");
 
     cy.get("@button").should("have.focus");
   });

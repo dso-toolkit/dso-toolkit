@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
 import { componentArgs } from "../../storybook/index.js";
@@ -53,11 +54,10 @@ export function dropdownMenuStories<Implementation, Templates, TemplateFnReturnT
       args: componentArgs<Omit<DropdownMenuArgs, "id">>({
         buttonLabel: "Versies",
         buttonVariant: "secondary",
-        isCheckable: true,
+        checkable: true,
         dropdownAlign: "left",
         groups: content.versions,
-        boundary: "#root",
-        strategy: "auto",
+        dsoClick: fn(),
       }),
       render: templateContainer.render(storyTemplates, (args, { dropdownMenuTemplate }) =>
         dropdownMenuTemplate(dropdownMenuArgsMapper(args)),
@@ -67,11 +67,10 @@ export function dropdownMenuStories<Implementation, Templates, TemplateFnReturnT
       args: componentArgs<Omit<DropdownMenuArgs, "id">>({
         buttonLabel: "Opties",
         buttonVariant: "secondary",
-        isCheckable: false,
+        checkable: false,
         dropdownAlign: "left",
         groups: content.settings,
-        boundary: "#root",
-        strategy: "auto",
+        dsoClick: fn(),
       }),
       render: templateContainer.render(storyTemplates, (args, { dropdownMenuTemplate }) =>
         dropdownMenuTemplate(dropdownMenuArgsMapper(args)),
