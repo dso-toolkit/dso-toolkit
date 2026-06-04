@@ -13,6 +13,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
       filterPanelTitle,
       overlayOpen,
       documentPanelOpen,
+      print,
       mainSize,
       documentPanelSize,
       mainPanelExpanded,
@@ -41,6 +42,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           ?filter-panel-open=${filterPanelOpen}
           ?overlay-open=${overlayOpen}
           ?document-panel-open=${documentPanelOpen}
+          ?print=${print}
           ?main-panel-expanded=${mainPanelExpanded}
           ?main-panel-hidden=${mainPanelHidden}
           @dsoMainSizeChangeAnimationEnd=${dsoMainSizeChangeAnimationEnd}

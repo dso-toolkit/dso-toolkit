@@ -1467,6 +1467,11 @@ export namespace Components {
           * @default false
          */
         "overlayOpen": boolean;
+        /**
+          * Set to true to apply print layout programmatically, e.g. for print preview.
+          * @default false
+         */
+        "print": boolean;
     }
     interface DsotDocumentComponentDemo {
         /**
@@ -4469,6 +4474,11 @@ declare namespace LocalJSX {
           * @default false
          */
         "overlayOpen"?: boolean;
+        /**
+          * Set to true to apply print layout programmatically, e.g. for print preview.
+          * @default false
+         */
+        "print"?: boolean;
     }
     interface DsotDocumentComponentDemo {
         /**
@@ -4880,6 +4890,7 @@ declare namespace LocalJSX {
         "filterPanelOpen": boolean;
         "overlayOpen": boolean;
         "documentPanelOpen": boolean;
+        "print": boolean;
         "mainSize": ViewerGridPanelSize;
         "activeTab": ViewerGridTab;
         "documentPanelSize": ViewerGridPanelSize;

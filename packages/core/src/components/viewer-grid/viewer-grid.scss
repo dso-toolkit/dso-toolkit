@@ -367,12 +367,7 @@ button {
   }
 }
 
-@media print {
-  :host {
-    block-size: auto;
-    overflow: visible;
-  }
-
+@mixin print-layout {
   .viewer-grid-columns {
     flex-direction: column;
     overflow: visible;
@@ -418,4 +413,20 @@ button {
       overflow-y: visible;
     }
   }
+}
+
+:host([print]) {
+  block-size: auto;
+  overflow: visible;
+
+  @include print-layout();
+}
+
+@media print {
+  :host {
+    block-size: auto;
+    overflow: visible;
+  }
+
+  @include print-layout();
 }

@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { html, nothing } from "lit-html";
+import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx";
 
 import { featuresContent } from "../../../components/document-header/document-header.content";
@@ -86,16 +86,8 @@ const Documenten = {
             block-size: auto;
           }
 
-          .demo-container.demo-print > header {
-            display: none;
-          }
-
           .demo-main > dso-viewer-grid [slot="map"] {
             position: relative;
-          }
-
-          dso-viewer-grid[print] .dso-print-hidden {
-            display: none;
           }
 
           .demo-main > dso-viewer-grid [slot="map"] dso-map-message {
@@ -115,7 +107,7 @@ const Documenten = {
                 block-size: auto !important;
               }
             </style>`
-          : nothing}
+          : ""}
         <div class="demo-container ${print ? "demo-print" : ""}">
           ${headerPartial(templates, header)}
 
