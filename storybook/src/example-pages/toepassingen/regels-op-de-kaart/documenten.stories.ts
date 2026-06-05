@@ -1,10 +1,10 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { html } from "lit-html";
+import { html, nothing } from "lit-html";
 import { compiler } from "markdown-to-jsx";
 
 import { featuresContent } from "../../../components/document-header/document-header.content";
-import { headerPartial } from "../../partials/header";
 import { templateContainer } from "../../../templates";
+import { headerPartial } from "../../partials/header";
 
 import {
   advancedSelect,
@@ -86,6 +86,14 @@ const Documenten = {
             block-size: auto;
           }
 
+          .demo-container.demo-print > header {
+            display: none;
+          }
+
+          dso-viewer-grid[print] .dso-print-hidden {
+            display: none;
+          }
+
           .demo-main > dso-viewer-grid [slot="map"] {
             position: relative;
           }
@@ -107,7 +115,7 @@ const Documenten = {
                 block-size: auto !important;
               }
             </style>`
-          : ""}
+          : nothing}
         <div class="demo-container ${print ? "demo-print" : ""}">
           ${headerPartial(templates, header)}
 
