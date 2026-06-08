@@ -88,11 +88,14 @@ export class InfoButton implements ComponentInterface {
     this.button?.setFocus?.();
   }
 
-  private handleOutsideEvent = (event: FocusEvent | PointerEvent) => {
-    if (!this.toggletipActive) return;
+  private handleOutsideEvent = (event: Event) => {
+    if (!this.toggletipActive) {
+      return;
+    }
 
-    const isOutside = !event.composedPath().includes(this.host);
-    if (isOutside) this.closeToggletip();
+    if (!event.composedPath().includes(this.host)) {
+      this.closeToggletip();
+    }
   };
 
   private handleToggle(originalEvent: MouseEvent) {
@@ -142,8 +145,6 @@ export class InfoButton implements ComponentInterface {
       this.toggletipElRef &&
       this.toggletipArrowElRef
     ) {
-      this.toggletipElRef.showPopover();
-
       this.cleanUpFunction = positionTooltip({
         referenceElement: this.button,
         tipRef: this.toggletipElRef,
@@ -163,8 +164,6 @@ export class InfoButton implements ComponentInterface {
   }
 
   connectedCallback(): void {
-    this.hasToggletip = !!this.host.querySelector("[slot='toggletip']");
-
     this.mutationObserver = new MutationObserver(() => {
       this.hasToggletip = !!this.host.querySelector("[slot='toggletip']");
     });
