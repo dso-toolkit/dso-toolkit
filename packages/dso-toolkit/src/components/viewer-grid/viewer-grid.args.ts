@@ -35,7 +35,9 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
     },
   },
   filterPanelOpen: {
-    type: "boolean",
+    control: {
+      type: "boolean",
+    },
   },
   overlayOpen: {
     type: "boolean",

@@ -1,4 +1,4 @@
-import { EventEmitter, FunctionalComponent, h } from "@stencil/core";
+import { EventEmitter, FunctionalComponent, VNode, h } from "@stencil/core";
 import { clsx } from "clsx";
 
 import { ViewerGridChangeSizeAnimationEndEvent, ViewerGridPanelSize } from "../viewer-grid.interfaces";
@@ -11,6 +11,7 @@ export interface ViewerGridMainPanelProps {
   mainPanelHidden: boolean;
   toggleMainPanel: () => void;
   dsoMainSizeChangeAnimationEnd: EventEmitter<ViewerGridChangeSizeAnimationEndEvent>;
+  printFilterPanel?: VNode;
 }
 
 export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
@@ -21,6 +22,7 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
   mainPanelHidden,
   toggleMainPanel,
   dsoMainSizeChangeAnimationEnd,
+  printFilterPanel,
 }) => (
   <div
     class={clsx("dso-main-panel", {
@@ -46,6 +48,7 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
       </div>
     )}
     <div class={clsx("content", { invisible: mainPanelHidden })}>
+      {printFilterPanel}
       <slot name="main" />
     </div>
   </div>

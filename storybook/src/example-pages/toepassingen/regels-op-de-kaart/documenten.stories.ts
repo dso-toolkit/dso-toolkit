@@ -33,10 +33,15 @@ const Documenten = {
       control: { type: "boolean" },
       table: { category: "Settings" },
     },
+    filterPanelOpen: {
+      control: { type: "boolean" },
+      table: { category: "Settings" },
+    },
   },
   args: {
     preferredImplementation: "core",
     print: false,
+    filterPanelOpen: true,
   },
   parameters: { layout: "fullscreen", docs: { page: () => compiler("") } },
   render: templateContainer.render(
@@ -54,11 +59,12 @@ const Documenten = {
         mapMessageTemplate,
         navbarTemplate,
         plekinfoCardTemplate,
+        searchBarTemplate,
         selectableTemplate,
         viewerGridTemplate,
       } = templates;
 
-      return (print: boolean) => html`
+      return (print: boolean, filterPanelOpen: boolean) => html`
         <style>
           .demo-container {
             display: flex;
@@ -121,13 +127,41 @@ const Documenten = {
 
           <main class="demo-main ${print ? "demo-print" : ""}">
             ${viewerGridTemplate({
-              filterPanelOpen: false,
+              filterPanelOpen,
+              filterPanelTitle: "Filter op kenmerken",
               mainPanelExpanded: true,
               mainPanelHidden: false,
               mainSize: "medium",
               documentPanelOpen: true,
               documentPanelSize: "small",
               print,
+              filterPanel: html`
+                ${searchBarTemplate({
+                  id: "filter-zoek-kenmerk",
+                  label: "Zoek kenmerken",
+                  placeholder: "Zoek een kenmerk",
+                  icon: true,
+                  buttonLabel: "Zoeken",
+                  hideSearchButton: true,
+                })}
+                <h4>Vanuit bestemmingsplannen</h4>
+                ${accordionTemplate({
+                  variant: "compact",
+                  sections: [
+                    { handleTitle: "Bestemmingen (2)", heading: "h5", open: false, content: html`` },
+                    { handleTitle: "Gebiedsaanduidingen (3)", heading: "h5", open: false, content: html`` },
+                  ],
+                })}
+                <h4>Vanuit omgevingsdocumenten</h4>
+                ${accordionTemplate({
+                  variant: "compact",
+                  sections: [
+                    { handleTitle: "Thema's (12)", heading: "h5", open: false, content: html`` },
+                    { handleTitle: "Gebiedsaanwijzingen (35)", heading: "h5", open: false, content: html`` },
+                    { handleTitle: "Activiteiten (119)", heading: "h5", open: false, content: html`` },
+                  ],
+                })}
+              `,
               topBar: bannerTemplate({
                 status: "info",
                 content: html`U bekijkt nu de informatie die op 05-02-2024 zichtbaar was.
@@ -241,7 +275,7 @@ const Documenten = {
         </div>
       `;
     },
-    (args, buildContent) => buildContent(args.print ?? false),
+    (args, buildContent) => buildContent(args.print ?? false, args.filterPanelOpen ?? true),
   ),
 };
 

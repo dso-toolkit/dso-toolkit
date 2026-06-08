@@ -318,9 +318,19 @@ export class ViewerGrid {
               mainPanelHidden={this.mainPanelHidden}
               toggleMainPanel={this.toggleMainPanel}
               dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
+              printFilterPanel={
+                !this.tabView && this.filterPanelOpen && this.print ? (
+                  <FilterPanel
+                    open={this.filterPanelOpen}
+                    title={this.filterPanelTitle}
+                    ref={(element) => (this.filterPanel = element)}
+                    dsoCloseFilterPanel={(e) => this.dsoCloseFilterPanel.emit({ originalEvent: e })}
+                  ></FilterPanel>
+                ) : undefined
+              }
             ></MainPanel>
           )}
-          {(!this.tabView || (this.tabView && this.activeTab === "search")) && (
+          {(!this.tabView || (this.tabView && this.activeTab === "search")) && !this.print && (
             <FilterPanel
               open={this.filterPanelOpen}
               title={this.filterPanelTitle}
