@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Autosuggest: Click drukt door de suggesties heen op onderliggende interactieve elementen ([#3804](https://github.com/dso-toolkit/dso-toolkit/issues/3804))
+* Info Button: Safari op tablet, mobiel en desktop geeft problemen ([#3643](https://github.com/dso-toolkit/dso-toolkit/issues/3643))
 
 ### Removed
 * **BREAKING** Banner: Remove HTML/CSS implementatie ([#3673](https://github.com/dso-toolkit/dso-toolkit/issues/3673))

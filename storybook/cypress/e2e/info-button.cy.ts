@@ -23,12 +23,21 @@ describe("Info Button", () => {
       .should("have.css", "opacity", "0");
   };
 
+  it("should conditionally set aria-controls", () => {
+    visitStory("default");
+    getComponent().shadow().find("dso-icon-button").should("not.have.attr", "aria-controls");
+
+    visitStory("information");
+    getComponent().shadow().find("dso-icon-button").should("have.attr", "aria-controls", "toggletip-content");
+  });
+
   // ---------- Variants ----------
   variants.forEach((variant) => {
     it(`${variant} should be accessible and match snapshot`, () => {
       visitStory(variant);
       cy.injectAxe();
       cy.dsoCheckA11y("dso-info-button.hydrated");
+
       getComponent().matchImageSnapshot(Cypress.currentTest.title);
     });
   });
