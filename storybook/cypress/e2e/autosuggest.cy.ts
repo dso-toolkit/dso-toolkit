@@ -444,32 +444,33 @@ describe("Autosuggest", () => {
     cy.matchImageSnapshot();
   });
 
-  it("option click propagates to document when stopPropagation is disabled (verifies click-through bug scenario)", () => {
-    cy.window().then((win) => {
-      cy.stub(win.Event.prototype, "stopPropagation");
+  describe("click propagation", () => {
+    beforeEach(() => {
+      const documentClickSpy = cy.stub().as("documentClick");
+      cy.document().then((doc) => doc.addEventListener("click", documentClickSpy));
     });
 
-    cy.get("input").focus().type("rotterdam");
-    cy.wait(200);
+    it("option click propagates to document when stopPropagation is disabled (verifies click-through bug scenario)", () => {
+      cy.window().then((win) => {
+        cy.stub(win.Event.prototype, "stopPropagation");
+      });
 
-    const documentClickSpy = cy.stub().as("documentClick");
-    cy.document().then((doc) => doc.addEventListener("click", documentClickSpy));
+      cy.get("input").focus().type("rotterdam");
+      cy.wait(200);
 
-    cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(0).trigger("mouseenter").realClick();
+      cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(0).trigger("mouseenter").realClick();
 
-    cy.get("@documentClick").should("have.been.called");
-  });
+      cy.get("@documentClick").should("have.been.called");
+    });
 
-  it("option click should not propagate to document (regression for click-through bug)", () => {
-    cy.get("input").focus().type("rotterdam");
-    cy.wait(200);
+    it("option click should not propagate to document (regression for click-through bug)", () => {
+      cy.get("input").focus().type("rotterdam");
+      cy.wait(200);
 
-    const documentClickSpy = cy.stub().as("documentClick");
-    cy.document().then((doc) => doc.addEventListener("click", documentClickSpy));
+      cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(0).trigger("mouseenter").click();
 
-    cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(0).trigger("mouseenter").click();
-
-    cy.get("@documentClick").should("not.have.been.called");
+      cy.get("@documentClick").should("not.have.been.called");
+    });
   });
 
   describe("with grouped items", () => {
