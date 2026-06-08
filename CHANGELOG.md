@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Map Controls: WCAG Region met kaartlagen moet een duidelijke naam krijgen ([#3732](https://github.com/dso-toolkit/dso-toolkit/issues/3732))
+
 ### Deprecated
 * Info: Deprecate HTML/CSS Implementatie ([#3571](https://github.com/dso-toolkit/dso-toolkit/issues/3571))
 
