@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Info: Deprecate HTML/CSS Implementatie ([#3571](https://github.com/dso-toolkit/dso-toolkit/issues/3571))
 
+### Fixed
+* Autosuggest: Click drukt door de suggesties heen op onderliggende interactieve elementen ([#3804](https://github.com/dso-toolkit/dso-toolkit/issues/3804))
+
 ### Removed
 * **BREAKING** Banner: Remove HTML/CSS implementatie ([#3673](https://github.com/dso-toolkit/dso-toolkit/issues/3673))
 
