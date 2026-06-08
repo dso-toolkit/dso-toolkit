@@ -11,12 +11,12 @@ export const cssInfo: ComponentImplementation<Info<TemplateResult>> = {
   template: ({ buttonTemplate }) =>
     function infoTemplate({ fixed, content, id, active }) {
       return html`${active || fixed
-        ? html`
+        ? html`<!-- START DEPRECATED: use <dso-info> -->
             <div class="dso-info" id=${ifDefined(id)}>
               ${typeof content === "string" ? unsafeHTML(content) : content}
               ${!fixed ? buttonTemplate({ label: "Sluiten", variant: null, iconMode: "only" }) : nothing}
             </div>
-          `
+            <!-- END DEPRECATED -->`
         : nothing}`;
     },
 };

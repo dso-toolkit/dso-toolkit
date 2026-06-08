@@ -193,7 +193,7 @@
     "type": "html-css"
   },
   {
-    "name": "info",
+    "name": "info-deprecated",
     "selector": ".dso-info:not(.dso-accordion-section)",
     "stories": ["default", "fixed"],
     "type": "html-css"
