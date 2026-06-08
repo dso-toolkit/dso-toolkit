@@ -22,7 +22,7 @@
 
 ## Methods
 
-### `toggleVisibility(e: MouseEvent | KeyboardEvent) => Promise<void>`
+### `toggleVisibility(e: MouseEvent | KeyboardEvent, returnFocusTarget?: "button" | "icon-button") => Promise<void>`
 
 Emitted when the visibility is toggled.
 
@@ -30,9 +30,10 @@ Can be used to recalculate map widths or reposition center when the Map Controls
 
 #### Parameters
 
-| Name | Type                          | Description |
-| ---- | ----------------------------- | ----------- |
-| `e`  | `MouseEvent \| KeyboardEvent` |             |
+| Name                | Type                                     | Description |
+| ------------------- | ---------------------------------------- | ----------- |
+| `e`                 | `MouseEvent \| KeyboardEvent`            |             |
+| `returnFocusTarget` | `"button" \| "icon-button" \| undefined` |             |
 
 #### Returns
 
