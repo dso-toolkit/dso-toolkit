@@ -28,7 +28,11 @@ describe("ActionList", () => {
         .find("dso-action-list-item.hydrated")
         .each((item) => {
           const step: number = item.prop("step");
-          cy.wrap(item).shadow().find(".action-list-item-content .sr-only").should("have.text", step);
+          if (item.prop("itemTitle") !== undefined) {
+            cy.wrap(item).shadow().find(".action-list-item-content .sr-only").should("have.text", step + " ");
+          } else {
+            cy.wrap(item).shadow().find(".action-list-item-content .sr-only").should("not.exist");
+          }
         });
     });
   });
