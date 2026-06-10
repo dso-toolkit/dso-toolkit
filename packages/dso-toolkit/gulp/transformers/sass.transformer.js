@@ -3,7 +3,7 @@ import { fileURLToPath } from "url";
 
 import PluginError from "plugin-error";
 import { compileString } from "sass";
-import { obj } from "through2";
+import { objectTransform as obj } from "through2";
 import applySourceMap from "vinyl-sourcemaps-apply";
 
 export function sassTransformer() {
