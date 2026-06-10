@@ -191,6 +191,8 @@ export default [
       "react/jsx-no-bind": 0,
       "@typescript-eslint/no-shadow": 2,
       "@stencil-community/strict-boolean-conditions": 0,
+      // Disabled: crashes on ESLint 10 due to removed context.getSourceCode() API in @stencil-community/eslint-plugin@0.10.0
+      "@stencil-community/own-props-must-be-private": "off",
       "@stencil-community/decorators-style": [
         "error",
         {
