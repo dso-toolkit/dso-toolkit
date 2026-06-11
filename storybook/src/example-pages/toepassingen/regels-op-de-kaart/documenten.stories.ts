@@ -72,17 +72,20 @@ const Documenten = {
             block-size: 100vh;
           }
 
-          .demo-container.demo-print {
-            block-size: auto;
-          }
+      .demo-main {
+        flex: 1;
+        min-block-size: 0;
+        overflow-y: hidden;
+      }
 
           .demo-main {
             overflow-y: hidden;
           }
 
-          .demo-main.demo-print {
-            overflow-y: visible;
-          }
+      .demo-main > dso-viewer-grid [slot="map"] {
+        block-size: 100%;
+        position: relative;
+      }
 
           .demo-main > dso-viewer-grid {
             block-size: 100%;
