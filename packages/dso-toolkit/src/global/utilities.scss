@@ -30,9 +30,3 @@
 .sr-only {
   @include utilities.sr-only();
 }
-
-@media print {
-  .dso-print-hidden {
-    display: none !important;
-  }
-}

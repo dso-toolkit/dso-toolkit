@@ -1,8 +1,10 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { html, nothing } from "lit-html";
+import { kaartlagenTabItem, legendArgs, legendaTabItem } from "dso-toolkit";
+import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx";
 
 import { featuresContent } from "../../../components/document-header/document-header.content";
+import { kaartlagenRichContent } from "../../../components/legend/legend.content";
 import { templateContainer } from "../../../templates";
 import { headerPartial } from "../../partials/header";
 
@@ -15,6 +17,7 @@ import {
   plekinfoCardsListActiviteiten,
   plekinfoCardsListLocaties,
 } from "./documenten.content";
+import { openLayersMapPartial } from "./open-layers-map.partial";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten",
@@ -37,11 +40,21 @@ const Documenten = {
       control: { type: "boolean" },
       table: { category: "Settings" },
     },
+    mainPanelOpen: {
+      control: { type: "boolean" },
+      table: { category: "Settings" },
+    },
+    legendOpen: {
+      control: { type: "boolean" },
+      table: { category: "Settings" },
+    },
   },
   args: {
     preferredImplementation: "core",
     print: false,
     filterPanelOpen: true,
+    mainPanelOpen: true,
+    legendOpen: true,
   },
   parameters: { layout: "fullscreen", docs: { page: () => compiler("") } },
   render: templateContainer.render(
@@ -55,7 +68,7 @@ const Documenten = {
         documentHeaderTemplate,
         highlightBoxTemplate,
         iconTemplate,
-        mapControlsTemplate,
+        legendTemplate,
         mapMessageTemplate,
         navbarTemplate,
         plekinfoCardTemplate,
@@ -64,7 +77,7 @@ const Documenten = {
         viewerGridTemplate,
       } = templates;
 
-      return (print: boolean, filterPanelOpen: boolean) => html`
+      return (print: boolean, filterPanelOpen: boolean, mainPanelOpen: boolean, legendOpen: boolean) => html`
         <style>
           .demo-container {
             display: flex;
@@ -72,39 +85,44 @@ const Documenten = {
             block-size: 100vh;
           }
 
-      .demo-main {
-        flex: 1;
-        min-block-size: 0;
-        overflow-y: hidden;
-      }
-
           .demo-main {
+            flex: 1;
+            min-block-size: 0;
             overflow-y: hidden;
           }
 
-      .demo-main > dso-viewer-grid [slot="map"] {
-        block-size: 100%;
-        position: relative;
-      }
+          .demo-main > dso-viewer-grid [slot="map"] {
+            block-size: 100%;
+            position: relative;
+            background: url("images/kaart.png") center / cover no-repeat;
+          }
+
+          dso-viewer-grid[print] [slot="map"] {
+            min-block-size: 400px;
+          }
 
           .demo-main > dso-viewer-grid {
             block-size: 100%;
           }
 
-          .demo-main.demo-print > dso-viewer-grid {
+          .demo-main.print > dso-viewer-grid {
             block-size: auto;
           }
 
-          .demo-container.demo-print > header {
-            display: none;
+          .demo-container.print {
+            block-size: auto;
+          }
+
+          .demo-main.print {
+            overflow-y: visible;
           }
 
           dso-viewer-grid[print] .dso-print-hidden {
             display: none;
           }
 
-          .demo-main > dso-viewer-grid [slot="map"] {
-            position: relative;
+          dso-viewer-grid[print] [slot="legend"] dso-legend {
+            --_dso-legend-content-max-block-size: none;
           }
 
           .demo-main > dso-viewer-grid [slot="map"] dso-map-message {
@@ -124,16 +142,20 @@ const Documenten = {
                 block-size: auto !important;
               }
             </style>`
-          : nothing}
-        <div class="demo-container ${print ? "demo-print" : ""}">
+          : html`<style>
+              body {
+                overflow: hidden !important;
+              }
+            </style>`}
+        <div class="demo-container ${print ? "print" : ""}">
           ${headerPartial(templates, header)}
 
-          <main class="demo-main ${print ? "demo-print" : ""}">
+          <main class="demo-main ${print ? "print" : ""}">
             ${viewerGridTemplate({
               filterPanelOpen,
               filterPanelTitle: "Filter op kenmerken",
               mainPanelExpanded: true,
-              mainPanelHidden: false,
+              mainPanelHidden: print ? false : !mainPanelOpen,
               mainSize: "medium",
               documentPanelOpen: true,
               documentPanelSize: "small",
@@ -171,12 +193,14 @@ const Documenten = {
                 ${linkTemplate({ url: "#", label: "Terug naar vandaag" })}`,
               }),
               main: html`
-                ${buttonTemplate({
-                  label: "Opnieuw zoeken",
-                  type: "button",
-                  variant: "tertiary",
-                  icon: { icon: "chevron-left" },
-                })}
+                <div class="dso-print-hidden">
+                  ${buttonTemplate({
+                    label: "Opnieuw zoeken",
+                    type: "button",
+                    variant: "tertiary",
+                    icon: { icon: "chevron-left" },
+                  })}
+                </div>
                 <section class="dso-filterblok">
                   ${highlightBoxTemplate({
                     content: html`<h2 style="margin-block-start: 0; color: #8b4a6a;">
@@ -217,9 +241,16 @@ const Documenten = {
                     ],
                   })}
                 </div>
-                <img src="images/kaart.png" aria-hidden="true" />
-                ${mapControlsTemplate({ baseLayers: [], open: false, overlays: [] })}
+                ${openLayersMapPartial()}
               `,
+              legend: legendOpen
+                ? legendTemplate({
+                    tabItems: [legendaTabItem, { ...kaartlagenTabItem, active: true }],
+                    content: kaartlagenRichContent(legendArgs),
+                    dsoContentSwitch: () => {},
+                    dsoClose: () => {},
+                  })
+                : undefined,
               documentPanel: html`
                 ${documentHeaderTemplate({
                   title: "Omgevingsplan gemeente Gouda",
@@ -278,7 +309,13 @@ const Documenten = {
         </div>
       `;
     },
-    (args, buildContent) => buildContent(args.print ?? false, args.filterPanelOpen ?? true),
+    (args, buildContent) =>
+      buildContent(
+        args.print ?? false,
+        args.filterPanelOpen ?? true,
+        args.mainPanelOpen ?? true,
+        args.legendOpen ?? true,
+      ),
   ),
 };
 

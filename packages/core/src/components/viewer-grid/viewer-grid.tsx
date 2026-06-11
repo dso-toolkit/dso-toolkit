@@ -39,6 +39,7 @@ const minMapElementWidth = 440;
  * @slot top-bar - Een slot die bovenaan de viewer over de hele breedte kan worden gevuld met bijv een banner.
  * @slot main
  * @slot map
+ * @slot legend
  * @slot filter-panel
  * @slot overlay
  * @slot document-panel
@@ -339,8 +340,13 @@ export class ViewerGrid {
             ></FilterPanel>
           )}
           {(!this.tabView || (this.tabView && this.activeTab === "map") || this.print) && (
-            <div class="map" ref={(element) => (this.mapElement = element)}>
-              <slot name="map" />
+            <div class="map-area">
+              <div class="map" ref={(element) => (this.mapElement = element)}>
+                <slot name="map" />
+              </div>
+              <div class="legend">
+                <slot name="legend" />
+              </div>
             </div>
           )}
           {((!this.tabView && this.documentPanelOpen) ||
