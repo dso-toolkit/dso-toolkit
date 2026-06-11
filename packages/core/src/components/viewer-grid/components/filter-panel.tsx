@@ -1,7 +1,6 @@
 import { Fragment, FunctionalComponent, h } from "@stencil/core";
 
 export interface ViewerGridFilterPanelProps {
-  slot?: string;
   open: boolean;
   title?: string;
   ref: ((element: HTMLDialogElement | undefined) => void) | undefined;

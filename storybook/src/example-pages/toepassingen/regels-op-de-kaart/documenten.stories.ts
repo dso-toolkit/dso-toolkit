@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { html, nothing } from "lit-html";
+import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx";
 
 import { featuresContent } from "../../../components/document-header/document-header.content";
@@ -72,39 +72,53 @@ const Documenten = {
             block-size: 100vh;
           }
 
-      .demo-main {
-        flex: 1;
-        min-block-size: 0;
-        overflow-y: hidden;
-      }
-
           .demo-main {
+            flex: 1;
+            min-block-size: 0;
             overflow-y: hidden;
           }
 
-      .demo-main > dso-viewer-grid [slot="map"] {
-        block-size: 100%;
-        position: relative;
-      }
+          .demo-main > dso-viewer-grid [slot="map"] {
+            block-size: 100%;
+            position: relative;
+          }
 
           .demo-main > dso-viewer-grid {
             block-size: 100%;
           }
 
-          .demo-main.demo-print > dso-viewer-grid {
+          .demo-main.print > dso-viewer-grid {
             block-size: auto;
           }
 
-          .demo-container.demo-print > header {
-            display: none;
+          .demo-container.print {
+            block-size: auto;
+          }
+
+          .demo-main.print {
+            overflow-y: visible;
           }
 
           dso-viewer-grid[print] .dso-print-hidden {
             display: none;
           }
 
-          .demo-main > dso-viewer-grid [slot="map"] {
+          dso-viewer-grid[print] [slot="map"] dso-map-controls[open] {
             position: relative;
+            inset-block: auto;
+            inset-inline: auto;
+            margin-inline-start: auto;
+            transform: none;
+          }
+
+          dso-viewer-grid[print] [slot="map"] {
+            min-block-size: 400px;
+          }
+
+          dso-viewer-grid[print] [slot="map"] img {
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
           }
 
           .demo-main > dso-viewer-grid [slot="map"] dso-map-message {
@@ -124,11 +138,15 @@ const Documenten = {
                 block-size: auto !important;
               }
             </style>`
-          : nothing}
-        <div class="demo-container ${print ? "demo-print" : ""}">
+          : html`<style>
+              body {
+                overflow: hidden !important;
+              }
+            </style>`}
+        <div class="demo-container ${print ? "print" : ""}">
           ${headerPartial(templates, header)}
 
-          <main class="demo-main ${print ? "demo-print" : ""}">
+          <main class="demo-main ${print ? "print" : ""}">
             ${viewerGridTemplate({
               filterPanelOpen,
               filterPanelTitle: "Filter op kenmerken",

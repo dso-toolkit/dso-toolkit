@@ -374,7 +374,9 @@ button {
   }
 
   .map {
-    block-size: 400px;
+    block-size: auto;
+    min-block-size: 400px;
+    overflow: visible;
     flex-shrink: 0;
     order: -1;
   }
@@ -413,6 +415,7 @@ button {
     max-inline-size: none !important;
     min-inline-size: 0 !important;
     position: relative;
+    transition: none;
   }
 
   .dso-document-panel {
