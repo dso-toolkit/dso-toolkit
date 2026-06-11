@@ -7,6 +7,8 @@
 @mixin root() {
   @include list.unstyled();
 
+  margin-block-end: var(--_dso-link-list-margin-block-end, units.$u2);
+
   li {
     margin-block-end: units.$u2;
 
