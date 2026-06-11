@@ -8,6 +8,8 @@ import debounce from "debounce";
 })
 export class Table implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
+  private resizeFrameId?: number;
+  private pendingResizeEntry?: ResizeObserverEntry;
 
   @Element()
   host!: HTMLDsoTableElement;
@@ -31,8 +33,35 @@ export class Table implements ComponentInterface {
     this.resizeObserver?.observe(this.host);
   }
 
+  private scheduleResponsiveTable(entry: ResizeObserverEntry): void {
+    this.pendingResizeEntry = entry;
+
+    if (this.resizeFrameId !== undefined) {
+      return;
+    }
+
+    this.resizeFrameId = requestAnimationFrame(() => {
+      this.resizeFrameId = undefined;
+
+      if (!this.pendingResizeEntry) {
+        return;
+      }
+
+      this.setResponsiveTable(this.pendingResizeEntry);
+      this.pendingResizeEntry = undefined;
+    });
+  }
+
   componentWillLoad(): void {
-    this.resizeObserver = new ResizeObserver(debounce((entries) => this.setResponsiveTable(entries), 200));
+    this.resizeObserver = new ResizeObserver(
+      debounce((entries) => {
+        if (!entries[0]) {
+          throw new Error("No dsoTable found");
+        }
+
+        this.scheduleResponsiveTable(entries[0]);
+      }, 200),
+    );
   }
 
   componentDidLoad(): void {
@@ -40,6 +69,11 @@ export class Table implements ComponentInterface {
   }
 
   disconnectedCallback() {
+    if (this.resizeFrameId !== undefined) {
+      cancelAnimationFrame(this.resizeFrameId);
+      this.resizeFrameId = undefined;
+    }
+
     this.resizeObserver?.disconnect();
   }
 
@@ -106,16 +140,16 @@ export class Table implements ComponentInterface {
     this.modalActive = false;
   }
 
-  private setResponsiveTable([dsoTable]: ResizeObserverEntry[]): void {
-    if (!dsoTable) {
-      throw new Error("No dsoTable found");
-    }
-
+  private setResponsiveTable(dsoTable: ResizeObserverEntry): void {
     const tableElement = dsoTable.target.querySelector("table");
 
     if (dsoTable && tableElement instanceof HTMLTableElement) {
-      this.isResponsive =
+      const isResponsive =
         Math.floor(tableElement.getBoundingClientRect().width) > Math.floor(dsoTable.contentRect.width);
+
+      if (this.isResponsive !== isResponsive) {
+        this.isResponsive = isResponsive;
+      }
     }
   }
 }

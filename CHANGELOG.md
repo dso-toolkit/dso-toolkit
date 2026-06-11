@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING** Dropdown Menu: Aanpassen markup voorschrift ([#3493](https://github.com/dso-toolkit/dso-toolkit/issues/3493))
 
+### Fixed
+* ResizeObserver: ResizeObserver loop completed with undelivered notifications ([#3767](https://github.com/dso-toolkit/dso-toolkit/issues/3767))
+
 ### Task
 * CSS: Private custom properties namespace aanpassen ([#3515](https://github.com/dso-toolkit/dso-toolkit/issues/3515))
 

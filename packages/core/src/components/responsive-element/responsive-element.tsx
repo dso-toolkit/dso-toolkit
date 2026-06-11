@@ -29,6 +29,9 @@ export class ResponsiveElement implements ComponentInterface {
   @State()
   sizeWidth = 0;
 
+  private resizeFrameId?: number;
+  private pendingSizeAlias?: ResponsiveElementSize;
+
   /**
    * Emitted when size has changed
    */
@@ -43,15 +46,28 @@ export class ResponsiveElement implements ComponentInterface {
     return this.sizeAlias;
   }
 
+  private flushSizeChange = () => {
+    this.resizeFrameId = undefined;
+
+    if (!this.host.isConnected || !this.pendingSizeAlias || this.pendingSizeAlias === this.sizeAlias) {
+      return;
+    }
+
+    this.sizeAlias = this.pendingSizeAlias;
+    this.dsoSizeChange.emit(this.pendingSizeAlias);
+  };
+
   private observer = new ResizeObserver(([entry]) => {
     if (!entry) {
       throw new Error("No entry found");
     }
 
-    const size = elementSizes.find((s) => entry.contentRect.width >= s.width)?.alias ?? elementSizes[0].alias;
+    this.pendingSizeAlias =
+      elementSizes.find((s) => entry.contentRect.width >= s.width)?.alias ?? elementSizes[0].alias;
 
-    this.sizeAlias = size;
-    this.dsoSizeChange.emit(size);
+    if (this.resizeFrameId === undefined) {
+      this.resizeFrameId = requestAnimationFrame(this.flushSizeChange);
+    }
   });
 
   @Element()
@@ -62,6 +78,11 @@ export class ResponsiveElement implements ComponentInterface {
   }
 
   disconnectedCallback() {
+    if (this.resizeFrameId !== undefined) {
+      cancelAnimationFrame(this.resizeFrameId);
+      this.resizeFrameId = undefined;
+    }
+
     this.observer.unobserve(this.host);
   }
 

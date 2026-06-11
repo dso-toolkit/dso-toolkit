@@ -209,7 +209,9 @@ export class Autosuggest {
 
   private labelId: string = v4();
 
-  private resizeObserver = new ResizeObserver(debounce(() => this.setListboxContainerMaxBlockSize(), 150));
+  private listboxContainerMaxBlockSizeFrameId?: number;
+
+  private resizeObserver = new ResizeObserver(debounce(() => this.scheduleListboxContainerMaxBlockSizeUpdate(), 150));
 
   private debouncedEmitValue = debounce((value: string) => {
     this.dsoChange.emit(value);
@@ -257,7 +259,7 @@ export class Autosuggest {
   private text = i18n(() => this.host, translations);
 
   componentDidRender() {
-    this.setListboxContainerMaxBlockSize();
+    this.scheduleListboxContainerMaxBlockSizeUpdate();
   }
 
   connectedCallback() {
@@ -312,12 +314,28 @@ export class Autosuggest {
 
     document.removeEventListener("scrollend", this.onScrollend);
 
+    if (this.listboxContainerMaxBlockSizeFrameId !== undefined) {
+      cancelAnimationFrame(this.listboxContainerMaxBlockSizeFrameId);
+      this.listboxContainerMaxBlockSizeFrameId = undefined;
+    }
+
     this.resizeObserver.disconnect();
   }
 
-  private onWindowResize = debounce(() => this.setListboxContainerMaxBlockSize(), 150);
+  private onWindowResize = debounce(() => this.scheduleListboxContainerMaxBlockSizeUpdate(), 150);
 
-  private onScrollend = () => this.setListboxContainerMaxBlockSize();
+  private onScrollend = () => this.scheduleListboxContainerMaxBlockSizeUpdate();
+
+  private scheduleListboxContainerMaxBlockSizeUpdate(): void {
+    if (this.listboxContainerMaxBlockSizeFrameId !== undefined) {
+      return;
+    }
+
+    this.listboxContainerMaxBlockSizeFrameId = requestAnimationFrame(() => {
+      this.listboxContainerMaxBlockSizeFrameId = undefined;
+      this.setListboxContainerMaxBlockSize();
+    });
+  }
 
   private setListboxContainerMaxBlockSize(): void {
     if (!this.listboxContainer || !this.showSuggestions) {

@@ -72,11 +72,13 @@ export class ImageOverlay implements ComponentInterface {
   private mutationObserver?: MutationObserver;
 
   private resizeObserver?: ResizeObserver;
+  private zoomableFrameId?: number;
+  private pendingZoomable?: boolean;
 
   @Listen("load", { capture: true })
   loadListener(event: Event) {
     if (event.target instanceof HTMLImageElement) {
-      this.setZoomable(event.target);
+      this.scheduleZoomableUpdate(event.target);
     }
   }
 
@@ -126,6 +128,10 @@ export class ImageOverlay implements ComponentInterface {
   disconnectedCallback() {
     this.mutationObserver?.disconnect();
     this.resizeObserver?.disconnect();
+    if (this.zoomableFrameId !== undefined) {
+      cancelAnimationFrame(this.zoomableFrameId);
+      this.zoomableFrameId = undefined;
+    }
   }
 
   private initZoomableImage(): void {
@@ -137,16 +143,38 @@ export class ImageOverlay implements ComponentInterface {
 
     // Due to timing issues where the image is loaded before we listen to load events we double check if the image is already complete.
     if (imgElement.complete) {
-      this.setZoomable(imgElement);
+      this.scheduleZoomableUpdate(imgElement);
     }
 
     this.resizeObserver?.observe(imgElement);
   }
 
-  private setZoomable(imageElement: HTMLImageElement): void {
+  private scheduleZoomableUpdate(imageElement: HTMLImageElement): void {
     const { width, naturalWidth, height, naturalHeight } = imageElement;
 
-    this.zoomable = width < naturalWidth || height < naturalHeight;
+    this.pendingZoomable = width < naturalWidth || height < naturalHeight;
+
+    if (this.zoomableFrameId !== undefined) {
+      return;
+    }
+
+    this.zoomableFrameId = requestAnimationFrame(() => {
+      this.zoomableFrameId = undefined;
+
+      if (
+        !this.host.isConnected ||
+        typeof this.pendingZoomable === "undefined" ||
+        this.zoomable === this.pendingZoomable
+      ) {
+        return;
+      }
+
+      this.zoomable = this.pendingZoomable;
+    });
+  }
+
+  private setZoomable(imageElement: HTMLImageElement): void {
+    this.scheduleZoomableUpdate(imageElement);
   }
 
   private isWijzigactie(wijzigactie: string): wijzigactie is ImageOverlayWijzigactie {
