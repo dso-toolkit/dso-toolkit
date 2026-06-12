@@ -20,6 +20,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   filterPanel?: TemplateFnReturnType;
   main: TemplateFnReturnType;
   map: TemplateFnReturnType;
+  legend?: TemplateFnReturnType;
   documentPanel?: TemplateFnReturnType;
   overlay?: TemplateFnReturnType;
 }

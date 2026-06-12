@@ -142,11 +142,24 @@ button {
   z-index: zindex.$viewer-grid-sizing-buttons;
 }
 
-.map {
+.map-area {
   block-size: 100%;
   inline-size: 100%;
   overflow: hidden;
   position: relative;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.legend {
+  position: absolute;
+  inset-block-end: units.$u2;
+  inset-inline-start: units.$u2;
+  z-index: 1;
 }
 
 .filter-panel,
@@ -367,18 +380,39 @@ button {
   }
 }
 
-@mixin print-layout {
+:host([print]) {
+  block-size: auto;
+  overflow: visible;
+
   .viewer-grid-columns {
     flex-direction: column;
     overflow: visible;
   }
 
-  .map {
+  .map-area {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     block-size: auto;
-    min-block-size: 400px;
     overflow: visible;
     flex-shrink: 0;
     order: -1;
+  }
+
+  .map {
+    flex: 1;
+    min-inline-size: 0;
+    align-self: stretch;
+    min-block-size: 400px;
+    position: relative;
+    inset: auto;
+  }
+
+  .legend {
+    position: relative;
+    inset: auto;
+    flex-shrink: 0;
+    --_dso-legend-content-max-block-size: none;
   }
 
   .dso-main-panel {
@@ -431,20 +465,4 @@ button {
       overflow-y: visible;
     }
   }
-}
-
-:host([print]) {
-  block-size: auto;
-  overflow: visible;
-
-  @include print-layout();
-}
-
-@media print {
-  :host {
-    block-size: auto;
-    overflow: visible;
-  }
-
-  @include print-layout();
 }
