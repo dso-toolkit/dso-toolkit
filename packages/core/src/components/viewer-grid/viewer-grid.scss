@@ -155,7 +155,8 @@ button {
   overflow: hidden;
 }
 
-.legend {
+slot[name="legend"] {
+  display: block;
   position: absolute;
   inset-block-end: units.$u2;
   inset-inline-start: units.$u2;
@@ -408,7 +409,7 @@ button {
     inset: auto;
   }
 
-  .legend {
+  slot[name="legend"] {
     position: relative;
     inset: auto;
     flex-shrink: 0;

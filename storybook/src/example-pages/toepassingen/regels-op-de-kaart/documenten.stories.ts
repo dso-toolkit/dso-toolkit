@@ -127,6 +127,7 @@ const Documenten = {
 
           .demo-main > dso-viewer-grid [slot="map"] dso-map-message {
             position: absolute;
+            z-index: 2;
             top: 16px; /* Align with top of Map Control Buttons and Sizing Button of Main Panel Viewer Grid */
             left: calc(40px + 32px); /* Width of Sizing Button of Main Panel Viewer Grid + margin */
             right: calc(

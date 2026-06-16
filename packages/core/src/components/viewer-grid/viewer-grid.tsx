@@ -344,9 +344,7 @@ export class ViewerGrid {
               <div class="map" ref={(element) => (this.mapElement = element)}>
                 <slot name="map" />
               </div>
-              <div class="legend">
-                <slot name="legend" />
-              </div>
+              <slot name="legend" />
             </div>
           )}
           {((!this.tabView && this.documentPanelOpen) ||
