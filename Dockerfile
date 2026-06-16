@@ -58,8 +58,7 @@ COPY website/package.json ./website/package.json
 
 ARG CI
 
-RUN pm=$(jq -r '.packageManager // ""' package.json); \
-    [[ "$pm" == *"+sha512."* ]] || { echo "packageManager mist +sha512.<hash>"; exit 1; }
+RUN jq -r '.packageManager // ""' package.json | grep -q '+sha512\.' || { echo "packageManager mist +sha512.<hash>"; exit 1; }
 
 RUN corepack enable && corepack install && pnpm install --frozen-lockfile
 

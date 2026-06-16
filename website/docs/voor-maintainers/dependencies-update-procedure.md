@@ -125,3 +125,4 @@ pnpm dedupe --check # zonder --check als nodig
 - Volledige lokale build: lint, build, build-www en e2e.
 - Aanbieden als PR.
 - Nieuw issue aanmaken voor volgende dependency update.
+- Security: Nadat de PR van een Packages: Dependencies updates is gemerged in master zal (na enige tijd) het aantal Dependabot alerts / vulnerabilities onder de tab Security and quality verminderd zijn. Idealiter 0, maar in de praktijk zullen er waarschijnlijk nog een aantal blijven bestaan. Deze moeten dan alsnog onderzocht en idealiter met onderbouwde reden gedismissed worden.
