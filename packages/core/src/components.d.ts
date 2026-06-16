@@ -1008,7 +1008,7 @@ export namespace Components {
           * @param e
           * @param returnFocusTarget
          */
-        "toggleVisibility": (e: MouseEvent | KeyboardEvent, returnFocusTarget?: "button" | "icon-button") => Promise<void>;
+        "toggleVisibility": (e: MouseEvent | KeyboardEvent, returnFocusTarget?: "HTMLButtonElement" | "HTMLDsoIconButtonElement") => Promise<void>;
     }
     interface DsoMapLayer {
         /**
