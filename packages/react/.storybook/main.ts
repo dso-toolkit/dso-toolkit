@@ -1,9 +1,11 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
 import { createRequire } from "module";
 import path from "path";
+import { fileURLToPath } from "url";
 
 import type { StorybookConfig } from "@storybook/react-vite";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
@@ -36,7 +38,13 @@ const config: StorybookConfig = {
     // Merge custom configuration into the default config
     const { mergeConfig } = await import("vite");
 
-    return mergeConfig(config, {});
+    return mergeConfig(config, {
+      resolve: {
+        alias: {
+          "@dso-toolkit/core/src": path.resolve(__dirname, "../../core/src"),
+        },
+      },
+    });
   },
   core: {
     builder: "@storybook/builder-vite",
