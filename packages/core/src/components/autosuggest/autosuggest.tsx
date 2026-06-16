@@ -344,7 +344,6 @@ export class Autosuggest {
 
     if (this.showSuggestions) {
       let blockSizeViewableListItems = 0;
-      let listboxContainerMaxBlockSize = 0;
 
       // The total number of list items to reserve vertical space for.
       const total = this.listboxItems.length ? Math.min(this.listboxItems.length, maxSuggestionsViewable) : 0;
@@ -356,11 +355,10 @@ export class Autosuggest {
       const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
       const listboxMaxBlockSize = blockSizeViewableListItems + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
 
-      if (availableBlockSize < listboxMaxBlockSize || availableBlockSize <= blockSizeViewableListItems) {
-        listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
-      } else {
-        listboxContainerMaxBlockSize = listboxMaxBlockSize;
-      }
+      const listboxContainerMaxBlockSize =
+        availableBlockSize < listboxMaxBlockSize || availableBlockSize <= blockSizeViewableListItems
+          ? availableBlockSize - 2 * listboxPaddingBlock
+          : listboxMaxBlockSize;
 
       this.listboxContainer.style.setProperty("--_dso-autosuggest-max-block-size", `${listboxContainerMaxBlockSize}px`);
     }

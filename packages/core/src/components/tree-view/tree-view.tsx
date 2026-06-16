@@ -129,7 +129,6 @@ export class TreeView implements ComponentInterface {
     event.preventDefault();
   };
 
-  // eslint-disable-next-line @stencil-community/own-props-must-be-private -- Omdat this als TreeView instance aan Functionele Components wordt gegeven
   itemClick = (event: MouseEvent, ancestors: TreeViewItem[], item: TreeViewItem) => {
     if (!(event.target instanceof HTMLElement)) {
       return;
