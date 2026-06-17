@@ -1,6 +1,7 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { kaartlagenTabItem, legendArgs, legendaTabItem } from "dso-toolkit";
-import { html } from "lit-html";
+import { html, nothing } from "lit-html";
+import { classMap } from "lit-html/directives/class-map.js";
 import { compiler } from "markdown-to-jsx";
 
 import { featuresContent } from "../../../components/document-header/document-header.content";
@@ -91,16 +92,6 @@ const Documenten = {
             overflow-y: hidden;
           }
 
-          .demo-main > dso-viewer-grid [slot="map"] {
-            block-size: 100%;
-            position: relative;
-            background: url("images/kaart.png") center / cover no-repeat;
-          }
-
-          dso-viewer-grid[print] [slot="map"] {
-            min-block-size: 400px;
-          }
-
           .demo-main > dso-viewer-grid {
             block-size: 100%;
           }
@@ -116,24 +107,6 @@ const Documenten = {
           .demo-main.print {
             overflow-y: visible;
           }
-
-          dso-viewer-grid[print] .dso-print-hidden {
-            display: none;
-          }
-
-          dso-viewer-grid[print] [slot="legend"] dso-legend {
-            --_dso-legend-content-max-block-size: none;
-          }
-
-          .demo-main > dso-viewer-grid [slot="map"] dso-map-message {
-            position: absolute;
-            z-index: 2;
-            top: 16px; /* Align with top of Map Control Buttons and Sizing Button of Main Panel Viewer Grid */
-            left: calc(40px + 32px); /* Width of Sizing Button of Main Panel Viewer Grid + margin */
-            right: calc(
-              16px + 40px + 16px + 132px + 32px
-            ); /* Width of Map Control Buttons and it's margin + width of Kaartlagen Button + margin */
-          }
         </style>
         ${print
           ? html`<style>
@@ -148,10 +121,10 @@ const Documenten = {
                 overflow: hidden !important;
               }
             </style>`}
-        <div class="demo-container ${print ? "print" : ""}">
+        <div class="demo-container ${classMap({ print })}">
           ${headerPartial(templates, header)}
 
-          <main class="demo-main ${print ? "print" : ""}">
+          <main class="demo-main ${classMap({ print })}">
             ${viewerGridTemplate({
               filterPanelOpen,
               filterPanelTitle: "Filter op kenmerken",
@@ -194,14 +167,14 @@ const Documenten = {
                 ${linkTemplate({ url: "#", label: "Terug naar vandaag" })}`,
               }),
               main: html`
-                <div class="dso-print-hidden">
-                  ${buttonTemplate({
-                    label: "Opnieuw zoeken",
-                    type: "button",
-                    variant: "tertiary",
-                    icon: { icon: "chevron-left" },
-                  })}
-                </div>
+                ${print
+                  ? nothing
+                  : buttonTemplate({
+                      label: "Opnieuw zoeken",
+                      type: "button",
+                      variant: "tertiary",
+                      icon: { icon: "chevron-left" },
+                    })}
                 <section class="dso-filterblok">
                   ${highlightBoxTemplate({
                     content: html`<h2 style="margin-block-start: 0; color: #8b4a6a;">
@@ -218,30 +191,30 @@ const Documenten = {
                 ${navbarTemplate(mainSubmenu)} ${cardContainerTemplate({ mode: "list", cards: documentCardList })}
               `,
               map: html`
-                <div class="dso-print-hidden">
-                  ${mapMessageTemplate({
-                    variant: "success",
-                    message: "Valt alles wat u wilt weten binnen het getekende gebied?",
-                    buttons: [
-                      {
-                        label: "Ongedaan maken",
-                        icon: { icon: "undo" },
-                        variant: "secondary",
-                        type: "button",
-                        modifier: "dso-extra-small",
-                        iconMode: "after",
-                      },
-                      {
-                        label: "Volgende",
-                        icon: { icon: "chevron-right" },
-                        variant: "primary",
-                        type: "button",
-                        modifier: "dso-extra-small",
-                        iconMode: "after",
-                      },
-                    ],
-                  })}
-                </div>
+                ${print
+                  ? nothing
+                  : mapMessageTemplate({
+                      variant: "success",
+                      message: "Valt alles wat u wilt weten binnen het getekende gebied?",
+                      buttons: [
+                        {
+                          label: "Ongedaan maken",
+                          icon: { icon: "undo" },
+                          variant: "secondary",
+                          type: "button",
+                          modifier: "dso-extra-small",
+                          iconMode: "after",
+                        },
+                        {
+                          label: "Volgende",
+                          icon: { icon: "chevron-right" },
+                          variant: "primary",
+                          type: "button",
+                          modifier: "dso-extra-small",
+                          iconMode: "after",
+                        },
+                      ],
+                    })}
                 ${openLayersMapPartial()}
               `,
               legend: legendOpen

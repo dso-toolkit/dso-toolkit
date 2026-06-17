@@ -38,7 +38,7 @@
 | ------------------ | ------------------------------------------------------------------------------------------- |
 | `"document-panel"` |                                                                                             |
 | `"filter-panel"`   |                                                                                             |
-| `"legend"`         |                                                                                             |
+| `"legend"`         | Een slot die kan worden gevuld met een legend component.                                    |
 | `"main"`           |                                                                                             |
 | `"map"`            |                                                                                             |
 | `"overlay"`        |                                                                                             |

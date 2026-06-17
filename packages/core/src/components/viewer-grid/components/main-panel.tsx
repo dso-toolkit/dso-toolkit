@@ -11,7 +11,7 @@ export interface ViewerGridMainPanelProps {
   mainPanelHidden: boolean;
   toggleMainPanel: () => void;
   dsoMainSizeChangeAnimationEnd: EventEmitter<ViewerGridChangeSizeAnimationEndEvent>;
-  printFilterPanel?: VNode;
+  printFilterPanel: VNode | undefined;
 }
 
 export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({

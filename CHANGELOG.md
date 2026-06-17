@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Release 97.0.0 - 2026-06-08
 
 ### Changed
-* Map Controls: WCAG Region met kaartlagen moet een duidelijke naam krijgen ([#3732](https://github.com/dso-toolkit/dso-toolkit/issues/3732))*
+* Map Controls: WCAG Region met kaartlagen moet een duidelijke naam krijgen ([#3732](https://github.com/dso-toolkit/dso-toolkit/issues/3732))
 
 ### Deprecated
 * Info: Deprecate HTML/CSS Implementatie ([#3571](https://github.com/dso-toolkit/dso-toolkit/issues/3571))

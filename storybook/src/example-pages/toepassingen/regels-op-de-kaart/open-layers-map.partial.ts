@@ -3,6 +3,28 @@ import { TemplateResult, html } from "lit-html";
 export function openLayersMapPartial(): TemplateResult {
   return html`
     <style>
+      [slot="map"] {
+        block-size: 100%;
+        position: relative;
+        background: url("images/kaart.png") center / cover no-repeat;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      dso-viewer-grid[print] [slot="map"] {
+        min-block-size: 400px;
+      }
+
+      [slot="map"] dso-map-message {
+        position: absolute;
+        z-index: 2;
+        top: 16px; /* Align with top of Map Control Buttons and Sizing Button of Main Panel Viewer Grid */
+        left: calc(40px + 32px); /* Width of Sizing Button of Main Panel Viewer Grid + margin */
+        right: calc(
+          16px + 40px + 16px + 132px + 32px
+        ); /* Width of Map Control Buttons and it's margin + width of Kaartlagen Button + margin */
+      }
+
       .demo-mc {
         position: absolute;
         inset-block-start: 16px;
