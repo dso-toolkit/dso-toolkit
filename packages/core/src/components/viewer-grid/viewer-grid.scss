@@ -232,8 +232,8 @@ slot[name="legend"] {
 }
 
 @media (min-width: #{media-query-breakpoints.$screen-md-min + units.$u5}) {
-  :host([main-size="small"]) .dso-main-panel,
-  :host([document-panel-size="small"]) .dso-document-panel {
+  :host(:not([print])[main-size="small"]) .dso-main-panel,
+  :host(:not([print])[document-panel-size="small"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$small;
     min-inline-size: 0;
     max-inline-size: core-viewer-grid-variables.$small;
@@ -246,8 +246,8 @@ slot[name="legend"] {
     }
   }
 
-  :host([main-size="medium"]) .dso-main-panel,
-  :host([document-panel-size="medium"]) .dso-document-panel {
+  :host(:not([print])[main-size="medium"]) .dso-main-panel,
+  :host(:not([print])[document-panel-size="medium"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$medium;
     min-inline-size: core-viewer-grid-variables.$small;
     max-inline-size: core-viewer-grid-variables.$medium;
@@ -260,8 +260,8 @@ slot[name="legend"] {
     }
   }
 
-  :host([main-size="large"]) .dso-main-panel,
-  :host([document-panel-size="large"]) .dso-document-panel {
+  :host(:not([print])[main-size="large"]) .dso-main-panel,
+  :host(:not([print])[document-panel-size="large"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$large;
     min-inline-size: core-viewer-grid-variables.$large-min;
     max-inline-size: core-viewer-grid-variables.$large-max;
@@ -274,7 +274,7 @@ slot[name="legend"] {
     }
   }
 
-  :host {
+  :host(:not([print])) {
     display: flex;
     flex-direction: column;
     block-size: 100vh;
@@ -294,40 +294,38 @@ slot[name="legend"] {
       overflow: hidden;
       flex-grow: 1;
     }
-  }
 
-  .dso-main-panel,
-  .dso-document-panel {
-    box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
+    .dso-main-panel,
+    .dso-document-panel {
+      box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
 
-    .content {
-      overflow-y: auto;
-    }
-  }
-
-  .filter-panel {
-    margin-inline: 0 auto;
-    inline-size: calc(100vw - 40px);
-
-    &[open] {
-      border-inline-end: 1px solid core-viewer-grid-variables.$filter-panel-border-color;
-    }
-  }
-
-  .overlay {
-    box-shadow: -2px 0 5px colors.$grijs-60;
-    margin-inline: auto 0;
-  }
-
-  @media (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
-    :host([filter-panel-open]) {
-      .dso-main-panel {
-        margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
-        max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filter-panel-max-inline-size});
+      .content {
+        overflow-y: auto;
       }
     }
 
     .filter-panel {
+      margin-inline: 0 auto;
+      inline-size: calc(100vw - 40px);
+
+      &[open] {
+        border-inline-end: 1px solid core-viewer-grid-variables.$filter-panel-border-color;
+      }
+    }
+
+    .overlay {
+      box-shadow: -2px 0 5px colors.$grijs-60;
+      margin-inline: auto 0;
+    }
+  }
+
+  @media (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
+    :host(:not([print])[filter-panel-open]) .dso-main-panel {
+      margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
+      max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filter-panel-max-inline-size});
+    }
+
+    :host(:not([print])) .filter-panel {
       inline-size: core-viewer-grid-variables.$filter-panel-max-inline-size;
       inset-inline-start: -(core-viewer-grid-variables.$filter-panel-max-inline-size);
     }
@@ -356,25 +354,27 @@ slot[name="legend"] {
     font-weight: 300;
   }
 
-  .overlay {
-    inline-size: calc(100vw - units.$u4);
-  }
+  :host(:not([print])) {
+    .overlay {
+      inline-size: calc(100vw - units.$u4);
+    }
 
-  .filter-panel,
-  .overlay {
-    margin-inline: 0;
-    max-inline-size: 100vw;
-    inset-block-start: 0;
-  }
+    .filter-panel,
+    .overlay {
+      margin-inline: 0;
+      max-inline-size: 100vw;
+      inset-block-start: 0;
+    }
 
-  .filter-panel {
-    inset-inline-start: -100vw;
-    inline-size: 100vw;
+    .filter-panel {
+      inset-inline-start: -100vw;
+      inline-size: 100vw;
+    }
   }
 }
 
 @media (min-width: #{media-query-breakpoints.$screen-md-min}) {
-  :host([filter-panel-open]) {
+  :host(:not([print])[filter-panel-open]) {
     .dso-main-panel {
       margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
     }
@@ -382,10 +382,13 @@ slot[name="legend"] {
 }
 
 :host([print]) {
+  display: flex;
+  flex-direction: column;
   block-size: auto;
   overflow: visible;
 
   .viewer-grid-columns {
+    display: flex;
     flex-direction: column;
     overflow: visible;
   }
@@ -419,9 +422,9 @@ slot[name="legend"] {
   .dso-main-panel {
     block-size: auto;
     box-shadow: none;
-    inline-size: 100% !important;
-    max-inline-size: none !important;
-    min-inline-size: 0 !important;
+    inline-size: 100%;
+    max-inline-size: none;
+    min-inline-size: 0;
     position: relative;
     margin-inline-start: 0px;
 
@@ -445,10 +448,10 @@ slot[name="legend"] {
     block-size: auto;
     box-shadow: none;
     flex-shrink: 0;
-    inline-size: core-viewer-grid-variables.$filter-panel-max-inline-size !important;
+    inline-size: core-viewer-grid-variables.$filter-panel-max-inline-size;
     margin-inline: 0;
-    max-inline-size: none !important;
-    min-inline-size: 0 !important;
+    max-inline-size: none;
+    min-inline-size: 0;
     position: relative;
     transition: none;
   }
@@ -456,9 +459,9 @@ slot[name="legend"] {
   .dso-document-panel {
     block-size: auto;
     box-shadow: none;
-    inline-size: 100% !important;
-    max-inline-size: none !important;
-    min-inline-size: 0 !important;
+    inline-size: 100%;
+    max-inline-size: none;
+    min-inline-size: 0;
     position: static;
 
     .content {
