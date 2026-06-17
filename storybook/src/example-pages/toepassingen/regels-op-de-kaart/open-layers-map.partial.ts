@@ -1,4 +1,36 @@
 import { TemplateResult, html } from "lit-html";
+import { ref } from "lit-html/directives/ref.js";
+
+function renderMapCanvas(canvas: HTMLCanvasElement) {
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  const img = new Image();
+  img.src = "images/kaart.png";
+
+  const draw = () => {
+    if (!img.complete) return;
+    canvas.width = canvas.offsetWidth || 800;
+    canvas.height = canvas.offsetHeight || 600;
+    const scale = Math.max(canvas.width / img.naturalWidth, canvas.height / img.naturalHeight);
+    const sw = canvas.width / scale;
+    const sh = canvas.height / scale;
+    ctx.drawImage(
+      img,
+      (img.naturalWidth - sw) / 2,
+      (img.naturalHeight - sh) / 2,
+      sw,
+      sh,
+      0,
+      0,
+      canvas.width,
+      canvas.height,
+    );
+  };
+
+  img.onload = draw;
+  new ResizeObserver(draw).observe(canvas);
+}
 
 export function openLayersMapPartial(): TemplateResult {
   return html`
@@ -6,23 +38,17 @@ export function openLayersMapPartial(): TemplateResult {
       [slot="map"] {
         block-size: 100%;
         position: relative;
-        background: url("images/kaart.png") center / cover no-repeat;
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
+      }
+
+      [slot="map"] > canvas.ol-layer {
+        position: absolute;
+        inset: 0;
+        inline-size: 100%;
+        block-size: 100%;
       }
 
       dso-viewer-grid[print] [slot="map"] {
         min-block-size: 400px;
-      }
-
-      [slot="map"] dso-map-message {
-        position: absolute;
-        z-index: 2;
-        top: 16px; /* Align with top of Map Control Buttons and Sizing Button of Main Panel Viewer Grid */
-        left: calc(40px + 32px); /* Width of Sizing Button of Main Panel Viewer Grid + margin */
-        right: calc(
-          16px + 40px + 16px + 132px + 32px
-        ); /* Width of Map Control Buttons and it's margin + width of Kaartlagen Button + margin */
       }
 
       .demo-mc {
@@ -50,6 +76,7 @@ export function openLayersMapPartial(): TemplateResult {
         color: #fff;
       }
     </style>
+    <canvas class="ol-layer" ${ref((el) => el && renderMapCanvas(el as HTMLCanvasElement))}></canvas>
     <div class="demo-mc">
       <span class="demo-mc-btn demo-mc-btn--active"><dso-icon icon="layers"></dso-icon></span>
       <span class="demo-mc-btn"><dso-icon icon="plus"></dso-icon></span>
