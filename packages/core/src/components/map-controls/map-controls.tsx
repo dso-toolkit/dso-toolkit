@@ -98,10 +98,13 @@ export class MapControls implements ComponentInterface {
    *
    * Can be used to recalculate map widths or reposition center when the Map Controls opens or closes.
    * @param e
-   * @param returnFocusTarget
    */
   @Method()
-  async toggleVisibility(
+  async toggleVisibility(e: MouseEvent | KeyboardEvent) {
+    this.toggleVisibilityInternal(e);
+  }
+
+  private toggleVisibilityInternal(
     e: MouseEvent | KeyboardEvent,
     returnFocusTarget?: HTMLButtonElement | HTMLDsoIconButtonElement,
   ) {
@@ -173,7 +176,7 @@ export class MapControls implements ComponentInterface {
           aria-expanded={this.open}
           tooltipPlacement="left"
           class="toggle-visibility-icon-button"
-          onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent, this.#toggleIconButtonElement)}
+          onDsoClick={(e) => this.toggleVisibilityInternal(e.detail.originalEvent, this.#toggleIconButtonElement)}
           ref={(element) => (this.#toggleIconButtonElement = element)}
         />
         <button
@@ -181,7 +184,7 @@ export class MapControls implements ComponentInterface {
           class="dso-map toggle-visibility-button"
           aria-controls={this.#mapLayersPanelId}
           aria-expanded={this.open}
-          onClick={(e) => this.toggleVisibility(e, this.#toggleButtonElement)}
+          onClick={(e) => this.toggleVisibilityInternal(e, this.#toggleButtonElement)}
           ref={(element) => (this.#toggleButtonElement = element)}
         >
           <dso-icon icon="layers"></dso-icon>

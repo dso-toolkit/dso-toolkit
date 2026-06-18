@@ -1006,9 +1006,8 @@ export namespace Components {
         /**
           * Emitted when the visibility is toggled.  Can be used to recalculate map widths or reposition center when the Map Controls opens or closes.
           * @param e
-          * @param returnFocusTarget
          */
-        "toggleVisibility": (e: MouseEvent | KeyboardEvent, returnFocusTarget?: HTMLButtonElement | HTMLDsoIconButtonElement) => Promise<void>;
+        "toggleVisibility": (e: MouseEvent | KeyboardEvent) => Promise<void>;
     }
     interface DsoMapLayer {
         /**
