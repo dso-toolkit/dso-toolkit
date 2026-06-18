@@ -28,22 +28,8 @@ export const AlertOnColor = examplePageStories((templates) => {
       content: content(templates),
     })}
     ${highlightBoxTemplate({
-      grey: true,
-      content: html`
-        ${highlightBoxTemplate({
-          white: true,
-          content: content(templates),
-        })}
-      `,
-    })}
-    ${highlightBoxTemplate({
-      white: true,
-      content: html`
-        ${highlightBoxTemplate({
-          yellow: true,
-          content: content(templates),
-        })}
-      `,
+      green: true,
+      content: content(templates),
     })}
   `;
 });
