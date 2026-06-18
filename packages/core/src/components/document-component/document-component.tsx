@@ -485,7 +485,9 @@ export class DocumentComponent implements ComponentInterface {
 
               {this.recursiveToggle !== undefined && this.open && this.mode === "document" && (
                 <dso-icon-button
-                  label={this.recursiveToggle === true ? "Verberg alles" : "Toon alles"}
+                  label={
+                    this.recursiveToggle === true ? "Verberg onderliggende artikelen" : "Toon onderliggende artikelen"
+                  }
                   class="recursive-toggle"
                   icon={this.recursiveToggle === true ? "eye" : "eye-slash"}
                   variant="tertiary"
