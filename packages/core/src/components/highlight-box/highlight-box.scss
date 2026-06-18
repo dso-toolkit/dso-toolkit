@@ -54,6 +54,8 @@
 
 :host([white]) {
   @include set-colors.apply(colors.$wit, "highlight-box");
+  // white background needs default link icon color, so no filter
+  --_dso-link-icon-filter: none;
 }
 
 :host([yellow]) {
@@ -71,10 +73,17 @@
 :host([border]) {
   border: 1px solid colors.$grijs-20;
   padding: #{units.$u2 - 1};
+  // border needs default link icon color, so no filter
+  --_dso-link-icon-filter: none;
 }
 
 :host([border]:not([grey], [yellow])) {
   @include set-colors.apply(colors.$wit, "highlight-box");
+}
+
+:host([border][grey]) {
+  // force icon link to black
+  --_dso-link-icon-filter: brightness(0);
 }
 
 ::slotted([slot="icon"]) {
@@ -98,4 +107,8 @@
   @container (min-width: 471px) {
     aspect-ratio: 3.5 / 1;
   }
+}
+
+::slotted(:last-child) {
+  margin-block-end: 0 !important;
 }

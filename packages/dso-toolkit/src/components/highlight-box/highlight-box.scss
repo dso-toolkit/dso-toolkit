@@ -5,16 +5,6 @@
 // Web Component
 dso-highlight-box {
   &:not([border], [white]) {
-    .dso-button-row .dso-tertiary {
-      &.extern::after {
-        @include di.variant("external-link-zwart");
-      }
-
-      &.download::after {
-        @include di.variant("download-zwart");
-      }
-    }
-
     .dso-link-list {
       a {
         &,
