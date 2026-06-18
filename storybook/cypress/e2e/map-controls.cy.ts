@@ -128,6 +128,59 @@ describe("Map Controls", () => {
       .matchImageSnapshot({ padding: [0, 16, 0, 100] });
   });
 
+  it("should render the panel as a named region", () => {
+    cy.get("@toggleVisibilityButton")
+      .click()
+      .get("@dsoMapControlsShadow")
+      .find("section")
+      .should(($section) => {
+        expect($section).not.to.have.attr("hidden");
+        expect($section).to.have.attr("role", "region");
+        expect($section).to.have.attr("aria-labelledby", "map-layers-panel");
+      })
+      .find("#map-layers-title")
+      .should("have.text", "Kaartlagen");
+  });
+
+  it("should focus the close button when opening the panel and restore focus to the toggle button for each viewport", () => {
+    [
+      { width: 768, selector: ".toggle-visibility-button", assertion: "activeElement" },
+      { width: 767, selector: ".toggle-visibility-icon-button", assertion: "focusWithin" },
+    ].forEach(({ width, selector, assertion }) => {
+      cy.viewport(width, 660);
+
+      cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls")
+        .get("dso-map-controls.hydrated")
+        .shadow()
+        .as("dsoMapControlsShadow")
+        .find(selector)
+        .realClick();
+
+      cy.get("dso-map-controls.hydrated").should("have.attr", "open");
+      cy.get("dso-map-controls.hydrated").should(($mapControls) => {
+        const closeButton = $mapControls[0].shadowRoot?.querySelector(".close-button");
+        expect($mapControls[0].shadowRoot?.activeElement).to.equal(closeButton);
+      });
+
+      cy.get("@dsoMapControlsShadow").find(".close-button").realClick();
+
+      cy.get("dso-map-controls.hydrated").should("not.have.attr", "open");
+
+      if (assertion === "activeElement") {
+        cy.get("dso-map-controls.hydrated").should(($mapControls) => {
+          const toggleButton = $mapControls[0].shadowRoot?.querySelector(selector);
+          expect($mapControls[0].shadowRoot?.activeElement).to.equal(toggleButton);
+        });
+      } else {
+        cy.get("@dsoMapControlsShadow")
+          .find(selector)
+          .should(($toggleVisibilityIconButton) => {
+            expect($toggleVisibilityIconButton[0].matches(":focus-within")).to.equal(true);
+          });
+      }
+    });
+  });
+
   it("should emit zoom events", () => {
     cy.get("@dsoMapControlsShadow")
       .find(".zoom-buttons")

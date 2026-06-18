@@ -5,6 +5,7 @@ import {
   Event,
   EventEmitter,
   Fragment,
+  Listen,
   Method,
   Prop,
   State,
@@ -19,6 +20,7 @@ import { MapControlsToggleEvent } from "./map-controls.interfaces";
 
 // Sync with $transition-duration in ./map-controls.scss and map-controls.cy.ts
 const transitionDuration = 300;
+const transitionFallbackDuration = transitionDuration + 50;
 
 @Component({
   tag: "dso-map-controls",
@@ -69,23 +71,26 @@ export class MapControls implements ComponentInterface {
   @State()
   hideContent = !this.open;
 
+  @Listen("transitionend")
+  handleTransitionEnd(event: TransitionEvent) {
+    if (event.target !== this.host || event.propertyName !== "transform") {
+      return;
+    }
+
+    this.applyPostTransitionState();
+  }
+
   @Watch("open")
   watchOpen(open: boolean) {
+    this.clearPostTransitionTimeout();
+
     if (open) {
       this.hideContent = false;
     } else {
-      setTimeout(() => {
-        this.hideContent = true;
-
-        if (this.#toggleButtonElement?.checkVisibility()) {
-          this.#toggleButtonElement?.focus();
-        }
-
-        if (this.#toggleIconButtonElement?.checkVisibility()) {
-          this.#toggleIconButtonElement.focus();
-        }
-      }, transitionDuration);
+      this.hideContent = false;
     }
+
+    this.#postTransitionTimeout = window.setTimeout(() => this.applyPostTransitionState(), transitionFallbackDuration);
   }
 
   /**
@@ -96,6 +101,17 @@ export class MapControls implements ComponentInterface {
    */
   @Method()
   async toggleVisibility(e: MouseEvent | KeyboardEvent) {
+    this.toggleVisibilityInternal(e);
+  }
+
+  private toggleVisibilityInternal(
+    e: MouseEvent | KeyboardEvent,
+    returnFocusTarget?: HTMLButtonElement | HTMLDsoIconButtonElement,
+  ) {
+    if (!this.open && returnFocusTarget) {
+      this.#returnFocusTarget = returnFocusTarget;
+    }
+
     this.open = !this.open;
 
     this.dsoToggle.emit({
@@ -108,8 +124,46 @@ export class MapControls implements ComponentInterface {
 
   #toggleButtonElement: HTMLButtonElement | undefined;
   #toggleIconButtonElement: HTMLDsoIconButtonElement | undefined;
+  #closeIconButtonElement: HTMLDsoIconButtonElement | undefined;
+  #postTransitionTimeout: number | undefined;
+  #returnFocusTarget: HTMLButtonElement | HTMLDsoIconButtonElement | undefined;
   #mapLayersPanelId = "map-layers-panel";
   #mapLayersTitleId = "map-layers-title";
+
+  private clearPostTransitionTimeout() {
+    if (this.#postTransitionTimeout) {
+      clearTimeout(this.#postTransitionTimeout);
+      this.#postTransitionTimeout = undefined;
+    }
+  }
+
+  private applyPostTransitionState() {
+    this.clearPostTransitionTimeout();
+
+    if (this.open) {
+      this.#closeIconButtonElement?.setFocus();
+      return;
+    }
+
+    this.hideContent = true;
+
+    if (this.#returnFocusTarget === this.#toggleIconButtonElement) {
+      this.#toggleIconButtonElement?.setFocus();
+    } else {
+      this.#toggleButtonElement?.focus();
+    }
+  }
+
+  private handlePanelKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape" && this.open) {
+      event.stopPropagation();
+      void this.toggleVisibility(event);
+    }
+  };
+
+  disconnectedCallback() {
+    this.clearPostTransitionTimeout();
+  }
 
   render() {
     return (
@@ -122,7 +176,7 @@ export class MapControls implements ComponentInterface {
           aria-expanded={this.open}
           tooltipPlacement="left"
           class="toggle-visibility-icon-button"
-          onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent)}
+          onDsoClick={(e) => this.toggleVisibilityInternal(e.detail.originalEvent, this.#toggleIconButtonElement)}
           ref={(element) => (this.#toggleIconButtonElement = element)}
         />
         <button
@@ -130,7 +184,7 @@ export class MapControls implements ComponentInterface {
           class="dso-map toggle-visibility-button"
           aria-controls={this.#mapLayersPanelId}
           aria-expanded={this.open}
-          onClick={(e) => this.toggleVisibility(e)}
+          onClick={(e) => this.toggleVisibilityInternal(e, this.#toggleButtonElement)}
           ref={(element) => (this.#toggleButtonElement = element)}
         >
           <dso-icon icon="layers"></dso-icon>
@@ -158,6 +212,7 @@ export class MapControls implements ComponentInterface {
           id={this.#mapLayersPanelId}
           hidden={this.hideContent}
           role="region"
+          onKeyDown={this.handlePanelKeyDown}
           aria-labelledby={this.#mapLayersPanelId}
         >
           <header>
@@ -170,6 +225,7 @@ export class MapControls implements ComponentInterface {
               icon="cross"
               variant="tertiary"
               onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent)}
+              ref={(element) => (this.#closeIconButtonElement = element)}
             />
           </header>
           <dso-scrollable>
