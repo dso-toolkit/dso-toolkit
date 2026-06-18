@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Map Controls: WCAG keyboard focus zetten na openen en sluiten ([#3731](https://github.com/dso-toolkit/dso-toolkit/issues/3731))
+* Document Component: Accessible name aanpassen "oogje" ([#3688](https://github.com/dso-toolkit/dso-toolkit/issues/3688))
 
 ## 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Release 97.0.0 - 2026-06-08
 
