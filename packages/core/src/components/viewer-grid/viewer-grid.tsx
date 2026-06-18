@@ -39,6 +39,7 @@ const minMapElementWidth = 440;
  * @slot top-bar - Een slot die bovenaan de viewer over de hele breedte kan worden gevuld met bijv een banner.
  * @slot main
  * @slot map
+ * @slot legend - Een slot die kan worden gevuld met een legend component.
  * @slot filter-panel
  * @slot overlay
  * @slot document-panel
@@ -76,6 +77,12 @@ export class ViewerGrid {
    */
   @Prop({ reflect: true })
   documentPanelOpen = false;
+
+  /**
+   * Set to true to apply print layout programmatically, e.g. for print preview.
+   */
+  @Prop({ reflect: true })
+  print = false;
 
   /**
    * Size of the panel when component loads.
@@ -259,6 +266,17 @@ export class ViewerGrid {
 
   private changeListener = (largeScreen: MediaQueryListEvent) => (this.tabView = !largeScreen.matches);
 
+  private renderFilterPanel() {
+    return (
+      <FilterPanel
+        open={this.filterPanelOpen}
+        title={this.filterPanelTitle}
+        ref={(element) => (this.filterPanel = element)}
+        dsoCloseFilterPanel={(e) => this.dsoCloseFilterPanel.emit({ originalEvent: e })}
+      ></FilterPanel>
+    );
+  }
+
   connectedCallback() {
     window.matchMedia(this.mediaCondition).addEventListener("change", this.changeListener);
   }
@@ -303,7 +321,7 @@ export class ViewerGrid {
               </ul>
             </nav>
           )}
-          {(!this.tabView || (this.tabView && this.activeTab === "search")) && (
+          {(!this.tabView || (this.tabView && this.activeTab === "search") || this.print) && (
             <MainPanel
               tabView={this.tabView}
               mainSize={this.mainSize}
@@ -312,22 +330,23 @@ export class ViewerGrid {
               mainPanelHidden={this.mainPanelHidden}
               toggleMainPanel={this.toggleMainPanel}
               dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
+              printFilterPanel={
+                !this.tabView && this.filterPanelOpen && this.print ? this.renderFilterPanel() : undefined
+              }
             ></MainPanel>
           )}
-          {(!this.tabView || (this.tabView && this.activeTab === "search")) && (
-            <FilterPanel
-              open={this.filterPanelOpen}
-              title={this.filterPanelTitle}
-              ref={(element) => (this.filterPanel = element)}
-              dsoCloseFilterPanel={(e) => this.dsoCloseFilterPanel.emit({ originalEvent: e })}
-            ></FilterPanel>
-          )}
-          {(!this.tabView || (this.tabView && this.activeTab === "map")) && (
-            <div class="map" ref={(element) => (this.mapElement = element)}>
-              <slot name="map" />
+          {(!this.tabView || (this.tabView && this.activeTab === "search")) && !this.print && this.renderFilterPanel()}
+          {(!this.tabView || (this.tabView && this.activeTab === "map") || this.print) && (
+            <div class="map-area">
+              <div class="map" ref={(element) => (this.mapElement = element)}>
+                <slot name="map" />
+              </div>
+              <slot name="legend" />
             </div>
           )}
-          {((!this.tabView && this.documentPanelOpen) || (this.tabView && this.activeTab === "document")) && (
+          {((!this.tabView && this.documentPanelOpen) ||
+            (this.tabView && this.activeTab === "document") ||
+            this.print) && (
             <DocumentPanel
               tabView={this.tabView}
               panelSize={this.documentPanelSize}

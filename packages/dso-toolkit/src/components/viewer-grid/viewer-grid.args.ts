@@ -13,6 +13,7 @@ export interface ViewerGridArgs {
   filterPanelOpen: boolean;
   filterPanelTitle?: string;
   documentPanelOpen?: boolean;
+  print?: boolean;
   mainSize: ViewerGridPanelSize;
   activeTab?: Tab;
   documentPanelSize: ViewerGridPanelSize;
@@ -34,7 +35,9 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
     },
   },
   filterPanelOpen: {
-    type: "boolean",
+    control: {
+      type: "boolean",
+    },
   },
   overlayOpen: {
     type: "boolean",
@@ -46,6 +49,11 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
     },
   },
   documentPanelOpen: {
+    control: {
+      type: "boolean",
+    },
+  },
+  print: {
     control: {
       type: "boolean",
     },

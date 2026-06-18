@@ -3,6 +3,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   filterPanelTitle?: string;
   overlayOpen?: boolean;
   documentPanelOpen?: boolean;
+  print?: boolean;
   mainSize?: ViewerGridPanelSize;
   activeTab?: Tab;
   documentPanelSize?: ViewerGridPanelSize;
@@ -19,6 +20,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   filterPanel?: TemplateFnReturnType;
   main: TemplateFnReturnType;
   map: TemplateFnReturnType;
+  legend?: TemplateFnReturnType;
   documentPanel?: TemplateFnReturnType;
   overlay?: TemplateFnReturnType;
 }

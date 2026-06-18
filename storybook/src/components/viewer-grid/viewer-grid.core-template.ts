@@ -13,6 +13,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
       filterPanelTitle,
       overlayOpen,
       documentPanelOpen,
+      print,
       mainSize,
       documentPanelSize,
       mainPanelExpanded,
@@ -29,6 +30,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
       topBar,
       main,
       map,
+      legend,
       documentPanel,
       overlay,
     }) {
@@ -41,6 +43,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           ?filter-panel-open=${filterPanelOpen}
           ?overlay-open=${overlayOpen}
           ?document-panel-open=${documentPanelOpen}
+          ?print=${print}
           ?main-panel-expanded=${mainPanelExpanded}
           ?main-panel-hidden=${mainPanelHidden}
           @dsoMainSizeChangeAnimationEnd=${dsoMainSizeChangeAnimationEnd}
@@ -55,6 +58,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           <div slot="top-bar">${topBar}</div>
           <div slot="main">${main}</div>
           <div slot="map">${map}</div>
+          ${legend ? html`<div slot="legend">${legend}</div>` : nothing}
           ${documentPanel ? html`<div slot="document-panel">${documentPanel}</div>` : nothing}
           ${overlay ? html`<div slot="overlay">${overlay}</div>` : nothing}
         </dso-viewer-grid>

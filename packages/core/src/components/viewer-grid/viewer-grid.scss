@@ -142,11 +142,25 @@ button {
   z-index: zindex.$viewer-grid-sizing-buttons;
 }
 
-.map {
+.map-area {
   block-size: 100%;
   inline-size: 100%;
   overflow: hidden;
   position: relative;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+slot[name="legend"] {
+  display: block;
+  position: absolute;
+  inset-block-end: units.$u2;
+  inset-inline-start: units.$u2;
+  z-index: 1;
 }
 
 .filter-panel,
@@ -218,8 +232,8 @@ button {
 }
 
 @media screen and (min-width: #{media-query-breakpoints.$screen-md-min + units.$u5}) {
-  :host([main-size="small"]) .dso-main-panel,
-  :host([document-panel-size="small"]) .dso-document-panel {
+  :host(:not([print])[main-size="small"]) .dso-main-panel,
+  :host(:not([print])[document-panel-size="small"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$small;
     min-inline-size: 0;
     max-inline-size: core-viewer-grid-variables.$small;
@@ -232,8 +246,8 @@ button {
     }
   }
 
-  :host([main-size="medium"]) .dso-main-panel,
-  :host([document-panel-size="medium"]) .dso-document-panel {
+  :host(:not([print])[main-size="medium"]) .dso-main-panel,
+  :host(:not([print])[document-panel-size="medium"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$medium;
     min-inline-size: core-viewer-grid-variables.$small;
     max-inline-size: core-viewer-grid-variables.$medium;
@@ -246,8 +260,8 @@ button {
     }
   }
 
-  :host([main-size="large"]) .dso-main-panel,
-  :host([document-panel-size="large"]) .dso-document-panel {
+  :host(:not([print])[main-size="large"]) .dso-main-panel,
+  :host(:not([print])[document-panel-size="large"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$large;
     min-inline-size: core-viewer-grid-variables.$large-min;
     max-inline-size: core-viewer-grid-variables.$large-max;
@@ -260,7 +274,7 @@ button {
     }
   }
 
-  :host {
+  :host(:not([print])) {
     display: flex;
     flex-direction: column;
     block-size: 100vh;
@@ -280,40 +294,37 @@ button {
       overflow: hidden;
       flex-grow: 1;
     }
-  }
 
-  .dso-main-panel,
-  .dso-document-panel {
-    box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
+    .dso-main-panel,
+    .dso-document-panel {
+      box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
 
-    .content {
-      overflow-y: auto;
-    }
-  }
-
-  .filter-panel {
-    margin-inline: 0 auto;
-    inline-size: calc(100vw - 40px);
-
-    &[open] {
-      border-inline-end: 1px solid core-viewer-grid-variables.$filter-panel-border-color;
-    }
-  }
-
-  .overlay {
-    box-shadow: -2px 0 5px colors.$grijs-60;
-    margin-inline: auto 0;
-  }
-
-  @media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
-    :host([filter-panel-open]) {
-      .dso-main-panel {
-        margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
-        max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filter-panel-max-inline-size});
+      .content {
+        overflow-y: auto;
       }
     }
 
     .filter-panel {
+      margin-inline: 0 auto;
+      inline-size: calc(100vw - 40px);
+
+      &[open] {
+        border-inline-end: 1px solid core-viewer-grid-variables.$filter-panel-border-color;
+      }
+    }
+
+    .overlay {
+      box-shadow: -2px 0 5px colors.$grijs-60;
+    }
+  }
+
+  @media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
+    :host(:not([print])[filter-panel-open]) .dso-main-panel {
+      margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
+      max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filter-panel-max-inline-size});
+    }
+
+    :host(:not([print])) .filter-panel {
       inline-size: core-viewer-grid-variables.$filter-panel-max-inline-size;
       inset-inline-start: -(core-viewer-grid-variables.$filter-panel-max-inline-size);
     }
@@ -342,27 +353,119 @@ button {
     font-weight: 300;
   }
 
-  .overlay {
-    inline-size: calc(100vw - units.$u4);
-  }
+  :host(:not([print])) {
+    .overlay {
+      inline-size: calc(100vw - units.$u4);
+    }
 
-  .filter-panel,
-  .overlay {
-    margin-inline: 0;
-    max-inline-size: 100vw;
-    inset-block-start: 0;
-  }
+    .filter-panel,
+    .overlay {
+      max-inline-size: 100vw;
+      inset-block-start: 0;
+    }
 
-  .filter-panel {
-    inset-inline-start: -100vw;
-    inline-size: 100vw;
+    .filter-panel {
+      margin-inline: 0;
+      inset-inline-start: -100vw;
+      inline-size: 100vw;
+    }
   }
 }
 
 @media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
-  :host([filter-panel-open]) {
+  :host(:not([print])[filter-panel-open]) {
     .dso-main-panel {
       margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
+    }
+  }
+}
+
+:host([print]) {
+  display: flex;
+  flex-direction: column;
+  block-size: auto;
+  overflow: visible;
+
+  .viewer-grid-columns {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .map-area {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    block-size: auto;
+    overflow: visible;
+    flex-shrink: 0;
+    order: -1;
+  }
+
+  .map {
+    flex: 1;
+    min-inline-size: 0;
+    align-self: stretch;
+    min-block-size: 400px;
+    position: relative;
+    inset: auto;
+  }
+
+  slot[name="legend"] {
+    position: relative;
+    inset: auto;
+    flex-shrink: 0;
+    --_dso-legend-content-max-block-size: none;
+  }
+
+  .dso-main-panel {
+    block-size: auto;
+    box-shadow: none;
+    inline-size: 100%;
+    max-inline-size: none;
+    min-inline-size: 0;
+    position: relative;
+    margin-inline-start: 0px;
+
+    .content {
+      align-items: flex-start;
+      block-size: auto;
+      display: flex;
+      flex-direction: row;
+      gap: css-grid.$grid-gutter-width;
+      overflow-y: visible;
+
+      slot[name="main"] {
+        display: block;
+        flex: 1;
+        min-inline-size: 0;
+      }
+    }
+  }
+
+  .filter-panel {
+    block-size: auto;
+    box-shadow: none;
+    flex-shrink: 0;
+    inline-size: core-viewer-grid-variables.$filter-panel-max-inline-size;
+    margin-inline: 0;
+    max-inline-size: none;
+    min-inline-size: 0;
+    position: relative;
+    transition: none;
+  }
+
+  .dso-document-panel {
+    block-size: auto;
+    box-shadow: none;
+    inline-size: 100%;
+    max-inline-size: none;
+    min-inline-size: 0;
+    position: static;
+
+    .content {
+      block-size: auto;
+      overflow-y: visible;
     }
   }
 }

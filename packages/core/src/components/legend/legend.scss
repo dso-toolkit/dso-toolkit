@@ -65,7 +65,7 @@
     --_dt-scrollable-container-border-end-end-radius: #{legend-variables.$border-radius};
     --_dt-scrollable-container-padding-inline: #{units.$u2};
 
-    max-block-size: 52vh;
+    max-block-size: var(--_dso-legend-content-max-block-size, 52vh);
     border-end-start-radius: legend-variables.$border-radius;
     border-end-end-radius: legend-variables.$border-radius;
   }
