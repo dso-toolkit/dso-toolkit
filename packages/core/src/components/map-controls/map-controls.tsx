@@ -103,7 +103,7 @@ export class MapControls implements ComponentInterface {
   @Method()
   async toggleVisibility(
     e: MouseEvent | KeyboardEvent,
-    returnFocusTarget?: "HTMLButtonElement" | "HTMLDsoIconButtonElement",
+    returnFocusTarget?: HTMLButtonElement | HTMLDsoIconButtonElement,
   ) {
     if (!this.open && returnFocusTarget) {
       this.#returnFocusTarget = returnFocusTarget;
@@ -123,7 +123,7 @@ export class MapControls implements ComponentInterface {
   #toggleIconButtonElement: HTMLDsoIconButtonElement | undefined;
   #closeIconButtonElement: HTMLDsoIconButtonElement | undefined;
   #postTransitionTimeout: number | undefined;
-  #returnFocusTarget: "HTMLButtonElement" | "HTMLDsoIconButtonElement" | undefined;
+  #returnFocusTarget: HTMLButtonElement | HTMLDsoIconButtonElement | undefined;
   #mapLayersPanelId = "map-layers-panel";
   #mapLayersTitleId = "map-layers-title";
 
@@ -144,7 +144,7 @@ export class MapControls implements ComponentInterface {
 
     this.hideContent = true;
 
-    if (this.#returnFocusTarget === "HTMLDsoIconButtonElement") {
+    if (this.#returnFocusTarget === this.#toggleIconButtonElement) {
       this.#toggleIconButtonElement?.setFocus();
     } else {
       this.#toggleButtonElement?.focus();
@@ -173,7 +173,7 @@ export class MapControls implements ComponentInterface {
           aria-expanded={this.open}
           tooltipPlacement="left"
           class="toggle-visibility-icon-button"
-          onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent, "HTMLDsoIconButtonElement")}
+          onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent, this.#toggleIconButtonElement)}
           ref={(element) => (this.#toggleIconButtonElement = element)}
         />
         <button
@@ -181,7 +181,7 @@ export class MapControls implements ComponentInterface {
           class="dso-map toggle-visibility-button"
           aria-controls={this.#mapLayersPanelId}
           aria-expanded={this.open}
-          onClick={(e) => this.toggleVisibility(e, "HTMLButtonElement")}
+          onClick={(e) => this.toggleVisibility(e, this.#toggleButtonElement)}
           ref={(element) => (this.#toggleButtonElement = element)}
         >
           <dso-icon icon="layers"></dso-icon>

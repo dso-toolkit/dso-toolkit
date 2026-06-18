@@ -22,7 +22,7 @@
 
 ## Methods
 
-### `toggleVisibility(e: MouseEvent | KeyboardEvent, returnFocusTarget?: "HTMLButtonElement" | "HTMLDsoIconButtonElement") => Promise<void>`
+### `toggleVisibility(e: MouseEvent | KeyboardEvent, returnFocusTarget?: HTMLButtonElement | HTMLDsoIconButtonElement) => Promise<void>`
 
 Emitted when the visibility is toggled.
 
@@ -30,10 +30,10 @@ Can be used to recalculate map widths or reposition center when the Map Controls
 
 #### Parameters
 
-| Name                | Type                                                             | Description |
-| ------------------- | ---------------------------------------------------------------- | ----------- |
-| `e`                 | `MouseEvent \| KeyboardEvent`                                    |             |
-| `returnFocusTarget` | `"HTMLButtonElement" \| "HTMLDsoIconButtonElement" \| undefined` |             |
+| Name                | Type                                                         | Description |
+| ------------------- | ------------------------------------------------------------ | ----------- |
+| `e`                 | `MouseEvent \| KeyboardEvent`                                |             |
+| `returnFocusTarget` | `HTMLButtonElement \| HTMLDsoIconButtonElement \| undefined` |             |
 
 #### Returns
 
