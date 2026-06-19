@@ -108,7 +108,6 @@ label {
     &.extern,
     &.download {
       &::after {
-        filter: var(--_dso-link-icon-filter, none);
         position: relative;
         inset-block-start: -2px;
       }
