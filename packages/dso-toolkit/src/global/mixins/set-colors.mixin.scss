@@ -46,9 +46,9 @@
   }
 
   @if $self != "link" and not $is-white-bg {
-    --link-color: currentColor;
-    --link-hover-color: currentColor;
-    --link-visited-color: currentColor;
+    --_dso-link-color: currentColor;
+    --_dso-link-hover-color: currentColor;
+    --_dso-link-visited-color: currentColor;
 
     // set according to contrast color determined by contrast-color function
     $icon-color: "wit";

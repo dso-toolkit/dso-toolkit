@@ -13,7 +13,7 @@
 @mixin pseudo() {
   &:hover,
   &:focus-visible {
-    color: var(--link-hover-color);
+    color: var(--_dso-link-hover-color);
     text-decoration: underline;
   }
 
@@ -25,7 +25,7 @@
 @mixin root($is-html-a-element: true) {
   overflow-wrap: anywhere;
   background-color: transparent;
-  color: var(--link-color);
+  color: var(--_dso-link-color);
   text-decoration: underline;
   text-underline-offset: link-variables.$link-underline-offset;
 
@@ -37,7 +37,7 @@
 
   @if ($is-html-a-element) {
     &:visited {
-      color: var(--link-visited-color);
+      color: var(--_dso-link-visited-color);
     }
   } @else {
     cursor: pointer;

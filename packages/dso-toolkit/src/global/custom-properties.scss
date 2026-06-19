@@ -1,7 +1,7 @@
 @use "../components/link/link.variables.scss" as link-variables;
 
 :root {
-  --link-color: #{link-variables.$link-color};
-  --link-hover-color: #{link-variables.$link-hover-color};
-  --link-visited-color: #{link-variables.$link-visited-color};
+  --_dso-link-color: #{link-variables.$link-color};
+  --_dso-link-hover-color: #{link-variables.$link-hover-color};
+  --_dso-link-visited-color: #{link-variables.$link-visited-color};
 }
