@@ -88,7 +88,7 @@
     }
   }
 
-  @if self != "button" and not $is-white-bg {
+  @if $self != "button" and not $is-white-bg {
     @if $is-dark-contrast {
       --_dso-button-tertiary-color: #{colors.$grijs-90};
       --_dso-button-tertiary-hover-color: #{colors.$grijs-70};
