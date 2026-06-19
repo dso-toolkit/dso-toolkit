@@ -107,18 +107,6 @@
     $icon-hover: $icon-hover + "-" + map.get($link-map, "icon-hover-color");
   }
 
-  $icon: map.get($link-map, "icon");
-
-  @if map.has-key($link-map, "icon-color") {
-    $icon: $icon + "-" + map.get($link-map, "icon-color");
-  }
-
-  $icon-hover: map.get($link-map, "icon");
-
-  @if map.has-key($link-map, "icon-hover-color") {
-    $icon-hover: $icon-hover + "-" + map.get($link-map, "icon-hover-color");
-  }
-
   @include di.variant($icon);
 
   @if ($icon != $icon-hover) {
