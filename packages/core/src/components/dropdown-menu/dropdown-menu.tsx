@@ -51,7 +51,7 @@ export class DropdownMenu implements ComponentInterface {
   set checkable(value: boolean) {
     this.dropdownMenuState.checkable = value || false;
 
-    forceUpdate(true);
+    forceUpdate(this.host);
   }
 
   /**
@@ -246,10 +246,14 @@ export class DropdownMenu implements ComponentInterface {
             <dso-icon icon={this.open ? "chevron-up" : "chevron-down"} />
           </button>
         )}
-        <div popover="manual" ref={(element) => (this.popoverElement = element)}>
-          <div class="dso-dropdown-options" aria-labelledby={buttonId} role="menu">
-            <slot />
-          </div>
+        <div
+          popover="manual"
+          class="dso-dropdown-options"
+          aria-labelledby={buttonId}
+          role="menu"
+          ref={(element) => (this.popoverElement = element)}
+        >
+          <slot />
         </div>
       </Host>
     );

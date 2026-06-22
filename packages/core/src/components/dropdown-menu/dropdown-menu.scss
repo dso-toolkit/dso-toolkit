@@ -42,16 +42,9 @@ button {
   }
 }
 
-div[popover] {
-  margin: 0 !important;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  overflow: unset;
-  inline-size: max-content;
-}
-
 .dso-dropdown-options {
+  margin: 0 !important;
+  overflow: unset;
   background-clip: padding-box;
   background-color: dropdown-menu-variables.$background-color;
   border-radius: scaffolding.$border-radius-base;
@@ -59,6 +52,7 @@ div[popover] {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
   font-size: typography.$root-font-size-base;
   min-inline-size: 160px;
+  inline-size: max-content;
   padding-block: 5px;
   padding-inline: 0;
   z-index: zindex.$dropdown-options;
