@@ -13,8 +13,7 @@ export const angularDropdownMenu: ComponentImplementation<DropdownMenu> = {
           <dso-dropdown-menu
             [label]="label"
             [variant]="variant"
-            [dropdownAlign]="dropdownAlign === 'right' ? 'right' : undefined"
-            [checkable]="checkable || undefined"
+            [checkable]="checkable"
           >
             @for (group of groups; track group) {
               <dso-dropdown-menu-group [label]="group.label">

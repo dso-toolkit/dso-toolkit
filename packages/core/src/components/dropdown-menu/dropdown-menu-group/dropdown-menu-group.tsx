@@ -33,14 +33,14 @@ export class DropdownMenuGroup implements ComponentInterface {
   }
 
   render() {
-    const { checkable } = this.dropdownMenuState ?? {};
+    const checkable = this.dropdownMenuState?.checkable;
     const labelId = this.label ? uuidv4() : undefined;
 
     return (
       <Host>
         <div aria-labelledby={labelId} role="group">
           {this.label && (
-            <div id={labelId} class={clsx(["group-label", { checkable }])} role="none">
+            <div id={labelId} class={clsx("group-label", { checkable })} role="none">
               {this.label}
             </div>
           )}

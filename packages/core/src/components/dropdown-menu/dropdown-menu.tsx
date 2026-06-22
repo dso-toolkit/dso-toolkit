@@ -15,7 +15,6 @@ import { createStore } from "@stencil/store";
 import { v4 as uuidv4 } from "uuid";
 
 import {
-  DropdownMenuAligment,
   DropdownMenuInternalState,
   DropdownMenuItemClickEvent,
   DropdownMenuTabbable,
@@ -41,12 +40,6 @@ export class DropdownMenu implements ComponentInterface {
   }
 
   private button?: HTMLButtonElement;
-
-  /**
-   * Alignment of the dropdown
-   */
-  @Prop({ reflect: true })
-  dropdownAlign: DropdownMenuAligment = "left";
 
   /**
    * Whether the menu items are checkable.
@@ -137,7 +130,7 @@ export class DropdownMenu implements ComponentInterface {
     this.open = force ?? !this.open;
 
     if (this.popoverElement?.isConnected) {
-      this.popoverElement?.togglePopover(this.open);
+      this.popoverElement.togglePopover(this.open);
     }
 
     if (!this.open && this.cleanUp) {
@@ -165,14 +158,16 @@ export class DropdownMenu implements ComponentInterface {
   }
 
   private moveFocusToPrevious(focussedElement: HTMLElement, withButton = true) {
-    const index = this.dropdownMenuTabbables(withButton).findIndex((element) => element === focussedElement);
+    const tabbables = this.dropdownMenuTabbables(withButton);
+    const index = tabbables.findIndex((element) => element === focussedElement);
     const next = this.dropdownMenuTabbables(withButton)[index - 1] ?? this.lastItem;
 
     this.moveFocusTo(next);
   }
 
   private moveFocusToNext(focussedElement: HTMLElement, withButton = true) {
-    const index = this.dropdownMenuTabbables(withButton).findIndex((element) => element === focussedElement);
+    const tabbables = this.dropdownMenuTabbables(withButton);
+    const index = tabbables.findIndex((element) => element === focussedElement);
     const next = this.dropdownMenuTabbables(withButton)[index + 1] ?? this.firstItem(withButton);
 
     this.moveFocusTo(next);

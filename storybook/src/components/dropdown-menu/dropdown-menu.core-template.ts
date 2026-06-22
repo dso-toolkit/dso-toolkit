@@ -8,29 +8,23 @@ export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
   component: "dropdownMenu",
   implementation: "core",
   template: () =>
-    function dropdownMenuTemplate({ label, variant, checkable, groups, dropdownAlign }) {
+    function dropdownMenuTemplate({ label, variant, checkable, groups }) {
       return html`
-        <dso-dropdown-menu
-          .label=${label}
-          .variant=${variant}
-          ?checkable=${checkable}
-          .dropdownAlign=${ifDefined(dropdownAlign)}
-        >
+        <dso-dropdown-menu .label=${label} .variant=${variant} ?checkable=${checkable}>
           ${groups.map(
             (group) => html`
               <dso-dropdown-menu-group label=${ifDefined(group.label)}>
-                  ${group.items.map(
-                    (item) => html`
-                      <dso-dropdown-menu-item
-                        type=${item.type}
-                        href=${ifDefined("href" in item ? item.href : undefined)}
-                        checked=${ifDefined(item.checked)}
-                        @dsoClick=${ifDefined(item.dsoClick)}
-                        >${item.label}</dso-dropdown-menu-item
-                      >
-                    `,
-                  )}
-                </ul>
+                ${group.items.map(
+                  (item) => html`
+                    <dso-dropdown-menu-item
+                      .type=${item.type}
+                      .href=${"href" in item ? item.href : undefined}
+                      ?checked=${item.checked}
+                      @dsoClick=${ifDefined(item.dsoClick)}
+                      >${item.label}</dso-dropdown-menu-item
+                    >
+                  `,
+                )}
               </dso-dropdown-menu-group>
             `,
           )}

@@ -81,12 +81,12 @@ export class DropdownMenuItem implements ComponentInterface {
   }
 
   render() {
-    const { checkable } = this.dropdownMenuState ?? {};
-    const checked = checkable ? (this.checked ?? false) : undefined;
+    const checkable = this.dropdownMenuState?.checkable;
+    const checked = checkable ? Boolean(this.checked) : undefined;
 
     return (
       <Host>
-        <div role="none" class={clsx([{ checkable }, { checked: this.checked }])}>
+        <div role="none" class={clsx([{ checkable, checked }])}>
           {this.type === "button" && (
             <button
               type="button"
@@ -95,6 +95,7 @@ export class DropdownMenuItem implements ComponentInterface {
               onClick={this.handleClick}
               ref={(element) => (this.anchorOrButtonRef = element)}
             >
+              {checkable && checked && <dso-icon icon="check" />}
               <slot></slot>
             </button>
           )}
@@ -106,7 +107,7 @@ export class DropdownMenuItem implements ComponentInterface {
               onClick={this.handleClick}
               ref={(element) => (this.anchorOrButtonRef = element)}
             >
-              {checkable && this.checked && <dso-icon icon="check" />}
+              {checkable && checked && <dso-icon icon="check" />}
               <slot></slot>
             </a>
           )}

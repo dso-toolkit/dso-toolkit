@@ -9,20 +9,15 @@ export const reactDropdownMenu: ComponentImplementation<DropdownMenu> = {
   component: "dropdownMenu",
   implementation: "react",
   template: () =>
-    function dropdownMenuTemplate({ label, variant, checkable, groups, dropdownAlign }) {
+    function dropdownMenuTemplate({ label, variant, checkable, groups }) {
       return (
-        <DsoDropdownMenu
-          label={label}
-          variant={variant}
-          dropdown-align={dropdownAlign === "right" ? "right" : undefined}
-          checkable={checkable || undefined}
-        >
+        <DsoDropdownMenu label={label} variant={variant} checkable={checkable}>
           {groups.map((group, index) => (
             <DsoDropdownMenuGroup label={group.label} key={index}>
               {group.items.map((item, index) => (
                 <DsoDropdownMenuItem
                   type={item.type}
-                  href={("href" in item && item.href) || undefined}
+                  href={"href" in item ? item.href : undefined}
                   checked={item.checked}
                   onDsoClick={(e: DsoDropdownMenuItemCustomEvent<DropdownMenuItemClickEvent>) => item.dsoClick?.(e)}
                   key={index}

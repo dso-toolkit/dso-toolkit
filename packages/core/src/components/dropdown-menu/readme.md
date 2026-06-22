@@ -11,12 +11,11 @@ Items can be marked as "checked" by adding the attribute `checkable` and adding 
 
 ## Properties
 
-| Property        | Attribute        | Description                                  | Type                                     | Default       |
-| --------------- | ---------------- | -------------------------------------------- | ---------------------------------------- | ------------- |
-| `checkable`     | `checkable`      | Whether the menu items are checkable.        | `boolean`                                | `undefined`   |
-| `dropdownAlign` | `dropdown-align` | Alignment of the dropdown                    | `"left" \| "right"`                      | `"left"`      |
-| `label`         | `label`          | The label of the Dropdown Menu Button        | `string \| undefined`                    | `undefined`   |
-| `variant`       | `variant`        | The variant of the Button to toggle the menu | `"primary" \| "secondary" \| "tertiary"` | `"secondary"` |
+| Property    | Attribute   | Description                                  | Type                                     | Default       |
+| ----------- | ----------- | -------------------------------------------- | ---------------------------------------- | ------------- |
+| `checkable` | `checkable` | Whether the menu items are checkable.        | `boolean`                                | `undefined`   |
+| `label`     | `label`     | The label of the Dropdown Menu Button        | `string \| undefined`                    | `undefined`   |
+| `variant`   | `variant`   | The variant of the Button to toggle the menu | `"primary" \| "secondary" \| "tertiary"` | `"secondary"` |
 
 
 ## Dependencies

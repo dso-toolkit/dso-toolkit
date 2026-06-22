@@ -2,8 +2,6 @@ export interface DropdownMenuInternalState {
   checkable: boolean;
 }
 
-export type DropdownMenuAligment = "left" | "right";
-
 export type DropdownMenuTabbable = HTMLDsoDropdownMenuElement | HTMLDsoDropdownMenuItemElement;
 
 export type DropdownMenuItemType = "button" | "link";

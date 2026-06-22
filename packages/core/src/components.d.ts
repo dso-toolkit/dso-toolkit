@@ -24,7 +24,7 @@ import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DateP
 import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentType, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 import { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
-import { DropdownMenuAligment, DropdownMenuInternalState, DropdownMenuItemClickEvent, DropdownMenuItemType } from "./components/dropdown-menu/dropdown-menu.interfaces";
+import { DropdownMenuInternalState, DropdownMenuItemClickEvent, DropdownMenuItemType } from "./components/dropdown-menu/dropdown-menu.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable.interfaces";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
@@ -78,7 +78,7 @@ export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DateP
 export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentType, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 export { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
-export { DropdownMenuAligment, DropdownMenuInternalState, DropdownMenuItemClickEvent, DropdownMenuItemType } from "./components/dropdown-menu/dropdown-menu.interfaces";
+export { DropdownMenuInternalState, DropdownMenuItemClickEvent, DropdownMenuItemType } from "./components/dropdown-menu/dropdown-menu.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable.interfaces";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
@@ -640,11 +640,6 @@ export namespace Components {
           * Whether the menu items are checkable.
          */
         "checkable": boolean;
-        /**
-          * Alignment of the dropdown
-          * @default "left"
-         */
-        "dropdownAlign": DropdownMenuAligment;
         /**
           * The label of the Dropdown Menu Button
          */
@@ -3500,11 +3495,6 @@ declare namespace LocalJSX {
          */
         "checkable"?: boolean;
         /**
-          * Alignment of the dropdown
-          * @default "left"
-         */
-        "dropdownAlign"?: DropdownMenuAligment;
-        /**
           * The label of the Dropdown Menu Button
          */
         "label"?: string | undefined;
@@ -4740,7 +4730,6 @@ declare namespace LocalJSX {
         "href": string;
     }
     interface DsoDropdownMenuAttributes {
-        "dropdownAlign": DropdownMenuAligment;
         "checkable": boolean;
         "label": string | undefined;
         "variant": "primary" | "secondary" | "tertiary";

@@ -65,7 +65,6 @@ button {
   button {
     &:not(:focus) {
       background-color: colors.$grasgroen;
-      border-color: colors.$grasgroen;
       color: colors.$wit;
     }
   }
