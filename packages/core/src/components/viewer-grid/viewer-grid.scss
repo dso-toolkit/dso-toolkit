@@ -354,6 +354,11 @@ slot[name="legend"] {
   }
 
   :host(:not([print])) {
+    .map {
+      position: relative;
+      inset: auto;
+    }
+
     .overlay {
       inline-size: calc(100vw - units.$u4);
     }

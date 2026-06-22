@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Viewer Grid: Fix test ([#3828](https://github.com/dso-toolkit/dso-toolkit/issues/3828))
+
 ## 🏛️ Release 97.1.0 - 2026-06-18
 
 ### Changed
