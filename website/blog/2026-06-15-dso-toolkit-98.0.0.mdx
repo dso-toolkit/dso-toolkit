@@ -1,12 +1,13 @@
 ---
-authors: [iterox]
+authors: [iterox, cvanderleij]
 ---
 
 # DSO Toolkit v98.0.0 🥅
 
-Deze release bevat **breaking** changes voor het volgende component:
+Deze release bevat **breaking** changes voor de volgende componenten:
 
 - Dropdown Menu (Core implementatie)
+- Info Button (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -120,4 +121,23 @@ Met het oog op de definitieve verwijdering van de in 🏝️ Release 83.0.0 **de
     <dso-dropdown-menu-item type="button">Verwijderen</dso-dropdown-menu-item>
   </dso-dropdown-menu-group>
 </dso-dropdown-menu>
+```
+
+## Info Button (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Info Button` is in 🏴󠁧󠁢󠁳󠁣󠁴󠁿v97.0.0 **deprecated**. In deze release is deze
+implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van `Info Button`.
+
+```html
+❌
+<button type="button" class="dso-info-button" aria-expanded="false">
+  <span class="sr-only"> Toelichting bij vraag </span>
+</button>
+
+✅
+<dso-info-button label="Toelichting bij vraag"> </dso-info-button>
 ```
