@@ -163,7 +163,6 @@ import { coreImageOverlay } from "./components/image-overlay/image-overlay.core-
 import { coreInfo } from "./components/info/info.core-template";
 import { cssInfo } from "./components/info/info.css-template";
 import { coreInfoButton } from "./components/info-button/info-button.core-template";
-import { cssInfoButton } from "./components/info-button/info-button.css-template";
 import { coreInputRange } from "./components/input-range/input-range.core-template";
 import { cssJustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.css-template";
 import { coreLabel } from "./components/label/label.core-template";
@@ -428,7 +427,6 @@ templateContainer.add(cssHeading);
 templateContainer.add(cssHighlightBox);
 templateContainer.add(cssImage);
 templateContainer.add(cssInfo);
-templateContainer.add(cssInfoButton);
 templateContainer.add(cssJustifyFormGroups);
 templateContainer.add(cssLabelGroup);
 templateContainer.add(cssLink);
