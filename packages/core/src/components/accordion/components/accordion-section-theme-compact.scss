@@ -29,9 +29,9 @@
 
   .dso-section-body {
     .dso-section-body-content {
-      --_dt-heading-h2-color: #{colors.$grijs-90};
-      --_dt-heading-h3-color: #{colors.$grijs-90};
-      --_dt-heading-h4-color: #{colors.$grijs-90};
+      --_dso-heading-h2-color: #{colors.$grijs-90};
+      --_dso-heading-h3-color: #{colors.$grijs-90};
+      --_dso-heading-h4-color: #{colors.$grijs-90};
 
       padding-inline-start: units.$u4;
       padding-block-start: 0;

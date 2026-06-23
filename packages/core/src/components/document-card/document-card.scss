@@ -76,7 +76,7 @@
 }
 
 ::slotted([slot="type"]) {
-  --_dt-info-button-margin-inline-start: 0;
+  --_dso-info-button-margin-inline-start: 0;
 
   display: flex !important;
   gap: units.$u1 !important;

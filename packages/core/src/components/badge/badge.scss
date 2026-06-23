@@ -10,9 +10,9 @@
 @include tooltip.include($padding-block-inner: 0, $padding-inline-inner: 0, $max-inline-size: 640px);
 
 :host {
-  --_dt-scrollable-border-radius: #{units.$u1 * 0.5};
-  --_dt-scrollable-container-padding-inline: #{tooltip.$padding-inline};
-  --_dt-scrollable-container-padding-block: #{tooltip.$padding-block};
+  --_dso-scrollable-border-radius: #{units.$u1 * 0.5};
+  --_dso-scrollable-container-padding-inline: #{tooltip.$padding-inline};
+  --_dso-scrollable-container-padding-block: #{tooltip.$padding-block};
 
   display: inline-block;
 }

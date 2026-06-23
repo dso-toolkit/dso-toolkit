@@ -27,7 +27,7 @@
     max-inline-size: $max-inline-size;
 
     .tooltip-inner {
-      --_dt-span-role-paragraph-margin-block: #{units.$u1};
+      --_dso-span-role-paragraph-margin-block: #{units.$u1};
 
       @include set-colors.apply($background-color, "tooltip");
 

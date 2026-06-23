@@ -4,10 +4,10 @@ $mark-color: #f8f5ce;
 $highlight-color: #dbd136;
 
 mark {
-  background-color: var(--_dt-mark-bg-color, $mark-color);
-  color: var(--_dt-mark-color, colors.$zwart);
-  padding-block: var(--_dt-mark-padding-block, 0.2rem);
-  font-weight: var(--_dt-mark-font-weight, normal);
+  background-color: var(--_dso-mark-bg-color, $mark-color);
+  color: var(--_dso-mark-color, colors.$zwart);
+  padding-block: var(--_dso-mark-padding-block, 0.2rem);
+  font-weight: var(--_dso-mark-font-weight, normal);
 
   &.dso-highlight {
     background-color: $highlight-color;
