@@ -140,6 +140,8 @@ export class Header implements ComponentInterface {
     this.resetVisibleMenuItems();
   }
 
+  private resizeFrameId?: number;
+
   private tabInPopup(tabbables: FocusableElement[], direction: number) {
     const currentIndex = tabbables.findIndex((e) => e === getActiveElement());
 
@@ -299,14 +301,29 @@ export class Header implements ComponentInterface {
     return typeof this.visibleMenuItemsCount === "number" ? this.mainMenu.slice(this.visibleMenuItemsCount) : [];
   }
 
-  private resizeObserver = new ResizeObserver(() => {
+  private flushResize = () => {
+    this.resizeFrameId = undefined;
+
+    if (!this.host.isConnected) {
+      return;
+    }
+
     this.resetVisibleMenuItems();
-
     this.toggleOptions(false);
-
     this.dropdownOptionsOffset = 0;
-
     forceUpdate(this.host);
+  };
+
+  private scheduleResize = () => {
+    if (this.resizeFrameId !== undefined) {
+      return;
+    }
+
+    this.resizeFrameId = requestAnimationFrame(this.flushResize);
+  };
+
+  private resizeObserver = new ResizeObserver(() => {
+    this.scheduleResize();
   });
 
   connectedCallback(): void {
@@ -315,6 +332,10 @@ export class Header implements ComponentInterface {
 
   disconnectedCallback() {
     this.resizeObserver.disconnect();
+    if (this.resizeFrameId !== undefined) {
+      cancelAnimationFrame(this.resizeFrameId);
+      this.resizeFrameId = undefined;
+    }
 
     this.toggleOptions(false);
   }

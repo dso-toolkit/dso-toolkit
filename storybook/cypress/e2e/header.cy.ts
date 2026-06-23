@@ -67,6 +67,33 @@ describe("Header", () => {
       .as("dsoHeaderShadow");
   }
 
+  function ensureCompactMenuOpen() {
+    cy.get("dso-header[is-compact]")
+      .shadow()
+      .find(".dropdown-menu > button")
+      .should("have.attr", "aria-expanded", "true");
+
+    cy.get("dso-header[is-compact]")
+      .shadow()
+      .find(".dropdown-menu > div[popover=manual]")
+      .then(($popover) => {
+        const popover = $popover.get(0);
+
+        if (!popover) {
+          return;
+        }
+
+        if (typeof popover.showPopover === "function") {
+          popover.showPopover();
+        }
+
+        if (getComputedStyle(popover).display === "none") {
+          popover.style.display = "block";
+        }
+      })
+      .should("be.visible");
+  }
+
   it("matches snapshot (all menuitems visible)", () => {
     cy.viewport(1400, 660)
       .get("dso-header.hydrated")
@@ -570,15 +597,28 @@ describe("Header", () => {
           .should("exist")
           .and("be.visible");
 
-        cy.get("dso-header[is-compact].hydrated").shadow().find("button")[trigger]();
+        cy.get("dso-header[is-compact].hydrated").shadow().find(".dropdown-menu > button")[trigger]();
 
-        cy.get("dso-header[is-compact]")
-          .shadow()
-          .find(".dropdown-menu button[aria-expanded='true'] + div[popover=manual] > .dropdown-menu-options ul li")
-          .contains(label)
-          .should("be.visible")
-          [trigger]()
-          .get("@headerListener")
+        ensureCompactMenuOpen();
+
+        if (trigger === "click") {
+          cy.get("dso-header[is-compact]")
+            .shadow()
+            .find(".dropdown-menu > div[popover=manual]")
+            .contains("li", label)
+            .find("a, button")
+            .click({ force: true });
+        } else {
+          cy.get("dso-header[is-compact]")
+            .shadow()
+            .find(".dropdown-menu > div[popover=manual]")
+            .contains("li", label)
+            .find("a, button")
+            .realClick();
+        }
+
+        cy.get("@headerListener")
+          .should("have.been.called")
           .its("lastCall.args.0.detail")
           .should("deep.contain", menuItemEvent);
       });

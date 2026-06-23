@@ -1,3 +1,20 @@
+function waitForAutosuggestListboxLayout() {
+  cy.get("dso-autosuggest.hydrated")
+    .find(".listbox-container")
+    .should("be.visible")
+    .should(($listboxContainer) => {
+      const element = $listboxContainer.get(0);
+      expect(element).to.not.equal(undefined);
+
+      const computedStyle = getComputedStyle(element);
+      const customMaxBlockSize = computedStyle.getPropertyValue("--_dso-autosuggest-max-block-size").trim();
+      const maxBlockSize = computedStyle.maxBlockSize;
+
+      expect(customMaxBlockSize).to.not.equal("");
+      expect(maxBlockSize).to.not.equal("none");
+    });
+}
+
 describe("Autosuggest", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example");
@@ -430,7 +447,7 @@ describe("Autosuggest", () => {
 
   it("should limit the block-size of the listbox-container to 10 items", () => {
     cy.get("input").focus().type("sugg");
-    cy.wait(200);
+    waitForAutosuggestListboxLayout();
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
     cy.matchImageSnapshot();
   });
@@ -439,7 +456,7 @@ describe("Autosuggest", () => {
     cy.viewport(1000, 338);
     cy.wait(200);
     cy.get("input").focus().type("sugg");
-    cy.wait(200);
+    waitForAutosuggestListboxLayout();
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
     cy.matchImageSnapshot();
   });
@@ -483,7 +500,7 @@ describe("Autosuggest", () => {
       cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
       cy.dsoCheckA11y("dso-autosuggest.hydrated");
       cy.get("dso-autosuggest.hydrated input").focus().type("groep");
-      cy.wait(200);
+      waitForAutosuggestListboxLayout();
       cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
       cy.dsoCheckA11y("dso-autosuggest.hydrated");
       cy.get("dso-autosuggest.hydrated").find("div[role='group']").should("have.length", 2);
