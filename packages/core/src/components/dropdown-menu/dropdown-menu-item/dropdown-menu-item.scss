@@ -1,0 +1,71 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/link";
+
+@use "../dropdown-menu.variables" as dropdown-menu-variables;
+
+:host {
+  display: block;
+}
+
+a {
+  &:visited {
+    color: dropdown-menu-variables.$link-color;
+  }
+}
+
+button {
+  @include button.element();
+
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: inherit;
+  inline-size: 100%;
+}
+
+a,
+button {
+  @include link.reverse();
+
+  clear: both;
+  color: dropdown-menu-variables.$link-color;
+  display: block;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-block: 3px;
+  padding-inline: dropdown-menu-variables.$inline-padding;
+  text-decoration: none;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
+
+  &:hover,
+  &:focus {
+    background-color: colors.$grasgroen;
+    border-color: colors.$grasgroen;
+    color: colors.$wit;
+    text-decoration: none;
+  }
+
+  dso-icon {
+    margin-inline: units.$u1 * -1.5 units.$u1 * 0.5;
+  }
+}
+
+.checkable:not(.checked) {
+  a,
+  button {
+    padding-inline-start: units.$u5;
+  }
+}
+
+.checked {
+  a,
+  button {
+    &:not(:focus) {
+      background-color: colors.$grasgroen;
+      color: colors.$wit;
+    }
+  }
+}

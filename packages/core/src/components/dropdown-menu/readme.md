@@ -11,13 +11,25 @@ Items can be marked as "checked" by adding the attribute `checkable` and adding 
 
 ## Properties
 
-| Property                | Attribute                 | Description                                                                  | Type                | Default  |
-| ----------------------- | ------------------------- | ---------------------------------------------------------------------------- | ------------------- | -------- |
-| `checkable`             | `checkable`               | Whether the menu is checkable.                                               | `boolean`           | `false`  |
-| `dropdownAlign`         | `dropdown-align`          | Alignment of the dropdown                                                    | `"left" \| "right"` | `"left"` |
-| `dropdownOptionsOffset` | `dropdown-options-offset` | Space between button and dropdown options                                    | `number`            | `2`      |
-| `open`                  | `open`                    | Whether the menu is open or closed. This attribute is reflected and mutable. | `boolean`           | `false`  |
+| Property    | Attribute   | Description                                  | Type                                     | Default       |
+| ----------- | ----------- | -------------------------------------------- | ---------------------------------------- | ------------- |
+| `checkable` | `checkable` | Whether the menu items are checkable.        | `boolean`                                | `undefined`   |
+| `label`     | `label`     | The label of the Dropdown Menu Button        | `string \| undefined`                    | `undefined`   |
+| `variant`   | `variant`   | The variant of the Button to toggle the menu | `"primary" \| "secondary" \| "tertiary"` | `"secondary"` |
 
+
+## Dependencies
+
+### Depends on
+
+- [dso-icon](../icon)
+
+### Graph
+```mermaid
+graph TD;
+  dso-dropdown-menu --> dso-icon
+  style dso-dropdown-menu fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

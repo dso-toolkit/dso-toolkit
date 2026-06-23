@@ -1,114 +1,121 @@
 import { autoUpdate, computePosition, flip, offset } from "@floating-ui/dom";
-import { Component, Element, Host, Listen, Prop, h } from "@stencil/core";
-import { FocusableElement, tabbable } from "tabbable";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  forceUpdate,
+  h,
+} from "@stencil/core";
+import { createStore } from "@stencil/store";
 import { v4 as uuidv4 } from "uuid";
 
-import { getActiveElement } from "../../utils/get-active-element";
+import {
+  DropdownMenuInternalState,
+  DropdownMenuItemClickEvent,
+  DropdownMenuTabbable,
+} from "./dropdown-menu.interfaces";
 
 @Component({
   tag: "dso-dropdown-menu",
   styleUrl: "dropdown-menu.scss",
   shadow: true,
 })
-export class DropdownMenu {
-  /**
-   * Whether the menu is open or closed.
-   * This attribute is reflected and mutable.
-   */
-  @Prop({ reflect: true, mutable: true })
-  open = false;
-
-  /**
-   * Alignment of the dropdown
-   */
-  @Prop()
-  dropdownAlign: "left" | "right" = "left";
-
-  /**
-   * Space between button and dropdown options
-   */
-  @Prop()
-  dropdownOptionsOffset = 2;
-
-  /**
-   * Whether the menu is checkable.
-   */
-  @Prop()
-  checkable = false;
+export class DropdownMenu implements ComponentInterface {
+  private readonly dropdownMenuState: DropdownMenuInternalState;
 
   @Element()
   host!: HTMLDsoDropdownMenuElement;
 
-  private cleanUp: ReturnType<typeof autoUpdate> | undefined;
+  constructor() {
+    const { state } = createStore<DropdownMenuInternalState>({
+      checkable: false,
+    });
 
+    this.dropdownMenuState = state;
+  }
+
+  private button?: HTMLButtonElement;
+
+  /**
+   * Whether the menu items are checkable.
+   */
+  @Prop({ reflect: true })
+  get checkable(): boolean {
+    return this.dropdownMenuState.checkable;
+  }
+  set checkable(value: boolean) {
+    this.dropdownMenuState.checkable = value || false;
+
+    forceUpdate(this.host);
+  }
+
+  /**
+   * The label of the Dropdown Menu Button
+   */
+  @Prop({ reflect: true })
+  label: string | undefined;
+
+  /**
+   * The variant of the Button to toggle the menu
+   */
+  @Prop({ reflect: true })
+  variant: "primary" | "secondary" | "tertiary" = "secondary";
+
+  @State()
+  open = false;
+
+  @Listen("dsoClick")
+  dsoClickHandler(event: CustomEvent<DropdownMenuItemClickEvent>) {
+    event.stopPropagation();
+
+    if (this.open && event.target instanceof HTMLElement) {
+      this.toggleOptions(false);
+    }
+  }
+
+  /**
+   * @internal
+   */
+  @Method()
+  async _getState(): Promise<DropdownMenuInternalState> {
+    return this.dropdownMenuState;
+  }
+
+  private cleanUp: ReturnType<typeof autoUpdate> | undefined;
   private popoverElement: HTMLDivElement | undefined;
 
-  get button(): HTMLButtonElement {
-    const button = this.host.querySelector('button[slot="toggle"]');
+  private dropdownMenuTabbables(withButton: boolean): DropdownMenuTabbable[] {
+    const menuItems = this.host.isConnected
+      ? Array.from(
+          this.host.querySelectorAll<HTMLDsoDropdownMenuItemElement>(
+            ":scope > dso-dropdown-menu-group > dso-dropdown-menu-item",
+          ),
+        )
+      : [];
 
-    if (!(button instanceof HTMLButtonElement)) {
-      throw new ReferenceError("Mandatory toggle button not found");
-    }
-
-    return button;
-  }
-
-  private tabbables(withButton: boolean): FocusableElement[] {
-    const tabbables = this.host.isConnected ? tabbable(this.host) : [];
-
-    return withButton ? tabbables : tabbables.filter((element) => element !== this.button);
-  }
-
-  componentDidLoad() {
-    this.button.setAttribute("aria-haspopup", "menu");
-    this.button.setAttribute("aria-expanded", "false");
-    if (!this.button.id) {
-      this.button.id = uuidv4();
-    }
-
-    const dropdownOptionsElement = this.host.querySelector(".dso-dropdown-options");
-
-    if (!(dropdownOptionsElement instanceof HTMLElement)) {
-      throw new Error("dropdown options element is not instanceof HTMLElement");
-    }
-
-    dropdownOptionsElement.setAttribute("role", "menu");
-    dropdownOptionsElement.setAttribute("aria-labelledby", this.button.id);
-
-    for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
-      ul.setAttribute("role", "group");
-      for (const li of Array.from(ul.getElementsByTagName("li"))) {
-        li.setAttribute("role", "none");
-      }
-    }
+    return withButton ? [this.host, ...menuItems] : menuItems;
   }
 
   componentDidRender() {
-    for (const li of Array.from(this.host.getElementsByTagName("li"))) {
-      for (const tab of this.host.isConnected ? tabbable(li) : []) {
-        tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
-
-        if (this.checkable) {
-          tab.setAttribute("aria-checked", li.classList.contains("dso-checked").toString());
-        }
-      }
-    }
-
-    this.button.setAttribute("aria-expanded", this.open ? "true" : "false");
-
-    if (this.popoverElement && !this.cleanUp) {
+    if (this.button && this.popoverElement && !this.cleanUp) {
       const element = this.popoverElement;
+      const referenceElement = this.button;
 
-      this.cleanUp = autoUpdate(this.button, element, () => {
-        computePosition(this.button, element, {
+      this.cleanUp = autoUpdate(referenceElement, element, () => {
+        computePosition(referenceElement, element, {
           strategy: "fixed",
           middleware: [
-            offset(this.dropdownOptionsOffset),
+            offset(2),
             flip({
-              padding: this.dropdownOptionsOffset,
+              padding: 2,
             }),
           ],
-          placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
+          placement: "bottom-start",
         }).then(({ x, y }) => {
           Object.assign(element.style, {
             left: `${x}px`,
@@ -119,29 +126,11 @@ export class DropdownMenu {
     }
   }
 
-  @Listen("click", { target: "window" })
-  onClick(event: MouseEvent) {
-    const composedPath = event.composedPath();
-
-    if (this.isToggleButtonEvent(composedPath)) {
-      this.toggleOptions();
-    } else if (this.open && this.isMenuItemEvent(composedPath)) {
-      this.toggleOptions(false);
-    }
-  }
-
-  private isToggleButtonEvent(composedPath: EventTarget[]) {
-    return composedPath.includes(this.button);
-  }
-
-  private isMenuItemEvent(composedPath: EventTarget[]) {
-    return composedPath.includes(this.host) && !this.isToggleButtonEvent(composedPath);
-  }
-
   private toggleOptions(force?: boolean) {
     this.open = force ?? !this.open;
+
     if (this.popoverElement?.isConnected) {
-      this.popoverElement?.togglePopover(this.open);
+      this.popoverElement.togglePopover(this.open);
     }
 
     if (!this.open && this.cleanUp) {
@@ -150,26 +139,61 @@ export class DropdownMenu {
     }
   }
 
-  connectedCallback() {
-    this.host.addEventListener("keydown", this.keyDownListener);
-  }
-
   disconnectedCallback() {
-    this.host.removeEventListener("keydown", this.keyDownListener);
-
     this.toggleOptions(false);
   }
 
   private focusOutListener = (event: FocusEvent) => {
-    if (
-      this.open &&
-      (!(event.relatedTarget instanceof HTMLElement) || !this.tabbables(true).includes(event.relatedTarget))
-    ) {
+    if (this.open && !(event.relatedTarget instanceof HTMLElement)) {
       this.toggleOptions(false);
     }
   };
 
-  private keyDownListener = (event: KeyboardEvent) => {
+  private get lastItem() {
+    return this.dropdownMenuTabbables(true).at(-1);
+  }
+
+  private firstItem(withButton: boolean) {
+    return this.dropdownMenuTabbables(withButton)[0];
+  }
+
+  private moveFocusToPrevious(focussedElement: HTMLElement, withButton = true) {
+    const tabbables = this.dropdownMenuTabbables(withButton);
+    const index = tabbables.findIndex((element) => element === focussedElement);
+    const next = this.dropdownMenuTabbables(withButton)[index - 1] ?? this.lastItem;
+
+    this.moveFocusTo(next);
+  }
+
+  private moveFocusToNext(focussedElement: HTMLElement, withButton = true) {
+    const tabbables = this.dropdownMenuTabbables(withButton);
+    const index = tabbables.findIndex((element) => element === focussedElement);
+    const next = this.dropdownMenuTabbables(withButton)[index + 1] ?? this.firstItem(withButton);
+
+    this.moveFocusTo(next);
+  }
+
+  private moveFocusTo(element: HTMLDsoDropdownMenuElement | HTMLDsoDropdownMenuItemElement | undefined) {
+    if (!element) {
+      return;
+    }
+
+    if (element === this.host && this.button) {
+      this.button.focus();
+
+      return;
+    }
+
+    if ("_dsoFocus" in element) {
+      element._dsoFocus();
+    }
+  }
+
+  private keyDownHandler = (event: KeyboardEvent) => {
+    if (!(event.target instanceof HTMLElement)) {
+      return;
+    }
+
     if (event.defaultPrevented || !this.open) {
       return;
     }
@@ -177,31 +201,20 @@ export class DropdownMenu {
     switch (event.key) {
       case "Tab":
         if (event.shiftKey) {
-          this.tabInPopup(this.tabbables(true), -1);
+          this.moveFocusToPrevious(event.target);
         } else {
-          this.tabInPopup(this.tabbables(true), 1);
+          this.moveFocusToNext(event.target);
         }
-
         break;
       case "ArrowDown":
-        this.tabInPopup(this.tabbables(false), 1);
+        this.moveFocusToNext(event.target, false);
         break;
-
       case "ArrowUp":
-        this.tabInPopup(this.tabbables(false), -1);
+        this.moveFocusToPrevious(event.target, false);
         break;
-
       case "Escape":
         this.escape();
         break;
-
-      case " ":
-        if (event.target instanceof HTMLElement) {
-          event.target.click();
-        }
-
-        break;
-
       default:
         return;
     }
@@ -209,29 +222,37 @@ export class DropdownMenu {
     event.preventDefault();
   };
 
-  private tabInPopup(tabbables: FocusableElement[], direction: number) {
-    const currentIndex = tabbables.findIndex((e) => e === getActiveElement());
-
-    let nextIndex = currentIndex + direction;
-    if (nextIndex >= tabbables.length) {
-      nextIndex = 0;
-    } else if (nextIndex < 0) {
-      nextIndex = tabbables.length - 1;
-    }
-
-    tabbables[nextIndex]?.focus();
-  }
-
   private escape = () => {
-    this.button.focus();
+    this.button?.focus();
     this.toggleOptions(false);
   };
 
   render() {
+    const buttonId = uuidv4();
+
     return (
-      <Host onFocusout={this.focusOutListener}>
-        <slot name="toggle" />
-        <div popover="manual" ref={(element) => (this.popoverElement = element)}>
+      <Host onFocusout={this.focusOutListener} onKeyDown={this.keyDownHandler}>
+        {this.label && (
+          <button
+            id={buttonId}
+            class={`dso-${this.variant}`}
+            type="button"
+            onClick={() => this.toggleOptions()}
+            aria-expanded={this.open.toString()}
+            aria-haspopup="menu"
+            ref={(element) => (this.button = element)}
+          >
+            {this.label}
+            <dso-icon icon={this.open ? "chevron-up" : "chevron-down"} />
+          </button>
+        )}
+        <div
+          popover="manual"
+          class="dso-dropdown-options"
+          aria-labelledby={buttonId}
+          role="menu"
+          ref={(element) => (this.popoverElement = element)}
+        >
           <slot />
         </div>
       </Host>

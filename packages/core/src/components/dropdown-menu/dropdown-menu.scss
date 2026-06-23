@@ -1,18 +1,65 @@
-@use "~dso-toolkit/src/components/dropdown-menu";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/scaffolding";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/zindex";
+
+@use "~dso-toolkit/src/components/button";
+
+@use "dropdown-menu.variables" as dropdown-menu-variables;
 
 :host(:focus) {
   outline: none;
 }
 
 :host {
-  @include dropdown-menu.root();
+  display: inline-block;
 }
 
-div[popover] {
+button {
+  @include button.element();
+
+  &.dso-primary {
+    @include button.primary($base-styling: true);
+  }
+
+  &.dso-secondary {
+    @include button.secondary($base-styling: true);
+  }
+
+  &.dso-tertiary {
+    @include button.tertiary($base-styling: true);
+  }
+
+  dso-icon {
+    margin-inline-start: units.$u1;
+  }
+
+  &:not(.dso-tertiary) {
+    dso-icon {
+      margin-inline-end: 0;
+    }
+  }
+}
+
+.dso-dropdown-options {
   margin: 0 !important;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
   overflow: unset;
+  background-clip: padding-box;
+  background-color: dropdown-menu-variables.$background-color;
+  border-radius: scaffolding.$border-radius-base;
+  border: 1px solid dropdown-menu-variables.$border-color;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
+  font-size: typography.$root-font-size-base;
+  min-inline-size: 160px;
   inline-size: max-content;
+  padding-block: 5px;
+  padding-inline: 0;
+  z-index: zindex.$dropdown-options;
+}
+
+::slotted(dso-dropdown-menu-group:not(:last-child)) {
+  border-block-end: 1px solid colors.$grijs-10;
+  margin-block-end: 11px;
+  padding-block-end: 11px;
 }

@@ -1,0 +1,123 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v98.0.0 🥅
+
+Deze release bevat **breaking** changes voor het volgende component:
+
+- Dropdown Menu (Core implementatie)
+
+<!-- truncate -->
+
+## Dropdown Menu (Core implementatie)
+
+Met het oog op de definitieve verwijdering van de in 🏝️ Release 83.0.0 **deprecated** HTML/CSS implementatie van het component `Dropdown Menu`, hebben we in deze release het koppelvlak van de Core implementatie van `Dropdown Menu` aangepast.
+
+### Wijzigingen
+
+#### Dropdown Menu
+
+- de property `open` is verwijderd (dit is nu een implementatie detail van Dropdown Menu geworden).
+- de property `dropdownAlign` is verwijderd.
+- de property `dropdownOptionsOffset` is verwijderd.
+- de property `variant` is nieuw en bepaalt welke variant button Dropdown Menu gebruikt.
+- de property `label` is nieuw en bepaalt de tekst van de button.
+- het `slot="toggle"` is komen te vervallen: voorheen plaatste de afnemer de button in dit slot. De button wordt nu intern door Dropdown Menu gerenderd op basis van de 2 properties `variant` en `label`.
+- het nameless `slot`: voorheen plaatste de afnemer in het nameless slot de markup voor de dropdown-options (een div met class `.dso-dropdown-options` met 1 of meerderde unordered lists met list items waarin een label van de group of een link of button was geplaatst) in het nameless slot; nu is dat gewijzigd naar 1 of meerderde `Dropdown Menu Group`s met daarin 1 of meerder `Dropdown Menu Item`s.
+
+#### Dropdown Menu Group
+
+- het label van de group wordt nu via de property `label` gezet.
+- in het nameless slot worden 1 of meerdere `Dropdown Menu Item`s geplaatst.
+
+#### Dropdown Menu Item
+
+- de property `type` bepaalt of het Dropdown Menu Item als link of als button wordt gerenderd.
+- de property `href` is nieuw en bepaalt de href van de link.
+- de property `checked` is nieuw en bepaalt of de item geselecteerd is in het geval van een checkable Dropdown Menu.
+- luister naar het event `dsoClick` om te bepalen of er op het item is geclickt.
+
+### Migratiepad
+
+```html
+❌
+<dso-dropdown-menu open checkable dropdown-options-offset="2" dropdown-align="left">
+  <button type="button" id="ad84df3f-8cb2-4229-a3d9-22338c672ca0" class="dso-secondary" slot="toggle">
+    <span>Versies</span>
+  </button>
+  <div class="dso-dropdown-options" aria-labelledby="ad84df3f-8cb2-4229-a3d9-22338c672ca0">
+    <ul aria-labelledby="c3b91dd4-8b5b-486d-97d5-bcba43dd93b8">
+      <li class="dso-group-label" id="c3b91dd4-8b5b-486d-97d5-bcba43dd93b8">Versies</li>
+      <li>
+        <a href="#">10.6.0</a>
+      </li>
+      <li>
+        <a href="#">10.5.0</a>
+      </li>
+      <li>
+        <a href="#">10.4.0</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a href="#">master</a>
+      </li>
+    </ul>
+    <ul aria-labelledby="b75e487c-8d56-46ef-aed4-c37d1eecac33" id="b75e487c-8d56-46ef-aed4-c37d1eecac33">
+      <li class="dso-group-label">Branch releases</li>
+      <li>
+        <a href="#">#500-Margins-Testbuilds</a>
+      </li>
+      <li class="dso-checked">
+        <a href="#">#611-Pager-component-uitbreiden</a>
+      </li>
+      <li>
+        <a href="#">#663-Dropdown-button-toegankelijk-maken</a>
+      </li>
+    </ul>
+  </div>
+</dso-dropdown-menu>
+
+✅
+<dso-dropdown-menu variant="primary | secondary | tertiary" label="Versies" checkable>
+  <dso-dropdown-menu-group label="Versies">
+    <dso-dropdown-menu-item type="link" href="#">10.6.0</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="link" href="#">10.5.0</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="link" href="#">10.4.0</dso-dropdown-menu-item>
+  </dso-dropdown-menu-group>
+  <dso-dropdown-menu-group>
+    <dso-dropdown-menu-item type="link" href="#">master</dso-dropdown-menu-item>
+  </dso-dropdown-menu-group>
+  <dso-dropdown-menu-group label="Branch releases">
+    <dso-dropdown-menu-item type="link" href="#">#500-Margins-Testbuilds</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="link" href="#" checked="true">#611-Pager-component-uitbreiden</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="link" href="#">#663-Dropdown-button-toegankelijk-maken</dso-dropdown-menu-item>
+  </dso-dropdown-menu-group>
+</dso-dropdown-menu>
+
+❌
+<dso-dropdown-menu open checkable dropdown-options-offset="2" dropdown-align="left">
+  <button type="button" id="1cecbff1-fb7e-4dd2-a3bb-16cf6a42907a" class="dso-secondary" slot="toggle">
+    <span>Opties</span>
+  </button>
+  <div class="dso-dropdown-options" aria-labelledby="1cecbff1-fb7e-4dd2-a3bb-16cf6a42907a">
+    <ul>
+      <li>
+        <button type="button">Bewerken</button>
+      </li>
+      <li>
+        <button type="button">Verwijderen</button>
+      </li>
+    </ul>
+  </div>
+</dso-dropdown-menu>
+
+✅
+<dso-dropdown-menu>
+  <dso-dropdown-menu-group>
+    <dso-dropdown-menu-item type="button">Bewerken</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="button">Verwijderen</dso-dropdown-menu-item>
+  </dso-dropdown-menu-group>
+</dso-dropdown-menu>
+```

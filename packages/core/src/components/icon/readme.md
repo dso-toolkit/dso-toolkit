@@ -23,6 +23,8 @@
  - [dso-banner](../banner)
  - [dso-card](../card)
  - [dso-document-card](../document-card)
+ - [dso-dropdown-menu](../dropdown-menu)
+ - [dso-dropdown-menu-item](../dropdown-menu/dropdown-menu-item)
  - [dso-header](../header)
  - [dso-history-item](../history-item)
  - [dso-icon-button](../icon-button)
@@ -52,6 +54,8 @@ graph TD;
   dso-banner --> dso-icon
   dso-card --> dso-icon
   dso-document-card --> dso-icon
+  dso-dropdown-menu --> dso-icon
+  dso-dropdown-menu-item --> dso-icon
   dso-header --> dso-icon
   dso-history-item --> dso-icon
   dso-icon-button --> dso-icon

@@ -1,32 +1,38 @@
 import { Button } from "../button/button.models.js";
 
-export const dropdownMenuStrategy = ["auto", "absolute", "fixed"] as const;
-
 export interface DropdownMenu {
-  id: string;
-  button: Button;
+  id: string; // Remove in #3316
+  button: Button; // Remove in #3316
+  label: string;
+  variant: "primary" | "secondary" | "tertiary";
+  checkable?: boolean;
   groups: DropdownMenuGroup[];
-  dropdownAlign?: "left" | "right";
-  isCheckable?: boolean;
-  strategy?: (typeof dropdownMenuStrategy)[number];
+  dropdownAlign?: "left" | "right"; // Remove in #3316
 }
 
 export interface DropdownMenuGroup {
-  id?: string;
-  header?: string;
-  items: Array<DropdownMenuItem & (DropdownMenuItemAnchor | DropdownMenuItemButton)>;
+  id?: string; // Remove in #3316
+  label?: string;
+  items: DropdownMenuItemLink[] | DropdownMenuItemButton[];
 }
 
-export interface DropdownMenuItem {
+export interface DropdownMenuItemClickEvent {
+  originalEvent: MouseEvent;
+  /** True when the user clicked the Dropdown Menu Item while holding Ctrl, Alt or other modifiers, or when the card is right-clicked. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
+}
+
+interface DropdownMenuItem {
   label: string;
   checked?: boolean;
+  dsoClick: (e: CustomEvent<DropdownMenuItemClickEvent>) => void;
 }
 
-export interface DropdownMenuItemAnchor {
-  type: "anchor";
-  url: string;
+export interface DropdownMenuItemLink extends DropdownMenuItem {
+  type: "link";
+  href: string;
 }
 
-export interface DropdownMenuItemButton {
+export interface DropdownMenuItemButton extends DropdownMenuItem {
   type: "button";
 }

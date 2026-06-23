@@ -11,29 +11,21 @@ export const angularDropdownMenu: ComponentImplementation<DropdownMenu> = {
         props,
         template: `
           <dso-dropdown-menu
-            [dropdownAlign]="dropdownAlign === 'right' ? 'right' : undefined"
-            [checkable]="isCheckable || undefined"
+            [label]="label"
+            [variant]="variant"
+            [checkable]="checkable"
           >
-            <button type="button" [class]="'dso-' + button.variant" slot="toggle">
-              <span>{{ button.label }}</span>
-            </button>
-            <div class="dso-dropdown-options">
-              <ng-container *ngFor="let group of groups; let i = index">
-                @if(group.header){
-                  <h2 class="dso-group-label">{{ group.header }}</h2>
+            @for (group of groups; track group) {
+              <dso-dropdown-menu-group [label]="group.label">
+                @for (item of group.items; track item) {
+                  <dso-dropdown-menu-item
+                    [type]="item.type"
+                    [href]="'href' in item ? item.href : undefined"
+                    [checked]="item.checked"
+                    (dsoClick)="item.dsoClick?.($event)">{{ item.label }}</dso-dropdown-menu-item>
                 }
-                <ul>
-                  <ng-container *ngFor="let item of group.items">
-                    <li [class.dso-checked]="item.checked">
-                      <ng-container [ngSwitch]="item.type">
-                        <a *ngSwitchCase="'anchor'" [href]="item.url">{{ item.label }}</a>
-                        <button *ngSwitchDefault type="button">{{ item.label }}</button>
-                      </ng-container>
-                    </li>
-                  </ng-container>
-                </ul>
-              </ng-container>
-            </div>
+              </dso-dropdown-menu-group>
+            }
           </dso-dropdown-menu>
         `,
       };

@@ -24,6 +24,7 @@ import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DateP
 import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentType, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 import { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
+import { DropdownMenuInternalState, DropdownMenuItemClickEvent, DropdownMenuItemType } from "./components/dropdown-menu/dropdown-menu.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable.interfaces";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
@@ -77,6 +78,7 @@ export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DateP
 export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentType, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 export { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
+export { DropdownMenuInternalState, DropdownMenuItemClickEvent, DropdownMenuItemType } from "./components/dropdown-menu/dropdown-menu.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable.interfaces";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
@@ -633,26 +635,41 @@ export namespace Components {
         "wijzigactie"?: DocumentComponentWijzigactie;
     }
     interface DsoDropdownMenu {
+        "_getState": () => Promise<DropdownMenuInternalState>;
         /**
-          * Whether the menu is checkable.
-          * @default false
+          * Whether the menu items are checkable.
          */
         "checkable": boolean;
         /**
-          * Alignment of the dropdown
-          * @default "left"
+          * The label of the Dropdown Menu Button
          */
-        "dropdownAlign": "left" | "right";
+        "label": string | undefined;
         /**
-          * Space between button and dropdown options
-          * @default 2
+          * The variant of the Button to toggle the menu
+          * @default "secondary"
          */
-        "dropdownOptionsOffset": number;
+        "variant": "primary" | "secondary" | "tertiary";
+    }
+    interface DsoDropdownMenuGroup {
         /**
-          * Whether the menu is open or closed. This attribute is reflected and mutable.
-          * @default false
+          * The label of the dropdown menu group.
          */
-        "open": boolean;
+        "label"?: string;
+    }
+    interface DsoDropdownMenuItem {
+        "_dsoFocus": () => Promise<void>;
+        /**
+          * Whether the Dropdown Menu Item is checked.
+         */
+        "checked"?: boolean;
+        /**
+          * The href of the link when the type is `Link`.
+         */
+        "href"?: string;
+        /**
+          * The type of the dropdown menu item. Can be one of `button` or `link`.
+         */
+        "type": DropdownMenuItemType | undefined;
     }
     interface DsoExpandable {
         /**
@@ -1561,6 +1578,10 @@ export interface DsoDocumentComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDocumentComponentElement;
 }
+export interface DsoDropdownMenuItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoDropdownMenuItemElement;
+}
 export interface DsoExpandableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoExpandableElement;
@@ -2014,6 +2035,29 @@ declare global {
     var HTMLDsoDropdownMenuElement: {
         prototype: HTMLDsoDropdownMenuElement;
         new (): HTMLDsoDropdownMenuElement;
+    };
+    interface HTMLDsoDropdownMenuGroupElement extends Components.DsoDropdownMenuGroup, HTMLStencilElement {
+    }
+    var HTMLDsoDropdownMenuGroupElement: {
+        prototype: HTMLDsoDropdownMenuGroupElement;
+        new (): HTMLDsoDropdownMenuGroupElement;
+    };
+    interface HTMLDsoDropdownMenuItemElementEventMap {
+        "dsoClick": DropdownMenuItemClickEvent;
+    }
+    interface HTMLDsoDropdownMenuItemElement extends Components.DsoDropdownMenuItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoDropdownMenuItemElementEventMap>(type: K, listener: (this: HTMLDsoDropdownMenuItemElement, ev: DsoDropdownMenuItemCustomEvent<HTMLDsoDropdownMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoDropdownMenuItemElementEventMap>(type: K, listener: (this: HTMLDsoDropdownMenuItemElement, ev: DsoDropdownMenuItemCustomEvent<HTMLDsoDropdownMenuItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoDropdownMenuItemElement: {
+        prototype: HTMLDsoDropdownMenuItemElement;
+        new (): HTMLDsoDropdownMenuItemElement;
     };
     interface HTMLDsoExpandableElementEventMap {
         "dsoExpandableAnimationStart": ExpandableAnimationStartEvent;
@@ -2763,6 +2807,8 @@ declare global {
         "dso-document-card": HTMLDsoDocumentCardElement;
         "dso-document-component": HTMLDsoDocumentComponentElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
+        "dso-dropdown-menu-group": HTMLDsoDropdownMenuGroupElement;
+        "dso-dropdown-menu-item": HTMLDsoDropdownMenuItemElement;
         "dso-expandable": HTMLDsoExpandableElement;
         "dso-header": HTMLDsoHeaderElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
@@ -3445,25 +3491,42 @@ declare namespace LocalJSX {
     }
     interface DsoDropdownMenu {
         /**
-          * Whether the menu is checkable.
-          * @default false
+          * Whether the menu items are checkable.
          */
         "checkable"?: boolean;
         /**
-          * Alignment of the dropdown
-          * @default "left"
+          * The label of the Dropdown Menu Button
          */
-        "dropdownAlign"?: "left" | "right";
+        "label"?: string | undefined;
         /**
-          * Space between button and dropdown options
-          * @default 2
+          * The variant of the Button to toggle the menu
+          * @default "secondary"
          */
-        "dropdownOptionsOffset"?: number;
+        "variant"?: "primary" | "secondary" | "tertiary";
+    }
+    interface DsoDropdownMenuGroup {
         /**
-          * Whether the menu is open or closed. This attribute is reflected and mutable.
-          * @default false
+          * The label of the dropdown menu group.
          */
-        "open"?: boolean;
+        "label"?: string;
+    }
+    interface DsoDropdownMenuItem {
+        /**
+          * Whether the Dropdown Menu Item is checked.
+         */
+        "checked"?: boolean;
+        /**
+          * The href of the link when the type is `Link`.
+         */
+        "href"?: string;
+        /**
+          * Emitted when the user clicks the Dropdown Menu Item.
+         */
+        "onDsoClick"?: (event: DsoDropdownMenuItemCustomEvent<DropdownMenuItemClickEvent>) => void;
+        /**
+          * The type of the dropdown menu item. Can be one of `button` or `link`.
+         */
+        "type": DropdownMenuItemType | undefined;
     }
     interface DsoExpandable {
         /**
@@ -4667,10 +4730,17 @@ declare namespace LocalJSX {
         "href": string;
     }
     interface DsoDropdownMenuAttributes {
-        "open": boolean;
-        "dropdownAlign": "left" | "right";
-        "dropdownOptionsOffset": number;
         "checkable": boolean;
+        "label": string | undefined;
+        "variant": "primary" | "secondary" | "tertiary";
+    }
+    interface DsoDropdownMenuGroupAttributes {
+        "label": string;
+    }
+    interface DsoDropdownMenuItemAttributes {
+        "type": DropdownMenuItemType | undefined;
+        "href": string;
+        "checked": boolean;
     }
     interface DsoExpandableAttributes {
         "open": boolean;
@@ -4930,6 +5000,8 @@ declare namespace LocalJSX {
         "dso-document-card": Omit<DsoDocumentCard, keyof DsoDocumentCardAttributes> & { [K in keyof DsoDocumentCard & keyof DsoDocumentCardAttributes]?: DsoDocumentCard[K] } & { [K in keyof DsoDocumentCard & keyof DsoDocumentCardAttributes as `attr:${K}`]?: DsoDocumentCardAttributes[K] } & { [K in keyof DsoDocumentCard & keyof DsoDocumentCardAttributes as `prop:${K}`]?: DsoDocumentCard[K] } & OneOf<"href", DsoDocumentCard["href"], DsoDocumentCardAttributes["href"]>;
         "dso-document-component": Omit<DsoDocumentComponent, keyof DsoDocumentComponentAttributes> & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes]?: DsoDocumentComponent[K] } & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes as `attr:${K}`]?: DsoDocumentComponentAttributes[K] } & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes as `prop:${K}`]?: DsoDocumentComponent[K] } & OneOf<"type", DsoDocumentComponent["type"], DsoDocumentComponentAttributes["type"]>;
         "dso-dropdown-menu": Omit<DsoDropdownMenu, keyof DsoDropdownMenuAttributes> & { [K in keyof DsoDropdownMenu & keyof DsoDropdownMenuAttributes]?: DsoDropdownMenu[K] } & { [K in keyof DsoDropdownMenu & keyof DsoDropdownMenuAttributes as `attr:${K}`]?: DsoDropdownMenuAttributes[K] } & { [K in keyof DsoDropdownMenu & keyof DsoDropdownMenuAttributes as `prop:${K}`]?: DsoDropdownMenu[K] };
+        "dso-dropdown-menu-group": Omit<DsoDropdownMenuGroup, keyof DsoDropdownMenuGroupAttributes> & { [K in keyof DsoDropdownMenuGroup & keyof DsoDropdownMenuGroupAttributes]?: DsoDropdownMenuGroup[K] } & { [K in keyof DsoDropdownMenuGroup & keyof DsoDropdownMenuGroupAttributes as `attr:${K}`]?: DsoDropdownMenuGroupAttributes[K] } & { [K in keyof DsoDropdownMenuGroup & keyof DsoDropdownMenuGroupAttributes as `prop:${K}`]?: DsoDropdownMenuGroup[K] };
+        "dso-dropdown-menu-item": Omit<DsoDropdownMenuItem, keyof DsoDropdownMenuItemAttributes> & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes]?: DsoDropdownMenuItem[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `attr:${K}`]?: DsoDropdownMenuItemAttributes[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `prop:${K}`]?: DsoDropdownMenuItem[K] } & OneOf<"type", DsoDropdownMenuItem["type"], DsoDropdownMenuItemAttributes["type"]>;
         "dso-expandable": Omit<DsoExpandable, keyof DsoExpandableAttributes> & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes]?: DsoExpandable[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `attr:${K}`]?: DsoExpandableAttributes[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `prop:${K}`]?: DsoExpandable[K] };
         "dso-header": Omit<DsoHeader, keyof DsoHeaderAttributes> & { [K in keyof DsoHeader & keyof DsoHeaderAttributes]?: DsoHeader[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `attr:${K}`]?: DsoHeaderAttributes[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `prop:${K}`]?: DsoHeader[K] };
         "dso-highlight-box": Omit<DsoHighlightBox, keyof DsoHighlightBoxAttributes> & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes]?: DsoHighlightBox[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `attr:${K}`]?: DsoHighlightBoxAttributes[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `prop:${K}`]?: DsoHighlightBox[K] };
@@ -5011,6 +5083,8 @@ declare module "@stencil/core" {
             "dso-document-card": LocalJSX.IntrinsicElements["dso-document-card"] & JSXBase.HTMLAttributes<HTMLDsoDocumentCardElement>;
             "dso-document-component": LocalJSX.IntrinsicElements["dso-document-component"] & JSXBase.HTMLAttributes<HTMLDsoDocumentComponentElement>;
             "dso-dropdown-menu": LocalJSX.IntrinsicElements["dso-dropdown-menu"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
+            "dso-dropdown-menu-group": LocalJSX.IntrinsicElements["dso-dropdown-menu-group"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuGroupElement>;
+            "dso-dropdown-menu-item": LocalJSX.IntrinsicElements["dso-dropdown-menu-item"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuItemElement>;
             "dso-expandable": LocalJSX.IntrinsicElements["dso-expandable"] & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
             "dso-header": LocalJSX.IntrinsicElements["dso-header"] & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-highlight-box": LocalJSX.IntrinsicElements["dso-highlight-box"] & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;

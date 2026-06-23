@@ -1,18 +1,18 @@
+import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction } from "../../storybook";
 
-import { DropdownMenu, DropdownMenuGroup, dropdownMenuStrategy } from "./dropdown-menu.models.js";
+import { DropdownMenu, DropdownMenuGroup } from "./dropdown-menu.models.js";
 
 export interface DropdownMenuArgs {
   id: string;
   buttonLabel: string;
   buttonVariant: "primary" | "secondary" | "tertiary";
   dropdownAlign: "left" | "right";
-  isCheckable: boolean;
+  checkable: boolean;
   groups: DropdownMenuGroup[];
-  boundary: string;
-  strategy: (typeof dropdownMenuStrategy)[number];
+  dsoClick: HandlerFunction;
 }
 
 export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
@@ -38,29 +38,19 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
       type: "select",
     },
   },
-  isCheckable: {
+  checkable: {
     control: {
       type: "boolean",
     },
   },
-  groups: {
-    table: {
-      disable: true,
-    },
-  },
-  boundary: {
-    ...noControl,
-  },
-  strategy: {
-    options: dropdownMenuStrategy,
-    control: {
-      type: "select",
-    },
-  },
+  groups: argTypeAction(),
+  dsoClick: argTypeAction(),
 };
 
 export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
   return {
+    variant: a.buttonVariant,
+    label: a.buttonLabel,
     id: a.id,
     button: {
       label: a.buttonLabel,
@@ -68,7 +58,6 @@ export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
     },
     dropdownAlign: a.dropdownAlign,
     groups: a.groups,
-    isCheckable: a.isCheckable,
-    strategy: a.strategy,
+    checkable: a.checkable,
   };
 }

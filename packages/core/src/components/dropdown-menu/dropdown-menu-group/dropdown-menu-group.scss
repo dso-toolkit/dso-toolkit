@@ -1,0 +1,24 @@
+@use "sass:math";
+
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+@use "../dropdown-menu.variables" as dropdown-menu-variables;
+
+:host {
+  display: block;
+}
+
+.group-label {
+  color: colors.$grijs-40;
+  font-size: (math.div(14, 16) * 1em);
+  font-weight: 400;
+  margin: 0;
+  padding-block: (units.$u1 * 0.5) (units.$u1 * 0.25);
+  padding-inline: dropdown-menu-variables.$inline-padding;
+  text-transform: uppercase;
+
+  &.checkable {
+    padding-inline-start: units.$u5;
+  }
+}
