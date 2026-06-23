@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 👝 Release 97.1.1 - 2026-06-23
+
 ### Task
 * Viewer Grid: Fix test ([#3828](https://github.com/dso-toolkit/dso-toolkit/issues/3828))
 
