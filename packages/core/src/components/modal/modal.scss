@@ -54,7 +54,7 @@ button {
   overflow: visible;
   padding: 0;
   border: 0;
-  inline-size: var(--_dso-modal-inline-size, auto);
+  inline-size: var(--_dso-modal-inline-size, fit-content);
   margin: var(--_dso-modal-margin, auto);
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
@@ -62,8 +62,6 @@ button {
     --_dso-button-after-button-margin-inline-start: 0;
     --_dso-button-after-button-margin-block-start: #{units.$u1};
     --_dso-button-text-align: center;
-
-    inline-size: 100%;
   }
 
   @media screen and (max-height: modal-variables.$small-modal-vh) {

@@ -184,4 +184,12 @@ describe("Modal", () => {
 
     cy.matchImageSnapshot();
   });
+
+  it("should render modal correctly on top of populated layout without visual artifacts", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--visual-regression");
+
+    cy.get("dso-modal.hydrated").shadow().find(".dso-dialog").should("be.visible");
+
+    cy.matchImageSnapshot();
+  });
 });

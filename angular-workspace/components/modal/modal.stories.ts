@@ -48,4 +48,24 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
   },
 });
 
-export { Active, Confirm, Fullscreen, Loading, Passive, WithDatepicker };
+const VisualRegression = {
+  render: () => ({
+    template: `
+      <div style="background: grey; padding: 50px; min-height: 100vh;">
+        <h1>Dit is een gevulde pagina layout</h1>
+        <p>
+          De achtergrond moet zichtbaar blijven rondom de modal dialog. Als er een ongewenste witte achtergrond optreedt
+          door min-inline-size, faalt de visuele regressietest.
+        </p>
+
+        <dso-modal modalTitle="Visuele regressie test" [closable]="true">
+          <div slot="body">
+            <p>Modal content hier...</p>
+          </div>
+        </dso-modal>
+      </div>
+    `,
+  }),
+};
+
+export { Active, Confirm, Fullscreen, Loading, Passive, VisualRegression, WithDatepicker };
