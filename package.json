@@ -50,7 +50,7 @@
     "stylelint-use-logical-spec": "^5.0.1",
     "svgo": "^4.0.1",
     "tsx": "^4.22.4",
-    "typescript": "~6.0.3",
+    "typescript": "~5.9.3",
     "wait-on": "^9.0.10"
   },
   "packageManager": "pnpm@11.5.2+sha512.71c631e382066efc25625d5cf029075de07b61b37f6e27350fbd84b1bda5864c8c1967adc280776b45c30a715c0359a3be08fef42d5bb09e2b99029979692916",

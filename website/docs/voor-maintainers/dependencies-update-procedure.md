@@ -4,13 +4,15 @@ Dependency updates doen we bij voorkeur aan het begin van een sprint zodat we de
 
 ## TypeScript-versiebeleid
 
-Bij het updaten van TypeScript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
+De TypeScript-versie wordt bepaald door de traagste consument in de monorepo. We koppelen de versie aan de strengste bovengrens van alle gebruikte tools.
 
-- Stencil ondersteunt momenteel TypeScript tot en met versie 5.8.3 (Stencil v4.43.3). Echter draait versie v4.43.3 ook goed met typescript 5.9.3.
+Huidige situatie (Stencil v4.43.5, Storybook v10.4.2, Angular v21):
+
+- Stencil ondersteunt momenteel TypeScript tot en met versie 5.9.x (Stencil v4.43.5 draait goed op 5.9.3, officieel max 5.8.3).
 - Storybook (v10) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
-- Angular (v21.2.6) ondersteunt TypeScript \>=5.8.0 \<6.0.0
+- Angular (v21) ondersteunt TypeScript \>=5.9.0 \<6.0.0. Dit is de bepalende bovengrens: Angular's toolchain (`ng-packagr`, `@ngtools/webpack`) stelt een harde `<6.0` eis.
 
-Stencil loopt traditioneel achter op de laatste TypeScript-releases. Houd bij toekomstige updates daarom altijd rekening met de maximale ondersteunde TypeScript-versie van Stencil. Voer een check uit op:
+De TypeScript-versie staat daarom op `~5.9.3` voor alle packages in de monorepo. Upgrade naar TypeScript 6.x pas als Angular die bovengrens ophoogt. Voer een check uit op:
 
 - Stencil TypeScript versie ondersteuning ([changelog](https://github.com/stenciljs/core/blob/main/CHANGELOG.md), [package.json](https://github.com/stenciljs/core/blob/main/package.json))
 - Storybook TypeScript versie ondersteuning ([documentatie](https://storybook.js.org/docs/configure/integration/typescript#typescript-49-support) Storybook)
