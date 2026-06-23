@@ -33,8 +33,10 @@ import {
   stateMap,
 } from "./accordion-section.interfaces";
 
-// eslint-disable-next-line no-console
-const log = (window as Window & { _dsoLog?: boolean })["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
+/* eslint-disable no-console */
+const log =
+  (window as Window & { _dsoLog?: boolean })["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
+/* eslint-enable no-console */
 
 const HandleElement: FunctionalComponent<{
   handleUrl: string | undefined;
