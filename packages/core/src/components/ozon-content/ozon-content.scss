@@ -24,8 +24,8 @@
 }
 
 .toggle-note {
-  --_dt-ozon-content-toggletip-text-decoration: none;
-  --_dt-ozon-content-toggletip-color: #{colors.$grasgroen};
+  --_dso-ozon-content-toggletip-text-decoration: none;
+  --_dso-ozon-content-toggletip-color: #{colors.$grasgroen};
 }
 
 span[role="section"],
@@ -34,10 +34,10 @@ span[role="paragraph"] {
 }
 
 span[role="paragraph"] {
-  margin-block: var(--_dt-span-role-paragraph-margin-block, 0);
+  margin-block: var(--_dso-span-role-paragraph-margin-block, 0);
 
   + span[role="paragraph"] {
-    margin-block: var(--_dt-span-role-paragraph-margin-block, units.$u2 0);
+    margin-block: var(--_dso-span-role-paragraph-margin-block, units.$u2 0);
 
     .dso-tertiary {
       margin-block-start: -3px;

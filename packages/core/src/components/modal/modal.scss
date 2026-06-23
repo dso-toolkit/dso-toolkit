@@ -47,21 +47,21 @@ button {
 }
 
 .dso-modal {
-  --_dt-button-float-tertiary: inline-start;
-  --_dt-button-padding-block-tertiary: 14px;
+  --_dso-button-float-tertiary: inline-start;
+  --_dso-button-padding-block-tertiary: 14px;
 
   // overwrite UA styles:
   overflow: visible;
   padding: 0;
   border: 0;
-  inline-size: var(--_dt-modal-inline-size, auto);
-  margin: var(--_dt-modal-margin, auto);
+  inline-size: var(--_dso-modal-inline-size, auto);
+  margin: var(--_dso-modal-margin, auto);
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    --_dt-button-inline-size: 100%;
-    --_dt-button-after-button-margin-inline-start: 0;
-    --_dt-button-after-button-margin-block-start: #{units.$u1};
-    --_dt-button-text-align: center;
+    --_dso-button-inline-size: 100%;
+    --_dso-button-after-button-margin-inline-start: 0;
+    --_dso-button-after-button-margin-block-start: #{units.$u1};
+    --_dso-button-text-align: center;
 
     inline-size: 100%;
   }
@@ -77,10 +77,10 @@ button {
   }
 
   .dso-dialog {
-    inline-size: var(--_dt-modal-dialog-inline-size, #{modal-variables.$max-inline-size});
-    margin-block-start: var(--_dt-modal-dialog-margin-block-start, 0);
-    margin-inline-start: var(--_dt-modal-dialog-margin-inline-start, auto);
-    margin-inline-end: var(--_dt-modal-dialog-margin-inline-end, auto);
+    inline-size: var(--_dso-modal-dialog-inline-size, #{modal-variables.$max-inline-size});
+    margin-block-start: var(--_dso-modal-dialog-margin-block-start, 0);
+    margin-inline-start: var(--_dso-modal-dialog-margin-inline-start, auto);
+    margin-inline-end: var(--_dso-modal-dialog-margin-inline-end, auto);
 
     background-color: modal-variables.$content-bg;
 
@@ -107,7 +107,7 @@ button {
 
     dso-icon-button {
       position: absolute;
-      inset-block-start: var(--_dt-modal-header-close-btn, 22px);
+      inset-block-start: var(--_dso-modal-header-close-btn, 22px);
       inset-inline-end: 17px;
     }
 
@@ -122,7 +122,7 @@ button {
 
     block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
     /* prettier-ignore */
-    max-block-size: var(--_dt-modal-body-max-block-size, calc(#{modal-variables.$max-block-size} - #{(2 * modal-variables.$header-padding) + (modal-variables.$footer-button-block-size + modal-variables.$footer-padding) + units.$u4} - 1.5em));
+    max-block-size: var( --_dso-modal-body-max-block-size, calc(#{modal-variables.$max-block-size} - #{(2 * modal-variables.$header-padding) + (modal-variables.$footer-button-block-size + modal-variables.$footer-padding) + units.$u4} - 1.5em));
     min-block-size: 1.5rem;
     overflow-x: auto;
     padding: modal-variables.$body-padding;
@@ -131,7 +131,7 @@ button {
   > .dso-dialog > dso-scrollable {
     block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
     /* prettier-ignore */
-    max-block-size: var(--_dt-modal-body-max-block-size, calc(#{modal-variables.$max-block-size} - #{(2 * modal-variables.$header-padding) + (modal-variables.$footer-button-block-size + modal-variables.$footer-padding) + units.$u4} - 1.5em));
+    max-block-size: var( --_dso-modal-body-max-block-size, calc(#{modal-variables.$max-block-size} - #{(2 * modal-variables.$header-padding) + (modal-variables.$footer-button-block-size + modal-variables.$footer-padding) + units.$u4} - 1.5em));
     min-block-size: modal-variables.$body-min-block-size;
 
     .dso-body {

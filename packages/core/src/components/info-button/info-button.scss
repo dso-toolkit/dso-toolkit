@@ -5,11 +5,11 @@
 @use "../../functional-components/tooltip";
 
 :host {
-  --_dt-scrollable-border-radius: #{units.$u1 * 0.5};
-  --_dt-scrollable-container-padding-inline: #{tooltip.$padding-inline};
-  --_dt-scrollable-container-padding-block: #{tooltip.$padding-block};
+  --_dso-scrollable-border-radius: #{units.$u1 * 0.5};
+  --_dso-scrollable-container-padding-inline: #{tooltip.$padding-inline};
+  --_dso-scrollable-container-padding-block: #{tooltip.$padding-block};
 
-  --_dt-icon-button-position: static;
+  --_dso-icon-button-position: static;
 
   display: inline-block;
 }
@@ -23,5 +23,5 @@
 
 dso-icon-button {
   vertical-align: top;
-  margin-inline-start: var(--_dt-info-button-margin-inline-start, units.$u1);
+  margin-inline-start: var(--_dso-info-button-margin-inline-start, units.$u1);
 }

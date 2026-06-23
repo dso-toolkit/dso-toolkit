@@ -15,18 +15,18 @@
 
 ::slotted(dl[slot="progress"]),
 ::slotted(dl[slot="status"]) {
-  --_dt-dl-margin-block-end: 0;
-  --_dt-dl-before-display: none;
-  --_dt-dl-dt-font-weight: normal;
-  --_dt-dl-dd-margin-block-start: 0;
-  --_dt-dl-dd-padding-inline-start: 0;
-  --_dt-dl-dt-inline-size: auto;
-  --_dt-dl-dd-last-margin-block-end: 0;
+  --_dso-dl-margin-block-end: 0;
+  --_dso-dl-before-display: none;
+  --_dso-dl-dt-font-weight: normal;
+  --_dso-dl-dd-margin-block-start: 0;
+  --_dso-dl-dd-padding-inline-start: 0;
+  --_dso-dl-dt-inline-size: auto;
+  --_dso-dl-dd-last-margin-block-end: 0;
 
-  --_dt-mark-bg-color: none;
-  --_dt-mark-padding-block: 0;
-  --_dt-mark-color: inherit;
-  --_dt-mark-font-weight: 600;
+  --_dso-mark-bg-color: none;
+  --_dso-mark-padding-block: 0;
+  --_dso-mark-color: inherit;
+  --_dso-mark-font-weight: 600;
 
   display: flex !important;
   flex-wrap: wrap;
@@ -34,23 +34,23 @@
 }
 
 ::slotted(dl[slot="progress"]) {
-  --_dt-dl-dd-margin-inline-start: 0;
+  --_dso-dl-dd-margin-inline-start: 0;
 }
 
 ::slotted(dl.dso-inline[slot="status"]),
 ::slotted(dl.dso-inline-end[slot="status"]) {
-  --_dt-dl-margin-block-end: 0;
-  --_dt-dl-dd-margin-inline-start: #{units.$u1};
-  --_dt-dl-dd-last-margin-block-end: 0;
+  --_dso-dl-margin-block-end: 0;
+  --_dso-dl-dd-margin-inline-start: #{units.$u1};
+  --_dso-dl-dd-last-margin-block-end: 0;
 
-  --_dt-dl-before-display: none;
-  --_dt-dl-dt-font-weight: normal;
+  --_dso-dl-before-display: none;
+  --_dso-dl-dt-font-weight: normal;
 
-  --_dt-mark-bg-color: none;
-  --_dt-mark-padding-block: 0;
-  --_dt-mark-color: inherit;
-  --_dt-mark-font-weight: 600;
-  --_dt-dl-font-size: 0.875rem;
+  --_dso-mark-bg-color: none;
+  --_dso-mark-padding-block: 0;
+  --_dso-mark-color: inherit;
+  --_dso-mark-font-weight: 600;
+  --_dso-dl-font-size: 0.875rem;
 
   display: block !important;
 }

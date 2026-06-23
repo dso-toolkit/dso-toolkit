@@ -106,9 +106,9 @@ del.dso-plekinfo-card-container {
 }
 
 ::slotted([slot="content"]) {
-  --_dt-rich-content-margin-block: #{units.$u1};
-  --_dt-rich-content-margin-block-end: 0;
-  --_dt-rich-content-margin-block-start: 0;
+  --_dso-rich-content-margin-block: #{units.$u1};
+  --_dso-rich-content-margin-block-end: 0;
+  --_dso-rich-content-margin-block-start: 0;
 }
 
 ::slotted([slot="interaction"]) {

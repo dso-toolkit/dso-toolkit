@@ -11,10 +11,10 @@
 $icon-margin-inline-start: units.$u1 * 0.5;
 
 :host {
-  --_dt-rich-content-margin-block: #{units.$u1};
-  --_dt-scrollable-border-radius: #{units.$u1 * 0.5};
-  --_dt-scrollable-container-padding-inline: #{tooltip.$padding-inline};
-  --_dt-scrollable-container-padding-block: #{tooltip.$padding-block};
+  --_dso-rich-content-margin-block: #{units.$u1};
+  --_dso-scrollable-border-radius: #{units.$u1 * 0.5};
+  --_dso-scrollable-container-padding-inline: #{tooltip.$padding-inline};
+  --_dso-scrollable-container-padding-block: #{tooltip.$padding-block};
 
   display: inline;
 }
@@ -27,7 +27,7 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   @include button.base($modifiers: false);
 
   border: 0;
-  color: var(--_dt-ozon-content-toggletip-color, colors.$donkerblauw);
+  color: var(--_dso-ozon-content-toggletip-color, colors.$donkerblauw);
   line-height: 1;
   padding: 0;
   background-color: transparent;
@@ -42,7 +42,7 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   &:hover,
   &:focus-visible,
   &:active {
-    text-decoration-line: var(--_dt-ozon-content-toggletip-text-decoration, underline);
+    text-decoration-line: var(--_dso-ozon-content-toggletip-text-decoration, underline);
     text-decoration-style: dotted;
     text-underline-offset: 15%;
   }
