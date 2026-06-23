@@ -34,7 +34,7 @@ import {
 } from "./accordion-section.interfaces";
 
 // eslint-disable-next-line no-console
-const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
+const log = (window as Window & { _dsoLog?: boolean })["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
 
 const HandleElement: FunctionalComponent<{
   handleUrl: string | undefined;
@@ -366,6 +366,7 @@ export class AccordionSection implements ComponentInterface {
     });
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private handleExpandableAnimationStart = (e: CustomEvent<any>) => {
     this.dsoAnimationStart.emit({
       animation: this.open ? "opening" : "closing",

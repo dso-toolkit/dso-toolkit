@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import stencil from "@stencil/eslint-plugin";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import importPlugin from "eslint-plugin-import";
@@ -159,17 +160,14 @@ export default [
       ],
     },
   },
-  ...compat
-    .extends(
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:@stencil-community/strict",
-      "prettier",
-    )
-    .map((config) => ({
-      ...config,
-      files: ["packages/core/src/**/*{.ts,.tsx}"],
-    })),
+  {
+    ...stencil.configs.flat.base,
+    files: ["packages/core/src/**/*{.ts,.tsx}"],
+  },
+  {
+    ...stencil.configs.flat.recommended,
+    files: ["packages/core/src/**/*{.ts,.tsx}"],
+  },
   {
     files: ["packages/core/src/**/*{.ts,.tsx}"],
     languageOptions: {
@@ -190,10 +188,12 @@ export default [
       "no-shadow": 0,
       "react/jsx-no-bind": 0,
       "@typescript-eslint/no-shadow": 2,
-      "@stencil-community/strict-boolean-conditions": 0,
-      // Disabled: crashes on ESLint 10 due to removed context.getSourceCode() API in @stencil-community/eslint-plugin@0.10.0
-      "@stencil-community/own-props-must-be-private": "off",
-      "@stencil-community/decorators-style": [
+      "stencil/strict-boolean-conditions": 0,
+      "stencil/own-props-must-be-private": "error",
+      // New rules in @stencil/eslint-plugin not present in @stencil-community/eslint-plugin
+      "stencil/enforce-slot-jsdoc": 0,
+      "stencil/ban-side-effects": 0,
+      "stencil/decorators-style": [
         "error",
         {
           prop: "multiline",

@@ -6,6 +6,7 @@ settings:
 
 overrides:
   webpack: 5.105.2
+  '@stencil/eslint-plugin>jsdom': ~25
 
 importers:
 
@@ -26,9 +27,6 @@ importers:
       '@octokit/rest':
         specifier: ^22.0.1
         version: 22.0.1
-      '@stencil-community/eslint-plugin':
-        specifier: ^0.10.0
-        version: 0.10.0(@typescript-eslint/eslint-plugin@8.61.0(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(typescript@5.9.3)
       '@types/minimist':
         specifier: ^1.2.5
         version: 1.2.5
@@ -114,6 +112,9 @@ importers:
         specifier: ^9.0.10
         version: 9.0.10(supports-color@8.1.1)
     devDependencies:
+      '@stencil/eslint-plugin':
+        specifier: ^1.3.1
+        version: 1.3.1(@typescript-eslint/eslint-plugin@8.61.0(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(typescript@5.9.3)
       '@types/node':
         specifier: ^25.9.2
         version: 25.9.2
@@ -462,8 +463,8 @@ importers:
         version: 1.5.3(@stencil/core@4.43.5)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
     devDependencies:
       '@dso-toolkit/core':
-        specifier: 97.0.0
-        version: 97.0.0(dso-toolkit@packages+dso-toolkit)(typescript@5.9.3)
+        specifier: workspace:*
+        version: link:../core
       '@iframe-resizer/child':
         specifier: ^5.5.9
         version: 5.5.9
@@ -2356,11 +2357,6 @@ packages:
   '@docusaurus/utils@3.10.1':
     resolution: {integrity: sha512-3ojeJry9xBYdJO6qoyyzqeJFSJBVx2mXhyDzSdjwL2+URFQMf+h25gG38iswGImicK0ELjTd1EL2xzk8hf3QPw==}
     engines: {node: '>=20.0'}
-
-  '@dso-toolkit/core@97.0.0':
-    resolution: {integrity: sha512-7X2awZOKEXPCurIyvdMfzBJmWQPZMPIV3MjhjgY/i/3QBPUd2Aw4UHdOMJnXzT41UdbsdFTo4JSmPYPjYTC/8Q==}
-    peerDependencies:
-      dso-toolkit: 97.0.0
 
   '@easyops-cn/autocomplete.js@0.38.1':
     resolution: {integrity: sha512-drg76jS6syilOUmVNkyo1c7ZEBPcPuK+aJA7AksM5ZIIbV57DMHCywiCr+uHyv8BE5jUTU98j/H7gVrkHrWW3Q==}
@@ -4780,30 +4776,25 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
-  '@stencil-community/eslint-plugin@0.10.0':
-    resolution: {integrity: sha512-KLx/NrZN80zNcNyWa6wGgUTL7ucD+57vGYqcmzSpVudoWNmhG8zYi+HteF1s+RZ5bJRZe4b/k81UFDEP24PGkg==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      '@typescript-eslint/eslint-plugin': ^7.0.0 || ^8.0.0
-      '@typescript-eslint/parser': ^7.0.0 || ^8.0.0
-      eslint: ^8.0.0 || ^9.0.0
-      eslint-plugin-react: ^7.0.0
-      typescript: ^4.9.4 || ^5.0.0
-
   '@stencil/angular-output-target@1.3.2':
     resolution: {integrity: sha512-/j3Z63c3bhQjd+BejR9fcMJa8Tsnv5cdi1k+TMo48umxs4tvTkIg17WlP1TkQdg+7a6SE+LacihFKeiwiJSx/Q==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
 
-  '@stencil/core@4.43.4':
-    resolution: {integrity: sha512-QWawMM1XIpSz4k+k+VyHZMr2YSxlCNAPWO/jTdJ+2kdgdN7ZQVEFZpc4WBm3E3mrDPTZ79lLcnIPa399bg4XOg==}
-    engines: {node: '>=16.0.0', npm: '>=7.10.0'}
-    hasBin: true
-
   '@stencil/core@4.43.5':
     resolution: {integrity: sha512-cgWD+GeuvJpTe1WQn40p02+BJ2j0j1YJ17GdkF2qKIQ23s2e3Zivq5yISXS3dcuV6oUJFN93jprdk+nk/sq99Q==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
+
+  '@stencil/eslint-plugin@1.3.1':
+    resolution: {integrity: sha512-wwW84dxbembgtnMZvyzNlsnbiLFhip8G6aVe6NtSTa/IqqSAqTzf7QGWjY2XsUcssWSDsTODSTTE+qsXZHiF5w==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': ^7.0.0 || ^8.0.0
+      '@typescript-eslint/parser': ^7.0.0 || ^8.0.0
+      eslint: ^8.0.0 || ^9.0.0 || ^10.0.0
+      eslint-plugin-react: ^7.37.4
+      typescript: ^4.9.4 || ^5.0.0
 
   '@stencil/react-output-target@1.5.3':
     resolution: {integrity: sha512-TZzgbd48+HsfjyXtT4SZfX6LIcEuFNY9hpSYuxJTpglIXfUzc3dAr1vc8aIbrd2qVinwaXFzkwP+7rRiNq1uIA==}
@@ -14131,7 +14122,7 @@ snapshots:
       '@babel/code-frame': 7.29.7
       '@babel/generator': 7.29.7
       '@babel/helper-compilation-targets': 7.29.7
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6(supports-color@8.1.1))
       '@babel/helpers': 7.29.7
       '@babel/parser': 7.29.7
       '@babel/template': 7.29.7
@@ -14151,7 +14142,7 @@ snapshots:
       '@babel/code-frame': 7.29.7
       '@babel/generator': 7.29.7
       '@babel/helper-compilation-targets': 7.29.7
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0(supports-color@8.1.1))
       '@babel/helpers': 7.29.7
       '@babel/parser': 7.29.7
       '@babel/template': 7.29.7
@@ -14327,7 +14318,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/helper-module-transforms@7.29.7(@babel/core@7.28.6)':
+  '@babel/helper-module-transforms@7.29.7(@babel/core@7.28.6(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.28.6(supports-color@8.1.1)
       '@babel/helper-module-imports': 7.29.7
@@ -14336,7 +14327,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/helper-module-transforms@7.29.7(@babel/core@7.29.0)':
+  '@babel/helper-module-transforms@7.29.7(@babel/core@7.29.0(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.29.0(supports-color@8.1.1)
       '@babel/helper-module-imports': 7.29.7
@@ -15113,7 +15104,7 @@ snapshots:
   '@babel/plugin-transform-modules-amd@7.29.7(@babel/core@7.28.6(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.28.6(supports-color@8.1.1)
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6(supports-color@8.1.1))
       '@babel/helper-plugin-utils': 7.29.7
     transitivePeerDependencies:
       - supports-color
@@ -15121,7 +15112,7 @@ snapshots:
   '@babel/plugin-transform-modules-amd@7.29.7(@babel/core@7.29.0(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.29.0(supports-color@8.1.1)
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0(supports-color@8.1.1))
       '@babel/helper-plugin-utils': 7.29.7
     transitivePeerDependencies:
       - supports-color
@@ -15137,7 +15128,7 @@ snapshots:
   '@babel/plugin-transform-modules-commonjs@7.29.7(@babel/core@7.28.6(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.28.6(supports-color@8.1.1)
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6(supports-color@8.1.1))
       '@babel/helper-plugin-utils': 7.29.7
     transitivePeerDependencies:
       - supports-color
@@ -15145,7 +15136,7 @@ snapshots:
   '@babel/plugin-transform-modules-commonjs@7.29.7(@babel/core@7.29.0(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.29.0(supports-color@8.1.1)
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0(supports-color@8.1.1))
       '@babel/helper-plugin-utils': 7.29.7
     transitivePeerDependencies:
       - supports-color
@@ -15161,7 +15152,7 @@ snapshots:
   '@babel/plugin-transform-modules-systemjs@7.29.7(@babel/core@7.28.6(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.28.6(supports-color@8.1.1)
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6(supports-color@8.1.1))
       '@babel/helper-plugin-utils': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
       '@babel/traverse': 7.29.7(supports-color@8.1.1)
@@ -15171,7 +15162,7 @@ snapshots:
   '@babel/plugin-transform-modules-systemjs@7.29.7(@babel/core@7.29.0(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.29.0(supports-color@8.1.1)
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0(supports-color@8.1.1))
       '@babel/helper-plugin-utils': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
       '@babel/traverse': 7.29.7(supports-color@8.1.1)
@@ -15191,7 +15182,7 @@ snapshots:
   '@babel/plugin-transform-modules-umd@7.29.7(@babel/core@7.28.6(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.28.6(supports-color@8.1.1)
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.28.6(supports-color@8.1.1))
       '@babel/helper-plugin-utils': 7.29.7
     transitivePeerDependencies:
       - supports-color
@@ -15199,7 +15190,7 @@ snapshots:
   '@babel/plugin-transform-modules-umd@7.29.7(@babel/core@7.29.0(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.29.0(supports-color@8.1.1)
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0)
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.0(supports-color@8.1.1))
       '@babel/helper-plugin-utils': 7.29.7
     transitivePeerDependencies:
       - supports-color
@@ -17547,23 +17538,6 @@ snapshots:
       - uglify-js
       - webpack-cli
 
-  '@dso-toolkit/core@97.0.0(dso-toolkit@packages+dso-toolkit)(typescript@5.9.3)':
-    dependencies:
-      '@floating-ui/dom': 1.7.6
-      '@popperjs/core': 2.11.8
-      '@stencil/core': 4.43.4
-      '@stencil/store': 2.2.2(@stencil/core@4.43.4)
-      clsx: 2.1.1
-      dso-toolkit: link:packages/dso-toolkit
-      escape-string-regexp: 5.0.0
-      focus-trap: 8.2.1
-      i18next: 26.3.1(typescript@5.9.3)
-      popper-max-size-modifier: 0.2.0(@popperjs/core@2.11.8)
-      tabbable: 6.4.0
-      uuid: 14.0.0
-    transitivePeerDependencies:
-      - typescript
-
   '@easyops-cn/autocomplete.js@0.38.1':
     dependencies:
       cssesc: 3.0.0
@@ -19569,7 +19543,22 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@stencil-community/eslint-plugin@0.10.0(@typescript-eslint/eslint-plugin@8.61.0(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(typescript@5.9.3)':
+  '@stencil/angular-output-target@1.3.2(@stencil/core@4.43.5)':
+    dependencies:
+      '@stencil/core': 4.43.5
+
+  '@stencil/core@4.43.5':
+    optionalDependencies:
+      '@rollup/rollup-darwin-arm64': 4.44.0
+      '@rollup/rollup-darwin-x64': 4.44.0
+      '@rollup/rollup-linux-arm64-gnu': 4.44.0
+      '@rollup/rollup-linux-arm64-musl': 4.44.0
+      '@rollup/rollup-linux-x64-gnu': 4.44.0
+      '@rollup/rollup-linux-x64-musl': 4.44.0
+      '@rollup/rollup-win32-arm64-msvc': 4.44.0
+      '@rollup/rollup-win32-x64-msvc': 4.44.0
+
+  '@stencil/eslint-plugin@1.3.1(@typescript-eslint/eslint-plugin@8.61.0(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/eslint-plugin': 8.61.0(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)
       '@typescript-eslint/parser': 8.61.0(eslint@10.4.1(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)
@@ -19584,32 +19573,6 @@ snapshots:
       - canvas
       - supports-color
       - utf-8-validate
-
-  '@stencil/angular-output-target@1.3.2(@stencil/core@4.43.5)':
-    dependencies:
-      '@stencil/core': 4.43.5
-
-  '@stencil/core@4.43.4':
-    optionalDependencies:
-      '@rollup/rollup-darwin-arm64': 4.44.0
-      '@rollup/rollup-darwin-x64': 4.44.0
-      '@rollup/rollup-linux-arm64-gnu': 4.44.0
-      '@rollup/rollup-linux-arm64-musl': 4.44.0
-      '@rollup/rollup-linux-x64-gnu': 4.44.0
-      '@rollup/rollup-linux-x64-musl': 4.44.0
-      '@rollup/rollup-win32-arm64-msvc': 4.44.0
-      '@rollup/rollup-win32-x64-msvc': 4.44.0
-
-  '@stencil/core@4.43.5':
-    optionalDependencies:
-      '@rollup/rollup-darwin-arm64': 4.44.0
-      '@rollup/rollup-darwin-x64': 4.44.0
-      '@rollup/rollup-linux-arm64-gnu': 4.44.0
-      '@rollup/rollup-linux-arm64-musl': 4.44.0
-      '@rollup/rollup-linux-x64-gnu': 4.44.0
-      '@rollup/rollup-linux-x64-musl': 4.44.0
-      '@rollup/rollup-win32-arm64-msvc': 4.44.0
-      '@rollup/rollup-win32-x64-msvc': 4.44.0
 
   '@stencil/react-output-target@1.5.3(@stencil/core@4.43.5)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
@@ -19627,10 +19590,6 @@ snapshots:
     dependencies:
       '@stencil/core': 4.43.5
       sass-embedded: 1.100.0
-
-  '@stencil/store@2.2.2(@stencil/core@4.43.4)':
-    dependencies:
-      '@stencil/core': 4.43.4
 
   '@stencil/store@2.2.2(@stencil/core@4.43.5)':
     dependencies:

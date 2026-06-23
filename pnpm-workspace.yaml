@@ -6,6 +6,7 @@ packages:
 
 overrides:
   webpack: "5.105.2"
+  "@stencil/eslint-plugin>jsdom": "~25"
 
 allowBuilds:
   "@compodoc/compodoc": true

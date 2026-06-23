@@ -21,7 +21,7 @@
     "@stencil/react-output-target": "^1.5.3"
   },
   "devDependencies": {
-    "@dso-toolkit/core": "97.0.0",
+    "@dso-toolkit/core": "workspace:*",
     "@iframe-resizer/child": "^5.5.9",
     "@stencil/core": "4.43.5",
     "@storybook/addon-a11y": "10.4.2",

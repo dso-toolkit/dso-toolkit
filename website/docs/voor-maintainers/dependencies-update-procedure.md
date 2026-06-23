@@ -34,7 +34,7 @@ Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan.
 
 Niet elke dependency maakt gebruik van SemVer, in het bijzonder `sass`. Elke breaking release behoeft onderzoek. Kijk naar GitHub releases, CHANGELOG, blogposts, etc.
 
-Angular en Storybook hebben een eigen update procedure. Prettier, Stylelint en ESLint updaten we in een eigen issue.
+Angular en Storybook hebben een eigen update procedure.
 
 De dependencies `typescript` en `tslib` moeten voor alle packages onderling identiek zijn. Hetzelfde geldt voor de Angular en Storybook dependencies.
 
