@@ -6,11 +6,11 @@ Dependency updates doen we bij voorkeur aan het begin van een sprint zodat we de
 
 De TypeScript-versie wordt bepaald door de traagste consument in de monorepo. We koppelen de versie aan de strengste bovengrens van alle gebruikte tools.
 
-Huidige situatie (Stencil v4.43.5, Storybook v10.4.2, Angular v21):
+Huidige situatie (Stencil v4.43.5, Storybook v10.4.2, Angular v22):
 
 - Stencil ondersteunt momenteel TypeScript tot en met versie 5.9.x (Stencil v4.43.5 draait goed op 5.9.3, officieel max 5.8.3).
 - Storybook (v10) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
-- Angular (v21) ondersteunt TypeScript \>=5.9.0 \<6.0.0. Dit is de bepalende bovengrens: Angular's toolchain (`ng-packagr`, `@ngtools/webpack`) stelt een harde `<6.0` eis.
+- Angular (v22) ondersteunt TypeScript \>=5.9.0 \<6.0.0. Dit is de bepalende bovengrens: Angular's toolchain (`ng-packagr`, `@ngtools/webpack`) stelt een harde `<6.0` eis.
 
 De TypeScript-versie staat daarom op `~5.9.3` voor alle packages in de monorepo. Upgrade naar TypeScript 6.x pas als Angular die bovengrens ophoogt. Voer een check uit op:
 
@@ -48,7 +48,9 @@ pnpm dedupe --check # zonder --check als nodig
 
 ## Sass
 
-Herstructuring van de output `dso.css` kan voorkomen na het updaten van Sass. Maak een vergelijking met de `dso.css` van master en met de `dso.css` van topic branch om te zien of de wijzigingen kloppen.
+Sass hanteert geen SemVer. Aan de versienummers is niet te zien of een release breaking is. In het verleden hebben Sass-updates de CSS output onverwacht anders gemaakt (denk aan quotes, paden), wat pas bij afnemers aan het licht kwam.
+
+Vergelijk daarom altijd de gegenereerde `dso.css` van master met die van de topic branch en controleer of de verschillen kloppen.
 
 ## Danger.yml
 
@@ -109,6 +111,14 @@ ng update @angular/cli --from 10 --to 11 --migrate-only
 ```
 
 Zie ook https://update.angular.io/
+
+### Vervallen van een Angular-versie
+
+Als de peer dependency range in `angular-workspace/projects/component-library/package.json` wordt aangepast zodat een Angular-versie wegvalt, is dit een **breaking change**. 
+
+- Voeg twee regels toe aan de blogpost van de bijbehorende release:
+  - _"Daarnaast is in deze release de ondersteuning voor Angular X komen te vervallen."_
+  - _"Vanaf deze release ondersteunt DSO Toolkit Angular versies X, Y en Z."_
 
 ## Sub dependencies update
 
