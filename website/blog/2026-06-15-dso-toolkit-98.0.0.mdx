@@ -8,6 +8,7 @@ Deze release bevat **breaking** changes voor de volgende componenten:
 
 - Dropdown Menu (Core implementatie)
 - Info Button (HTML/CSS implementatie)
+- Alert (HTML/CSS implementatie)
 
 Daarnaast is in deze release de ondersteuning voor Angular 19 komen te vervallen.
 Vanaf deze release ondersteunt DSO Toolkit Angular versies 20, 21 en 22.
@@ -143,4 +144,36 @@ Gebruik de Core implementatie van `Info Button`.
 
 ✅
 <dso-info-button label="Toelichting bij vraag"> </dso-info-button>
+```
+
+## Alert (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Alert` is in 🥕 v95.2.0 **deprecated**. In deze release is deze
+implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Alert.
+
+```html
+❌
+<div class="alert alert-success">
+  <span class="sr-only">Gelukt:</span>
+  <div class="dso-rich-content">
+    <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
+    <button type="button" class="dso-alert-button">
+      <span>Button</span>
+    </button>
+  </div>
+</div>
+
+✅
+<dso-alert status="success" closable>
+  <div class="dso-rich-content">
+    <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
+    <button type="button" class="dso-primary dso-small">
+      <span>Button</span>
+    </button>
+  </div>
+</dso-alert>
 ```

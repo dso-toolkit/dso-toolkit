@@ -1,0 +1,22 @@
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/states";
+
+$border-size: 1px;
+$icon-size: units.$u3;
+$inline-padding: units.$u2;
+$block-padding: units.$u2;
+$inline-start-padding: 2 * $inline-padding + $icon-size - 1px; // 1px border
+$small-padding: units.$u2;
+$small-padding-block-start: 2 * $inline-padding + $icon-size - 1px;
+
+$success-bg: states.$success-bg;
+$success-compact-accent-bg: states.$success-compact-accent-color;
+
+$info-bg: states.$info-bg;
+$info-compact-accent-bg: states.$info-compact-accent-color;
+
+$warning-bg: states.$warning-bg;
+$warning-compact-accent-bg: states.$warning-compact-accent-color;
+
+$danger-bg: states.$danger-bg;
+$danger-compact-accent-bg: states.$danger-compact-accent-color;

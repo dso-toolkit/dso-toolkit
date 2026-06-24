@@ -59,7 +59,11 @@ export class Alert {
         role={this.roleAlert ? "alert" : undefined}
       >
         {!this.compact && (
-          <dso-icon class="icon-status" icon={`status-${this.status === "info" ? "info-solid" : this.status}`} />
+          <dso-icon
+            class="icon-status"
+            icon={`status-${this.status === "info" ? "info-solid" : this.status}`}
+            aria-hidden="true"
+          />
         )}
         <span class="sr-only">{status}:</span>
         <slot></slot>
