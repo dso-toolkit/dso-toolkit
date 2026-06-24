@@ -1,0 +1,35 @@
+---
+authors: [iterox]
+date: 2026-08-10
+---
+
+# DSO Toolkit v100.0.0 💯
+
+Deze release bevat **BREAKING** changes voor het volgende component:
+
+- Info (HTML/CSS implementatie)
+
+<!-- truncate -->
+
+## Info (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Info` is in 🏴󠁧󠁢󠁳󠁣󠁴󠁿 97.0.0 **deprecated**. In deze release is deze implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik het Core component `Info`.
+
+```html
+❌
+<div class="dso-info">
+  <div class="dso-rich-content">...</div>
+  <button type="button" class="">
+    <span class="sr-only">Sluiten</span>
+  </button>
+</div>
+
+✅
+<dso-info fixed="" active="">
+  <div class="dso-rich-content">...</div>
+</dso-info>
+```

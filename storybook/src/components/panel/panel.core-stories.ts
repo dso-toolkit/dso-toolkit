@@ -15,7 +15,7 @@ export default meta;
 const { Default, Emphasized } = panelStories({
   templateContainer,
   storyTemplates: (templates) => {
-    const { panelTemplate, richContentTemplate } = templates;
+    const { infoTemplate, panelTemplate, richContentTemplate } = templates;
 
     return {
       panelTemplate,
@@ -26,11 +26,12 @@ const { Default, Emphasized } = panelStories({
             <li>Locatie 1</li>
             <li>
               Locatie 2
-              <div class="dso-info">
-                ${richContentTemplate({
+              ${infoTemplate({
+                fixed: true,
+                content: richContentTemplate({
                   children: html`<p><strong>Let op:</strong> <i>voorbehoud A bij Locatie 2.</i></p>`,
-                })}
-              </div>
+                }),
+              })}
             </li>
             <li>
               Locatie 3

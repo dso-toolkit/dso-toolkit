@@ -4,6 +4,10 @@ img {
   border: 0;
   vertical-align: middle;
   max-inline-size: 100%;
+
+  display: var(--_dso-image-display, inline);
+  margin-block: var(--_dso-image-margin-block, 0);
+  margin-inline: var(--_dso-image-margin-inline, 0);
 }
 
 .img-responsive {
