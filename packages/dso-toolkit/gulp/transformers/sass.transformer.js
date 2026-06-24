@@ -3,11 +3,11 @@ import { fileURLToPath } from "url";
 
 import PluginError from "plugin-error";
 import { compileString } from "sass";
-import { objectTransform as obj } from "through2";
+import { objectTransform } from "through2";
 import applySourceMap from "vinyl-sourcemaps-apply";
 
 export function sassTransformer() {
-  return obj((file, _enc, cb) => {
+  return objectTransform((file, _enc, cb) => {
     try {
       const { css, sourceMap } = compileString(file.contents.toString(), {
         url: `file:${file.path}`,
