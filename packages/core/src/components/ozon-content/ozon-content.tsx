@@ -113,8 +113,8 @@ export class OzonContent implements ComponentInterface {
   }
 }
 
-const dependencies = () => {
-  dependencies();
+const _dependencies = () => {
+  _dependencies();
 
   return (
     <Fragment>

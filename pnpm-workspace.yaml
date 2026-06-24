@@ -3,3 +3,17 @@ packages:
   - "packages/*"
   - "storybook"
   - "website"
+
+overrides:
+  webpack: "5.105.2"
+  "@stencil/eslint-plugin>jsdom": "~25"
+
+allowBuilds:
+  "@compodoc/compodoc": true
+  "@parcel/watcher": true
+  core-js: true
+  cypress: true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
+  nx: true

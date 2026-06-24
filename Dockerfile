@@ -1,4 +1,4 @@
-FROM cypress/included:cypress-15.14.1-node-24.15.0-chrome-147.0.7727.101-1-ff-150.0-edge-147.0.3912.60-1
+FROM cypress/included:cypress-15.14.2-node-26.0.0-chrome-148.0.7778.96-1-ff-150.0.1-edge-147.0.3912.98-1
 
 RUN apt-get update && apt-get install --yes \
   apt-transport-https \
@@ -58,7 +58,9 @@ COPY website/package.json ./website/package.json
 
 ARG CI
 
-RUN corepack enable && corepack install && pnpm install --frozen-lockfile
+RUN jq -r '.packageManager // ""' package.json | grep -q '+sha512\.' || { echo "packageManager mist +sha512.<hash>"; exit 1; }
+
+RUN npm install -g corepack && corepack enable && corepack install && pnpm install --frozen-lockfile
 
 COPY . .
 
