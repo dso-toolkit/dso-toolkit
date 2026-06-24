@@ -29,7 +29,7 @@
     "@storybook/addon-docs": "10.3.5",
     "@storybook/angular": "10.3.5",
     "@types/lodash.startcase": "^4.4.9",
-    "@types/node": "^24.12.2",
+    "@types/node": "^24.15.0",
     "dso-toolkit": "workspace:*",
     "eslint": "^9.39.4",
     "http-proxy-middleware": "^3.0.5",
