@@ -15,7 +15,7 @@ import {
 } from "@stencil/core";
 
 import { DsoExpandableCustomEvent, DsoSlideToggleCustomEvent } from "../../../components";
-import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "../../expandable/expandable.interfaces";
+import { ExpandableAnimationEndEvent } from "../../expandable/expandable.interfaces";
 import { IconAlias } from "../../icon/icon.interfaces";
 import { LabelStatus } from "../../label/label.interfaces";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
@@ -368,7 +368,7 @@ export class AccordionSection implements ComponentInterface {
     });
   };
 
-  private handleExpandableAnimationStart = (_e: DsoExpandableCustomEvent<ExpandableAnimationStartEvent>) => {
+  private handleExpandableAnimationStart = () => {
     this.dsoAnimationStart.emit({
       animation: this.open ? "opening" : "closing",
       scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(undefined, behavior),
