@@ -60,7 +60,7 @@ ARG CI
 
 RUN jq -r '.packageManager // ""' package.json | grep -q '+sha512\.' || { echo "packageManager mist +sha512.<hash>"; exit 1; }
 
-RUN corepack enable && corepack install && pnpm install --frozen-lockfile
+RUN npm install -g corepack && corepack enable && corepack install && pnpm install --frozen-lockfile
 
 COPY . .
 

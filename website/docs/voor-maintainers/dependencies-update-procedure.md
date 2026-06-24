@@ -114,7 +114,7 @@ Zie ook https://update.angular.io/
 
 ### Vervallen van een Angular-versie
 
-Als de peer dependency range in `angular-workspace/projects/component-library/package.json` wordt aangepast zodat een Angular-versie wegvalt, is dit een **breaking change**. 
+Als de peer dependency range in `angular-workspace/projects/component-library/package.json` wordt aangepast zodat een Angular-versie wegvalt, is dit een **breaking change**.
 
 - Voeg twee regels toe aan de blogpost van de bijbehorende release:
   - _"Daarnaast is in deze release de ondersteuning voor Angular X komen te vervallen."_
