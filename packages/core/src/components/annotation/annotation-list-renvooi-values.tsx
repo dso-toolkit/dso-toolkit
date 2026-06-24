@@ -2,11 +2,11 @@ import { Fragment, FunctionalComponent, h } from "@stencil/core";
 
 import { RenvooiValue } from "../renvooi/renvooi.interfaces";
 
-interface AnnotationListRenvooiValues {
+interface AnnotationListRenvooiValuesProps {
   values: RenvooiValue[] | undefined;
 }
 
-export const AnnotationListRenvooiValues: FunctionalComponent<AnnotationListRenvooiValues> = ({ values }) => {
+export const AnnotationListRenvooiValues: FunctionalComponent<AnnotationListRenvooiValuesProps> = ({ values }) => {
   return (
     <>
       {values?.map((v, i) => (

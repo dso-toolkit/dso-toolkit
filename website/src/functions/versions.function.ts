@@ -78,11 +78,13 @@ export async function getAllVersions(): Promise<Version[]> {
     throw new Error("versions is not an array");
   }
 
-  return versions.reduce<Version[]>((total, version) => {
+  cache = versions.reduce<Version[]>((total, version) => {
     if (isVersion(version)) {
       total.push(version);
     }
 
     return total;
   }, []);
+
+  return cache;
 }

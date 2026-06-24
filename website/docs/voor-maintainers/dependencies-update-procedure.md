@@ -4,13 +4,15 @@ Dependency updates doen we bij voorkeur aan het begin van een sprint zodat we de
 
 ## TypeScript-versiebeleid
 
-Bij het updaten van TypeScript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
+De TypeScript-versie wordt bepaald door de traagste consument in de monorepo. We koppelen de versie aan de strengste bovengrens van alle gebruikte tools.
 
-- Stencil ondersteunt momenteel TypeScript tot en met versie 5.8.3 (Stencil v4.43.3). Echter draait versie v4.43.3 ook goed met typescript 5.9.3.
+Huidige situatie (Stencil v4.43.5, Storybook v10.4.2, Angular v22):
+
+- Stencil ondersteunt momenteel TypeScript tot en met versie 5.9.x (Stencil v4.43.5 draait goed op 5.9.3, officieel max 5.8.3).
 - Storybook (v10) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
-- Angular (v21.2.6) ondersteunt TypeScript \>=5.8.0 \<6.0.0
+- Angular (v22) ondersteunt TypeScript \>=5.9.0 \<6.0.0. Dit is de bepalende bovengrens: Angular's toolchain (`ng-packagr`, `@ngtools/webpack`) stelt een harde `<6.0` eis.
 
-Stencil loopt traditioneel achter op de laatste TypeScript-releases. Houd bij toekomstige updates daarom altijd rekening met de maximale ondersteunde TypeScript-versie van Stencil. Voer een check uit op:
+De TypeScript-versie staat daarom op `~5.9.3` voor alle packages in de monorepo. Upgrade naar TypeScript 6.x pas als Angular die bovengrens ophoogt. Voer een check uit op:
 
 - Stencil TypeScript versie ondersteuning ([changelog](https://github.com/stenciljs/core/blob/main/CHANGELOG.md), [package.json](https://github.com/stenciljs/core/blob/main/package.json))
 - Storybook TypeScript versie ondersteuning ([documentatie](https://storybook.js.org/docs/configure/integration/typescript#typescript-49-support) Storybook)
@@ -32,7 +34,7 @@ Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan.
 
 Niet elke dependency maakt gebruik van SemVer, in het bijzonder `sass`. Elke breaking release behoeft onderzoek. Kijk naar GitHub releases, CHANGELOG, blogposts, etc.
 
-Angular en Storybook hebben een eigen update procedure. Prettier, Stylelint en ESLint updaten we in een eigen issue.
+Angular en Storybook hebben een eigen update procedure.
 
 De dependencies `typescript` en `tslib` moeten voor alle packages onderling identiek zijn. Hetzelfde geldt voor de Angular en Storybook dependencies.
 
@@ -46,7 +48,9 @@ pnpm dedupe --check # zonder --check als nodig
 
 ## Sass
 
-Herstructuring van de output `dso.css` kan voorkomen na het updaten van Sass. Maak een vergelijking met de `dso.css` van master en met de `dso.css` van topic branch om te zien of de wijzigingen kloppen.
+Sass hanteert geen SemVer. Aan de versienummers is niet te zien of een release breaking is. In het verleden hebben Sass-updates de CSS output onverwacht anders gemaakt (denk aan quotes, paden), wat pas bij afnemers aan het licht kwam.
+
+Vergelijk daarom altijd de gegenereerde `dso.css` van master met die van de topic branch en controleer of de verschillen kloppen.
 
 ## Danger.yml
 
@@ -108,6 +112,14 @@ ng update @angular/cli --from 10 --to 11 --migrate-only
 
 Zie ook https://update.angular.io/
 
+### Vervallen van een Angular-versie
+
+Als de peer dependency range in `angular-workspace/projects/component-library/package.json` wordt aangepast zodat een Angular-versie wegvalt, is dit een **breaking change**.
+
+- Voeg twee regels toe aan de blogpost van de bijbehorende release:
+  - _"Daarnaast is in deze release de ondersteuning voor Angular X komen te vervallen."_
+  - _"Vanaf deze release ondersteunt DSO Toolkit Angular versies X, Y en Z."_
+
 ## Sub dependencies update
 
 ```sh
@@ -125,3 +137,4 @@ pnpm dedupe --check # zonder --check als nodig
 - Volledige lokale build: lint, build, build-www en e2e.
 - Aanbieden als PR.
 - Nieuw issue aanmaken voor volgende dependency update.
+- Security: Nadat de PR van een Packages: Dependencies updates is gemerged in master zal (na enige tijd) het aantal Dependabot alerts / vulnerabilities onder de tab Security and quality verminderd zijn. Idealiter 0, maar in de praktijk zullen er waarschijnlijk nog een aantal blijven bestaan. Deze moeten dan alsnog onderzocht en idealiter met onderbouwde reden gedismissed worden.

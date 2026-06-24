@@ -14,7 +14,7 @@ import {
   h,
 } from "@stencil/core";
 
-import { DsoSlideToggleCustomEvent } from "../../../components";
+import { DsoExpandableCustomEvent, DsoSlideToggleCustomEvent } from "../../../components";
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable.interfaces";
 import { IconAlias } from "../../icon/icon.interfaces";
 import { LabelStatus } from "../../label/label.interfaces";
@@ -33,8 +33,10 @@ import {
   stateMap,
 } from "./accordion-section.interfaces";
 
-// eslint-disable-next-line no-console
-const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
+/* eslint-disable no-console */
+const log =
+  (window as Window & { _dsoLog?: boolean })["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
+/* eslint-enable no-console */
 
 const HandleElement: FunctionalComponent<{
   handleUrl: string | undefined;
@@ -366,14 +368,14 @@ export class AccordionSection implements ComponentInterface {
     });
   };
 
-  private handleExpandableAnimationStart = (e: CustomEvent<any>) => {
+  private handleExpandableAnimationStart = () => {
     this.dsoAnimationStart.emit({
       animation: this.open ? "opening" : "closing",
-      scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(e.detail.bodyHeight, behavior),
+      scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(undefined, behavior),
     });
   };
 
-  private handleExpandableAnimationEnd = (e: CustomEvent<ExpandableAnimationEndEvent>) => {
+  private handleExpandableAnimationEnd = (e: DsoExpandableCustomEvent<ExpandableAnimationEndEvent>) => {
     this.dsoAnimationEnd.emit({
       open: this.open,
       scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(e.detail.bodyHeight, behavior),

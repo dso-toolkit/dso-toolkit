@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * CSS: Private custom properties namespace aanpassen ([#3515](https://github.com/dso-toolkit/dso-toolkit/issues/3515))
+* Packages: Dependencies updates (ook eslint & prettier) ([#3750](https://github.com/dso-toolkit/dso-toolkit/issues/3750))
 
 ## 👝 Release 97.1.1 - 2026-06-23
 
