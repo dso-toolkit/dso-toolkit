@@ -79,11 +79,10 @@
 }
 
 ::slotted(img.dso-highlight-box-banner) {
+  --_dso-image-margin-inline: #{units.$u2 * -1 units.$u2 * -1};
+  --_dso-image-margin-block: #{units.$u2 * -1 units.$u1};
+
   aspect-ratio: 2.38 / 1;
-  margin-inline-start: units.$u2 * -1;
-  margin-inline-end: units.$u2 * -1;
-  margin-block-start: units.$u2 * -1;
-  margin-block-end: units.$u1;
   object-fit: cover;
   inline-size: calc(100% + #{units.$u4});
   max-inline-size: unset !important;

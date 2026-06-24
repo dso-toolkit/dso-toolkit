@@ -1,12 +1,24 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/button";
-@use "~dso-toolkit/src/components/info";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+@include utilities.box-sizing();
 
 :host {
   display: block;
 
-  @include info.root();
+  padding-block: units.$u2;
+  padding-inline: units.$u2 units.$u4;
+  position: relative;
+
+  @include set-colors.apply(colors.$grijs-5, "info");
+
+  --_dso-image-display: block;
+  --_dso-image-margin-block: #{units.$u1};
+  --_dso-image-margin-inline: auto;
+
+  --_dso-rich-content-margin-block-start: 0;
 }
 
 :host(:not([active], [fixed])),
@@ -19,10 +31,4 @@ dso-icon-button {
   position: absolute;
   inset-inline-end: units.$u1;
   inset-block-start: units.$u1;
-}
-
-@include utilities.box-sizing();
-
-.sr-only {
-  @include utilities.sr-only();
 }

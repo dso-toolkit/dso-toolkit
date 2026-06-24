@@ -7,12 +7,6 @@
     "type": "core"
   },
   {
-    "name": "info",
-    "selector": "dso-info.hydrated",
-    "stories": ["default", "fixed"],
-    "type": "core"
-  },
-  {
     "name": "list-button",
     "selector": "dso-list-button.hydrated",
     "stories": ["single-select", "multi-select"],
@@ -169,12 +163,6 @@
     "name": "image",
     "selector": "img",
     "stories": ["default", "responsive", "circle"],
-    "type": "html-css"
-  },
-  {
-    "name": "info-deprecated",
-    "selector": ".dso-info:not(.dso-accordion-section)",
-    "stories": ["default", "fixed"],
     "type": "html-css"
   },
   { "name": "label-group", "selector": ".dso-label-group", "stories": ["label-group"], "type": "html-css" },
