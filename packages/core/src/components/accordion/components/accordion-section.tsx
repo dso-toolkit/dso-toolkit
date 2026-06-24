@@ -14,8 +14,8 @@ import {
   h,
 } from "@stencil/core";
 
-import { DsoSlideToggleCustomEvent } from "../../../components";
-import { ExpandableAnimationEndEvent } from "../../expandable/expandable.interfaces";
+import { DsoExpandableCustomEvent, DsoSlideToggleCustomEvent } from "../../../components";
+import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "../../expandable/expandable.interfaces";
 import { IconAlias } from "../../icon/icon.interfaces";
 import { LabelStatus } from "../../label/label.interfaces";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
@@ -368,15 +368,14 @@ export class AccordionSection implements ComponentInterface {
     });
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private handleExpandableAnimationStart = (e: CustomEvent<any>) => {
+  private handleExpandableAnimationStart = (_e: DsoExpandableCustomEvent<ExpandableAnimationStartEvent>) => {
     this.dsoAnimationStart.emit({
       animation: this.open ? "opening" : "closing",
-      scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(e.detail.bodyHeight, behavior),
+      scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(undefined, behavior),
     });
   };
 
-  private handleExpandableAnimationEnd = (e: CustomEvent<ExpandableAnimationEndEvent>) => {
+  private handleExpandableAnimationEnd = (e: DsoExpandableCustomEvent<ExpandableAnimationEndEvent>) => {
     this.dsoAnimationEnd.emit({
       open: this.open,
       scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(e.detail.bodyHeight, behavior),
