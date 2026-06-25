@@ -34,7 +34,7 @@
     "clsx": "^2.1.1",
     "dso-toolkit": "workspace:*",
     "eslint": "^10.4.1",
-    "http-proxy-middleware": "^4.1.0",
+    "http-proxy-middleware": "^4.1.1",
     "lodash.startcase": "^4.4.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
