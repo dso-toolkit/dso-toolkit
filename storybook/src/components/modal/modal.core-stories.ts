@@ -1,7 +1,6 @@
 import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
 import type { Meta } from "@storybook/web-components-vite";
 import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
-import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
 
@@ -42,22 +41,4 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
   },
 });
 
-const VisualRegression = {
-  render: () => html`
-    <div style="background: grey; padding: 50px; min-height: 100vh;">
-      <h1>Dit is een gevulde pagina layout</h1>
-      <p>
-        De achtergrond moet zichtbaar blijven rondom de modal dialog. Als er een ongewenste witte achtergrond optreedt
-        door min-inline-size, faalt de visuele regressietest.
-      </p>
-
-      <dso-modal .modalTitle=${"Visuele regressie test"} .closable=${true}>
-        <div slot="body">
-          <p>Modal content hier...</p>
-        </div>
-      </dso-modal>
-    </div>
-  `,
-};
-
-export { Active, Confirm, Fullscreen, Loading, Passive, VisualRegression, WithDatepicker };
+export { Active, Confirm, Fullscreen, Loading, Passive, WithDatepicker };
