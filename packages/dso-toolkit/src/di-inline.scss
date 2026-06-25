@@ -1,0 +1,52 @@
+@use "sass:map";
+@use "sass:string";
+
+@use "variables/colors";
+
+$colors: (
+  "grasgroen": colors.$grasgroen,
+  "scampi": colors.$scampi,
+  "zwart": colors.$zwart,
+  "wit": colors.$wit,
+);
+
+$icons: (
+  "download": (
+    "grasgroen",
+    "scampi",
+    "zwart",
+    "wit",
+  ),
+  "external-link": (
+    "grasgroen",
+    "scampi",
+    "zwart",
+    "wit",
+  ),
+  "call": (
+    "grasgroen",
+    "scampi",
+    "zwart",
+    "wit",
+  ),
+  "mail-outline": (
+    "grasgroen",
+    "scampi",
+    "zwart",
+    "wit",
+  ),
+);
+
+@function name($icon, $color) {
+  @return string.unquote("--_dso-di-#{$icon}-#{$color}");
+}
+
+@mixin inline() {
+  :root {
+    @each $icon, $color-names in $icons {
+      @each $color-name in $color-names {
+        #{name($icon, $color-name)}: #{inline-icon($icon, "#{map.get($colors, $color-name)}")};
+      }
+    }
+  }
+}

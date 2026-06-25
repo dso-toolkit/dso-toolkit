@@ -25,14 +25,6 @@ dso-highlight-box {
             @include di.base("chevron-right-zwart");
           }
         }
-
-        &.download {
-          @include di.variant("download-zwart");
-        }
-
-        &.extern {
-          @include di.variant("external-link-zwart");
-        }
       }
     }
   }

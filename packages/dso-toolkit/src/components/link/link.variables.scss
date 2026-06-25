@@ -1,4 +1,10 @@
+@use "sass:string";
+
 @use "../../variables/colors";
+
+@function icon-contrast($icon) {
+  @return string.unquote("--_dso-link-#{$icon}-contrast");
+}
 
 $link-color: colors.$grasgroen;
 $link-hover-color: colors.$scampi;

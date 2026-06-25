@@ -1,11 +1,12 @@
 @use "sass:map";
 
-@use "../../di";
+@use "../../di-inline";
 @use "../../variables/units";
 @use "link.variables" as link-variables;
 
 @mixin hideIcons() {
-  --_dso-di-background-image: none;
+  --_dso-link-icon-visibility: none;
+
   --_dso-link-icon-padding-inline-start: 0;
   --_dso-link-icon-padding-inline-end: 0;
 }
@@ -95,24 +96,28 @@
     background-position: bottom -3px right 0;
   }
 
-  $icon: map.get($link-map, "icon");
+  $key: map.get($link-map, "icon");
+
+  $icon-color: "grasgroen";
 
   @if map.has-key($link-map, "icon-color") {
-    $icon: $icon + "-" + map.get($link-map, "icon-color");
+    $icon-color: map.get($link-map, "icon-color");
   }
 
-  $icon-hover: map.get($link-map, "icon");
+  background-image: var(
+    --_dso-link-icon-visibility,
+    var(#{link-variables.icon-contrast($key)}, var(#{di-inline.name($key, $icon-color)}))
+  );
 
   @if map.has-key($link-map, "icon-hover-color") {
-    $icon-hover: $icon-hover + "-" + map.get($link-map, "icon-hover-color");
-  }
+    $icon-hover-color: map.get($link-map, "icon-hover-color");
 
-  @include di.variant($icon);
-
-  @if ($icon != $icon-hover) {
     &:hover,
     &:focus-visible {
-      @include di.variant($icon-hover);
+      background-image: var(
+        --_dso-link-icon-visibility,
+        var(#{link-variables.icon-contrast($key)}, var(#{di-inline.name($key, $icon-hover-color)}))
+      );
     }
   }
 }

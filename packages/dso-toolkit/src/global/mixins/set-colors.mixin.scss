@@ -4,8 +4,7 @@
 @use "../../variables/colors";
 @use "../../variables/states";
 @use "../../components/link/link.variables" as link-variables;
-@use "../../components/button/button.variables" as button-variables;
-@use "../../di";
+@use "../../di-inline";
 
 @use "../functions/contrast-color.functions" as contrast-color-functions;
 
@@ -132,14 +131,9 @@
 }
 
 @mixin _linkIconColors($icon-color) {
-  // loop through map to set icon mode
   @each $mode, $value in link-variables.$linkIcons {
-    $selector: map.get($value, "selector");
-    $icon: map.get($value, "icon") + "-" + $icon-color;
+    $key: map.get($value, "icon");
 
-    a:not(#{button-variables.$buttons}):is(#{$selector}, #{$selector}:hover, #{$selector}:focus-visible) {
-      // set icon color
-      @include di.variant($icon);
-    }
+    #{link-variables.icon-contrast($key)}: var(#{di-inline.name($key, $icon-color)});
   }
 }

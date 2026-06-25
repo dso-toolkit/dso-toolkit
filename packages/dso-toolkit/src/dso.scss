@@ -1,4 +1,5 @@
 @use "toolkit-version";
+@use "di-inline";
 
 // Global
 @use "global/font-faces";
@@ -70,5 +71,7 @@
 
 // Very global and generic styling
 @use "utilities" as utilities-mixins;
+
+@include di-inline.inline();
 
 @include utilities-mixins.box-sizing();
