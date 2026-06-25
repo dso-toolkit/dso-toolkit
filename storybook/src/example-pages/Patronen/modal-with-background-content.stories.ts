@@ -58,10 +58,30 @@ const ModalWithBackgroundContent = examplePageStories((templates) => {
           uitvoering van de Omgevingswet in Nederland.
         </p>
         ${modalTemplate({
-          modalTitle: "Modal",
-          body: html`<p>Onderstaande knoppen doen niets, alleen de sluiten knop sluit de Modal.</p>
-            <p>${buttonTemplate({ label: "Eerste knop", type: "button", variant: "primary" })}</p>`,
-          footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
+          modalTitle: "Verwijderen werkzaamheid",
+          body: html`
+            <p>
+              U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw
+              antwoorden op de vragen worden dan ook verwijderd. Wilt u doorgaan?
+            </p>
+          `,
+          footer: html`
+            ${buttonTemplate({
+              label: "Annuleren",
+              type: "button",
+              variant: "tertiary",
+            })}
+            ${buttonTemplate({
+              label: "Secundaire actie",
+              type: "button",
+              variant: "secondary",
+            })}
+            ${buttonTemplate({
+              label: "Bevestigen",
+              type: "button",
+              variant: "primary",
+            })}
+          `,
           closable: true,
         })}
       </main>
