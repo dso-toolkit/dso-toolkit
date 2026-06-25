@@ -9,6 +9,7 @@ overrides:
   "@stencil/eslint-plugin>jsdom": "~25"
   shell-quote: ">=1.8.4"
   form-data: ">=4.0.6"
+  tmp: ">=0.2.7"
 
 allowBuilds:
   "@compodoc/compodoc": true
