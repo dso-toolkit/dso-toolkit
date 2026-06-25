@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * ResizeObserver: ResizeObserver loop completed with undelivered notifications ([#3767](https://github.com/dso-toolkit/dso-toolkit/issues/3767))
+* Modal: Witte achtergrond breder dan dialog ([#3798](https://github.com/dso-toolkit/dso-toolkit/issues/3798))
 
 ### Removed
 * **BREAKING** Info Button: Remove HTML/CSS implementatie ([#3570](https://github.com/dso-toolkit/dso-toolkit/issues/3570))

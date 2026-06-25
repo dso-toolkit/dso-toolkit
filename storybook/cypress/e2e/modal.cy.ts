@@ -184,4 +184,14 @@ describe("Modal", () => {
 
     cy.matchImageSnapshot();
   });
+
+  it("should display modal correctly on top of background content", () => {
+    cy.visit(
+      "http://localhost:45000/iframe.html?id=patronen-modal-with-background-content--modal-with-background-content",
+    );
+
+    cy.get("dso-modal").shadow().find(".dso-dialog").should("exist");
+
+    cy.matchImageSnapshot();
+  });
 });
