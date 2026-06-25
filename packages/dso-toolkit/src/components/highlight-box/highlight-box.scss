@@ -28,11 +28,4 @@ dso-highlight-box {
       }
     }
   }
-
-  &[yellow],
-  &:not([border], [white]) {
-    .dso-tertiary:not([disabled]) {
-      color: colors.$zwart;
-    }
-  }
 }
