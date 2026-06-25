@@ -11,6 +11,7 @@ overrides:
   form-data: ">=4.0.6"
   tmp: ">=0.2.7"
   vite: "^7.3.5"
+  piscina: ">=5.2.0"
 
 allowBuilds:
   "@compodoc/compodoc": true
