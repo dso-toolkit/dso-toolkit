@@ -13,7 +13,6 @@ overrides:
   vite: "^7.3.5"
   piscina: ">=5.2.0"
   serialize-javascript: ">=7.0.5"
-  gray-matter>js-yaml: ">=4.2.0"
   "@angular-devkit/build-angular>webpack-dev-server": "^5.2.5"
   sockjs>uuid: "^11.1.1"
   http-auth>uuid: "^11.1.1"
