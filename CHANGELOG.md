@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **BREAKING** Info Button: Remove HTML/CSS implementatie ([#3570](https://github.com/dso-toolkit/dso-toolkit/issues/3570))
+* **BREAKING** Alert: Remove HTML/CSS implementatie ([#3669](https://github.com/dso-toolkit/dso-toolkit/issues/3669))
 
 ### Task
 * CSS: Private custom properties namespace aanpassen ([#3515](https://github.com/dso-toolkit/dso-toolkit/issues/3515))

@@ -1,8 +1,18 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/alert";
+
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+@use "alert.variables" as alert-variables;
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
 
 :host {
   display: block;
@@ -12,24 +22,105 @@
   margin-block-start: units.$u3;
 }
 
-@include utilities.box-sizing();
-
-.sr-only {
-  @include utilities.sr-only();
-}
-
 .alert {
-  @include alert.root();
+  line-height: typography.$line-height-base;
+  margin-block-end: var(--_dso-alert-margin-block-end, typography.$line-height-computed);
+  min-block-size: 2 * alert-variables.$inline-padding + alert-variables.$icon-size;
+  position: relative;
+  border: 1px solid transparent;
+
+  @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
+    padding-block: (alert-variables.$block-padding - alert-variables.$border-size);
+    padding-inline: (alert-variables.$inline-start-padding - alert-variables.$border-size)
+      (units.$u5 - alert-variables.$border-size);
+
+    &.dso-compact {
+      padding-block: alert-variables.$block-padding * 0.5 - alert-variables.$border-size;
+      padding-inline: (alert-variables.$inline-padding - alert-variables.$border-size)
+        (units.$u5 - alert-variables.$border-size);
+    }
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    padding-block: (alert-variables.$small-padding-block-start - alert-variables.$border-size)
+      (alert-variables.$small-padding - alert-variables.$border-size);
+    padding-inline: alert-variables.$small-padding - alert-variables.$border-size;
+
+    &.dso-compact {
+      padding-block: alert-variables.$block-padding * 0.5 - alert-variables.$border-size;
+      padding-inline: alert-variables.$inline-padding - alert-variables.$border-size;
+    }
+  }
 
   dso-icon-button {
     position: absolute;
-    inset-block-start: units.$u1 - alert.$border-size;
-    inset-inline-end: units.$u1 - alert.$border-size;
+    inset-block-start: units.$u1 - alert-variables.$border-size;
+    inset-inline-end: units.$u1 - alert-variables.$border-size;
   }
 
   &.dso-compact {
-    min-block-size: alert.$inline-padding;
+    border-end-end-radius: units.$u1;
+    border-start-end-radius: units.$u1;
+    margin-inline-start: units.$u1;
+    min-block-size: alert-variables.$inline-padding;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset-block-start: alert-variables.$border-size * -1;
+      inset-block-end: alert-variables.$border-size * -1;
+      inset-inline-start: (units.$u1 + alert-variables.$border-size) * -1;
+      border-start-start-radius: units.$u1;
+      border-end-start-radius: units.$u1;
+      inline-size: units.$u1;
+    }
   }
+
+  &.alert-error {
+    @include set-colors.apply(alert-variables.$danger-bg, "alert");
+
+    border-color: var(--_dso-alert-error-border-color, alert-variables.$danger-bg);
+
+    &.dso-compact::before {
+      background-color: alert-variables.$danger-compact-accent-bg;
+    }
+  }
+
+  &.alert-info {
+    @include set-colors.apply(alert-variables.$info-bg, "alert");
+
+    border-color: var(--_dso-alert-info-border-color, alert-variables.$info-bg);
+
+    &.dso-compact::before {
+      background-color: alert-variables.$info-compact-accent-bg;
+    }
+  }
+
+  &.alert-success {
+    @include set-colors.apply(alert-variables.$success-bg, "alert");
+
+    border-color: var(--_dso-alert-success-border-color, alert-variables.$success-bg);
+
+    &.dso-compact::before {
+      background-color: alert-variables.$success-compact-accent-bg;
+    }
+  }
+
+  &.alert-warning {
+    @include set-colors.apply(alert-variables.$warning-bg, "alert");
+
+    border-color: var(--_dso-alert-warning-border-color, alert-variables.$warning-bg);
+
+    &.dso-compact::before {
+      background-color: alert-variables.$warning-compact-accent-bg;
+    }
+  }
+}
+
+.icon-status {
+  inset-block-start: alert-variables.$inline-padding - alert-variables.$border-size;
+  inset-inline-start: alert-variables.$inline-padding - alert-variables.$border-size;
+  position: absolute;
 }
 
 ::slotted(.dso-rich-content) {
