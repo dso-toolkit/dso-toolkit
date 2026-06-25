@@ -32,7 +32,7 @@
     "@types/node": "^26.0.0",
     "dso-toolkit": "workspace:*",
     "eslint": "^9.39.4",
-    "http-proxy-middleware": "^3.0.5",
+    "http-proxy-middleware": "^3.0.7",
     "lodash.startcase": "^4.4.0",
     "mkdirp": "^3.0.1",
     "ng-packagr": "^21.2.3",

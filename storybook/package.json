@@ -26,7 +26,7 @@
     "cypress-real-events": "^1.15.0",
     "dso-toolkit": "workspace:*",
     "eslint": "^10.4.1",
-    "http-proxy-middleware": "^4.1.0",
+    "http-proxy-middleware": "^4.1.1",
     "http-server": "^14.1.1",
     "lit-html": "^3.3.3",
     "lodash.startcase": "^4.4.0",
