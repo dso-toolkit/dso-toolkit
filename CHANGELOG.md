@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🥅 Release 98.0.0 - 2026-06-26
+
 ### Changed
 * **BREAKING** Dropdown Menu: Aanpassen markup voorschrift ([#3493](https://github.com/dso-toolkit/dso-toolkit/issues/3493))
 
