@@ -3,8 +3,8 @@
 
 @use "../../variables/colors";
 @use "../../variables/states";
-@use "../../components/link/link.variables" as link-variables;
 @use "../../di-inline";
+@use "../../components/link/link.variables" as link-variables;
 
 @use "../functions/contrast-color.functions" as contrast-color-functions;
 
@@ -30,6 +30,12 @@
   $is-white-bg: contrast-color-functions.is-white($background-color);
   $is-dark-contrast: $contrast-color == colors.$contrast-dark;
 
+  $icon-color: "wit";
+
+  @if $is-dark-contrast {
+    $icon-color: "zwart";
+  }
+
   @if $self != "alert" {
     @if $is-white-bg {
       --_dso-alert-success-border-color: initial;
@@ -49,14 +55,13 @@
     --_dso-link-hover-color: currentColor;
     --_dso-link-visited-color: currentColor;
 
-    // set according to contrast color determined by contrast-color function
-    $icon-color: "wit";
-
-    @if $contrast-color == colors.$contrast-dark {
-      $icon-color: "zwart";
+    @each $mode, $cfg in link-variables.$linkIcons {
+      --_dso-link-#{$mode}-icon: var(#{di-inline.custom-property(map.get($cfg, "icon"), $icon-color)});
     }
+  }
 
-    @include _linkIconColors($icon-color);
+  @if $self != "link-list" and not $is-white-bg {
+    --_dso-link-list-chevron-icon: var(#{di-inline.custom-property("chevron-right", $icon-color)});
   }
 
   @if $self != "icon-button" and not $is-white-bg {
@@ -88,6 +93,9 @@
   }
 
   @if $self != "button" and not $is-white-bg {
+    --_dso-button-tertiary-download-icon: var(#{di-inline.custom-property("download", $icon-color)});
+    --_dso-button-tertiary-external-link-icon: var(#{di-inline.custom-property("external-link", $icon-color)});
+
     @if $is-dark-contrast {
       --_dso-button-tertiary-color: #{colors.$grijs-90};
       --_dso-button-tertiary-hover-color: #{colors.$grijs-70};
@@ -128,12 +136,4 @@
   // set css properties
   background-color: $background-color;
   color: $contrast-color;
-}
-
-@mixin _linkIconColors($icon-color) {
-  @each $mode, $value in link-variables.$linkIcons {
-    $key: map.get($value, "icon");
-
-    #{link-variables.icon-contrast($key)}: var(#{di-inline.name($key, $icon-color)});
-  }
 }

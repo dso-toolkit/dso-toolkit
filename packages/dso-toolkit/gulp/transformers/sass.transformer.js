@@ -41,7 +41,7 @@ export function sassTransformer() {
         style: "expanded",
         verbose: true,
         functions: {
-          "inline-icon($name, $color)": inlineIcon,
+          "inline-icon-DI-ONLY($name, $color)": inlineIcon,
         },
       });
 

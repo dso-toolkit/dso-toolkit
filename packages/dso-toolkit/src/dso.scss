@@ -36,9 +36,7 @@
 @use "components/form-group/form-group";
 @use "components/grid/grid";
 @use "components/heading/heading";
-@use "components/highlight-box/highlight-box";
 @use "components/horizontal-rule/horizontal-rule";
-@use "components/icon";
 @use "components/image/image";
 @use "components/info/info";
 @use "components/input/input";
@@ -72,6 +70,6 @@
 // Very global and generic styling
 @use "utilities" as utilities-mixins;
 
-@include di-inline.inline();
+@include di-inline.inline-icons();
 
 @include utilities-mixins.box-sizing();

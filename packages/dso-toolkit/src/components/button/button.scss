@@ -1,41 +1,42 @@
 @use "sass:map";
 
-@use "../../di";
+@use "../../di-inline";
 @use "../../variables/units";
-@use "../../variables/colors";
 
 @use "button.mixins" as button-mixins;
 
-@mixin _shared-icon($default-di, $hover-di, $disabled-di) {
+@mixin _shared-icon($icon, $colors) {
   &::after {
-    @include di.base($default-di);
+    @include di-inline.base($icon, map.get($colors, "default"));
   }
 
-  @if ($hover-di) {
+  @if map.has-key($colors, "hover") {
     &:hover {
       &::after {
-        @include di.variant($hover-di);
+        @include di-inline.variant($icon, map.get($colors, "hover"));
       }
     }
   }
 
-  @if ($disabled-di) {
+  @if map.has-key($colors, "disabled") {
     &[disabled] {
       &::after {
-        @include di.variant($disabled-di);
+        @include di-inline.variant($icon, map.get($colors, "disabled"));
       }
     }
   }
 }
 
-@mixin _tertiary-icon($default-di, $disabled-di, $hover-active-di) {
+@mixin _tertiary-icon($icon) {
+  $property: --_dso-button-tertiary-#{$icon}-icon;
+
   &::after {
-    @include di.base($default-di);
+    @include di-inline.base($icon, "grasgroen", $override-property: $property);
   }
 
   &[disabled] {
     &::after {
-      @include di.variant($disabled-di);
+      @include di-inline.variant($icon, "grasgroen-40");
     }
   }
 
@@ -43,27 +44,19 @@
     &:hover,
     &:active {
       &::after {
-        @include di.variant($hover-active-di);
+        @include di-inline.variant($icon, "bosgroen", $override-property: $property);
       }
     }
   }
 }
 
-@mixin _shared($download-map, $extern-map) {
+@mixin _shared($download-colors, $extern-colors) {
   &.download {
-    @include _shared-icon(
-      map.get($download-map, "default"),
-      map.get($download-map, "hover"),
-      map.get($download-map, "disabled")
-    );
+    @include _shared-icon("download", $download-colors);
   }
 
   &.extern {
-    @include _shared-icon(
-      map.get($extern-map, "default"),
-      map.get($extern-map, "hover"),
-      map.get($extern-map, "disabled")
-    );
+    @include _shared-icon("external-link", $extern-colors);
   }
 }
 
@@ -78,10 +71,10 @@ label {
     @include button-mixins.primary($base-styling: true);
     @include _shared(
       (
-        "default": "download-wit",
+        "default": "wit",
       ),
       (
-        "default": "external-link-wit",
+        "default": "wit",
       )
     );
   }
@@ -90,14 +83,14 @@ label {
     @include button-mixins.secondary($base-styling: true);
     @include _shared(
       (
-        "default": "download",
-        "hover": "download-bosgroen",
-        "disabled": "download-grasgroen-40",
+        "default": "grasgroen",
+        "hover": "bosgroen",
+        "disabled": "grasgroen-40",
       ),
       (
-        "default": "external-link",
-        "hover": "external-link-bosgroen",
-        "disabled": "external-link-grasgroen-40",
+        "default": "grasgroen",
+        "hover": "bosgroen",
+        "disabled": "grasgroen-40",
       )
     );
   }
@@ -114,11 +107,11 @@ label {
     }
 
     &.download {
-      @include _tertiary-icon("download", "download-grasgroen-40", "download-bosgroen");
+      @include _tertiary-icon("download");
     }
 
     &.extern {
-      @include _tertiary-icon("external-link", "external-link-grasgroen-40", "external-link-bosgroen");
+      @include _tertiary-icon("external-link");
     }
   }
 
