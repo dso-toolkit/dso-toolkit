@@ -63,10 +63,10 @@ form {
 
   &.dso-equal-heights {
     &:has(dso-highlight-box) {
-      --highlight-box-block-size: 100%;
-      --highlight-box-min-block-size: auto;
-      --highlight-box-counter-block-size: calc(100% - #{units.$shared-equal-heights-highlight-box-block-size});
-      --highlight-box-nocounter-block-size: calc(100% - #{units.$u2});
+      --_dso-highlight-box-block-size: 100%;
+      --_dso-highlight-box-min-block-size: auto;
+      --_dso-highlight-box-counter-block-size: calc(100% - #{units.$shared-equal-heights-highlight-box-block-size});
+      --_dso-highlight-box-nocounter-block-size: calc(100% - #{units.$u2});
     }
 
     > [class*="col-"] {

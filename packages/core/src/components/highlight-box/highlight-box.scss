@@ -22,15 +22,15 @@
   padding: units.$u2;
   margin-block-end: units.$block-spacing-large;
 
-  block-size: var(--highlight-box-block-size, unset);
-  min-block-size: var(--highlight-box-min-block-size, unset);
+  block-size: var(--_dso-highlight-box-block-size, unset);
+  min-block-size: var(--_dso-highlight-box-min-block-size, unset);
 
   --_dso-link-list-margin-block-end: 0;
   --_dso-rich-content-margin-block-start: 0;
 }
 
 :host([has-counter]) {
-  block-size: var(--highlight-box-counter-block-size, unset);
+  block-size: var(--_dso-highlight-box-counter-block-size, unset);
 
   margin-block-start: highlight-box-variables.$margin-block-start;
 
@@ -38,7 +38,7 @@
 }
 
 :host(:not([has-counter])) {
-  block-size: var(--highlight-box-nocounter-block-size, unset);
+  block-size: var(--_dso-highlight-box-nocounter-block-size, unset);
 }
 
 :host(:not([white], [yellow], [border], [green])) {
