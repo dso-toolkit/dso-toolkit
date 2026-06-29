@@ -19,21 +19,20 @@
     "@docusaurus/plugin-content-docs": "3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
     "@docusaurus/theme-common": "3.10.1",
+    "@docusaurus/types": "3.10.1",
     "@easyops-cn/docusaurus-search-local": "^0.55.2",
     "@iframe-resizer/react": "^5.5.9",
     "@mdx-js/react": "^3.1.1",
     "@tsconfig/docusaurus": "^2.0.9",
-    "@types/react": "^19.2.17",
-    "clsx": "^2.1.1",
+    "@types/react": "catalog:",
+    "clsx": "catalog:",
     "docusaurus-plugin-sass": "^0.2.6",
     "dso-toolkit": "workspace:*",
     "prism-react-renderer": "^2.4.1",
-    "prop-types": "^15.8.1",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "react-router-dom": "^7.17.0",
-    "sass": "1.100.0",
-    "typescript": "~5.9.3"
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "sass": "catalog:",
+    "typescript": "catalog:"
   },
   "browserslist": {
     "production": [
