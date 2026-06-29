@@ -39,12 +39,13 @@ export class ActionListItem implements ComponentInterface {
   render() {
     return (
       <Host
+        role="listitem"
         class={{
           divider: this.divider,
           "flow-line": this.flowLine,
         }}
       >
-        <li class="dso-action-list-item">
+        <div class="dso-action-list-item">
           {this.warning ? (
             <dso-icon icon="status-warning" aria-hidden="true"></dso-icon>
           ) : (
@@ -53,10 +54,17 @@ export class ActionListItem implements ComponentInterface {
             </div>
           )}
           <div class="action-list-item-content">
-            {this.itemTitle && <h3>{this.itemTitle}</h3>}
+            {this.itemTitle ? (
+              <h3>
+                <span class="sr-only">Stap {this.step}: </span>
+                {this.itemTitle}
+              </h3>
+            ) : (
+              <span class="sr-only">Stap {this.step}: </span>
+            )}
             <slot />
           </div>
-        </li>
+        </div>
       </Host>
     );
   }
