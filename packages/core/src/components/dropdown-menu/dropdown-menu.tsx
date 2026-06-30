@@ -40,6 +40,7 @@ export class DropdownMenu implements ComponentInterface {
   }
 
   private button?: HTMLButtonElement;
+  private status?: HTMLDivElement;
 
   /**
    * Whether the menu items are checkable.
@@ -133,9 +134,30 @@ export class DropdownMenu implements ComponentInterface {
       this.popoverElement.togglePopover(this.open);
     }
 
-    if (!this.open && this.cleanUp) {
-      this.cleanUp();
+    if (this.open) {
+      setTimeout(() => {
+        const items = this.dropdownMenuTabbables(false);
+        const selected = items.find((item) => item.hasAttribute("checked"));
+
+        this.moveFocusTo(selected);
+        this.announce(items, selected);
+      }, 50);
+    } else {
+      if (this.status) {
+        this.status.textContent = "";
+      }
+
+      this.cleanUp?.();
       this.cleanUp = undefined;
+    }
+  }
+
+  private announce(items: HTMLElement[], selected?: HTMLElement) {
+    const selectedText = selected?.textContent?.trim() || "geen selectie";
+    const optionsText = items.length === 1 ? "optie" : "opties";
+
+    if (this.status) {
+      this.status.textContent = `Menu geopend. ${items.length} ${optionsText}. Geselecteerd: ${selectedText}.`;
     }
   }
 
@@ -229,6 +251,7 @@ export class DropdownMenu implements ComponentInterface {
 
   render() {
     const buttonId = uuidv4();
+    const menuId = uuidv4();
 
     return (
       <Host onFocusout={this.focusOutListener} onKeyDown={this.keyDownHandler}>
@@ -240,6 +263,7 @@ export class DropdownMenu implements ComponentInterface {
             onClick={() => this.toggleOptions()}
             aria-expanded={this.open.toString()}
             aria-haspopup="menu"
+            aria-controls={menuId}
             ref={(element) => (this.button = element)}
           >
             {this.label}
@@ -247,6 +271,7 @@ export class DropdownMenu implements ComponentInterface {
           </button>
         )}
         <div
+          id={menuId}
           popover="manual"
           class="dso-dropdown-options"
           aria-labelledby={buttonId}
@@ -255,6 +280,7 @@ export class DropdownMenu implements ComponentInterface {
         >
           <slot />
         </div>
+        <div class="sr-only" aria-live="polite" aria-atomic="true" ref={(element) => (this.status = element)} />
       </Host>
     );
   }
