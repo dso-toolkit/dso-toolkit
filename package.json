@@ -42,7 +42,6 @@
     "minimist": "^1.2.8",
     "nx": "22.7.5",
     "plop": "^4.0.5",
-    "postcss": "catalog:",
     "prettier": "catalog:",
     "rimraf": "catalog:",
     "semver": "^7.8.3",
