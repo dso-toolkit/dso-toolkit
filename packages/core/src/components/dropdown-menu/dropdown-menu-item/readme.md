@@ -1,4 +1,4 @@
-# dso-dropdown-menu-item
+# `<dso-dropdown-menu-item>`
 
 
 
@@ -10,7 +10,7 @@
 | Property            | Attribute | Description                                                           | Type                              | Default     |
 | ------------------- | --------- | --------------------------------------------------------------------- | --------------------------------- | ----------- |
 | `checked`           | `checked` | Whether the Dropdown Menu Item is checked.                            | `boolean \| undefined`            | `undefined` |
-| `href`              | `href`    | The href of the link when the type is `Link`.                         | `string \| undefined`             | `undefined` |
+| `href`              | `href`    | The href of the link when the type is `link`.                         | `string \| undefined`             | `undefined` |
 | `type` _(required)_ | `type`    | The type of the dropdown menu item. Can be one of `button` or `link`. | `"button" \| "link" \| undefined` | `undefined` |
 
 
