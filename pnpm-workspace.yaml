@@ -36,13 +36,13 @@ catalog:
 
 catalogs:
   storybook:
-    "@storybook/addon-a11y": "10.4.2"
-    "@storybook/addon-docs": "10.4.2"
-    "@storybook/builder-vite": "10.4.2"
-    "@storybook/react-vite": "10.4.2"
-    "@storybook/web-components-vite": "10.4.2"
-    eslint-plugin-storybook: "10.4.2"
-    storybook: "10.4.2"
+    "@storybook/addon-a11y": "10.4.6"
+    "@storybook/addon-docs": "10.4.6"
+    "@storybook/builder-vite": "10.4.6"
+    "@storybook/react-vite": "10.4.6"
+    "@storybook/web-components-vite": "10.4.6"
+    eslint-plugin-storybook: "10.4.6"
+    storybook: "10.4.6"
     vite: "^8.0.16"
 
   angular:
@@ -61,14 +61,11 @@ catalogs:
     "@angular/platform-browser-dynamic": "^21.2.17"
     "@angular/router": "^21.2.17"
     "@compodoc/compodoc": "^1.2.1"
-    "@storybook/addon-a11y": "10.3.5"
-    "@storybook/addon-docs": "10.3.5"
-    "@storybook/angular": "10.3.5"
+    "@storybook/angular": "10.4.6"
     http-proxy-middleware: "^3.0.7"
     mkdirp: "^3.0.1"
     ng-packagr: "^21.2.3"
     rxjs: "~7.8.2"
-    storybook: "10.3.5"
     "zone.js": "~0.16.1"
 
 overrides:
