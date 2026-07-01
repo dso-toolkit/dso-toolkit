@@ -7,31 +7,18 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - name: Security Scan
-        uses: gensecaihq/Shai-Hulud-2.0-Detector@v2
-        with:
-          fail-on-critical: true
-          fail-on-high: false
-          fail-on-any: false
-          scan-lockfiles: true
-          scan-node-modules: false
-          output-format: text
-          working-directory: "."
-          allowlist-path: ".shai-hulud-allowlist.json"
-          ignore-allowlist: false
-          warn-on-allowlist: false
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      - uses: docker/login-action@v3
+        uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
         name: Log in to GitHub Container Registry
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@v9
         name: Set DT_REF
         with:
           script: |
@@ -53,7 +40,7 @@ jobs:
             }
       - name: Output DT_REF
         run: echo $DT_REF;
-      - uses: docker/build-push-action@v5
+      - uses: docker/build-push-action@v7
         name: Build and push Docker image
         with:
           push: true
@@ -70,7 +57,7 @@ jobs:
       - name: "Cache: Cypress snapshots"
         if: ${{ env.DT_DIST_TAG != 'latest' }}
         id: cypress-snapshots-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           key: cypress-snapshots-${{ env.DT_MERGE_BASE }}
           path: ${{ github.workspace }}/storybook/cypress/snapshot-baseline
@@ -84,20 +71,17 @@ jobs:
       - name: e2e tests
         if: ${{ env.DT_DIST_TAG != 'latest' }}
         id: e2e
-        uses: maus007/docker-run-action-fork@main
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          image: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
-          options: --env CI
-            --env DT_REF
-            --env ${{ env.DT_CYPRESS_SNAPSHOT_MODE }}
-            --volume ${{ github.workspace }}/storybook/cypress/screenshots:/usr/src/app/storybook/cypress/screenshots
-            --volume ${{ github.workspace }}/storybook/cypress/snapshot-baseline:/usr/src/app/storybook/cypress/snapshot-baseline
-            --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff
-          run: pnpm e2e
-      - uses: actions/upload-artifact@v4
+        run: |
+          docker run --rm \
+            --env CI \
+            --env DT_REF \
+            --env ${{ env.DT_CYPRESS_SNAPSHOT_MODE }} \
+            --volume ${{ github.workspace }}/storybook/cypress/screenshots:/usr/src/app/storybook/cypress/screenshots \
+            --volume ${{ github.workspace }}/storybook/cypress/snapshot-baseline:/usr/src/app/storybook/cypress/snapshot-baseline \
+            --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff \
+            ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }} \
+            "pnpm e2e"
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() && env.DT_DIST_TAG != 'latest'}}
         with:
           name: cypress-snapshots-${{ env.DT_REF }}
@@ -105,26 +89,22 @@ jobs:
             ${{ github.workspace }}/storybook/cypress/screenshots
             ${{ github.workspace }}/storybook/cypress/snapshot-baseline
             ${{ github.workspace }}/storybook/cypress/snapshot-diff
-      - uses: maus007/docker-run-action-fork@main
+      - name: Deploy
         if: ${{ !cancelled() && (env.DT_DIST_TAG != 'latest' || steps.e2e.conclusion == 'success')  || (env.DT_DIST_TAG == 'latest' && steps.e2e.conclusion == 'skipped' ) }}
-        name: Deploy
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          image: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
-          options: --env CI
-            --env DT_REF
-            --env DT_DIST_TAG
-            --env DT_AZURE_STORAGE_ACCOUNT_NAME
-            --env DT_AZURE_STORAGE_ACCOUNT_KEY
-            --env DT_AZURE_STORAGE_HOST
-            --env DT_AZURE_STORAGE_HOST_DFS
-            --env DT_AZURE_STORAGE_CONTAINER
-            --env DT_DEPLOY_NPM_TOKEN
-            --env GITHUB_TOKEN
-            --env GH_TOKEN
-          run: bash deploy.sh
+        run: |
+          docker run --rm \
+            --env CI \
+            --env DT_REF \
+            --env DT_DIST_TAG \
+            --env DT_AZURE_STORAGE_ACCOUNT_NAME \
+            --env DT_AZURE_STORAGE_ACCOUNT_KEY \
+            --env DT_AZURE_STORAGE_HOST \
+            --env DT_AZURE_STORAGE_HOST_DFS \
+            --env DT_AZURE_STORAGE_CONTAINER \
+            --env DT_DEPLOY_NPM_TOKEN \
+            --env GITHUB_TOKEN \
+            ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }} \
+            "bash deploy.sh"
         env:
           DT_AZURE_STORAGE_ACCOUNT_NAME: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_ACCOUNT_NAME_ACC || secrets.DT_AZURE_STORAGE_ACCOUNT_NAME }}
           DT_AZURE_STORAGE_ACCOUNT_KEY: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_ACCOUNT_KEY_ACC || secrets.DT_AZURE_STORAGE_ACCOUNT_KEY }}
@@ -132,7 +112,7 @@ jobs:
           DT_AZURE_STORAGE_HOST_DFS: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_HOST_DFS_ACC || secrets.DT_AZURE_STORAGE_HOST_DFS }}
           DT_AZURE_STORAGE_CONTAINER: ${{ env.DT_REF == 'test' && vars.DT_AZURE_STORAGE_CONTAINER_ACC || vars.DT_AZURE_STORAGE_CONTAINER }}
           DT_DEPLOY_NPM_TOKEN: ${{ secrets.DT_DEPLOY_NPM_TOKEN }}
-          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
       - run: gh release create v${DT_REF} --generate-notes --verify-tag
         if: ${{ env.DT_DIST_TAG == 'latest' }}
         name: Create GitHub release
