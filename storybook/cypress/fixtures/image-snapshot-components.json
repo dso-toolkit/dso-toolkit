@@ -1,10 +1,4 @@
 [
-  {
-    "name": "highlight-box",
-    "selector": "dso-highlight-box.hydrated",
-    "stories": ["default", "yellow", "green", "white-with-dropshadow", "with-border", "with-icon", "with-banner-image"],
-    "type": "core"
-  },
   { "name": "icon", "selector": "dso-icon.hydrated", "stories": ["default"], "type": "core" },
   {
     "name": "icon",
@@ -169,21 +163,6 @@
     "name": "justify-form-groups",
 
     "stories": ["justify-form-groups"],
-    "type": "html-css"
-  },
-  {
-    "name": "highlight-box-deprecated",
-    "selector": ".dso-highlight-box",
-    "stories": [
-      "default",
-      "grey",
-      "grey-with-border",
-      "white-with-dropshadow",
-      "with-banner-image",
-      "with-border",
-      "with-icon",
-      "yellow"
-    ],
     "type": "html-css"
   },
   {

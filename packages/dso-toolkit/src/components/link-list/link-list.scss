@@ -1,14 +1,14 @@
 @use "../../variables/units";
 @use "../link-list";
 
-@use "../../di";
+@use "../../di-inline";
 
 .dso-link-list {
   @include link-list.root();
 
   a {
     &::before {
-      @include di.base("chevron-right");
+      @include di-inline.base("chevron-right", "grasgroen", $override-property: --_dso-link-list-chevron-icon);
 
       content: "";
       display: inline-block;
@@ -19,7 +19,7 @@
     &:focus,
     &:hover {
       &::before {
-        @include di.variant("chevron-right-scampi");
+        @include di-inline.variant("chevron-right", "scampi", $override-property: --_dso-link-list-chevron-icon);
       }
     }
   }

@@ -15,8 +15,7 @@
 // within dso-highlight-box, create space for dso-button-row when preceded and/or followed by other elements
 // ---------------------------------------------------------------------------------------------------------
 // To Do: integrate this with things to come within this file, and remove the wildcard!
-:where(dso-highlight-box),
-:where(.dso-highlight-box) {
+:where(dso-highlight-box) {
   :where(.dso-button-row) {
     margin-block: 0;
   }

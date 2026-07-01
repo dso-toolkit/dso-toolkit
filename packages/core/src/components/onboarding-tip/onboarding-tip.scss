@@ -109,9 +109,9 @@
 }
 
 .onboarding-tip-inner {
-  --link-color: #{colors.$wit};
-  --link-hover-color: #{colors.$grijs-30};
-  --link-visited-color: #{colors.$grijs-50};
+  --_dso-link-color: #{colors.$wit};
+  --_dso-link-hover-color: #{colors.$grijs-30};
+  --_dso-link-visited-color: #{colors.$grijs-50};
 
   max-inline-size: min(#{onboarding-tip-variables.$max-inline-size}, calc(100vw - 2 * #{units.$u1}));
   max-block-size: calc(100vh - 10px); // 10px is the padding given to floating-ui

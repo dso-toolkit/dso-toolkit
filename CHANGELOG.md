@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Removed
+* **BREAKING** Highlight Box: Remove HTML/CSS implementatie ([#3677](https://github.com/dso-toolkit/dso-toolkit/issues/3677))
+
 ### Task
 * Build: pnpm catalogs and strict-peer-dependencies ([#3778](https://github.com/dso-toolkit/dso-toolkit/issues/3778))
 

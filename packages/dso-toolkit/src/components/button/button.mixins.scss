@@ -357,7 +357,6 @@
 
   &:hover,
   &:focus-visible {
-    color: button-variables.$secondary-hover-color;
     text-decoration: none;
   }
 }
@@ -470,7 +469,7 @@
 
   &,
   &:visited {
-    color: button-variables.$tertiary-color;
+    color: var(--_dso-button-tertiary-color, button-variables.$tertiary-color);
   }
 }
 

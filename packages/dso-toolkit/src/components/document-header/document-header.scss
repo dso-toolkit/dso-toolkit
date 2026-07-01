@@ -5,7 +5,7 @@
 @use "../../variables/colors";
 @use "../../variables/typography";
 @use "../button";
-@use "../icon";
+@use "../../variables/icon";
 
 @use "../grid/grid.variables.scss" as grid-variables;
 @use "../../global/mixins/set-colors.mixin" as set-colors;

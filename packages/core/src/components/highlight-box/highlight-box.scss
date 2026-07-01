@@ -1,17 +1,102 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/highlight-box";
+
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
 @use "~dso-toolkit/src/components/step-counter";
+
+@use "highlight-box.variables" as highlight-box-variables;
 
 @include utilities.box-sizing();
 
 @include step-counter.step-counter();
 
 :host {
-  @include highlight-box.root();
-
   display: block;
   container-type: inline-size;
   position: relative;
   z-index: 1;
+
+  margin-block-start: units.$u2;
+  padding: units.$u2;
+  margin-block-end: units.$block-spacing-large;
+
+  block-size: var(--_dso-highlight-box-block-size, unset);
+  min-block-size: var(--_dso-highlight-box-min-block-size, unset);
+
+  --_dso-link-list-margin-block-end: 0;
+  --_dso-rich-content-margin-block-start: 0;
+}
+
+:host([has-counter]) {
+  block-size: var(--_dso-highlight-box-counter-block-size, unset);
+
+  margin-block-start: highlight-box-variables.$margin-block-start;
+
+  @include step-counter.has-step-counter();
+}
+
+:host(:not([has-counter])) {
+  block-size: var(--_dso-highlight-box-nocounter-block-size, unset);
+}
+
+:host(:not([white], [yellow], [border], [green])) {
+  @include set-colors.apply(colors.$grijs-5, "highlight-box");
+}
+
+:host([grey]) {
+  @include set-colors.apply(colors.$grijs-5, "highlight-box");
+}
+
+:host([white]) {
+  @include set-colors.apply(colors.$wit, "highlight-box");
+}
+
+:host([yellow]) {
+  @include set-colors.apply(colors.$geel-20, "highlight-box");
+}
+
+:host([green]) {
+  @include set-colors.apply(colors.$grasgroen-10, "highlight-box");
+}
+
+:host([drop-shadow]) {
+  box-shadow: highlight-box-variables.$box-shadow;
+}
+
+:host([border]) {
+  border: 1px solid colors.$grijs-20;
+  padding: #{units.$u2 - 1};
+}
+
+:host([border]:not([grey], [yellow])) {
+  @include set-colors.apply(colors.$wit, "highlight-box");
+}
+
+::slotted([slot="icon"]) {
+  @include step-counter.icon();
+}
+
+::slotted(img.dso-highlight-box-banner) {
+  aspect-ratio: 2.38 / 1;
+  margin-inline-start: units.$u2 * -1;
+  margin-inline-end: units.$u2 * -1;
+  margin-block-start: units.$u2 * -1;
+  margin-block-end: units.$u1;
+  object-fit: cover;
+  inline-size: calc(100% + #{units.$u4});
+  max-inline-size: unset !important;
+
+  @container (min-width: 360px) and (max-width: 470px) {
+    aspect-ratio: 3 / 1;
+  }
+
+  @container (min-width: 471px) {
+    aspect-ratio: 3.5 / 1;
+  }
+}
+
+::slotted(:last-child) {
+  margin-block-end: 0 !important;
 }

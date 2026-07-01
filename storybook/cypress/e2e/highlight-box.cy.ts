@@ -1,17 +1,25 @@
-describe("Highlight box", () => {
-  beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=html-css-row-equal-heights--highlight-boxes");
-  });
+describe("Highlight Box", () => {
+  const stories = [
+    "default",
+    "green",
+    "grey-with-border",
+    "white-with-dropshadow",
+    "with-banner-image",
+    "with-border",
+    "with-icon",
+    "yellow",
+  ];
 
-  it("Gives each box the same height", () => {
-    cy.viewport(1320, 720);
-    cy.get(".dso-equal-heights :first-child .dso-highlight-box").invoke("height").as("height_of_box");
+  for (const story of stories) {
+    it(`should be accessible (${story})`, () => {
+      cy.visit(`http://localhost:45000/iframe.html?id=core-highlight-box--${story}`);
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-highlight-box.hydrated");
+    });
 
-    cy.get(".dso-equal-heights .dso-highlight-box").invoke("height").should("have.be", this.height_of_box);
-  });
-
-  it("Gives each box 100% width in mobile viewport", () => {
-    cy.viewport(320, 720);
-    cy.get(".dso-highlight-box").invoke("width").should("be.equal", 209);
-  });
+    it(`matches imageSnapshot (${story})`, () => {
+      cy.visit(`http://localhost:45000/iframe.html?id=core-highlight-box--${story}`);
+      cy.get("dso-highlight-box.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} - ${story}`);
+    });
+  }
 });

@@ -134,15 +134,15 @@
 }
 
 :host([mode="document"]:not([not-collapsible])) {
-  --link-color: #{document-component.$heading-anchor-color};
-  --link-hover-color: #{document-component.$heading-anchor-hover-color};
+  --_dso-link-color: #{document-component.$heading-anchor-color};
+  --_dso-link-hover-color: #{document-component.$heading-anchor-hover-color};
 
   dso-ozon-content {
     &.kop::part(_kop) {
       cursor: pointer;
 
       &:hover {
-        color: var(--link-hover-color);
+        color: var(--_dso-link-hover-color);
         text-decoration: underline;
       }
     }

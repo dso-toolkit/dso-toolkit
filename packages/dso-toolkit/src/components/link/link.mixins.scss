@@ -1,11 +1,12 @@
 @use "sass:map";
 
-@use "../../di";
+@use "../../di-inline";
 @use "../../variables/units";
 @use "link.variables" as link-variables;
 
 @mixin hideIcons() {
-  --_dso-di-background-image: none;
+  --_dso-link-icon-visibility: none;
+
   --_dso-link-icon-padding-inline-start: 0;
   --_dso-link-icon-padding-inline-end: 0;
 }
@@ -13,7 +14,7 @@
 @mixin pseudo() {
   &:hover,
   &:focus-visible {
-    color: var(--link-hover-color);
+    color: var(--_dso-link-hover-color);
     text-decoration: underline;
   }
 
@@ -25,7 +26,7 @@
 @mixin root($is-html-a-element: true) {
   overflow-wrap: anywhere;
   background-color: transparent;
-  color: var(--link-color);
+  color: var(--_dso-link-color);
   text-decoration: underline;
   text-underline-offset: link-variables.$link-underline-offset;
 
@@ -37,7 +38,7 @@
 
   @if ($is-html-a-element) {
     &:visited {
-      color: var(--link-visited-color);
+      color: var(--_dso-link-visited-color);
     }
   } @else {
     cursor: pointer;
@@ -70,12 +71,12 @@
 @mixin linkIcons() {
   @each $mode, $value in link-variables.$linkIcons {
     &#{map.get($value, "selector")} {
-      @include _mode-base($value);
+      @include _mode-base($value, $mode);
     }
   }
 }
 
-@mixin _mode-base($link-map) {
+@mixin _mode-base($link-map, $mode) {
   $icon-placement: map.get($link-map, "icon-placement");
 
   @if $icon-placement != "after" and $icon-placement != "before" {
@@ -95,52 +96,44 @@
     background-position: bottom -3px right 0;
   }
 
-  $icon: map.get($link-map, "icon");
+  $key: map.get($link-map, "icon");
+
+  $icon-color: "grasgroen";
 
   @if map.has-key($link-map, "icon-color") {
-    $icon: $icon + "-" + map.get($link-map, "icon-color");
+    $icon-color: map.get($link-map, "icon-color");
   }
 
-  $icon-hover: map.get($link-map, "icon");
+  background-image: var(
+    --_dso-link-icon-visibility,
+    var(--_dso-link-#{$mode}-icon, var(#{di-inline.custom-property($key, $icon-color)}))
+  );
 
   @if map.has-key($link-map, "icon-hover-color") {
-    $icon-hover: $icon-hover + "-" + map.get($link-map, "icon-hover-color");
-  }
+    $icon-hover-color: map.get($link-map, "icon-hover-color");
 
-  $icon: map.get($link-map, "icon");
-
-  @if map.has-key($link-map, "icon-color") {
-    $icon: $icon + "-" + map.get($link-map, "icon-color");
-  }
-
-  $icon-hover: map.get($link-map, "icon");
-
-  @if map.has-key($link-map, "icon-hover-color") {
-    $icon-hover: $icon-hover + "-" + map.get($link-map, "icon-hover-color");
-  }
-
-  @include di.variant($icon);
-
-  @if ($icon != $icon-hover) {
     &:hover,
     &:focus-visible {
-      @include di.variant($icon-hover);
+      background-image: var(
+        --_dso-link-icon-visibility,
+        var(--_dso-link-#{$mode}-icon, var(#{di-inline.custom-property($key, $icon-hover-color)}))
+      );
     }
   }
 }
 
 @mixin mode-download() {
-  @include _mode-base(map.get(link-variables.$linkIcons, "download"));
+  @include _mode-base(map.get(link-variables.$linkIcons, "download"), "download");
 }
 
 @mixin mode-extern() {
-  @include _mode-base(map.get(link-variables.$linkIcons, "extern"));
+  @include _mode-base(map.get(link-variables.$linkIcons, "extern"), "extern");
 }
 
 @mixin mode-phone() {
-  @include _mode-base(map.get(link-variables.$linkIcons, "phone"));
+  @include _mode-base(map.get(link-variables.$linkIcons, "phone"), "phone");
 }
 
 @mixin mode-email() {
-  @include _mode-base(map.get(link-variables.$linkIcons, "mail"));
+  @include _mode-base(map.get(link-variables.$linkIcons, "mail"), "mail");
 }
