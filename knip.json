@@ -1,0 +1,33 @@
+{
+  "include": ["dependencies", "devDependencies", "unlisted"],
+  "ignoreDependencies": ["eslint"],
+  "workspaces": {
+    ".": {
+      "entry": ["scripts/**/*.ts"],
+      "project": ["scripts/**/*.ts", "*.{mjs,js}"],
+      "ignoreDependencies": ["axe-core", "eslint-config-prettier", "wait-on"]
+    },
+    "packages/dso-toolkit": {
+      "entry": ["gulp/**/*.js"],
+      "project": ["src/**/*.ts", "gulp/**/*.js"],
+      "ignoreDependencies": ["@prettier/plugin-xml", "@types/through2"]
+    },
+    "packages/core": {},
+    "packages/react": {
+      "entry": [".storybook/middleware.js"],
+      "ignoreDependencies": ["@stencil/core", "@stencil/react-output-target"]
+    },
+    "angular-workspace": {
+      "entry": [".storybook/middleware.js"],
+      "ignoreDependencies": ["@angular/cdk", "@angular/router", "@compodoc/compodoc"]
+    },
+    "storybook": {
+      "entry": [".storybook/middleware.js", "scripts/*.ts"],
+      "project": ["src/**/*.ts", "scripts/**/*.ts", "cypress/**/*.ts"]
+    },
+    "website": {
+      "entry": ["src/**/*.{ts,tsx}"],
+      "project": ["src/**/*.{ts,tsx}"]
+    }
+  }
+}

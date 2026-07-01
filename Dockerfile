@@ -67,6 +67,7 @@ COPY . .
 RUN pnpm dedupe --check
 RUN (pnpm audit || true)
 RUN pnpm lint
+RUN pnpm knip
 
 ARG DT_REF
 

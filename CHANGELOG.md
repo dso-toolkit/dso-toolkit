@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Build: pnpm catalogs and strict-peer-dependencies ([#3778](https://github.com/dso-toolkit/dso-toolkit/issues/3778))
+
 ## 🥅 Release 98.0.0 - 2026-06-26
 
 ### Changed
