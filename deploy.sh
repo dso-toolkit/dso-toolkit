@@ -33,4 +33,4 @@ then
   pnpm publish angular-workspace/dist/component-library --no-git-checks
 fi
 
-pnpm exec tsx ./scripts/update-azure-blob-storage/main --azureStorageAccountName "$DT_AZURE_STORAGE_ACCOUNT_NAME" --azureStorageAccountKey "$DT_AZURE_STORAGE_ACCOUNT_KEY" --azureStorageHostDfs "$DT_AZURE_STORAGE_HOST_DFS" --azureStorageContainer "$DT_AZURE_STORAGE_CONTAINER"  --githubToken "$GH_TOKEN"
+pnpm exec tsx ./scripts/update-azure-blob-storage/main --azureStorageAccountName "$DT_AZURE_STORAGE_ACCOUNT_NAME" --azureStorageAccountKey "$DT_AZURE_STORAGE_ACCOUNT_KEY" --azureStorageHostDfs "$DT_AZURE_STORAGE_HOST_DFS" --azureStorageContainer "$DT_AZURE_STORAGE_CONTAINER"  --githubToken "$GITHUB_TOKEN"
