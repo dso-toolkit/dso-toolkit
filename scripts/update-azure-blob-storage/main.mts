@@ -11,8 +11,8 @@ import { collectResultSync } from "@lit-labs/ssr/lib/render-result.js";
 import minimist from "minimist";
 import { rsort, sort, valid } from "semver";
 
-import { getGithubBranches } from "./get-github-branches.function";
-import { indexHtml } from "./index-html.template";
+import { getGithubBranches } from "./get-github-branches.function.mjs";
+import { indexHtml } from "./index-html.template.mjs";
 
 interface Args {
   azureStorageHost: string | undefined;

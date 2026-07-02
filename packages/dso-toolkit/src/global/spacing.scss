@@ -103,9 +103,7 @@ $spacers: (
   ),
   (
     space: units.$block-spacing-medium,
-    predecessors: (
-      ".dso-app-heading",
-    ),
+    predecessors: (".dso-app-heading"),
     successors: (
       ".dso-context-wrapper",
       "dso-tabs",

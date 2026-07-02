@@ -57,11 +57,13 @@ export const cssSearchBar: ComponentImplementation<SearchBar> = {
           </div>
           <button class="dso-secondary ${classMap({ "sr-only": !!hideSearchButton })}">${buttonLabel}</button>
         </div>
-        ${resultsMessage
-          ? html`<div class="dso-results ${classMap({ "sr-only": !!resultsHidden })}" aria-live="polite">
-              ${resultsMessage}
-            </div>`
-          : nothing}
+        ${
+          resultsMessage
+            ? html`<div class="dso-results ${classMap({ "sr-only": !!resultsHidden })}" aria-live="polite">
+                ${resultsMessage}
+              </div>`
+            : nothing
+        }
       `;
     },
 };

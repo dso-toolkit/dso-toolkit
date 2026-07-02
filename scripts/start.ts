@@ -1,78 +1,86 @@
-import concurrently from "concurrently";
 import minimist from "minimist";
 import { rimraf } from "rimraf";
 
-const argv = minimist(process.argv.slice(2));
+async function main() {
+  const { default: concurrently } = await import("concurrently");
 
-rimraf.sync("packages/dso-toolkit/dist");
-rimraf.sync("packages/core/dist");
-rimraf.sync("packages/core/loader");
-rimraf.sync("storybook/www");
-rimraf.sync("packages/react/src/components.ts");
-rimraf.sync("packages/react/src/react-component-lib");
-rimraf.sync("packages/react/dist");
-rimraf.sync("packages/react/www");
-rimraf.sync("angular-workspace/.angular");
-rimraf.sync("angular-workspace/www");
-rimraf.sync("angular-workspace/projects/component-library/src/lib/stencil-generated");
+  const argv = minimist(process.argv.slice(2));
 
-const startStorybook = {
-  command: "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter dso-storybook start",
-  name: "storybook",
-  prefixColor: "bgMagenta",
-};
+  rimraf.sync("packages/dso-toolkit/dist");
+  rimraf.sync("packages/core/dist");
+  rimraf.sync("packages/core/loader");
+  rimraf.sync("storybook/www");
+  rimraf.sync("packages/react/src/components.ts");
+  rimraf.sync("packages/react/src/react-component-lib");
+  rimraf.sync("packages/react/dist");
+  rimraf.sync("packages/react/www");
+  rimraf.sync("angular-workspace/.angular");
+  rimraf.sync("angular-workspace/www");
+  rimraf.sync("angular-workspace/projects/component-library/src/lib/stencil-generated");
 
-const watchCore = {
-  command:
-    "wait-on file:./packages/dso-toolkit/dist/index.js file:./packages/dso-toolkit/dist/dso.css && pnpm --filter @dso-toolkit/core watch",
-  name: "core",
-};
+  const startStorybook = {
+    command: "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter dso-storybook start",
+    name: "storybook",
+    prefixColor: "bgMagenta",
+  };
 
-const startCypress = {
-  command: "wait-on http://localhost:45000 && pnpm --filter dso-storybook exec cypress open",
-  name: "cypress",
-  prefixColor: "bgGreen",
-};
+  const watchCore = {
+    command:
+      "wait-on file:./packages/dso-toolkit/dist/index.js file:./packages/dso-toolkit/dist/dso.css && pnpm --filter @dso-toolkit/core watch",
+    name: "core",
+  };
 
-const watchToolkit = {
-  command: "pnpm --filter dso-toolkit watch",
-  name: "toolkit",
-};
+  const startCypress = {
+    command: "wait-on http://localhost:45000 && pnpm --filter dso-storybook exec cypress open",
+    name: "cypress",
+    prefixColor: "bgGreen",
+  };
 
-const startReact = {
-  command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter @dso-toolkit/react storybook:start",
-  name: "react",
-};
+  const watchToolkit = {
+    command: "pnpm --filter dso-toolkit watch",
+    name: "toolkit",
+  };
 
-const startAngular = {
-  command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter angular-workspace storybook:start",
-  name: "angular",
-};
+  const startReact = {
+    command:
+      "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter @dso-toolkit/react storybook:start",
+    name: "react",
+  };
 
-if (!argv.mode) {
-  if (argv.all) {
-    // --all
-    concurrently([watchToolkit, watchCore, startStorybook, startReact, startAngular, startCypress], {
-      killOthersOn: ["failure", "success"],
-    });
-  } else if (argv.react) {
-    // --react
-    concurrently([watchToolkit, watchCore, startReact], {
-      killOthersOn: ["failure", "success"],
-    });
-  } else if (argv.angular) {
-    // --angular
-    concurrently([watchToolkit, watchCore, startAngular], {
-      killOthersOn: ["failure", "success"],
-    });
+  const startAngular = {
+    command:
+      "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter angular-workspace storybook:start",
+    name: "angular",
+  };
+
+  if (!argv.mode) {
+    if (argv.all) {
+      // --all
+      concurrently([watchToolkit, watchCore, startStorybook, startReact, startAngular, startCypress], {
+        killOthersOn: ["failure", "success"],
+      });
+    } else if (argv.react) {
+      // --react
+      concurrently([watchToolkit, watchCore, startReact], {
+        killOthersOn: ["failure", "success"],
+      });
+    } else if (argv.angular) {
+      // --angular
+      concurrently([watchToolkit, watchCore, startAngular], {
+        killOthersOn: ["failure", "success"],
+      });
+    } else {
+      // normal
+      concurrently([watchToolkit, watchCore, startStorybook, startCypress], {
+        killOthersOn: ["failure", "success"],
+      });
+    }
   } else {
-    // normal
-    concurrently([watchToolkit, watchCore, startStorybook, startCypress], {
-      killOthersOn: ["failure", "success"],
-    });
+    // nothing
   }
-} else {
-  // nothing
 }
+
+void main().catch((error: unknown) => {
+  console.error("Failed to start development processes:", error);
+  process.exitCode = 1;
+});

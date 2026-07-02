@@ -20,9 +20,7 @@ export type OzonContentClickIntIoRefEvent = OzonContentClickBaseEvent<"IntIoRef"
 export type OzonContentClickIntRefEvent = OzonContentClickBaseEvent<"IntRef"> & { isModifiedEvent: boolean };
 
 export type OzonContentClickEvent =
-  | OzonContentClickKopEvent
-  | OzonContentClickIntRefEvent
-  | OzonContentClickIntIoRefEvent;
+  OzonContentClickKopEvent | OzonContentClickIntRefEvent | OzonContentClickIntIoRefEvent;
 
 export type OzonContentMarkFunction = (text: string) => OzonContentText[] | undefined;
 

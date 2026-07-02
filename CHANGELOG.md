@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Task
 * Build: pnpm catalogs and strict-peer-dependencies ([#3778](https://github.com/dso-toolkit/dso-toolkit/issues/3778))
 * Github: Node.js 20 actions are deprecated ([#3625](https://github.com/dso-toolkit/dso-toolkit/issues/3625))
+* Packages: Dependencies updates ([#3832](https://github.com/dso-toolkit/dso-toolkit/issues/3832))
 
 ## 🥅 Release 98.0.0 - 2026-06-26
 

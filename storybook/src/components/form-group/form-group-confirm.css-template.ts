@@ -28,9 +28,11 @@ export const cssFormGroupConfirm: ComponentImplementation<FormGroupConfirm<Templ
         >
           <div class="dso-field-container">
             ${selectableTemplate({ ...formGroup.selectable, disabled: formGroup.disabled })}
-            ${formGroup.errorText && formGroup.state === "invalid"
-              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
-              : nothing}
+            ${
+              formGroup.errorText && formGroup.state === "invalid"
+                ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
+                : nothing
+            }
             ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
           </div>
         </div>

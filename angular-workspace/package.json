@@ -32,7 +32,7 @@
     "@types/node": "catalog:",
     "dso-toolkit": "workspace:*",
     "eslint": "catalog:",
-    "http-proxy-middleware": "catalog:angular",
+    "http-proxy-middleware": "catalog:",
     "lodash.startcase": "catalog:",
     "mkdirp": "catalog:angular",
     "ng-packagr": "catalog:angular",
