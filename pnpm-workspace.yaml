@@ -62,7 +62,6 @@ catalogs:
     "@angular/router": "^21.2.17"
     "@compodoc/compodoc": "^1.2.1"
     "@storybook/angular": "10.4.6"
-    http-proxy-middleware: "^3.0.7"
     mkdirp: "^3.0.1"
     ng-packagr: "^21.2.3"
     rxjs: "~7.8.2"
