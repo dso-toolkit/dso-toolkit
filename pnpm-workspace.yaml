@@ -43,7 +43,7 @@ catalogs:
     "@storybook/web-components-vite": "10.4.6"
     eslint-plugin-storybook: "10.4.6"
     storybook: "10.4.6"
-    vite: "^8.0.16"
+    vite: "^8.1.2"
 
   angular:
     "@angular-devkit/architect": "~0.2102.8"
@@ -74,7 +74,6 @@ overrides:
   shell-quote: ">=1.8.4"
   form-data: ">=4.0.6"
   tmp: ">=0.2.7"
-  vite: "^7.3.5"
   piscina: ">=5.2.0"
   serialize-javascript: ">=7.0.5"
   "@angular-devkit/build-angular>webpack-dev-server": "^5.2.5"
