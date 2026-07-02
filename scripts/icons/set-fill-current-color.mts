@@ -1,4 +1,4 @@
-import { XastElement } from "svgo/lib/types";
+import type { XastElement } from "svgo";
 
 const multiColorIcons = [
   "status-success",

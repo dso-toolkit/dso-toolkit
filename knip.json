@@ -3,14 +3,14 @@
   "ignoreDependencies": ["eslint"],
   "workspaces": {
     ".": {
-      "entry": ["scripts/**/*.ts"],
+      "entry": ["scripts/**/*.{mts,ts}"],
       "project": ["scripts/**/*.ts", "*.{mjs,js}"],
       "ignoreDependencies": ["axe-core", "eslint-config-prettier", "wait-on"]
     },
     "packages/dso-toolkit": {
       "entry": ["gulp/**/*.js"],
       "project": ["src/**/*.ts", "gulp/**/*.js"],
-      "ignoreDependencies": ["@prettier/plugin-xml", "@types/through2"]
+      "ignoreDependencies": ["@prettier/plugin-xml"]
     },
     "packages/core": {},
     "packages/react": {

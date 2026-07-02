@@ -14,7 +14,7 @@ catalog:
   "@types/react-dom": "^19.2.3"
   axe-core: "^4.12.1"
   clsx: "^2.1.1"
-  concurrently: "^9.2.1"
+  concurrently: "^10.0.3"
   escape-string-regexp: "^5.0.0"
   eslint: "^10.6.0"
   http-proxy-middleware: "^4.1.1"
