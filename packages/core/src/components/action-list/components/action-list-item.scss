@@ -39,6 +39,10 @@
   }
 }
 
+.sr-only {
+  @include utilities.sr-only();
+}
+
 h3 {
   margin-block-end: units.$u2;
   margin-block-start: 0;
