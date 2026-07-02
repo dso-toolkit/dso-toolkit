@@ -22,7 +22,7 @@ catalog:
   lodash.startcase: "^4.4.0"
   markdown-to-jsx: "^9.8.2"
   postcss: "^8.5.16"
-  prettier: "^3.8.3"
+  prettier: "^3.9.4"
   react: "^19.2.7"
   react-dom: "^19.2.7"
   rimraf: "^6.1.3"

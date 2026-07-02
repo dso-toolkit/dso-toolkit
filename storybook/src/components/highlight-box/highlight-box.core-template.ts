@@ -32,13 +32,15 @@ export const coreHighlightBox: ComponentImplementation<HighlightBox> = {
           ?border=${border}
         >
           ${icon && iconTemplate({ icon, slot: "icon" })}
-          ${bannerImage
-            ? imageTemplate({
-                source: "images/banner-image.webp",
-                alt: "man en vrouw met kaart",
-                modifier: "dso-highlight-box-banner",
-              })
-            : nothing}
+          ${
+            bannerImage
+              ? imageTemplate({
+                  source: "images/banner-image.webp",
+                  alt: "man en vrouw met kaart",
+                  modifier: "dso-highlight-box-banner",
+                })
+              : nothing
+          }
           ${typeof content === "string" ? unsafeHTML(content) : content}
         </dso-highlight-box>
       `;

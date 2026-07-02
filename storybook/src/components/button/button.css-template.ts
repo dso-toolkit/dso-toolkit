@@ -40,9 +40,9 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
             >${label}</span
-          >${mode === "extern"
-            ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>`
-            : nothing}${icon && iconMode ? iconTemplate(icon) : nothing}
+          >${
+            mode === "extern" ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>` : nothing
+          }${icon && iconMode ? iconTemplate(icon) : nothing}
         </a>
       `;
     }
@@ -96,11 +96,9 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
         >
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
-            >${screenreaderPrefix
-              ? html`<span class="sr-only">${screenreaderPrefix}</span>`
-              : nothing}${label}${screenreaderSuffix
-              ? html`<span class="sr-only">${screenreaderSuffix}</span>`
-              : nothing}</span
+            >${screenreaderPrefix ? html`<span class="sr-only">${screenreaderPrefix}</span>` : nothing}${label}${
+              screenreaderSuffix ? html`<span class="sr-only">${screenreaderSuffix}</span>` : nothing
+            }</span
           >${icon && iconMode ? iconTemplate(icon) : nothing}
         </button>
       `;

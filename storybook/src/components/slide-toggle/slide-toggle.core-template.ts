@@ -18,9 +18,11 @@ export const coreSlideToggle: ComponentImplementation<SlideToggle> = {
       dsoActiveChange,
     }) {
       return html`
-        ${useOwnLabelId
-          ? html`<div><label for=${useOwnLabelId}>Label gemaakt door de implementatie.</label></div>`
-          : null}
+        ${
+          useOwnLabelId
+            ? html`<div><label for=${useOwnLabelId}>Label gemaakt door de implementatie.</label></div>`
+            : null
+        }
         ${labelledbyId ? html`<div><span id=${labelledbyId}>Label elders op de pagina</span></div>` : null}
         <dso-slide-toggle
           identifier=${ifDefined(useOwnLabelId)}
