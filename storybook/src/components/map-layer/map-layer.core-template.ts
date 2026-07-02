@@ -33,9 +33,11 @@ export const coreMapLayer: ComponentImplementation<MapLayer<TemplateResult>> = {
               wijzigactie=${ifDefined(objectWijzigactie)}
             >
               ${name} ${labelSlot ?? nothing}
-              ${symboolCode
-                ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbol"></span>`
-                : nothing}</dso-map-layer-object
+              ${
+                symboolCode
+                  ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbol"></span>`
+                  : nothing
+              }</dso-map-layer-object
             >`,
         )}</dso-map-layer
       >`;

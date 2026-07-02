@@ -23,13 +23,15 @@ export const cssBreadcrumbs: ComponentImplementation<Breadcrumbs> = {
                   itemprop="itemListElement"
                   itemtype="https://schema.org/ListItem"
                 >
-                  ${last
-                    ? html`<span itemprop="name">${breadcrumb.label}</span>`
-                    : html`
-                        <a itemprop="item" href=${breadcrumb.url}>
-                          <span itemprop="name"> ${breadcrumb.label} </span>
-                        </a>
-                      `}
+                  ${
+                    last
+                      ? html`<span itemprop="name">${breadcrumb.label}</span>`
+                      : html`
+                          <a itemprop="item" href=${breadcrumb.url}>
+                            <span itemprop="name"> ${breadcrumb.label} </span>
+                          </a>
+                        `
+                  }
                   <meta itemprop="position" content=${index + 1} />
                 </li>
               `;

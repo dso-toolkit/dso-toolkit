@@ -35,9 +35,11 @@ export const cssFormGroupSelect: ComponentImplementation<FormGroupSelect<Templat
         >
           <div class="dso-label-container">
             <label for=${formGroup.id} class="control-label"> ${formGroup.label} </label>
-            ${formGroup.info?.fixed === false && formGroup.infoButton
-              ? infoButtonTemplate(formGroup.infoButton)
-              : nothing}
+            ${
+              formGroup.info?.fixed === false && formGroup.infoButton
+                ? infoButtonTemplate(formGroup.infoButton)
+                : nothing
+            }
             ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
           </div>
           <div class="dso-field-container">
@@ -61,14 +63,18 @@ export const cssFormGroupSelect: ComponentImplementation<FormGroupSelect<Templat
                     `,
               )}
             </select>
-            ${formGroup.feedback
-              ? html`
-                  <span class="form-control-feedback" aria-hidden="true">${iconTemplate(formGroup.feedback)}</span>
-                `
-              : nothing}
-            ${formGroup.errorText && formGroup.state === "invalid"
-              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
-              : nothing}
+            ${
+              formGroup.feedback
+                ? html`
+                    <span class="form-control-feedback" aria-hidden="true">${iconTemplate(formGroup.feedback)}</span>
+                  `
+                : nothing
+            }
+            ${
+              formGroup.errorText && formGroup.state === "invalid"
+                ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
+                : nothing
+            }
             ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
           </div>
         </div>

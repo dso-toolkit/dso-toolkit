@@ -18,7 +18,6 @@ export interface FormGroupCollection<TemplateFnReturnType> {
 }
 
 export type FormContent<TemplateFnReturnType> =
-  | FormGroup<TemplateFnReturnType>[]
-  | FormGroupCollection<TemplateFnReturnType>[];
+  FormGroup<TemplateFnReturnType>[] | FormGroupCollection<TemplateFnReturnType>[];
 
 export type FormGroupCollectionHeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

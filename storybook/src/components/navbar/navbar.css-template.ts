@@ -21,20 +21,22 @@ export const cssNavbar: ComponentImplementation<Navbar<TemplateResult>> = {
     }) {
       return html`
         <nav class="dso-navbar ${classMap({ "dso-open": !!open, "dso-has-navbar-extension": !!extension })}">
-          ${modifier === "main"
-            ? html`
-                <div class="dso-navbar-header">
-                  <button
-                    type="button"
-                    class="dso-navbar-toggle dso-secondary"
-                    aria-expanded=${ifDefined(open ? "true" : "false")}
-                  >
-                    ${iconTemplate({ icon: "bars" })}
-                    <span class="sr-only">Menu</span>
-                  </button>
-                </div>
-              `
-            : nothing}
+          ${
+            modifier === "main"
+              ? html`
+                  <div class="dso-navbar-header">
+                    <button
+                      type="button"
+                      class="dso-navbar-toggle dso-secondary"
+                      aria-expanded=${ifDefined(open ? "true" : "false")}
+                    >
+                      ${iconTemplate({ icon: "bars" })}
+                      <span class="sr-only">Menu</span>
+                    </button>
+                  </div>
+                `
+              : nothing
+          }
           <ul class="dso-nav dso-nav-${modifier}">
             ${items.map(
               (item: NavbarItem) => html`

@@ -38,9 +38,11 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           .regelKwalificatieVoorzetsel=${regelKwalificatieVoorzetsel}
           .wijzigactie=${wijzigactie}
         >
-          ${symboolCode
-            ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
-            : nothing}
+          ${
+            symboolCode
+              ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
+              : nothing
+          }
         </dso-annotation-activiteit>`;
       }
 
@@ -54,9 +56,11 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           .gewijzigdeLocatie=${gewijzigdeLocatie}
           .wijzigactie=${wijzigactie}
         >
-          ${symboolCode
-            ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
-            : nothing}
+          ${
+            symboolCode
+              ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
+              : nothing
+          }
         </dso-annotation-gebiedsaanwijzing>`;
       }
 
@@ -83,9 +87,11 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           .naam=${naam}
           .waardes=${waardes}
         >
-          ${symboolCode
-            ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
-            : nothing}
+          ${
+            symboolCode
+              ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
+              : nothing
+          }
         </dso-annotation-omgevingsnormwaarde>`;
       }
 
@@ -99,9 +105,11 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           .wijzigactie=${wijzigactie}
           .locatieNoemer=${locatieNoemer}
         >
-          ${symboolCode
-            ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
-            : nothing}
+          ${
+            symboolCode
+              ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
+              : nothing
+          }
         </dso-annotation-locatie>`;
       }
 

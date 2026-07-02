@@ -58,8 +58,7 @@ const { TreeView } = treeViewStories({
               id="treeViewState"
               style="background-color: #eee; font-size: smaller; margin: 0; overflow: auto; padding: 0.5rem"
             >
-${JSON.stringify(collection, null, 2)}</pre
-            >
+${JSON.stringify(collection, null, 2)}</pre>
           </div>
         </div>
       `,
