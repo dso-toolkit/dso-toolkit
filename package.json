@@ -40,7 +40,7 @@
     "globals": "^17.7.0",
     "knip": "^6.20.0",
     "minimist": "^1.2.8",
-    "nx": "22.7.5",
+    "nx": "23.0.1",
     "plop": "^4.0.5",
     "prettier": "catalog:",
     "rimraf": "catalog:",
