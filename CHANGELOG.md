@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Removed
 * **BREAKING** Highlight Box: Remove HTML/CSS implementatie ([#3677](https://github.com/dso-toolkit/dso-toolkit/issues/3677))
 * **BREAKING** Dropdown Menu: Remove HTML/CSS implementatie ([#3316](https://github.com/dso-toolkit/dso-toolkit/issues/3316))
+* **BREAKING** Info: Remove HTML/CSS implementatie ([#3679](https://github.com/dso-toolkit/dso-toolkit/issues/3679))
 
 ### Task
 * Build: pnpm catalogs and strict-peer-dependencies ([#3778](https://github.com/dso-toolkit/dso-toolkit/issues/3778))

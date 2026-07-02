@@ -8,6 +8,7 @@ Deze release bevat **BREAKING** changes voor de volgende componenten:
 
 - Highlight Box (HTML/CSS implementatie)
 - Dropdown Menu (HTML/CSS implementatie)
+- Info (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -128,4 +129,27 @@ Gebruik de Core implementatie van `Dropdown Menu`.
     <dso-dropdown-menu-item type="button">Verwijderen</dso-dropdown-menu-item>
   </dso-dropdown-menu-group>
 </dso-dropdown-menu>
+```
+
+## Info (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Info` is in 🏴󠁧󠁢󠁳󠁣󠁴󠁿 97.0.0 **deprecated**. In deze release is deze implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik het Core component `Info`.
+
+```html
+❌
+<div class="dso-info">
+  <div class="dso-rich-content">...</div>
+  <button type="button" class="">
+    <span class="sr-only">Sluiten</span>
+  </button>
+</div>
+
+✅
+<dso-info fixed="" active="">
+  <div class="dso-rich-content">...</div>
+</dso-info>
 ```
