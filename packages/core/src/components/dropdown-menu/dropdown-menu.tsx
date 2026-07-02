@@ -255,6 +255,9 @@ export class DropdownMenu implements ComponentInterface {
 
     return (
       <Host onFocusout={this.focusOutListener} onKeyDown={this.keyDownHandler}>
+        {this.open && (
+          <div class="sr-only" aria-live="polite" aria-atomic="true" ref={(element) => (this.status = element)} />
+        )}
         {this.label && (
           <button
             id={buttonId}
@@ -280,7 +283,6 @@ export class DropdownMenu implements ComponentInterface {
         >
           <slot />
         </div>
-        <div class="sr-only" aria-live="polite" aria-atomic="true" ref={(element) => (this.status = element)} />
       </Host>
     );
   }
