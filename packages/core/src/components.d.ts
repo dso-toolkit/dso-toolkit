@@ -663,7 +663,7 @@ export namespace Components {
          */
         "checked"?: boolean;
         /**
-          * The href of the link when the type is `Link`.
+          * The href of the link when the type is `link`.
          */
         "href"?: string;
         /**
@@ -3516,7 +3516,7 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
-          * The href of the link when the type is `Link`.
+          * The href of the link when the type is `link`.
          */
         "href"?: string;
         /**

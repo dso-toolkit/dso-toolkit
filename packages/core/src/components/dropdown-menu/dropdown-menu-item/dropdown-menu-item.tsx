@@ -35,7 +35,7 @@ export class DropdownMenuItem implements ComponentInterface {
   type!: DropdownMenuItemType | undefined;
 
   /**
-   * The href of the link when the type is `Link`.
+   * The href of the link when the type is `link`.
    */
   @Prop({ reflect: true })
   href?: string;

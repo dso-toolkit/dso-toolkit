@@ -1,3 +1,5 @@
+import dropdownMenuGroupReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-group/readme.md?raw";
+import dropdownMenuItemReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-item/readme.md?raw";
 import readme from "@dso-toolkit/core/src/components/dropdown-menu/readme.md?raw";
 import { Meta } from "@storybook/web-components-vite";
 import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
@@ -5,7 +7,7 @@ import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 
 const meta: Meta = {
-  ...dropdownMenuMeta({ readme }),
+  ...dropdownMenuMeta({ readme: `${readme}\n${dropdownMenuGroupReadme}\n${dropdownMenuItemReadme}` }),
   title: "Core/Dropdown Menu",
 };
 
