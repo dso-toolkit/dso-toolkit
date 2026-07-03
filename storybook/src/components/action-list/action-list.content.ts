@@ -213,7 +213,14 @@ function warning({ richContentTemplate }: Templates): ActionListItem<TemplateRes
 }
 
 export function actionListItems(templates: Templates): ActionListItem<TemplateResult>[] {
-  return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates), item6(templates)];
+  return [
+    item1(templates),
+    item2(templates),
+    item3(templates),
+    item4(templates),
+    item5(templates),
+    item6(templates, false),
+  ];
 }
 
 export function actionListWithWarningItems(templates: Templates): ActionListItem<TemplateResult>[] {
