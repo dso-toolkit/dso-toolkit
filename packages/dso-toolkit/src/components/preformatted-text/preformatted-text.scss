@@ -10,12 +10,12 @@ pre {
   color: css-preformatted-text-variables.$color;
   display: block;
   font-family: typography.$font-family-monospace;
-  font-size: (typography.$font-size-base - 1); // 14px to 13px
+  font-size: calc(#{typography.$font-size-base} - 1px);
   overflow: auto;
   line-height: typography.$line-height-base;
   margin-block: 0 (typography.$line-height-computed * 0.5);
   margin-inline: 0;
-  padding: ((typography.$line-height-computed - 1) * 0.5);
+  padding: ((typography.$root-line-height-computed - 1px) * 0.5);
   word-break: break-all;
   overflow-wrap: break-word;
 }

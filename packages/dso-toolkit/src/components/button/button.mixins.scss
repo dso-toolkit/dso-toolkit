@@ -146,7 +146,7 @@
 }
 
 @mixin small() {
-  line-height: typography.$root-font-size-base;
+  line-height: typography.$font-size-base;
 
   dso-icon,
   &.extern::after,

@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
 
 @use "~dso-toolkit/src/components/link";
@@ -99,7 +100,7 @@
 .heading-element {
   align-items: start;
   display: flex;
-  font-size: 1rem;
+  font-size: typography.$font-size-base;
   color: colors.$bosgroen;
   margin: 0;
 

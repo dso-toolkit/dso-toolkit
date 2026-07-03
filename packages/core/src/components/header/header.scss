@@ -106,7 +106,7 @@ div[popover] {
 
       font-family: typography.$font-family-base;
       color: colors.$grasgroen;
-      font-size: 1rem;
+      font-size: typography.$font-size-base;
       font-weight: 600;
       line-height: 1.5;
       text-decoration: none;
@@ -186,7 +186,7 @@ div[popover] {
     border: 0;
     border-radius: 0;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
-    font-size: typography.$root-font-size-base;
+    font-size: typography.$font-size-base;
     min-inline-size: 160px;
     padding-block: 5px;
     padding-inline: 0;

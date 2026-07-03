@@ -120,7 +120,7 @@
   padding-inline: onboarding-tip-variables.$padding-inline;
   border-radius: onboarding-tip-variables.$border-radius;
   display: block;
-  font-size: typography.$root-font-size-base;
+  font-size: typography.$font-size-base;
   position: relative;
   z-index: 2; // z-index higher than the arrow
 
