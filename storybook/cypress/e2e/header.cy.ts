@@ -8,11 +8,7 @@ function setMenuItems($header: JQuery<HTMLDsoHeaderElement>, items?: HeaderMenuI
   const element = $header.get(0);
 
   if (element) {
-    if (items) {
-      element.mainMenu = items;
-    } else {
-      delete element.mainMenu;
-    }
+    element.mainMenu = items ?? [];
   }
 }
 
@@ -96,8 +92,8 @@ describe("Header", () => {
 
   it("matches snapshot (all menuitems visible)", () => {
     cy.viewport(1400, 660)
-      .get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .then(($header) => setMenuItems($header, defaultMenuItems))
       .get("@dsoHeaderShadow")
       .find(".dso-nav-main")
       .should("have.class", "ready")
@@ -110,8 +106,8 @@ describe("Header", () => {
 
   it("matches snapshot (compact)", () => {
     cy.viewport(1000, 660)
-      .get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .then(($header) => setMenuItems($header, defaultMenuItems))
       .invoke("prop", "compact", "always")
       .get("dso-header[is-compact]")
       .matchImageSnapshot();
@@ -270,8 +266,8 @@ describe("Header", () => {
   });
 
   it("should show user home when url is provided", () => {
-    cy.get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, undefined))
+    cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .then(($header) => setMenuItems($header, undefined))
       .invoke("attr", "user-home-url", "#userHomeUrl")
       .get("@dsoHeaderShadow")
       .find('li.menu-user-home a[href="#userHomeUrl"]')
@@ -279,8 +275,8 @@ describe("Header", () => {
   });
 
   it("should emit correct event details on select", () => {
-    cy.get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+    cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .then(($header) => setMenuItems($header, defaultMenuItems))
       .invoke("attr", "user-home-url", "#userHomeUrl")
       .invoke("attr", "user-profile-url", "#profileUrl")
       .invoke("attr", "login-url", "#loginUrl")
@@ -427,8 +423,8 @@ describe("Header", () => {
       it(`emits correct event details on select of overflow menu item ${label} via ${trigger}`, () => {
         cy.viewport(1000, 660);
 
-        cy.get("dso-header.hydrated")
-          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+        cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+          .then(($header) => setMenuItems($header, defaultMenuItems))
           .shadow()
           .as("headerShadow")
           .find(".dso-nav-main.ready .dropdown-menu-item")
@@ -457,8 +453,8 @@ describe("Header", () => {
     it("matches snapshot (2 menuitems in dropdown menu)", () => {
       cy.viewport(1000, 660);
 
-      cy.get("dso-header.hydrated")
-        .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+        .then(($header) => setMenuItems($header, defaultMenuItems))
         .shadow()
         .find(".dso-nav-main.ready");
 
@@ -583,8 +579,8 @@ describe("Header", () => {
       menuItemEvent: Omit<HeaderClickMenuItemEvent | HeaderClickEvent, "originalEvent">,
     ) {
       it(`on select of compact menu item ${label} via ${trigger}`, () => {
-        cy.get("dso-header.hydrated")
-          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+        cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+          .then(($header) => setMenuItems($header, defaultMenuItems))
           .invoke("attr", "user-home-url", "#userHomeUrl")
           .invoke("attr", "user-profile-url", "#profileUrl")
           .invoke("attr", "login-url", "#loginUrl")
@@ -628,5 +624,56 @@ describe("Header", () => {
       compactMenuItemTest(label, "click", menuItemEvent);
       compactMenuItemTest(label, "realClick", menuItemEvent);
     }
+
+    it("keeps the focused menu item visible when the dropdown becomes scrollable", { browser: "!firefox" }, () => {
+      const menuItems = Array.from({ length: 25 }, (_, i) => ({
+        label: `Tab Item ${i + 1}`,
+        url: `#tab-item-${i + 1}`,
+      }));
+
+      cy.viewport(320, 180);
+
+      cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+        .then(($header) => setMenuItems($header, menuItems))
+        .invoke("prop", "compact", "always");
+
+      cy.get("dso-header[is-compact]").shadow().find(".dropdown-menu > button").as("compactMenuButton").click();
+
+      ensureCompactMenuOpen();
+
+      cy.get("dso-header[is-compact]")
+        .shadow()
+        .find(".dropdown-menu > div[popover=manual]")
+        .as("scrollContainer")
+        .should(($container) => {
+          expect(Number.parseFloat($container.css("max-height"))).to.be.greaterThan(0);
+          expect(Number.parseFloat($container.css("max-inline-size"))).to.be.greaterThan(0);
+          expect($container.css("overflow-y")).to.eq("auto");
+          expect($container[0]!.scrollHeight).to.be.greaterThan($container[0]!.clientHeight);
+        });
+
+      cy.get("@scrollContainer")
+        .find(".dropdown-menu-options li a, .dropdown-menu-options li button")
+        .as("menuActions");
+
+      cy.get("@menuActions")
+        .its("length")
+        .then((count) => {
+          for (const _ of Array.from({ length: count })) {
+            cy.realPress("Tab");
+
+            cy.focused().then(($focused) => {
+              const focusedRect = $focused[0]!.getBoundingClientRect();
+
+              cy.get("@scrollContainer").then(($container) => {
+                const containerRect = $container[0]!.getBoundingClientRect();
+
+                expect(focusedRect.top).to.be.at.least(containerRect.top - 1);
+                expect(focusedRect.bottom).to.be.at.most(containerRect.bottom + 1);
+              });
+            });
+          }
+        });
+    });
   });
 });

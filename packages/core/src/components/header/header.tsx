@@ -1,4 +1,4 @@
-import { autoUpdate, computePosition, flip, offset } from "@floating-ui/dom";
+import { autoUpdate, computePosition, flip, offset, size } from "@floating-ui/dom";
 import {
   Component,
   ComponentInterface,
@@ -364,6 +364,15 @@ export class Header implements ComponentInterface {
               offset(this.dropdownOptionsOffset),
               flip({
                 padding: this.dropdownOptionsOffset,
+              }),
+              size({
+                apply({ availableHeight, availableWidth, elements }) {
+                  Object.assign(elements.floating.style, {
+                    maxHeight: `${availableHeight}px`,
+                    maxInlineSize: `${availableWidth}px`,
+                    overflowY: "auto",
+                  });
+                },
               }),
             ],
             placement: this.isCompact ? "bottom-end" : "bottom-start",
