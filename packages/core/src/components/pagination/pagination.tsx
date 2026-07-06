@@ -106,7 +106,7 @@ export class Pagination implements ComponentInterface {
             <li class={currentPage <= 1 || !currentPage ? "dso-page-hidden" : undefined}>
               <a
                 href={this.formatHref(currentPage - 1)}
-                aria-label="Vorige"
+                aria-label="Vorige pagina"
                 onClick={(e) => currentPage && this.clickHandler(e, currentPage - 1)}
               >
                 <dso-icon icon="chevron-left"></dso-icon>
@@ -122,10 +122,12 @@ export class Pagination implements ComponentInterface {
 
                 <li key={page} class={currentPage === page ? "active" : undefined}>
                   {currentPage === page ? (
-                    <span aria-current="page">{page}</span>
+                    <span aria-current="page">
+                      <span class="sr-only">Pagina</span> {page}
+                    </span>
                   ) : (
                     <a href={this.formatHref(page)} onClick={(e) => this.clickHandler(e, page)}>
-                      {page}
+                      <span class="sr-only">Pagina</span> {page}
                     </a>
                   )}
                   {page === this.totalPages ? <span class="sr-only"> (laatste pagina)</span> : null}
@@ -151,7 +153,7 @@ export class Pagination implements ComponentInterface {
             >
               <a
                 href={this.formatHref(currentPage + 1)}
-                aria-label="Volgende"
+                aria-label="Volgende pagina"
                 onClick={(e) => currentPage && this.clickHandler(e, currentPage + 1)}
               >
                 <dso-icon icon="chevron-right"></dso-icon>
