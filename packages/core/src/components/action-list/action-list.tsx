@@ -16,9 +16,9 @@ export class ActionList implements ComponentInterface {
     return (
       <Host>
         <h2>{this.listTitle}</h2>
-        <div class="dso-action-list-content">
+        <ol class="dso-action-list-content">
           <slot />
-        </div>
+        </ol>
       </Host>
     );
   }

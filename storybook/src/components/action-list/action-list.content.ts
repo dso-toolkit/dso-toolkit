@@ -160,9 +160,44 @@ function item5({ accordionTemplate, richContentTemplate }: Templates, flowLine =
   };
 }
 
-const item6: ActionListItem<TemplateResult> = {
-  title: "Start de werkzaamheden",
-};
+function item6(
+  { accordionTemplate, richContentTemplate, contactInformationTemplate }: Templates,
+  flowLine = true,
+): ActionListItem<TemplateResult> {
+  return {
+    title: "Start de werkzaamheden",
+    flowLine,
+    content: richContentTemplate({
+      children: html`
+        <h2>Heeft u vragen?</h2>
+        ${accordionTemplate({
+          variant: "neutral",
+          sections: [
+            {
+              handleTitle: "Contactinformatie gemeente Utrecht",
+              heading: "h3",
+              open: true,
+              content: html`
+                ${contactInformationTemplate({
+                  ...contactInformationContent,
+                  heading: {
+                    level: 4,
+                    children: "Gemeente Utrecht",
+                  },
+                })}
+                ${contactInformationTemplate({ ...contactInformationContent })}
+              `,
+            },
+            {
+              handleTitle: "Contactinformatie waterschap Amstel, Gooi en Vecht",
+              heading: "h3",
+            },
+          ],
+        })}
+      `,
+    }),
+  };
+}
 
 function warning({ richContentTemplate }: Templates): ActionListItem<TemplateResult> {
   return {
@@ -178,7 +213,14 @@ function warning({ richContentTemplate }: Templates): ActionListItem<TemplateRes
 }
 
 export function actionListItems(templates: Templates): ActionListItem<TemplateResult>[] {
-  return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates), item6];
+  return [
+    item1(templates),
+    item2(templates),
+    item3(templates),
+    item4(templates),
+    item5(templates),
+    item6(templates, false),
+  ];
 }
 
 export function actionListWithWarningItems(templates: Templates): ActionListItem<TemplateResult>[] {
