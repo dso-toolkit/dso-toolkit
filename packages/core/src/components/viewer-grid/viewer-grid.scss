@@ -430,7 +430,7 @@ slot[name="legend"] {
     max-inline-size: none;
     min-inline-size: 0;
     position: relative;
-    margin-inline-start: 0px;
+    margin-inline-start: 0;
 
     .content {
       align-items: flex-start;
@@ -472,5 +472,10 @@ slot[name="legend"] {
       block-size: auto;
       overflow-y: visible;
     }
+  }
+
+  .sizing-buttons,
+  .toggle-button {
+    display: none;
   }
 }
