@@ -23,13 +23,14 @@ export function voorbeeldpaginaImageSnapshots(
           cy.viewport(voorbeelpagina.viewport.width, voorbeelpagina.viewport.height);
         }
 
-        let args: string;
+        const argsParts: string[] = [];
         if (preferredImplementation) {
-          args = `preferredImplementation:${preferredImplementation}`;
+          argsParts.push(`preferredImplementation:${preferredImplementation}`);
         }
         if (voorbeelpagina.args) {
-          args = `${args};${voorbeelpagina.args}`;
+          argsParts.push(voorbeelpagina.args);
         }
+        const args = argsParts.length > 0 ? argsParts.join(";") : "";
 
         cy.visit(`http://localhost:45000/iframe.html?id=${voorbeelpagina.id}${args ? `&args=${args}` : ""}`);
 
