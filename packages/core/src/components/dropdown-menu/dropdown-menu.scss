@@ -7,7 +7,6 @@
 @use "~dso-toolkit/src/components/button";
 
 @use "dropdown-menu.variables" as dropdown-menu-variables;
-@use "~dso-toolkit/src/utilities";
 
 :host(:focus) {
   outline: none;
@@ -15,10 +14,6 @@
 
 :host {
   display: inline-block;
-}
-
-.sr-only {
-  @include utilities.sr-only();
 }
 
 button {
