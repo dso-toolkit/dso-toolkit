@@ -28,6 +28,11 @@
     "viewport": { "width": 1280, "height": 600 }
   },
   {
+    "id": "voorbeeldpagina-s-toepassingen-regels-op-de-kaart-documenten--documenten",
+    "viewport": { "width": 1280, "height": 600 },
+    "args": "print:!true"
+  },
+  {
     "id": "voorbeeldpagina-s-toepassingen-regels-op-de-kaart-documenten-zoeken--documenten-zoeken",
     "viewport": { "width": 1280, "height": 600 }
   },

@@ -8,9 +8,14 @@ interface Viewport {
 interface ExamplePage {
   id: string;
   viewport?: Viewport;
+  args?: string;
 }
 
-export function voorbeeldpaginaImageSnapshots(label: string, voorbeeldpaginas: ExamplePage[], args?: string) {
+export function voorbeeldpaginaImageSnapshots(
+  label: string,
+  voorbeeldpaginas: ExamplePage[],
+  preferredImplementation?: string,
+) {
   describe(`Voorbeeldpagina image snapshots (${label})`, () => {
     for (const voorbeelpagina of voorbeeldpaginas) {
       it(`matches image snapshot of ${voorbeelpagina.id} (${label})`, () => {
@@ -18,11 +23,25 @@ export function voorbeeldpaginaImageSnapshots(label: string, voorbeeldpaginas: E
           cy.viewport(voorbeelpagina.viewport.width, voorbeelpagina.viewport.height);
         }
 
+        let args: string;
+        if (preferredImplementation) {
+          args = `preferredImplementation:${preferredImplementation}`;
+        }
+        if (voorbeelpagina.args) {
+          args = `${args};${voorbeelpagina.args}`;
+        }
+
         cy.visit(`http://localhost:45000/iframe.html?id=${voorbeelpagina.id}${args ? `&args=${args}` : ""}`);
 
         waitForComponents();
 
-        cy.matchImageSnapshot();
+        if (voorbeelpagina.args) {
+          cy.matchImageSnapshot(
+            `Voorbeeldpagina image snapshots (${label}) -- ${Cypress.currentTest.title} (${voorbeelpagina.args})`,
+          );
+        } else {
+          cy.matchImageSnapshot();
+        }
       });
     }
   });
