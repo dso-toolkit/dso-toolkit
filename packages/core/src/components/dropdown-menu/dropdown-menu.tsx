@@ -133,6 +133,10 @@ export class DropdownMenu implements ComponentInterface {
       this.popoverElement.togglePopover(this.open);
     }
 
+    if (this.open) {
+      requestAnimationFrame(() => this.moveFocusTo(this.firstItem(false)));
+    }
+
     if (!this.open && this.cleanUp) {
       this.cleanUp();
       this.cleanUp = undefined;

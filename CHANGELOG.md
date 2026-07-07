@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Action List: Lijst nummer is niet gekoppeld aan inhoud ([#3756](https://github.com/dso-toolkit/dso-toolkit/issues/3756))
+* Dropdown Menu: Focus naar eerste menu-item bij openen ([#3637](https://github.com/dso-toolkit/dso-toolkit/issues/3637))
 
 ### Removed
 * **BREAKING** Highlight Box: Remove HTML/CSS implementatie ([#3677](https://github.com/dso-toolkit/dso-toolkit/issues/3677))
