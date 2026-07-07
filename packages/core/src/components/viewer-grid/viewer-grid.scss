@@ -401,7 +401,6 @@ slot[name="legend"] {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    block-size: auto;
     overflow: visible;
     flex-shrink: 0;
     order: -1;
@@ -411,7 +410,7 @@ slot[name="legend"] {
     flex: 1;
     min-inline-size: 0;
     align-self: stretch;
-    min-block-size: 400px;
+    block-size: 400px;
     position: relative;
     inset: auto;
   }
@@ -430,7 +429,7 @@ slot[name="legend"] {
     max-inline-size: none;
     min-inline-size: 0;
     position: relative;
-    margin-inline-start: 0px;
+    margin-inline-start: 0;
 
     .content {
       align-items: flex-start;
@@ -472,5 +471,10 @@ slot[name="legend"] {
       block-size: auto;
       overflow-y: visible;
     }
+  }
+
+  .sizing-buttons,
+  .toggle-button {
+    display: none;
   }
 }
