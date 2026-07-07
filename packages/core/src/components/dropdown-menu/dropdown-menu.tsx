@@ -1,4 +1,4 @@
-import { autoUpdate, computePosition, flip, offset } from "@floating-ui/dom";
+import { autoUpdate, computePosition, flip, offset, size } from "@floating-ui/dom";
 import {
   Component,
   ComponentInterface,
@@ -113,6 +113,15 @@ export class DropdownMenu implements ComponentInterface {
             offset(2),
             flip({
               padding: 2,
+            }),
+            size({
+              apply({ availableHeight, availableWidth, elements }) {
+                Object.assign(elements.floating.style, {
+                  maxHeight: `${availableHeight}px`,
+                  maxInlineSize: `${availableWidth}px`,
+                  overflowY: "auto",
+                });
+              },
             }),
           ],
           placement: "bottom-start",

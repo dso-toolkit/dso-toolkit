@@ -228,6 +228,44 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@options").should("not.be.visible");
   });
 
+  it("keeps the focused menu item visible when the dropdown becomes scrollable", { browser: "!firefox" }, () => {
+    cy.viewport(320, 180);
+
+    cy.get("@button").focus().click();
+    cy.get("@menuitems").first().should("be.visible");
+
+    cy.get("@options").should(($options) => {
+      const optionsRect = $options[0]!.getBoundingClientRect();
+
+      expect(Number.parseFloat($options.css("max-height"))).to.be.greaterThan(0);
+      expect(Number.parseFloat($options.css("max-inline-size"))).to.be.greaterThan(0);
+      expect($options.css("overflow-y")).to.eq("auto");
+      expect($options[0]!.scrollHeight).to.be.greaterThan($options[0]!.clientHeight);
+
+      expect(optionsRect.top).to.be.at.least(0);
+      expect(optionsRect.bottom).to.be.at.most(Cypress.config("viewportHeight"));
+    });
+
+    cy.get("@options").then(($options) => {
+      const optionsRect = $options[0]!.getBoundingClientRect();
+
+      cy.get("@menuitems")
+        .its("length")
+        .then((count) => {
+          for (const _ of Array.from({ length: count })) {
+            cy.realPress("Tab");
+
+            cy.focused().then(($focused) => {
+              const focusedRect = $focused[0]!.getBoundingClientRect();
+
+              expect(focusedRect.top).to.be.at.least(optionsRect.top - 1);
+              expect(focusedRect.bottom).to.be.at.most(optionsRect.bottom + 1);
+            });
+          }
+        });
+    });
+  });
+
   it("should close on item selection", () => {
     cy.get("@menuitems")
       .eq(1)
