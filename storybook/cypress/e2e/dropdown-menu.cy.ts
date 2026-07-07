@@ -123,19 +123,19 @@ describe("Dropdown menu - anchors", () => {
   it("should move focus to the first menu item on open", () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
   });
 
   it("tab should cycle through options and button", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     for (const _ of [1, 2]) {
       cy.realPress("Tab");
     }
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(2).should("have.focus");
+    cy.get("@menuitems").eq(2).should("have.focus");
 
     for (const _ of [3, 4, 5, 6, 7]) {
       cy.realPress("Tab");
@@ -149,7 +149,7 @@ describe("Dropdown menu - anchors", () => {
   it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     cy.realPress(["Shift", "Tab"]);
 
@@ -161,49 +161,49 @@ describe("Dropdown menu - anchors", () => {
   it("arrow down should cycle menu", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     for (const _ of [1, 2, 3]) {
       cy.realPress("ArrowDown");
     }
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(3).should("have.focus");
+    cy.get("@menuitems").eq(3).should("have.focus");
 
     for (const _ of [4, 5, 6, 7, 8, 9]) {
       cy.realPress("ArrowDown");
     }
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(2).should("have.focus");
+    cy.get("@menuitems").eq(2).should("have.focus");
   });
 
   it("arrow up should cycle menu", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     for (const _ of [1, 2, 3]) {
       cy.realPress("ArrowUp");
     }
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(4).should("have.focus");
+    cy.get("@menuitems").eq(4).should("have.focus");
 
     for (const _ of [4, 5, 6, 7, 8, 9]) {
       cy.realPress("ArrowUp");
     }
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(5).should("have.focus");
+    cy.get("@menuitems").eq(5).should("have.focus");
   });
 
   it("esc should close menu and focus button", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     for (const _ of [1, 2, 3]) {
       cy.realPress("ArrowUp");
     }
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(4).should("have.focus");
+    cy.get("@menuitems").eq(4).should("have.focus");
 
     cy.realPress("Escape");
 
@@ -316,17 +316,17 @@ describe("Dropdown menu - buttons", () => {
   it("should move focus to the first menu item on open", () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
   });
 
   it("tab should cycle through options and button", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     cy.realPress("Tab");
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(1).should("have.focus");
+    cy.get("@menuitems").eq(1).should("have.focus");
 
     cy.realPress("Tab");
 
@@ -338,11 +338,11 @@ describe("Dropdown menu - buttons", () => {
   it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     cy.realPress(["Shift", "Tab"]);
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").should("be.visible");
+    cy.get("@menuitems").should("be.visible");
 
     cy.get("@button").should("have.focus");
   });
@@ -350,40 +350,40 @@ describe("Dropdown menu - buttons", () => {
   it("arrow down should cycle menu", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     cy.realPress("ArrowDown");
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(1).should("have.focus");
+    cy.get("@menuitems").eq(1).should("have.focus");
 
     cy.realPress("ArrowDown");
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
   });
 
   it("arrow up should cycle menu", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     cy.realPress("ArrowUp");
     cy.realPress("ArrowUp");
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     cy.realPress("ArrowUp");
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(1).should("have.focus");
+    cy.get("@menuitems").eq(1).should("have.focus");
   });
 
   it("esc should close menu and focus button", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
     cy.realPress("ArrowUp");
 
-    cy.get("dso-dropdown-menu.hydrated").get("@menuitems").eq(1).should("have.focus");
+    cy.get("@menuitems").eq(1).should("have.focus");
 
     cy.realPress("Escape");
 
