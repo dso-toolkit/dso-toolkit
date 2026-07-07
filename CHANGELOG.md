@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🍑 Release 99.0.0 - 2026-07-07
+
 ### Changed
 * Pagination: WCAG bevinding Paginanummering heeft geen toegankelijke naam ([#3843](https://github.com/dso-toolkit/dso-toolkit/issues/3843))
 * Viewer Grid: Print bevindingen ([#3825](https://github.com/dso-toolkit/dso-toolkit/issues/3825))
