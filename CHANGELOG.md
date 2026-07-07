@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Header: WCAG bevinding Op 400% Zoom tab focus verdwijnt uit beeld in het dropdown menu ([#3844](https://github.com/dso-toolkit/dso-toolkit/issues/3844))
+
 ### Fixed
 * Table: Grijze titel niet voldoende contrast op gekleurde achtergrond ([#3801](https://github.com/dso-toolkit/dso-toolkit/issues/3801))
 * Highlight Box: Stepcounter wordt niet voorgelezen met inhoud ([#3757](https://github.com/dso-toolkit/dso-toolkit/issues/3757))
@@ -16,7 +19,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Pagination: WCAG bevinding Paginanummering heeft geen toegankelijke naam ([#3843](https://github.com/dso-toolkit/dso-toolkit/issues/3843))
 * Viewer Grid: Print bevindingen ([#3825](https://github.com/dso-toolkit/dso-toolkit/issues/3825))
-* Header: WCAG bevinding Op 400% Zoom tab focus verdwijnt uit beeld in het dropdown menu ([#3844](https://github.com/dso-toolkit/dso-toolkit/issues/3844))
 
 ### Fixed
 * Action List: Lijst nummer is niet gekoppeld aan inhoud ([#3756](https://github.com/dso-toolkit/dso-toolkit/issues/3756))

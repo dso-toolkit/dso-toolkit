@@ -637,13 +637,13 @@ describe("Header", () => {
         .then(($header) => setMenuItems($header, menuItems))
         .invoke("prop", "compact", "always");
 
-      cy.get("dso-header[is-compact]").shadow().find(".dropdown-menu > button").as("compactMenuButton").click();
+      cy.get("dso-header[is-compact]").shadow().find(".dropdown-menu > button").click();
 
       ensureCompactMenuOpen();
 
       cy.get("dso-header[is-compact]")
         .shadow()
-        .find(".dropdown-menu > div[popover=manual]")
+        .find(".dropdown-menu > div[popover=manual] > .dropdown-menu-options")
         .as("scrollContainer")
         .should(($container) => {
           expect(Number.parseFloat($container.css("max-height"))).to.be.greaterThan(0);
@@ -652,28 +652,25 @@ describe("Header", () => {
           expect($container[0]!.scrollHeight).to.be.greaterThan($container[0]!.clientHeight);
         });
 
-      cy.get("@scrollContainer")
-        .find(".dropdown-menu-options li a, .dropdown-menu-options li button")
-        .as("menuActions");
+      cy.get("@scrollContainer").then(($container) => {
+        const containerRect = $container[0]!.getBoundingClientRect();
 
-      cy.get("@menuActions")
-        .its("length")
-        .then((count) => {
-          for (const _ of Array.from({ length: count })) {
-            cy.realPress("Tab");
+        cy.get("@scrollContainer")
+          .find("li a, li button")
+          .its("length")
+          .then((count) => {
+            for (const _ of Array.from({ length: count })) {
+              cy.realPress("Tab");
 
-            cy.focused().then(($focused) => {
-              const focusedRect = $focused[0]!.getBoundingClientRect();
-
-              cy.get("@scrollContainer").then(($container) => {
-                const containerRect = $container[0]!.getBoundingClientRect();
+              cy.focused().then(($focused) => {
+                const focusedRect = $focused[0]!.getBoundingClientRect();
 
                 expect(focusedRect.top).to.be.at.least(containerRect.top - 1);
                 expect(focusedRect.bottom).to.be.at.most(containerRect.bottom + 1);
               });
-            });
-          }
-        });
+            }
+          });
+      });
     });
   });
 });

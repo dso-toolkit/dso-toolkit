@@ -367,7 +367,10 @@ export class Header implements ComponentInterface {
               }),
               size({
                 apply({ availableHeight, availableWidth, elements }) {
-                  Object.assign(elements.floating.style, {
+                  const scrollElement =
+                    elements.floating.querySelector<HTMLElement>(".dropdown-menu-options") ?? elements.floating;
+
+                  Object.assign(scrollElement.style, {
                     maxHeight: `${availableHeight}px`,
                     maxInlineSize: `${availableWidth}px`,
                     overflowY: "auto",
