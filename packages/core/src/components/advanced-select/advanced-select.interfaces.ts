@@ -27,9 +27,7 @@ export interface AdvancedSelectPlaceholder {
 }
 
 export type AdvancedSelectOptionOrGroup<T> =
-  | AdvancedSelectOption<T>
-  | AdvancedSelectGroup<T>
-  | AdvancedSelectPlaceholder;
+  AdvancedSelectOption<T> | AdvancedSelectGroup<T> | AdvancedSelectPlaceholder;
 
 export interface AdvancedSelectChangeEvent<T> {
   originalEvent: MouseEvent;

@@ -25,10 +25,14 @@ Pas de TypeScript-versie dus alleen aan als alle gebruikte tools deze ondersteun
 Installeer de nieuwste pnpm.
 
 ```sh
-corepack install --global pnpm@latest
+corepack use pnpm@latest
 ```
 
-Pas daarna de versie in het `packageManager`-veld in de root `package.json` aan. De `Dockerfile` gebruikt corepack, die de versie automatisch uit dit veld leest, dus die hoeft niet apart aangepast te worden.
+Hiermee wordt het "packageManager"-veld van de root package.json geüpdatet (versienummer + sha512 hash). Dat
+instrueert Corepack om voor ons project altijd deze specifieke versie te gebruiken. Hiermee realiseren we
+reproduceerbaarheid, aangezien alle ontwikkelaars dezelfde versie van Corepack gebruiken.
+
+De `Dockerfile` gebruikt corepack, die de versie automatisch uit dit veld leest, dus die hoeft niet apart aangepast te worden.
 
 ## Dependencies update
 

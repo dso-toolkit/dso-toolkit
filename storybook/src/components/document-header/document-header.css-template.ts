@@ -31,12 +31,14 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
             [`dso-variant-${variant}`]: !!variant,
           })}"
         >
-          ${statusMessage && !!variant
-            ? html`<div class="dso-document-header-status">
-                ${variant === "ontwerp" ? html`<dso-icon icon="document-pencil"></dso-icon>` : nothing}
-                ${variant === "besluitversie" ? html`<dso-icon icon="hammer"></dso-icon>` : nothing} ${statusMessage}
-              </div>`
-            : nothing}
+          ${
+            statusMessage && !!variant
+              ? html`<div class="dso-document-header-status">
+                  ${variant === "ontwerp" ? html`<dso-icon icon="document-pencil"></dso-icon>` : nothing}
+                  ${variant === "besluitversie" ? html`<dso-icon icon="hammer"></dso-icon>` : nothing} ${statusMessage}
+                </div>`
+              : nothing
+          }
           <h1>
             <button type="button">
               <span>${title}</span>
@@ -71,20 +73,24 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
                 },
                 iconMode: "after",
               })}
-              ${featuresOpen
-                ? html`
-                    ${features ? definitionListTemplate(features) : nothing}
-                    ${besluitInformatie
-                      ? html`
-                          ${headingTemplate({
-                            level: 3,
-                            children: "Besluitinformatie",
-                          })}
-                          ${definitionListTemplate(besluitInformatie)}
-                        `
-                      : nothing}
-                  `
-                : nothing}
+              ${
+                featuresOpen
+                  ? html`
+                      ${features ? definitionListTemplate(features) : nothing}
+                      ${
+                        besluitInformatie
+                          ? html`
+                              ${headingTemplate({
+                                level: 3,
+                                children: "Besluitinformatie",
+                              })}
+                              ${definitionListTemplate(besluitInformatie)}
+                            `
+                          : nothing
+                      }
+                    `
+                  : nothing
+              }
             </div>
 
             ${advancedSelectTemplate(advancedSelect)}

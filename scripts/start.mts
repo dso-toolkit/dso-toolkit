@@ -51,27 +51,30 @@ const startAngular = {
   name: "angular",
 };
 
+const runProcesses = (processes: Parameters<typeof concurrently>[0]) => {
+  try {
+    concurrently(processes, {
+      killOthersOn: ["failure", "success"],
+    });
+  } catch (error) {
+    console.error("Failed to start development processes:", error);
+    process.exitCode = 1;
+  }
+};
+
 if (!argv.mode) {
   if (argv.all) {
     // --all
-    concurrently([watchToolkit, watchCore, startStorybook, startReact, startAngular, startCypress], {
-      killOthersOn: ["failure", "success"],
-    });
+    runProcesses([watchToolkit, watchCore, startStorybook, startReact, startAngular, startCypress]);
   } else if (argv.react) {
     // --react
-    concurrently([watchToolkit, watchCore, startReact], {
-      killOthersOn: ["failure", "success"],
-    });
+    runProcesses([watchToolkit, watchCore, startReact]);
   } else if (argv.angular) {
     // --angular
-    concurrently([watchToolkit, watchCore, startAngular], {
-      killOthersOn: ["failure", "success"],
-    });
+    runProcesses([watchToolkit, watchCore, startAngular]);
   } else {
     // normal
-    concurrently([watchToolkit, watchCore, startStorybook, startCypress], {
-      killOthersOn: ["failure", "success"],
-    });
+    runProcesses([watchToolkit, watchCore, startStorybook, startCypress]);
   }
 } else {
   // nothing

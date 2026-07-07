@@ -84,19 +84,21 @@ const Documenten = examplePageStories<{
           display: none;
         }
       </style>
-      ${print
-        ? html`<style>
-            body {
-              position: static !important;
-              overflow: auto !important;
-              block-size: auto !important;
-            }
-          </style>`
-        : html`<style>
-            body {
-              overflow: hidden !important;
-            }
-          </style>`}
+      ${
+        print
+          ? html`<style>
+              body {
+                position: static !important;
+                overflow: auto !important;
+                block-size: auto !important;
+              }
+            </style>`
+          : html`<style>
+              body {
+                overflow: hidden !important;
+              }
+            </style>`
+      }
       <div class="demo-container ${classMap({ print })}">
         ${headerPartial(templates, header)}
 
@@ -143,14 +145,16 @@ const Documenten = examplePageStories<{
               ${linkTemplate({ url: "#", label: "Terug naar vandaag" })}`,
             }),
             main: html`
-              ${print
-                ? nothing
-                : buttonTemplate({
-                    label: "Opnieuw zoeken",
-                    type: "button",
-                    variant: "tertiary",
-                    icon: { icon: "chevron-left" },
-                  })}
+              ${
+                print
+                  ? nothing
+                  : buttonTemplate({
+                      label: "Opnieuw zoeken",
+                      type: "button",
+                      variant: "tertiary",
+                      icon: { icon: "chevron-left" },
+                    })
+              }
               <section class="dso-filterblok">
                 ${highlightBoxTemplate({
                   content: html`<h2 style="margin-block-start: 0; color: #8b4a6a;">
@@ -167,30 +171,32 @@ const Documenten = examplePageStories<{
               ${navbarTemplate(mainSubmenu)} ${cardContainerTemplate({ mode: "list", cards: documentCardList })}
             `,
             map: html`
-              ${print
-                ? nothing
-                : mapMessageTemplate({
-                    variant: "success",
-                    message: "Valt alles wat u wilt weten binnen het getekende gebied?",
-                    buttons: [
-                      {
-                        label: "Ongedaan maken",
-                        icon: { icon: "undo" },
-                        variant: "secondary",
-                        type: "button",
-                        modifier: "dso-extra-small",
-                        iconMode: "after",
-                      },
-                      {
-                        label: "Volgende",
-                        icon: { icon: "chevron-right" },
-                        variant: "primary",
-                        type: "button",
-                        modifier: "dso-extra-small",
-                        iconMode: "after",
-                      },
-                    ],
-                  })}
+              ${
+                print
+                  ? nothing
+                  : mapMessageTemplate({
+                      variant: "success",
+                      message: "Valt alles wat u wilt weten binnen het getekende gebied?",
+                      buttons: [
+                        {
+                          label: "Ongedaan maken",
+                          icon: { icon: "undo" },
+                          variant: "secondary",
+                          type: "button",
+                          modifier: "dso-extra-small",
+                          iconMode: "after",
+                        },
+                        {
+                          label: "Volgende",
+                          icon: { icon: "chevron-right" },
+                          variant: "primary",
+                          type: "button",
+                          modifier: "dso-extra-small",
+                          iconMode: "after",
+                        },
+                      ],
+                    })
+              }
               ${openLayersMapPartial()}
             `,
             legend: legendOpen

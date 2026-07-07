@@ -72,9 +72,11 @@ export const cssList: ComponentImplementation<List> = {
           (item) => html`
             <li class=${listItemClassMap(modifier, item)}>
               ${imgListIndicator(modifier, item)}
-              ${"status" in item && item.statusDescription
-                ? html`<span class="dso-status">${item.statusDescription}:</span>`
-                : nothing}
+              ${
+                "status" in item && item.statusDescription
+                  ? html`<span class="dso-status">${item.statusDescription}:</span>`
+                  : nothing
+              }
               ${"titleLabel" in item && item.titleLabel ? html`<h3>${item.titleLabel}</h3>` : nothing} ${item.text}
             </li>
           `,

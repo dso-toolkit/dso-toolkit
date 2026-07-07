@@ -58,7 +58,7 @@ The referenced scripts are very small: Only the actually used Web Components are
 
 ### Develop or mockups
 
-To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 24 and pnpm. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 26 and pnpm. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 Enable pnpm via corepack (ships with Node):
 
@@ -102,7 +102,7 @@ This will start Stencil on http://localhost:45333, Storybook on http://localhost
 
 ## Requirements
 
-Node 24. For development on the DSO Toolkit you also need pnpm (enabled via `corepack enable`).
+Node 26. For development on the DSO Toolkit you also need pnpm (enabled via `corepack enable`).
 
 ## Ports
 

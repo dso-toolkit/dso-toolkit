@@ -5,7 +5,7 @@ import minimist from "minimist";
 import * as prettier from "prettier";
 import { optimize } from "svgo";
 
-import { setFillCurrentColor } from "./set-fill-current-color";
+import { setFillCurrentColor } from "./set-fill-current-color.mjs";
 
 interface Args {
   newIconsDir: string | undefined;

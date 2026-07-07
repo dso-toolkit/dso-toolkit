@@ -1,4 +1,4 @@
-const concurrently = require("concurrently");
+const { default: concurrently } = require("concurrently");
 
 concurrently(
   [

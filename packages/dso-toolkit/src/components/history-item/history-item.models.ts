@@ -1,10 +1,5 @@
 export type HistoryItemType =
-  | "in-werking"
-  | "besluit"
-  | "tijdelijk-regelingdeel"
-  | "tijdelijk-regelingdeel-besluit"
-  | "waarschuwing"
-  | "ontwerp";
+  "in-werking" | "besluit" | "tijdelijk-regelingdeel" | "tijdelijk-regelingdeel-besluit" | "waarschuwing" | "ontwerp";
 
 export interface HistoryItem {
   date: string;

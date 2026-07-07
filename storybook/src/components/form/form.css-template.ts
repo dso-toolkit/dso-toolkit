@@ -64,9 +64,9 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
             "title" in formGroup ? formGroupCollection(formGroup) : formGroupTemplate(formGroup),
           )}
           ${formButtons ? formButtonsTemplate(formButtons) : nothing}
-          ${asteriskExplanation === "bottom" || asteriskExplanation === "both"
-            ? asteriskExplanationTemplate()
-            : nothing}
+          ${
+            asteriskExplanation === "bottom" || asteriskExplanation === "both" ? asteriskExplanationTemplate() : nothing
+          }
         </form>
       `;
     },

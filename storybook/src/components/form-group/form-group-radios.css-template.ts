@@ -34,18 +34,22 @@ export const cssFormGroupRadios: ComponentImplementation<FormGroupRadios<Templat
           <legend class="sr-only">${formGroup.label}</legend>
           <div class="dso-label-container">
             <span class="control-label" aria-hidden="true">${formGroup.label}</span>
-            ${formGroup.info?.fixed === false && formGroup.infoButton
-              ? infoButtonTemplate(formGroup.infoButton)
-              : nothing}
+            ${
+              formGroup.info?.fixed === false && formGroup.infoButton
+                ? infoButtonTemplate(formGroup.infoButton)
+                : nothing
+            }
             ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
           </div>
           <div class="dso-field-container">
             ${formGroup.selectables.map((selectable) =>
               selectableTemplate({ ...selectable, disabled: formGroup.disabled }),
             )}
-            ${formGroup.errorText && formGroup.state === "invalid"
-              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
-              : nothing}
+            ${
+              formGroup.errorText && formGroup.state === "invalid"
+                ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
+                : nothing
+            }
             ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
           </div>
         </fieldset>
