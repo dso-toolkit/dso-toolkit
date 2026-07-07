@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Pagination: WCAG bevinding Paginanummering heeft geen toegankelijke naam ([#3843](https://github.com/dso-toolkit/dso-toolkit/issues/3843))
+
 ### Fixed
 * Action List: Lijst nummer is niet gekoppeld aan inhoud ([#3756](https://github.com/dso-toolkit/dso-toolkit/issues/3756))
 
