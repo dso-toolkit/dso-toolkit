@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Modal: Header-Content-Buttons in 1 container na breakpoint ([#3863](https://github.com/dso-toolkit/dso-toolkit/issues/3863))
+
 ### Fixed
 * List Button: Voorlezen bij focus werkt niet ([#3811](https://github.com/dso-toolkit/dso-toolkit/issues/3811))
 
