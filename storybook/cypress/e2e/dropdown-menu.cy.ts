@@ -108,7 +108,7 @@ describe("Dropdown menu - anchors", () => {
   it("uncheckable should have role menuitem", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--anchors&args=checkable:false");
 
-    cy.get("dso-dropdown-menu.hydrated", { timeout: 10000 }).shadow().find("button.dso-secondary").click();
+    cy.get("dso-dropdown-menu.hydrated").shadow().find("button.dso-secondary").click();
 
     cy.get("dso-dropdown-menu-item")
       .should("have.length.greaterThan", 0)

@@ -49,7 +49,7 @@ describe("Header", () => {
 
   /** Configure the component and set an eventListener as @headerListener the `dso-header` is set as @dsoHeader and the `dso-header` shadow dom as @dsoHeaderShadow */
   function prepareComponent() {
-    cy.get("dso-header.hydrated", { timeout: 10000 })
+    cy.get("dso-header.hydrated")
       .then(($header) => {
         $header.on("dsoHeaderClick", ($event) => {
           if ($event.originalEvent instanceof CustomEvent) {
