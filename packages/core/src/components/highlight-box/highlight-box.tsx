@@ -1,4 +1,4 @@
-import { Component, Element, Fragment, Host, Prop, h } from "@stencil/core";
+import { Component, Element, Host, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "dso-highlight-box",
@@ -51,17 +51,14 @@ export class HighlightBox {
     return (
       <Host has-counter={hasCounter}>
         {hasCounter && (
-          <div class="dso-step-counter">
-            {this.step && (
-              <>
-                <span class="sr-only">Stap </span>
-                {this.step}
-              </>
-            )}
-            {!this.step && <slot name="icon" aria-hidden="true"></slot>}
+          <div class="dso-step-counter" aria-hidden="true">
+            {this.step ?? <slot name="icon"></slot>}
           </div>
         )}
-        <slot></slot>
+        <div>
+          {this.step && <span class="sr-only">Stap {this.step}:</span>}
+          <slot></slot>
+        </div>
       </Host>
     );
   }
