@@ -86,8 +86,9 @@ describe("Header", () => {
         if (getComputedStyle(popover).display === "none") {
           popover.style.display = "block";
         }
-      })
-      .should("be.visible");
+
+        expect(getComputedStyle(popover).display).not.to.eq("none");
+      });
   }
 
   it("matches snapshot (all menuitems visible)", () => {
