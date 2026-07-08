@@ -12,7 +12,7 @@
 @use "table.mixins" as css-table-mixins;
 
 caption {
-  color: colors.$text-muted;
+  color: colors.$zwart;
   padding-block-end: table.$cell-padding;
   padding-block-start: table.$cell-padding;
   text-align: start;
