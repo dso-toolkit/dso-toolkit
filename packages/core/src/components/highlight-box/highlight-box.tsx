@@ -50,7 +50,11 @@ export class HighlightBox {
 
     return (
       <Host has-counter={hasCounter}>
-        {hasCounter && <div class="dso-step-counter">{this.step ?? <slot name="icon"></slot>}</div>}
+        {hasCounter && (
+          <div class="dso-step-counter" aria-hidden="true">
+            {this.step ?? <slot name="icon"></slot>}
+          </div>
+        )}
         <slot></slot>
       </Host>
     );

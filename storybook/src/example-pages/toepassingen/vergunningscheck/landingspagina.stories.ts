@@ -78,41 +78,41 @@ const Landingspagina = examplePageStories((templates) => {
         <div class="row dso-featured">
           <div class="col-xs-12">
             <h2>De stappen</h2>
-            <ol class="row dso-equal-heights">
-              <li class="col-md-3 col-sm-6">
+            <div class="row dso-equal-heights">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 1,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Locatie</h3>
+                      <h3><span class="sr-only">Stap 1 van 5: </span>Locatie</h3>
                       <p>Kies de plek waar u iets wilt doen.</p>
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 2,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Werkzaamheden</h3>
+                      <h3><span class="sr-only">Stap 2 van 5: </span>Werkzaamheden</h3>
                       <p>Kies de werkzaamheden van uw project.</p>
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 3,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Vragen beantwoorden</h3>
+                      <h3><span class="sr-only">Stap 3 van 5: </span>Vragen beantwoorden</h3>
                       <p>
                         Doorloop de check en beantwoord alle benodigde vragen. Vragen die in uw situatie niet meer
                         relevant zijn vallen vanzelf weg.
@@ -120,15 +120,15 @@ const Landingspagina = examplePageStories((templates) => {
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 4,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Resultaat</h3>
+                      <h3><span class="sr-only">Stap 4 van 5: </span>Resultaat</h3>
                       <p>
                         U krijgt een overzicht. U ziet daar in of u een vergunning moet aanvragen of een melding moet
                         doen.
@@ -136,15 +136,15 @@ const Landingspagina = examplePageStories((templates) => {
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 5,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Start een aanvraag</h3>
+                      <h3><span class="sr-only">Stap 5 van 5: </span>Start een aanvraag</h3>
                       <p>
                         U kunt ook vanuit de Vergunningcheck starten met een aanvraag. De locatie en activiteiten worden
                         dan bewaard.
@@ -152,8 +152,8 @@ const Landingspagina = examplePageStories((templates) => {
                     `,
                   }),
                 })}
-              </li>
-            </ol>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row dso-equal-heights">

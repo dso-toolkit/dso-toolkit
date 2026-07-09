@@ -31,6 +31,7 @@ interface HighlightBoxStoriesParameters<Implementation, Templates, TemplateFnRet
 interface HighlightBoxTemplates<TemplateFnReturnType> {
   highlightBoxTemplate: (highlightBoxProperties: HighlightBox<TemplateFnReturnType>) => TemplateFnReturnType;
   content: TemplateFnReturnType;
+  stepContent: TemplateFnReturnType;
 }
 
 export function highlightBoxMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -62,32 +63,32 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
 }: HighlightBoxStoriesParameters<Implementation, Templates, TemplateFnReturnType>): HighlightBoxStories {
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
-        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content, stepContent }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
       ),
     },
     Yellow: {
       args: {
         yellow: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
-        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content, stepContent }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
       ),
     },
     Green: {
       args: {
         green: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
-        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content, stepContent }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
       ),
     },
     Grey: {
       args: {
         grey: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
-        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content, stepContent }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
       ),
     },
     GreyWithBorder: {
@@ -95,8 +96,8 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
         grey: true,
         border: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
-        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content, stepContent }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
       ),
     },
     WhiteWithDropshadow: {
@@ -104,16 +105,16 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
         white: true,
         dropShadow: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
-        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content, stepContent }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
       ),
     },
     WithBorder: {
       args: {
         border: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
-        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content, stepContent }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
       ),
     },
     WithIcon: {
@@ -121,16 +122,16 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
         yellow: true,
         icon: "plus",
       },
-      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
-        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content, stepContent }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
       ),
     },
     WithBannerImage: {
       args: {
         bannerImage: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
-        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content, stepContent }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
       ),
     },
   };
