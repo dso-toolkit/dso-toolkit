@@ -26,7 +26,10 @@ const { Default, Yellow, Green, WhiteWithDropshadow, WithBorder, WithIcon, WithB
 
     return {
       highlightBoxTemplate,
-      content: content(),
+      content: content("<h3>Toelichting: Vergunningvrij onder voorbehoud</h3>"),
+      stepContent: content(
+        '<h3><span class="sr-only">Stap x van y: </span>Toelichting: Vergunningvrij onder voorbehoud</h3>',
+      ),
     };
   },
 });

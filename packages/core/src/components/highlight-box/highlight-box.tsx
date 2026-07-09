@@ -55,10 +55,7 @@ export class HighlightBox {
             {this.step ?? <slot name="icon"></slot>}
           </div>
         )}
-        <div>
-          {this.step && <span class="sr-only">Stap {this.step}:</span>}
-          <slot></slot>
-        </div>
+        <slot></slot>
       </Host>
     );
   }

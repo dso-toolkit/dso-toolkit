@@ -1,10 +1,10 @@
 import type { IStory } from "@storybook/angular";
 
-export function content(): IStory {
+export function content(heading: string): IStory {
   return {
     template: `
       <div class="dso-rich-content">
-        <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
+        ${heading}
         <p>
           Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het
           Opleverdossier, de Bouwregelgeving, de Vergunningvrije bouwwerken en een Digitaliseringshulp.

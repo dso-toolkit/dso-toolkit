@@ -107,15 +107,15 @@ const Landingspagina = examplePageStories((templates) => {
         <div class="row dso-featured">
           <div class="col-xs-12">
             <h2>De stappen</h2>
-            <ol class="row dso-equal-heights">
-              <li class="col-md-3 col-sm-6">
+            <div class="row dso-equal-heights">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 1,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Project aanmaken</h3>
+                      <h3><span class="sr-only">Stap 1 van 7: </span>Project aanmaken</h3>
                       <p>
                         Maak eerst een project aan. Deze vindt u daarna terug in
                         ${linkTemplate({ label: "Mijn omgevingsloket", url: "#" })}.
@@ -123,41 +123,41 @@ const Landingspagina = examplePageStories((templates) => {
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 2,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Locatie</h3>
+                      <h3><span class="sr-only">Stap 2 van 7: </span>Locatie</h3>
                       <p>Kies de locatie voor uw bouwactiviteit(en).</p>
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 3,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Activiteiten</h3>
+                      <h3><span class="sr-only">Stap 3 van 7: </span>Activiteiten</h3>
                       <p>Kies de activiteiten van uw project.</p>
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 4,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Vragen beantwoorden</h3>
+                      <h3><span class="sr-only">Stap 4 van 7: </span>Vragen beantwoorden</h3>
                       <p>
                         Beantwoord alle vragen die nodig zijn voor uw aanvraag. Vragen die in uw situatie niet meer
                         relevant zijn vallen vanzelf weg.
@@ -165,41 +165,41 @@ const Landingspagina = examplePageStories((templates) => {
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 5,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Documenten toevoegen</h3>
+                      <h3><span class="sr-only">Stap 5 van 7: </span>Documenten toevoegen</h3>
                       <p>Voeg alle benodigde documenten toe.</p>
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 6,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Uw gegevens</h3>
+                      <h3><span class="sr-only">Stap 6 van 7: </span>Uw gegevens</h3>
                       <p>Controleer uw gegevens en vul aan waar nodig.</p>
                     `,
                   }),
                 })}
-              </li>
-              <li class="col-md-3 col-sm-6">
+              </div>
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
                   step: 7,
                   content: richContentTemplate({
                     children: html`
-                      <h3>Verzoek samenstellen</h3>
+                      <h3><span class="sr-only">Stap 7 van 7: </span>Verzoek samenstellen</h3>
                       <p>
                         In de laatste stap bepaalt u voor welke activiteit(en) een Omgevingsoverleg of definitief
                         verzoek wordt verstuurd.
@@ -207,8 +207,8 @@ const Landingspagina = examplePageStories((templates) => {
                     `,
                   }),
                 })}
-              </li>
-            </ol>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row dso-equal-heights">
