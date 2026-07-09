@@ -1,6 +1,8 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
+
 @use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 @use "~dso-toolkit/src/di";
 
@@ -46,7 +48,7 @@
 
 ::slotted([slot="heading"]) {
   margin: 0 !important;
-  font-size: 1rem !important;
+  font-size: typography.$font-size-base !important;
   font-weight: 600 !important;
   line-height: 1.5 !important;
   color: colors.$zwart !important;
