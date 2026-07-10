@@ -116,10 +116,12 @@ export class DropdownMenu implements ComponentInterface {
             }),
             size({
               apply({ availableHeight, availableWidth, elements }) {
-                Object.assign(elements.floating.style, {
+                const scrollElement =
+                  elements.floating.querySelector<HTMLElement>("dso-scrollable") ?? elements.floating;
+
+                Object.assign(scrollElement.style, {
                   maxHeight: `${availableHeight}px`,
                   maxInlineSize: `${availableWidth}px`,
-                  overflowY: "auto",
                 });
               },
             }),
@@ -266,7 +268,9 @@ export class DropdownMenu implements ComponentInterface {
           role="menu"
           ref={(element) => (this.popoverElement = element)}
         >
-          <slot />
+          <dso-scrollable>
+            <slot />
+          </dso-scrollable>
         </div>
       </Host>
     );

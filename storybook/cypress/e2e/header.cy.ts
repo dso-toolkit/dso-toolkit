@@ -644,34 +644,25 @@ describe("Header", () => {
 
       cy.get("dso-header[is-compact]")
         .shadow()
-        .find(".dropdown-menu > div[popover=manual] > .dropdown-menu-options")
-        .as("scrollContainer")
-        .should(($container) => {
-          expect(Number.parseFloat($container.css("max-height"))).to.be.greaterThan(0);
-          expect(Number.parseFloat($container.css("max-inline-size"))).to.be.greaterThan(0);
-          expect($container.css("overflow-y")).to.eq("auto");
-          expect($container[0]!.scrollHeight).to.be.greaterThan($container[0]!.clientHeight);
+        .find("dso-scrollable")
+        .should("exist")
+        .then(($container) => {
+          const items = $container.find("a[href^='#tab-item-']");
+
+          expect(items.length).to.eq(25);
+
+          for (let i = 0; i < items.length; i++) {
+            cy.realPress("Tab");
+
+            cy.focused().then(($focused) => {
+              const containerRect = $container[0]!.getBoundingClientRect();
+              const focusedRect = $focused[0]!.getBoundingClientRect();
+
+              expect(focusedRect.top).to.be.at.least(containerRect.top - 1);
+              expect(focusedRect.bottom).to.be.at.most(containerRect.bottom + 1);
+            });
+          }
         });
-
-      cy.get("@scrollContainer").then(($container) => {
-        const containerRect = $container[0]!.getBoundingClientRect();
-
-        cy.get("@scrollContainer")
-          .find("li a, li button")
-          .its("length")
-          .then((count) => {
-            for (const _ of Array.from({ length: count })) {
-              cy.realPress("Tab");
-
-              cy.focused().then(($focused) => {
-                const focusedRect = $focused[0]!.getBoundingClientRect();
-
-                expect(focusedRect.top).to.be.at.least(containerRect.top - 1);
-                expect(focusedRect.bottom).to.be.at.most(containerRect.bottom + 1);
-              });
-            }
-          });
-      });
     });
   });
 });

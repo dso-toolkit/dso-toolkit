@@ -16,6 +16,7 @@
 
  - [dso-autosuggest](../autosuggest)
  - [dso-badge](../badge)
+ - [dso-dropdown-menu](../dropdown-menu)
  - [dso-header](../header)
  - [dso-info-button](../info-button)
  - [dso-legend](../legend)
@@ -28,6 +29,7 @@
 graph TD;
   dso-autosuggest --> dso-scrollable
   dso-badge --> dso-scrollable
+  dso-dropdown-menu --> dso-scrollable
   dso-header --> dso-scrollable
   dso-info-button --> dso-scrollable
   dso-legend --> dso-scrollable

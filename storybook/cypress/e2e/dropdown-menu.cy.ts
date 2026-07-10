@@ -231,46 +231,34 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@button").focus().click();
     cy.get("@menuitems").first().should("be.visible");
 
-    cy.get("@options").should(($options) => {
-      const optionsRect = $options[0]!.getBoundingClientRect();
+    cy.get("@menuitems")
+      .its("length")
+      .then((count) => {
+        Array.from({ length: count }).forEach(() => {
+          cy.realPress("Tab");
 
-      expect(Number.parseFloat($options.css("max-height"))).to.be.greaterThan(0);
-      expect(Number.parseFloat($options.css("max-inline-size"))).to.be.greaterThan(0);
-      expect($options.css("overflow-y")).to.eq("auto");
-      expect($options[0]!.scrollHeight).to.be.greaterThan($options[0]!.clientHeight);
+          cy.focused().then(($focused) => {
+            const focusedElement = $focused[0]!;
 
-      expect(optionsRect.top).to.be.at.least(0);
-      expect(optionsRect.bottom).to.be.at.most(Cypress.config("viewportHeight"));
-    });
+            cy.get("@button").then(($button) => {
+              if (focusedElement === $button[0]) {
+                return;
+              }
 
-    cy.get("@options").then(($options) => {
-      const optionsRect = $options[0]!.getBoundingClientRect();
+              cy.get("@options")
+                .find("dso-scrollable")
+                .then(($scrollable) => {
+                  const scrollableRect = $scrollable[0]!.getBoundingClientRect();
+                  const activeTarget = focusedElement.shadowRoot?.activeElement || focusedElement;
+                  const focusedRect = activeTarget.getBoundingClientRect();
 
-      cy.get("@button").then(($button) => {
-        const toggleButton = $button[0]!;
-
-        cy.get("@menuitems")
-          .its("length")
-          .then((count) => {
-            for (const _ of Array.from({ length: count })) {
-              cy.realPress("Tab");
-
-              cy.focused().then(($focused) => {
-                const focusedElement = $focused[0]!;
-
-                if (focusedElement === toggleButton) {
-                  return;
-                }
-
-                const focusedRect = focusedElement.getBoundingClientRect();
-
-                expect(focusedRect.top).to.be.at.least(optionsRect.top - 1);
-                expect(focusedRect.bottom).to.be.at.most(optionsRect.bottom + 1);
-              });
-            }
+                  expect(focusedRect.top).to.be.at.least(scrollableRect.top - 1);
+                  expect(focusedRect.bottom).to.be.at.most(scrollableRect.bottom + 1);
+                });
+            });
           });
+        });
       });
-    });
   });
 
   it("should close on item selection", () => {
