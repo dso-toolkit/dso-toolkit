@@ -32,11 +32,13 @@
 ### Depends on
 
 - [dso-icon](../icon)
+- [dso-scrollable](../scrollable)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-header --> dso-icon
+  dso-header --> dso-scrollable
   style dso-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

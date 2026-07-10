@@ -373,7 +373,6 @@ export class Header implements ComponentInterface {
                   Object.assign(scrollElement.style, {
                     maxHeight: `${availableHeight}px`,
                     maxInlineSize: `${availableWidth}px`,
-                    overflowY: "auto",
                   });
                 },
               }),
@@ -452,7 +451,7 @@ export class Header implements ComponentInterface {
               <dso-icon icon="chevron-down"></dso-icon>
             </button>
             <div popover="manual" ref={(element) => (this.popoverElement = element)}>
-              <div
+              <dso-scrollable
                 class="dropdown-menu-options"
                 role="menu"
                 aria-labelledby={this.dropdownButtonElement?.id}
@@ -536,7 +535,7 @@ export class Header implements ComponentInterface {
                     </li>
                   )}
                 </ul>
-              </div>
+              </dso-scrollable>
             </div>
           </div>
         </div>
