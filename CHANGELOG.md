@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🚑 Release 99.1.0 - 2026-07-13
+
 ### Changed
 * Header: WCAG bevinding Op 400% Zoom tab focus verdwijnt uit beeld in het dropdown menu ([#3844](https://github.com/dso-toolkit/dso-toolkit/issues/3844))
 
