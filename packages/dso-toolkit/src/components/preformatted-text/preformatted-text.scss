@@ -15,7 +15,7 @@ pre {
   line-height: typography.$line-height-base;
   margin-block: 0 (typography.$line-height-computed * 0.5);
   margin-inline: 0;
-  padding: ((typography.$root-line-height-computed - 1px) * 0.5);
+  padding: calc((typography.$line-height-computed - 1px) * 0.5);
   word-break: break-all;
   overflow-wrap: break-word;
 }
