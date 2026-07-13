@@ -1,4 +1,5 @@
 @use "../../variables/units";
+@use "../../variables/typography";
 @use "../../variables/colors";
 
 @use "application-heading.variables" as application-heading-variables;
@@ -20,7 +21,7 @@
       display: block;
       flex: 1 0;
       flex-basis: auto;
-      font-size: 1rem;
+      font-size: typography.$font-size-base;
       font-weight: normal;
       padding-block-start: #{application-heading-variables.$step-padding * 0.5};
       text-align: end;

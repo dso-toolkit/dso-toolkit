@@ -12,7 +12,7 @@ fieldset {
 legend {
   border: 0;
   color: css-fieldset-variables.$legend-color;
-  font-size: typography.$root-font-size-base * 1.5;
+  font-size: typography.$font-size-base * 1.5;
   line-height: inherit;
   margin-block-end: typography.$line-height-computed;
   padding: 0;

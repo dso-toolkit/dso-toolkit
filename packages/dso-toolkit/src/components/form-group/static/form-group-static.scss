@@ -5,7 +5,7 @@
   .form-horizontal & {
     .dso-field-container {
       margin-block-end: 0;
-      min-block-size: typography.$root-line-height-computed + typography.$root-font-size-base;
+      min-block-size: typography.$line-height-computed + typography.$font-size-base;
       padding-block-end: units.$padding-base-block + 1;
       padding-block-start: units.$padding-base-block + 1;
 

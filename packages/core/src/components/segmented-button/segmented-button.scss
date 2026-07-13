@@ -1,5 +1,6 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors" as colors;
+@use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
 
 @include utilities.box-sizing();
@@ -59,7 +60,7 @@
     align-items: center;
     justify-content: center;
     block-size: units.$u3;
-    font-size: 16px;
+    font-size: typography.$font-size-base;
     font-weight: 500;
     background: colors.$wit;
     color: colors.$grasgroen;

@@ -1,5 +1,6 @@
 @use "../../variables/units";
 @use "../../variables/colors";
+@use "../../variables/typography";
 
 @use "step-counter.variables" as step-counter-variables;
 
@@ -10,7 +11,7 @@
 
 @mixin _step-counter-font-styling() {
   color: colors.$wit;
-  font-size: 1.25rem;
+  font-size: typography.$font-size-large;
   font-weight: 500;
   line-height: step-counter-variables.$size;
   text-align: center;

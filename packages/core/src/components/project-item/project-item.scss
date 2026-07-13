@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
-@use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
 
 :host {
   display: block;
@@ -50,14 +51,14 @@
   --_dso-mark-padding-block: 0;
   --_dso-mark-color: inherit;
   --_dso-mark-font-weight: 600;
-  --_dso-dl-font-size: 0.875rem;
+  --_dso-dl-font-size: #{typography.$font-size-small};
 
   display: block !important;
 }
 
 ::slotted([slot="title"]) {
   margin-block: 0 !important;
-  font-size: 1.25rem !important;
+  font-size: typography.$font-size-large !important;
 }
 
 ::slotted([slot="actions"]) {

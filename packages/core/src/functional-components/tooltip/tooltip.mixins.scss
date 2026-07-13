@@ -32,7 +32,7 @@
       @include set-colors.apply($background-color, "tooltip");
 
       font-family: typography.$font-family-base;
-      font-size: typography.$root-font-size-base;
+      font-size: typography.$font-size-base;
       font-weight: normal;
       padding-block: $padding-block-inner;
       padding-inline: $padding-inline-inner;

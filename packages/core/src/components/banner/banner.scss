@@ -51,15 +51,15 @@
   --_dso-heading-h4-color: #{colors.$zwart};
   --_dso-heading-h5-color: #{colors.$zwart};
 
-  --_dso-heading-h1-font-size-xs: 1rem;
-  --_dso-heading-h1-font-size: 1rem;
-  --_dso-heading-h2-font-size-xs: 1rem;
-  --_dso-heading-h2-font-size: 1rem;
-  --_dso-heading-h3-font-size-xs: 1rem;
-  --_dso-heading-h3-font-size: 1rem;
-  --_dso-heading-h4-font-size: 1rem;
-  --_dso-heading-h5-font-size: 1rem;
-  --_dso-heading-h6-font-size: 1rem;
+  --_dso-heading-h1-font-size-xs: #{typography.$font-size-base};
+  --_dso-heading-h1-font-size: #{typography.$font-size-base};
+  --_dso-heading-h2-font-size-xs: #{typography.$font-size-base};
+  --_dso-heading-h2-font-size: #{typography.$font-size-base};
+  --_dso-heading-h3-font-size-xs: #{typography.$font-size-base};
+  --_dso-heading-h3-font-size: #{typography.$font-size-base};
+  --_dso-heading-h4-font-size: #{typography.$font-size-base};
+  --_dso-heading-h5-font-size: #{typography.$font-size-base};
+  --_dso-heading-h6-font-size: #{typography.$font-size-base};
 
   --_dso-heading-h2-first-child-float: inline-start;
 

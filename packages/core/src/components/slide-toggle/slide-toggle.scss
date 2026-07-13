@@ -7,7 +7,7 @@ $slide-toggle-height: 20px;
 
 :host {
   display: inline-block;
-  padding-block-start: (typography.$line-height-base * typography.$font-size-base - $slide-toggle-height) * 0.5;
+  padding-block-start: calc((#{typography.$line-height-computed} - #{$slide-toggle-height}) * 0.5);
 }
 
 button.dso-slider {

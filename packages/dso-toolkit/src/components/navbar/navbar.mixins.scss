@@ -97,7 +97,7 @@
         > button {
           @include link.reverse();
 
-          font-size: typography.$root-font-size-base;
+          font-size: typography.$font-size-base;
           margin-block-start: (units.$u1 * 0.5);
           padding-block: (units.$u1 * 0.5) #{units.$u1 * 0.5 - 1px};
           padding-inline: units.$u1;

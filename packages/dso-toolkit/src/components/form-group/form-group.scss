@@ -89,7 +89,7 @@
     // Reposition feedback icon if input has visible label above
     label {
       & ~ .form-control-feedback {
-        inset-block-start: (typography.$line-height-computed + 5); // Height of the `label` and its margin
+        inset-block-start: calc(typography.$line-height-computed + 5px); // Height of the `label` and its margin
       }
 
       &.sr-only ~ .form-control-feedback {

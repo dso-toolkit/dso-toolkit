@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Table: Grijze titel niet voldoende contrast op gekleurde achtergrond ([#3801](https://github.com/dso-toolkit/dso-toolkit/issues/3801))
 * Highlight Box: Stepcounter wordt niet voorgelezen met inhoud ([#3757](https://github.com/dso-toolkit/dso-toolkit/issues/3757))
+* Font Size: Teksten gebaseerd op px omzetten naar rem ([#3851](https://github.com/dso-toolkit/dso-toolkit/issues/3851))
 
 ## 🍑 Release 99.0.0 - 2026-07-07
 

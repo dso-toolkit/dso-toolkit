@@ -1,5 +1,6 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
 
 @use "../../functional-components/tooltip";
@@ -154,7 +155,7 @@
   background-color: transparent;
   border: 0;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: typography.$font-size-base;
   padding: 0;
 
   + {
