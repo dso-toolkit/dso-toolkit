@@ -54,7 +54,7 @@ button {
   font-size: typography.$font-size-base;
   min-inline-size: 160px;
   inline-size: max-content;
-  padding-inline: 0;
+  padding: 0;
   z-index: zindex.$dropdown-options;
 }
 
