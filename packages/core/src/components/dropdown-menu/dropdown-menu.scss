@@ -43,6 +43,7 @@ button {
 }
 
 .dso-dropdown-options {
+  box-sizing: border-box;
   margin: 0 !important;
   overflow: unset;
   background-clip: padding-box;
@@ -53,8 +54,7 @@ button {
   font-size: typography.$font-size-base;
   min-inline-size: 160px;
   inline-size: max-content;
-  padding-block: 5px;
-  padding-inline: 0;
+  padding: 0;
   z-index: zindex.$dropdown-options;
 }
 

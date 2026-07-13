@@ -1,4 +1,4 @@
-import { autoUpdate, computePosition, flip, offset } from "@floating-ui/dom";
+import { autoUpdate, computePosition, flip, offset, size } from "@floating-ui/dom";
 import {
   Component,
   ComponentInterface,
@@ -365,6 +365,17 @@ export class Header implements ComponentInterface {
               flip({
                 padding: this.dropdownOptionsOffset,
               }),
+              size({
+                apply({ availableHeight, availableWidth, elements }) {
+                  const scrollElement =
+                    elements.floating.querySelector<HTMLElement>(".dropdown-menu-options") ?? elements.floating;
+
+                  Object.assign(scrollElement.style, {
+                    maxHeight: `${availableHeight}px`,
+                    maxInlineSize: `${availableWidth}px`,
+                  });
+                },
+              }),
             ],
             placement: this.isCompact ? "bottom-end" : "bottom-start",
           }).then(({ x, y }) => {
@@ -440,7 +451,7 @@ export class Header implements ComponentInterface {
               <dso-icon icon="chevron-down"></dso-icon>
             </button>
             <div popover="manual" ref={(element) => (this.popoverElement = element)}>
-              <div
+              <dso-scrollable
                 class="dropdown-menu-options"
                 role="menu"
                 aria-labelledby={this.dropdownButtonElement?.id}
@@ -524,7 +535,7 @@ export class Header implements ComponentInterface {
                     </li>
                   )}
                 </ul>
-              </div>
+              </dso-scrollable>
             </div>
           </div>
         </div>

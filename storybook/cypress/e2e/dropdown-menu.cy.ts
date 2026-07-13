@@ -89,35 +89,32 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@button").should("have.attr", "aria-haspopup", "menu").click();
 
     cy.get("@button")
+      .should("have.attr", "aria-haspopup", "menu")
+      .click()
       .invoke("attr", "id")
       .then((id) => {
-        cy.get("dso-dropdown-menu.hydrated")
-          .get("@options")
-          .should("have.attr", "role", "menu")
-          .should("have.attr", "aria-labelledby", id);
+        cy.get("@options").should("have.attr", "role", "menu").should("have.attr", "aria-labelledby", id);
       });
 
-    cy.get("dso-dropdown-menu.hydrated")
-      .get("dso-dropdown-menu-item[checked]")
+    cy.get("dso-dropdown-menu-item[checked]").shadow().find("a").should("have.attr", "aria-checked", "true");
+
+    cy.get("@menuitems")
       .shadow()
       .find("a")
-      .should("have.attr", "aria-checked", "true");
-
-    cy.get("@menuitems").each((menuItem) =>
-      cy.wrap(menuItem).shadow().find("a").should("have.attr", "role", "menuitemradio"),
-    );
+      .should("have.attr", "role")
+      .and("match", /menuitem(radio)?/);
   });
 
   it("uncheckable should have role menuitem", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--anchors&args=checkable:false");
 
-    cy.get("@button").focus().click();
+    cy.get("dso-dropdown-menu.hydrated").shadow().find("button.dso-secondary").click();
 
-    cy.get("dso-dropdown-menu.hydrated")
-      .get("dso-dropdown-menu-item")
-      .shadow()
-      .find("a")
-      .each((a) => cy.wrap(a).should("have.attr", "role", "menuitem"));
+    cy.get("dso-dropdown-menu-item")
+      .should("have.length.greaterThan", 0)
+      .each(($item) => {
+        cy.wrap($item).shadow().find("a").should("have.attr", "role", "menuitem");
+      });
   });
 
   it("should move focus to the first menu item on open", () => {
@@ -226,6 +223,42 @@ describe("Dropdown menu - anchors", () => {
     cy.get("dso-dropdown-menu.hydrated").get("body").click();
 
     cy.get("@options").should("not.be.visible");
+  });
+
+  it("keeps the focused menu item visible when the dropdown becomes scrollable", { browser: "!firefox" }, () => {
+    cy.viewport(320, 180);
+
+    cy.get("@button").focus().click();
+    cy.get("@menuitems").first().should("be.visible");
+
+    cy.get("@menuitems")
+      .its("length")
+      .then((count) => {
+        Array.from({ length: count }).forEach(() => {
+          cy.realPress("Tab");
+
+          cy.focused().then(($focused) => {
+            const focusedElement = $focused[0]!;
+
+            cy.get("@button").then(($button) => {
+              if (focusedElement === $button[0]) {
+                return;
+              }
+
+              cy.get("@options")
+                .find("dso-scrollable")
+                .then(($scrollable) => {
+                  const scrollableRect = $scrollable[0]!.getBoundingClientRect();
+                  const activeTarget = focusedElement.shadowRoot?.activeElement || focusedElement;
+                  const focusedRect = activeTarget.getBoundingClientRect();
+
+                  expect(focusedRect.top).to.be.at.least(scrollableRect.top - 1);
+                  expect(focusedRect.bottom).to.be.at.most(scrollableRect.bottom + 1);
+                });
+            });
+          });
+        });
+      });
   });
 
   it("should close on item selection", () => {

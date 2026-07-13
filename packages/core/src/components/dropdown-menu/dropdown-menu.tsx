@@ -1,4 +1,4 @@
-import { autoUpdate, computePosition, flip, offset } from "@floating-ui/dom";
+import { autoUpdate, computePosition, flip, offset, size } from "@floating-ui/dom";
 import {
   Component,
   ComponentInterface,
@@ -113,6 +113,17 @@ export class DropdownMenu implements ComponentInterface {
             offset(2),
             flip({
               padding: 2,
+            }),
+            size({
+              apply({ availableHeight, availableWidth, elements }) {
+                const scrollElement =
+                  elements.floating.querySelector<HTMLElement>("dso-scrollable") ?? elements.floating;
+
+                Object.assign(scrollElement.style, {
+                  maxHeight: `${availableHeight}px`,
+                  maxInlineSize: `${availableWidth}px`,
+                });
+              },
             }),
           ],
           placement: "bottom-start",
@@ -257,7 +268,9 @@ export class DropdownMenu implements ComponentInterface {
           role="menu"
           ref={(element) => (this.popoverElement = element)}
         >
-          <slot />
+          <dso-scrollable>
+            <slot />
+          </dso-scrollable>
         </div>
       </Host>
     );

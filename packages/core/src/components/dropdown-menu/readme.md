@@ -20,11 +20,13 @@ Must contain at least one `<dso-dropdown-menu-group>`. A `<dso-dropdown-menu-gro
 ### Depends on
 
 - [dso-icon](../icon)
+- [dso-scrollable](../scrollable)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-dropdown-menu --> dso-icon
+  dso-dropdown-menu --> dso-scrollable
   style dso-dropdown-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

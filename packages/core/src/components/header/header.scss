@@ -181,6 +181,7 @@ div[popover] {
   }
 
   .dropdown-menu-options {
+    box-sizing: border-box;
     background-clip: padding-box;
     background-color: core-header-variables.$dropdown-menu-background-color;
     border: 0;
@@ -188,7 +189,6 @@ div[popover] {
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
     font-size: typography.$font-size-base;
     min-inline-size: 160px;
-    padding-block: 5px;
     padding-inline: 0;
     z-index: zindex.$dropdown-options;
 
