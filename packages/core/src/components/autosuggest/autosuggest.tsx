@@ -550,8 +550,21 @@ export class Autosuggest {
         ? this.listboxGroupedItemId(this.selectedSuggestionGroup, this.selectedSuggestion)
         : this.listboxItemId(this.selectedSuggestion);
       this.input?.setAttribute("aria-activedescendant", id);
+
       if (scroll) {
-        document.getElementById(id)?.scrollIntoView({ block: "nearest" });
+        const rootNode = this.host.getRootNode();
+
+        if (!(rootNode instanceof Document || rootNode instanceof ShadowRoot)) {
+          console.warn("Autosuggest: rootNode is not instance of Document or ShadowRoot");
+
+          return;
+        }
+
+        if (rootNode.querySelector(`#${id}`)) {
+          rootNode.querySelector(`#${id}`)?.scrollIntoView({ block: "nearest" });
+        } else {
+          console.warn(`Autosuggest: Element with id ${id} is not found in the DOM.`);
+        }
       }
     }
   }
