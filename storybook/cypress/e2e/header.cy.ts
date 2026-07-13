@@ -647,6 +647,7 @@ describe("Header", () => {
         .find("dso-scrollable")
         .should("exist")
         .then(($container) => {
+          const containerRect = $container[0]!.getBoundingClientRect();
           const items = $container.find("a[href^='#tab-item-']");
 
           expect(items.length).to.eq(25);
@@ -655,7 +656,6 @@ describe("Header", () => {
             cy.realPress("Tab");
 
             cy.focused().then(($focused) => {
-              const containerRect = $container[0]!.getBoundingClientRect();
               const focusedRect = $focused[0]!.getBoundingClientRect();
 
               expect(focusedRect.top).to.be.at.least(containerRect.top - 1);
