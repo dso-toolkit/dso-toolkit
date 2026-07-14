@@ -1,4 +1,5 @@
 import { EventEmitter, FunctionalComponent, h } from "@stencil/core";
+
 import { ModalCloseEvent } from "../modal.interfaces";
 
 export interface HeaderProps {

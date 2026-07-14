@@ -4,11 +4,11 @@ import { v4 } from "uuid";
 import { getActiveElement } from "../../utils/get-active-element";
 import { i18n } from "../../utils/i18n";
 
-import { translations } from "./modal.i18n";
-import { ModalCloseEvent } from "./modal.interfaces";
 import { Body } from "./functional-components/body";
 import { Footer } from "./functional-components/footer";
 import { Header } from "./functional-components/header";
+import { translations } from "./modal.i18n";
+import { ModalCloseEvent } from "./modal.interfaces";
 
 @Component({
   tag: "dso-modal",
