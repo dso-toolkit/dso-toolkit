@@ -6,6 +6,9 @@ import { i18n } from "../../utils/i18n";
 
 import { translations } from "./modal.i18n";
 import { ModalCloseEvent } from "./modal.interfaces";
+import { Body } from "./functional-components/body";
+import { Footer } from "./functional-components/footer";
+import { Header } from "./functional-components/header";
 
 @Component({
   tag: "dso-modal",
@@ -95,12 +98,12 @@ export class Modal implements ComponentInterface {
   }
 
   connectedCallback() {
-    const media = window.matchMedia(this.mediaCondition);
-    media.addEventListener("change", this.changeListener);
+    window.matchMedia(this.mediaCondition).addEventListener("change", this.changeListener);
   }
 
   disconnectedCallback(): void {
     window.matchMedia(this.mediaCondition).removeEventListener("change", this.changeListener);
+
     this.htmlDialogElement?.close();
 
     if (this.returnFocus === false) {
@@ -154,67 +157,31 @@ export class Modal implements ComponentInterface {
         <div class="dso-dialog">
           {this.narrowView ? (
             <dso-scrollable>
-              {this.modalTitle ? (
-                <div class="dso-header">
-                  <h2 id={this.ariaId}>{this.modalTitle}</h2>
-                  {this.closable && (
-                    <dso-icon-button
-                      id="close-modal"
-                      icon="cross"
-                      variant="tertiary"
-                      label={this.text("close")}
-                      onDsoClick={(e) => this.dsoClose.emit({ originalEvent: e })}
-                    />
-                  )}
-                </div>
-              ) : (
-                <span class="sr-only" id={this.ariaId}>
-                  {this.text("dialog")}
-                </span>
-              )}
-
-              <div class="dso-body" tabIndex={0}>
-                <slot name="body" />
+              <div class="modal-scrollable">
+                <Header
+                  modalTitle={this.modalTitle}
+                  closable={this.closable}
+                  ariaId={this.ariaId}
+                  text={this.text}
+                  dsoClose={this.dsoClose}
+                />
+                <Body />
+                {this.hasFooter && <Footer />}
               </div>
-
-              {this.hasFooter && (
-                <div class="dso-footer">
-                  <slot name="footer" />
-                </div>
-              )}
             </dso-scrollable>
           ) : (
             <Fragment>
-              {this.modalTitle ? (
-                <div class="dso-header">
-                  <h2 id={this.ariaId}>{this.modalTitle}</h2>
-                  {this.closable && (
-                    <dso-icon-button
-                      id="close-modal"
-                      icon="cross"
-                      variant="tertiary"
-                      label={this.text("close")}
-                      onDsoClick={(e) => this.dsoClose.emit({ originalEvent: e })}
-                    />
-                  )}
-                </div>
-              ) : (
-                <span class="sr-only" id={this.ariaId}>
-                  {this.text("dialog")}
-                </span>
-              )}
-
+              <Header
+                modalTitle={this.modalTitle}
+                closable={this.closable}
+                ariaId={this.ariaId}
+                text={this.text}
+                dsoClose={this.dsoClose}
+              />
               <dso-scrollable>
-                <div class="dso-body" tabIndex={0}>
-                  <slot name="body" />
-                </div>
+                <Body />
               </dso-scrollable>
-
-              {this.hasFooter && (
-                <div class="dso-footer">
-                  <slot name="footer" />
-                </div>
-              )}
+              {this.hasFooter && <Footer />}
             </Fragment>
           )}
         </div>

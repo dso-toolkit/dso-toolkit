@@ -56,8 +56,8 @@ graph TD;
   dso-ozon-content-toggletip --> dso-scrollable
   dso-table --> dso-modal
   dso-table --> dso-icon
-  dso-modal --> dso-icon-button
   dso-modal --> dso-scrollable
+  dso-modal --> dso-icon-button
   dso-badge --> dso-scrollable
   dso-label --> dso-icon-button
   dso-panel --> dso-icon-button
