@@ -215,13 +215,39 @@ describe("Legend", () => {
         .should("be.visible");
     });
 
-    it("should hide the options-button when the item is not active", () => {
+    it("should announce when the options-button becomes available or disabled", () => {
+      cy.get("@dsoLegend").contains("dso-legend-item", "Topografie (BRT)").as("dsoLegendItem");
+
+      cy.get("@dsoLegendItem")
+        .shadow()
+        .find(".sr-only")
+        .should("have.attr", "aria-live", "polite")
+        .and("have.attr", "aria-atomic", "true")
+        .and("have.text", "De knop Kaartlaag bewerken is nu beschikbaar");
+
+      cy.get("@dsoLegendItem").invoke("prop", "active", false);
+      cy.get("@dsoLegendItem")
+        .shadow()
+        .find(".sr-only")
+        .should("have.text", "De knop Kaartlaag bewerken is nu uitgeschakeld");
+
+      cy.get("@dsoLegendItem").invoke("prop", "active", true);
+      cy.get("@dsoLegendItem")
+        .shadow()
+        .find(".sr-only")
+        .should("have.text", "De knop Kaartlaag bewerken is nu beschikbaar");
+    });
+
+    it("should disable the options-button when the item is not active", () => {
       cy.get("@dsoLegend")
         .contains("dso-legend-item", "Topografie (BRT)")
         .invoke("prop", "active", false)
         .shadow()
         .find("#options-button")
-        .should("not.exist");
+        .should("be.visible")
+        .shadow()
+        .find("button")
+        .should("be.disabled");
     });
 
     it("should toggle options visibility when clicking the options-button", () => {
@@ -234,15 +260,6 @@ describe("Legend", () => {
 
       cy.get("@dsoLegendItem").shadow().find("#options-button").shadow().find("button").click({ force: true });
       cy.get("@dsoLegendItem").shadow().find("div.options").should("have.attr", "hidden");
-    });
-
-    it("should not show options-button when the item is disabled", () => {
-      cy.visit("http://localhost:45000/iframe.html?id=core-legend--kaartlagen&args=disabled:true");
-      cy.get("dso-legend.hydrated")
-        .contains("dso-legend-item", "Topografie (BRT)")
-        .shadow()
-        .find("#options-button")
-        .should("not.exist");
     });
 
     it("should show disabled info-button when the item is disabled", () => {

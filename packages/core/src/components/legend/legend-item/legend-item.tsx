@@ -4,6 +4,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  Fragment,
   Host,
   Prop,
   State,
@@ -124,16 +125,6 @@ export class LegendItem implements ComponentInterface {
 
   private renderViewMode(hasOptions: boolean, accessibleLabel: string) {
     return [
-      this.active && hasOptions && !this.disabled && (
-        <dso-icon-button
-          label={this.text("options")}
-          icon="more-horizontal"
-          variant="tertiary"
-          toggled={this.showOptions}
-          id="options-button"
-          onDsoClick={() => (this.showOptions = !this.showOptions)}
-        />
-      ),
       this.activatable && (
         <dso-slide-toggle
           accessibleLabel={accessibleLabel}
@@ -143,6 +134,22 @@ export class LegendItem implements ComponentInterface {
             this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
           }
         />
+      ),
+      hasOptions && (
+        <Fragment>
+          <span class="sr-only" aria-live="polite" aria-atomic="true">
+            {this.active ? this.text("optionsAvailable") : this.text("optionsUnavailable")}
+          </span>
+          <dso-icon-button
+            disabled={!this.active}
+            label={this.text("options")}
+            icon="more-horizontal"
+            variant="tertiary"
+            toggled={this.showOptions}
+            id="options-button"
+            onDsoClick={() => (this.showOptions = !this.showOptions)}
+          />
+        </Fragment>
       ),
     ];
   }

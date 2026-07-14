@@ -85,26 +85,32 @@ export function kaartlagenRichContent(args: LegendArgs) {
       children: html`${legendItemTemplate({
         content: html`<span slot="label">BAG panden</span>`,
         activatable: true,
+        options: wijzigKaartLaagOption,
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Kadastrale kaart</span>`,
         activatable: true,
+        options: wijzigKaartLaagOption,
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Gemeentegrenzen</span>`,
         activatable: true,
+        options: wijzigKaartLaagOption,
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Waterschapsgrenzen</span>`,
         activatable: true,
+        options: wijzigKaartLaagOption,
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Provinciegrenzen</span>`,
         activatable: true,
+        options: wijzigKaartLaagOption,
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Landgrenzen</span>`,
         activatable: true,
+        options: wijzigKaartLaagOption,
       })}`,
     })}
     <hr />
@@ -127,6 +133,7 @@ export function kaartlagenRichContent(args: LegendArgs) {
       ${legendItemTemplate({
         content: html`<span slot="label">Luchtfoto</span>`,
         activatable: true,
+        options: wijzigKaartLaagOption,
       })}`,
     })}`;
 }
