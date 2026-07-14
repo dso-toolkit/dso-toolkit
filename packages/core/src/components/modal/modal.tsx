@@ -156,7 +156,7 @@ export class Modal implements ComponentInterface {
       >
         <div class="dso-dialog">
           {this.narrowView ? (
-            <dso-scrollable>
+            <dso-scrollable class="narrow">
               <div class="modal-scrollable">
                 <Header
                   modalTitle={this.modalTitle}

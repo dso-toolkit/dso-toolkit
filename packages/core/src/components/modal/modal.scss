@@ -142,6 +142,12 @@ button {
     max-block-size: var( --_dso-modal-body-max-block-size, calc(#{modal-variables.$max-block-size} - #{(2 * modal-variables.$header-padding) + (modal-variables.$footer-button-block-size + modal-variables.$footer-padding) + units.$u4} - 1.5em));
     min-block-size: modal-variables.$body-min-block-size;
 
+    &.narrow {
+      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) and (max-width: media-query-breakpoints.$screen-xs-max) {
+        max-block-size: var(--_dso-modal-body-max-block-size, calc(100vh - units.$u4));
+      }
+    }
+
     .dso-body {
       @include rich-content.children();
       padding: modal-variables.$body-padding;
