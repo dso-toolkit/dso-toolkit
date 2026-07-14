@@ -22,6 +22,8 @@ export class ListButton implements ComponentInterface {
   @Element()
   host!: HTMLDsoListButtonElement;
 
+  private incrementButton?: HTMLDsoIconButtonElement;
+  private focusIncrementButtonAfterRender = false;
   private mutationObserver?: MutationObserver;
 
   private get subcontentSlot() {
@@ -31,31 +33,31 @@ export class ListButton implements ComponentInterface {
   /**
    * The label of the List Button.
    */
-  @Prop()
+  @Prop({ reflect: true })
   label?: string;
 
   /**
    * The sublabel of the List Button.
    */
-  @Prop()
+  @Prop({ reflect: true })
   sublabel?: string;
 
   /**
    * When defined the count can show on the List Button.
    */
-  @Prop()
+  @Prop({ reflect: true })
   count?: number;
 
   /**
    * The minimum value.
    */
-  @Prop()
+  @Prop({ reflect: true })
   min?: string | number;
 
   /**
    * The maximum value.
    */
-  @Prop()
+  @Prop({ reflect: true })
   max?: string | number;
 
   /**
@@ -73,7 +75,7 @@ export class ListButton implements ComponentInterface {
   /**
    * Prefix to subcontent for the purpose of screenreading.
    */
-  @Prop()
+  @Prop({ reflect: true })
   subcontentPrefix?: string;
 
   /**
@@ -105,6 +107,12 @@ export class ListButton implements ComponentInterface {
     if (!this.subcontentSlot?.hasAttribute("aria-hidden")) {
       this.subcontentSlot?.setAttribute("aria-hidden", "true");
     }
+
+    if (this.focusIncrementButtonAfterRender) {
+      this.focusIncrementButtonAfterRender = false;
+
+      void this.incrementButton?.setFocus();
+    }
   }
 
   disconnectedCallback(): void {
@@ -118,6 +126,10 @@ export class ListButton implements ComponentInterface {
 
       if (!this.isNewCountValid(newValue)) {
         return;
+      }
+
+      if (direction === "decrement" && newValue === 1) {
+        this.focusIncrementButtonAfterRender = true;
       }
 
       this.dsoCountChange.emit({
@@ -193,13 +205,17 @@ export class ListButton implements ComponentInterface {
                   disabled={this.count === Number(this.min) || this.disabled}
                   onDsoClick={(e) => this.stepValue(e, "decrement")}
                 />
-                <span class="dso-input-step-counter" aria-label="Aantal" aria-live="polite">
+                <span class="dso-input-step-counter" aria-hidden="true">
                   {this.count}
                 </span>
               </Fragment>
             )}
+            <span class="sr-only" aria-live="polite" aria-atomic="true">
+              {this.count}
+            </span>
 
             <dso-icon-button
+              ref={(element) => (this.incrementButton = element)}
               label="Aantal verhogen"
               variant="tertiary"
               icon="plus-circle-outline"

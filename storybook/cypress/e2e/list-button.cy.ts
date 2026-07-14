@@ -104,6 +104,54 @@ describe("ListButton", () => {
       .should("have.length", 1);
   });
 
+  it("should announce the count when incrementing from 1 to 2", () => {
+    cy.get("dso-list-button")
+      .as("dsoListButton")
+      .invoke("attr", "count", 1)
+      .shadow()
+      .as("dsoListButtonShadow")
+      .find(".dso-input-number .sr-only")
+      .should("have.attr", "aria-live", "polite")
+      .should("have.attr", "aria-atomic", "true")
+      .should("contain.text", "1")
+      .get("@dsoListButtonShadow")
+      .find("dso-icon-button")
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter")
+      .get("@dsoListButton")
+      .should("have.attr", "count", 2)
+      .get("@dsoListButtonShadow")
+      .find(".dso-input-number .sr-only")
+      .should("contain.text", "2")
+      .get("@dsoListButtonShadow")
+      .find(".dso-input-step-counter")
+      .should("have.attr", "aria-hidden", "true");
+  });
+
+  it("should focus the plus button when the minus button is removed after decrementing to 1", () => {
+    cy.get("dso-list-button")
+      .as("dsoListButton")
+      .invoke("attr", "count", 2)
+      .shadow()
+      .as("dsoListButtonShadow")
+      .find("dso-icon-button")
+      .first()
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter")
+      .get("@dsoListButton")
+      .should("have.attr", "count", "1")
+      .get("@dsoListButtonShadow")
+      .find("dso-icon-button")
+      .should("have.length", 1)
+      .shadow()
+      .find("button")
+      .should("have.focus");
+  });
+
   it("should emit dsoCountChange", () => {
     cy.get("dso-list-button.hydrated")
       .as("dsoListButton")

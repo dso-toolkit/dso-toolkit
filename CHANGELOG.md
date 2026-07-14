@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* List Button: Voorlezen bij focus werkt niet ([#3811](https://github.com/dso-toolkit/dso-toolkit/issues/3811))
+
 ## 🚑 Release 99.1.0 - 2026-07-13
 
 ### Changed
