@@ -304,16 +304,25 @@ export class ViewerGrid {
   }
 
   render() {
+    const navLabel = "View";
+
     return (
       <Fragment>
         <slot name="top-bar" />
         <div class="viewer-grid-columns">
           {this.tabView && (
-            <nav class="dso-navbar">
+            <nav class="dso-navbar" aria-label={navLabel}>
               <ul class="dso-nav dso-nav-sub">
                 {viewerGridTabs.map((tab) => (
-                  <li key={tab} class={clsx({ "dso-active": this.activeTab === tab })}>
-                    <button type="button" class="dso-tertiary" onClick={() => this.switchActiveTab(tab)}>
+                  <li key={tab}>
+                    <button
+                      type="button"
+                      aria-current={this.activeTab === tab ? "page" : undefined}
+                      class={clsx("dso-tertiary", {
+                        "dso-active": this.activeTab === tab,
+                      })}
+                      onClick={() => this.switchActiveTab(tab)}
+                    >
                       {viewerGridTabLabelMap[tab]}
                     </button>
                   </li>
