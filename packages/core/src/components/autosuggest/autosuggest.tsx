@@ -194,6 +194,85 @@ export class Autosuggest {
     }
   }
 
+  @Listen("focusin", { target: "window" })
+  handleFocusin(event: FocusEvent) {
+    const composedPath = event.composedPath();
+    const isInSearchBar =
+      composedPath.filter((node) => node instanceof HTMLDivElement && node.classList.contains("dso-search-bar"))
+        .length === 1;
+
+    if (event.target instanceof HTMLButtonElement && isInSearchBar && !this.showSuggestions) {
+      this.openSuggestions();
+    }
+  }
+
+  @Listen("keydown", { target: "window" })
+  handleDocumentKeydown(event: KeyboardEvent) {
+    if (event.defaultPrevented || this.loading) {
+      return;
+    }
+
+    switch (event.key) {
+      case "ArrowDown":
+        if (!this.showSuggestions) {
+          this.openSuggestions("first");
+        } else {
+          this.selectNextSuggestion();
+        }
+
+        break;
+
+      case "ArrowUp":
+        if (!this.showSuggestions) {
+          this.openSuggestions("last");
+        } else {
+          this.selectPreviousSuggestion();
+        }
+
+        break;
+
+      case "Tab": {
+        // Inside the Search Bar component, we don't want to close the suggestions when the user presses the tab key
+        // unless it leaves the Search Bar (#3813)
+
+        const composedPath = event.composedPath();
+
+        const isInSearchBar =
+          composedPath.filter((node) => node instanceof HTMLDivElement && node.classList.contains("dso-search-bar"))
+            .length === 1;
+
+        const tabPressedInInput = this.input && composedPath.includes(this.input);
+
+        const tabPressedOnSearchBarButton =
+          composedPath[0] instanceof HTMLButtonElement &&
+          composedPath[1] instanceof HTMLDivElement &&
+          composedPath[1].classList.contains("dso-search-bar");
+
+        if (
+          !isInSearchBar ||
+          (isInSearchBar && ((event.shiftKey && tabPressedInInput) || (!event.shiftKey && tabPressedOnSearchBarButton)))
+        ) {
+          this.closeSuggestions();
+        }
+
+        return;
+      }
+
+      case "Escape":
+        this.closeSuggestions();
+        break;
+
+      case "Enter":
+        this.pickSelectedValue();
+        break;
+
+      default:
+        return;
+    }
+
+    event.preventDefault();
+  }
+
   private input?: HTMLInputElement;
 
   private listboxContainer: HTMLDsoScrollableElement | undefined;
@@ -295,7 +374,6 @@ export class Autosuggest {
     this.input.setAttribute("aria-autocomplete", "list");
     this.input.setAttribute("aria-activedescendant", "");
     this.input.addEventListener("input", this.onInput);
-    this.input.addEventListener("keydown", this.onKeyDown);
     this.input.addEventListener("focusin", this.onFocusIn);
 
     window.addEventListener("resize", this.onWindowResize);
@@ -307,7 +385,6 @@ export class Autosuggest {
 
   disconnectedCallback() {
     this.input?.removeEventListener("input", this.onInput);
-    this.input?.removeEventListener("keydown", this.onKeyDown);
     this.input?.removeEventListener("focusin", this.onFocusIn);
 
     window.removeEventListener("resize", this.onWindowResize);
@@ -611,49 +688,6 @@ export class Autosuggest {
     this.closeSuggestions();
   }
 
-  private onKeyDown = (event: KeyboardEvent) => {
-    if (event.defaultPrevented || this.loading) {
-      return;
-    }
-
-    switch (event.key) {
-      case "ArrowDown":
-        if (!this.showSuggestions) {
-          this.openSuggestions("first");
-        } else {
-          this.selectNextSuggestion();
-        }
-
-        break;
-
-      case "ArrowUp":
-        if (!this.showSuggestions) {
-          this.openSuggestions("last");
-        } else {
-          this.selectPreviousSuggestion();
-        }
-
-        break;
-
-      case "Tab":
-        this.closeSuggestions();
-        return;
-
-      case "Escape":
-        this.closeSuggestions();
-        break;
-
-      case "Enter":
-        this.pickSelectedValue();
-        break;
-
-      default:
-        return;
-    }
-
-    event.preventDefault();
-  };
-
   private listboxItemId(suggestion: Suggestion): string {
     if (!this.suggestions) {
       return "";
@@ -733,14 +767,17 @@ export class Autosuggest {
         ) : (
           showListbox && (
             <>
-              <dso-scrollable class="listbox-container" ref={(element) => (this.listboxContainer = element)}>
+              <dso-scrollable
+                class="listbox-container"
+                ref={(element) => (this.listboxContainer = element)}
+                _preventFocus={true}
+              >
                 <div
                   class="listbox"
                   role="listbox"
                   id={this.listboxId}
                   aria-labelledby={this.labelId}
                   ref={(element) => (this.listbox = element)}
-                  tabindex="0"
                 >
                   {(flat &&
                     this.showSuggestions &&

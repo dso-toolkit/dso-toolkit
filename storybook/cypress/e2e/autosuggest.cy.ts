@@ -536,4 +536,30 @@ describe("Autosuggest", () => {
       cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(2).should("have.attr", "aria-selected", "true");
     });
   });
+
+  describe("Inside Search Bar", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--in-searchbar");
+    });
+
+    it("should open/close suggestions when entering/leaving Search Bar via Tab or Shift+Tab", () => {
+      cy.get("dso-autosuggest.hydrated input").focus().type("ro");
+      cy.wait(200);
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+      cy.realPress("Tab");
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+      cy.realPress("Tab");
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+      cy.realPress("Tab");
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
+      cy.realPress(["Shift", "Tab"]);
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+      cy.realPress(["Shift", "Tab"]);
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+      cy.realPress(["Shift", "Tab"]);
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+      cy.realPress(["Shift", "Tab"]);
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
+    });
+  });
 });
