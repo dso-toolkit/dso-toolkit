@@ -21,7 +21,7 @@
   "dependencies": {
     "@azure/storage-file-datalake": "^12.31.0",
     "@eslint/eslintrc": "^3.3.5",
-    "@eslint/js": "^10.0.1",
+    "@eslint/js": "^9.18.0",
     "@lit-labs/ssr": "^4.1.0",
     "@octokit/rest": "^22.0.1",
     "@types/minimist": "^1.2.5",
@@ -46,7 +46,7 @@
     "rimraf": "catalog:",
     "semver": "^7.8.5",
     "stylelint": "catalog:",
-    "stylelint-config-recommended-scss": "^17.0.1",
+    "stylelint-config-recommended-scss": "^16.0.2",
     "stylelint-use-logical-spec": "^5.0.1",
     "svgo": "^4.0.1",
     "tsx": "catalog:",

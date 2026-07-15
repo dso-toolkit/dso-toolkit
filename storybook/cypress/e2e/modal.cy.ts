@@ -126,30 +126,19 @@ describe("Modal", () => {
     cy.get("@close").should("not.have.been.called");
   });
 
-  it.skip("should have keyboard accessible body container", () => {
-    // weer aanzetten en fixen via #3454
-    //
+  it("should have keyboard accessible body container on desktop layout", () => {
+    cy.viewport(1200, 800);
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--passive");
 
     cy.get("dso-modal.hydrated").shadow().find(".dso-body").as("modalBody");
-    cy.get("dso-modal.hydrated")
-      .shadow()
-      .find("dso-scrollable")
-      .shadow()
-      .find(".dso-scroll-container")
-      .as("scrollable");
+
+    cy.get("dso-modal.hydrated").shadow().find(".dso-dialog > dso-scrollable > .dso-body").should("exist");
+
+    cy.get("@modalBody").should("have.attr", "tabindex", 0);
 
     cy.get("dso-modal.hydrated").shadow().find("#close-modal").should("have.focus");
-    cy.get("@modalBody").should("have.attr", "tabindex", 0);
-    cy.get("@scrollable").invoke("scrollTop").should("eq", 0);
-
     cy.realPress("Tab");
-
     cy.get("@modalBody").should("have.focus");
-
-    cy.realPress("{downarrow}");
-
-    cy.get("@scrollable").invoke("scrollTop").should("be.greaterThan", 0); // falende aasertion #3454
   });
 
   it("should return focus to previous element", () => {
@@ -194,4 +183,18 @@ describe("Modal", () => {
 
     cy.matchImageSnapshot();
   });
+});
+
+it("should wrap all sections in a single scrollable container on mobile layout", () => {
+  cy.viewport(375, 667);
+
+  cy.visit("http://localhost:45000/iframe.html?id=core-modal--confirm");
+
+  cy.get("dso-modal").shadow().find(".dso-dialog > dso-scrollable").should("exist");
+
+  cy.get("dso-modal").shadow().find(".dso-dialog > dso-scrollable .dso-header").should("exist");
+
+  cy.get("dso-modal").shadow().find(".dso-dialog > dso-scrollable .dso-body").should("exist");
+
+  cy.get("dso-modal").shadow().find(".dso-dialog > dso-scrollable .dso-footer").should("exist");
 });

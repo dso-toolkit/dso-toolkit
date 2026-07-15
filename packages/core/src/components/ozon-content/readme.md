@@ -74,8 +74,8 @@ graph TD;
   dso-ozon-content-toggletip --> dso-scrollable
   dso-table --> dso-modal
   dso-table --> dso-icon
-  dso-modal --> dso-icon-button
   dso-modal --> dso-scrollable
+  dso-modal --> dso-icon-button
   dso-document-component --> dso-ozon-content
   style dso-ozon-content fill:#f9f,stroke:#333,stroke-width:4px
 ```

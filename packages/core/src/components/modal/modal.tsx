@@ -1,9 +1,12 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State, h } from "@stencil/core";
 import { v4 } from "uuid";
 
 import { getActiveElement } from "../../utils/get-active-element";
 import { i18n } from "../../utils/i18n";
 
+import { Body } from "./functional-components/body";
+import { Footer } from "./functional-components/footer";
+import { Header } from "./functional-components/header";
 import { translations } from "./modal.i18n";
 import { ModalCloseEvent } from "./modal.interfaces";
 
@@ -16,12 +19,17 @@ export class Modal implements ComponentInterface {
   private htmlDialogElement?: HTMLDialogElement;
   private startedMouseDownOutsideDialog = false;
   private endedMouseUpOutsideDialog = false;
+  private readonly narrowViewBreakpoint = 768;
+  private readonly mediaCondition = `(min-width: ${this.narrowViewBreakpoint}px)`;
 
   @Element()
   host!: HTMLDsoModalElement;
 
   @State()
   ariaId = v4();
+
+  @State()
+  narrowView = window.innerWidth < this.narrowViewBreakpoint;
 
   /**
    * when set the modal will be shown in fullscreen.
@@ -76,6 +84,8 @@ export class Modal implements ComponentInterface {
 
   private text = i18n(() => this.host, translations);
 
+  private readonly changeListener = (largeScreen: MediaQueryListEvent) => (this.narrowView = !largeScreen.matches);
+
   componentDidLoad(): void {
     if (this.htmlDialogElement?.isConnected) {
       const activeElement = getActiveElement();
@@ -87,7 +97,13 @@ export class Modal implements ComponentInterface {
     }
   }
 
+  connectedCallback() {
+    window.matchMedia(this.mediaCondition).addEventListener("change", this.changeListener);
+  }
+
   disconnectedCallback(): void {
+    window.matchMedia(this.mediaCondition).removeEventListener("change", this.changeListener);
+
     this.htmlDialogElement?.close();
 
     if (this.returnFocus === false) {
@@ -139,35 +155,34 @@ export class Modal implements ComponentInterface {
         onKeyDown={(e) => this.blockEscapeKey(e)}
       >
         <div class="dso-dialog">
-          {this.modalTitle ? (
-            <div class="dso-header">
-              <h2 id={this.ariaId}>{this.modalTitle}</h2>
-              {this.closable && (
-                <dso-icon-button
-                  id="close-modal"
-                  icon="cross"
-                  variant="tertiary"
-                  label={this.text("close")}
-                  onDsoClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+          {this.narrowView ? (
+            <dso-scrollable class="narrow">
+              <div class="modal-scrollable">
+                <Header
+                  modalTitle={this.modalTitle}
+                  closable={this.closable}
+                  ariaId={this.ariaId}
+                  text={this.text}
+                  dsoClose={this.dsoClose}
                 />
-              )}
-            </div>
+                <Body />
+                {this.hasFooter && <Footer />}
+              </div>
+            </dso-scrollable>
           ) : (
-            <span class="sr-only" id={this.ariaId}>
-              {this.text("dialog")}
-            </span>
-          )}
-
-          <dso-scrollable>
-            <div class="dso-body" tabIndex={0}>
-              <slot name="body" />
-            </div>
-          </dso-scrollable>
-
-          {this.hasFooter && (
-            <div class="dso-footer">
-              <slot name="footer" />
-            </div>
+            <Fragment>
+              <Header
+                modalTitle={this.modalTitle}
+                closable={this.closable}
+                ariaId={this.ariaId}
+                text={this.text}
+                dsoClose={this.dsoClose}
+              />
+              <dso-scrollable>
+                <Body />
+              </dso-scrollable>
+              {this.hasFooter && <Footer />}
+            </Fragment>
           )}
         </div>
       </dialog>
