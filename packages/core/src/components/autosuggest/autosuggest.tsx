@@ -194,6 +194,28 @@ export class Autosuggest {
     }
   }
 
+  @Listen("keydown", { target: "window" })
+  handleSearchBarButtonKeydown(event: KeyboardEvent) {
+    if (event.defaultPrevented || this.loading || (event.key !== "ArrowDown" && event.key !== "ArrowUp")) {
+      return;
+    }
+
+    if (!this.input || event.target === this.input || !this.isEventInOwnSearchBar(event)) {
+      return;
+    }
+
+    event.preventDefault();
+    this.input.focus();
+
+    this.openSuggestions(event.key === "ArrowDown" ? "first" : "last");
+  }
+
+  private isEventInOwnSearchBar(event: Event): boolean {
+    const searchBar = this.host.closest(".dso-search-bar");
+
+    return !!searchBar && event.composedPath().includes(searchBar);
+  }
+
   private input?: HTMLInputElement;
 
   private listboxContainer: HTMLDsoScrollableElement | undefined;
@@ -238,6 +260,8 @@ export class Autosuggest {
   };
 
   private onFocusIn = () => {
+    this.input?.select();
+
     if (this.suggestions && this.suggestions.length > 1) {
       this.openSuggestions();
     }
@@ -733,14 +757,17 @@ export class Autosuggest {
         ) : (
           showListbox && (
             <>
-              <dso-scrollable class="listbox-container" ref={(element) => (this.listboxContainer = element)}>
+              <dso-scrollable
+                class="listbox-container"
+                ref={(element) => (this.listboxContainer = element)}
+                _preventFocus={true}
+              >
                 <div
                   class="listbox"
                   role="listbox"
                   id={this.listboxId}
                   aria-labelledby={this.labelId}
                   ref={(element) => (this.listbox = element)}
-                  tabindex="0"
                 >
                   {(flat &&
                     this.showSuggestions &&

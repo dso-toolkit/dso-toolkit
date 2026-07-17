@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Method, State, h } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Method, Prop, State, h } from "@stencil/core";
 import { clsx } from "clsx";
 
 import { DsoScrollEndEvent, ScrollPosition } from "./scrollable.interfaces";
@@ -69,6 +69,10 @@ export class Scrollable {
 
   @Element()
   host!: HTMLDsoScrollableElement;
+
+  /** @internal Prevent the dso-scroll-container from receiving focus */
+  @Prop()
+  _preventFocus: boolean = false;
 
   /**
    * Event emitted when the scrollbar has reached top or bottom.
@@ -165,6 +169,7 @@ export class Scrollable {
             [`dso-scroll-${this.scrollPosition}`]: this.scrollPosition !== "noScroll",
           })}
           onScroll={() => this._setScrollState()}
+          tabIndex={this._preventFocus ? -1 : undefined}
         >
           <slot></slot>
         </div>

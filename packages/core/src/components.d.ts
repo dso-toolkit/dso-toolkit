@@ -1242,6 +1242,10 @@ export namespace Components {
         "getSize": () => Promise<ResponsiveElementSize>;
     }
     interface DsoScrollable {
+        /**
+          * @default false
+         */
+        "_preventFocus": boolean;
         "_setScrollState": () => Promise<void>;
     }
     interface DsoSegmentedButton {
@@ -4246,6 +4250,10 @@ declare namespace LocalJSX {
     }
     interface DsoScrollable {
         /**
+          * @default false
+         */
+        "_preventFocus"?: boolean;
+        /**
           * Event emitted when the scrollbar has reached top or bottom.
          */
         "onDsoScrollEnd"?: (event: DsoScrollableCustomEvent<DsoScrollEndEvent>) => void;
@@ -4908,6 +4916,9 @@ declare namespace LocalJSX {
     interface DsoRenvooiAttributes {
         "value": RenvooiValue | RenvooiValue[];
     }
+    interface DsoScrollableAttributes {
+        "_preventFocus": boolean;
+    }
     interface DsoSegmentedButtonAttributes {
         "groupName": string;
         "label": string | undefined;
@@ -5036,7 +5047,7 @@ declare namespace LocalJSX {
         "dso-project-item": Omit<DsoProjectItem, keyof DsoProjectItemAttributes> & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes]?: DsoProjectItem[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `attr:${K}`]?: DsoProjectItemAttributes[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `prop:${K}`]?: DsoProjectItem[K] };
         "dso-renvooi": Omit<DsoRenvooi, keyof DsoRenvooiAttributes> & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes]?: DsoRenvooi[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `attr:${K}`]?: DsoRenvooiAttributes[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `prop:${K}`]?: DsoRenvooi[K] };
         "dso-responsive-element": DsoResponsiveElement;
-        "dso-scrollable": DsoScrollable;
+        "dso-scrollable": Omit<DsoScrollable, keyof DsoScrollableAttributes> & { [K in keyof DsoScrollable & keyof DsoScrollableAttributes]?: DsoScrollable[K] } & { [K in keyof DsoScrollable & keyof DsoScrollableAttributes as `attr:${K}`]?: DsoScrollableAttributes[K] } & { [K in keyof DsoScrollable & keyof DsoScrollableAttributes as `prop:${K}`]?: DsoScrollable[K] };
         "dso-segmented-button": Omit<DsoSegmentedButton, keyof DsoSegmentedButtonAttributes> & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes]?: DsoSegmentedButton[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `attr:${K}`]?: DsoSegmentedButtonAttributes[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `prop:${K}`]?: DsoSegmentedButton[K] } & OneOf<"label", DsoSegmentedButton["label"], DsoSegmentedButtonAttributes["label"]>;
         "dso-selectable": Omit<DsoSelectable, keyof DsoSelectableAttributes> & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes]?: DsoSelectable[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `attr:${K}`]?: DsoSelectableAttributes[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `prop:${K}`]?: DsoSelectable[K] } & OneOf<"type", DsoSelectable["type"], DsoSelectableAttributes["type"]>;
         "dso-skiplink": Omit<DsoSkiplink, keyof DsoSkiplinkAttributes> & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes]?: DsoSkiplink[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `attr:${K}`]?: DsoSkiplinkAttributes[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `prop:${K}`]?: DsoSkiplink[K] } & OneOf<"to", DsoSkiplink["to"], DsoSkiplinkAttributes["to"]> & OneOf<"label", DsoSkiplink["label"], DsoSkiplinkAttributes["label"]>;

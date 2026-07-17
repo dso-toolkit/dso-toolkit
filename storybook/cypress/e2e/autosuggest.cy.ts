@@ -536,4 +536,49 @@ describe("Autosuggest", () => {
       cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(2).should("have.attr", "aria-selected", "true");
     });
   });
+
+  describe("Inside Search Bar", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--in-searchbar");
+    });
+
+    it("should close suggestions when focus leaves the text input via Tab", { browser: "!firefox" }, () => {
+      cy.get("dso-autosuggest.hydrated input").focus().type("ro");
+      cy.wait(200);
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+
+      cy.realPress("Tab");
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
+    });
+
+    it("should reopen suggestions when focus returns to the text input", { browser: "!firefox" }, () => {
+      cy.get("dso-autosuggest.hydrated input").focus().type("ro");
+      cy.wait(200);
+      cy.realPress("Tab");
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
+
+      cy.realPress(["Shift", "Tab"]);
+      cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+    });
+
+    it(
+      "should move focus to the text input and highlight the first suggestion on ArrowDown from a Search Bar button",
+      { browser: "!firefox" },
+      () => {
+        cy.get("dso-autosuggest.hydrated input").focus().type("ro");
+        cy.wait(200);
+
+        cy.realPress("Tab");
+        cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
+
+        cy.realPress("ArrowDown");
+        cy.focused().should("have.attr", "role", "combobox");
+        cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+        cy.get("dso-autosuggest.hydrated")
+          .find("div[role='option']")
+          .eq(0)
+          .should("have.attr", "aria-selected", "true");
+      },
+    );
+  });
 });
