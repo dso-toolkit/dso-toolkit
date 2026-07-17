@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧩 Release 99.2.0 - 2026-07-17
+
 ### Changed
 * Modal: Header-Content-Buttons in 1 container na breakpoint ([#3863](https://github.com/dso-toolkit/dso-toolkit/issues/3863))
 
