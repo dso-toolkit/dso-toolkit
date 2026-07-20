@@ -265,6 +265,7 @@ describe("Autosuggest", () => {
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
     cy.get("dso-autosuggest.hydrated").find("dso-progress-indicator").should("be.visible");
+    cy.get("dso-autosuggest.hydrated").find("[aria-live='polite']").should("contain.text", "Een moment geduld.");
   });
 
   it("should remove progress indicator when loading attribute is removed", () => {
