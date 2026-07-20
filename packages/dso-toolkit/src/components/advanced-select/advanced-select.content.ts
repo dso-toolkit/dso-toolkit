@@ -6,7 +6,7 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
     variant: "success",
     redirect: {
       href: "#",
-      label: "Bekijk eerder vastgestelde versies",
+      label: "Bekijk volledig wijzigingenoverzicht",
     },
     options: [
       {
@@ -15,7 +15,27 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
     ],
   },
   {
-    label: "Ontwerp versies ter inzage",
+    label: "Wijzigingsbesluiten",
+    activeLabel: "Besluit",
+    badgeLabel: "Toon toelichting op wijzigingsbesluiten",
+    variant: "primary",
+    toggletip: "Er zijn wijzigingsbesluiten genomen. Bekijk een besluit om de veranderingen te zien.",
+    redirect: {
+      href: "#",
+      label: "Bekijk historie",
+    },
+    summaryCounter: true,
+    options: [
+      {
+        label: "Citeertitel van het besluit (In werking per 01-03-2024)",
+      },
+      {
+        label: "Citeertitel van het besluit (In werking per 01-04-2024)",
+      },
+    ],
+  },
+  {
+    label: "Ontwerpbesluiten ter inzage",
     activeLabel: "Ontwerp",
     variant: "warning",
     toggletip:
@@ -37,28 +57,5 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
           "Algemene regels voor het beheer en onderhoud van waterstaatswerken en het gebruik van watersystemen (Keur waterschap Vechtstromen 2020) (Einde inzage: 09-02-2024)",
       },
     ],
-  },
-  {
-    label: "Toekomstige besluitversies",
-    activeLabel: "Besluit",
-    variant: "primary",
-    toggletip: "Er zijn wijzigingsbesluiten genomen. Bekijk een besluit om de veranderingen te zien.",
-    summaryCounter: true,
-    options: [
-      {
-        label: "Citeertitel van het besluit (In werking per 01-03-2024)",
-      },
-      {
-        label: "Citeertitel van het besluit (In werking per 01-04-2024)",
-      },
-    ],
-  },
-  {
-    label: "Groep met placeholder",
-    placeholder: "Er zijn alleen ontwerpen met een afgeronde inzage termijn voor dit document.",
-    redirect: {
-      href: "#",
-      label: "Bekijk ontwerpen met afgeronde inzage termijn",
-    },
   },
 ];

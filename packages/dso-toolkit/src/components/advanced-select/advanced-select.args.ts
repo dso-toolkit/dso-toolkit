@@ -4,17 +4,20 @@ import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
 
+import { options } from "./advanced-select.content";
 import { AdvancedSelect, AdvancedSelectOptionOrGroup } from "./advanced-select.models.js";
 
 export interface AdvancedSelectArgs {
   activeIndex?: number;
   activeHint?: string;
+  optionsOrGroup: AdvancedSelectOptionOrGroup<unknown>[];
   dsoChange: HandlerFunction;
   dsoRedirect: HandlerFunction;
 }
 
 export const advancedSelectArgs: AdvancedSelectArgs = {
   activeHint: "Deze bekijkt u nu",
+  optionsOrGroup: options,
   dsoChange: fn(),
   dsoRedirect: fn(),
 };
@@ -32,16 +35,18 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
       type: "text",
     },
   },
+  optionsOrGroup: {
+    control: {
+      type: "object",
+    },
+  },
   dsoChange: argTypeAction(),
   dsoRedirect: argTypeAction(),
 };
 
-export function advancedSelectArgsMapper(
-  a: AdvancedSelectArgs,
-  options: AdvancedSelectOptionOrGroup<unknown>[],
-): AdvancedSelect<unknown> {
+export function advancedSelectArgsMapper(a: AdvancedSelectArgs): AdvancedSelect<unknown> {
   return {
-    options,
+    options: a.optionsOrGroup,
     active: selectExampleOption(a.activeIndex, options),
     activeHint: a.activeHint,
     dsoChange: (e) => a.dsoChange(e.detail),
