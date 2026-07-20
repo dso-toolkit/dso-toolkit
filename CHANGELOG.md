@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Viewer Grid: Actief item submenu WCAG proof maken ([#3852](https://github.com/dso-toolkit/dso-toolkit/issues/3852))
+
 ## 🧩 Release 99.2.0 - 2026-07-17
 
 ### Changed

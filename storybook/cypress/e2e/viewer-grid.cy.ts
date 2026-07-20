@@ -347,3 +347,18 @@ function shouldHavePhrase(size: string) {
     .find(".sizing-buttons > span.sr-only")
     .should("have.text", `Breedte documentpaneel: ${size}`);
 }
+
+it("should update aria-current when active tab changes", () => {
+  cy.viewport(400, 600);
+  cy.visit(url);
+
+  cy.get("dso-viewer-grid.hydrated").as("grid").invoke("prop", "activeTab", "search");
+
+  cy.get("@grid").shadow().find("nav button").eq(0).should("have.attr", "aria-current", "page");
+
+  cy.get("@grid").invoke("prop", "activeTab", "map");
+
+  cy.get("@grid").shadow().find("nav button").eq(1).should("have.attr", "aria-current", "page");
+
+  cy.get("@grid").shadow().find("nav button").eq(0).should("not.have.attr", "aria-current");
+});

@@ -313,7 +313,12 @@ export class ViewerGrid {
               <ul class="dso-nav dso-nav-sub">
                 {viewerGridTabs.map((tab) => (
                   <li key={tab} class={clsx({ "dso-active": this.activeTab === tab })}>
-                    <button type="button" class="dso-tertiary" onClick={() => this.switchActiveTab(tab)}>
+                    <button
+                      type="button"
+                      class="dso-tertiary"
+                      aria-current={this.activeTab === tab ? "page" : undefined}
+                      onClick={() => this.switchActiveTab(tab)}
+                    >
                       {viewerGridTabLabelMap[tab]}
                     </button>
                   </li>
