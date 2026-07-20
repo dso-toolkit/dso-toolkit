@@ -352,19 +352,13 @@ it("should update aria-current when active tab changes", () => {
   cy.viewport(400, 600);
   cy.visit(url);
 
-  cy.get("dso-viewer-grid.hydrated").as("grid").should("be.visible");
+  cy.get("dso-viewer-grid.hydrated").as("grid").invoke("prop", "activeTab", "search");
 
-  cy.get("@grid").invoke("attr", "active-tab", "search");
-  cy.get("@grid").shadow().find("nav button").as("buttons");
+  cy.get("@grid").shadow().find("nav button").eq(0).should("have.attr", "aria-current", "page");
 
-  cy.get("@buttons").eq(0).should("have.attr", "aria-current", "page");
+  cy.get("@grid").invoke("prop", "activeTab", "map");
 
-  cy.get("@buttons").eq(1).realClick();
+  cy.get("@grid").shadow().find("nav button").eq(1).should("have.attr", "aria-current", "page");
 
-  cy.get("@grid").invoke("attr", "active-tab", "map");
-
-  cy.get("@grid").shadow().find("nav button").as("newButtons");
-
-  cy.get("@newButtons").eq(1).should("have.attr", "aria-current", "page");
-  cy.get("@newButtons").eq(0).should("not.have.attr", "aria-current");
+  cy.get("@grid").shadow().find("nav button").eq(0).should("not.have.attr", "aria-current");
 });
