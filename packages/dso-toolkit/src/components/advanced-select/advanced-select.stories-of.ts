@@ -10,7 +10,6 @@ import {
   advancedSelectArgs,
   advancedSelectArgsMapper,
 } from "./advanced-select.args.js";
-import { options } from "./advanced-select.content.js";
 import { AdvancedSelect } from "./advanced-select.models.js";
 
 type AdvancedSelectStory = StoryObj<AdvancedSelectArgs, Renderer>;
@@ -55,7 +54,7 @@ export function advancedSelectStories<Implementation, Templates, TemplateFnRetur
     Default: {
       args: {},
       render: templateContainer.render(storyTemplates, (args, { advancedSelectTemplate }) =>
-        advancedSelectTemplate(advancedSelectArgsMapper(args, options)),
+        advancedSelectTemplate(advancedSelectArgsMapper(args)),
       ),
     },
   };
