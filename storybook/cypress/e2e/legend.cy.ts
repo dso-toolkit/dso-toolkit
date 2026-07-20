@@ -250,6 +250,20 @@ describe("Legend", () => {
         .should("be.disabled");
     });
 
+    it("should disable the options-button when the item is disabled", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Topografie (BRT)")
+        .invoke("prop", "active", false)
+        .invoke("prop", "disabled", true)
+        .shadow()
+        .find("button")
+        .should("be.disabled")
+        .find("#options-button")
+        .shadow()
+        .find("button")
+        .should("be.disabled");
+    });
+
     it("should toggle options visibility when clicking the options-button", () => {
       cy.get("@dsoLegend").contains("dso-legend-item", "Topografie (BRT)").as("dsoLegendItem");
 

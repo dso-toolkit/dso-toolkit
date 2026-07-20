@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next
 
 ### Added
-* Legend: Kaartlagen bewerken knop na slide toggle plaatsen ([#3849](https://github.com/dso-toolkit/dso-toolkit/issues/3849))
+* Legend: Kaartlagen bewerken knop na Slide Toggle plaatsen ([#3849](https://github.com/dso-toolkit/dso-toolkit/issues/3849))
 * Viewer Grid: Actief item submenu WCAG proof maken ([#3852](https://github.com/dso-toolkit/dso-toolkit/issues/3852))
 
 ### Changed

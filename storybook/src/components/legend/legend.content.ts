@@ -105,6 +105,7 @@ export function kaartlagenRichContent(args: LegendArgs) {
       ${legendItemTemplate({
         content: html`<span slot="label">Provinciegrenzen</span>`,
         activatable: true,
+        disabled: true,
         options: wijzigKaartLaagOption,
       })}
       ${legendItemTemplate({

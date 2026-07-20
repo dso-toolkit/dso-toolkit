@@ -141,7 +141,7 @@ export class LegendItem implements ComponentInterface {
             {this.active ? this.text("optionsAvailable") : this.text("optionsUnavailable")}
           </span>
           <dso-icon-button
-            disabled={!this.active}
+            disabled={!this.active || this.disabled}
             label={this.text("options")}
             icon="more-horizontal"
             variant="tertiary"
