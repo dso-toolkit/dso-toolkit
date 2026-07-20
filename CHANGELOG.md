@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Autosuggest: Statusbericht "Een moment geduld" tijdens laden van suggesties toegankelijk maken ([#3854](https://github.com/dso-toolkit/dso-toolkit/issues/3854))
+
 ## 🍖 Release 99.3.0 - 2026-07-27
 
 ### Added
