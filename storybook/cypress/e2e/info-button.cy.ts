@@ -23,14 +23,6 @@ describe("Info Button", () => {
       .should("have.css", "opacity", "0");
   };
 
-  it("should conditionally set aria-controls", () => {
-    visitStory("default");
-    getComponent().shadow().find("dso-icon-button").should("not.have.attr", "aria-controls");
-
-    visitStory("information");
-    getComponent().shadow().find("dso-icon-button").should("have.attr", "aria-controls", "toggletip-content");
-  });
-
   // ---------- Variants ----------
   variants.forEach((variant) => {
     it(`${variant} should be accessible and match snapshot`, () => {
@@ -67,20 +59,34 @@ describe("Info Button", () => {
       });
     });
 
-    it("should have correct aria attributes when toggletip is opened with keyboard (Enter)", () => {
+    it("should update aria-expanded and visibility when toggletip is toggled via keyboard", () => {
       visitStory("information");
-      getComponent()
-        .shadow()
-        .find("dso-icon-button")
-        .should("be.visible")
-        .should("not.be.disabled")
-        .then(($el) => {
-          cy.wrap($el[0].shadowRoot.querySelector("button")).focus().type("{enter}", { force: true });
-          cy.wrap($el)
-            .should("have.attr", "aria-expanded", "true")
-            .should("have.attr", "aria-controls", "toggletip-content");
-        });
-      getComponent().shadow().find("#toggletip-content").should("exist");
+
+      const button = () => getComponent().shadow().find("dso-icon-button").shadow().find("button");
+
+      const tooltip = () => getComponent().shadow().find("> .dso-tooltip");
+
+      button().should("have.attr", "aria-expanded", "false");
+      tooltip().should("have.css", "visibility", "hidden");
+
+      button().focus().should("have.focus");
+      cy.realPress("Enter");
+
+      button().should("have.attr", "aria-expanded", "true");
+      tooltip().should("have.css", "visibility", "visible");
+
+      cy.realPress("Escape");
+
+      button().should("have.attr", "aria-expanded", "false");
+      tooltip().should("have.css", "visibility", "hidden");
+    });
+
+    it("should not render aria-expanded when there is no toggletip", () => {
+      visitStory("default");
+
+      const button = () => getComponent().shadow().find("dso-icon-button").shadow().find("button");
+
+      button().should("not.have.attr", "aria-expanded");
     });
   });
 });

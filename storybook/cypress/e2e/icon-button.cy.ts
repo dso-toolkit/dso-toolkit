@@ -29,21 +29,26 @@ describe("Icon Button", () => {
       .should("have.text", "Hamburger menu");
   });
 
-  it("should set correct aria-label and aria-pressed when toggled", () => {
-    cy.get("dso-icon-button.hydrated")
-      .invoke("attr", "label", "Hamburger menu")
-      .invoke("prop", "toggled", false)
+  it("should correctly render aria-label and aria-pressed based on toggled state", () => {
+    cy.get("dso-icon-button.hydrated").as("button");
+
+    cy.get("@button").shadow().find("button").should("not.have.attr", "aria-pressed");
+
+    cy.get("@button").invoke("prop", "label", "Hamburger menu").invoke("prop", "toggled", false);
+
+    cy.get("@button")
       .shadow()
       .find("button")
       .should("have.attr", "aria-pressed", "false")
-      .should("have.attr", "aria-label", "Hamburger menu");
+      .and("have.attr", "aria-label", "Hamburger menu");
 
-    cy.get("dso-icon-button.hydrated")
-      .invoke("prop", "toggled", true)
+    cy.get("@button").invoke("prop", "toggled", true);
+
+    cy.get("@button")
       .shadow()
       .find("button")
       .should("have.attr", "aria-pressed", "true")
-      .should("have.attr", "aria-label", "Hamburger menu");
+      .and("have.attr", "aria-label", "Hamburger menu");
   });
 
   const placements: Record<TooltipPlacement, [number, number]> = {
