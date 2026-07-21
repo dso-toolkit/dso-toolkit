@@ -135,7 +135,7 @@ export class LegendItem implements ComponentInterface {
           }
         />
       ),
-      hasOptions && (
+      this.activatable && hasOptions && (
         <Fragment>
           <span class="sr-only" aria-live="polite" aria-atomic="true">
             {this.active ? this.text("optionsAvailable") : this.text("optionsUnavailable")}

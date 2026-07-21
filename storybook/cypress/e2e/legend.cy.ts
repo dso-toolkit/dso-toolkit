@@ -256,8 +256,6 @@ describe("Legend", () => {
         .invoke("prop", "active", false)
         .invoke("prop", "disabled", true)
         .shadow()
-        .find("button")
-        .should("be.disabled")
         .find("#options-button")
         .shadow()
         .find("button")
