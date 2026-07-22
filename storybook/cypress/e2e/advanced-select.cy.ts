@@ -1,29 +1,34 @@
 describe("AdvancedSelect", () => {
-  it("is accessible", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
+  describe("accessibility and snapshots", () => {
+    const stories = ["default", "placeholder"];
+    for (const story of stories) {
+      it(`${story} is accessible`, () => {
+        cy.visit(`http://localhost:45000/iframe.html?id=core-advanced-select--${story}`);
 
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-advanced-select.hydrated");
+        cy.injectAxe();
+        cy.dsoCheckA11y("dso-advanced-select.hydrated");
 
-    cy.get("dso-advanced-select").click().shadow().find(".groups-container").should("exist");
+        cy.get("dso-advanced-select").click().shadow().find(".groups-container").should("exist");
 
-    cy.dsoCheckA11y("dso-advanced-select.hydrated");
-  });
+        cy.dsoCheckA11y("dso-advanced-select.hydrated");
+      });
 
-  it("matches snapshot closed", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
+      it(`${story} matches snapshot closed`, () => {
+        cy.visit(`http://localhost:45000/iframe.html?id=core-advanced-select--${story}`);
 
-    cy.get("dso-advanced-select.hydrated").matchImageSnapshot("advanced-select--default");
-  });
+        cy.get("dso-advanced-select.hydrated").matchImageSnapshot(`advanced-select--${story}`);
+      });
 
-  it("matches snapshots", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
+      it(`${story} matches snapshot open`, () => {
+        cy.visit(`http://localhost:45000/iframe.html?id=core-advanced-select--${story}`);
 
-    cy.get("dso-advanced-select.hydrated").click().shadow().find(".groups-container").should("exist");
+        cy.get("dso-advanced-select.hydrated").click().shadow().find(".groups-container").should("exist");
 
-    cy.matchImageSnapshot(`${Cypress.currentTest.title} - open`, {
-      capture: "viewport",
-    });
+        cy.matchImageSnapshot(`${Cypress.currentTest.title} - ${story} - open`, {
+          capture: "viewport",
+        });
+      });
+    }
   });
 
   it("should show and hide options when active-option-button is clicked", () => {

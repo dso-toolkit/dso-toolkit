@@ -10,12 +10,14 @@ import {
   advancedSelectArgs,
   advancedSelectArgsMapper,
 } from "./advanced-select.args.js";
+import { placeholderOptions } from "./advanced-select.content";
 import { AdvancedSelect } from "./advanced-select.models.js";
 
 type AdvancedSelectStory = StoryObj<AdvancedSelectArgs, Renderer>;
 
 interface AdvancedSelectStories {
   Default: AdvancedSelectStory;
+  Placeholder: AdvancedSelectStory;
 }
 
 interface AdvancedSelectStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -50,12 +52,19 @@ export function advancedSelectStories<Implementation, Templates, TemplateFnRetur
   storyTemplates,
   templateContainer,
 }: AdvancedSelectStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AdvancedSelectStories {
+  const render = templateContainer.render(storyTemplates, (args: AdvancedSelectArgs, { advancedSelectTemplate }) =>
+    advancedSelectTemplate(advancedSelectArgsMapper(args)),
+  );
+
   return {
     Default: {
-      args: {},
-      render: templateContainer.render(storyTemplates, (args, { advancedSelectTemplate }) =>
-        advancedSelectTemplate(advancedSelectArgsMapper(args)),
-      ),
+      render,
+    },
+    Placeholder: {
+      args: {
+        optionsOrGroup: placeholderOptions,
+      },
+      render,
     },
   };
 }
