@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                                               | Type                                         | Default     |
-| ------------ | ------------- | ------------------------------------------------------------------------- | -------------------------------------------- | ----------- |
-| `active`     | --            | The active option. By object reference.                                   | `AdvancedSelectOption<unknown> \| undefined` | `undefined` |
-| `activeHint` | `active-hint` | An extra text for the active option. Only visible in the list of options. | `string \| undefined`                        | `undefined` |
-| `options`    | --            | The options to display in the select.                                     | `AdvancedSelectOptionOrGroup<unknown>[]`     | `[]`        |
+| Property     | Attribute     | Description                                                               | Type                                                                                             | Default     |
+| ------------ | ------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------- |
+| `active`     | --            | The active option. By object reference.                                   | `AdvancedSelectOption<unknown> \| undefined`                                                     | `undefined` |
+| `activeHint` | `active-hint` | An extra text for the active option. Only visible in the list of options. | `string \| undefined`                                                                            | `undefined` |
+| `options`    | --            | The options to display in the select.                                     | `(AdvancedSelectPlaceholder \| AdvancedSelectOption<unknown> \| AdvancedSelectGroup<unknown>)[]` | `[]`        |
 
 
 ## Events

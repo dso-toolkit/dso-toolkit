@@ -1,6 +1,6 @@
-import { AdvancedSelectOptionOrGroup } from "./advanced-select.models.js";
+import { AdvancedSelectGroup, AdvancedSelectOption, AdvancedSelectPlaceholder } from "./advanced-select.models.js";
 
-export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
+export const options: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[] = [
   {
     label: "Geldende versie",
     variant: "success",
