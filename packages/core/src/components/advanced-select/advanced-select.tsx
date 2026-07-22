@@ -21,7 +21,7 @@ import {
   AdvancedSelectGroup,
   AdvancedSelectGroupRedirect,
   AdvancedSelectOption,
-  AdvancedSelectOptionOrGroup,
+  AdvancedSelectPlaceholder,
   AdvancedSelectRedirectEvent,
   AdvancedSelectVariant,
 } from "./advanced-select.interfaces";
@@ -41,7 +41,7 @@ export class AdvancedSelect implements ComponentInterface {
    * The options to display in the select.
    */
   @Prop()
-  options: AdvancedSelectOptionOrGroup<unknown>[] = [];
+  options: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[] = [];
 
   /**
    * The active option. By object reference.
@@ -275,7 +275,7 @@ const RedirectAnchor: FunctionalComponent<RedirectAnchorProps> = ({ redirect, ca
 
 interface ActiveGroupLabelProps {
   active: AdvancedSelectOption<unknown> | undefined;
-  options: AdvancedSelectOptionOrGroup<unknown>[];
+  options: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[];
 }
 
 const ActiveGroupLabel: FunctionalComponent<ActiveGroupLabelProps> = ({ active, options }) => {

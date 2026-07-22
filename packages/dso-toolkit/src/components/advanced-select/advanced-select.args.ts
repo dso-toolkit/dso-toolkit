@@ -5,12 +5,17 @@ import { fn } from "storybook/test";
 import { argTypeAction } from "../../storybook";
 
 import { options } from "./advanced-select.content";
-import { AdvancedSelect, AdvancedSelectOptionOrGroup } from "./advanced-select.models.js";
+import {
+  AdvancedSelect,
+  AdvancedSelectGroup,
+  AdvancedSelectOption,
+  AdvancedSelectPlaceholder,
+} from "./advanced-select.models.js";
 
 export interface AdvancedSelectArgs {
   activeIndex?: number;
   activeHint?: string;
-  optionsOrGroup: AdvancedSelectOptionOrGroup<unknown>[];
+  optionsOrGroup: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[];
   dsoChange: HandlerFunction;
   dsoRedirect: HandlerFunction;
 }
@@ -59,7 +64,10 @@ export function advancedSelectArgsMapper(a: AdvancedSelectArgs): AdvancedSelect<
   };
 }
 
-export function selectExampleOption(index: number = 0, options: AdvancedSelectOptionOrGroup<unknown>[]) {
+export function selectExampleOption(
+  index: number = 0,
+  options: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[],
+) {
   return options.flatMap((optionOrGroup) => ("options" in optionOrGroup ? optionOrGroup.options : optionOrGroup))[
     index
   ];
