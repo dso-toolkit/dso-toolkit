@@ -32,6 +32,12 @@ export class MapControls implements ComponentInterface {
   host!: HTMLDsoMapControlsElement;
 
   /**
+   * Indicates whether the controlled element is expanded.
+   */
+  @Prop({ reflect: true })
+  expanded?: boolean;
+
+  /**
    * To show and hide the Map Controls.
    */
   @Prop({ reflect: true, mutable: true })
@@ -169,11 +175,11 @@ export class MapControls implements ComponentInterface {
     return (
       <Fragment>
         <dso-icon-button
+          expanded={this.open}
           label={this.text("layersButton")}
           icon="layers"
           variant="map"
           aria-controls={this.#mapLayersPanelId}
-          aria-expanded={this.open}
           tooltipPlacement="left"
           class="toggle-visibility-icon-button"
           onDsoClick={(e) => this.toggleVisibilityInternal(e.detail.originalEvent, this.#toggleIconButtonElement)}
@@ -183,7 +189,7 @@ export class MapControls implements ComponentInterface {
           type="button"
           class="dso-map toggle-visibility-button"
           aria-controls={this.#mapLayersPanelId}
-          aria-expanded={this.open}
+          aria-expanded={this.open ? "true" : "false"}
           onClick={(e) => this.toggleVisibilityInternal(e, this.#toggleButtonElement)}
           ref={(element) => (this.#toggleButtonElement = element)}
         >

@@ -552,6 +552,10 @@ export namespace Components {
          */
         "badgeTooltip"?: string;
         /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
+        /**
           * Marks this Document Component as belonging to an active filter.
           * @default false
          */
@@ -916,6 +920,10 @@ export namespace Components {
     }
     interface DsoLegendGroup {
         /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
+        /**
           * Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown.
          */
         "mode"?: LegendMode;
@@ -942,6 +950,10 @@ export namespace Components {
           * Message to be shown in an info-button tooltip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
+        /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
     }
     interface DsoListButton {
         /**
@@ -1018,6 +1030,10 @@ export namespace Components {
           * To disable the zoom controls:  * `in`: Disable zoom in button. * `out`: Disable zoom out button. * `both`: Disable zoom in and zoom out.
          */
         "disableZoom"?: "in" | "out" | "both";
+        /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
         /**
           * To show and hide the Map Controls.
           * @default false
@@ -3390,6 +3406,10 @@ declare namespace LocalJSX {
          */
         "badgeTooltip"?: string;
         /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
+        /**
           * Marks this Document Component as belonging to an active filter.
           * @default false
          */
@@ -3815,6 +3835,10 @@ declare namespace LocalJSX {
     }
     interface DsoLegendGroup {
         /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
+        /**
           * Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown.
          */
         "mode"?: LegendMode;
@@ -3845,6 +3869,10 @@ declare namespace LocalJSX {
           * Message to be shown in an info-button tooltip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
+        /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
         /**
           * Emitted when user checks or unchecks the Slide Toggle.
          */
@@ -3957,6 +3985,10 @@ declare namespace LocalJSX {
           * To disable the zoom controls:  * `in`: Disable zoom in button. * `out`: Disable zoom out button. * `both`: Disable zoom in and zoom out.
          */
         "disableZoom"?: "in" | "out" | "both";
+        /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
         /**
           * emits when the panel opens or closes.  - `event.detail.originalEvent` contains the original `MouseEvent / KeyboardEvent` when the panel is toggled by clicking the visibility button or the close button. - `event.detail.open` is true when the panel opens and false when the panel closes.
          */
@@ -4720,6 +4752,7 @@ declare namespace LocalJSX {
         "active": boolean;
     }
     interface DsoDocumentComponentAttributes {
+        "expanded": boolean;
         "heading": "h2" | "h3" | "h4" | "h5" | "h6";
         "kop": DocumentComponentInputType | undefined;
         "inhoud": DocumentComponentInputType | undefined;
@@ -4826,9 +4859,11 @@ declare namespace LocalJSX {
         "truncate": boolean;
     }
     interface DsoLegendGroupAttributes {
+        "expanded": boolean;
         "mode": LegendMode;
     }
     interface DsoLegendItemAttributes {
+        "expanded": boolean;
         "disabled": boolean;
         "disabledMessage": string;
         "activatable": boolean;
@@ -4856,6 +4891,7 @@ declare namespace LocalJSX {
         "group": string;
     }
     interface DsoMapControlsAttributes {
+        "expanded": boolean;
         "open": boolean;
         "disableZoom": "in" | "out" | "both";
     }

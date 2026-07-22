@@ -56,6 +56,20 @@ describe("Map Controls", () => {
       .should("have.attr", "label", "Map layers");
   });
 
+  it("should reflect the expanded property to the expanded attribute", () => {
+    cy.get("dso-map-controls.hydrated").as("mapControls");
+
+    cy.get("@mapControls")
+      .invoke("prop", "expanded", true)
+      .should("have.prop", "expanded", true)
+      .and("have.attr", "expanded");
+
+    cy.get("@mapControls")
+      .invoke("prop", "expanded", false)
+      .should("have.prop", "expanded", false)
+      .and("not.have.attr", "expanded");
+  });
+
   it("should close layer info when layer becomes available", () => {
     cy.get("@toggleVisibilityButton").click();
 

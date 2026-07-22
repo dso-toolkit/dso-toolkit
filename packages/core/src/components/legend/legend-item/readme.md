@@ -13,6 +13,7 @@
 | `active`          | `active`           | Controls whether this Legend Item is active or not                             | `boolean \| undefined` | `undefined` |
 | `disabled`        | `disabled`         | To disable the Legend Item                                                     | `boolean`              | `false`     |
 | `disabledMessage` | `disabled-message` | Message to be shown in an info-button tooltip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
+| `expanded`        | `expanded`         | Indicates whether the controlled element is expanded.                          | `boolean \| undefined` | `undefined` |
 
 
 ## Events
