@@ -52,7 +52,7 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
 export function advancedSelectArgsMapper(a: AdvancedSelectArgs): AdvancedSelect<unknown> {
   return {
     options: a.optionsOrGroup,
-    active: selectExampleOption(a.activeIndex, options),
+    active: selectExampleOption(a.activeIndex, a.optionsOrGroup),
     activeHint: a.activeHint,
     dsoChange: (e) => a.dsoChange(e.detail),
     dsoRedirect: (e) => {
