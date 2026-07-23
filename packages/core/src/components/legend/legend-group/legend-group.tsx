@@ -81,6 +81,7 @@ export class LegendGroup implements ComponentInterface {
           <slot name="heading" />
           {this.mode && (
             <dso-icon-button
+              expanded={this.mode === "edit"}
               label={this.mode === "view" ? this.text("edit") : this.text("view")}
               icon={this.mode === "view" ? "pencil" : "check"}
               variant="tertiary"

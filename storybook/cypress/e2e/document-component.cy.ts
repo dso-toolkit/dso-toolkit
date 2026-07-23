@@ -1,10 +1,8 @@
-import { DocumentComponentMarkFunction } from "@dso-toolkit/core/src/components";
-import { DocumentComponent } from "dso-toolkit";
-import { TemplateResult } from "lit-html";
+import { Components, DocumentComponentMarkFunction } from "@dso-toolkit/core/src/components";
 
 import { isOdd } from "../support/is-odd";
 
-function setProps(props: Partial<DocumentComponent<TemplateResult>>) {
+function setProps(props: Partial<Components.DsoDocumentComponent>) {
   return cy.get("@document-component").then(($el) => {
     Object.entries(props).forEach(([key, value]) => {
       cy.wrap($el).invoke("prop", key, value);

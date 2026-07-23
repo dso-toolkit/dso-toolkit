@@ -8,6 +8,7 @@ import { IconAlias } from "../icon";
 import { IconButtonTooltipPlacement, IconButtonVariant } from "./icon-button.models";
 
 export interface IconButtonArgs {
+  expanded?: boolean;
   variant: IconButtonVariant;
   icon: IconAlias;
   label: string;
@@ -18,6 +19,7 @@ export interface IconButtonArgs {
 }
 
 export const iconButtonArgs: IconButtonArgs = {
+  expanded: false,
   variant: "secondary",
   icon: "bars",
   label: "Navigation",
@@ -29,6 +31,11 @@ export const iconButtonArgs: IconButtonArgs = {
 
 export function iconButtonArgTypes(icons: string[]): ArgTypes<IconButtonArgs> {
   return {
+    expanded: {
+      control: {
+        type: "boolean",
+      },
+    },
     variant: {
       options: ["secondary", "tertiary", "map"],
       control: {

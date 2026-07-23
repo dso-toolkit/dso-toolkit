@@ -790,6 +790,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
+        /**
           * The alias of the icon in the button.
          */
         "icon": IconAlias | undefined;
@@ -803,9 +807,8 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         /**
           * Whether the button is toggled.
-          * @default false
          */
-        "toggled": boolean;
+        "toggled"?: boolean;
         /**
           * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
@@ -3667,6 +3670,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Indicates whether the controlled element is expanded.
+         */
+        "expanded"?: boolean;
+        /**
           * The alias of the icon in the button.
          */
         "icon": IconAlias | undefined;
@@ -3680,7 +3687,6 @@ declare namespace LocalJSX {
         "onDsoClick"?: (event: DsoIconButtonCustomEvent<IconButtonClickEvent>) => void;
         /**
           * Whether the button is toggled.
-          * @default false
          */
         "toggled"?: boolean;
         /**
@@ -4789,6 +4795,7 @@ declare namespace LocalJSX {
         "variant": IconButtonVariant;
         "tooltipPlacement": TooltipPlacement;
         "disabled": boolean;
+        "expanded": boolean;
         "toggled": boolean;
     }
     interface DsoImageOverlayAttributes {
