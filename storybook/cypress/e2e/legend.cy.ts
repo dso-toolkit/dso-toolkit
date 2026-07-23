@@ -105,22 +105,6 @@ describe("Legend", () => {
       cy.get("@dsoLegendGroupModeChangeListener").should("have.been.calledOnce");
     });
 
-    it("should reflect the expanded property to the expanded attribute on a legend group", () => {
-      cy.get("@dsoLegend").contains("dso-legend-group", "Geselecteerde kenmerken").as("group");
-
-      cy.get("@group").then(($group) => {
-        ($group[0] as HTMLDsoLegendGroupElement).expanded = true;
-      });
-
-      cy.get("@group").should("have.prop", "expanded", true).should("have.attr", "expanded");
-
-      cy.get("@group").then(($group) => {
-        ($group[0] as HTMLDsoLegendGroupElement).expanded = false;
-      });
-
-      cy.get("@group").should("have.prop", "expanded", false).should("not.have.attr", "expanded");
-    });
-
     describe("Legend Item", () => {
       it("should show label and symbol", () => {
         cy.get("@dsoLegend")

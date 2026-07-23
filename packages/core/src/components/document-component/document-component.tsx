@@ -111,12 +111,6 @@ export class DocumentComponent implements ComponentInterface {
   host!: HTMLDsoDocumentComponentElement;
 
   /**
-   * Indicates whether the controlled element is expanded.
-   */
-  @Prop({ reflect: true })
-  expanded?: boolean;
-
-  /**
    * The heading element to use.
    */
   @Prop({ reflect: true })

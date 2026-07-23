@@ -32,12 +32,6 @@ export class MapControls implements ComponentInterface {
   host!: HTMLDsoMapControlsElement;
 
   /**
-   * Indicates whether the controlled element is expanded.
-   */
-  @Prop({ reflect: true })
-  expanded?: boolean;
-
-  /**
    * To show and hide the Map Controls.
    */
   @Prop({ reflect: true, mutable: true })

@@ -20,12 +20,6 @@ export class LegendGroup implements ComponentInterface {
   host!: HTMLDsoLegendGroupElement;
 
   /**
-   * Indicates whether the controlled element is expanded.
-   */
-  @Prop({ reflect: true })
-  expanded?: boolean;
-
-  /**
    * Controls whether this Legend Group and its child Legend Items are in edit or view mode.
    * When not set, no edit/view toggle icon is shown.
    */
