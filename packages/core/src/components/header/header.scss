@@ -234,15 +234,18 @@ div[popover] {
           }
 
           &:hover {
+            &,
+            &:visited {
+              color: colors.$bosgroen;
+            }
             background-color: colors.$wit;
-            color: colors.$bosgroen;
             text-decoration: underline;
           }
 
           &:visited {
-            color: core-header-variables.$dropdown-menu-link-color;
+            color: colors.$wit;
 
-            &:not(:hover):not(:focus-visible) {
+            &:not(:hover):not(:focus):not(:focus-visible) {
               color: colors.$bosgroen;
             }
           }
