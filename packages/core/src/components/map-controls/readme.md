@@ -8,7 +8,6 @@
 | Property      | Attribute      | Description                                                                                                                              | Type                                   | Default     |
 | ------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------- |
 | `disableZoom` | `disable-zoom` | To disable the zoom controls:  * `in`: Disable zoom in button. * `out`: Disable zoom out button. * `both`: Disable zoom in and zoom out. | `"both" \| "in" \| "out" \| undefined` | `undefined` |
-| `expanded`    | `expanded`     | Indicates whether the controlled element is expanded.                                                                                    | `boolean \| undefined`                 | `undefined` |
 | `open`        | `open`         | To show and hide the Map Controls.                                                                                                       | `boolean`                              | `false`     |
 
 

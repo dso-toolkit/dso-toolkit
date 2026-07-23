@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                                                              | Type                            | Default     |
-| ---------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------- |
-| `expanded` | `expanded` | Indicates whether the controlled element is expanded.                                                                                    | `boolean \| undefined`          | `undefined` |
-| `mode`     | `mode`     | Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown. | `"edit" \| "view" \| undefined` | `undefined` |
+| Property | Attribute | Description                                                                                                                              | Type                            | Default     |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------- |
+| `mode`   | `mode`    | Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown. | `"edit" \| "view" \| undefined` | `undefined` |
 
 
 ## Events
