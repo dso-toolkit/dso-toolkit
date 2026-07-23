@@ -30,7 +30,8 @@ export interface DocumentComponent<TemplateFnReturnType> {
   vervallen?: DocumentComponentInputType;
   wijzigactie?: DocumentComponentWijzigactie;
   annotationsWijzigactie?: DocumentComponentWijzigactie;
-  enableRecursiveToggle?: boolean;
+  recursiveToggle?: boolean;
+  dsoRecursiveToggle?: (e: CustomEvent<DocumentComponentRecursiveToggleEvent>) => void;
   mark?: DocumentComponentMarkFunction;
   mode: DocumentComponentMode;
   href?: string;
@@ -107,4 +108,12 @@ export interface DocumentComponentTableOfContentsClickEvent {
   originalEvent: MouseEvent;
   /** True when user clicked the card while holding Ctrl, Alt or other modifiers, or when the card is right-clicked. Can be used to determine navigation. */
   isModifiedEvent: boolean;
+}
+
+export type DocumentComponentRecursiveToggleState = undefined | boolean | "indeterminate";
+
+export interface DocumentComponentRecursiveToggleEvent {
+  originalEvent: MouseEvent;
+  current: DocumentComponentRecursiveToggleState;
+  next: boolean;
 }

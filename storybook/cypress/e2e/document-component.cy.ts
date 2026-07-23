@@ -1,8 +1,9 @@
-import { Components, DocumentComponentMarkFunction } from "@dso-toolkit/core/src/components";
+import { DocumentComponent, DocumentComponentMarkFunction } from "dso-toolkit";
+import { TemplateResult } from "lit-html";
 
 import { isOdd } from "../support/is-odd";
 
-function setProps(props: Partial<Components.DsoDocumentComponent>) {
+function setProps(props: Partial<DocumentComponent<TemplateResult>>) {
   return cy.get("@document-component").then(($el) => {
     Object.entries(props).forEach(([key, value]) => {
       cy.wrap($el).invoke("prop", key, value);
@@ -21,6 +22,41 @@ describe("Document Component", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-document-component--default");
     cy.get("dso-document-component").as("document-component").should("have.class", "hydrated");
+  });
+
+  it("passes expanded property to icon buttons that toggle content", () => {
+    setProps({
+      open: true,
+      recursiveToggle: true,
+      annotated: true,
+      openAnnotation: true,
+    });
+
+    cy.get("@document-component").shadow().find("dso-icon-button.toggle-button").should("have.prop", "expanded", true);
+
+    cy.get("@document-component")
+      .shadow()
+      .find("dso-icon-button.recursive-toggle")
+      .should("have.prop", "expanded", true);
+
+    cy.get("@document-component").shadow().find(".addons dso-icon-button").should("have.prop", "expanded", true);
+
+    setProps({
+      open: true,
+      recursiveToggle: false,
+      openAnnotation: false,
+    });
+
+    cy.get("@document-component")
+      .shadow()
+      .find("dso-icon-button.recursive-toggle")
+      .should("have.prop", "expanded", false);
+
+    cy.get("@document-component").shadow().find(".addons dso-icon-button").should("have.prop", "expanded", false);
+
+    setProps({ open: false });
+
+    cy.get("@document-component").shadow().find("dso-icon-button.toggle-button").should("have.prop", "expanded", false);
   });
 
   it("should mark and highlight", () => {
