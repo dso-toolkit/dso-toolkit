@@ -124,18 +124,20 @@ export class LegendItem implements ComponentInterface {
   }
 
   private renderViewMode(hasOptions: boolean, accessibleLabel: string) {
+    if (!this.activatable) {
+      return [];
+    }
+
     return [
-      this.activatable && (
-        <dso-slide-toggle
-          accessibleLabel={accessibleLabel}
-          checked={this.active}
-          disabled={this.disabled}
-          onDsoActiveChange={(e) =>
-            this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
-          }
-        />
-      ),
-      this.activatable && hasOptions && (
+      <dso-slide-toggle
+        accessibleLabel={accessibleLabel}
+        checked={this.active}
+        disabled={this.disabled}
+        onDsoActiveChange={(e) =>
+          this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
+        }
+      />,
+      hasOptions && (
         <Fragment>
           <span class="sr-only" aria-live="polite" aria-atomic="true">
             {this.active ? this.text("optionsAvailable") : this.text("optionsUnavailable")}
