@@ -17,6 +17,8 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       children,
       dsoAnnotationToggle,
       dsoToggle,
+      recursiveToggle,
+      dsoRecursiveToggle,
       filtered,
       gereserveerd,
       heading,
@@ -58,6 +60,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           .heading=${heading}
           .inhoud=${ifDefined(inhoud)}
           .kop=${ifDefined(kop)}
+          ?recursiveToggle=${recursiveToggle}
           .type=${type}
           .wijzigactie=${ifDefined(wijzigactie)}
           .annotationsWijzigactie=${ifDefined(annotationsWijzigactie)}
@@ -71,6 +74,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           @dsoAnnotationToggle=${ifDefined(dsoAnnotationToggle)}
           @dsoToggle=${ifDefined(dsoToggle)}
           @dsoTableOfContentsClick=${dsoTableOfContentsClick}
+          @dsoRecursiveToggle=${ifDefined(dsoRecursiveToggle)}
         >
           ${children}
         </dso-document-component>

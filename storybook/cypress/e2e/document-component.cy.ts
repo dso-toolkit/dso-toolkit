@@ -23,6 +23,41 @@ describe("Document Component", () => {
     cy.get("dso-document-component").as("document-component").should("have.class", "hydrated");
   });
 
+  it("passes expanded property to icon buttons that toggle content", () => {
+    setProps({
+      open: true,
+      recursiveToggle: true,
+      annotated: true,
+      openAnnotation: true,
+    });
+
+    cy.get("@document-component").shadow().find("dso-icon-button.toggle-button").should("have.prop", "expanded", true);
+
+    cy.get("@document-component")
+      .shadow()
+      .find("dso-icon-button.recursive-toggle")
+      .should("have.prop", "expanded", true);
+
+    cy.get("@document-component").shadow().find(".addons dso-icon-button").should("have.prop", "expanded", true);
+
+    setProps({
+      open: true,
+      recursiveToggle: false,
+      openAnnotation: false,
+    });
+
+    cy.get("@document-component")
+      .shadow()
+      .find("dso-icon-button.recursive-toggle")
+      .should("have.prop", "expanded", false);
+
+    cy.get("@document-component").shadow().find(".addons dso-icon-button").should("have.prop", "expanded", false);
+
+    setProps({ open: false });
+
+    cy.get("@document-component").shadow().find("dso-icon-button.toggle-button").should("have.prop", "expanded", false);
+  });
+
   it("should mark and highlight", () => {
     const marker: DocumentComponentMarkFunction = (text, source) =>
       text
