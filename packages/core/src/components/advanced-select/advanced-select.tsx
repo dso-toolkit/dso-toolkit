@@ -21,8 +21,9 @@ import {
   AdvancedSelectGroup,
   AdvancedSelectGroupRedirect,
   AdvancedSelectOption,
-  AdvancedSelectOptionOrGroup,
+  AdvancedSelectPlaceholder,
   AdvancedSelectRedirectEvent,
+  AdvancedSelectVariant,
 } from "./advanced-select.interfaces";
 
 @Component({
@@ -40,7 +41,7 @@ export class AdvancedSelect implements ComponentInterface {
    * The options to display in the select.
    */
   @Prop()
-  options: AdvancedSelectOptionOrGroup<unknown>[] = [];
+  options: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[] = [];
 
   /**
    * The active option. By object reference.
@@ -173,6 +174,7 @@ export class AdvancedSelect implements ComponentInterface {
                                 active={this.active}
                                 activeHint={this.activeHint}
                                 callback={this.handleOptionClick}
+                                variant={optionOrGroup.variant}
                               />
                             </li>
                           ))}
@@ -221,7 +223,7 @@ export class AdvancedSelect implements ComponentInterface {
               .map((group) => (
                 <dso-badge
                   status={group.variant ?? "outline"}
-                  label={`Toon toelichting voor ${group.label.toLowerCase()}`}
+                  label={group.badgeLabel ?? `Toon toelichting voor ${group.label.toLowerCase()}`}
                 >
                   {group.options.length}
                   <div slot="toggletip">{group.toggletip}</div>
@@ -239,18 +241,25 @@ interface OptionButtonProps {
   active: AdvancedSelectOption<unknown> | undefined;
   activeHint: string | undefined;
   callback: (event: MouseEvent, value: AdvancedSelectOption<unknown>) => void;
+  variant?: AdvancedSelectVariant;
 }
 
-const OptionButton: FunctionalComponent<OptionButtonProps> = ({ option, active, activeHint, callback }) => (
-  <button
-    class={clsx(["option", { "option-active": active === option }])}
-    type="button"
-    onClick={(e) => callback(e, option)}
-  >
-    <span class="option-label">{option.label}</span>
-    {!!activeHint && active === option && <span class="option-hint">({activeHint})</span>}
-  </button>
-);
+const OptionButton: FunctionalComponent<OptionButtonProps> = ({ option, active, activeHint, callback, variant }) => {
+  const icon = variant === "success" ? "document" : variant === "warning" ? "document-pencil" : "hammer";
+
+  return (
+    <button
+      class={clsx(["option", { "option-active": active === option }])}
+      type="button"
+      onClick={(e) => callback(e, option)}
+    >
+      <dso-icon icon={icon} aria-hidden="true" />
+      <span class="option-label">
+        {option.label} {!!activeHint && active === option && <span class="option-hint">({activeHint})</span>}
+      </span>
+    </button>
+  );
+};
 
 interface RedirectAnchorProps {
   redirect: AdvancedSelectGroupRedirect;
@@ -260,13 +269,13 @@ interface RedirectAnchorProps {
 const RedirectAnchor: FunctionalComponent<RedirectAnchorProps> = ({ redirect, callback }) => (
   <a class="group-link" href={redirect.href} onClick={(e) => callback(e, redirect)}>
     {redirect.label}
-    <dso-icon icon="chevron-right"></dso-icon>
+    <dso-icon icon="chevron-right" aria-hidden="true"></dso-icon>
   </a>
 );
 
 interface ActiveGroupLabelProps {
   active: AdvancedSelectOption<unknown> | undefined;
-  options: AdvancedSelectOptionOrGroup<unknown>[];
+  options: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[];
 }
 
 const ActiveGroupLabel: FunctionalComponent<ActiveGroupLabelProps> = ({ active, options }) => {

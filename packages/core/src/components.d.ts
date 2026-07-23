@@ -10,7 +10,7 @@ import { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from
 import { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 import { IconAlias } from "./components/icon/icon.interfaces";
 import { LabelStatus } from "./components/label/label.interfaces";
-import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
+import { AdvancedSelectChangeEvent, AdvancedSelectGroup, AdvancedSelectOption, AdvancedSelectPlaceholder, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 import { AlertCloseEvent } from "./components/alert/alert.interfaces";
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
@@ -64,7 +64,7 @@ export { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from
 export { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 export { IconAlias } from "./components/icon/icon.interfaces";
 export { LabelStatus } from "./components/label/label.interfaces";
-export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
+export { AdvancedSelectChangeEvent, AdvancedSelectGroup, AdvancedSelectOption, AdvancedSelectPlaceholder, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 export { AlertCloseEvent } from "./components/alert/alert.interfaces";
 export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
@@ -236,7 +236,7 @@ export namespace Components {
           * The options to display in the select.
           * @default []
          */
-        "options": AdvancedSelectOptionOrGroup<unknown>[];
+        "options": (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[];
     }
     interface DsoAlert {
         /**
@@ -3007,7 +3007,7 @@ declare namespace LocalJSX {
           * The options to display in the select.
           * @default []
          */
-        "options"?: AdvancedSelectOptionOrGroup<unknown>[];
+        "options"?: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[];
     }
     interface DsoAlert {
         /**
