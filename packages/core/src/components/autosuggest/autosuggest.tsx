@@ -718,6 +718,10 @@ export class Autosuggest {
   }
 
   private getAutosuggestStatus() {
+    if (this.loading && this.showLoading) {
+      return this.loadingLabel;
+    }
+
     if (this.notFound) {
       return `"${this.inputValue}" is niet gevonden.`;
     }
@@ -824,12 +828,12 @@ export class Autosuggest {
                     ))}
                 </div>
               </dso-scrollable>
-              <div class="sr-only" aria-live="polite" aria-atomic="true">
-                {this.getAutosuggestStatus()}
-              </div>
             </>
           )
         )}
+        <div class="sr-only" aria-live="polite" aria-atomic="true">
+          {showListbox || (this.loading && this.showLoading) ? this.getAutosuggestStatus() : undefined}
+        </div>
       </>
     );
   }
