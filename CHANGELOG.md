@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Legend: Kaartlagen bewerken knop na Slide Toggle plaatsen ([#3849](https://github.com/dso-toolkit/dso-toolkit/issues/3849))
 * Viewer Grid: Actief item submenu WCAG proof maken ([#3852](https://github.com/dso-toolkit/dso-toolkit/issues/3852))
 
+### Fixed
+* Header: Tekstkleur van visited menu item link bij focus incorrect ([#3887](https://github.com/dso-toolkit/dso-toolkit/issues/3887))
+
 ## 🧩 Release 99.2.0 - 2026-07-17
 
 ### Changed
