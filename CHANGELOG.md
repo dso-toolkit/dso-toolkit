@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Header: Tekstkleur van visited menu item link bij focus incorrect ([#3887](https://github.com/dso-toolkit/dso-toolkit/issues/3887))
+* Font: WCAG Letter spacing schaalt niet mee ([#3886](https://github.com/dso-toolkit/dso-toolkit/issues/3886))
 
 ## 🧩 Release 99.2.0 - 2026-07-17
 

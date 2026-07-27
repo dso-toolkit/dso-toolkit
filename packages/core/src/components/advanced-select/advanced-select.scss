@@ -34,6 +34,7 @@
   line-height: inherit;
   font-family: inherit;
   font-size: inherit;
+  letter-spacing: inherit;
 
   &.open {
     border-radius: advanced-select.$border-radius advanced-select.$border-radius 0 0;
@@ -186,6 +187,7 @@
   line-height: inherit;
   font-family: inherit;
   font-size: inherit;
+  letter-spacing: inherit;
   border: none;
   text-align: start;
   background-color: advanced-select.$bg-color;
