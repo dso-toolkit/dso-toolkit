@@ -101,6 +101,9 @@
   align-items: start;
   display: flex;
   font-size: typography.$font-size-base;
+  // Explicit, because in the table of contents this is a div instead of a heading and the bold no longer comes from
+  // the user agent stylesheet.
+  font-weight: 700;
   color: colors.$bosgroen;
   margin: 0;
 

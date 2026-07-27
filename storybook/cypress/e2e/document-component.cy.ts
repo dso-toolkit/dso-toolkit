@@ -5,8 +5,15 @@ import { isOdd } from "../support/is-odd";
 
 function setProps(props: Partial<DocumentComponent<TemplateResult>>) {
   return cy.get("@document-component").then(($el) => {
+    const element = $el[0];
+    if (!element) {
+      throw new Error("dso-document-component not found");
+    }
+
+    // Direct assignment instead of jQuery's `.prop()`: jQuery treats `.prop(key, undefined)`
+    // as a getter, so props would never be reset to undefined.
     Object.entries(props).forEach(([key, value]) => {
-      cy.wrap($el).invoke("prop", key, value);
+      Reflect.set(element, key, value);
     });
   });
 }
@@ -22,6 +29,18 @@ describe("Document Component", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-document-component--default");
     cy.get("dso-document-component").as("document-component").should("have.class", "hydrated");
+  });
+
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-document-component.hydrated");
+  });
+
+  it("should be accessible - table-of-contents", () => {
+    setProps({ mode: "table-of-contents", href: "/document/id" });
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-document-component.hydrated");
   });
 
   it("passes expanded property to icon buttons that toggle content", () => {
@@ -166,6 +185,38 @@ describe("Document Component", () => {
       cy.get("@document-component").matchImageSnapshot();
     });
   }
+
+  it("renders the table of contents entry as a link without a heading", () => {
+    setProps({ mode: "table-of-contents", href: "/document/id" });
+
+    cy.get("@document-component")
+      .shadow()
+      .find("a.heading-anchor")
+      .should("have.attr", "href", "/document/id")
+      .find(".heading-element")
+      .should("match", "div");
+
+    cy.get("@document-component").shadow().find(".heading-container").find("h2, h3, h4, h5, h6").should("not.exist");
+  });
+
+  // HOOFDSTUK is the only type that keeps a bold kop in the table of contents, so it is the type that shows whether the
+  // font-weight survives without a heading element.
+  it("matches image snapshot HOOFDSTUK - table-of-contents", () => {
+    setProps({
+      filtered: false,
+      gereserveerd: "",
+      href: "/document/id",
+      mode: "table-of-contents",
+      type: "HOOFDSTUK",
+      vervallen: "",
+      wijzigactie: undefined,
+      label: undefined,
+      labelStatus: undefined,
+      kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>HOOFDSTUK</Label><Nummer>1</Nummer><Opschrift>ALGEMEEN</Opschrift></Kop>",
+    });
+
+    cy.get("@document-component").matchImageSnapshot();
+  });
 
   it("shows a gereserveerd alert when gereserveerd prop is set and the wijzigactie is 'voegtoe'", () => {
     setProps({ open: true, gereserveerd: `<Gereserveerd></Gereserveerd>`, vervallen: "", inhoud: "" });
