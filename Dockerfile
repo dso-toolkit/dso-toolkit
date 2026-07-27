@@ -1,4 +1,4 @@
-FROM cypress/included:cypress-15.14.2-node-26.0.0-chrome-148.0.7778.96-1-ff-150.0.1-edge-147.0.3912.98-1
+FROM cypress/included:cypress-15.19.0-node-24.18.0-chrome-150.0.7871.128-1-ff-153.0-edge-150.0.4078.83-1
 
 RUN apt-get update && apt-get install --yes \
   apt-transport-https \
@@ -42,7 +42,7 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*;
 
 # AzCopy install
-RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.32.3/azcopy_linux_amd64_10.32.3.tar.gz \
+RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.32.6/azcopy_linux_amd64_10.32.6.tar.gz \
   | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
 
 WORKDIR /usr/src/app
