@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Advanced Select: Visuele aanpassingen ([#3432](https://github.com/dso-toolkit/dso-toolkit/issues/3432))
+* Onboarding Tip: WCAG icon "light-bulb" voorzien van aria-hidden="true" ([#3880](https://github.com/dso-toolkit/dso-toolkit/issues/3880))
 
 ## 🍖 Release 99.3.0 - 2026-07-27
 
