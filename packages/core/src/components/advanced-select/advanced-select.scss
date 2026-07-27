@@ -53,7 +53,8 @@
 }
 
 .active-option-label {
-  padding-block: advanced-select.$block-padding;
+  line-height: 1;
+  padding-block: advanced-select.$active-option-block-padding;
   padding-inline: advanced-select.$active-option-inline-padding;
   overflow: hidden;
   /* stylelint-disable-next-line declaration-property-value-disallowed-list -- Nodig om lange titels op de zelfde regel te houden */

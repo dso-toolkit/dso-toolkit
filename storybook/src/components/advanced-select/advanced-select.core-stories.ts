@@ -11,7 +11,7 @@ const meta: Meta<AdvancedSelectArgs> = {
 
 export default meta;
 
-const { Default, Placeholder } = advancedSelectStories({
+const { Default } = advancedSelectStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { advancedSelectTemplate } = templates;
@@ -22,4 +22,4 @@ const { Default, Placeholder } = advancedSelectStories({
   },
 });
 
-export { Default, Placeholder };
+export { Default };

@@ -142,6 +142,7 @@ export class AdvancedSelect implements ComponentInterface {
   };
 
   render() {
+    const icon = this.open ? "caret-up" : "caret-down";
     return (
       <div class="advanced-select">
         <div class="advanced-select-button">
@@ -155,7 +156,7 @@ export class AdvancedSelect implements ComponentInterface {
             <ActiveGroupLabel active={this.active} options={this.options} />
             <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
             <span class="active-option-aside">
-              <dso-icon icon="caret-down"></dso-icon>
+              <dso-icon icon={icon} aria-hidden="true"></dso-icon>
             </span>
           </button>
           {this.open && (

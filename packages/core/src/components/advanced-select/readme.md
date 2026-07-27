@@ -11,7 +11,7 @@
 | ------------ | ------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------- |
 | `active`     | --            | The active option. By object reference.                                   | `AdvancedSelectOption<unknown> \| undefined`                                                     | `undefined` |
 | `activeHint` | `active-hint` | An extra text for the active option. Only visible in the list of options. | `string \| undefined`                                                                            | `undefined` |
-| `options`    | --            | The options to display in the select.                                     | `(AdvancedSelectPlaceholder \| AdvancedSelectOption<unknown> \| AdvancedSelectGroup<unknown>)[]` | `[]`        |
+| `options`    | --            | The options to display in the select.                                     | `(AdvancedSelectOption<unknown> \| AdvancedSelectGroup<unknown> \| AdvancedSelectPlaceholder)[]` | `[]`        |
 
 
 ## Events
