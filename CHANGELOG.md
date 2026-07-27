@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Onboarding Tip: WCAG icon "light-bulb" voorzien van aria-hidden="true" ([#3880](https://github.com/dso-toolkit/dso-toolkit/issues/3880))
+
 ## 🍖 Release 99.3.0 - 2026-07-27
 
 ### Added
