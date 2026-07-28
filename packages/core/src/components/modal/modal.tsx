@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State, h } from "@stencil/core";
+import { clsx } from "clsx";
 import { v4 } from "uuid";
 
 import { getActiveElement } from "../../utils/get-active-element";
@@ -144,7 +145,7 @@ export class Modal implements ComponentInterface {
   render() {
     return (
       <dialog
-        class="dso-modal"
+        class={clsx("dso-modal", { fullscreen: this.fullscreen })}
         role={this.dialogRole ?? undefined}
         aria-modal="true"
         aria-labelledby={this.ariaId}

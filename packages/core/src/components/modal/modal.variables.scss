@@ -2,10 +2,9 @@
 @use "~dso-toolkit/src/variables/units";
 
 $max-inline-size: 640px;
-$max-block-size: 70vh;
 
 $small-modal-vh: 380px;
-$min-modal-block-size: 216px;
+$min-modal-block-size: 220px;
 
 $backdrop-bg: colors.$wit;
 $backdrop-opacity: -40%;
