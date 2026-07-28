@@ -119,7 +119,7 @@ export class OnboardingTip implements ComponentInterface {
             <div class="onboarding-tip-content-wrapper">
               {this.headingSlottedElement !== null && (
                 <div class="onboarding-tip-content-heading">
-                  <dso-icon icon="light-bulb"></dso-icon>
+                  <dso-icon icon="light-bulb" aria-hidden="true"></dso-icon>
                   <slot name="heading" />
                 </div>
               )}
