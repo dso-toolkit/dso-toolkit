@@ -52,10 +52,16 @@ export class IconButton implements ComponentInterface {
   disabled = false;
 
   /**
+   * Indicates whether the controlled element is expanded.
+   */
+  @Prop({ reflect: true })
+  expanded?: boolean;
+
+  /**
    * Whether the button is toggled.
    */
   @Prop({ reflect: true })
-  toggled = false;
+  toggled?: boolean;
 
   /**
    * Emitted when the user clicks the Icon Button.
@@ -143,9 +149,10 @@ export class IconButton implements ComponentInterface {
         ref={(element) => (this.buttonElRef = element)}
         type="button"
         disabled={this.disabled}
-        aria-pressed={this.toggled ? "true" : "false"}
         aria-label={this.label}
         class={`icon-button dso-${this.variant} ${this.toggled ? "toggled" : ""}`}
+        aria-pressed={this.toggled?.toString()}
+        aria-expanded={this.expanded?.toString()}
         onMouseEnter={this.handleShowTooltip}
         onMouseLeave={this.handleHideTooltip}
         onFocus={this.handleShowTooltip}

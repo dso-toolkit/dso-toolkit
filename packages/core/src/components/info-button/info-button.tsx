@@ -190,19 +190,14 @@ export class InfoButton implements ComponentInterface {
           onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
           icon={this.active || this.toggletipActive ? "info-solid" : "info-outline"}
           ref={(element) => (this.button = element)}
-          aria-expanded={this.toggletipActive ? "true" : "false"}
-          aria-controls={this.hasToggletip ? "toggletip-content" : undefined}
+          expanded={this.hasToggletip ? this.toggletipActive : undefined}
         />
         {this.hasToggletip && (
           <Tooltip
             tipElementRef={(element) => (this.toggletipElRef = element)}
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
           >
-            <dso-scrollable
-              ref={(element) => (this.restrictContentElement = element)}
-              id="toggletip-content"
-              aria-live="polite"
-            >
+            <dso-scrollable ref={(element) => (this.restrictContentElement = element)} aria-live="polite">
               <slot name="toggletip" />
             </dso-scrollable>
           </Tooltip>

@@ -93,6 +93,7 @@ export interface DocumentComponentArgs {
   annotationsWijzigactie: DocumentComponentAnnotationsWijzigactie | undefined;
   searchTerm?: string;
   enableRecursiveToggle?: boolean;
+  dsoRecursiveToggle: HandlerFunction;
   mode: DocumentComponentMode;
   dsoOzonContentClick: HandlerFunction;
   dsoTableOfContentsClick: HandlerFunction;
@@ -125,6 +126,7 @@ export const documentComponentArgs: Omit<
   mode: "document",
   kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>13.12c</Nummer><Opschrift>NootInKop III <Noot type='voet' id='N8'><NootNummer>8</NootNummer><Al>Thomas en Eric test 3.</Al></Noot>Opschrift</Opschrift></Kop>",
   dsoAnnotationToggle: fn(),
+  dsoRecursiveToggle: fn(),
 };
 
 export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
@@ -160,6 +162,7 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
   dsoMarkItemHighlight: argTypeAction(),
   dsoOzonContentClick: argTypeAction(),
   dsoTableOfContentsClick: argTypeAction(),
+  dsoRecursiveToggle: argTypeAction(),
   filtered: {
     control: {
       type: "boolean",
@@ -305,5 +308,6 @@ export function documentComponentMapper<TemplateFnReturnType>(
             )
       : undefined,
     dsoAnnotationToggle: (e) => a.dsoAnnotationToggle(e.detail),
+    recursiveToggle: a.enableRecursiveToggle,
   };
 }

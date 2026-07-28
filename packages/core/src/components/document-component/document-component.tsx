@@ -444,6 +444,7 @@ export class DocumentComponent implements ComponentInterface {
                   <dso-icon-button
                     label={this.open ? "Invouwen" : "Uitvouwen"}
                     class="toggle-button"
+                    expanded={this.open}
                     icon={this.open ? "chevron-down" : "chevron-right"}
                     variant="tertiary"
                     onDsoClick={(e) => this.handleHeadingClick(e.detail.originalEvent)}
@@ -489,6 +490,7 @@ export class DocumentComponent implements ComponentInterface {
                     this.recursiveToggle === true ? "Verberg onderliggende artikelen" : "Toon onderliggende artikelen"
                   }
                   class="recursive-toggle"
+                  expanded={this.recursiveToggle === true}
                   icon={this.recursiveToggle === true ? "eye" : "eye-slash"}
                   variant="tertiary"
                   onDsoClick={(e) => this.handleRecursiveToggleClick(e.detail.originalEvent)}
@@ -515,6 +517,7 @@ export class DocumentComponent implements ComponentInterface {
                     <dso-icon-button
                       label={`Kenmerken en kaartgegevens ${this.openAnnotation ? "verbergen" : "tonen"}`}
                       icon="label"
+                      expanded={this.openAnnotation}
                       variant="tertiary"
                       onDsoClick={(e) =>
                         this.dsoAnnotationToggle.emit({
