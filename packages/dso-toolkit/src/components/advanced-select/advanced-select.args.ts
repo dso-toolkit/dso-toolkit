@@ -4,17 +4,25 @@ import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
 
-import { AdvancedSelect, AdvancedSelectOptionOrGroup } from "./advanced-select.models.js";
+import { options } from "./advanced-select.content";
+import {
+  AdvancedSelect,
+  AdvancedSelectGroup,
+  AdvancedSelectOption,
+  AdvancedSelectPlaceholder,
+} from "./advanced-select.models.js";
 
 export interface AdvancedSelectArgs {
   activeIndex?: number;
   activeHint?: string;
+  optionsOrGroup: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[];
   dsoChange: HandlerFunction;
   dsoRedirect: HandlerFunction;
 }
 
 export const advancedSelectArgs: AdvancedSelectArgs = {
   activeHint: "Deze bekijkt u nu",
+  optionsOrGroup: options,
   dsoChange: fn(),
   dsoRedirect: fn(),
 };
@@ -32,17 +40,19 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
       type: "text",
     },
   },
+  optionsOrGroup: {
+    control: {
+      type: "object",
+    },
+  },
   dsoChange: argTypeAction(),
   dsoRedirect: argTypeAction(),
 };
 
-export function advancedSelectArgsMapper(
-  a: AdvancedSelectArgs,
-  options: AdvancedSelectOptionOrGroup<unknown>[],
-): AdvancedSelect<unknown> {
+export function advancedSelectArgsMapper(a: AdvancedSelectArgs): AdvancedSelect<unknown> {
   return {
-    options,
-    active: selectExampleOption(a.activeIndex, options),
+    options: a.optionsOrGroup,
+    active: selectExampleOption(a.activeIndex, a.optionsOrGroup),
     activeHint: a.activeHint,
     dsoChange: (e) => a.dsoChange(e.detail),
     dsoRedirect: (e) => {
@@ -54,7 +64,10 @@ export function advancedSelectArgsMapper(
   };
 }
 
-export function selectExampleOption(index: number = 0, options: AdvancedSelectOptionOrGroup<unknown>[]) {
+export function selectExampleOption(
+  index: number = 0,
+  options: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unknown> | AdvancedSelectPlaceholder)[],
+) {
   return options.flatMap((optionOrGroup) => ("options" in optionOrGroup ? optionOrGroup.options : optionOrGroup))[
     index
   ];

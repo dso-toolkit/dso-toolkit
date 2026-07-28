@@ -12,6 +12,7 @@ export interface AdvancedSelectGroupRedirect {
 
 export interface AdvancedSelectGroup<T> {
   label: string;
+  badgeLabel?: string;
   activeLabel?: string;
   summaryCounter?: boolean;
   redirect?: AdvancedSelectGroupRedirect;
@@ -25,9 +26,6 @@ export interface AdvancedSelectPlaceholder {
   redirect?: AdvancedSelectGroupRedirect;
   placeholder: string;
 }
-
-export type AdvancedSelectOptionOrGroup<T> =
-  AdvancedSelectOption<T> | AdvancedSelectGroup<T> | AdvancedSelectPlaceholder;
 
 export interface AdvancedSelectChangeEvent<T> {
   originalEvent: MouseEvent;
