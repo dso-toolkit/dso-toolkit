@@ -14,7 +14,7 @@ export const config: Config = {
   plugins: [
     inlineSvg(),
     sass({
-      includePaths: ["../../node_modules", "../../packages/dso-toolkit/src"],
+      includePaths: ["../../node_modules"],
     }),
   ],
   outputTargets: [

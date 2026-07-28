@@ -1,4 +1,4 @@
-import { default as concurrently } from "concurrently";
+const { default: concurrently } = require("concurrently");
 
 concurrently(
   [
