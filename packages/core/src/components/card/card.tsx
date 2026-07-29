@@ -59,12 +59,25 @@ export class Card implements ComponentInterface {
     delete this.mutationObserver;
   }
 
+  /**
+   * Emits the click event for clicks on the heading anchor and for clicks dispatched directly on the host.
+   * The latter happens when screen readers such as NVDA (in browse mode) activate the link via the accessibility
+   * API, which dispatches a synthetic click on the shadow host instead of the anchor in the shadow DOM.
+   * Clicks from other (slotted) elements are ignored.
+   */
   private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement) || !this.href) {
+    if (!this.href) {
       return;
     }
 
-    return this.dsoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
+    const composedPath = e.composedPath();
+    const anchor = this.host.shadowRoot?.querySelector("a.heading-anchor");
+
+    if (composedPath[0] !== this.host && !(anchor && composedPath.includes(anchor))) {
+      return;
+    }
+
+    this.dsoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
   get selectableSlottedElement() {
@@ -79,32 +92,26 @@ export class Card implements ComponentInterface {
     const isSelectable = this.selectableSlottedElement !== null;
 
     return (
-      <Host is-selectable={isSelectable}>
+      <Host is-selectable={isSelectable} onClick={(e: MouseEvent) => this.clickEventHandler(e)}>
         <div class="dso-card-container">
           <div class="dso-card-selectable" hidden={!isSelectable}>
             <slot name="selectable" />
           </div>
           <div class="dso-card-heading">
             {(this.mode === "extern" && (
-              <a
-                href={this.href}
-                class="heading-anchor"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => this.clickEventHandler(e)}
-              >
+              <a href={this.href} class="heading-anchor" target="_blank" rel="noopener noreferrer">
                 <slot name="heading" />
                 <dso-icon icon="external-link"></dso-icon>
                 <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
               </a>
             )) ||
               (this.mode === "download" && (
-                <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
+                <a href={this.href} class="heading-anchor">
                   <slot name="heading" />
                   <dso-icon icon="download"></dso-icon>
                 </a>
               )) || (
-                <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
+                <a href={this.href} class="heading-anchor">
                   <slot name="heading" />
                   <dso-icon icon="chevron-right"></dso-icon>
                 </a>

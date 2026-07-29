@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Prop, forceUpdate, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, forceUpdate, h } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
@@ -52,12 +52,25 @@ export class DocumentCard implements ComponentInterface {
     delete this.mutationObserver;
   }
 
+  /**
+   * Emits the click event for clicks on the heading anchor and for clicks dispatched directly on the host.
+   * The latter happens when screen readers such as NVDA (in browse mode) activate the link via the accessibility
+   * API, which dispatches a synthetic click on the shadow host instead of the anchor in the shadow DOM.
+   * Clicks from other (slotted) elements are ignored.
+   */
   private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement) || !this.href) {
+    if (!this.href) {
       return;
     }
 
-    return this.dsoDocumentCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
+    const composedPath = e.composedPath();
+    const anchor = this.host.shadowRoot?.querySelector("a.heading-anchor");
+
+    if (composedPath[0] !== this.host && !(anchor && composedPath.includes(anchor))) {
+      return;
+    }
+
+    this.dsoDocumentCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
   get metaSlottedElement() {
@@ -70,24 +83,26 @@ export class DocumentCard implements ComponentInterface {
 
   render() {
     return (
-      <div class="dso-document-card-container">
-        <div class="dso-document-card-heading">
-          <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
-            <span class="icon-container">
-              <dso-icon icon="chevron-right" />
-              <slot name="heading" />
-            </span>
-          </a>
+      <Host onClick={(e: MouseEvent) => this.clickEventHandler(e)}>
+        <div class="dso-document-card-container">
+          <div class="dso-document-card-heading">
+            <a href={this.href} class="heading-anchor">
+              <span class="icon-container">
+                <dso-icon icon="chevron-right" />
+                <slot name="heading" />
+              </span>
+            </a>
+          </div>
+          <div class="dso-document-card-type">
+            <slot name="type" />
+          </div>
+          <div class="dso-document-card-status">
+            {this.metaSlottedElement !== null && <slot name="meta" />}
+            <slot name="status" />
+            {this.interactionsSlottedElement !== null && <slot name="interactions" />}
+          </div>
         </div>
-        <div class="dso-document-card-type">
-          <slot name="type" />
-        </div>
-        <div class="dso-document-card-status">
-          {this.metaSlottedElement !== null && <slot name="meta" />}
-          <slot name="status" />
-          {this.interactionsSlottedElement !== null && <slot name="interactions" />}
-        </div>
-      </div>
+      </Host>
     );
   }
 }

@@ -33,6 +33,17 @@ describe("Card", () => {
       .should("have.been.calledOnce");
   });
 
+  it("should call dsoCardClick event when a screen reader dispatches a click on the host", () => {
+    // NVDA in browse mode activates links via the accessibility API, which dispatches a
+    // synthetic click on the shadow host instead of the anchor in the shadow DOM.
+    cy.get("dso-card.hydrated")
+      .then(($card) => {
+        $card[0]?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+      })
+      .get("@dsoCardClickListener")
+      .should("have.been.calledOnce");
+  });
+
   it("should not call dsoCardClick on click on info button with toggletip", () => {
     cy.get("dso-card.hydrated")
       .find("div[slot='interactions']")

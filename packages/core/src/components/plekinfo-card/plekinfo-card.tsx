@@ -80,12 +80,25 @@ export class PlekinfoCard implements ComponentInterface {
     delete this.mutationObserver;
   }
 
+  /**
+   * Emits the click event for clicks on the heading anchor and for clicks dispatched directly on the host.
+   * The latter happens when screen readers such as NVDA (in browse mode) activate the link via the accessibility
+   * API, which dispatches a synthetic click on the shadow host instead of the anchor in the shadow DOM.
+   * Clicks from other (slotted) elements are ignored.
+   */
   private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement) || !this.href) {
+    if (!this.href) {
       return;
     }
 
-    return this.dsoPlekinfoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
+    const composedPath = e.composedPath();
+    const anchor = this.host.shadowRoot?.querySelector("a.heading-anchor");
+
+    if (composedPath[0] !== this.host && !(anchor && composedPath.includes(anchor))) {
+      return;
+    }
+
+    this.dsoPlekinfoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
   get symbolSlottedElement() {
@@ -104,7 +117,7 @@ export class PlekinfoCard implements ComponentInterface {
     const hasSymbol = this.symbolSlottedElement !== null;
 
     return (
-      <Host has-symbol={hasSymbol}>
+      <Host has-symbol={hasSymbol} onClick={(e: MouseEvent) => this.clickEventHandler(e)}>
         <WrapWijzigactie wijzigactie={this.wijzigactie} class="dso-plekinfo-card-container">
           <div class="dso-plekinfo-card-symbol" hidden={!hasSymbol}>
             <slot name="symbol" />
@@ -116,7 +129,6 @@ export class PlekinfoCard implements ComponentInterface {
                 target={this.targetBlank ? "_blank" : undefined}
                 rel={this.targetBlank ? "noopener noreferrer" : undefined}
                 class="heading-anchor"
-                onClick={(e) => this.clickEventHandler(e)}
               >
                 <span class="heading-content">
                   <slot name="heading" />

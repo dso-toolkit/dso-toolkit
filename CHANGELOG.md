@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Packages: Patch Stencil runtime tegen Null is not an object (evaluating 'e.__insertBefore') in Safari ([#3826](https://github.com/dso-toolkit/dso-toolkit/issues/3826))
+* Cards: CardClick event wordt niet afgevuurd wanneer NVDA aan staat ([#3860](https://github.com/dso-toolkit/dso-toolkit/issues/3860))
 
 ## 💯 Release 100.0.0 - 2026-08-10
 
