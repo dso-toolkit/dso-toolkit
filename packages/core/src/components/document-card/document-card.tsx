@@ -104,7 +104,7 @@ export class DocumentCard implements ComponentInterface {
           <div class="dso-document-card-heading">
             <a href={this.href} class="heading-anchor">
               <span class="icon-container">
-                <dso-icon icon="chevron-right" />
+                <dso-icon icon="chevron-right" aria-hidden="true" />
                 <slot name="heading" />
               </span>
             </a>
