@@ -20,6 +20,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
       required,
       invalid,
       describedById,
+      errormessage,
       labelledById,
       checked,
       indeterminate,
@@ -36,6 +37,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
           value=${ifDefined(value)}
           name=${ifDefined(name)}
           described-by-id=${ifDefined(describedById)}
+          errormessage=${ifDefined(errormessage)}
           labelled-by-id=${ifDefined(labelledById)}
           slot=${ifDefined(slot)}
           ?invalid=${invalid}

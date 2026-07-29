@@ -14,6 +14,7 @@ export interface SelectableArgs<TemplateFnReturnType> {
   required?: boolean;
   invalid?: boolean;
   describedById?: string;
+  errormessage?: string;
   checked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
@@ -63,6 +64,11 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
     },
   },
   describedById: {
+    control: {
+      type: "text",
+    },
+  },
+  errormessage: {
     control: {
       type: "text",
     },

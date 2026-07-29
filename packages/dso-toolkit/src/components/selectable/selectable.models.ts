@@ -9,6 +9,7 @@ export interface Selectable<TemplateFnReturnType> {
   required?: boolean;
   invalid?: boolean;
   describedById?: string;
+  errormessage?: string;
   labelledById?: string;
   checked?: boolean;
   indeterminate?: boolean;
