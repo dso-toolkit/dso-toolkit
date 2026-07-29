@@ -80,11 +80,27 @@ export class PlekinfoCard implements ComponentInterface {
     delete this.mutationObserver;
   }
 
+  componentWillRender(): void {
+    this.ensureSlottedHeadingIsClickable();
+  }
+
   /**
-   * Emits the click event for clicks on the heading anchor and for clicks dispatched directly on the host.
-   * The latter happens when screen readers such as NVDA (in browse mode) activate the link via the accessibility
-   * API, which dispatches a synthetic click on the shadow host instead of the anchor in the shadow DOM.
-   * Clicks from other (slotted) elements are ignored.
+   * Workaround for NVDA with Chromium: activating (Enter) an anchor inside shadow DOM in browse mode fails
+   * because Chromium's IAccessible2 implementation cannot resolve shadow DOM elements
+   * (see https://github.com/nvaccess/nvda/issues/17845). Marking the slotted heading element as clickable makes
+   * NVDA dispatch the click on that light DOM element instead, which bubbles through the slot to the anchor.
+   */
+  private ensureSlottedHeadingIsClickable(): void {
+    const heading = this.host.querySelector<HTMLElement>("[slot='heading']");
+
+    if (heading && !heading.onclick) {
+      heading.onclick = () => undefined;
+    }
+  }
+
+  /**
+   * Emits the click event for clicks that originate from the heading anchor (including slotted content inside it)
+   * or from the host itself. Clicks from other (slotted) elements are ignored.
    */
   private clickEventHandler(e: MouseEvent) {
     if (!this.href) {

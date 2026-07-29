@@ -26,11 +26,24 @@ describe("Plekinfo Card", () => {
   });
 
   it("should call dsoPlekinfoCardClick event when a screen reader dispatches a click on the host", () => {
-    // NVDA in browse mode activates links via the accessibility API, which dispatches a
-    // synthetic click on the shadow host instead of the anchor in the shadow DOM.
     cy.get("dso-plekinfo-card.hydrated")
       .then(($card) => {
         $card[0]?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+      })
+      .get("@dsoPlekinfoCardClickListener")
+      .should("have.been.calledOnce");
+  });
+
+  it("should call dsoPlekinfoCardClick event when a screen reader dispatches a click on the slotted heading", () => {
+    // NVDA in browse mode cannot activate the anchor in the shadow DOM directly
+    // (https://github.com/nvaccess/nvda/issues/17845). The component marks the slotted heading as clickable so
+    // NVDA dispatches the click on that element.
+    cy.get("dso-plekinfo-card.hydrated")
+      .find("[slot='heading']")
+      .then(($heading) => {
+        expect($heading[0]?.onclick, "slotted heading should be marked clickable for NVDA").to.be.a("function");
+
+        $heading[0]?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, composed: true }));
       })
       .get("@dsoPlekinfoCardClickListener")
       .should("have.been.calledOnce");
