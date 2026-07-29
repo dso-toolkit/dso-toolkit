@@ -25,6 +25,17 @@ describe("Document Card", () => {
       .should("have.been.calledOnce");
   });
 
+  it("should call dsoDocumentCardClick event when a screen reader dispatches a click on the host", () => {
+    // NVDA in browse mode activates links via the accessibility API, which dispatches a
+    // synthetic click on the shadow host instead of the anchor in the shadow DOM.
+    cy.get("dso-document-card.hydrated")
+      .then(($card) => {
+        $card[0]?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+      })
+      .get("@dsoDocumentCardClickListener")
+      .should("have.been.calledOnce");
+  });
+
   it("should show different background-color when active='true'", () => {
     cy.get("dso-document-card.hydrated")
       .invoke("prop", "active", true)
