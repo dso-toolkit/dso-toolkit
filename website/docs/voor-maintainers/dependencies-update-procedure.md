@@ -138,6 +138,7 @@ pnpm dedupe --check # zonder --check als nodig
 
 ## Afronden
 
+- Houd package-lijsten in `pnpm-workspace.yaml` alfabetisch gesorteerd (oplopend) voor consistentie en leesbaarheid.
 - Volledige lokale build: lint, build, build-www en e2e.
 - Aanbieden als PR.
 - Nieuw issue aanmaken voor volgende dependency update.

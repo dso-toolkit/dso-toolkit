@@ -469,7 +469,7 @@ importers:
         specifier: 'catalog:'
         version: 1.6.1(@stencil/core@4.43.5)(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@stencil/sass':
-        specifier: 3.3.2
+        specifier: ^3.3.2
         version: 3.3.2(@stencil/core@4.43.5)
       '@types/debounce':
         specifier: ^1.2.4

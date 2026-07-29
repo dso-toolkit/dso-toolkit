@@ -35,7 +35,7 @@
   "devDependencies": {
     "@stencil/angular-output-target": "^1.4.1",
     "@stencil/react-output-target": "catalog:",
-    "@stencil/sass": "3.3.2",
+    "@stencil/sass": "^3.3.2",
     "@types/debounce": "^1.2.4",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/lodash.random": "^3.2.9",
