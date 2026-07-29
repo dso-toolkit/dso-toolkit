@@ -153,11 +153,11 @@ export class PlekinfoCard implements ComponentInterface {
                 {"\u2060"}
                 {this.targetBlank ? (
                   <>
-                    <dso-icon icon="external-link" />
+                    <dso-icon icon="external-link" aria-hidden="true" />
                     <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
                   </>
                 ) : (
-                  <dso-icon icon="chevron-right" />
+                  <dso-icon icon="chevron-right" aria-hidden="true" />
                 )}
               </a>
             ) : (

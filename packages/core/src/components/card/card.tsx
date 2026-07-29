@@ -117,19 +117,19 @@ export class Card implements ComponentInterface {
             {(this.mode === "extern" && (
               <a href={this.href} class="heading-anchor" target="_blank" rel="noopener noreferrer">
                 <slot name="heading" />
-                <dso-icon icon="external-link"></dso-icon>
+                <dso-icon icon="external-link" aria-hidden="true"></dso-icon>
                 <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
               </a>
             )) ||
               (this.mode === "download" && (
                 <a href={this.href} class="heading-anchor">
                   <slot name="heading" />
-                  <dso-icon icon="download"></dso-icon>
+                  <dso-icon icon="download" aria-hidden="true"></dso-icon>
                 </a>
               )) || (
                 <a href={this.href} class="heading-anchor">
                   <slot name="heading" />
-                  <dso-icon icon="chevron-right"></dso-icon>
+                  <dso-icon icon="chevron-right" aria-hidden="true"></dso-icon>
                 </a>
               )}
             {this.interactionsSlottedElement !== null && <slot name="interactions" />}
