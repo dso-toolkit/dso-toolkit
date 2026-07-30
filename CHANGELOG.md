@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Advanced Select: Visuele aanpassingen ([#3432](https://github.com/dso-toolkit/dso-toolkit/issues/3432))
 * Onboarding Tip: WCAG icon "light-bulb" voorzien van aria-hidden="true" ([#3880](https://github.com/dso-toolkit/dso-toolkit/issues/3880))
 
+### Fixed
+* Modal: Positionering in "brievenbus" viewport klopt niet ([#3881](https://github.com/dso-toolkit/dso-toolkit/issues/3881))
+
 ### Task
 * Packages: Dependencies updates ([#3862](https://github.com/dso-toolkit/dso-toolkit/issues/3862))
 
