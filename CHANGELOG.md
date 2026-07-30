@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Advanced Select: Visuele aanpassingen ([#3432](https://github.com/dso-toolkit/dso-toolkit/issues/3432))
 * Onboarding Tip: WCAG icon "light-bulb" voorzien van aria-hidden="true" ([#3880](https://github.com/dso-toolkit/dso-toolkit/issues/3880))
 * Selectable: API uitbreiden met Errormessage ([#3895](https://github.com/dso-toolkit/dso-toolkit/issues/3895))
+* Button: Spacing tussen de icon en het label van de tertiary button moet 4px worden ([#3742](https://github.com/dso-toolkit/dso-toolkit/issues/3742))
 
 ### Fixed
 * Modal: Positionering in "brievenbus" viewport klopt niet ([#3881](https://github.com/dso-toolkit/dso-toolkit/issues/3881))

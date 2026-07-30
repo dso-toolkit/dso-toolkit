@@ -448,14 +448,7 @@
   } @else {
     dso-icon + span:not(.sr-only),
     span:not(.sr-only) + dso-icon {
-      margin-inline-start: units.$u1;
-    }
-
-    dso-icon[icon="chevron-left"] + span:not(.sr-only),
-    dso-icon[icon="chevron-right"] + span:not(.sr-only),
-    span:not(.sr-only) + dso-icon[icon="chevron-left"],
-    span:not(.sr-only) + dso-icon[icon="chevron-right"] {
-      margin-inline-start: 0;
+      margin-inline-start: units.$u1 * 0.5;
     }
 
     dso-icon,
