@@ -6,7 +6,7 @@ Dependency updates doen we bij voorkeur aan het begin van een sprint zodat we de
 
 De TypeScript-versie wordt bepaald door de traagste consument in de monorepo. We koppelen de versie aan de strengste bovengrens van alle gebruikte tools.
 
-Huidige situatie (Stencil v4.43.5, Storybook v10.4.2, Angular v22):
+Huidige situatie (Stencil v4.43.5, Storybook v10.5.4, Angular v21):
 
 - Stencil ondersteunt momenteel TypeScript tot en met versie 5.9.x (Stencil v4.43.5 draait goed op 5.9.3, officieel max 5.8.3).
 - Storybook (v10) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
@@ -138,6 +138,7 @@ pnpm dedupe --check # zonder --check als nodig
 
 ## Afronden
 
+- Houd package-lijsten in `pnpm-workspace.yaml` alfabetisch gesorteerd (oplopend) voor consistentie en leesbaarheid.
 - Volledige lokale build: lint, build, build-www en e2e.
 - Aanbieden als PR.
 - Nieuw issue aanmaken voor volgende dependency update.

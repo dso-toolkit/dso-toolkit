@@ -19,7 +19,7 @@
     "watch": "pnpm clear && node scripts/watch.js"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.7.6",
+    "@floating-ui/dom": "^1.8.0",
     "@popperjs/core": "^2.11.8",
     "@stencil/core": "catalog:",
     "@stencil/store": "^2.2.2",
@@ -27,15 +27,15 @@
     "dso-toolkit": "workspace:*",
     "escape-string-regexp": "catalog:",
     "focus-trap": "^8.2.2",
-    "i18next": "^26.3.3",
+    "i18next": "^26.3.6",
     "popper-max-size-modifier": "^0.2.0",
     "tabbable": "^6.5.0",
     "uuid": "catalog:"
   },
   "devDependencies": {
-    "@stencil/angular-output-target": "^1.4.0",
+    "@stencil/angular-output-target": "^1.4.1",
     "@stencil/react-output-target": "catalog:",
-    "@stencil/sass": "^3.2.3",
+    "@stencil/sass": "^3.3.2",
     "@types/debounce": "^1.2.4",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/lodash.random": "^3.2.9",
