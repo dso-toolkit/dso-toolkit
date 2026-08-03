@@ -561,7 +561,7 @@ export namespace Components {
          */
         "gereserveerd": DocumentComponentInputType | undefined;
         /**
-          * The heading element to use.
+          * The heading element to use (only in mode="document"). In mode="table-of-contents" the nested lists carry the structure and no heading is rendered.
           * @default "h2"
          */
         "heading": "h2" | "h3" | "h4" | "h5" | "h6";
@@ -3403,7 +3403,7 @@ declare namespace LocalJSX {
          */
         "gereserveerd"?: DocumentComponentInputType | undefined;
         /**
-          * The heading element to use.
+          * The heading element to use (only in mode="document"). In mode="table-of-contents" the nested lists carry the structure and no heading is rendered.
           * @default "h2"
          */
         "heading"?: "h2" | "h3" | "h4" | "h5" | "h6";
