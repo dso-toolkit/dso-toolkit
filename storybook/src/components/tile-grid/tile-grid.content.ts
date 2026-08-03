@@ -1,4 +1,4 @@
-import { Tile } from "dso-toolkit";
+import { Tile } from "../tile/tile.models.js";
 
 export const tiles: Tile[] = [
   {

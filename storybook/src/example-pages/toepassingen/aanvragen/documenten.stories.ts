@@ -1,11 +1,17 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { accordionTemplate } from "../../../components/accordion/accordion.template.js";
+import { applicationHeadingTemplate } from "../../../components/application-heading/application-heading.template.js";
+import { buttonTemplate } from "../../../components/button/button.template.js";
+import { formButtonsTemplate } from "../../../components/form-buttons/form-buttons.template.js";
+import { formGroupFilesTemplate } from "../../../components/form-group/form-group-files.template.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Documenten",
@@ -13,19 +19,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Documenten = examplePageStories((templates) => {
-  const {
-    accordionTemplate,
-    applicationHeadingTemplate,
-    buttonTemplate,
-    formButtonsTemplate,
-    formGroupFilesTemplate,
-    richContentTemplate,
-  } = templates;
-
+const Documenten = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <form>
           ${applicationHeadingTemplate({
@@ -154,7 +151,7 @@ const Documenten = examplePageStories((templates) => {
             ],
           })}
         </form>
-        ${footerPartial(templates)}
+        ${footerPartial()}
       </main>
     </div>
   `;

@@ -1,11 +1,16 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { applicationHeadingTemplate } from "../../../components/application-heading/application-heading.template.js";
+import { buttonRowTemplate } from "../../../components/button-row/button-row.template.js";
+import { contextTemplate } from "../../../components/context/context.template.js";
+import { projectItemTemplate } from "../../../components/project-item/project-item.template.js";
+import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Mijn Omgevingsloket/Mijn Projecten",
@@ -13,13 +18,10 @@ const meta: Meta = {
 
 export default meta;
 
-const MijnProjecten = examplePageStories((templates) => {
-  const { applicationHeadingTemplate, contextTemplate, buttonRowTemplate, searchBarTemplate, projectItemTemplate } =
-    templates;
-
+const MijnProjecten = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, {
+      ${headerPartial({
         ...header,
         mainMenu: mainMenu(),
         userHomeActive: true,
@@ -56,11 +58,11 @@ const MijnProjecten = examplePageStories((templates) => {
                       progress: {
                         definitions: [
                           {
-                            term: "Ingediende verzoeken",
+                            term: html`Ingediende verzoeken`,
                             descriptions: [{ content: "4" }],
                           },
                           {
-                            term: "In te dienen activiteiten",
+                            term: html`In te dienen activiteiten`,
                             descriptions: [{ content: "16" }],
                           },
                         ],
@@ -68,15 +70,15 @@ const MijnProjecten = examplePageStories((templates) => {
                       status: {
                         definitions: [
                           {
-                            term: "Locatie",
+                            term: html`Locatie`,
                             descriptions: [{ content: "Getekend gebied" }],
                           },
                           {
-                            term: "Mijn rol",
+                            term: html`Mijn rol`,
                             descriptions: [{ content: "Gemachtigde" }],
                           },
                           {
-                            term: "Laatste wijziging",
+                            term: html`Laatste wijziging`,
                             descriptions: [{ content: "12-09-2023" }],
                           },
                         ],
@@ -101,7 +103,7 @@ const MijnProjecten = examplePageStories((templates) => {
         })}
       </main>
 
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

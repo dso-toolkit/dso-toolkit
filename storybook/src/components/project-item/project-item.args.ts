@@ -1,0 +1,98 @@
+import { TemplateResult, html } from "lit-html";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
+
+import { argTypeAction } from "../../shared/arg-type-action.js";
+import { HeadingLevel } from "../heading/heading.models.js";
+
+import { ProjectItem } from "./project-item.models.js";
+
+export interface ProjectItemArgs {
+  title: string;
+  href: string;
+  label: string;
+  headingLevel: HeadingLevel;
+  dsoEdit: HandlerFunction;
+  dsoRemove: HandlerFunction;
+}
+
+export const projectItemArgs: ProjectItemArgs = {
+  title: "Bomen kappen",
+  href: "#",
+  label: "Wordt verwijderd op 12-09-2024",
+  headingLevel: 2,
+  dsoEdit: fn(),
+  dsoRemove: fn(),
+};
+
+export const projectItemArgTypes: ArgTypes<ProjectItemArgs> = {
+  title: {
+    type: "string",
+  },
+  href: {
+    type: "string",
+  },
+  label: {
+    type: "string",
+  },
+  headingLevel: {
+    options: [1, 2, 3, 4, 5, 6],
+    control: {
+      type: "select",
+    },
+  },
+  dsoEdit: argTypeAction(),
+  dsoRemove: argTypeAction(),
+};
+
+export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<TemplateResult> {
+  return {
+    href: a.href,
+    title: a.title,
+    label: a.label,
+    headingLevel: a.headingLevel,
+    progress: {
+      definitions: [
+        {
+          term: html`Ingediende verzoeken`,
+          descriptions: [{ content: "(4)" }],
+        },
+        {
+          term: html`In te dienen activiteiten`,
+          descriptions: [{ content: "(16)" }],
+        },
+      ],
+    },
+    status: {
+      definitions: [
+        {
+          term: html`Locatie`,
+          descriptions: [{ content: "Amsterdamsestraatweg 144C-A, 3513AM Utrecht" }],
+        },
+        {
+          term: html`Mijn rol`,
+          descriptions: [{ content: "Gemachtigde" }],
+        },
+        {
+          term: html`Laatste wijziging`,
+          descriptions: [{ content: "12-09-2023" }],
+        },
+      ],
+    },
+    actions: [
+      {
+        label: "Bewerk",
+        variant: "tertiary",
+        icon: "pencil",
+        dsoClick: a.dsoEdit,
+      },
+      {
+        label: "Verwijder",
+        variant: "tertiary",
+        icon: "trash",
+        dsoClick: a.dsoRemove,
+      },
+    ],
+  };
+}

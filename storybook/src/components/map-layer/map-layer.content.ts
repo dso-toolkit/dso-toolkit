@@ -1,5 +1,8 @@
-import { MapLayerObject, RenvooiValue } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
+
+import { RenvooiValue } from "../renvooi/renvooi.models.js";
+
+import { MapLayerObject } from "./map-layer.models.js";
 
 const object1: MapLayerObject<TemplateResult> = {
   name: html`<span

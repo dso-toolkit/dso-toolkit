@@ -1,13 +1,20 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { accordionTemplate } from "../../../components/accordion/accordion.template.js";
+import { applicationHeadingTemplate } from "../../../components/application-heading/application-heading.template.js";
+import { buttonTemplate } from "../../../components/button/button.template.js";
+import { formButtonsTemplate } from "../../../components/form-buttons/form-buttons.template.js";
+import { formGroupCheckboxesTemplate } from "../../../components/form-group/form-group-checkboxes.template.js";
+import { formGroupInputTemplate } from "../../../components/form-group/form-group-input.template.js";
+import { formGroupRadiosTemplate } from "../../../components/form-group/form-group-radios.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { checkboxes, radios } from "./vragen.content";
+import { checkboxes, radios } from "./vragen.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Vragen",
@@ -15,20 +22,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Vragen = examplePageStories((templates) => {
-  const {
-    applicationHeadingTemplate,
-    formButtonsTemplate,
-    accordionTemplate,
-    formGroupRadiosTemplate,
-    formGroupCheckboxesTemplate,
-    formGroupInputTemplate,
-    buttonTemplate,
-  } = templates;
-
+const Vragen = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <form class="form-horizontal">
           ${applicationHeadingTemplate({
@@ -49,7 +46,7 @@ const Vragen = examplePageStories((templates) => {
                 content: html`
                   <fieldset>
                     <legend class="sr-only">Vragenlijst</legend>
-                    ${formGroupRadiosTemplate(radios(templates))} ${formGroupCheckboxesTemplate(checkboxes)}
+                    ${formGroupRadiosTemplate(radios())} ${formGroupCheckboxesTemplate(checkboxes)}
                     ${formGroupInputTemplate({
                       group: "input",
                       id: "vraag 3",
@@ -116,7 +113,7 @@ const Vragen = examplePageStories((templates) => {
             ],
           })}
         </form>
-        ${footerPartial(templates)}
+        ${footerPartial()}
       </main>
     </div>
   `;

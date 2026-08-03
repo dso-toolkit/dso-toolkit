@@ -1,12 +1,19 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../example-page-stories";
+import { applicationHeadingTemplate } from "../components/application-heading/application-heading.template.js";
+import { badgeTemplate } from "../components/badge/badge.template.js";
+import { cardContainerTemplate } from "../components/card-container/card-container.template.js";
+import { footnoteTemplate } from "../components/footnotes/footnote.template.js";
+import { footnotesTemplate } from "../components/footnotes/footnotes.template.js";
+import { formTemplate } from "../components/form/form.template.js";
+import { searchBarTemplate } from "../components/search-bar/search-bar.template.js";
+import { examplePageStory } from "../example-page-story.js";
 
-import { header } from "./content/header.content";
-import { footerPartial } from "./partials/footer";
-import { headerPartial } from "./partials/header";
-import { cardContainer } from "./zoeken-in-lijst-cards.content";
+import { header } from "./content/header.content.js";
+import { footerPartial } from "./partials/footer.js";
+import { headerPartial } from "./partials/header.js";
+import { cardContainer } from "./zoeken-in-lijst-cards.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Zoeken in lijst cards",
@@ -14,20 +21,10 @@ const meta: Meta = {
 
 export default meta;
 
-const ZoekenInLijstCards = examplePageStories((templates) => {
-  const {
-    applicationHeadingTemplate,
-    searchBarTemplate,
-    badgeTemplate,
-    cardContainerTemplate,
-    footnoteTemplate,
-    footnotesTemplate,
-    formTemplate,
-  } = templates;
-
+const ZoekenInLijstCards = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, {
+      ${headerPartial({
         ...header,
         mainMenu: [
           { label: "Regels op de kaart", url: "#" },
@@ -112,7 +109,7 @@ const ZoekenInLijstCards = examplePageStories((templates) => {
           ])}
         </div>
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

@@ -1,7 +1,7 @@
-import { PlekinfoCardDecorator } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
+import { PartialStoryFn } from "storybook/internal/types";
 
-export const decorator: PlekinfoCardDecorator<TemplateResult> = (story, css) => html`
+export const decorator = (story: PartialStoryFn, css: string): TemplateResult => html`
   ${story()}
 
   <style>

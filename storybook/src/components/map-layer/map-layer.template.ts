@@ -1,0 +1,47 @@
+import { TemplateResult, html, nothing } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { MapLayer } from "./map-layer.models.js";
+
+export function mapLayerTemplate({
+  active,
+  activatable,
+  dsoActiveChange,
+  wijzigactie,
+  nameSlot,
+  labelSlot,
+  objects,
+}: MapLayer<TemplateResult>) {
+  return html`<dso-map-layer
+    ?active=${active}
+    ?activatable=${activatable}
+    @dsoActiveChange=${dsoActiveChange}
+    wijzigactie=${ifDefined(wijzigactie)}
+    >${nameSlot}${labelSlot ?? nothing}${objects.map(
+      ({
+        name,
+        active,
+        dsoActiveChange,
+        dsoMouseEnter,
+        dsoMouseLeave,
+        symboolCode,
+        wijzigactie: objectWijzigactie,
+        labelSlot,
+      }) =>
+        html`<dso-map-layer-object
+          ?active=${active}
+          @dsoActiveChange=${dsoActiveChange}
+          @dsoMouseEnter=${ifDefined(dsoMouseEnter)}
+          @dsoMouseLeave=${ifDefined(dsoMouseLeave)}
+          wijzigactie=${ifDefined(objectWijzigactie)}
+        >
+          ${name} ${labelSlot ?? nothing}
+          ${
+            symboolCode
+              ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbol"></span>`
+              : nothing
+          }</dso-map-layer-object
+        >`,
+    )}</dso-map-layer
+  >`;
+}

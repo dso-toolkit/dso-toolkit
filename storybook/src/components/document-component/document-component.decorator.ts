@@ -1,7 +1,7 @@
-import { DocumentComponentDecorator } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
+import { PartialStoryFn } from "storybook/internal/types";
 
-export const decorator: DocumentComponentDecorator<TemplateResult> = (story) => html`
+export const decorator = (story: PartialStoryFn): TemplateResult => html`
   ${story()}
 
   <style>

@@ -1,7 +1,8 @@
-import { InfoButton, Label } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { InfoButton } from "../info-button/info-button.models.js";
+import { Label } from "../label/label.models.js";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
 export const typeItems = [
   html`<span class="dso-document-card-type-item">Omgevingsplan</span>`,
@@ -21,7 +22,7 @@ export const labels: Label[] = [
   },
 ];
 
-export function infoButton({ richContentTemplate }: Templates): InfoButton<TemplateResult> {
+export function infoButton(): InfoButton<TemplateResult> {
   return {
     label: "Toon informatie over het documenttype",
     children: richContentTemplate({ children: html`<p>Extra informatie over het documenttype</p>` }),

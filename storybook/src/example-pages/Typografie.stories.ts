@@ -1,7 +1,8 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../example-page-stories";
+import { linkTemplate } from "../components/link/link.template.js";
+import { examplePageStory } from "../example-page-story.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Typografie",
@@ -9,9 +10,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Typografie = examplePageStories((templates) => {
-  const { linkTemplate } = templates;
-
+const Typografie = examplePageStory(() => {
   return html`
     <div class="container">
       <div class="dso-table-responsive">

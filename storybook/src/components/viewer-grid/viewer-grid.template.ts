@@ -1,0 +1,61 @@
+import { TemplateResult, html, nothing } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { ViewerGrid } from "./viewer-grid.models.js";
+
+export function viewerGridTemplate({
+  filterPanelOpen,
+  filterPanelTitle,
+  overlayOpen,
+  documentPanelOpen,
+  print,
+  mainSize,
+  documentPanelSize,
+  mainPanelExpanded,
+  mainPanelHidden,
+  activeTab,
+  dsoMainSizeChangeAnimationEnd,
+  dsoCloseFilterPanel,
+  dsoCloseOverlay,
+  dsoActiveTabSwitch,
+  dsoDocumentPanelSizeChange,
+  dsoDocumentPanelSizeChangeAnimationEnd,
+  dsoMainPanelToggle,
+  filterPanel,
+  topBar,
+  main,
+  map,
+  legend,
+  documentPanel,
+  overlay,
+}: ViewerGrid<TemplateResult>) {
+  return html`
+    <dso-viewer-grid
+      main-size=${ifDefined(mainSize)}
+      document-panel-size=${ifDefined(documentPanelSize)}
+      active-tab=${ifDefined(activeTab)}
+      filter-panel-title=${ifDefined(filterPanelTitle)}
+      ?filter-panel-open=${filterPanelOpen}
+      ?overlay-open=${overlayOpen}
+      ?document-panel-open=${documentPanelOpen}
+      ?print=${print}
+      ?main-panel-expanded=${mainPanelExpanded}
+      ?main-panel-hidden=${mainPanelHidden}
+      @dsoMainSizeChangeAnimationEnd=${dsoMainSizeChangeAnimationEnd}
+      @dsoCloseOverlay=${dsoCloseOverlay}
+      @dsoCloseFilterPanel=${dsoCloseFilterPanel}
+      @dsoActiveTabSwitch=${dsoActiveTabSwitch}
+      @dsoDocumentPanelSizeChange=${dsoDocumentPanelSizeChange}
+      @dsoDocumentPanelSizeChangeAnimationEnd=${dsoDocumentPanelSizeChangeAnimationEnd}
+      @dsoMainPanelToggle=${dsoMainPanelToggle}
+    >
+      ${filterPanel ? html`<div slot="filter-panel">${filterPanel}</div>` : nothing}
+      <div slot="top-bar">${topBar}</div>
+      <div slot="main">${main}</div>
+      <div slot="map">${map}</div>
+      ${legend ? html`<div slot="legend">${legend}</div>` : nothing}
+      ${documentPanel ? html`<div slot="document-panel">${documentPanel}</div>` : nothing}
+      ${overlay ? html`<div slot="overlay">${overlay}</div>` : nothing}
+    </dso-viewer-grid>
+  `;
+}

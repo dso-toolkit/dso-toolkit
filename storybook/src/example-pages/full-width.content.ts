@@ -1,5 +1,7 @@
-import { DefinitionList, List } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
+
+import type { DefinitionList } from "../components/definition-list/definition-list.models.js";
+import type { List } from "../components/list/list.models.js";
 
 export const definitionList: DefinitionList<TemplateResult> = {
   definitions: [

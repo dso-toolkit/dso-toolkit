@@ -1,7 +1,9 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../example-page-stories";
+import { buttonTemplate } from "../../components/button/button.template.js";
+import { modalTemplate } from "../../components/modal/modal.template.js";
+import { examplePageStory } from "../../example-page-story.js";
 
 const meta: Meta = {
   title: "Patronen/Modal with background content",
@@ -9,9 +11,7 @@ const meta: Meta = {
 
 export default meta;
 
-const ModalWithBackgroundContent = examplePageStories((templates) => {
-  const { buttonTemplate, modalTemplate } = templates;
-
+const ModalWithBackgroundContent = examplePageStory(() => {
   return html`
     <div class="container">
       <main>

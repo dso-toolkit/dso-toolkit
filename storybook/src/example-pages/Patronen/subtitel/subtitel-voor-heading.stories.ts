@@ -1,10 +1,10 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { headerPartial } from "../../partials/header";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { headerPartial } from "../../partials/header.js";
 
 const meta: Meta = {
   title: "Patronen/Subtitel/Subtitel voor een Heading",
@@ -12,10 +12,10 @@ const meta: Meta = {
 
 export default meta;
 
-const SubtitelVoorEenHeading = examplePageStories(
-  (templates) => html`
+const SubtitelVoorEenHeading = examplePageStory(
+  () => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Home") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Home") })}
 
       <main>
         <h1>Stelselcatalogus Omgevingswet</h1>

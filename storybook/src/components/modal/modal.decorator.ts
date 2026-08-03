@@ -1,7 +1,7 @@
-import { ModalDecorator } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
+import { PartialStoryFn } from "storybook/internal/types";
 
-export const decorator: ModalDecorator<TemplateResult> = (story) => {
+export const decorator = (story: PartialStoryFn): TemplateResult => {
   setTimeout(() => {
     const storybookRoot = document.getElementById("storybook-root");
 

@@ -1,5 +1,6 @@
-import { JustifyFormGroups } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
+
+import { JustifyFormGroups } from "./justify-form-groups.models.js";
 
 export const content: JustifyFormGroups<TemplateResult> = {
   formGroups: [

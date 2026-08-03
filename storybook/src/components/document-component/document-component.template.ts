@@ -1,0 +1,77 @@
+import { TemplateResult, html } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { DocumentComponent } from "./document-component.models.js";
+
+export function documentComponentTemplate({
+  alternativeTitle,
+  annotated,
+  badge,
+  badgeStatus,
+  badgeTooltip,
+  children,
+  dsoAnnotationToggle,
+  dsoToggle,
+  recursiveToggle,
+  dsoRecursiveToggle,
+  filtered,
+  gereserveerd,
+  headingLevel,
+  inhoud,
+  kop,
+  label,
+  labelStatus,
+  notApplicable,
+  open,
+  openAnnotation,
+  type,
+  vervallen,
+  wijzigactie,
+  annotationsWijzigactie,
+  mark,
+  ozonContentUrlResolver,
+  ozonContentBegripResolver,
+  mode,
+  href,
+  dsoMarkItemHighlight,
+  dsoTableOfContentsClick,
+  dsoOzonContentClick,
+}: DocumentComponent<TemplateResult>) {
+  return html`<dso-responsive-element class="dso-document-components">
+    <dso-document-component
+      ?annotated=${annotated}
+      .badge=${ifDefined(badge)}
+      .badgeStatus=${ifDefined(badgeStatus)}
+      .badgeTooltip=${ifDefined(badgeTooltip)}
+      ?filtered=${filtered}
+      .gereserveerd=${ifDefined(gereserveerd)}
+      .label=${ifDefined(label)}
+      .labelStatus=${ifDefined(labelStatus)}
+      ?not-applicable=${notApplicable}
+      ?open=${open}
+      ?open-annotation=${openAnnotation}
+      .vervallen=${ifDefined(vervallen)}
+      .alternativeTitle=${ifDefined(alternativeTitle)}
+      .headingLevel=${headingLevel}
+      .inhoud=${ifDefined(inhoud)}
+      .kop=${ifDefined(kop)}
+      .recursiveToggle=${recursiveToggle}
+      .type=${type}
+      .wijzigactie=${ifDefined(wijzigactie)}
+      .annotationsWijzigactie=${ifDefined(annotationsWijzigactie)}
+      .mark=${ifDefined(mark)}
+      .ozonContentUrlResolver=${ifDefined(ozonContentUrlResolver)}
+      .ozonContentBegripResolver=${ifDefined(ozonContentBegripResolver)}
+      .mode=${ifDefined(mode)}
+      .href=${ifDefined(href)}
+      @dsoOzonContentClick=${ifDefined(dsoOzonContentClick)}
+      @dsoMarkItemHighlight=${ifDefined(dsoMarkItemHighlight)}
+      @dsoAnnotationToggle=${ifDefined(dsoAnnotationToggle)}
+      @dsoToggle=${ifDefined(dsoToggle)}
+      @dsoTableOfContentsClick=${dsoTableOfContentsClick}
+      @dsoRecursiveToggle=${ifDefined(dsoRecursiveToggle)}
+    >
+      ${children}
+    </dso-document-component>
+  </dso-responsive-element>`;
+}

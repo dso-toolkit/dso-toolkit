@@ -1,8 +1,11 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { iconButtonTemplate } from "../icon-button/icon-button.template.js";
+import { infoButtonTemplate } from "../info-button/info-button.template.js";
+import { linkTemplate } from "../link/link.template.js";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-function closeButton({ iconButtonTemplate }: Templates) {
+function closeButton() {
   return iconButtonTemplate({
     label: "Sluiten",
     variant: "tertiary",
@@ -10,9 +13,7 @@ function closeButton({ iconButtonTemplate }: Templates) {
   });
 }
 
-export function warningRichContent(templates: Templates) {
-  const { linkTemplate, richContentTemplate } = templates;
-
+export function warningRichContent() {
   return html`
     ${richContentTemplate({
       children: html`
@@ -23,19 +24,17 @@ export function warningRichContent(templates: Templates) {
         </p>
       `,
     })}
-    ${closeButton(templates)}
+    ${closeButton()}
   `;
 }
 
-export function warningNonRemovableRichContent({ richContentTemplate }: Templates) {
+export function warningNonRemovableRichContent() {
   return richContentTemplate({
     children: html` <p>Een waarschuwende banner met icon die je niet weg kan klikken.</p> `,
   });
 }
 
-export function errorRichContent(templates: Templates) {
-  const { linkTemplate, richContentTemplate } = templates;
-
+export function errorRichContent() {
   return html`${richContentTemplate({
     children: html`
       <h2>Storingsmelding:</h2>
@@ -50,12 +49,10 @@ export function errorRichContent(templates: Templates) {
       </p>
     `,
   })}
-  ${closeButton(templates)} `;
+  ${closeButton()} `;
 }
 
-export function infoRichContent(templates: Templates) {
-  const { linkTemplate, richContentTemplate } = templates;
-
+export function infoRichContent() {
   return html`${richContentTemplate({
     children: html`
       <p>
@@ -64,10 +61,10 @@ export function infoRichContent(templates: Templates) {
       </p>
     `,
   })}
-  ${closeButton(templates)} `;
+  ${closeButton()} `;
 }
 
-export function infoCompactNonRemovableRichContent({ richContentTemplate }: Templates) {
+export function infoCompactNonRemovableRichContent() {
   return richContentTemplate({
     children: html`
       <p>Deze minder hoge variant van de banner met links uitgelijnde tekst is wat minder opvallend.</p>
@@ -75,9 +72,7 @@ export function infoCompactNonRemovableRichContent({ richContentTemplate }: Temp
   });
 }
 
-export function richWarningRichContent(templates: Templates) {
-  const { richContentTemplate } = templates;
-
+export function richWarningRichContent() {
   return html`${richContentTemplate({
     children: html`
       <h2>Onderhoudsmelding:</h2>
@@ -91,10 +86,10 @@ export function richWarningRichContent(templates: Templates) {
       </ul>
     `,
   })}
-  ${closeButton(templates)} `;
+  ${closeButton()} `;
 }
 
-export function richInfoRichContent({ richContentTemplate, infoButtonTemplate }: Templates) {
+export function richInfoRichContent() {
   return richContentTemplate({
     children: html`
       <p>
@@ -112,14 +107,12 @@ export function richInfoRichContent({ richContentTemplate, infoButtonTemplate }:
   });
 }
 
-export function successRichContent(templates: Templates) {
-  const { richContentTemplate } = templates;
-
+export function successRichContent() {
   return html`${richContentTemplate({
     children: html`
       <h2>Gelukt!</h2>
       <p>U bent succesvol ingelogd.</p>
     `,
   })}
-  ${closeButton(templates)} `;
+  ${closeButton()} `;
 }

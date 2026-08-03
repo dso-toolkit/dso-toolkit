@@ -1,13 +1,17 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { applicationHeadingTemplate } from "../../../components/application-heading/application-heading.template.js";
+import { buttonRowTemplate } from "../../../components/button-row/button-row.template.js";
+import { definitionListTemplate } from "../../../components/definition-list/definition-list.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { definitions } from "./verzoek-detail.content";
+import { definitions } from "./verzoek-detail.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Mijn Omgevingsloket/Verzoek Detail",
@@ -15,12 +19,10 @@ const meta: Meta = {
 
 export default meta;
 
-const VerzoekDetail = examplePageStories((templates) => {
-  const { buttonRowTemplate, applicationHeadingTemplate, definitionListTemplate, linkTemplate } = templates;
-
+const VerzoekDetail = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
+      ${headerPartial({ ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
       <main>
         <div class="row">
           <div class="col-md-12">
@@ -145,7 +147,7 @@ const VerzoekDetail = examplePageStories((templates) => {
           </div>
         </div>
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

@@ -1,10 +1,13 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { ShoppingCartItem, argTypeAction } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { fn } from "storybook/test";
 
-import { examplePageStories } from "../../example-page-stories";
+import { gridColumnTemplate } from "../../components/grid-column/grid-column.template.js";
+import { coreShoppingCartTemplate } from "../../components/shopping-cart/shopping-cart.core-template";
+import type { ShoppingCartItem } from "../../components/shopping-cart/shopping-cart.models.js";
+import { examplePageStory } from "../../example-page-story.js";
+import { argTypeAction } from "../../shared/arg-type-action.js";
 
 const meta: Meta = {
   title: "Patronen/Shopping Cart",
@@ -26,10 +29,8 @@ type ShoppingCartOverlayArgs = {
   shoppingCartDsoToggle: HandlerFunction;
 } & ShoppingCartBlockArgs;
 
-export const Block = examplePageStories<ShoppingCartBlockArgs>(
-  (templates, { shoppingCartItemDsoEdit, shoppingCartItemDsoDelete, shoppingCartItemDsoClose, formDsoSubmit }) => {
-    const { shoppingCartTemplate } = templates;
-
+export const Block = examplePageStory<ShoppingCartBlockArgs>(
+  ({ shoppingCartItemDsoEdit, shoppingCartItemDsoDelete, shoppingCartItemDsoClose, formDsoSubmit }) => {
     const items: ShoppingCartItem<TemplateResult>[] = [
       {
         mode: "edit",
@@ -113,7 +114,7 @@ export const Block = examplePageStories<ShoppingCartBlockArgs>(
 
           <div class="row">
             <div class="col-xs-12">
-              ${shoppingCartTemplate({
+              ${coreShoppingCartTemplate({
                 mode: "main",
                 title: "Gekozen activiteiten",
                 items,
@@ -140,21 +141,16 @@ export const Block = examplePageStories<ShoppingCartBlockArgs>(
   },
 );
 
-export const Overlay = examplePageStories<ShoppingCartOverlayArgs>(
-  (
-    templates,
-    {
-      mode,
-      gridColumnDsoClose,
-      shoppingCartDsoToggle,
-      shoppingCartItemDsoEdit,
-      shoppingCartItemDsoDelete,
-      shoppingCartItemDsoClose,
-      formDsoSubmit,
-    },
-  ) => {
-    const { gridColumnTemplate, shoppingCartTemplate } = templates;
-
+export const Overlay = examplePageStory<ShoppingCartOverlayArgs>(
+  ({
+    mode,
+    gridColumnDsoClose,
+    shoppingCartDsoToggle,
+    shoppingCartItemDsoEdit,
+    shoppingCartItemDsoDelete,
+    shoppingCartItemDsoClose,
+    formDsoSubmit,
+  }) => {
     const sideItems: ShoppingCartItem<TemplateResult>[] = [
       {
         label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
@@ -339,7 +335,7 @@ export const Overlay = examplePageStories<ShoppingCartOverlayArgs>(
               columns: "xs-12 sm-4",
               overlay: mode === "main",
               dsoClose: gridColumnDsoClose,
-              content: shoppingCartTemplate({
+              content: coreShoppingCartTemplate({
                 mode,
                 toggleable: true,
                 title: "Gekozen activiteiten",

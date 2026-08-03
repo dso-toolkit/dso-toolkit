@@ -1,5 +1,6 @@
-import { Definition } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
+
+import { Definition } from "./definition-list.models.js";
 
 export const definitions: Definition<TemplateResult>[] = [
   {
