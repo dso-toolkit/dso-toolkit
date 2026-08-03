@@ -130,28 +130,36 @@ describe("Viewer Grid", () => {
       .should("have.been.calledOnce");
   });
 
-  it("should toggle filter panel", () => {
-    cy.visit(url);
+  describe("Filter Panel", () => {
+    const viewports = [
+      { name: "normal view", width: 1600, height: 600 },
+      { name: "tab view", width: 768, height: 600 },
+    ];
 
-    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel").should("be.not.visible");
-    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("not.exist");
+    for (const viewport of viewports) {
+      describe(viewport.name, () => {
+        beforeEach(() => {
+          cy.viewport(viewport.width, viewport.height);
+          cy.visit(url);
+        });
 
-    cy.get("dso-viewer-grid.hydrated")
-      .invoke("attr", "filter-panel-title", "Titel van filterpaneel")
-      .invoke("attr", "filter-panel-open", "")
-      .shadow()
-      .find(".filter-panel")
-      .should("be.visible");
+        it("toggle", () => {
+          const base = Cypress.currentTest.titlePath.join(" -- ");
 
-    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("exist").and("be.visible");
+          cy.get("dso-viewer-grid.hydrated")
+            .invoke("attr", "filter-panel-title", "Titel van filterpaneel")
+            .invoke("attr", "filter-panel-open", "");
 
-    cy.get("dso-viewer-grid.hydrated")
-      .invoke("attr", "filter-panel-open", null)
-      .shadow()
-      .find(".filter-panel")
-      .should("be.not.visible");
+          cy.wait(200);
+          cy.get("dso-viewer-grid.hydrated").matchImageSnapshot(`${base} -- open`);
 
-    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("not.exist");
+          cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-open", null);
+
+          cy.wait(200);
+          cy.get("dso-viewer-grid.hydrated").matchImageSnapshot(`${base} -- closed`);
+        });
+      });
+    }
   });
 
   it("shows the correct title for the filter panel", () => {
