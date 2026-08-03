@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🚌 Release 99.4.0 - 2026-08-03
+
 ### Added
 * Autosuggest: Statusbericht "Een moment geduld" tijdens laden van suggesties toegankelijk maken ([#3854](https://github.com/dso-toolkit/dso-toolkit/issues/3854))
 * Info Button: Het tonen of verbergen van de toelichting wordt niet voorgelezen ([#3848](https://github.com/dso-toolkit/dso-toolkit/issues/3848))
