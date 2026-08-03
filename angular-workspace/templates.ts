@@ -34,7 +34,6 @@ import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.an
 import { angularExpandable } from "./components/expandable/expandable.angular-template";
 import { angularHeader } from "./components/header/header.angular-template";
 import { angularHighlightBox } from "./components/highlight-box/highlight-box.angular-template";
-import { angularIcon } from "./components/icon/icon.angular-template";
 import { angularImageOverlay } from "./components/image-overlay/image-overlay.angular-template";
 import { angularInfo } from "./components/info/info.angular-template";
 import { angularInfoButton } from "./components/info-button/info-button.angular-template";
@@ -117,7 +116,6 @@ templateContainer.add(angularDropdownMenu);
 templateContainer.add(angularExpandable);
 templateContainer.add(angularHeader);
 templateContainer.add(angularHighlightBox);
-templateContainer.add(angularIcon);
 templateContainer.add(angularImageOverlay);
 templateContainer.add(angularInfo);
 templateContainer.add(angularInfoButton);

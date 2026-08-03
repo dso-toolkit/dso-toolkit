@@ -4,7 +4,7 @@ import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { DatePickerArgs, datePickerArgTypes, datePickerArgsMapper } from "./date-picker.args.js";
 import { DatePicker } from "./date-picker.models.js";
@@ -29,10 +29,7 @@ export interface DatePickerTemplates<TemplateFnReturnType> {
   datePickerWithLabelTemplate: (datePicker: TemplateFnReturnType, id: string, label: string) => TemplateFnReturnType;
 }
 
-interface DatePickerStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface DatePickerStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   DatePickerTemplates<TemplateFnReturnType>
 > {
   decorator: DatePickerDecorator<TemplateFnReturnType>;
@@ -67,76 +64,62 @@ export function datePickerMeta<TRenderer extends Renderer>({ readme }: MetaOptio
   };
 }
 
-export function datePickerStories<Implementation, Templates, TemplateFnReturnType>({
+export function datePickerStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
   decorator,
-}: DatePickerStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DatePickerStories {
+}: DatePickerStoriesParameters<TemplateFnReturnType>): DatePickerStories {
+  const render = (args: DatePickerArgs) => storyTemplates().datePickerTemplate(datePickerArgsMapper(args));
+
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (args, { datePickerTemplate }) =>
-        datePickerTemplate(datePickerArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().datePickerTemplate(datePickerArgsMapper(args)),
     },
     Disabled: {
       args: {
         disabled: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { datePickerTemplate }) =>
-        datePickerTemplate(datePickerArgsMapper(args)),
-      ),
+      render,
     },
     Invalid: {
       args: {
         invalid: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { datePickerTemplate }) =>
-        datePickerTemplate(datePickerArgsMapper(args)),
-      ),
+      render,
     },
     WithValue: {
       args: {
         value: "15-11-2020",
       },
-      render: templateContainer.render(storyTemplates, (args, { datePickerTemplate }) =>
-        datePickerTemplate(datePickerArgsMapper(args)),
-      ),
+      render,
     },
     WithMinAndMax: {
       args: {
         min: "3-1-2020",
         max: "28-1-2020",
       },
-      render: templateContainer.render(storyTemplates, (args, { datePickerTemplate }) =>
-        datePickerTemplate(datePickerArgsMapper(args)),
-      ),
+      render,
     },
     MonthRange: {
       args: {
         min: "3-8-2020",
         max: "28-3-2022",
       },
-      render: templateContainer.render(storyTemplates, (args, { datePickerTemplate }) =>
-        datePickerTemplate(datePickerArgsMapper(args)),
-      ),
+      render,
     },
     WithLabel: {
       args: {
         id: uuidv4(),
       },
-      render: templateContainer.render(storyTemplates, (args, { datePickerTemplate, datePickerWithLabelTemplate }) =>
-        datePickerWithLabelTemplate(
-          datePickerTemplate(datePickerArgsMapper(args)),
+      render: (args) =>
+        storyTemplates().datePickerWithLabelTemplate(
+          storyTemplates().datePickerTemplate(datePickerArgsMapper(args)),
           args.id || uuidv4(),
           "Selecteer datum",
         ),
-      ),
     },
     NarrowInput: {
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { datePickerTemplate }) =>
-        datePickerTemplate(datePickerArgsMapper(args)),
-      ),
+      render,
     },
   };
 }

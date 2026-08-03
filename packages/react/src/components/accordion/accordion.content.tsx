@@ -1,7 +1,7 @@
 import { AccordionSection } from "dso-toolkit";
 import React from "react";
 
-import { Templates } from "../../templates";
+import { accordionTemplate } from "./accordion.react-template";
 
 const section1: AccordionSection<React.JSX.Element> = {
   handleTitle: "Is het verplicht om de Vergunningcheck te doen?",
@@ -118,58 +118,56 @@ export const anchorSections: AccordionSection<React.JSX.Element>[] = [
   },
 ];
 
-export function nestedSections({ accordionTemplate }: Templates): AccordionSection<React.JSX.Element>[] {
-  return [
-    section1,
-    {
-      ...section2,
-      content: (
-        <>
-          <div className="dso-rich-content">
-            <p>
-              <strong>hallo</strong> dit is content
-            </p>
-          </div>
+export const nestedSections: AccordionSection<React.JSX.Element>[] = [
+  section1,
+  {
+    ...section2,
+    content: (
+      <>
+        <div className="dso-rich-content">
+          <p>
+            <strong>hallo</strong> dit is content
+          </p>
+        </div>
 
-          {accordionTemplate({
-            sections: [
-              {
-                handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
-                heading: "h4",
-                content: (
-                  <div className="dso-rich-content">
-                    <p>
-                      <strong>hallo</strong> dit is content
-                    </p>
-                  </div>
-                ),
-              },
-              {
-                handleTitle: "Hoe lang duurt de Vergunningcheck?",
-                heading: "h4",
-                open: true,
-                content: (
-                  <div className="dso-rich-content">
-                    De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u
-                    alle benodigde informatie bij de hand heeft.
-                  </div>
-                ),
-              },
-            ],
-          })}
+        {accordionTemplate({
+          sections: [
+            {
+              handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+              heading: "h4",
+              content: (
+                <div className="dso-rich-content">
+                  <p>
+                    <strong>hallo</strong> dit is content
+                  </p>
+                </div>
+              ),
+            },
+            {
+              handleTitle: "Hoe lang duurt de Vergunningcheck?",
+              heading: "h4",
+              open: true,
+              content: (
+                <div className="dso-rich-content">
+                  De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u
+                  alle benodigde informatie bij de hand heeft.
+                </div>
+              ),
+            },
+          ],
+        })}
 
-          <div className="dso-rich-content">
-            <p>
-              <strong>hallo</strong> dit is content na de nested section
-            </p>
-          </div>
-        </>
-      ),
-    },
-    section3,
-    section4,
-  ];
-}
+        <div className="dso-rich-content">
+          <p>
+            <strong>hallo</strong> dit is content na de nested section
+          </p>
+        </div>
+      </>
+    ),
+  },
+  section3,
+  section4,
+];
 
 export const addonsSections: AccordionSection<React.JSX.Element>[] = [
   {

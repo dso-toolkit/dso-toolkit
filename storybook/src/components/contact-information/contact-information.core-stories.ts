@@ -2,7 +2,7 @@ import readme from "@dso-toolkit/core/src/components/contact-information/readme.
 import type { Meta } from "@storybook/web-components-vite";
 import { contactInformationMeta, contactInformationStories } from "dso-toolkit";
 
-import { templateContainer } from "../../templates";
+import { contactInformationTemplate } from "./contact-information.core-template";
 
 const meta: Meta = {
   ...contactInformationMeta({ readme }),
@@ -12,10 +12,7 @@ const meta: Meta = {
 export default meta;
 
 const { Default } = contactInformationStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { contactInformationTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       contactInformationTemplate,
     };

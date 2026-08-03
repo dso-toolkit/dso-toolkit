@@ -3,6 +3,7 @@ import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
 import * as React from "react";
 
 import { templateContainer } from "../../templates";
+import { iconTemplate } from "../icon/icon.react-template";
 
 import readme from "./readme.md?raw";
 
@@ -16,7 +17,7 @@ export default meta;
 const { Default, Fixed } = infoStories({
   templateContainer,
   storyTemplates: (templates) => {
-    const { infoTemplate, iconTemplate } = templates;
+    const { infoTemplate } = templates;
 
     return {
       infoTemplate,

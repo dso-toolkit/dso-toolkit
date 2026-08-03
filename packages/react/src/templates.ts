@@ -39,7 +39,6 @@ import {
 } from "dso-toolkit";
 import { JSX } from "react";
 
-import { reactAccordion } from "./components/accordion/accordion.react-template";
 import { reactActionList } from "./components/action-list/action-list.react-template";
 import { reactAlert } from "./components/alert/alert.react-template";
 import { reactAttachmentsCounter } from "./components/attachments-counter/attachments-counter.react-template";
@@ -54,7 +53,6 @@ import { reactDropdownMenu } from "./components/dropdown-menu/dropdown-menu.reac
 import { reactExpandable } from "./components/expandable/expandable.react-template";
 import { reactHeader } from "./components/header/header.react-template";
 import { reactHighlightBox } from "./components/highlight-box/highlight-box.react-template";
-import { reactIcon } from "./components/icon/icon.react-template";
 import { reactIconButton } from "./components/icon-button/icon-button.react-template";
 import { reactImageOverlay } from "./components/image-overlay/image-overlay.react-template";
 import { reactInfo } from "./components/info/info.react-template";
@@ -116,7 +114,6 @@ export type Templates = ComponentsToTemplates<Components, JSX.Element>;
 export type ComponentImplementation<Model> = BaseComponentImplementation<Model, Implementation, Templates, JSX.Element>;
 export const templateContainer = new TemplateContainer<Implementation, Templates, JSX.Element>();
 
-templateContainer.add(reactAccordion);
 templateContainer.add(reactActionList);
 templateContainer.add(reactAlert);
 templateContainer.add(reactAttachmentsCounter);
@@ -131,7 +128,6 @@ templateContainer.add(reactDropdownMenu);
 templateContainer.add(reactExpandable);
 templateContainer.add(reactHeader);
 templateContainer.add(reactHighlightBox);
-templateContainer.add(reactIcon);
 templateContainer.add(reactIconButton);
 templateContainer.add(reactImageOverlay);
 templateContainer.add(reactInfo);

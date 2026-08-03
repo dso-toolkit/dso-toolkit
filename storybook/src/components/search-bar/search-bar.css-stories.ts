@@ -2,7 +2,7 @@ import { Meta } from "@storybook/web-components-vite";
 import { SearchBarArgs, searchBarMeta, searchBarStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/search-bar/readme.md?raw";
 
-import { templateContainer } from "../../templates";
+import { searchBarTemplate } from "./search-bar.css-template";
 
 const meta: Meta<SearchBarArgs> = {
   ...searchBarMeta({ readme }),
@@ -23,10 +23,7 @@ const {
   WithResultsMessage,
   WithHiddenResultsMessage,
 } = searchBarStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { searchBarTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       searchBarTemplate,
     };

@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
-import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { StoriesParameters2, StoryObj } from "../../template-container.js";
 
 import { ButtonRowArgs, buttonRowArgTypes, buttonRowArgsMapper } from "./button-row.args.js";
 import { ButtonRow } from "./button-row.models.js";
@@ -18,10 +18,7 @@ interface ButtonRowStories {
   Emphasized: ButtonRowStory;
 }
 
-interface ButtonRowStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface ButtonRowStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   ButtonRowTemplates<TemplateFnReturnType>
 > {}
 
@@ -45,10 +42,10 @@ export function buttonRowMeta<TRenderer extends Renderer>({ readme }: MetaOption
   };
 }
 
-export function buttonRowStories<Implementation, Templates, TemplateFnReturnType>({
+export function buttonRowStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: ButtonRowStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ButtonRowStories {
+}: ButtonRowStoriesParameters<TemplateFnReturnType>): ButtonRowStories {
+  const render = (args: ButtonRowArgs) => storyTemplates().buttonRowTemplate(buttonRowArgsMapper(args));
   return {
     Default: {
       args: {
@@ -75,9 +72,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
           },
         ],
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args)),
-      ),
+      render,
     },
     AlleButtonVarianten: {
       args: {
@@ -119,9 +114,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
           },
         ],
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args)),
-      ),
+      render,
     },
     PrimaireButtonVarianten: {
       args: {
@@ -197,9 +190,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
           },
         ],
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args)),
-      ),
+      render,
     },
     SecundaireButtonVarianten: {
       args: {
@@ -276,9 +267,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
           },
         ],
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args)),
-      ),
+      render,
     },
     TertiaireButtonVarianten: {
       args: {
@@ -355,9 +344,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
           },
         ],
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args)),
-      ),
+      render,
     },
     Emphasized: {
       args: {
@@ -400,9 +387,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
           },
         ],
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args)),
-      ),
+      render,
     },
   };
 }

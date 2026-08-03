@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
-import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { StoriesParameters2, StoryObj } from "../../template-container.js";
 
 import { LinkArgs, linkArgTypes, linkArgsMapper } from "./link.args.js";
 import { Link } from "./link.models.js";
@@ -18,12 +18,7 @@ interface LinkStories {
   PhoneLinkWithIcon: LinkStory;
 }
 
-interface LinkStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
-  LinkTemplates<TemplateFnReturnType>
-> {}
+interface LinkStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<LinkTemplates<TemplateFnReturnType>> {}
 
 interface LinkTemplates<TemplateFnReturnType> {
   linkTemplate: (linkProperties: Link) => TemplateFnReturnType;
@@ -45,17 +40,16 @@ export function linkMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {
   };
 }
 
-export function linkStories<Implementation, Templates, TemplateFnReturnType>({
+export function linkStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: LinkStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LinkStories {
+}: LinkStoriesParameters<TemplateFnReturnType>): LinkStories {
   return {
     Default: {
       args: {
         label: "Home",
         url: "#",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
+      render: (args) => storyTemplates().linkTemplate(linkArgsMapper(args)),
     },
     DownloadLink: {
       args: {
@@ -63,7 +57,7 @@ export function linkStories<Implementation, Templates, TemplateFnReturnType>({
         url: "afvalkalender.pdf",
         mode: "download",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
+      render: (args) => storyTemplates().linkTemplate(linkArgsMapper(args)),
     },
     ExternalLink: {
       args: {
@@ -71,7 +65,7 @@ export function linkStories<Implementation, Templates, TemplateFnReturnType>({
         url: "http://www.google.nl",
         mode: "extern",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
+      render: (args) => storyTemplates().linkTemplate(linkArgsMapper(args)),
     },
     LinkWithIcon: {
       args: {
@@ -79,21 +73,21 @@ export function linkStories<Implementation, Templates, TemplateFnReturnType>({
         url: "#",
         icon: "search",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
+      render: (args) => storyTemplates().linkTemplate(linkArgsMapper(args)),
     },
     MailLinkWithIcon: {
       args: {
         label: "noreply@dso-toolkit.nl",
         url: "mailto:no-reply@dso-toolkit.nl",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
+      render: (args) => storyTemplates().linkTemplate(linkArgsMapper(args)),
     },
     PhoneLinkWithIcon: {
       args: {
         label: "Bel ons",
         url: "tel:012-34567891",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
+      render: (args) => storyTemplates().linkTemplate(linkArgsMapper(args)),
     },
   };
 }

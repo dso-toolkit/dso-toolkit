@@ -2,9 +2,8 @@ import readme from "@dso-toolkit/core/src/components/info/readme.md?raw";
 import type { Meta } from "@storybook/web-components-vite";
 import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
 
-import { templateContainer } from "../../templates";
-
 import { richContent } from "./info.content";
+import { infoTemplate } from "./info.core-template";
 
 const meta: Meta<InfoArgs> = {
   ...infoMeta({ readme }),
@@ -14,13 +13,10 @@ const meta: Meta<InfoArgs> = {
 export default meta;
 
 const { Default, Fixed } = infoStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { infoTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       infoTemplate,
-      richContent: richContent(templates),
+      richContent,
     };
   },
 });

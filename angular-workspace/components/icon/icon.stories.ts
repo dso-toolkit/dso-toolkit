@@ -1,10 +1,12 @@
 import readme from "@dso-toolkit/core/src/components/icon/readme.md?raw";
 import { type Meta, moduleMetadata } from "@storybook/angular";
-import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
+import { Icon, IconArgs, iconMeta, iconStories } from "dso-toolkit";
 import icons from "dso-toolkit/storybook-assets/icons.json";
 
 import { DsoIcon } from "../../projects/component-library/src/public-api";
-import { templateContainer } from "../../templates";
+import { AngularTemplateFunction, SlottableTemplate } from "../../templates";
+
+import { iconTemplate } from "./icon.angular-template";
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),
@@ -19,10 +21,15 @@ const meta: Meta<IconArgs> = {
 export default meta;
 
 const { Default } = iconStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { iconTemplate } = templates;
-
+  storyTemplates: (): {
+    iconTemplate: AngularTemplateFunction<
+      Icon & SlottableTemplate,
+      {
+        props: Icon & SlottableTemplate;
+        template: string;
+      }
+    >;
+  } => {
     return {
       iconTemplate,
     };

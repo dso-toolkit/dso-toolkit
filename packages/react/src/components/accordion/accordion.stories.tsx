@@ -13,6 +13,7 @@ import {
   nestedSections,
   renvooiSections,
 } from "./accordion.content";
+import { accordionTemplate } from "./accordion.react-template";
 import readme from "./readme.md?raw";
 
 const meta: Meta<AccordionArgs> = {
@@ -36,9 +37,7 @@ const {
   RenvooiSections,
 } = accordionStories({
   templateContainer,
-  storyTemplates: (templates) => {
-    const { accordionTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       accordionTemplate,
       basicSections,
@@ -49,7 +48,7 @@ const {
       compactSections,
       compactBlackSections: basicSections,
       neutralSections: basicSections,
-      nestedSections: nestedSections(templates),
+      nestedSections,
       renvooiSections,
       activatableSections,
     };

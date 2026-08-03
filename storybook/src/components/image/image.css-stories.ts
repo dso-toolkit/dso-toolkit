@@ -2,7 +2,7 @@ import type { Meta } from "@storybook/web-components-vite";
 import { ImageArgs, imageMeta, imageStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/image/readme.md?raw";
 
-import { templateContainer } from "../../templates";
+import { imageTemplate } from "./image.css-template";
 
 const meta: Meta<ImageArgs> = {
   ...imageMeta({ readme }),
@@ -12,10 +12,7 @@ const meta: Meta<ImageArgs> = {
 export default meta;
 
 const { Default, Responsive, Circle } = imageStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { imageTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       imageTemplate,
     };

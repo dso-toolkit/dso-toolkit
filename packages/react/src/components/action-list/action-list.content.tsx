@@ -2,8 +2,9 @@ import { ActionListItem, contactInformationContent } from "dso-toolkit";
 import React, { JSX } from "react";
 
 import { Templates } from "../../templates";
+import { iconTemplate } from "../icon/icon.react-template";
 
-function item1({ iconTemplate }: Templates): ActionListItem<JSX.Element> {
+function item1(): ActionListItem<JSX.Element> {
   return {
     flowLine: true,
     content: (
@@ -183,9 +184,9 @@ const warning: ActionListItem<JSX.Element> = {
 };
 
 export function actionListItems(templates: Templates): ActionListItem<JSX.Element>[] {
-  return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates), item6];
+  return [item1(), item2(templates), item3(templates), item4(templates), item5(templates), item6];
 }
 
 export function actionListWithWarningItems(templates: Templates): ActionListItem<JSX.Element>[] {
-  return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates, false), warning];
+  return [item1(), item2(templates), item3(templates), item4(templates), item5(templates, false), warning];
 }

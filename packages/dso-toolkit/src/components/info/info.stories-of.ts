@@ -3,7 +3,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { InfoArgs, infoArgTypes, infoArgsMapper } from "./info.args.js";
 import { Info } from "./info.models.js";
@@ -20,12 +20,7 @@ export interface InfoTemplates<TemplateFnReturnType> {
   richContent: TemplateFnReturnType;
 }
 
-interface InfoStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
-  InfoTemplates<TemplateFnReturnType>
-> {}
+interface InfoStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<InfoTemplates<TemplateFnReturnType>> {}
 
 export function infoMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,
@@ -43,27 +38,24 @@ export function infoMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {
   };
 }
 
-export function infoStories<Implementation, Templates, TemplateFnReturnType>({
+export function infoStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: InfoStoriesParameters<Implementation, Templates, TemplateFnReturnType>): InfoStories {
+}: InfoStoriesParameters<TemplateFnReturnType>): InfoStories {
+  const render = (args: InfoArgs) => storyTemplates().infoTemplate(infoArgsMapper(args, storyTemplates().richContent));
+
   return {
     Default: {
       args: {
         active: true,
         dsoClose: fn(),
       },
-      render: templateContainer.render(storyTemplates, (args, { infoTemplate, richContent }) =>
-        infoTemplate(infoArgsMapper(args, richContent)),
-      ),
+      render,
     },
     Fixed: {
       args: {
         fixed: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { infoTemplate, richContent }) =>
-        infoTemplate(infoArgsMapper(args, richContent)),
-      ),
+      render,
     },
   };
 }

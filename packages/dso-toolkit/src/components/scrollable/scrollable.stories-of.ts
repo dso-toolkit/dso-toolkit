@@ -3,7 +3,7 @@ import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/intern
 import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { ScrollableArgs, scrollableArgTypes, scrollableArgsMapper } from "./scrollable.args.js";
 import { Scrollable } from "./scrollable.models.js";
@@ -17,10 +17,7 @@ interface ScrollableStories {
   DynamicContent: ScrollableStory;
 }
 
-interface ScrollableStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface ScrollableStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   ScrollableTemplates<TemplateFnReturnType>
 > {
   decorator: ScrollableDecorator<TemplateFnReturnType>;
@@ -54,26 +51,24 @@ export function scrollableMeta<TRenderer extends Renderer>({ readme }: MetaOptio
   };
 }
 
-export function scrollableStories<Implementation, Templates, TemplateFnReturnType>({
+export function scrollableStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
+
   decorator,
-}: ScrollableStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ScrollableStories {
+}: ScrollableStoriesParameters<TemplateFnReturnType>): ScrollableStories {
   return {
     Default: {
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { scrollableTemplate, defaultContent }) =>
-        scrollableTemplate(scrollableArgsMapper(args, defaultContent)),
-      ),
+      render: (args) =>
+        storyTemplates().scrollableTemplate(scrollableArgsMapper(args, storyTemplates().defaultContent)),
       parameters: {
         layout: "fullscreen",
       },
     },
     DynamicContent: {
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { scrollableTemplate, dynamicContent }) =>
-        scrollableTemplate(scrollableArgsMapper(args, dynamicContent)),
-      ),
+      render: (args) =>
+        storyTemplates().scrollableTemplate(scrollableArgsMapper(args, storyTemplates().dynamicContent)),
       parameters: {
         layout: "fullscreen",
       },

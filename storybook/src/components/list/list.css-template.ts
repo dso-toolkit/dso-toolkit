@@ -4,6 +4,7 @@ import { DirectiveResult } from "lit-html/directive.js";
 import { ClassInfo, ClassMapDirective, classMap } from "lit-html/directives/class-map.js";
 
 import { ComponentImplementation } from "../../templates";
+import { iconTemplate } from "../icon/icon.core-template";
 
 function listClassMap(
   modifier: string | undefined,
@@ -53,7 +54,7 @@ function listItemClassMap(modifier: string | undefined, listItem: ListItem): Dir
 export const cssList: ComponentImplementation<List> = {
   component: "list",
   implementation: "html-css",
-  template: ({ iconTemplate }) => {
+  template: () => {
     function imgListIndicator(modifier: string | undefined, item: ListItem) {
       if (modifier === "img-list" && item.imgSrc) {
         return html`<img src=${item.imgSrc} />`;

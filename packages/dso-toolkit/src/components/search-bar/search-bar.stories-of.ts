@@ -3,7 +3,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { componentArgs } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { SearchBarArgs, searchBarArgTypes, searchBarArgsMapper } from "./search-bar.args.js";
 import { SearchBar } from "./search-bar.models.js";
@@ -23,10 +23,7 @@ interface SearchBarStories {
   WithHiddenResultsMessage: SearchBarStory;
 }
 
-interface SearchBarStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface SearchBarStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   SearchBarTemplates<TemplateFnReturnType>
 > {}
 
@@ -50,13 +47,10 @@ export function searchBarMeta<TRenderer extends Renderer>({ readme }: MetaOption
   };
 }
 
-export function searchBarStories<Implementation, Templates, TemplateFnReturnType>({
+export function searchBarStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: SearchBarStoriesParameters<Implementation, Templates, TemplateFnReturnType>): SearchBarStories {
-  const render = templateContainer.render(storyTemplates, (args: SearchBarArgs, { searchBarTemplate }) =>
-    searchBarTemplate(searchBarArgsMapper(args)),
-  );
+}: SearchBarStoriesParameters<TemplateFnReturnType>): SearchBarStories {
+  const render = (args: SearchBarArgs) => storyTemplates().searchBarTemplate(searchBarArgsMapper(args));
 
   const defaultArgs = componentArgs<SearchBarArgs>({
     id: "search-bar-id",

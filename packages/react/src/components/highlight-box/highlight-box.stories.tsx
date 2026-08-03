@@ -2,7 +2,8 @@ import type { Meta } from "@storybook/react-vite";
 import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
 import * as React from "react";
 
-import { Templates, templateContainer } from "../../templates";
+import { templateContainer } from "../../templates";
+import { iconTemplate } from "../icon/icon.react-template";
 
 import readme from "./readme.md?raw";
 
@@ -13,9 +14,7 @@ const meta: Meta<HighlightBoxArgs> = {
 
 export default meta;
 
-function createContent(templates: Templates, heading: React.JSX.Element): React.JSX.Element {
-  const { iconTemplate } = templates;
-
+function createContent(heading: React.JSX.Element): React.JSX.Element {
   return (
     <>
       {heading}
@@ -74,9 +73,8 @@ const { Default, Yellow, Green, WhiteWithDropshadow, WithBorder, WithIcon, WithB
 
     return {
       highlightBoxTemplate,
-      content: createContent(templates, <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>),
+      content: createContent(<h3>Toelichting: Vergunningvrij onder voorbehoud</h3>),
       stepContent: createContent(
-        templates,
         <h3>
           <span className="sr-only">Stap x van y: </span>Vergunningvrij onder voorbehoud
         </h3>,

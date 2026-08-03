@@ -1,11 +1,11 @@
 import { html } from "lit-html";
 import { createRef, ref } from "lit-html/directives/ref.js";
 
-import { Templates } from "../../templates";
+import { expandableTemplate } from "../../components/expandable/expandable.core-template";
+import { formGroupInputTemplate } from "../../components/form-group/form-group-input.css-template";
+import { formGroupRadiosTemplate } from "../../components/form-group/form-group-radios.css-template";
 
-export function getAnimatedFormContent(templates: Templates) {
-  const { expandableTemplate, formGroupRadiosTemplate, formGroupInputTemplate } = templates;
-
+export function getAnimatedFormContent() {
   const radioWrapperRef = createRef<HTMLDivElement>();
 
   const content = html`<span ${ref(radioWrapperRef)}>

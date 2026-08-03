@@ -3,11 +3,12 @@ import React, { JSX } from "react";
 
 import { DsoContactInformation } from "../../components";
 import { ComponentImplementation } from "../../templates";
+import { iconTemplate } from "../icon/icon.react-template";
 
 export const reactContactInformation: ComponentImplementation<ContactInformation<JSX.Element>> = {
   component: "contactInformation",
   implementation: "react",
-  template: ({ iconTemplate }) =>
+  template: () =>
     function contactInformationTemplate({ heading, linkItems, infoItems }) {
       return (
         <DsoContactInformation>

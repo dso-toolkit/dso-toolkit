@@ -3,7 +3,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { ButtonArgs, buttonArgTypes, buttonArgsMapper } from "./button.args.js";
 import { Button, ButtonAnchor } from "./button.models.js";
@@ -18,10 +18,7 @@ interface ButtonStories {
   Map: ButtonStory;
 }
 
-interface ButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface ButtonStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   ButtonTemplates<TemplateFnReturnType>
 > {}
 
@@ -49,10 +46,10 @@ export function buttonMeta<TRenderer extends Renderer>({ readme }: MetaOptions =
   };
 }
 
-export function buttonStories<Implementation, Templates, TemplateFnReturnType>({
+export function buttonStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: ButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ButtonStories {
+}: ButtonStoriesParameters<TemplateFnReturnType>): ButtonStories {
+  const render = (args: ButtonArgs) => storyTemplates().buttonTemplate(buttonArgsMapper(args));
   return {
     Primary: {
       argTypes: {
@@ -64,9 +61,7 @@ export function buttonStories<Implementation, Templates, TemplateFnReturnType>({
         variant: "primary",
         label: "Primary button",
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonTemplate }) =>
-        buttonTemplate(buttonArgsMapper(args)),
-      ),
+      render,
     },
     PrimaryCompact: {
       args: {
@@ -74,36 +69,28 @@ export function buttonStories<Implementation, Templates, TemplateFnReturnType>({
         label: "Primary button",
         compact: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonTemplate }) =>
-        buttonTemplate(buttonArgsMapper(args)),
-      ),
+      render,
     },
     Secondary: {
       args: {
         variant: "secondary",
         label: "Secondary button",
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonTemplate }) =>
-        buttonTemplate(buttonArgsMapper(args)),
-      ),
+      render,
     },
     Tertiary: {
       args: {
         variant: "tertiary",
         label: "Tertiary button",
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonTemplate }) =>
-        buttonTemplate(buttonArgsMapper(args)),
-      ),
+      render,
     },
     Map: {
       args: {
         variant: "map",
         label: "Map button",
       },
-      render: templateContainer.render(storyTemplates, (args, { buttonTemplate }) =>
-        buttonTemplate(buttonArgsMapper(args)),
-      ),
+      render,
     },
   };
 }

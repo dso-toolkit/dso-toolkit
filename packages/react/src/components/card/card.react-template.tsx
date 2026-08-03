@@ -10,11 +10,12 @@ import React, { JSX } from "react";
 
 import { DsoCard } from "../../components";
 import { ComponentImplementation } from "../../templates";
+import { iconTemplate } from "../icon/icon.react-template";
 
 export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
-  template: ({ iconTemplate, labelTemplate, infoButtonTemplate, selectableTemplate, slideToggleTemplate }) =>
+  template: ({ labelTemplate, infoButtonTemplate, selectableTemplate, slideToggleTemplate }) =>
     function cardTemplate({ label, selectable, content, interactions, href, active, mode, dsoCardClick }) {
       return (
         <DsoCard

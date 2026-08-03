@@ -5,11 +5,12 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 import { when } from "lit-html/directives/when.js";
 
 import { ComponentImplementation } from "../../templates";
+import { iconTemplate } from "../icon/icon.core-template";
 
 export const cssNavbar: ComponentImplementation<Navbar<TemplateResult>> = {
   component: "navbar",
   implementation: "html-css",
-  template: ({ iconTemplate, linkTemplate }) =>
+  template: ({ linkTemplate }) =>
     function navbarTemplate({
       items,
       modifier,

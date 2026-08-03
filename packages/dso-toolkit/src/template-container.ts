@@ -7,6 +7,10 @@ export interface StoriesParameters<Implementation, Templates, TemplateFnReturnTy
   storyTemplates: (templates: Templates) => StoryTemplates;
 }
 
+export interface StoriesParameters2<StoryTemplates> {
+  storyTemplates: () => StoryTemplates;
+}
+
 export interface BaseComponentImplementation<
   Model,
   Implementation,

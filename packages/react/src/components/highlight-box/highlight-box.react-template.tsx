@@ -1,13 +1,14 @@
 import { HighlightBox } from "dso-toolkit";
-import * as React from "react";
+import React, { JSX } from "react";
 
 import { DsoHighlightBox } from "../../components";
 import { ComponentImplementation } from "../../templates";
+import { iconTemplate } from "../icon/icon.react-template";
 
-export const reactHighlightBox: ComponentImplementation<HighlightBox> = {
+export const reactHighlightBox: ComponentImplementation<HighlightBox<JSX.Element>> = {
   component: "highlightBox",
   implementation: "react",
-  template: ({ iconTemplate }) =>
+  template: () =>
     function highlightBoxTemplate({ yellow, white, green, dropShadow, border, step, icon, content }) {
       return (
         <DsoHighlightBox

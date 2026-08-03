@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { AccordionArgs, accordionArgTypes, accordionArgs, accordionArgsMapper } from "./accordion.args.js";
 import { Accordion, AccordionSection } from "./accordion.models.js";
@@ -24,10 +24,7 @@ interface AccordionStories {
   AnimatedFormGroupSections: AccordionStory;
 }
 
-interface AccordionStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface AccordionStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   AccordionTemplates<TemplateFnReturnType>
 > {}
 
@@ -44,7 +41,7 @@ interface AccordionTemplates<TemplateFnReturnType> {
   alignmentSections: AccordionSection<TemplateFnReturnType>[];
   renvooiSections: AccordionSection<TemplateFnReturnType>[];
   activatableSections: AccordionSection<TemplateFnReturnType>[];
-  animatedFormGroupSections?: AccordionSection<TemplateFnReturnType>[];
+  animatedFormGroupSections: AccordionSection<TemplateFnReturnType>[];
 }
 
 export function accordionMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -64,35 +61,29 @@ export function accordionMeta<TRenderer extends Renderer>({ readme }: MetaOption
   };
 }
 
-export function accordionStories<Implementation, Templates, TemplateFnReturnType>({
+export function accordionStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: AccordionStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AccordionStories {
+}: AccordionStoriesParameters<TemplateFnReturnType>): AccordionStories {
   return {
     Default: {
       args: {
         label: "Attentie",
         labelStatus: "attention",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, basicSections }) =>
-        accordionTemplate(accordionArgsMapper(args, basicSections)),
-      ),
+      render: (args) => storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().basicSections)),
     },
     Compact: {
       args: {
         variant: "compact",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, compactSections }) =>
-        accordionTemplate(accordionArgsMapper(args, compactSections)),
-      ),
+      render: (args) => storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().compactSections)),
     },
     CompactBlack: {
       args: {
         variant: "compact-black",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, compactBlackSections }) =>
-        accordionTemplate(accordionArgsMapper(args, compactBlackSections)),
-      ),
+      render: (args) =>
+        storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().compactBlackSections)),
     },
     Activatable: {
       args: {
@@ -100,64 +91,50 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
         activatable: true,
         active: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, activatableSections }) =>
-        accordionTemplate(accordionArgsMapper(args, activatableSections)),
-      ),
+      render: (args) =>
+        storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().activatableSections)),
     },
     Neutral: {
       args: {
         variant: "neutral",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, neutralSections }) =>
-        accordionTemplate(accordionArgsMapper(args, neutralSections)),
-      ),
+      render: (args) => storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().neutralSections)),
     },
     Conclusion: {
       args: {
         variant: "conclusion",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, conclusionSections }) =>
-        accordionTemplate(accordionArgsMapper(args, conclusionSections)),
-      ),
+      render: (args) =>
+        storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().conclusionSections)),
     },
     HandleAnchors: {
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, anchorSections }) =>
-        accordionTemplate(accordionArgsMapper(args, anchorSections)),
-      ),
+      render: (args) => storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().anchorSections)),
     },
     Nested: {
       args: {
         open: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, nestedSections }) =>
-        accordionTemplate(accordionArgsMapper(args, nestedSections)),
-      ),
+      render: (args) => storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().nestedSections)),
     },
     AddonsSections: {
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, addonsSections }) =>
-        accordionTemplate(accordionArgsMapper(args, addonsSections)),
-      ),
+      render: (args) => storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().addonsSections)),
     },
     AlignmentSections: {
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, alignmentSections }) =>
-        accordionTemplate(accordionArgsMapper(args, alignmentSections)),
-      ),
+      render: (args) =>
+        storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().alignmentSections)),
     },
     RenvooiSections: {
       args: {
         variant: "compact-black",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, renvooiSections }) =>
-        accordionTemplate(accordionArgsMapper(args, renvooiSections)),
-      ),
+      render: (args) => storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().renvooiSections)),
     },
     AnimatedFormGroupSections: {
       args: {
         open: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, animatedFormGroupSections }) =>
-        accordionTemplate(accordionArgsMapper(args, animatedFormGroupSections ?? [])),
-      ),
+      render: (args) =>
+        storyTemplates().accordionTemplate(accordionArgsMapper(args, storyTemplates().animatedFormGroupSections)),
     },
   };
 }

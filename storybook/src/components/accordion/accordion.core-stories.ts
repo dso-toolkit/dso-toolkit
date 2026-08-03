@@ -3,8 +3,6 @@ import readme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
 import type { Meta } from "@storybook/web-components-vite";
 import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
 
-import { templateContainer } from "../../templates";
-
 import {
   activatableSections,
   addonsSections,
@@ -16,6 +14,7 @@ import {
   nestedSections,
   renvooiSections,
 } from "./accordion.content";
+import { accordionTemplate } from "./accordion.core-template";
 
 const meta: Meta<AccordionArgs> = {
   ...accordionMeta({ readme: `${readme}\n${componentsReadme}` }),
@@ -38,24 +37,21 @@ const {
   Activatable,
   AnimatedFormGroupSections,
 } = accordionStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { accordionTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       accordionTemplate,
-      basicSections: basicSections(templates),
+      basicSections,
       addonsSections,
       alignmentSections,
-      anchorSections: anchorSections(templates),
-      conclusionSections: basicSections(templates),
-      compactSections: compactSections(templates),
-      compactBlackSections: basicSections(templates),
-      neutralSections: basicSections(templates),
-      nestedSections: nestedSections(templates),
+      anchorSections,
+      conclusionSections: basicSections,
+      compactSections,
+      compactBlackSections: basicSections,
+      neutralSections: basicSections,
+      nestedSections,
       renvooiSections,
       activatableSections,
-      animatedFormGroupSections: animatedFormGroupSections(templates),
+      animatedFormGroupSections: animatedFormGroupSections(),
     };
   },
 });

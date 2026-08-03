@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { ImageArgs, imageArgTypes, imageArgsMapper } from "./image.args.js";
 import { Image } from "./image.models.js";
@@ -19,10 +19,7 @@ export interface ImageTemplates<TemplateFnReturnType> {
   imageTemplate: (imageProperties: Image) => TemplateFnReturnType;
 }
 
-interface ImageStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface ImageStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   ImageTemplates<TemplateFnReturnType>
 > {}
 
@@ -46,31 +43,25 @@ export function imageMeta<TRenderer extends Renderer>({ readme }: MetaOptions = 
   };
 }
 
-export function imageStories<Implementation, Templates, TemplateFnReturnType>({
+export function imageStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: ImageStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ImageStories {
+}: ImageStoriesParameters<TemplateFnReturnType>): ImageStories {
+  const render = (args: ImageArgs) => storyTemplates().imageTemplate(imageArgsMapper(args));
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (args, { imageTemplate }) =>
-        imageTemplate(imageArgsMapper(args)),
-      ),
+      render,
     },
     Responsive: {
       args: {
         modifier: "img-responsive",
       },
-      render: templateContainer.render(storyTemplates, (args, { imageTemplate }) =>
-        imageTemplate(imageArgsMapper(args)),
-      ),
+      render,
     },
     Circle: {
       args: {
         modifier: "img-circle",
       },
-      render: templateContainer.render(storyTemplates, (args, { imageTemplate }) =>
-        imageTemplate(imageArgsMapper(args)),
-      ),
+      render,
     },
   };
 }
