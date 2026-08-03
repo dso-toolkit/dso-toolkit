@@ -62,10 +62,23 @@ export class Selectable implements ComponentInterface {
   invalid?: boolean;
 
   /**
-   * To link this control to an element that describes it.
+   * To link this control to the Info that describes it.
+   * The property `infoFixed` should be set to true.
+   * The slot `info` should be filled.
+   *
+   * Implemented with `aria-describedby` on the `<input>` element; works alongside `errormessage`.
    */
   @Prop()
   describedById?: string;
+
+  /**
+   * To link this control to an element containing an error message.
+   *
+   * The value is the id of the element containing the error message. Implemented with `aria-describedby` on the
+   * `<input>` element; works alongside `describedById`.
+   */
+  @Prop()
+  errormessage?: string;
 
   /**
    * To link this control to an element that labels it.
@@ -174,6 +187,11 @@ export class Selectable implements ComponentInterface {
   render() {
     const hasInfo = !!this.host.querySelector('[slot="info"]');
 
+    const describedBy =
+      [hasInfo && this.infoFixed ? this.describedById : undefined, this.errormessage]
+        .filter((value): value is string => value !== undefined)
+        .join(" ") || undefined;
+
     return (
       <Fragment>
         <div class="dso-selectable-container">
@@ -184,7 +202,7 @@ export class Selectable implements ComponentInterface {
               value={this.value}
               name={this.name}
               aria-invalid={this.invalid?.toString()}
-              aria-describedby={hasInfo && this.infoFixed ? this.describedById : undefined}
+              aria-describedby={describedBy}
               aria-labelledBy={this.labelledById}
               disabled={this.disabled}
               required={this.required}

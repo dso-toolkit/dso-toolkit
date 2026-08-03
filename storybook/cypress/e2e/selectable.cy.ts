@@ -36,6 +36,31 @@ describe("Selectable", () => {
     cy.get("dso-selectable").find('input[type="checkbox"]').should("be.checked");
   });
 
+  it("references the error message with aria-describedby", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-selectable--checkbox");
+
+    cy.get("dso-selectable.hydrated").find("input").should("not.have.attr", "aria-describedby");
+
+    cy.get("dso-selectable.hydrated").invoke("prop", "errormessage", "abc");
+
+    cy.get("dso-selectable.hydrated").find("input").should("have.attr", "aria-describedby", "abc");
+  });
+
+  it("combines describedById and errormessage in aria-describedby", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-selectable--with-info");
+
+    cy.get("dso-selectable.hydrated")
+      .invoke("prop", "infoFixed", true)
+      .invoke("prop", "describedById", "123")
+      .invoke("prop", "errormessage", "abc");
+
+    cy.get("dso-selectable.hydrated").find("input").should("have.attr", "aria-describedby", "123 abc");
+
+    cy.get("dso-selectable.hydrated").then(($selectable) => ($selectable[0].errormessage = undefined));
+
+    cy.get("dso-selectable.hydrated").find("input").should("have.attr", "aria-describedby", "123");
+  });
+
   it("supports uncontrolled input", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-selectable--checkbox");
 

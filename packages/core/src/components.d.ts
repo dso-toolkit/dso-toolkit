@@ -1279,13 +1279,17 @@ export namespace Components {
          */
         "checked"?: boolean;
         /**
-          * To link this control to an element that describes it.
+          * To link this control to the Info that describes it. The property `infoFixed` should be set to true. The slot `info` should be filled.  Implemented with `aria-describedby` on the `<input>` element; works alongside `errormessage`.
          */
         "describedById"?: string;
         /**
           * To disable the Selectable.
          */
         "disabled"?: boolean;
+        /**
+          * To link this control to an element containing an error message.  The value is the id of the element containing the error message. Implemented with `aria-describedby` on the `<input>` element; works alongside `describedById`.
+         */
+        "errormessage"?: string;
         /**
           * To set `<input id>` attribute for external references.
          */
@@ -4296,13 +4300,17 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
-          * To link this control to an element that describes it.
+          * To link this control to the Info that describes it. The property `infoFixed` should be set to true. The slot `info` should be filled.  Implemented with `aria-describedby` on the `<input>` element; works alongside `errormessage`.
          */
         "describedById"?: string;
         /**
           * To disable the Selectable.
          */
         "disabled"?: boolean;
+        /**
+          * To link this control to an element containing an error message.  The value is the id of the element containing the error message. Implemented with `aria-describedby` on the `<input>` element; works alongside `describedById`.
+         */
+        "errormessage"?: string;
         /**
           * To set `<input id>` attribute for external references.
          */
@@ -4938,6 +4946,7 @@ declare namespace LocalJSX {
         "value": string;
         "invalid": boolean;
         "describedById": string;
+        "errormessage": string;
         "labelledById": string;
         "disabled": boolean;
         "required": boolean;
