@@ -2,9 +2,8 @@ import type { Meta } from "@storybook/react-vite";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 import icons from "dso-toolkit/storybook-assets/icons.json";
 
-import { templateContainer } from "../../templates";
-
 import { decorator } from "./icon-overview.decorator";
+import { iconTemplate } from "./icon.react-template";
 import readme from "./readme.md?raw";
 
 const meta: Meta<IconArgs> = {
@@ -15,10 +14,7 @@ const meta: Meta<IconArgs> = {
 export default meta;
 
 const { Default, Overview } = iconStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { iconTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       iconTemplate,
     };

@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { IconArgs, iconArgTypes, iconArgsMapper } from "./icon.args.js";
 import { Icon } from "./icon.models.js";
@@ -23,12 +23,7 @@ export interface IconTemplates<TemplateFnReturnType> {
   iconTemplate: (iconProperties: Icon) => TemplateFnReturnType;
 }
 
-interface IconStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
-  IconTemplates<TemplateFnReturnType>
-> {
+interface IconStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<IconTemplates<TemplateFnReturnType>> {
   icons: string[];
   decorator?: IconOverviewDecorator<TemplateFnReturnType>;
 }
@@ -48,23 +43,22 @@ export function iconMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {
   };
 }
 
-export function iconStories<Implementation, Templates, TemplateFnReturnType>({
+export function iconStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
   icons,
   decorator,
-}: IconStoriesParameters<Implementation, Templates, TemplateFnReturnType>): IconStories {
+}: IconStoriesParameters<TemplateFnReturnType>): IconStories {
   return {
     Default: {
       argTypes: iconArgTypes(icons),
       args: {
         icon: "user-solid",
       },
-      render: templateContainer.render(storyTemplates, (args, { iconTemplate }) => iconTemplate(iconArgsMapper(args))),
+      render: (args) => storyTemplates().iconTemplate(iconArgsMapper(args)),
     },
     Overview: {
       decorators: [(story) => (decorator ? decorator(story, icons) : story)],
-      render: templateContainer.render(storyTemplates, (args, { iconTemplate }) => iconTemplate(iconArgsMapper(args))),
+      render: (args) => storyTemplates().iconTemplate(iconArgsMapper(args)),
     },
   };
 }

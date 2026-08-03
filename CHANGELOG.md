@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Storybook: Verwijder TemplateContainer construct ([#3323](https://github.com/dso-toolkit/dso-toolkit/issues/3323))
+
 ## 🫆 Release 99.5.0 - 2026-08-05
 
 ### Changed
