@@ -1,0 +1,24 @@
+import { TemplateResult, html } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { ActionList } from "./action-list.models.js";
+
+export function actionListTemplate({ title, actionListItems }: ActionList<TemplateResult>) {
+  return html`
+    <dso-action-list list-title=${title}>
+      ${actionListItems.map(
+        (item, index) => html`
+          <dso-action-list-item
+            step=${index + 1}
+            item-title=${ifDefined(item.title)}
+            flow-line=${ifDefined(item.flowLine)}
+            warning=${ifDefined(item.warning)}
+            divider=${ifDefined(item.divider)}
+          >
+            ${item.content}
+          </dso-action-list-item>
+        `,
+      )}
+    </dso-action-list>
+  `;
+}

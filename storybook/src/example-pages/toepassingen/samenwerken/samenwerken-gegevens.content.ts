@@ -1,7 +1,11 @@
-import { Breadcrumbs, DefinitionList, Header, Tabs } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
-import { Templates } from "../../../templates";
+import type { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
+import { buttonRowTemplate } from "../../../components/button-row/button-row.template.js";
+import type { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
+import { definitionListTemplate } from "../../../components/definition-list/definition-list.template.js";
+import type { Header } from "../../../components/header/header.models.js";
+import type { Tabs } from "../../../components/tabs/tabs.models.js";
 
 export const header: Header = {
   label: "Regels op de kaart",
@@ -31,7 +35,7 @@ export const breadcrumbs: Breadcrumbs = {
   ],
 };
 
-export function items({ buttonRowTemplate, definitionListTemplate }: Templates): Tabs<TemplateResult> {
+export function items(): Tabs<TemplateResult> {
   return {
     items: [
       {

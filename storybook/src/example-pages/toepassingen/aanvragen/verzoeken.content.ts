@@ -1,5 +1,6 @@
-import { Alert } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
+
+import type { Alert } from "../../../components/alert/alert.models.js";
 
 export const alerts: Alert<TemplateResult>[] = [
   {

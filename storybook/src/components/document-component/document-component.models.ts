@@ -1,0 +1,117 @@
+import { BadgeStatus } from "../badge/badge.models.js";
+import { LabelStatus } from "../label/label.models.js";
+import {
+  OzonContentBegripResolver,
+  OzonContentClickEvent,
+  OzonContentText,
+  OzonContentUrlResolver,
+} from "../ozon-content/ozon-content.models.js";
+
+export interface DocumentComponent<TemplateFnReturnType> {
+  alternativeTitle?: string;
+  annotated?: boolean;
+  badge?: string;
+  badgeStatus?: BadgeStatus;
+  badgeTooltip?: string;
+  children?: TemplateFnReturnType;
+  dsoAnnotationToggle?: (e: CustomEvent<DocumentComponentAnnotationToggleEvent>) => void;
+  dsoToggle?: (e: CustomEvent<DocumentComponentToggleEvent>) => void;
+  filtered?: boolean;
+  gereserveerd?: DocumentComponentInputType;
+  label?: string;
+  labelStatus?: LabelStatus;
+  headingLevel: number;
+  inhoud?: string;
+  notApplicable?: boolean;
+  open?: boolean;
+  openAnnotation?: boolean;
+  kop?: string;
+  type: DocumentComponentType;
+  vervallen?: DocumentComponentInputType;
+  wijzigactie?: DocumentComponentWijzigactie;
+  annotationsWijzigactie?: DocumentComponentWijzigactie;
+  recursiveToggle?: boolean | "indeterminate";
+  dsoRecursiveToggle?: (e: CustomEvent<DocumentComponentRecursiveToggleEvent>) => void;
+  mark?: DocumentComponentMarkFunction;
+  mode: DocumentComponentMode;
+  href?: string;
+  dsoMarkItemHighlight?: (e: CustomEvent<DocumentComponentMarkItemHighlightEvent>) => void;
+  dsoTableOfContentsClick?: (e: CustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
+  dsoOzonContentClick?: (e: CustomEvent<DocumentComponentOzonContentClickEvent>) => void;
+  ozonContentUrlResolver?: OzonContentUrlResolver;
+  ozonContentBegripResolver?: OzonContentBegripResolver;
+}
+
+export type DocumentComponentInputType = XMLDocument | string;
+
+export type DocumentComponentWijzigactie = "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
+
+export type DocumentComponentAnnotationsWijzigactie = "voegtoe" | "verwijder";
+
+export type DocumentComponentType =
+  | "AANHEF"
+  | "AFDELING"
+  | "ALGEMENE_TOELICHTING"
+  | "ARTIKEL"
+  | "ARTIKELGEWIJZE_TOELICHTING"
+  | "BEGRIP"
+  | "BIJLAGE"
+  | "BOEK"
+  | "CONDITIE_ARTIKEL"
+  | "DEEL"
+  | "DIVISIE"
+  | "DIVISIETEKST"
+  | "HOOFDSTUK"
+  | "LICHAAM"
+  | "LID"
+  | "PARAGRAAF"
+  | "SLUITING"
+  | "SUBPARAGRAAF"
+  | "SUBSUBPARAGRAAF"
+  | "TITEL"
+  | "TITELDEEL"
+  | "TOELICHTING";
+
+export type DocumentComponentMode = "document" | "table-of-contents";
+
+export interface DocumentComponentToggleEvent {
+  originalEvent: Event;
+}
+
+export interface DocumentComponentAnnotationToggleEvent {
+  originalEvent: Event;
+  current: boolean;
+  next: boolean;
+  scrollRef?: HTMLElement;
+}
+
+type DocumentComponentSource = "kop" | "inhoud" | "alternativeTitle";
+
+export type DocumentComponentMarkFunction = (text: string, source: DocumentComponentSource) => OzonContentText[];
+
+export interface DocumentComponentMarkItemHighlightEvent {
+  source: DocumentComponentSource;
+  text: string;
+  elementRef: HTMLElement;
+}
+
+export interface DocumentComponentOzonContentClickEvent {
+  originalEvent: MouseEvent;
+  ozonContentClick: OzonContentClickEvent;
+  /** True when user clicked the card while holding Ctrl, Alt or other modifiers, or when the card is right-clicked. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
+}
+
+export interface DocumentComponentTableOfContentsClickEvent {
+  originalEvent: MouseEvent;
+  /** True when user clicked the card while holding Ctrl, Alt or other modifiers, or when the card is right-clicked. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
+}
+
+export type DocumentComponentRecursiveToggleState = undefined | boolean | "indeterminate";
+
+export interface DocumentComponentRecursiveToggleEvent {
+  originalEvent: MouseEvent;
+  current: DocumentComponentRecursiveToggleState;
+  next: boolean;
+}

@@ -1,0 +1,46 @@
+import { TemplateResult, html } from "lit-html";
+import { classMap } from "lit-html/directives/class-map.js";
+
+import { Context } from "./context.models.js";
+
+function contextLabelTemplate({ label, content, children, alignLeft }: Context<TemplateResult>) {
+  return html`
+    <div
+      class="dso-context-wrapper ${classMap({
+        "dso-align-left": !!alignLeft,
+      })}"
+    >
+      <span class="dso-context-label">${label}</span>
+      <div class="dso-context-container">${content}</div>
+    </div>
+    ${children}
+  `;
+}
+
+function contextFieldsetTemplate({ label, content, children, alignLeft }: Context<TemplateResult>) {
+  return html`
+    <fieldset>
+      <legend class="sr-only">${label}</legend>
+      <div
+        class="dso-context-wrapper ${classMap({
+          "dso-align-left": !!alignLeft,
+        })}"
+      >
+        <span class="dso-context-label" aria-hidden="true">${label}</span>
+        <div class="dso-context-container">${content}</div>
+      </div>
+      ${children}
+    </fieldset>
+  `;
+}
+
+export function contextTemplate(context: Context<TemplateResult>) {
+  switch (context.type) {
+    case "label":
+      return contextLabelTemplate(context);
+    case "legend":
+      return contextFieldsetTemplate(context);
+    default:
+      throw new TypeError("type can only be label or legend");
+  }
+}

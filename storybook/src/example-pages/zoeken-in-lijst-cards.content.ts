@@ -1,5 +1,6 @@
-import { CardContainer } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
+
+import type { CardContainer } from "../components/card-container/card-container.models.js";
 
 export const cardContainer: CardContainer<TemplateResult> = {
   mode: "list",

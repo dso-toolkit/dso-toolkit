@@ -1,10 +1,16 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { footerPartial } from "../../partials/footer";
+import { breadcrumbsTemplate } from "../../../components/breadcrumbs/breadcrumbs.template.js";
+import { buttonTemplate } from "../../../components/button/button.template.js";
+import { definitionListTemplate } from "../../../components/definition-list/definition-list.template.js";
+import { headerTemplate } from "../../../components/header/header.template.js";
+import { paginationTemplate } from "../../../components/pagination/pagination.template.js";
+import { tableTemplate } from "../../../components/table/table.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { footerPartial } from "../../partials/footer.js";
 
-import { breadcrumbs, definitionList, header } from "./beheer-basis.content";
+import { breadcrumbs, definitionList, header } from "./beheer-basis.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Beheer",
@@ -12,16 +18,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Beheer = examplePageStories((templates) => {
-  const {
-    headerTemplate,
-    breadcrumbsTemplate,
-    buttonTemplate,
-    paginationTemplate,
-    definitionListTemplate,
-    tableTemplate,
-  } = templates;
-
+const Beheer = examplePageStory(() => {
   const rowActions = () =>
     html`${buttonTemplate({
       type: "button",
@@ -69,7 +66,7 @@ const Beheer = examplePageStories((templates) => {
         })}
         ${paginationTemplate({ totalPages: 5, currentPage: 3 })}
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

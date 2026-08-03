@@ -1,13 +1,20 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { applicationHeadingTemplate } from "../../../components/application-heading/application-heading.template.js";
+import { buttonRowTemplate } from "../../../components/button-row/button-row.template.js";
+import { cardContainerTemplate } from "../../../components/card-container/card-container.template.js";
+import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
+import { linkListTemplate } from "../../../components/link-list/link-list.template.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { linkList } from "./project-overzicht.content";
+import { linkList } from "./project-overzicht.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Mijn Omgevingsloket/Project Overzicht",
@@ -15,20 +22,10 @@ const meta: Meta = {
 
 export default meta;
 
-const ProjectOverzicht = examplePageStories((templates) => {
-  const {
-    linkTemplate,
-    applicationHeadingTemplate,
-    buttonRowTemplate,
-    cardContainerTemplate,
-    highlightBoxTemplate,
-    linkListTemplate,
-    richContentTemplate,
-  } = templates;
-
+const ProjectOverzicht = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
+      ${headerPartial({ ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
       <main>
         <div class="row">
           <div class="col-md-12">
@@ -175,7 +172,7 @@ const ProjectOverzicht = examplePageStories((templates) => {
           </div>
         </div>
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

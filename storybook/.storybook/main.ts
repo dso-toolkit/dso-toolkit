@@ -2,9 +2,13 @@ import type { StorybookConfig } from "@storybook/web-components-vite";
 
 const config: StorybookConfig = {
   typescript: { check: true },
-  staticDirs: ["../../packages/dso-toolkit/storybook-assets"],
+  staticDirs: ["../assets"],
   addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
-  stories: ["../src/components/**/*.{core-,css-}stories.ts", "../src/example-pages/**/*.stories.ts"],
+  stories: [
+    "../src/components/**/*.stories.ts",
+    "../src/components/**/*.{core-,css-}stories.ts",
+    "../src/example-pages/**/*.stories.ts",
+  ],
   previewHead: (head) =>
     process.env.CI
       ? `
