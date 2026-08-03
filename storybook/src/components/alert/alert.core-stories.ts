@@ -2,9 +2,8 @@ import readme from "@dso-toolkit/core/src/components/alert/readme.md?raw";
 import type { Meta } from "@storybook/web-components-vite";
 import { AlertArgs, alertMeta, alertStories } from "dso-toolkit";
 
-import { templateContainer } from "../../templates";
-
 import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
+import { alertTemplate } from "./alert.core-template";
 
 const meta: Meta<AlertArgs> = {
   ...alertMeta({ readme }),
@@ -14,15 +13,12 @@ const meta: Meta<AlertArgs> = {
 export default meta;
 
 const { Success, Error, Info, Warning, WithHeadings } = alertStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { alertTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       alertTemplate,
       alertWithHeadingsContent,
-      errorMessage: errorMessage(templates),
-      infoMessage: infoMessage(templates),
+      errorMessage,
+      infoMessage,
       successMessage,
       warningMessage,
     };

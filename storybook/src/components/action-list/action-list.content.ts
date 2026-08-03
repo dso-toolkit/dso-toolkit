@@ -1,9 +1,12 @@
 import { ActionListItem, contactInformationContent } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { accordionTemplate } from "../accordion/accordion.core-template";
+import { buttonTemplate } from "../button/button.css-template";
+import { contactInformationTemplate } from "../contact-information/contact-information.core-template";
+import { richContentTemplate } from "../rich-content/rich-content.css-template";
 
-function item1({ buttonTemplate }: Templates): ActionListItem<TemplateResult> {
+function item1(): ActionListItem<TemplateResult> {
   return {
     flowLine: true,
     content: buttonTemplate({
@@ -14,11 +17,7 @@ function item1({ buttonTemplate }: Templates): ActionListItem<TemplateResult> {
   };
 }
 
-function item2({
-  accordionTemplate,
-  contactInformationTemplate,
-  richContentTemplate,
-}: Templates): ActionListItem<TemplateResult> {
+function item2(): ActionListItem<TemplateResult> {
   return {
     title: "Neem contact op met het waterschap en de gemeente",
     flowLine: true,
@@ -69,7 +68,7 @@ function item2({
   };
 }
 
-function item3({ accordionTemplate, richContentTemplate }: Templates): ActionListItem<TemplateResult> {
+function item3(): ActionListItem<TemplateResult> {
   return {
     title: "Vergunningen aanvragen",
     flowLine: true,
@@ -93,7 +92,7 @@ function item3({ accordionTemplate, richContentTemplate }: Templates): ActionLis
   };
 }
 
-function item4({ accordionTemplate, richContentTemplate }: Templates): ActionListItem<TemplateResult> {
+function item4(): ActionListItem<TemplateResult> {
   return {
     title: "Meldingen en informatie voorbereiden",
     flowLine: true,
@@ -133,7 +132,7 @@ function item4({ accordionTemplate, richContentTemplate }: Templates): ActionLis
   };
 }
 
-function item5({ accordionTemplate, richContentTemplate }: Templates, flowLine = true): ActionListItem<TemplateResult> {
+function item5(flowLine = true): ActionListItem<TemplateResult> {
   return {
     title: "Om rekening mee te houden",
     flowLine,
@@ -160,10 +159,7 @@ function item5({ accordionTemplate, richContentTemplate }: Templates, flowLine =
   };
 }
 
-function item6(
-  { accordionTemplate, richContentTemplate, contactInformationTemplate }: Templates,
-  flowLine = true,
-): ActionListItem<TemplateResult> {
+function item6(flowLine = true): ActionListItem<TemplateResult> {
   return {
     title: "Start de werkzaamheden",
     flowLine,
@@ -199,7 +195,7 @@ function item6(
   };
 }
 
-function warning({ richContentTemplate }: Templates): ActionListItem<TemplateResult> {
+function warning(): ActionListItem<TemplateResult> {
   return {
     title: "Let op",
     warning: true,
@@ -212,24 +208,20 @@ function warning({ richContentTemplate }: Templates): ActionListItem<TemplateRes
   };
 }
 
-export function actionListItems(templates: Templates): ActionListItem<TemplateResult>[] {
-  return [
-    item1(templates),
-    item2(templates),
-    item3(templates),
-    item4(templates),
-    item5(templates),
-    item6(templates, false),
-  ];
-}
+export const actionListItems: ActionListItem<TemplateResult>[] = [
+  item1(),
+  item2(),
+  item3(),
+  item4(),
+  item5(),
+  item6(false),
+];
 
-export function actionListWithWarningItems(templates: Templates): ActionListItem<TemplateResult>[] {
-  return [
-    item1(templates),
-    item2(templates),
-    item3(templates),
-    item4(templates),
-    item5(templates, false),
-    warning(templates),
-  ];
-}
+export const actionListWithWarningItems: ActionListItem<TemplateResult>[] = [
+  item1(),
+  item2(),
+  item3(),
+  item4(),
+  item5(false),
+  warning(),
+];

@@ -3,7 +3,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { v4 as uuidv4 } from "uuid";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { SelectableArgs, selectableArgTypes, selectableArgsMapper } from "./selectable.args.js";
 import { Selectable } from "./selectable.models.js";
@@ -17,10 +17,7 @@ interface SelectableStories<TemplateFnReturnType> {
   Nested: SelectableStory<TemplateFnReturnType>;
 }
 
-interface SelectableStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface SelectableStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   SelectableTemplates<TemplateFnReturnType>
 > {}
 
@@ -56,19 +53,11 @@ export function selectableMeta<TRenderer extends Renderer, TemplateFnReturnType>
     },
   };
 }
-export function selectableStories<Implementation, Templates, TemplateFnReturnType>({
+export function selectableStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: SelectableStoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType
->): SelectableStories<TemplateFnReturnType> {
-  const render = templateContainer.render(
-    storyTemplates,
-    (args: SelectableArgs<TemplateFnReturnType>, { selectableTemplate, infoRichContent }) =>
-      selectableTemplate(selectableArgsMapper(args, infoRichContent)),
-  );
+}: SelectableStoriesParameters<TemplateFnReturnType>): SelectableStories<TemplateFnReturnType> {
+  const render = (args: SelectableArgs<TemplateFnReturnType>) =>
+    storyTemplates().selectableTemplate(selectableArgsMapper(args, storyTemplates().infoRichContent));
 
   return {
     Radio: {

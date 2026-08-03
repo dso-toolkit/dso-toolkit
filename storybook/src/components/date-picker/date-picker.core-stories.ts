@@ -3,9 +3,8 @@ import { type Meta } from "@storybook/web-components-vite";
 import { DatePickerArgs, datePickerMeta, datePickerStories } from "dso-toolkit";
 import { html } from "lit-html";
 
-import { templateContainer } from "../../templates";
-
 import { datePickerWithLabelTemplate } from "./date-picker.content";
+import { datePickerTemplate } from "./date-picker.core-template";
 
 const meta: Meta<DatePickerArgs> = {
   ...datePickerMeta({ readme }),
@@ -15,10 +14,7 @@ const meta: Meta<DatePickerArgs> = {
 export default meta;
 
 const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, Disabled, Invalid } = datePickerStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { datePickerTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       datePickerTemplate,
       datePickerWithLabelTemplate,

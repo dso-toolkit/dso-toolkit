@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { contactInformationContent } from "./contact-information.content";
 import { ContactInformation } from "./contact-information.models";
@@ -17,14 +17,7 @@ interface ContactInformationTemplates<TemplateFnReturnType> {
   ) => TemplateFnReturnType;
 }
 
-interface ContactInformationStoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
-> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface ContactInformationStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   ContactInformationTemplates<TemplateFnReturnType>
 > {}
 
@@ -42,21 +35,19 @@ export function contactInformationMeta<TRenderer extends Renderer>({
   };
 }
 
-export function contactInformationStories<Implementation, Templates, TemplateFnReturnType>({
+export function contactInformationStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: ContactInformationStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ContactInformationStories {
+}: ContactInformationStoriesParameters<TemplateFnReturnType>): ContactInformationStories {
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (_args, { contactInformationTemplate }) =>
-        contactInformationTemplate({
+      render: (_args) =>
+        storyTemplates().contactInformationTemplate({
           ...contactInformationContent,
           heading: {
             level: 4,
             children: "Gemeente Utrecht",
           },
         }),
-      ),
     },
   };
 }

@@ -2,16 +2,10 @@ import { ActionList } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-import { ComponentImplementation } from "../../templates";
-
-export const coreActionList: ComponentImplementation<ActionList<TemplateResult>> = {
-  component: "actionList",
-  implementation: "core",
-  template: () =>
-    function actionListTemplate({ title, actionListItems }) {
-      return html`
-        <dso-action-list list-title=${title}>
-          ${actionListItems.map(
+export function actionListTemplate({ title, actionListItems }: ActionList<TemplateResult>) {
+  return html`
+    <dso-action-list list-title=${title}>
+      ${actionListItems.map(
             (item, index) => html`
               <dso-action-list-item
                 step=${index + 1}
@@ -24,7 +18,6 @@ export const coreActionList: ComponentImplementation<ActionList<TemplateResult>>
               </dso-action-list-item>
             `,
           )}
-        </dso-action-list>
-      `;
-    },
-};
+    </dso-action-list>
+  `;
+}

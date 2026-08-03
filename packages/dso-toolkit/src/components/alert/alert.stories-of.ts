@@ -3,7 +3,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
-import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { StoriesParameters2, StoryObj } from "../../template-container.js";
 
 import { AlertArgs, alertArgTypes, alertArgsMapper } from "./alert.args.js";
 import { Alert } from "./alert.models.js";
@@ -18,10 +18,7 @@ interface AlertStories {
   WithHeadings: AlertStory;
 }
 
-interface AlertStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface AlertStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   AlertTemplates<TemplateFnReturnType>
 > {}
 
@@ -55,50 +52,40 @@ export function alertMeta<TRenderer extends Renderer>({ readme }: MetaOptions = 
   };
 }
 
-export function alertStories<Implementation, Templates, TemplateFnReturnType>({
+export function alertStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: AlertStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AlertStories {
+}: AlertStoriesParameters<TemplateFnReturnType>): AlertStories {
   return {
     Success: {
       args: {
         status: "success",
       },
-      render: templateContainer.render(storyTemplates, (args, { alertTemplate, successMessage }) =>
-        alertTemplate(alertArgsMapper(args, successMessage)),
-      ),
+      render: (args) => storyTemplates().alertTemplate(alertArgsMapper(args, storyTemplates().successMessage)),
     },
     Info: {
       args: {
         status: "info",
       },
-      render: templateContainer.render(storyTemplates, (args, { alertTemplate, infoMessage }) =>
-        alertTemplate(alertArgsMapper(args, infoMessage)),
-      ),
+      render: (args) => storyTemplates().alertTemplate(alertArgsMapper(args, storyTemplates().infoMessage)),
     },
     Warning: {
       args: {
         status: "warning",
       },
-      render: templateContainer.render(storyTemplates, (args, { alertTemplate, warningMessage }) =>
-        alertTemplate(alertArgsMapper(args, warningMessage)),
-      ),
+      render: (args) => storyTemplates().alertTemplate(alertArgsMapper(args, storyTemplates().warningMessage)),
     },
     Error: {
       args: {
         status: "error",
       },
-      render: templateContainer.render(storyTemplates, (args, { alertTemplate, errorMessage }) =>
-        alertTemplate(alertArgsMapper(args, errorMessage)),
-      ),
+      render: (args) => storyTemplates().alertTemplate(alertArgsMapper(args, storyTemplates().errorMessage)),
     },
     WithHeadings: {
       args: {
         status: "info",
       },
-      render: templateContainer.render(storyTemplates, (args, { alertTemplate, alertWithHeadingsContent }) =>
-        alertTemplate(alertArgsMapper(args, alertWithHeadingsContent)),
-      ),
+      render: (args) =>
+        storyTemplates().alertTemplate(alertArgsMapper(args, storyTemplates().alertWithHeadingsContent)),
     },
   };
 }

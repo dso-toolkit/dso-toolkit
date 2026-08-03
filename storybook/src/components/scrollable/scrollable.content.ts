@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { accordionTemplate } from "../accordion/accordion.core-template";
 
 export const defaultContent = html`
   <div>
@@ -38,25 +38,24 @@ export const defaultContent = html`
   </div>
 `;
 
-export function dynamicContent({ accordionTemplate }: Templates) {
-  return html`
-    <div>
-      <p>
-        De Omgevingswet bundelt en vereenvoudigt de regels voor de fysieke leefomgeving in Nederland. Met deze wet
-        worden 26 bestaande wetten samengevoegd, waardoor procedures voor ruimtelijke projecten overzichtelijker en
-        efficiënter worden. Via het Omgevingsloket kunnen burgers en bedrijven vergunningen aanvragen, meldingen doen en
-        informatie vinden over geldende regels op specifieke locaties. De wet stimuleert integrale besluitvorming en
-        biedt ruimte voor maatwerk door gemeenten, provincies en waterschappen. Door de invoering van het Digitaal
-        Stelsel Omgevingswet (DSO) wordt het eenvoudiger om relevante informatie te vinden en aanvragen digitaal in te
-        dienen. Deze modernisering draagt bij aan een transparanter en toegankelijker omgevingsbeleid voor alle
-        betrokkenen. Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van Volkshuisvesting en
-        Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen. Hier kunnen gebruikers vergunningaanvragen
-        indienen, meldingen doen en informatie opvragen over de fysieke leefomgeving. Het loket biedt een centrale
-        toegang tot regels en beleidsdocumenten die van toepassing zijn op specifieke locaties, waardoor het proces van
-        vergunningverlening en informatievoorziening wordt vereenvoudigd.
-      </p>
-    </div>
-    ${accordionTemplate({
+export const dynamicContent = html`
+  <div>
+    <p>
+      De Omgevingswet bundelt en vereenvoudigt de regels voor de fysieke leefomgeving in Nederland. Met deze wet worden
+      26 bestaande wetten samengevoegd, waardoor procedures voor ruimtelijke projecten overzichtelijker en efficiënter
+      worden. Via het Omgevingsloket kunnen burgers en bedrijven vergunningen aanvragen, meldingen doen en informatie
+      vinden over geldende regels op specifieke locaties. De wet stimuleert integrale besluitvorming en biedt ruimte
+      voor maatwerk door gemeenten, provincies en waterschappen. Door de invoering van het Digitaal Stelsel Omgevingswet
+      (DSO) wordt het eenvoudiger om relevante informatie te vinden en aanvragen digitaal in te dienen. Deze
+      modernisering draagt bij aan een transparanter en toegankelijker omgevingsbeleid voor alle betrokkenen. Het
+      Omgevingsloket is een gezamenlijk initiatief van het Ministerie van Volkshuisvesting en Ruimtelijke Ordening
+      (VRO), gemeenten, provincies en waterschappen. Hier kunnen gebruikers vergunningaanvragen indienen, meldingen doen
+      en informatie opvragen over de fysieke leefomgeving. Het loket biedt een centrale toegang tot regels en
+      beleidsdocumenten die van toepassing zijn op specifieke locaties, waardoor het proces van vergunningverlening en
+      informatievoorziening wordt vereenvoudigd.
+    </p>
+  </div>
+  ${accordionTemplate({
       variant: "compact",
       sections: [
         {
@@ -77,5 +76,4 @@ export function dynamicContent({ accordionTemplate }: Templates) {
         },
       ],
     })}
-  `;
-}
+`;

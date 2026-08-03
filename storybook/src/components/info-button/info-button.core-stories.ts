@@ -2,9 +2,8 @@ import readme from "@dso-toolkit/core/src/components/info-button/readme.md?raw";
 import type { Meta } from "@storybook/web-components-vite";
 import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
-import { templateContainer } from "../../templates";
-
 import { children } from "./info-button.content";
+import { infoButtonTemplate } from "./info-button.core-template";
 
 const meta: Meta<InfoButtonArgs> = {
   ...infoButtonMeta({ readme }),
@@ -14,13 +13,10 @@ const meta: Meta<InfoButtonArgs> = {
 export default meta;
 
 const { Default, Information } = infoButtonStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { infoButtonTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       infoButtonTemplate,
-      children: children(templates),
+      children,
     };
   },
 });

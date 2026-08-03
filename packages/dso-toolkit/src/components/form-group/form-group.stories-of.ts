@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import {
   FormGroupCheckboxesArgs,
@@ -107,10 +107,7 @@ export interface FormGroupTemplates<TemplateFnReturnType> {
   formGroupTextareaTemplate: (formGroupTextarea: FormGroupTextarea<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-export interface FormGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+export interface FormGroupStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   FormGroupTemplates<TemplateFnReturnType>
 > {
   decorator: FormGroupDecorator<TemplateFnReturnType>;
@@ -142,101 +139,78 @@ export function formGroupMeta<TRenderer extends Renderer>({ readme }: MetaOption
     },
   };
 }
-export function formGroupStories<Implementation, Templates, TemplateFnReturnType>({
+export function formGroupStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
   decorator,
-}: FormGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType>): FormGroupStories {
+}: FormGroupStoriesParameters<TemplateFnReturnType>): FormGroupStories {
   return {
     Checkboxes: {
       args: formGroupCheckboxesArgs,
       argTypes: formGroupCheckboxesArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupCheckboxesTemplate }) =>
-        formGroupCheckboxesTemplate(formGroupCheckboxesArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().formGroupCheckboxesTemplate(formGroupCheckboxesArgsMapper(args)),
     },
     Confirm: {
       args: formGroupConfirmContent,
       argTypes: formGroupConfirmArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupConfirmTemplate }) =>
-        formGroupConfirmTemplate(formGroupConfirmArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().formGroupConfirmTemplate(formGroupConfirmArgsMapper(args)),
     },
     DatePicker: {
       args: formGroupDatePickerArgs,
       argTypes: formGroupDatePickerArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupDatePickerTemplate }) =>
-        formGroupDatePickerTemplate(formGroupDatePickerArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().formGroupDatePickerTemplate(formGroupDatePickerArgsMapper(args)),
     },
     Files: {
       args: formGroupFilesArgs,
       argTypes: formGroupFilesArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupFilesTemplate }) =>
-        formGroupFilesTemplate(formGroupFilesArgsMapper(args, files)),
-      ),
+      render: (args) => storyTemplates().formGroupFilesTemplate(formGroupFilesArgsMapper(args, files)),
       storyName: "Files (files uploaded)",
     },
     NoFiles: {
       args: formGroupFilesArgs,
       argTypes: formGroupFilesArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupFilesTemplate }) =>
-        formGroupFilesTemplate(formGroupFilesArgsMapper(args, [])),
-      ),
+      render: (args) => storyTemplates().formGroupFilesTemplate(formGroupFilesArgsMapper(args, [])),
       storyName: "Files (no files uploaded)",
     },
     Input: {
       args: formGroupInputArgs,
       argTypes: formGroupInputArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupInputTemplate }) =>
-        formGroupInputTemplate(formGroupInputArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().formGroupInputTemplate(formGroupInputArgsMapper(args)),
     },
     Radios: {
       args: formGroupRadiosArgs,
       argTypes: formGroupRadiosArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupRadiosTemplate }) =>
-        formGroupRadiosTemplate(formGroupRadiosArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().formGroupRadiosTemplate(formGroupRadiosArgsMapper(args)),
     },
     SearchBar: {
       args: formGroupSearchBarArgs,
       argTypes: formGroupSearchBarArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupSearchBarTemplate }) =>
-        formGroupSearchBarTemplate(formGroupSearchBarArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().formGroupSearchBarTemplate(formGroupSearchBarArgsMapper(args)),
     },
     Select: {
       args: formGroupSelectArgs,
       argTypes: formGroupSelectArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupSelectTemplate }) =>
-        formGroupSelectTemplate(formGroupSelectArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().formGroupSelectTemplate(formGroupSelectArgsMapper(args)),
     },
     Static: {
       args: formGroupStaticArgs,
       argTypes: formGroupStaticArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupStaticTemplate }) =>
-        formGroupStaticTemplate(formGroupStaticArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().formGroupStaticTemplate(formGroupStaticArgsMapper(args)),
     },
     Textarea: {
       args: formGroupTextareaArgs,
       argTypes: formGroupTextareaArgTypes,
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupTextareaTemplate }) =>
-        formGroupTextareaTemplate(formGroupTextareaArgsMapper(args)),
-      ),
+      render: (args) => storyTemplates().formGroupTextareaTemplate(formGroupTextareaArgsMapper(args)),
     },
   };
 }

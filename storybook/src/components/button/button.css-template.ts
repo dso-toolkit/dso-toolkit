@@ -2,110 +2,104 @@ import { Button, ButtonAnchor, ButtonMode } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-import { ComponentImplementation } from "../../templates";
+import { iconTemplate } from "../icon/icon.core-template";
 
-export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
-  component: "button",
-  implementation: "html-css",
-  template: ({ iconTemplate }) => {
-    function getClassNames<Variant extends string | null>(variant: Variant, modifier?: string, mode?: ButtonMode) {
-      const classNames = [];
+export function buttonTemplate(button: Button | ButtonAnchor) {
+  return "url" in button ? anchorElement(button) : buttonElement(button);
+}
 
-      if (variant) {
-        classNames.push(`dso-${variant}`);
-      }
+function getClassNames<Variant extends string | null>(variant: Variant, modifier?: string, mode?: ButtonMode) {
+  const classNames = [];
 
-      if (mode) {
-        classNames.push(mode);
-      }
+  if (variant) {
+    classNames.push(`dso-${variant}`);
+  }
 
-      if (modifier) {
-        classNames.push(modifier);
-      }
+  if (mode) {
+    classNames.push(mode);
+  }
 
-      return classNames;
-    }
+  if (modifier) {
+    classNames.push(modifier);
+  }
 
-    function anchorElement({ variant, url, label, modifier, mode, id, icon, iconMode, slot, autofocus }: ButtonAnchor) {
-      const classNames = getClassNames(variant, modifier, mode);
+  return classNames;
+}
 
-      return html`
-        <a
-          href=${url}
-          class=${ifDefined(classNames.filter((c) => !!c).join(" "))}
-          id=${ifDefined(id)}
-          slot=${ifDefined(slot)}
-          ?autofocus=${autofocus}
-        >
-          ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
-            class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
-            >${label}</span
-          >${
-            mode === "extern" ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>` : nothing
-          }${icon && iconMode ? iconTemplate(icon) : nothing}
-        </a>
-      `;
-    }
+function anchorElement({ variant, url, label, modifier, mode, id, icon, iconMode, slot, autofocus }: ButtonAnchor) {
+  const classNames = getClassNames(variant, modifier, mode);
 
-    function buttonElement({
-      variant,
-      label,
-      type,
-      modifier,
-      id,
-      disabled,
-      icon,
-      iconMode,
-      ariaDescribedby,
-      ariaExpanded,
-      ariaHaspopup,
-      ariaRoledescription,
-      screenreaderPrefix,
-      screenreaderSuffix,
-      slot,
-      compact,
-      truncate,
-      onClick,
-      autofocus,
-      mode,
-    }: Button) {
-      type ??= "button";
-      const classNames = getClassNames(variant, modifier, mode);
+  return html`
+    <a
+      href=${url}
+      class=${ifDefined(classNames.filter((c) => !!c).join(" "))}
+      id=${ifDefined(id)}
+      slot=${ifDefined(slot)}
+      ?autofocus=${autofocus}
+    >
+      ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
+        class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
+        >${label}</span
+      >${
+        mode === "extern" ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>` : nothing
+      }${icon && iconMode ? iconTemplate(icon) : nothing}
+    </a>
+  `;
+}
 
-      if (compact) {
-        classNames.push("dso-small");
-      }
+function buttonElement({
+  variant,
+  label,
+  type,
+  modifier,
+  id,
+  disabled,
+  icon,
+  iconMode,
+  ariaDescribedby,
+  ariaExpanded,
+  ariaHaspopup,
+  ariaRoledescription,
+  screenreaderPrefix,
+  screenreaderSuffix,
+  slot,
+  compact,
+  truncate,
+  onClick,
+  autofocus,
+  mode,
+}: Button) {
+  type ??= "button";
+  const classNames = getClassNames(variant, modifier, mode);
 
-      if (truncate) {
-        classNames.push("dso-truncate");
-      }
+  if (compact) {
+    classNames.push("dso-small");
+  }
 
-      return html`
-        <button
-          type=${type}
-          id=${ifDefined(id)}
-          class=${ifDefined(classNames.filter((c) => !!c).join(" "))}
-          ?disabled=${disabled}
-          aria-describedby=${ifDefined(ariaDescribedby)}
-          aria-expanded=${ifDefined(ariaExpanded)}
-          aria-haspopup=${ifDefined(ariaHaspopup)}
-          aria-roledescription=${ifDefined(ariaRoledescription)}
-          @click=${ifDefined(onClick)}
-          slot=${ifDefined(slot)}
-          ?autofocus=${autofocus}
-        >
-          ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
-            class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
-            >${screenreaderPrefix ? html`<span class="sr-only">${screenreaderPrefix}</span>` : nothing}${label}${
-              screenreaderSuffix ? html`<span class="sr-only">${screenreaderSuffix}</span>` : nothing
-            }</span
-          >${icon && iconMode ? iconTemplate(icon) : nothing}
-        </button>
-      `;
-    }
+  if (truncate) {
+    classNames.push("dso-truncate");
+  }
 
-    return function buttonTemplate(button) {
-      return "url" in button ? anchorElement(button) : buttonElement(button);
-    };
-  },
-};
+  return html`
+    <button
+      type=${type}
+      id=${ifDefined(id)}
+      class=${ifDefined(classNames.filter((c) => !!c).join(" "))}
+      ?disabled=${disabled}
+      aria-describedby=${ifDefined(ariaDescribedby)}
+      aria-expanded=${ifDefined(ariaExpanded)}
+      aria-haspopup=${ifDefined(ariaHaspopup)}
+      aria-roledescription=${ifDefined(ariaRoledescription)}
+      @click=${ifDefined(onClick)}
+      slot=${ifDefined(slot)}
+      ?autofocus=${autofocus}
+    >
+      ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
+        class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
+        >${screenreaderPrefix ? html`<span class="sr-only">${screenreaderPrefix}</span>` : nothing}${label}${
+          screenreaderSuffix ? html`<span class="sr-only">${screenreaderSuffix}</span>` : nothing
+        }</span
+      >${icon && iconMode ? iconTemplate(icon) : nothing}
+    </button>
+  `;
+}

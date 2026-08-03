@@ -3,7 +3,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { InfoButtonArgs, infoButtonArgTypes, infoButtonArgsMapper } from "./info-button.args.js";
 import { InfoButton } from "./info-button.models.js";
@@ -20,10 +20,7 @@ export interface InfoButtonTemplates<TemplateFnReturnType> {
   children?: TemplateFnReturnType;
 }
 
-interface InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface InfoButtonStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   InfoButtonTemplates<TemplateFnReturnType>
 > {}
 
@@ -51,22 +48,20 @@ const baseStoryParameters = {
   parameters: { layout: "centered" },
 };
 
-export function infoButtonStories<Implementation, Templates, TemplateFnReturnType>({
+export function infoButtonStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>): InfoButtonStories {
+}: InfoButtonStoriesParameters<TemplateFnReturnType>): InfoButtonStories {
+  const render = (args: InfoButtonArgs) =>
+    storyTemplates().infoButtonTemplate(infoButtonArgsMapper(args, storyTemplates().children));
+
   return {
     Default: {
       ...baseStoryParameters,
-      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
-      ),
+      render,
     },
     Information: {
       ...baseStoryParameters,
-      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate, children }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args, children)),
-      ),
+      render,
     },
   };
 }

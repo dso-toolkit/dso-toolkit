@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { RichContentArgs, richContentArgTypes, richContentArgsMapper } from "./rich-content.args.js";
 import { RichContent } from "./rich-content.models.js";
@@ -11,10 +11,7 @@ interface RichContentStories<TemplateFnReturnType> {
   RichContent: StoryObj<RichContentArgs<TemplateFnReturnType>, Renderer>;
 }
 
-interface RichContentStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface RichContentStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   RichContentTemplates<TemplateFnReturnType>
 > {}
 
@@ -38,21 +35,13 @@ export function richContentMeta<TRenderer extends Renderer, TemplateFnReturnType
   };
 }
 
-export function richContentStories<Implementation, Templates, TemplateFnReturnType>({
+export function richContentStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: RichContentStoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType
->): RichContentStories<TemplateFnReturnType> {
+}: RichContentStoriesParameters<TemplateFnReturnType>): RichContentStories<TemplateFnReturnType> {
   return {
     RichContent: {
-      render: templateContainer.render(
-        storyTemplates,
-        (args: RichContentArgs<TemplateFnReturnType>, { richContentTemplate, children }) =>
-          richContentTemplate(richContentArgsMapper(args, children)),
-      ),
+      render: (args: RichContentArgs<TemplateFnReturnType>) =>
+        storyTemplates().richContentTemplate(richContentArgsMapper(args, storyTemplates().children)),
     },
   };
 }

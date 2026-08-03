@@ -4,11 +4,12 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { ComponentImplementation } from "../../templates";
+import { iconTemplate } from "../icon/icon.core-template";
 
 export const coreHighlightBox: ComponentImplementation<HighlightBox> = {
   component: "highlightBox",
   implementation: "core",
-  template: ({ iconTemplate, imageTemplate }) =>
+  template: ({ imageTemplate }) =>
     function highlightBoxTemplate({
       yellow,
       white,

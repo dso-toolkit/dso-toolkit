@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { ExpandableArgs, expandableArgTypes, expandableArgsMapper } from "./expandable.args.js";
 import { Expandable } from "./expandable.models.js";
@@ -21,10 +21,7 @@ export interface ExpandableTemplates<TemplateFnReturnType> {
   expandableContent: TemplateFnReturnType;
 }
 
-interface ExpandableStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface ExpandableStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   ExpandableTemplates<TemplateFnReturnType>
 > {
   decorator: ExpandableDecorator<TemplateFnReturnType>;
@@ -49,11 +46,13 @@ export function expandableMeta<TRenderer extends Renderer>({ readme }: MetaOptio
   };
 }
 
-export function expandableStories<Implementation, Templates, TemplateFnReturnType>({
+export function expandableStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
   decorator,
-}: ExpandableStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ExpandableStories {
+}: ExpandableStoriesParameters<TemplateFnReturnType>): ExpandableStories {
+  const render = (args: ExpandableArgs) =>
+    storyTemplates().expandableTemplate(expandableArgsMapper(args, storyTemplates().expandableContent));
+
   return {
     Default: {
       args: {
@@ -61,9 +60,7 @@ export function expandableStories<Implementation, Templates, TemplateFnReturnTyp
         enableAnimation: false,
       },
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { expandableTemplate, expandableContent }) =>
-        expandableTemplate(expandableArgsMapper(args, expandableContent)),
-      ),
+      render,
       parameters: {
         layout: "fullscreen",
       },
@@ -74,9 +71,7 @@ export function expandableStories<Implementation, Templates, TemplateFnReturnTyp
         enableAnimation: true,
       },
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { expandableTemplate, expandableContent }) =>
-        expandableTemplate(expandableArgsMapper(args, expandableContent)),
-      ),
+      render,
       parameters: {
         layout: "fullscreen",
       },

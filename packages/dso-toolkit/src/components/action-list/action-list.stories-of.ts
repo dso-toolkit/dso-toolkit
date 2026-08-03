@@ -2,7 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoriesParameters, StoryObj } from "../../template-container";
+import { StoriesParameters2, StoryObj } from "../../template-container";
 
 import { ActionListArgs, actionListArgTypes, actionListArgs, actionListArgsMapper } from "./action-list.args.js";
 import { ActionList, ActionListItem } from "./action-list.models.js";
@@ -14,10 +14,7 @@ interface ActionListStories {
   WithWarning: ActionListStory;
 }
 
-interface ActionListStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
-  Implementation,
-  Templates,
-  TemplateFnReturnType,
+interface ActionListStoriesParameters<TemplateFnReturnType> extends StoriesParameters2<
   ActionListTemplates<TemplateFnReturnType>
 > {}
 
@@ -44,20 +41,17 @@ export function actionListMeta<TRenderer extends Renderer>({ readme }: MetaOptio
   };
 }
 
-export function actionListStories<Implementation, Templates, TemplateFnReturnType>({
+export function actionListStories<TemplateFnReturnType>({
   storyTemplates,
-  templateContainer,
-}: ActionListStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ActionListStories {
+}: ActionListStoriesParameters<TemplateFnReturnType>): ActionListStories {
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (args, { actionListTemplate, actionListItems }) =>
-        actionListTemplate(actionListArgsMapper(args, actionListItems)),
-      ),
+      render: (args) =>
+        storyTemplates().actionListTemplate(actionListArgsMapper(args, storyTemplates().actionListItems)),
     },
     WithWarning: {
-      render: templateContainer.render(storyTemplates, (args, { actionListTemplate, actionListWithWarningItems }) =>
-        actionListTemplate(actionListArgsMapper(args, actionListWithWarningItems)),
-      ),
+      render: (args) =>
+        storyTemplates().actionListTemplate(actionListArgsMapper(args, storyTemplates().actionListWithWarningItems)),
     },
   };
 }

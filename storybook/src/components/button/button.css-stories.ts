@@ -2,7 +2,7 @@ import type { Meta } from "@storybook/web-components-vite";
 import { ButtonArgs, buttonMeta, buttonStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/button/readme.md?raw";
 
-import { templateContainer } from "../../templates";
+import { buttonTemplate } from "./button.css-template";
 
 const meta: Meta<ButtonArgs> = {
   ...buttonMeta({ readme }),
@@ -12,10 +12,7 @@ const meta: Meta<ButtonArgs> = {
 export default meta;
 
 const { Map, Primary, PrimaryCompact, Secondary, Tertiary } = buttonStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { buttonTemplate } = templates;
-
+  storyTemplates: () => {
     return {
       buttonTemplate,
     };
