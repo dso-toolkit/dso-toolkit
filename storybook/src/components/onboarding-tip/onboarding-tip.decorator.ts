@@ -1,8 +1,10 @@
-import { OnboardingTipArgs, OnboardingTipDecorator } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
+import { PartialStoryFn } from "storybook/internal/types";
 
-export const decorator: OnboardingTipDecorator<TemplateResult> = (story, args: OnboardingTipArgs) => html`
+import { OnboardingTipArgs } from "./onboarding-tip.args.js";
+
+export const decorator = (story: PartialStoryFn, args: OnboardingTipArgs): TemplateResult => html`
   <div class="decorator-wrapper">
     <p>
       Toggle de Storybook control <code>box</code> om de Onboarding Tip te tonen/verbergen en om de Onboarding Tip te

@@ -1,9 +1,10 @@
-import { FormGroupCheckboxes, FormGroupRadios } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
-import { Templates } from "../../../templates";
+import type { FormGroupCheckboxes } from "../../../components/form-group/form-group-checkboxes.models.js";
+import type { FormGroupRadios } from "../../../components/form-group/form-group-radios.models.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
 
-export function radios({ richContentTemplate }: Templates): FormGroupRadios<TemplateResult> {
+export function radios(): FormGroupRadios<TemplateResult> {
   return {
     group: "radios",
     id: "radios",

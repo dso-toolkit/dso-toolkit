@@ -198,4 +198,10 @@ export default [
     },
   },
   ...storybook.configs["flat/recommended"],
+  {
+    files: ["storybook/**/*.stories.@(ts|tsx)"],
+    rules: {
+      "storybook/hierarchy-separator": "off",
+    },
+  },
 ];

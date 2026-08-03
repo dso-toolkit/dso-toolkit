@@ -18,8 +18,7 @@ const startStorybook = {
 };
 
 const watchCore = {
-  command:
-    "wait-on file:./packages/dso-toolkit/dist/index.js file:./packages/dso-toolkit/dist/dso.css && pnpm --filter @dso-toolkit/core watch",
+  command: "wait-on file:./packages/dso-toolkit/dist/dso.css && pnpm --filter @dso-toolkit/core watch",
   name: "core",
 };
 

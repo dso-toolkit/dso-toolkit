@@ -1,10 +1,15 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { Button, IconButton, InfoButton } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
-import "./button-on-color.scss";
 
-import { examplePageStories } from "../../example-page-stories";
-import { Templates } from "../../templates";
+import type { Button } from "../../components/button/button.models.js";
+import { buttonTemplate } from "../../components/button/button.template.js";
+import type { IconButton } from "../../components/icon-button/icon-button.models.js";
+import { iconButtonTemplate } from "../../components/icon-button/icon-button.template.js";
+import { InfoButton } from "../../components/info-button/info-button.models.js";
+import { infoButtonTemplate } from "../../components/info-button/info-button.template.js";
+import { examplePageStory } from "../../example-page-story.js";
+
+import "./button-on-color.scss";
 
 const meta: Meta = {
   title: "Patronen/Button on color",
@@ -12,17 +17,15 @@ const meta: Meta = {
 
 export default meta;
 
-export const ButtonOnColor = examplePageStories((templates) => {
+export const ButtonOnColor = examplePageStory(() => {
   return html`
-    <div class="button-container-demo">${allButtons(templates)}</div>
-    <div class="button-container-demo background-dark-demo">${allButtons(templates)}</div>
-    <div class="button-container-demo background-light-demo">${allButtons(templates)}</div>
+    <div class="button-container-demo">${allButtons()}</div>
+    <div class="button-container-demo background-dark-demo">${allButtons()}</div>
+    <div class="button-container-demo background-light-demo">${allButtons()}</div>
   `;
 });
 
-const allButtons = (templates: Templates) => {
-  const { buttonTemplate, iconButtonTemplate, infoButtonTemplate } = templates;
-
+const allButtons = () => {
   return html`
     ${renderSection("Primary buttons", primaryButtons, buttonTemplate)}
     ${renderSection("Secondary buttons", secondaryButtons, buttonTemplate)}

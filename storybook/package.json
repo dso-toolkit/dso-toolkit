@@ -26,6 +26,7 @@
     "cypress-real-events": "^1.15.0",
     "dso-toolkit": "workspace:*",
     "eslint": "catalog:",
+    "escape-string-regexp": "catalog:",
     "http-proxy-middleware": "catalog:",
     "http-server": "^14.1.1",
     "lit-html": "catalog:",

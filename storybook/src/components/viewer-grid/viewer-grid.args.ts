@@ -1,0 +1,112 @@
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { argTypeAction } from "../../shared/arg-type-action.js";
+
+import { ViewerGrid, ViewerGridPanelSize, ViewerGridTab } from "./viewer-grid.models.js";
+
+const panelSizes = ["small", "medium", "large"];
+
+export interface ViewerGridExample<TemplateFnReturnType> {
+  topBar?: TemplateFnReturnType;
+  main: (mainExpanded: boolean) => TemplateFnReturnType;
+  map: TemplateFnReturnType;
+  documentPanel: TemplateFnReturnType;
+  filterPanel: TemplateFnReturnType;
+  overlay: TemplateFnReturnType;
+}
+
+export interface ViewerGridArgs {
+  overlayOpen: boolean;
+  filterPanelOpen: boolean;
+  filterPanelTitle?: string;
+  documentPanelOpen?: boolean;
+  print?: boolean;
+  mainSize: ViewerGridPanelSize;
+  activeTab?: ViewerGridTab;
+  documentPanelSize: ViewerGridPanelSize;
+  mainPanelExpanded?: boolean;
+  mainPanelHidden?: boolean;
+  dsoMainSizeChangeAnimationEnd: HandlerFunction;
+  dsoCloseOverlay: HandlerFunction;
+  dsoCloseFilterPanel: HandlerFunction;
+  dsoDocumentPanelSizeChange: HandlerFunction;
+  dsoDocumentPanelSizeChangeAnimationEnd: HandlerFunction;
+  dsoMainPanelToggle: HandlerFunction;
+  dsoActiveTabSwitch: HandlerFunction;
+}
+
+export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
+  filterPanelTitle: {
+    control: {
+      type: "text",
+    },
+  },
+  filterPanelOpen: {
+    control: {
+      type: "boolean",
+    },
+  },
+  overlayOpen: {
+    type: "boolean",
+  },
+  activeTab: {
+    options: [undefined, "search", "map", "document"],
+    control: {
+      type: "select",
+    },
+  },
+  documentPanelOpen: {
+    control: {
+      type: "boolean",
+    },
+  },
+  print: {
+    control: {
+      type: "boolean",
+    },
+  },
+  mainSize: {
+    options: panelSizes,
+    control: {
+      type: "select",
+    },
+  },
+  documentPanelSize: {
+    options: panelSizes,
+    control: {
+      type: "select",
+    },
+  },
+  mainPanelExpanded: {
+    type: "boolean",
+  },
+  mainPanelHidden: {
+    type: "boolean",
+  },
+  dsoMainSizeChangeAnimationEnd: argTypeAction(),
+  dsoCloseOverlay: argTypeAction(),
+  dsoCloseFilterPanel: argTypeAction(),
+  dsoDocumentPanelSizeChange: argTypeAction(),
+  dsoDocumentPanelSizeChangeAnimationEnd: argTypeAction(),
+  dsoMainPanelToggle: argTypeAction(),
+  dsoActiveTabSwitch: argTypeAction(),
+};
+
+export function viewerGridArgsMapper<TemplateFnReturnType>(
+  a: ViewerGridArgs,
+  example: ViewerGridExample<TemplateFnReturnType>,
+): ViewerGrid<TemplateFnReturnType> {
+  return {
+    ...a,
+    ...example,
+    main: example.main(a.mainPanelExpanded!),
+    dsoDocumentPanelSizeChange: (e) => a.dsoDocumentPanelSizeChange(e.detail),
+    dsoMainPanelToggle: (e) => a.dsoMainPanelToggle(e.detail),
+    dsoCloseFilterPanel: () => a.dsoCloseFilterPanel(),
+    dsoCloseOverlay: () => a.dsoCloseOverlay(),
+    dsoActiveTabSwitch: (e) => a.dsoActiveTabSwitch(e.detail),
+    dsoDocumentPanelSizeChangeAnimationEnd: (e) => a.dsoDocumentPanelSizeChange(e.detail),
+    dsoMainSizeChangeAnimationEnd: (e) => a.dsoMainSizeChangeAnimationEnd(e.detail),
+  };
+}

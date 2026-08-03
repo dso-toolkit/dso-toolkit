@@ -1,10 +1,12 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { buttonRowTemplate } from "../button-row/button-row.template.js";
+import { headingTemplate } from "../heading/heading.template.js";
+import { imageTemplate } from "../image/image.template.js";
+import { linkTemplate } from "../link/link.template.js";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-export function richContent(templates: Templates) {
-  const { linkTemplate, buttonRowTemplate, imageTemplate, richContentTemplate } = templates;
-
+export function richContent() {
   return html`${richContentTemplate({
     children: html`<p>
         Uitleg over wat u hier kunt doen en lezen. Met een link naar
@@ -37,9 +39,7 @@ export function richContent(templates: Templates) {
   })}`;
 }
 
-export function headingContent(templates: Templates) {
-  const { headingTemplate } = templates;
-
+export function headingContent() {
   return html`${headingTemplate({
     level: 5,
     children: "Tip: Onboarding",

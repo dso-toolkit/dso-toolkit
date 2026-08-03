@@ -1,13 +1,17 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { applicationHeadingTemplate } from "../../../components/application-heading/application-heading.template.js";
+import { dropdownMenuTemplate } from "../../../components/dropdown-menu/dropdown-menu.template.js";
+import { formButtonsTemplate } from "../../../components/form-buttons/form-buttons.template.js";
+import { justifyFormGroupsTemplate } from "../../../components/justify-form-groups/justify-form-groups.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { dropdownItems, formGroup } from "./locatie.content";
+import { dropdownItems, formGroup } from "./locatie.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Locatie",
@@ -15,10 +19,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Locatie = examplePageStories((templates) => {
-  const { applicationHeadingTemplate, dropdownMenuTemplate, formButtonsTemplate, justifyFormGroupsTemplate } =
-    templates;
-
+const Locatie = examplePageStory(() => {
   return html`
     <style>
       .dso-map-example {
@@ -31,7 +32,7 @@ const Locatie = examplePageStories((templates) => {
     </style>
 
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         ${applicationHeadingTemplate({
           title: "Aanvraag Laan van Eik en Duinen 125, Den Haag",
@@ -45,8 +46,8 @@ const Locatie = examplePageStories((templates) => {
             </div>
             <div class="col-md-3 text-right">
               ${dropdownMenuTemplate({
-                button: { variant: "tertiary", label: "Meer zoekopties" },
-                id: "locatie--dropdownmenu",
+                variant: "tertiary",
+                label: "Meer zoekopties",
                 groups: dropdownItems,
               })}
             </div>
@@ -68,7 +69,7 @@ const Locatie = examplePageStories((templates) => {
             ],
           })}
         </form>
-        ${footerPartial(templates)}
+        ${footerPartial()}
       </main>
     </div>
   `;

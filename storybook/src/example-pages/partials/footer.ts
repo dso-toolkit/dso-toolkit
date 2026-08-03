@@ -1,7 +1,6 @@
-import { children } from "../../components/footer/footer.content";
-import { Templates } from "../../templates";
+import { children } from "../../components/footer/footer.content.js";
+import { footerTemplate } from "../../components/footer/footer.template.js";
 
-export function footerPartial(templates: Templates) {
-  const { footerTemplate } = templates;
-  return footerTemplate({ children: children(templates) });
+export function footerPartial() {
+  return footerTemplate({ children: children() });
 }

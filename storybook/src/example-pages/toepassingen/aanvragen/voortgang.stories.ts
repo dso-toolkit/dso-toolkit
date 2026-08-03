@@ -1,11 +1,12 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { listTemplate } from "../../../components/list/list.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Voortgang",
@@ -13,12 +14,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Voortgang = examplePageStories((templates) => {
-  const { listTemplate } = templates;
-
+const Voortgang = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <h1>Bezig met verzenden...</h1>
         <h2>Object Laan van Eik en Duinen 125, 's-Gravenhage</h2>
@@ -46,7 +45,7 @@ const Voortgang = examplePageStories((templates) => {
         })}
         <hr />
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

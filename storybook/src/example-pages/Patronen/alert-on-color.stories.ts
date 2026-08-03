@@ -1,9 +1,10 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { Alert } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
-import { examplePageStories } from "../../example-page-stories";
-import { Templates } from "../../templates";
+import type { Alert } from "../../components/alert/alert.models.js";
+import { alertTemplate } from "../../components/alert/alert.template.js";
+import { highlightBoxTemplate } from "../../components/highlight-box/highlight-box.template.js";
+import { examplePageStory } from "../../example-page-story.js";
 
 const meta: Meta = {
   title: "Patronen/Alert on color",
@@ -11,28 +12,26 @@ const meta: Meta = {
 
 export default meta;
 
-export const AlertOnColor = examplePageStories((templates) => {
-  const { highlightBoxTemplate } = templates;
-
+export const AlertOnColor = examplePageStory(() => {
   return html`
     ${highlightBoxTemplate({
       grey: true,
-      content: content(templates),
+      content: content(),
     })}
     ${highlightBoxTemplate({
       yellow: true,
-      content: content(templates),
+      content: content(),
     })}
     ${highlightBoxTemplate({
       white: true,
-      content: content(templates),
+      content: content(),
     })}
     ${highlightBoxTemplate({
       grey: true,
       content: html`
         ${highlightBoxTemplate({
           white: true,
-          content: content(templates),
+          content: content(),
         })}
       `,
     })}
@@ -41,16 +40,14 @@ export const AlertOnColor = examplePageStories((templates) => {
       content: html`
         ${highlightBoxTemplate({
           yellow: true,
-          content: content(templates),
+          content: content(),
         })}
       `,
     })}
   `;
 });
 
-const content = function (templates: Templates) {
-  const { alertTemplate } = templates;
-
+const content = function () {
   const alerts: Alert<TemplateResult>[] = [
     { status: "error", message: "Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan." },
     { status: "success", message: "Alles werkt prima!" },

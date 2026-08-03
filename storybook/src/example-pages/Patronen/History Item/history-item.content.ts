@@ -1,4 +1,4 @@
-import { HistoryItem } from "dso-toolkit";
+import type { HistoryItem } from "../../../components/history-item/history-item.models.js";
 
 export const historyItemsOntwerp: HistoryItem[] = [
   {

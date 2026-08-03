@@ -1,0 +1,18 @@
+import { HandlerFunction } from "storybook/actions";
+
+import { IconAlias } from "../icon/icon.models.js";
+
+export type IconButtonVariant = "secondary" | "tertiary" | "map";
+
+export type IconButtonTooltipPlacement = "top" | "bottom" | "left" | "right";
+
+export interface IconButton {
+  expanded?: boolean;
+  variant: IconButtonVariant;
+  icon: IconAlias;
+  label: string;
+  tooltipPlacement?: IconButtonTooltipPlacement;
+  disabled?: boolean;
+  dsoClick?: HandlerFunction;
+  toggled?: boolean;
+}

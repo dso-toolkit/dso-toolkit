@@ -1,5 +1,6 @@
-import { Form } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
+
+import type { Form } from "../../../components/form/form.models.js";
 
 export const form: Form<TemplateResult> = {
   mode: "horizontal",

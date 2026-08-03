@@ -1,8 +1,9 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { linkTemplate } from "../link/link.template.js";
+import { linkListTemplate } from "../link-list/link-list.template.js";
 
-export function children({ linkTemplate, linkListTemplate }: Templates) {
+export function children() {
   return html`
     <div class="row">
       <div class="col-sm-6 col-md-3">
