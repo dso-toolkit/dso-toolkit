@@ -130,28 +130,60 @@ describe("Viewer Grid", () => {
       .should("have.been.calledOnce");
   });
 
-  it("should toggle filter panel", () => {
-    cy.visit(url);
+  describe("Filter Panel", () => {
+    const viewports = [
+      { name: "normal view", width: 1600, height: 600 },
+      { name: "tab view", width: 768, height: 600 },
+    ];
 
-    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel").should("be.not.visible");
-    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("not.exist");
+    // Schakel transities in de shadow-DOM uit zodat de snapshot niet racet met de 200ms
+    // slide-animatie van het filterpaneel (dat leidt tot flaky resultaten in de buildstraat).
+    function disableViewerGridTransitions() {
+      cy.get("dso-viewer-grid.hydrated").then(($el) => {
+        const element = $el[0] as HTMLElement;
+        const shadowRoot = element.shadowRoot;
+        const view = element.ownerDocument.defaultView;
 
-    cy.get("dso-viewer-grid.hydrated")
-      .invoke("attr", "filter-panel-title", "Titel van filterpaneel")
-      .invoke("attr", "filter-panel-open", "")
-      .shadow()
-      .find(".filter-panel")
-      .should("be.visible");
+        if (!shadowRoot || !view) {
+          throw new Error("dso-viewer-grid heeft geen shadowRoot of window");
+        }
 
-    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("exist").and("be.visible");
+        const sheet = new view.CSSStyleSheet();
+        sheet.replaceSync("* { transition: none !important; animation: none !important; }");
+        shadowRoot.adoptedStyleSheets = [...shadowRoot.adoptedStyleSheets, sheet];
+      });
+    }
 
-    cy.get("dso-viewer-grid.hydrated")
-      .invoke("attr", "filter-panel-open", null)
-      .shadow()
-      .find(".filter-panel")
-      .should("be.not.visible");
+    for (const viewport of viewports) {
+      describe(viewport.name, () => {
+        beforeEach(() => {
+          cy.viewport(viewport.width, viewport.height);
+          cy.visit(url);
+          disableViewerGridTransitions();
+        });
 
-    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("not.exist");
+        it("toggle", () => {
+          const base = Cypress.currentTest.titlePath.join(" -- ");
+
+          cy.get("dso-viewer-grid.hydrated")
+            .invoke("attr", "filter-panel-title", "Titel van filterpaneel")
+            .invoke("attr", "filter-panel-open", "");
+
+          cy.get("dso-viewer-grid.hydrated")
+            .shadow()
+            .find(".filter-panel[open] h3")
+            .should("be.visible")
+            .and("contain.text", "Titel van filterpaneel");
+          cy.get("dso-viewer-grid.hydrated").matchImageSnapshot(`${base} -- open`);
+
+          cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-open", null);
+
+          cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel").should("not.have.attr", "open");
+          cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("not.exist");
+          cy.get("dso-viewer-grid.hydrated").matchImageSnapshot(`${base} -- closed`);
+        });
+      });
+    }
   });
 
   it("shows the correct title for the filter panel", () => {
@@ -296,6 +328,7 @@ describe("Viewer Grid", () => {
   it("should render h3 with sr-only class when no title is provided", () => {
     cy.visit(url);
     cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-open", "");
+    cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-title", "");
     cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("have.class", "sr-only");
   });
 

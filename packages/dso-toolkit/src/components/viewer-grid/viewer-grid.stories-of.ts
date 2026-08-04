@@ -68,98 +68,64 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
   storyTemplates,
   templateContainer,
 }: ViewerGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ViewerGridStories {
+  type ViewerGridStoryArgs = Pick<
+    ViewerGridArgs,
+    | "mainSize"
+    | "filterPanelOpen"
+    | "filterPanelTitle"
+    | "overlayOpen"
+    | "documentPanelOpen"
+    | "documentPanelSize"
+    | "mainPanelExpanded"
+    | "mainPanelHidden"
+    | "activeTab"
+  >;
+
+  const render = templateContainer.render(storyTemplates, (args: ViewerGridArgs, { viewerGridTemplate, example }) =>
+    viewerGridTemplate(viewerGridArgsMapper(args, example)),
+  );
+
+  const defaultArgs = componentArgs<ViewerGridStoryArgs>({
+    mainSize: "large",
+    filterPanelOpen: false,
+    filterPanelTitle: "Titel van het filter paneel",
+    overlayOpen: false,
+    documentPanelOpen: false,
+    documentPanelSize: "small",
+    mainPanelExpanded: true,
+    mainPanelHidden: false,
+    activeTab: "search",
+  });
+
+  const parameters = { layout: "fullscreen" as const };
+
   return {
     ViewerGrid: {
-      args: componentArgs<
-        Pick<
-          ViewerGridArgs,
-          | "mainSize"
-          | "filterPanelOpen"
-          | "overlayOpen"
-          | "documentPanelOpen"
-          | "documentPanelSize"
-          | "mainPanelExpanded"
-          | "mainPanelHidden"
-          | "activeTab"
-        >
-      >({
-        mainSize: "large",
-        filterPanelOpen: false,
-        overlayOpen: false,
-        documentPanelOpen: false,
-        documentPanelSize: "small",
-        mainPanelExpanded: true,
-        mainPanelHidden: false,
-        activeTab: "search",
-      }),
-      render: templateContainer.render(storyTemplates, (args, { viewerGridTemplate, example }) =>
-        viewerGridTemplate(viewerGridArgsMapper(args, example)),
-      ),
-      parameters: {
-        layout: "fullscreen",
-      },
+      args: defaultArgs,
+      render,
+      parameters,
     },
     FilterPanel: {
-      args: componentArgs<
-        Pick<
-          ViewerGridArgs,
-          | "mainSize"
-          | "filterPanelTitle"
-          | "filterPanelOpen"
-          | "overlayOpen"
-          | "documentPanelOpen"
-          | "documentPanelSize"
-          | "mainPanelExpanded"
-          | "mainPanelHidden"
-          | "activeTab"
-        >
-      >({
+      args: {
+        ...defaultArgs,
         mainSize: "medium",
-        filterPanelTitle: "Titel van het filter paneel",
         filterPanelOpen: true,
-        overlayOpen: false,
-        documentPanelOpen: false,
         documentPanelSize: "medium",
-        mainPanelExpanded: true,
-        mainPanelHidden: false,
-        activeTab: "search",
-      }),
-      render: templateContainer.render(storyTemplates, (args, { viewerGridTemplate, example }) =>
-        viewerGridTemplate(viewerGridArgsMapper(args, example)),
-      ),
-      parameters: {
-        layout: "fullscreen",
       },
+      render,
+      parameters,
     },
     DocumentPanel: {
-      args: componentArgs<
-        Pick<
-          ViewerGridArgs,
-          | "mainSize"
-          | "filterPanelOpen"
-          | "overlayOpen"
-          | "documentPanelOpen"
-          | "documentPanelSize"
-          | "mainPanelExpanded"
-          | "mainPanelHidden"
-          | "activeTab"
-        >
-      >({
-        mainSize: "large",
-        filterPanelOpen: false,
-        overlayOpen: false,
+      args: {
+        ...defaultArgs,
         documentPanelOpen: true,
         documentPanelSize: "medium",
         mainPanelExpanded: false,
         mainPanelHidden: true,
         activeTab: "document",
-      }),
-      render: templateContainer.render(storyTemplates, (args, { viewerGridTemplate, example }) =>
-        viewerGridTemplate(viewerGridArgsMapper(args, example)),
-      ),
-      parameters: {
-        layout: "fullscreen",
       },
+      render,
+      parameters,
     },
   };
 }

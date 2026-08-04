@@ -373,6 +373,10 @@ slot[name="legend"] {
       margin-inline: 0;
       inset-inline-start: -100vw;
       inline-size: 100vw;
+
+      &[open] {
+        inset-inline-start: 0;
+      }
     }
   }
 }
