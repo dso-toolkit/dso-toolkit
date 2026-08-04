@@ -304,6 +304,7 @@ describe("Viewer Grid", () => {
   it("should render h3 with sr-only class when no title is provided", () => {
     cy.visit(url);
     cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-open", "");
+    cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-title", "");
     cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("have.class", "sr-only");
   });
 
