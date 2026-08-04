@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { kaartlagenTabItem, legendArgs, legendaTabItem } from "dso-toolkit";
+import { ViewerGridTab, kaartlagenTabItem, legendArgs, legendaTabItem } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 
@@ -30,8 +30,10 @@ const Documenten = examplePageStories<{
   filterPanelOpen: boolean;
   mainPanelOpen: boolean;
   legendOpen: boolean;
+  sticky: boolean;
+  activeTab: ViewerGridTab;
 }>(
-  (templates, { print, filterPanelOpen, mainPanelOpen, legendOpen }) => {
+  (templates, { print, filterPanelOpen, mainPanelOpen, legendOpen, sticky, activeTab }) => {
     const {
       accordionTemplate,
       linkTemplate,
@@ -64,7 +66,7 @@ const Documenten = examplePageStories<{
           overflow-y: hidden;
         }
 
-        .demo-main > dso-viewer-grid {
+        .demo-main > dso-viewer-grid:not([print]) {
           block-size: 100%;
         }
 
@@ -104,6 +106,7 @@ const Documenten = examplePageStories<{
 
         <main class="demo-main ${classMap({ print })}">
           ${viewerGridTemplate({
+            activeTab,
             filterPanelOpen,
             filterPanelTitle: "Filter op kenmerken",
             mainPanelExpanded: true,
@@ -214,6 +217,7 @@ const Documenten = examplePageStories<{
                 owner: "",
                 featuresContent: featuresContent(templates),
                 advancedSelect,
+                sticky,
               })}
               ${navbarTemplate(documentPanelSubmenu)}
               ${highlightBoxTemplate({
@@ -269,19 +273,30 @@ const Documenten = examplePageStories<{
     argTypes: {
       print: {
         control: { type: "boolean" },
-        table: { category: "Settings" },
+        table: { category: "Viewer Grid" },
       },
       filterPanelOpen: {
         control: { type: "boolean" },
-        table: { category: "Settings" },
+        table: { category: "Viewer Grid" },
       },
       mainPanelOpen: {
         control: { type: "boolean" },
-        table: { category: "Settings" },
+        table: { category: "Viewer Grid" },
       },
       legendOpen: {
         control: { type: "boolean" },
-        table: { category: "Settings" },
+        table: { category: "Legend" },
+      },
+      sticky: {
+        control: { type: "boolean" },
+        table: { category: "Document Header" },
+      },
+      activeTab: {
+        options: [undefined, "search", "map", "document"],
+        control: {
+          type: "select",
+        },
+        table: { category: "Viewer Grid" },
       },
     },
     args: {
@@ -289,6 +304,8 @@ const Documenten = examplePageStories<{
       filterPanelOpen: true,
       mainPanelOpen: true,
       legendOpen: true,
+      sticky: false,
+      activeTab: "document",
     },
   },
 );

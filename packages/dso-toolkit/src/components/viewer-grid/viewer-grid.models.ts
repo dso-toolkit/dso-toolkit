@@ -5,7 +5,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   documentPanelOpen?: boolean;
   print?: boolean;
   mainSize?: ViewerGridPanelSize;
-  activeTab?: Tab;
+  activeTab?: ViewerGridTab;
   documentPanelSize?: ViewerGridPanelSize;
   mainPanelExpanded?: boolean;
   mainPanelHidden?: boolean;
@@ -26,7 +26,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
 }
 
 export type ViewerGridPanelSize = "small" | "medium" | "large";
-export type Tab = "search" | "map" | "document" | "main";
+export type ViewerGridTab = "search" | "map" | "document";
 
 export interface ViewerGridChangeSizeEvent {
   currentSize: ViewerGridPanelSize;
@@ -38,7 +38,7 @@ export interface ViewerGridChangeSizeAnimationEndEvent {
 }
 
 export interface ViewerGridActiveTabSwitchEvent {
-  tab: Tab;
+  tab: ViewerGridTab;
 }
 
 export interface ViewerGridMainExpandEvent {

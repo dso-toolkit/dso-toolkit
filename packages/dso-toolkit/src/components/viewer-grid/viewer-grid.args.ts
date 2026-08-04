@@ -3,7 +3,7 @@ import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../storybook";
 
-import { Tab, ViewerGrid, ViewerGridPanelSize } from "./viewer-grid.models.js";
+import { ViewerGrid, ViewerGridPanelSize, ViewerGridTab } from "./viewer-grid.models.js";
 import { ViewerGridTemplates } from "./viewer-grid.stories-of.js";
 
 const panelSizes = ["small", "medium", "large"];
@@ -15,7 +15,7 @@ export interface ViewerGridArgs {
   documentPanelOpen?: boolean;
   print?: boolean;
   mainSize: ViewerGridPanelSize;
-  activeTab?: Tab;
+  activeTab?: ViewerGridTab;
   documentPanelSize: ViewerGridPanelSize;
   mainPanelExpanded?: boolean;
   mainPanelHidden?: boolean;
