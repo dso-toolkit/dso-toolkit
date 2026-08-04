@@ -91,9 +91,6 @@
             display: inline-block;
             margin-inline-end: units.$u1;
             max-inline-size: calc(100% - #{units.$u2 * 2});
-            overflow: hidden;
-            text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
-            white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
           }
         }
       }
