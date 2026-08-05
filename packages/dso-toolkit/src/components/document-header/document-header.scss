@@ -55,7 +55,7 @@
   }
 
   &.dso-document-header-sticky {
-    @media (min-width: #{document-header-variables.$sticky-min-width}) {
+    @media (min-width: document-header-variables.$sticky-min-width) {
       z-index: zindex.$document-header-sticky;
       position: sticky;
       inset-inline-start: 0;
