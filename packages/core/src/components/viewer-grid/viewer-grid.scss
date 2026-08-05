@@ -27,6 +27,30 @@
   }
 }
 
+:host(:not([print])) {
+  display: flex;
+  flex-direction: column;
+  block-size: 100dvh;
+  overflow: clip;
+  position: relative;
+
+  .viewer-grid-columns {
+    display: flex;
+    overflow: hidden;
+    flex-grow: 1;
+    min-block-size: 0;
+  }
+
+  .dso-main-panel,
+  .dso-document-panel {
+    min-block-size: 0;
+
+    .content {
+      overflow-y: auto;
+    }
+  }
+}
+
 button {
   @include button.element();
 }
@@ -275,12 +299,6 @@ slot[name="legend"] {
   }
 
   :host(:not([print])) {
-    display: flex;
-    flex-direction: column;
-    block-size: 100vh;
-    overflow: clip;
-    position: relative;
-
     .dso-main-panel.compact,
     .dso-main-panel.expanded {
       flex-basis: unset;
@@ -289,19 +307,9 @@ slot[name="legend"] {
       inline-size: 440px;
     }
 
-    .viewer-grid-columns {
-      display: flex;
-      overflow: hidden;
-      flex-grow: 1;
-    }
-
     .dso-main-panel,
     .dso-document-panel {
       box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
-
-      .content {
-        overflow-y: auto;
-      }
     }
 
     .filter-panel {
@@ -354,6 +362,19 @@ slot[name="legend"] {
   }
 
   :host(:not([print])) {
+    .viewer-grid-columns {
+      flex-direction: column;
+    }
+
+    .dso-main-panel,
+    .dso-document-panel,
+    .map-area {
+      flex: 1;
+      inline-size: 100%;
+      max-inline-size: none;
+      min-inline-size: 0;
+    }
+
     .map {
       position: relative;
       inset: auto;

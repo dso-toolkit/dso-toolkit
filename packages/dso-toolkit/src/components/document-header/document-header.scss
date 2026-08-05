@@ -4,6 +4,7 @@
 @use "../../variables/units";
 @use "../../variables/colors";
 @use "../../variables/typography";
+@use "../../variables/zindex";
 @use "../button";
 @use "../../variables/icon";
 
@@ -54,52 +55,52 @@
   }
 
   &.dso-document-header-sticky {
-    position: sticky;
-    inset-inline-start: 0;
-    inset-block-start: 0;
-    padding-block: 0 calc(#{units.$u1} * 0.5);
-    border-block-start: document-header-variables.$sticky-border-width-style colors.$grijs-5;
+    @media (min-width: document-header-variables.$sticky-min-width) {
+      z-index: zindex.$document-header-sticky;
+      position: sticky;
+      inset-inline-start: 0;
+      inset-block-start: 0;
+      padding-block: 0 calc(#{units.$u1} * 0.5);
+      border-block-start: document-header-variables.$sticky-border-width-style colors.$grijs-5;
 
-    &.dso-variant-ontwerp {
-      border-block-start: document-header-variables.$sticky-border-width-style colors.$geel;
-    }
+      &.dso-variant-ontwerp {
+        border-block-start: document-header-variables.$sticky-border-width-style colors.$geel;
+      }
 
-    &.dso-variant-besluitversie {
-      border-block-start: document-header-variables.$sticky-border-width-style colors.$bosgroen;
-    }
+      &.dso-variant-besluitversie {
+        border-block-start: document-header-variables.$sticky-border-width-style colors.$bosgroen;
+      }
 
-    #{typography.$headings} {
-      margin-block-end: 0;
+      #{typography.$headings} {
+        margin-block-end: 0;
 
-      button {
-        align-items: center;
-        justify-content: space-between;
-        background-color: transparent;
-        display: flex;
-        text-align: start;
-        inline-size: 100%;
+        button {
+          align-items: center;
+          justify-content: space-between;
+          background-color: transparent;
+          display: flex;
+          text-align: start;
+          inline-size: 100%;
 
-        &::after {
-          @include di.base("chevron-up-bosgroen");
+          &::after {
+            @include di.base("chevron-up-bosgroen");
 
-          content: "";
-          display: inline-block;
-        }
+            content: "";
+            display: inline-block;
+          }
 
-        span {
-          display: inline-block;
-          margin-inline-end: units.$u1;
-          max-inline-size: calc(100% - #{units.$u2 * 2});
-          overflow: hidden;
-          text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
-          white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
+          span {
+            display: inline-block;
+            margin-inline-end: units.$u1;
+            max-inline-size: calc(100% - #{units.$u2 * 2});
+          }
         }
       }
-    }
 
-    .dso-document-header-container,
-    .dso-document-header-status {
-      display: none;
+      .dso-document-header-container,
+      .dso-document-header-status {
+        display: none;
+      }
     }
   }
 
