@@ -108,7 +108,7 @@ export class Mapper {
       {
         inline: context.inline,
         mark: context.mark,
-        mapNodeToJsx: (n, m) => this.mapNodeToJsx(n, context, [...path, node], m),
+        mapNodeToJsx: (n, m = ignoreMark) => this.mapNodeToJsx(n, context, [...path, node], m),
         emitClick: context.emitClick,
         setState,
         emitMarkItemHighlight: context.emitMarkItemHighlight,

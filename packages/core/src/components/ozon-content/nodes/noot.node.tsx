@@ -28,7 +28,7 @@ export class OzonContentNootNode implements OzonContentNode {
       <sup>
         <dso-ozon-content-toggletip class="toggle-note">
           <span slot="label">{nootNummer}</span>
-          <span role="section">{mapNodeToJsx(Array.from(node.querySelectorAll(":scope > Al")))}</span>
+          <span role="section">{mapNodeToJsx(Array.from(node.querySelectorAll(":scope > Al")), true)}</span>
         </dso-ozon-content-toggletip>
       </sup>
     );

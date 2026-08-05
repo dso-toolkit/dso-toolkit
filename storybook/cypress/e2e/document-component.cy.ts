@@ -85,19 +85,22 @@ describe("Document Component", () => {
         .map((item, index) => (isOdd(index) ? { text: item, highlight: source === "kop" && index === 1 } : item));
 
     cy.get("@document-component")
-      .then(
-        ($documentComponent: JQuery<HTMLDsoDocumentComponentElement>) =>
-          ($documentComponent[0].mark = cy.spy(marker).as("marker")),
-      )
+      .then(($documentComponent: JQuery<HTMLDsoDocumentComponentElement>) => {
+        const element = $documentComponent.get(0);
+        if (!element) {
+          throw new Error("dso-document-component not found");
+        }
+
+        element.mark = cy.spy(marker).as("marker");
+      })
       .get("@marker")
       .invoke("getCalls")
-      .should("have.length", 5)
-      .then((calls) => calls.map((c) => c.args))
+      .should("have.length", 4)
+      .then((calls: { args: [string, string] }[]) => calls.map((call) => call.args))
       .should("have.deep.members", [
         ["Artikel", "kop"],
         ["13.12c", "kop"],
         ["NootInKop III ", "kop"],
-        ["Thomas en Eric test 3.", "kop"],
         ["Opschrift", "kop"],
       ]);
   });

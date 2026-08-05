@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Document Component: `markFn` markeert onterecht tekst in tooltip ([#3865](https://github.com/dso-toolkit/dso-toolkit/issues/3865))
+
 ### Removed
 * **BREAKING** Info: Remove HTML/CSS implementatie ([#3679](https://github.com/dso-toolkit/dso-toolkit/issues/3679))
 
