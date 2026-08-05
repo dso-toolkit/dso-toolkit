@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🫆 Release 99.5.0 - 2026-08-05
+
 ### Changed
 * Document Component: WCAG bevinding inhoudsopgave gebruik headings ([#3874](https://github.com/dso-toolkit/dso-toolkit/issues/3874))
 * Document Header: WCAG bevindingen ([#3899](https://github.com/dso-toolkit/dso-toolkit/issues/3899))
