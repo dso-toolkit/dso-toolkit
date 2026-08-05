@@ -4,6 +4,7 @@
 @use "../../variables/units";
 @use "../../variables/colors";
 @use "../../variables/typography";
+@use "../../variables/zindex";
 @use "../button";
 @use "../../variables/icon";
 
@@ -55,6 +56,7 @@
 
   &.dso-document-header-sticky {
     @media (min-width: #{document-header-variables.$sticky-min-width}) {
+      z-index: zindex.$document-header-sticky;
       position: sticky;
       inset-inline-start: 0;
       inset-block-start: 0;
