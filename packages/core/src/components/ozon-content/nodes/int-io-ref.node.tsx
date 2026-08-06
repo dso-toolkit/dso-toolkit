@@ -44,7 +44,7 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
               href={href ?? undefined}
               title="Opent andere website in nieuw tabblad"
             >
-              <span>{mapNodeToJsx(node.childNodes)}</span>
+              <span>{mapNodeToJsx(node.childNodes, true)}</span>
               <dso-icon icon="external-link" />
             </a>
           </span>

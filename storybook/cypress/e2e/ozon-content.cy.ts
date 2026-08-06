@@ -123,6 +123,42 @@ describe("Ozon Content", () => {
       .should("be.visible");
   });
 
+  it("does not mark begrip definitie inside IntRef toggletip, but marks the label", () => {
+    const createMarkFn = (searchTerm: string) => (text: string) =>
+      text
+        .split(new RegExp(`(${searchTerm})`, "gi"))
+        .map((item, index) => (index % 2 !== 0 ? { text: item, highlight: true } : item));
+
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-ref-begrip");
+
+    // 1. Verify definition body does not contain marks when matching text exists
+    cy.get<HTMLDsoOzonContentElement>("dso-ozon-content.hydrated").then(($el) => {
+      if ($el[0]) {
+        $el[0].mark = createMarkFn("vuurwerk");
+      }
+    });
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .find(":not([slot])")
+      .find("mark")
+      .should("not.exist");
+
+    // 2. Verify visible label trigger is marked
+    cy.get<HTMLDsoOzonContentElement>("dso-ozon-content.hydrated").then(($el) => {
+      if ($el[0]) {
+        $el[0].mark = createMarkFn("aanwijzingsbesluit");
+      }
+    });
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip span[slot=label]")
+      .find("mark")
+      .should("exist");
+  });
+
   it("should render unknown element to span", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
 
