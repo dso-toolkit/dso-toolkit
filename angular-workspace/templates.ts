@@ -75,7 +75,6 @@ export interface Components {
   selectable: Selectable<IStory>;
   slideToggle: SlideToggle;
   // table: Table<IStory>;
-  // tooltip: Tooltip;
   // treeView: TreeView;
   // viewerGrid: ViewerGrid<IStory>;
 }
