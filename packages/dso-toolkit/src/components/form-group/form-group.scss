@@ -49,13 +49,13 @@
     margin-block-start: units.$block-spacing-xlarge;
   }
 
-  > .dso-info {
+  > dso-info {
     float: inline-start;
     margin-block: units.$u2;
     margin-inline: 0;
   }
 
-  .dso-info {
+  dso-info {
     h5,
     .h5 {
       @include heading.no-margin();
@@ -168,7 +168,7 @@
       padding-block-start: units.$u1;
     }
 
-    > .dso-info {
+    > dso-info {
       margin-block-start: units.$u1;
     }
   }
@@ -191,7 +191,7 @@
     inset-inline-end: math.floor((grid.$grid-gutter-width * 0.5));
   }
 
-  > .dso-info {
+  > dso-info {
     margin: units.$u2;
     inline-size: calc(100% - #{units.$u4});
   }
@@ -209,7 +209,7 @@
 
   fieldset {
     .dso-label-container {
-      > .dso-info {
+      > dso-info {
         font-weight: 400;
         margin-block-end: units.$u2;
         margin-block-start: units.$u1;
