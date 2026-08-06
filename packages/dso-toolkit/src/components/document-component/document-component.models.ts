@@ -20,7 +20,7 @@ export interface DocumentComponent<TemplateFnReturnType> {
   gereserveerd?: DocumentComponentInputType;
   label?: string;
   labelStatus?: LabelStatus;
-  heading: DocumentComponentHeading;
+  headingLevel: number;
   inhoud?: string;
   notApplicable?: boolean;
   open?: boolean;
@@ -41,8 +41,6 @@ export interface DocumentComponent<TemplateFnReturnType> {
   ozonContentUrlResolver?: OzonContentUrlResolver;
   ozonContentBegripResolver?: OzonContentBegripResolver;
 }
-
-export type DocumentComponentHeading = "h2" | "h3" | "h4" | "h5" | "h6";
 
 export type DocumentComponentInputType = XMLDocument | string;
 

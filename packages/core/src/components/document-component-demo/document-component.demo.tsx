@@ -366,7 +366,7 @@ export class DocumentComponentDemo implements ComponentInterface {
             : this.hasFilteredChildren(documentComponent)
         }
         gereserveerd={documentComponent.gereserveerd}
-        heading="h2"
+        headingLevel={2}
         kop={documentComponent.kop}
         inhoud={documentComponent.inhoud}
         openAnnotation={this.isOpenedAnnotation(documentComponent)}

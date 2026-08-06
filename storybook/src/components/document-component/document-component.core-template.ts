@@ -21,7 +21,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       dsoRecursiveToggle,
       filtered,
       gereserveerd,
-      heading,
+      headingLevel,
       inhoud,
       kop,
       label,
@@ -57,7 +57,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           ?open-annotation=${openAnnotation}
           .vervallen=${ifDefined(vervallen)}
           .alternativeTitle=${ifDefined(alternativeTitle)}
-          .heading=${heading}
+          .headingLevel=${headingLevel}
           .inhoud=${ifDefined(inhoud)}
           .kop=${ifDefined(kop)}
           .recursiveToggle=${recursiveToggle}
