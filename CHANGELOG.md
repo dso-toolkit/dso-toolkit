@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **BREAKING** Info: Remove HTML/CSS implementatie ([#3679](https://github.com/dso-toolkit/dso-toolkit/issues/3679))
+* **BREAKING** Tooltip: Remove ([#3377](https://github.com/dso-toolkit/dso-toolkit/issues/3377))
 
 ## 🫆 Release 99.5.0 - 2026-08-05
 
