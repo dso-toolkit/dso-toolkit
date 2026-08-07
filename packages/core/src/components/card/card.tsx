@@ -59,12 +59,41 @@ export class Card implements ComponentInterface {
     delete this.mutationObserver;
   }
 
+  componentWillRender(): void {
+    this.ensureSlottedHeadingIsClickable();
+  }
+
+  /**
+   * Workaround for NVDA with Chromium: activating (Enter) an anchor inside shadow DOM in browse mode fails
+   * because Chromium's IAccessible2 implementation cannot resolve shadow DOM elements
+   * (see https://github.com/nvaccess/nvda/issues/17845). Marking the slotted heading element as clickable makes
+   * NVDA dispatch the click on that light DOM element instead, which bubbles through the slot to the anchor.
+   */
+  private ensureSlottedHeadingIsClickable(): void {
+    const heading = this.host.querySelector<HTMLElement>("[slot='heading']");
+
+    if (heading && !heading.onclick) {
+      heading.onclick = () => undefined;
+    }
+  }
+
+  /**
+   * Emits the click event for clicks that originate from the heading anchor (including slotted content inside it)
+   * or from the host itself. Clicks from other (slotted) elements are ignored.
+   */
   private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement) || !this.href) {
+    if (!this.href) {
       return;
     }
 
-    return this.dsoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
+    const composedPath = e.composedPath();
+    const anchor = this.host.shadowRoot?.querySelector("a.heading-anchor");
+
+    if (composedPath[0] !== this.host && !(anchor && composedPath.includes(anchor))) {
+      return;
+    }
+
+    this.dsoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
   get selectableSlottedElement() {
@@ -79,34 +108,28 @@ export class Card implements ComponentInterface {
     const isSelectable = this.selectableSlottedElement !== null;
 
     return (
-      <Host is-selectable={isSelectable}>
+      <Host is-selectable={isSelectable} onClick={(e: MouseEvent) => this.clickEventHandler(e)}>
         <div class="dso-card-container">
           <div class="dso-card-selectable" hidden={!isSelectable}>
             <slot name="selectable" />
           </div>
           <div class="dso-card-heading">
             {(this.mode === "extern" && (
-              <a
-                href={this.href}
-                class="heading-anchor"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => this.clickEventHandler(e)}
-              >
+              <a href={this.href} class="heading-anchor" target="_blank" rel="noopener noreferrer">
                 <slot name="heading" />
-                <dso-icon icon="external-link"></dso-icon>
+                <dso-icon icon="external-link" aria-hidden="true"></dso-icon>
                 <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
               </a>
             )) ||
               (this.mode === "download" && (
-                <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
+                <a href={this.href} class="heading-anchor">
                   <slot name="heading" />
-                  <dso-icon icon="download"></dso-icon>
+                  <dso-icon icon="download" aria-hidden="true"></dso-icon>
                 </a>
               )) || (
-                <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
+                <a href={this.href} class="heading-anchor">
                   <slot name="heading" />
-                  <dso-icon icon="chevron-right"></dso-icon>
+                  <dso-icon icon="chevron-right" aria-hidden="true"></dso-icon>
                 </a>
               )}
             {this.interactionsSlottedElement !== null && <slot name="interactions" />}

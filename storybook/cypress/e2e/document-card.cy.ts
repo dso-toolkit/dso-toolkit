@@ -25,6 +25,30 @@ describe("Document Card", () => {
       .should("have.been.calledOnce");
   });
 
+  it("should call dsoDocumentCardClick event when a screen reader dispatches a click on the host", () => {
+    cy.get("dso-document-card.hydrated")
+      .then(($card) => {
+        $card[0]?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+      })
+      .get("@dsoDocumentCardClickListener")
+      .should("have.been.calledOnce");
+  });
+
+  it("should call dsoDocumentCardClick event when a screen reader dispatches a click on the slotted heading", () => {
+    // NVDA in browse mode cannot activate the anchor in the shadow DOM directly
+    // (https://github.com/nvaccess/nvda/issues/17845). The component marks the slotted heading as clickable so
+    // NVDA dispatches the click on that element.
+    cy.get("dso-document-card.hydrated")
+      .find("[slot='heading']")
+      .then(($heading) => {
+        expect($heading[0]?.onclick, "slotted heading should be marked clickable for NVDA").to.be.a("function");
+
+        $heading[0]?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, composed: true }));
+      })
+      .get("@dsoDocumentCardClickListener")
+      .should("have.been.calledOnce");
+  });
+
   it("should show different background-color when active='true'", () => {
     cy.get("dso-document-card.hydrated")
       .invoke("prop", "active", true)

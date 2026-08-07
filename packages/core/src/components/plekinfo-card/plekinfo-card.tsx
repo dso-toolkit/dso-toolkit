@@ -80,12 +80,41 @@ export class PlekinfoCard implements ComponentInterface {
     delete this.mutationObserver;
   }
 
+  componentWillRender(): void {
+    this.ensureSlottedHeadingIsClickable();
+  }
+
+  /**
+   * Workaround for NVDA with Chromium: activating (Enter) an anchor inside shadow DOM in browse mode fails
+   * because Chromium's IAccessible2 implementation cannot resolve shadow DOM elements
+   * (see https://github.com/nvaccess/nvda/issues/17845). Marking the slotted heading element as clickable makes
+   * NVDA dispatch the click on that light DOM element instead, which bubbles through the slot to the anchor.
+   */
+  private ensureSlottedHeadingIsClickable(): void {
+    const heading = this.host.querySelector<HTMLElement>("[slot='heading']");
+
+    if (heading && !heading.onclick) {
+      heading.onclick = () => undefined;
+    }
+  }
+
+  /**
+   * Emits the click event for clicks that originate from the heading anchor (including slotted content inside it)
+   * or from the host itself. Clicks from other (slotted) elements are ignored.
+   */
   private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement) || !this.href) {
+    if (!this.href) {
       return;
     }
 
-    return this.dsoPlekinfoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
+    const composedPath = e.composedPath();
+    const anchor = this.host.shadowRoot?.querySelector("a.heading-anchor");
+
+    if (composedPath[0] !== this.host && !(anchor && composedPath.includes(anchor))) {
+      return;
+    }
+
+    this.dsoPlekinfoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
   get symbolSlottedElement() {
@@ -104,7 +133,7 @@ export class PlekinfoCard implements ComponentInterface {
     const hasSymbol = this.symbolSlottedElement !== null;
 
     return (
-      <Host has-symbol={hasSymbol}>
+      <Host has-symbol={hasSymbol} onClick={(e: MouseEvent) => this.clickEventHandler(e)}>
         <WrapWijzigactie wijzigactie={this.wijzigactie} class="dso-plekinfo-card-container">
           <div class="dso-plekinfo-card-symbol" hidden={!hasSymbol}>
             <slot name="symbol" />
@@ -116,7 +145,6 @@ export class PlekinfoCard implements ComponentInterface {
                 target={this.targetBlank ? "_blank" : undefined}
                 rel={this.targetBlank ? "noopener noreferrer" : undefined}
                 class="heading-anchor"
-                onClick={(e) => this.clickEventHandler(e)}
               >
                 <span class="heading-content">
                   <slot name="heading" />
@@ -125,11 +153,11 @@ export class PlekinfoCard implements ComponentInterface {
                 {"\u2060"}
                 {this.targetBlank ? (
                   <>
-                    <dso-icon icon="external-link" />
+                    <dso-icon icon="external-link" aria-hidden="true" />
                     <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
                   </>
                 ) : (
-                  <dso-icon icon="chevron-right" />
+                  <dso-icon icon="chevron-right" aria-hidden="true" />
                 )}
               </a>
             ) : (
