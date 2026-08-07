@@ -62,6 +62,33 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").should("not.be.visible");
   });
 
+  it("should not trigger ResizeObserver loop errors when toggling the menu", () => {
+    cy.window().then((win) => {
+      const winWithErrors = win as Window & { __resizeObserverLoopErrors?: string[] };
+      winWithErrors.__resizeObserverLoopErrors = [];
+
+      win.addEventListener("error", (event) => {
+        if (event.message.includes("ResizeObserver loop")) {
+          winWithErrors.__resizeObserverLoopErrors?.push(event.message);
+        }
+      });
+    });
+
+    cy.get("@button").should("be.visible").focus().click();
+    cy.get("@menuitems").should("be.visible");
+    cy.wait(100);
+
+    cy.get("@button").click();
+    cy.get("@menuitems").should("not.be.visible");
+    cy.wait(100);
+
+    cy.get("@button").click();
+    cy.get("@menuitems").should("be.visible");
+    cy.wait(100);
+
+    cy.window().its("__resizeObserverLoopErrors").should("be.empty");
+  });
+
   it("matches snapshots", () => {
     cy.get("dso-dropdown-menu.hydrated").matchImageSnapshot(`type=link -- ${Cypress.currentTest.title} -- not open`);
 

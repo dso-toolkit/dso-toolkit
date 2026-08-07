@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Info: Remove HTML/CSS implementatie ([#3679](https://github.com/dso-toolkit/dso-toolkit/issues/3679))
 * **BREAKING** List: Remove `ol.dso-list-ordered-action` selector ([#3655](https://github.com/dso-toolkit/dso-toolkit/issues/3655))
 
+### Fixed
+* Header: ResizeObserver loop completed with undelivered notifications bij openen dropdown menu ([#3915](https://github.com/dso-toolkit/dso-toolkit/issues/3915))
+
 ## 🫆 Release 99.5.0 - 2026-08-05
 
 ### Changed
