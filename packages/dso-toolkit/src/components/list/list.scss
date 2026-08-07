@@ -142,8 +142,6 @@ ul:has(dso-project-item) {
   }
 }
 
-/* The ol.dso-list-ordered-action selector will be removed in #3655 */
-ol.dso-list-ordered-action,
 ol.dso-action-list,
 ul.dso-action-list {
   @include list.unstyled();
@@ -184,8 +182,7 @@ ul.dso-action-list {
   }
 }
 
-ol.dso-action-list,
-ol.dso-list-ordered-action {
+ol.dso-action-list {
   li::before {
     @include step-counter.ordered-action-list();
 
