@@ -34,6 +34,7 @@
   border-radius: advanced-select.$border-radius;
   cursor: pointer;
   background-color: advanced-select.$bg-color;
+  text-align: start;
   line-height: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -53,14 +54,9 @@
 }
 
 .active-option-label {
-  line-height: 1;
+  line-height: 1.5;
   padding-block: advanced-select.$active-option-block-padding;
   padding-inline: advanced-select.$active-option-inline-padding;
-  overflow: hidden;
-  /* stylelint-disable-next-line declaration-property-value-disallowed-list -- Nodig om lange titels op de zelfde regel te houden */
-  white-space: nowrap;
-  /* stylelint-disable-next-line declaration-property-value-disallowed-list -- Nodig om lange titels op de zelfde regel te houden */
-  text-overflow: ellipsis;
 }
 
 .active-option-aside {
