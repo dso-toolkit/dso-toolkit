@@ -88,6 +88,8 @@ export class DropdownMenu implements ComponentInterface {
 
   private cleanUp: ReturnType<typeof autoUpdate> | undefined;
   private popoverElement: HTMLDivElement | undefined;
+  private popoverFrameId?: number;
+  private pendingPopoverConstraints?: { availableWidth: number; availableHeight: number };
 
   private dropdownMenuTabbables(withButton: boolean): DropdownMenuTabbable[] {
     const menuItems = this.host.isConnected
@@ -102,11 +104,35 @@ export class DropdownMenu implements ComponentInterface {
   }
 
   componentDidRender() {
-    if (this.button && this.popoverElement && !this.cleanUp) {
+    // Only position the popover while it is open. autoUpdate runs on its own ResizeObserver;
+    // keeping it active on a closed (hidden) popover computes bogus constraints that force a
+    // same-frame correction on the next open.
+    if (this.open && this.button && this.popoverElement && !this.cleanUp) {
       const element = this.popoverElement;
       const referenceElement = this.button;
+      let initialUpdate = true;
 
-      this.cleanUp = autoUpdate(referenceElement, element, () => {
+      const applyPopoverStyles = (x: number, y: number) => {
+        if (!element.isConnected) {
+          return;
+        }
+
+        if (this.pendingPopoverConstraints) {
+          const scrollElement = element.querySelector<HTMLElement>("dso-scrollable") ?? element;
+
+          Object.assign(scrollElement.style, {
+            maxHeight: `${this.pendingPopoverConstraints.availableHeight}px`,
+            maxInlineSize: `${this.pendingPopoverConstraints.availableWidth}px`,
+          });
+        }
+
+        Object.assign(element.style, {
+          left: `${x}px`,
+          top: `${y}px`,
+        });
+      };
+
+      const autoUpdateCleanUp = autoUpdate(referenceElement, element, () => {
         computePosition(referenceElement, element, {
           strategy: "fixed",
           middleware: [
@@ -115,25 +141,47 @@ export class DropdownMenu implements ComponentInterface {
               padding: 2,
             }),
             size({
-              apply({ availableHeight, availableWidth, elements }) {
-                const scrollElement =
-                  elements.floating.querySelector<HTMLElement>("dso-scrollable") ?? elements.floating;
-
-                Object.assign(scrollElement.style, {
-                  maxHeight: `${availableHeight}px`,
-                  maxInlineSize: `${availableWidth}px`,
-                });
+              apply: ({ availableHeight, availableWidth }) => {
+                // No direct DOM writes here: this callback runs inside the autoUpdate
+                // ResizeObserver cycle and would trigger "ResizeObserver loop completed
+                // with undelivered notifications". The constraints are applied together
+                // with the position, see applyPopoverStyles.
+                this.pendingPopoverConstraints = { availableWidth, availableHeight };
               },
             }),
           ],
           placement: "bottom-start",
         }).then(({ x, y }) => {
-          Object.assign(element.style, {
-            left: `${x}px`,
-            top: `${y}px`,
+          if (initialUpdate) {
+            // The first update runs outside the ResizeObserver cycle and is applied
+            // directly so the popover does not show up unpositioned.
+            initialUpdate = false;
+            applyPopoverStyles(x, y);
+
+            return;
+          }
+
+          // Defer DOM writes until the next frame so ResizeObserver notifications can
+          // settle before the popover mutates its own layout again.
+          if (this.popoverFrameId !== undefined) {
+            cancelAnimationFrame(this.popoverFrameId);
+          }
+
+          this.popoverFrameId = requestAnimationFrame(() => {
+            this.popoverFrameId = undefined;
+            applyPopoverStyles(x, y);
           });
         });
       });
+
+      this.cleanUp = () => {
+        if (this.popoverFrameId !== undefined) {
+          cancelAnimationFrame(this.popoverFrameId);
+          this.popoverFrameId = undefined;
+        }
+
+        autoUpdateCleanUp();
+      };
     }
   }
 

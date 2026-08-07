@@ -91,6 +91,34 @@ describe("Header", () => {
       });
   }
 
+  it("should not trigger ResizeObserver loop errors when toggling the compact menu", () => {
+    cy.viewport(500, 800)
+      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .then(($header) => setMenuItems($header, defaultMenuItems));
+
+    cy.window().then((win) => {
+      const winWithErrors = win as Window & { __resizeObserverLoopErrors?: string[] };
+      winWithErrors.__resizeObserverLoopErrors = [];
+
+      win.addEventListener("error", (event) => {
+        if (event.message.includes("ResizeObserver loop")) {
+          winWithErrors.__resizeObserverLoopErrors?.push(event.message);
+        }
+      });
+    });
+
+    cy.get("dso-header[is-compact].hydrated").shadow().find(".dropdown-menu > button").as("menuButton");
+
+    cy.get("@menuButton").click().should("have.attr", "aria-expanded", "true");
+    cy.wait(100);
+    cy.get("@menuButton").click().should("have.attr", "aria-expanded", "false");
+    cy.wait(100);
+    cy.get("@menuButton").click().should("have.attr", "aria-expanded", "true");
+    cy.wait(100);
+
+    cy.window().its("__resizeObserverLoopErrors").should("be.empty");
+  });
+
   it("matches snapshot (all menuitems visible)", () => {
     cy.viewport(1400, 660)
       .get<HTMLDsoHeaderElement>("dso-header.hydrated")

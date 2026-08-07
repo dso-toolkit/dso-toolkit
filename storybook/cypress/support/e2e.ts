@@ -16,6 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import "./commands";
 
+import "./resize-observer-loop-guard";
+
 import "cypress-axe";
 import "cypress-real-events";
 
