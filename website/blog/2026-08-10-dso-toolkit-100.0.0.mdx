@@ -7,10 +7,28 @@ date: 2026-08-10
 
 Deze release bevat **BREAKING** changes voor de volgende componenten:
 
+- Document Component
 - Info (HTML/CSS implementatie)
 - List
 
 <!-- truncate -->
+
+## Document Component
+
+Een Omgevingsdocument kan meer dan 5 niveaus diep zijn. Voorheen ondersteunde het Document Component enkel de heading-niveaus `h2` tot en met `h6`. De prop `heading` is daarom vervangen door `heading-level`, die een numeriek niveau accepteert zonder bovengrens.
+
+Bij een niveau tot en met 6 wordt een native heading-element (`<h2>` … `<h6>`) gerenderd. Bij een niveau groter dan 6 wordt een `<div role="heading" aria-level="*">` gerenderd, omdat HTML geen native heading-elementen voorbij `<h6>` kent. Zo blijft de documentstructuur correct toegankelijk voor hulpsoftware.
+
+### Migratiepad
+
+Vervang de prop `heading` door `heading-level` en geef het niveau als getal op in plaats van als tagnaam.
+
+```html
+❌
+<dso-document-component heading="h2">...</dso-document-component>
+✅
+<dso-document-component heading-level="2">...</dso-document-component>
+```
 
 ## Info (HTML/CSS implementatie)
 

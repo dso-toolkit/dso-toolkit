@@ -11,7 +11,6 @@ import { OzonContentBegripResolver, OzonContentUrlResolver } from "../ozon-conte
 import {
   DocumentComponent,
   DocumentComponentAnnotationsWijzigactie,
-  DocumentComponentHeading,
   DocumentComponentInputType,
   DocumentComponentMode,
   DocumentComponentType,
@@ -81,7 +80,7 @@ export interface DocumentComponentArgs {
   gereserveerd: DocumentComponentInputType;
   label?: string;
   labelStatus?: LabelStatus;
-  heading: DocumentComponentHeading;
+  headingLevel: number;
   inhoud?: string;
   kop: string;
   notApplicable: boolean;
@@ -113,7 +112,7 @@ export const documentComponentArgs: Omit<
   gereserveerd: "",
   label: "Ontwerp",
   labelStatus: "warning",
-  heading: "h2",
+  headingLevel: 2,
   inhoud:
     "<Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Al>De artikelen 3.28, derde lid, en 3.38, aanhef en onder b, zijn van overeenkomstige toepassing op een activiteit als bedoeld in die artikelonderdelen die wordt verricht op een locatie waarvoor een op grond van artikel 4.35, eerste lid, van de Invoeringswet Omgevingswet als instructie geldende aanwijzing als beschermd stads- of dorpsgezicht als bedoeld in artikel 35, eerste lid, van de Monumentenwet 1988 zoals die wet luidde voor de inwerkingtreding van de Erfgoedwet van kracht is, zolang in dit omgevingsplan aan die locatie nog niet de functie-aanduiding rijksbeschermd stads- of dorpsgezicht is gegeven.</Al></Inhoud>",
   notApplicable: false,
@@ -201,10 +200,10 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "select",
     },
   },
-  heading: {
-    options: ["h2", "h3", "h4", "h5", "h6"],
+  headingLevel: {
     control: {
-      type: "select",
+      type: "number",
+      min: 2,
     },
   },
   inhoud: {
