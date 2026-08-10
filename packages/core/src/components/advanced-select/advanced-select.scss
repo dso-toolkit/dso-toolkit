@@ -1,5 +1,6 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/zindex";
 
@@ -47,16 +48,20 @@
   dso-icon {
     color: advanced-select.$icon-color;
   }
-
-  dso-label {
-    margin-inline-start: advanced-select.$inline-padding * 0.5;
-  }
 }
 
 .active-option-label {
+  @media (max-width: media-query-breakpoints.$screen-xs-min) {
+    hyphens: auto;
+  }
+
   line-height: 1.5;
   padding-block: advanced-select.$active-option-block-padding;
   padding-inline: advanced-select.$active-option-inline-padding;
+
+  dso-label {
+    margin-inline-end: advanced-select.$inline-padding * 0.5;
+  }
 }
 
 .active-option-aside {
@@ -67,8 +72,8 @@
 .badges {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: advanced-select.$block-padding;
+  padding-block-start: units.$u1;
   padding-inline-start: units.$u1;
 }
 
