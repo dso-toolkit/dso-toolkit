@@ -189,6 +189,30 @@ describe("Document Component", () => {
     });
   }
 
+  it("renders a native heading element matching the heading level in mode=document", () => {
+    cy.get("@document-component").shadow().find(".heading-container h2.heading-element").should("exist");
+
+    setProps({ headingLevel: 4 });
+
+    cy.get("@document-component").shadow().find(".heading-container h2.heading-element").should("not.exist");
+    cy.get("@document-component").shadow().find(".heading-container h4.heading-element").should("exist");
+  });
+
+  it("renders a div with role=heading and aria-level for heading levels beyond 6", () => {
+    setProps({ headingLevel: 7 });
+
+    cy.get("@document-component").shadow().find(".heading-container").find("h2, h3, h4, h5, h6").should("not.exist");
+
+    cy.get("@document-component")
+      .shadow()
+      .find(".heading-container div.heading-element")
+      .should("have.attr", "role", "heading")
+      .and("have.attr", "aria-level", "7");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-document-component.hydrated");
+  });
+
   it("renders the table of contents entry as a link without a heading", () => {
     setProps({ mode: "table-of-contents", href: "/document/id" });
 

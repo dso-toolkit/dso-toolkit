@@ -559,10 +559,10 @@ export namespace Components {
          */
         "gereserveerd": DocumentComponentInputType | undefined;
         /**
-          * The heading element to use (only in mode="document"). In mode="table-of-contents" the nested lists carry the structure and no heading is rendered.
-          * @default "h2"
+          * The heading level to use (only in mode="document"). When the level is 6 or lower a native heading element (`<h2>` … `<h6>`) is rendered; deeper levels are rendered as `<div role="heading" aria-level="*">` because HTML has no native heading elements beyond `<h6>`. In mode="table-of-contents" the nested lists carry the structure and no heading is rendered.
+          * @default 2
          */
-        "heading": "h2" | "h3" | "h4" | "h5" | "h6";
+        "headingLevel": number;
         /**
           * The URL to which the Heading links (only in mode="table-of-contents").
          */
@@ -3351,10 +3351,10 @@ declare namespace LocalJSX {
          */
         "gereserveerd"?: DocumentComponentInputType | undefined;
         /**
-          * The heading element to use (only in mode="document"). In mode="table-of-contents" the nested lists carry the structure and no heading is rendered.
-          * @default "h2"
+          * The heading level to use (only in mode="document"). When the level is 6 or lower a native heading element (`<h2>` … `<h6>`) is rendered; deeper levels are rendered as `<div role="heading" aria-level="*">` because HTML has no native heading elements beyond `<h6>`. In mode="table-of-contents" the nested lists carry the structure and no heading is rendered.
+          * @default 2
          */
-        "heading"?: "h2" | "h3" | "h4" | "h5" | "h6";
+        "headingLevel"?: number;
         /**
           * The URL to which the Heading links (only in mode="table-of-contents").
          */
@@ -4641,7 +4641,7 @@ declare namespace LocalJSX {
         "active": boolean;
     }
     interface DsoDocumentComponentAttributes {
-        "heading": "h2" | "h3" | "h4" | "h5" | "h6";
+        "headingLevel": number;
         "kop": DocumentComponentInputType | undefined;
         "inhoud": DocumentComponentInputType | undefined;
         "open": boolean;

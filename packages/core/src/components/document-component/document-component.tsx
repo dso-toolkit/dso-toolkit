@@ -111,11 +111,13 @@ export class DocumentComponent implements ComponentInterface {
   host!: HTMLDsoDocumentComponentElement;
 
   /**
-   * The heading element to use (only in mode="document"). In mode="table-of-contents" the nested lists carry the
-   * structure and no heading is rendered.
+   * The heading level to use (only in mode="document"). When the level is 6 or lower a native heading element
+   * (`<h2>` … `<h6>`) is rendered; deeper levels are rendered as `<div role="heading" aria-level="*">` because HTML
+   * has no native heading elements beyond `<h6>`. In mode="table-of-contents" the nested lists carry the structure
+   * and no heading is rendered.
    */
   @Prop({ reflect: true })
-  heading: "h2" | "h3" | "h4" | "h5" | "h6" = "h2";
+  headingLevel = 2;
 
   private _kopInput?: DocumentComponentInputType;
   private _kop?: XMLDocument;
@@ -435,7 +437,7 @@ export class DocumentComponent implements ComponentInterface {
             {this.wijzigactie && <span class="editaction-label">{this.wijzigactieLabel}:</span>}
             <div class="heading">
               <Heading
-                heading={this.heading}
+                headingLevel={this.headingLevel}
                 class="heading-element"
                 onClick={this.alternativeTitle ? this.handleHeadingClick : undefined}
                 mode={this.mode}
