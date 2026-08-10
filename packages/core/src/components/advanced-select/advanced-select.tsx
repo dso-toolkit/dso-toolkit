@@ -153,8 +153,10 @@ export class AdvancedSelect implements ComponentInterface {
             onClick={this.toggleOpen}
             ref={(element) => (this.toggleButtonElementRef = element)}
           >
-            <ActiveGroupLabel active={this.active} options={this.options} />
-            <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
+            <span class="active-option-label">
+              <ActiveGroupLabel active={this.active} options={this.options} />
+              {this.active?.label ?? "Selecteer een optie"}
+            </span>
             <span class="active-option-aside">
               <dso-icon icon={icon} aria-hidden="true"></dso-icon>
             </span>
