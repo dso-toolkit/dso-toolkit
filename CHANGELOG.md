@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 💯 Release 100.0.0 - 2026-08-10
+
 ### Added
 * **BREAKING** Document Component: Meer dan 5 heading levels ondersteunen ([#3897](https://github.com/dso-toolkit/dso-toolkit/issues/3897))
 
