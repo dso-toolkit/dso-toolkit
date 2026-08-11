@@ -26,17 +26,28 @@ describe("Table", () => {
     cy.get("dso-table.hydrated").matchImageSnapshot();
   });
 
+  it("should render the open modal button in the light DOM with aria-controls referencing the table id", () => {
+    cy.get("dso-table")
+      .find("> table")
+      .invoke("attr", "id")
+      .should("match", /^dso-table-[0-9a-f-]+$/)
+      .then((tableId) =>
+        cy
+          .get("dso-table > .open-modal-button")
+          .should("have.text", "tabel Overzicht van gebruikersnamen vergroten")
+          .and("have.attr", "aria-controls", tableId),
+      );
+  });
+
   it("should open and close an accessible modal", () => {
     cy.get("dso-table")
       .as("dsoTable")
+      .find("> .open-modal-button")
+      .should("have.text", "tabel Overzicht van gebruikersnamen vergroten")
+      .click()
+      .get("@dsoTable")
       .shadow()
       .as("dsoTableShadow")
-      .find(".open-modal-button")
-      .should("have.text", "tabel Overzicht van gebruikersnamen vergroten")
-      .get("@dsoTableShadow")
-      .find(".open-modal-button")
-      .click()
-      .get("@dsoTableShadow")
       .find("dso-modal")
       .as("dsoModal")
       .should("exist")
@@ -56,11 +67,11 @@ describe("Table", () => {
   it("should close the table modal with ESCAPE", () => {
     cy.get("dso-table")
       .as("dsoTable")
+      .find("> .open-modal-button")
+      .click()
+      .get("@dsoTable")
       .shadow()
       .as("dsoTableShadow")
-      .find(".open-modal-button")
-      .click()
-      .get("@dsoTableShadow")
       .find("dso-modal")
       .should("exist")
       .realPress("Escape")
@@ -72,11 +83,11 @@ describe("Table", () => {
   it("should trap focus in the table modal", () => {
     cy.get("dso-table")
       .as("dsoTable")
+      .find("> .open-modal-button")
+      .click()
+      .get("@dsoTable")
       .shadow()
       .as("dsoTableShadow")
-      .find(".open-modal-button")
-      .click()
-      .get("@dsoTableShadow")
       .find("dso-modal")
       .shadow()
       .find("#close-modal")

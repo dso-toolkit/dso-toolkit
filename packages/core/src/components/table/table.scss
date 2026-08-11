@@ -31,20 +31,18 @@
 .dso-table-utilities:not([hidden]) {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-block-end: units.$u1;
+
+  &:has(.dso-responsive-message) {
+    justify-content: space-between;
+  }
 
   .dso-responsive-message {
     margin-block-end: 0;
 
     &:only-child {
       inline-size: 100%;
-    }
-  }
-
-  .open-modal-button {
-    &:only-child {
-      margin-inline-start: auto;
     }
   }
 }
