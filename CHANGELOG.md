@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Table: Koppel knop vergroten aan tabel ([#3905](https://github.com/dso-toolkit/dso-toolkit/issues/3905))
+
 ## 💯 Release 100.0.0 - 2026-08-10
 
 ### Added

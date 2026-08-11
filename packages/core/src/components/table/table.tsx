@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, Fragment, Host, Prop, State, h } from "@stencil/core";
 import debounce from "debounce";
+import { v4 as uuidv4 } from "uuid";
 
 @Component({
   tag: "dso-table",
@@ -10,6 +11,11 @@ export class Table implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
   private resizeFrameId?: number;
   private pendingResizeEntry?: ResizeObserverEntry;
+
+  private openModalButton?: HTMLButtonElement;
+  private shouldFocusButton = false;
+
+  private openModalHandler = () => this.openModal();
 
   @Element()
   host!: HTMLDsoTableElement;
@@ -68,6 +74,10 @@ export class Table implements ComponentInterface {
     this.startResponsiveBehavior();
   }
 
+  componentDidRender(): void {
+    this.syncOpenModalButton();
+  }
+
   disconnectedCallback() {
     if (this.resizeFrameId !== undefined) {
       cancelAnimationFrame(this.resizeFrameId);
@@ -75,6 +85,10 @@ export class Table implements ComponentInterface {
     }
 
     this.resizeObserver?.disconnect();
+
+    this.openModalButton?.removeEventListener("click", this.openModalHandler);
+    this.openModalButton?.remove();
+    this.openModalButton = undefined;
   }
 
   render() {
@@ -112,13 +126,7 @@ export class Table implements ComponentInterface {
                 </div>
               )}
 
-              {!this.noModal && (
-                <button type="button" class="dso-tertiary open-modal-button" onClick={() => this.openModal()}>
-                  <span class="sr-only">tabel {caption ?? ""} </span>
-                  <span>vergroten</span>
-                  <dso-icon icon="external-link"></dso-icon>
-                </button>
-              )}
+              {!this.noModal && <slot name="open-modal-button" />}
             </div>
 
             <div class="dso-table-body">
@@ -138,6 +146,65 @@ export class Table implements ComponentInterface {
   private closeModal() {
     this.placeholderHeight = undefined;
     this.modalActive = false;
+    this.shouldFocusButton = true;
+  }
+
+  private syncOpenModalButton(): void {
+    const table = this.host.querySelector(":scope > table");
+
+    if (table && !table.id) {
+      table.id = `dso-table-${uuidv4()}`;
+    }
+
+    const shouldRender = !this.noModal && !this.modalActive;
+
+    if (!shouldRender) {
+      this.openModalButton?.removeEventListener("click", this.openModalHandler);
+      this.openModalButton?.remove();
+      this.openModalButton = undefined;
+
+      return;
+    }
+
+    if (!this.openModalButton) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "dso-tertiary open-modal-button";
+      button.setAttribute("slot", "open-modal-button");
+      button.addEventListener("click", this.openModalHandler);
+
+      const srOnly = document.createElement("span");
+      srOnly.className = "sr-only";
+
+      const label = document.createElement("span");
+      label.textContent = "vergroten";
+
+      const icon = document.createElement("dso-icon");
+      icon.setAttribute("icon", "external-link");
+
+      button.append(srOnly, label, icon);
+
+      this.host.appendChild(button);
+      this.openModalButton = button;
+    }
+
+    const caption = table?.querySelector(":scope > caption")?.textContent?.trim();
+    const srOnly = this.openModalButton.querySelector(".sr-only");
+
+    if (srOnly) {
+      srOnly.textContent = `tabel ${caption ?? ""} `;
+    }
+
+    if (table?.id) {
+      this.openModalButton.setAttribute("aria-controls", table.id);
+    } else {
+      this.openModalButton.removeAttribute("aria-controls");
+    }
+
+    if (this.shouldFocusButton) {
+      this.shouldFocusButton = false;
+      this.openModalButton.focus();
+    }
   }
 
   private setResponsiveTable(dsoTable: ResizeObserverEntry): void {
