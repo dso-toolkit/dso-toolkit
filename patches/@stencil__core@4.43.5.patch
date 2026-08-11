@@ -1,0 +1,39 @@
+diff --git a/internal/client/index.js b/internal/client/index.js
+index 618869d33d53763792fefed6130ffc6e11146afa..bd35dd52649b4b3902b843369486905a96270e0b 100644
+--- a/internal/client/index.js
++++ b/internal/client/index.js
+@@ -3014,7 +3014,7 @@ var insertBefore = (parent, newNode, reference, isInitialLoad) => {
+       return newNode;
+     }
+   }
+-  if (parent.__insertBefore) {
++  if (parent != null && parent.__insertBefore) {
+     return parent.__insertBefore(newNode, reference);
+   } else {
+     return parent == null ? void 0 : parent.insertBefore(newNode, reference);
+diff --git a/internal/hydrate/index.js b/internal/hydrate/index.js
+index cafa1ce5ac59433308c892fea651d469a4e4b72f..1aab72c690ca13bb5438668cf9e35c0105295656 100644
+--- a/internal/hydrate/index.js
++++ b/internal/hydrate/index.js
+@@ -3018,7 +3018,7 @@ var insertBefore = (parent, newNode, reference, isInitialLoad) => {
+       return newNode;
+     }
+   }
+-  if (parent.__insertBefore) {
++  if (parent != null && parent.__insertBefore) {
+     return parent.__insertBefore(newNode, reference);
+   } else {
+     return parent == null ? void 0 : parent.insertBefore(newNode, reference);
+diff --git a/internal/testing/index.js b/internal/testing/index.js
+index d16dde2b1d3024ebbbbc788c79c30158685c4b40..71eaa9dc91e523b569738ffeb75211276ab9d76d 100644
+--- a/internal/testing/index.js
++++ b/internal/testing/index.js
+@@ -5006,7 +5006,7 @@ var insertBefore = (parent, newNode, reference, isInitialLoad) => {
+       return newNode;
+     }
+   }
+-  if (parent.__insertBefore) {
++  if (parent != null && parent.__insertBefore) {
+     return parent.__insertBefore(newNode, reference);
+   } else {
+     return parent == null ? void 0 : parent.insertBefore(newNode, reference);
