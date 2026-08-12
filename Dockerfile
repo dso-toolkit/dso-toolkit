@@ -49,6 +49,8 @@ WORKDIR /usr/src/app
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 
+COPY patches ./patches
+
 COPY angular-workspace/package.json ./angular-workspace/package.json
 COPY packages/core/package.json ./packages/core/package.json
 COPY packages/dso-toolkit/package.json ./packages/dso-toolkit/package.json

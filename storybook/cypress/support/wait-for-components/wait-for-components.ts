@@ -33,6 +33,12 @@ export function waitForComponents() {
           });
       }
     });
+
+  // Wacht tot alle (async ge-preloade) webfonts geladen zijn. De cursieve Asap-variant
+  // wordt gebruikt in de disclaimer boven de footer; als die pas na de snapshot laadt,
+  // verschuift de footer verticaal en ontstaat er een diff.
+  cy.document().then((doc) => doc.fonts.ready);
+  cy.document().its("fonts.status").should("equal", "loaded");
 }
 
 function prettyPrintResults(dsoComponents: Element[]) {

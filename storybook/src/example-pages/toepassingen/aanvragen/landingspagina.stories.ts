@@ -71,11 +71,9 @@ const Landingspagina = examplePageStories((templates) => {
                   we dit plan mogelijk maken?'. Na het Omgevingsoverleg weet u of uw project haalbaar is. Ook weet u hoe
                   u uw verzoek het beste kunt indienen.
                 </p>
-                <p>
-                  <em class="text-muted"
-                    >Let op, bekijk altijd eerst de website van uw gemeente, waterschap of provincie voor
-                    beschikbaarheid en mogelijke kosten van een Omgevingsoverleg</em
-                  >
+                <p class="dso-disclaimer">
+                  Let op, bekijk altijd eerst de website van uw gemeente, waterschap of provincie voor beschikbaarheid
+                  en mogelijke kosten van een Omgevingsoverleg
                 </p>
                 <h2>Eerst een vergunningcheck?</h2>
                 <p>
