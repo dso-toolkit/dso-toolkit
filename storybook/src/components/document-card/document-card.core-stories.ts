@@ -4,7 +4,7 @@ import { DocumentCardArgs, documentCardMeta, documentCardStories } from "dso-too
 
 import { templateContainer } from "../../templates";
 
-import { infoButton, typeItems } from "./document-card.content";
+import { characteristicsItems, infoButton, typeItems } from "./document-card.content";
 
 const meta: Meta<DocumentCardArgs<unknown>> = {
   ...documentCardMeta({ readme }),
@@ -13,7 +13,7 @@ const meta: Meta<DocumentCardArgs<unknown>> = {
 
 export default meta;
 
-const { Default, WithLabel, WithTypeToelichting, WithStatusToelichting } = documentCardStories({
+const { Default, WithCharacteristics, WithLabel, WithTypeToelichting, WithStatusToelichting } = documentCardStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { documentCardTemplate } = templates;
@@ -22,8 +22,9 @@ const { Default, WithLabel, WithTypeToelichting, WithStatusToelichting } = docum
       documentCardTemplate,
       typeItems,
       infoButton: infoButton(templates),
+      characteristicsItems,
     };
   },
 });
 
-export { Default, WithLabel, WithStatusToelichting, WithTypeToelichting };
+export { Default, WithCharacteristics, WithLabel, WithStatusToelichting, WithTypeToelichting };

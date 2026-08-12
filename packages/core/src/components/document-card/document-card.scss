@@ -84,7 +84,10 @@
 
 .dso-document-card-heading + .dso-document-card-type,
 .dso-document-card-heading + .dso-document-card-status,
-.dso-document-card-type + .dso-document-card-status {
+.dso-document-card-heading + .dso-document-card-characteristics,
+.dso-document-card-type + .dso-document-card-status,
+.dso-document-card-type + .dso-document-card-characteristics,
+.dso-document-card-status + .dso-document-card-characteristics {
   margin-block-start: units.$u1;
 }
 
@@ -94,4 +97,10 @@
 
 ::slotted([slot="status"]) {
   margin-inline-end: units.$u1;
+}
+
+::slotted([slot="characteristics"]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: units.$u1;
 }
