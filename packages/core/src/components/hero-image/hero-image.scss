@@ -1,0 +1,99 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/grid/grid.variables" as css-grid-variables;
+@use "~dso-toolkit/src/components/grid/grid.mixins" as css-grid-mixins;
+
+:host {
+  --dso-hero-image-background-color: #{colors.$grasgroen-10};
+
+  @include css-grid-mixins.full-width-row(css-grid-variables.$grid-gutter-width);
+
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background-size: 0;
+
+  @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    min-block-size: 352px;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    inline-size: 100%;
+    min-block-size: calc(100vw / 6 + 1dvi);
+    background-image: inherit; // inherits from parent, external style set by implememnte
+    background-color: var(--dso-hero-image-background-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+      position: absolute;
+      inset: 0;
+      min-block-size: unset;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    display: block;
+    background-color: var(--dso-hero-image-background-color);
+
+    @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+      display: none;
+    }
+  }
+
+  ::slotted(dso-highlight-box) {
+    margin-block-start: 0;
+  }
+}
+
+.hero-image-container {
+  position: relative;
+  z-index: 1;
+  padding-block-end: units.$u2;
+
+  inline-size: 100%;
+  padding-inline: units.$u2;
+  margin-inline: auto;
+  box-sizing: border-box;
+
+  @media (min-width: media-query-breakpoints.$screen-sm-min) {
+    max-inline-size: media-query-breakpoints.$screen-sm-max;
+  }
+
+  @media (min-width: media-query-breakpoints.$screen-md-min) {
+    max-inline-size: media-query-breakpoints.$screen-md-min;
+  }
+}
+
+.hero-image-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: -(units.$u2);
+}
+
+.hero-image-col {
+  position: relative;
+  inline-size: 100%;
+  padding-inline: units.$u2;
+  box-sizing: border-box;
+  margin-block-start: units.$u2;
+
+  @media (min-width: media-query-breakpoints.$screen-sm-min) {
+    margin-block-start: units.$u5;
+  }
+
+  @media (min-width: media-query-breakpoints.$screen-md-min) {
+    flex: 0 0 auto;
+    inline-size: clamp(0px, 37.847vw, 545px);
+    padding-inline: 0;
+    margin-inline-start: clamp(0px, 10.972vw, 158px);
+  }
+}

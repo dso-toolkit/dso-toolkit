@@ -79,6 +79,8 @@ export * from "./components/header";
 
 export * from "./components/heading";
 
+export * from "./components/hero-image";
+
 export * from "./components/highlight-box";
 
 export * from "./components/history-item";
