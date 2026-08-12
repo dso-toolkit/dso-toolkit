@@ -8,6 +8,11 @@ export const typeItems = [
   html`<span class="dso-document-card-type-item">Gemeente Amsterdam</span>`,
 ];
 
+export const characteristicsItems = [
+  html`<dso-label status="bright">BouwWerken</dso-label>`,
+  html`<dso-label status="bright">Kleine windturbine</dso-label>`,
+];
+
 export function infoButton({ richContentTemplate }: Templates): InfoButton<TemplateResult> {
   return {
     label: "Toon informatie over het documenttype",

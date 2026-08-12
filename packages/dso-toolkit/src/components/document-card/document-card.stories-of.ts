@@ -20,6 +20,7 @@ interface DocumentCardStories<TemplateFnReturnType> {
   WithLabel: DocumentCardStory<TemplateFnReturnType>;
   WithTypeToelichting: DocumentCardStory<TemplateFnReturnType>;
   WithStatusToelichting: DocumentCardStory<TemplateFnReturnType>;
+  WithCharacteristics: DocumentCardStory<TemplateFnReturnType>;
 }
 
 interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -33,6 +34,7 @@ interface DocumentCardTemplates<TemplateFnReturnType> {
   documentCardTemplate: (documentCardProperties: DocumentCard<TemplateFnReturnType>) => TemplateFnReturnType;
   typeItems: TemplateFnReturnType[];
   infoButton: InfoButton<TemplateFnReturnType>;
+  characteristicsItems: TemplateFnReturnType[];
 }
 
 export function documentCardMeta<TRenderer extends Renderer, TemplateFnReturnType>({
@@ -98,6 +100,14 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
       },
       render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>
         documentCardTemplate(documentCardArgsMapper(args, typeItems)),
+      ),
+    },
+    WithCharacteristics: {
+      args: documentCardArgs,
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { documentCardTemplate, typeItems, characteristicsItems }) =>
+          documentCardTemplate(documentCardArgsMapper(args, typeItems, undefined, characteristicsItems)),
       ),
     },
   };
