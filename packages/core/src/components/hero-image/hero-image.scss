@@ -17,10 +17,6 @@
   @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     min-block-size: 352px;
   }
-
-  ::slotted(dso-highlight-box) {
-    margin-block-start: 0;
-  }
 }
 
 ::slotted([slot="image"]) {
@@ -46,7 +42,6 @@
   inline-size: 100%;
   padding-inline: units.$u2;
   padding-block-end: units.$u2;
-  margin-inline: auto;
   margin-block-start: units.$u2;
 
   @media (min-width: media-query-breakpoints.$screen-sm-min) {
@@ -55,7 +50,6 @@
 
   @media (min-width: media-query-breakpoints.$screen-md-min) {
     max-inline-size: media-query-breakpoints.$screen-md-min;
-    padding-inline: 0;
     margin-block-start: units.$u5;
   }
 
@@ -63,7 +57,6 @@
     @media (min-width: media-query-breakpoints.$screen-md-min) {
       display: block;
       inline-size: clamp(0px, 38vw, 545px);
-      margin-inline-start: clamp(0px, 5vw, 80px);
     }
   }
 }
