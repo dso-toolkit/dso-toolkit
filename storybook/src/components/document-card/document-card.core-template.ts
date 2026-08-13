@@ -18,7 +18,7 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
       statusToelichtingWarning,
       meta,
       status,
-      characteristics,
+      labels,
       dsoDocumentCardClick,
     }: DocumentCard<TemplateResult>) {
       return html`<dso-document-card
@@ -49,7 +49,7 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
               </span>`
             : nothing
         }
-        ${characteristics ? html`<div slot="characteristics">${characteristics}</div>` : nothing}
+        ${labels ? html`<div slot="labels">${labels}</div>` : nothing}
       </dso-document-card>`;
     },
 };

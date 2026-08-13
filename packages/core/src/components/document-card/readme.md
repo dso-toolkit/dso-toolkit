@@ -22,14 +22,14 @@
 
 ## Slots
 
-| Slot                | Description                                                                                            |
-| ------------------- | ------------------------------------------------------------------------------------------------------ |
-| `"characteristics"` | An optional slot for one or more characteristics of the document, rendered without a background color. |
-| `"heading"`         | A slot to place the title of the card in.                                                              |
-| `"interactions"`    | An optional slot for one or more `Badge`'s.                                                            |
-| `"meta"`            | An optional slot to place a `Label` in.                                                                |
-| `"status"`          | A slot to hold some status information on the document.                                                |
-| `"type"`            | A slot to hold type of document with an optional `Toggletip`.                                          |
+| Slot             | Description                                                                                   |
+| ---------------- | --------------------------------------------------------------------------------------------- |
+| `"heading"`      | A slot to place the title of the card in.                                                     |
+| `"interactions"` | An optional slot for one or more `Badge`'s.                                                   |
+| `"labels"`       | An optional slot for one or more labels of the document, rendered without a background color. |
+| `"meta"`         | An optional slot to place a `Label` in.                                                       |
+| `"status"`       | A slot to hold some status information on the document.                                       |
+| `"type"`         | A slot to hold type of document with an optional `Toggletip`.                                 |
 
 
 ## Dependencies
