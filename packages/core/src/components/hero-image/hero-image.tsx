@@ -1,6 +1,7 @@
-import { Component, ComponentInterface, Host, Prop, h } from "@stencil/core";
+import { Component, ComponentInterface, Host, h } from "@stencil/core";
 
 /**
+ * @slot image - Element that provides the background image, e.g. a `div` with a custom CSS class that sets `background-image`.
  * @slot - Rich content that is shown in a box on top of the image.
  */
 @Component({
@@ -9,21 +10,12 @@ import { Component, ComponentInterface, Host, Prop, h } from "@stencil/core";
   shadow: true,
 })
 export class HeroImage implements ComponentInterface {
-  /**
-   * The url of the image that is shown as a background.
-   */
-  @Prop({ reflect: true })
-  imageUrl!: string;
-
   render() {
     return (
-      <Host style={{ backgroundImage: `url(${this.imageUrl})` }}>
+      <Host>
+        <slot name="image"></slot>
         <div class="hero-image-container">
-          <div class="hero-image-row">
-            <div class="hero-image-col">
-              <slot></slot>
-            </div>
-          </div>
+          <slot></slot>
         </div>
       </Host>
     );

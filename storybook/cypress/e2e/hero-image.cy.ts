@@ -5,9 +5,9 @@ describe("Hero Image", () => {
   });
 
   it("should render the hero image with slotted rich content", () => {
-    cy.get("dso-hero-image.hydrated").as("dsoHeroImage").should("be.visible").and("have.attr", "image-url");
+    cy.get("dso-hero-image.hydrated").as("dsoHeroImage").should("be.visible");
 
-    cy.get("@dsoHeroImage").shadow().find(".hero-image-container").should("be.visible");
+    cy.get("@dsoHeroImage").find("[slot='image']").should("exist");
     cy.get("@dsoHeroImage").find(".dso-rich-content").should("contain.text", "Vergunningcheck");
   });
 

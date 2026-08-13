@@ -11,7 +11,8 @@ export const coreHeroImage: ComponentImplementation<HeroImage> = {
 
     return function heroImageTemplate({ imageUrl }: HeroImage) {
       return html`
-        <dso-hero-image image-url=${imageUrl}>
+        <dso-hero-image>
+          <div slot="image" style=${`background-image: url(${imageUrl})`}></div>
           ${highlightBoxTemplate({
             white: true,
             content: richContentTemplate({

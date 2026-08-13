@@ -736,10 +736,6 @@ export namespace Components {
         "userProfileUrl"?: string;
     }
     interface DsoHeroImage {
-        /**
-          * The url of the image that is shown as a background.
-         */
-        "imageUrl": string;
     }
     interface DsoHighlightBox {
         /**
@@ -3579,10 +3575,6 @@ declare namespace LocalJSX {
         "userProfileUrl"?: string;
     }
     interface DsoHeroImage {
-        /**
-          * The url of the image that is shown as a background.
-         */
-        "imageUrl": string;
     }
     interface DsoHighlightBox {
         /**
@@ -4713,9 +4705,6 @@ declare namespace LocalJSX {
         "userHomeUrl": string;
         "userHomeActive": boolean;
     }
-    interface DsoHeroImageAttributes {
-        "imageUrl": string;
-    }
     interface DsoHighlightBoxAttributes {
         "yellow": boolean;
         "border": boolean;
@@ -4957,7 +4946,7 @@ declare namespace LocalJSX {
         "dso-dropdown-menu-item": Omit<DsoDropdownMenuItem, keyof DsoDropdownMenuItemAttributes> & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes]?: DsoDropdownMenuItem[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `attr:${K}`]?: DsoDropdownMenuItemAttributes[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `prop:${K}`]?: DsoDropdownMenuItem[K] } & OneOf<"type", DsoDropdownMenuItem["type"], DsoDropdownMenuItemAttributes["type"]>;
         "dso-expandable": Omit<DsoExpandable, keyof DsoExpandableAttributes> & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes]?: DsoExpandable[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `attr:${K}`]?: DsoExpandableAttributes[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `prop:${K}`]?: DsoExpandable[K] };
         "dso-header": Omit<DsoHeader, keyof DsoHeaderAttributes> & { [K in keyof DsoHeader & keyof DsoHeaderAttributes]?: DsoHeader[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `attr:${K}`]?: DsoHeaderAttributes[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `prop:${K}`]?: DsoHeader[K] };
-        "dso-hero-image": Omit<DsoHeroImage, keyof DsoHeroImageAttributes> & { [K in keyof DsoHeroImage & keyof DsoHeroImageAttributes]?: DsoHeroImage[K] } & { [K in keyof DsoHeroImage & keyof DsoHeroImageAttributes as `attr:${K}`]?: DsoHeroImageAttributes[K] } & { [K in keyof DsoHeroImage & keyof DsoHeroImageAttributes as `prop:${K}`]?: DsoHeroImage[K] } & OneOf<"imageUrl", DsoHeroImage["imageUrl"], DsoHeroImageAttributes["imageUrl"]>;
+        "dso-hero-image": DsoHeroImage;
         "dso-highlight-box": Omit<DsoHighlightBox, keyof DsoHighlightBoxAttributes> & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes]?: DsoHighlightBox[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `attr:${K}`]?: DsoHighlightBoxAttributes[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `prop:${K}`]?: DsoHighlightBox[K] };
         "dso-history-item": Omit<DsoHistoryItem, keyof DsoHistoryItemAttributes> & { [K in keyof DsoHistoryItem & keyof DsoHistoryItemAttributes]?: DsoHistoryItem[K] } & { [K in keyof DsoHistoryItem & keyof DsoHistoryItemAttributes as `attr:${K}`]?: DsoHistoryItemAttributes[K] } & { [K in keyof DsoHistoryItem & keyof DsoHistoryItemAttributes as `prop:${K}`]?: DsoHistoryItem[K] } & OneOf<"type", DsoHistoryItem["type"], DsoHistoryItemAttributes["type"]>;
         "dso-icon": Omit<DsoIcon, keyof DsoIconAttributes> & { [K in keyof DsoIcon & keyof DsoIconAttributes]?: DsoIcon[K] } & { [K in keyof DsoIcon & keyof DsoIconAttributes as `attr:${K}`]?: DsoIconAttributes[K] } & { [K in keyof DsoIcon & keyof DsoIconAttributes as `prop:${K}`]?: DsoIcon[K] };
