@@ -13,7 +13,7 @@ export interface DocumentCard<TemplateFnReturnType> {
   status: string;
   statusToelichtingOutline?: Badge<TemplateFnReturnType>;
   statusToelichtingWarning?: Badge<TemplateFnReturnType>;
-  characteristics?: TemplateFnReturnType[];
+  labels?: TemplateFnReturnType[];
   dsoDocumentCardClick?: (e: CustomEvent<DocumentCardClickEvent>) => void;
 }
 

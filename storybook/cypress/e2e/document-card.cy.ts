@@ -65,10 +65,10 @@ describe("Document Card", () => {
     cy.get("dso-document-card.hydrated").matchImageSnapshot();
   });
 
-  it("should show characteristics as bright labels, next to each other", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-document-card--with-characteristics")
+  it("should show labels as bright labels, next to each other", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-document-card--with-labels")
       .get("dso-document-card.hydrated")
-      .find("[slot='characteristics'] > dso-label[status='bright']")
+      .find("[slot='labels'] > dso-label[status='bright']")
       .should("have.length", 2);
 
     cy.get("dso-document-card.hydrated").matchImageSnapshot();

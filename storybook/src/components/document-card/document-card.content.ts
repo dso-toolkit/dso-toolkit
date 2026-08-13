@@ -8,7 +8,7 @@ export const typeItems = [
   html`<span class="dso-document-card-type-item">Gemeente Amsterdam</span>`,
 ];
 
-export const characteristicsItems = [
+export const labelsItems = [
   html`<dso-label status="bright">BouwWerken</dso-label>`,
   html`<dso-label status="bright">Kleine windturbine</dso-label>`,
 ];
