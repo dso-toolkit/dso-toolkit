@@ -10,15 +10,6 @@
         "cwd": "packages/react"
       },
       "outputs": ["{projectRoot}/dist"]
-    },
-    "build-www": {
-      "dependsOn": ["^build"],
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "pnpm storybook:build",
-        "cwd": "packages/react"
-      },
-      "outputs": ["{projectRoot}/www"]
     }
   }
 }

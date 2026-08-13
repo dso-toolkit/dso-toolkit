@@ -8,9 +8,9 @@ import { getVersion } from "@site/src/functions/versions.function";
 
 import styles from "./styles.module.scss";
 
-type Implementation = "core" | "angular" | "html-css" | "react";
+type Implementation = "core" | "angular" | "html-css";
 
-const allImplementations = ["core", "angular", "react", "html-css"] as const;
+const allImplementations = ["core", "angular", "html-css"] as const;
 
 interface Props {
   /**
@@ -43,7 +43,7 @@ function getSubDomain(implementation: Implementation) {
 }
 
 function isComposedStorybook(implementation: Implementation) {
-  return implementation === "react" || implementation === "angular";
+  return implementation === "angular";
 }
 
 function joinNameAndVariant(name: string, variant: string | undefined) {

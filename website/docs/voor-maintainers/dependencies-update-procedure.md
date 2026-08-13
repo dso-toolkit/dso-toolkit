@@ -84,12 +84,6 @@ In `/storybook`:
 pnpm dlx storybook@latest upgrade
 ```
 
-In `/packages/react`:
-
-```sh
-pnpm dlx storybook@latest upgrade
-```
-
 In `/angular-workspace`:
 
 ```sh

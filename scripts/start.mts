@@ -39,12 +39,6 @@ const watchToolkit = {
   name: "toolkit",
 };
 
-const startReact = {
-  command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter @dso-toolkit/react storybook:start",
-  name: "react",
-};
-
 const startAngular = {
   command:
     "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter angular-workspace storybook:start",
@@ -65,10 +59,7 @@ const runProcesses = (processes: Parameters<typeof concurrently>[0]) => {
 if (!argv.mode) {
   if (argv.all) {
     // --all
-    runProcesses([watchToolkit, watchCore, startStorybook, startReact, startAngular, startCypress]);
-  } else if (argv.react) {
-    // --react
-    runProcesses([watchToolkit, watchCore, startReact]);
+    runProcesses([watchToolkit, watchCore, startStorybook, startAngular, startCypress]);
   } else if (argv.angular) {
     // --angular
     runProcesses([watchToolkit, watchCore, startAngular]);
