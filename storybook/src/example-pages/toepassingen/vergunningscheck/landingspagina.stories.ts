@@ -9,6 +9,10 @@ import { headerPartial } from "../../partials/header";
 
 import { accordionSections } from "./landingspagina.content";
 
+/**
+ * @deprecated Uses deprecated CSS classes (e.g., `.dso-banner`).
+ * The `.dso-banner` selector will be removed in `#3923`.
+ */
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Vergunningscheck/Landingspagina",
 };
@@ -22,6 +26,7 @@ const Landingspagina = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Vergunningscheck") })}
       <main>
+        <!-- START DEPRECATED: het <dso-hero-image> Web Component -->
         <div
           class="row dso-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hero2.jpeg')"
@@ -43,6 +48,7 @@ const Landingspagina = examplePageStories((templates) => {
             })}
           </div>
         </div>
+        <!-- END DEPRECATED -->
         <div class="row">
           <div class="col-lg-8">
             ${richContentTemplate({

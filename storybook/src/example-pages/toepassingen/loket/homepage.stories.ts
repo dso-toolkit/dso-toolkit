@@ -9,6 +9,10 @@ import { headerPartial } from "../../partials/header";
 
 import { linkList } from "./homepage.content";
 
+/**
+ * @deprecated Uses deprecated CSS classes (e.g., `.dso-banner`).
+ * The `.dso-banner` selector will be removed in `#3923`.
+ */
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Loket/Homepage",
 };
@@ -35,6 +39,7 @@ const Homepage = examplePageStories((templates) => {
       <div id="navigation"><!-- for skiplink --></div>
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main id="main">
+        <!-- START DEPRECATED: het <dso-hero-image> Web Component -->
         <div
           class="row dso-banner no-button-banner my-beautiful-image"
           style="background-image: url('images/hero2.jpeg')"
@@ -56,6 +61,7 @@ const Homepage = examplePageStories((templates) => {
             })}
           </div>
         </div>
+        <!-- END DEPRECATED -->
         <div class="row dso-featured dso-equal-heights">
           <div class="col-xs-12">
             ${highlightBoxTemplate({
