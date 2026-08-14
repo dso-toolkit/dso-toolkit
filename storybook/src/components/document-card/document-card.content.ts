@@ -8,10 +8,10 @@ export const typeItems = [
   html`<span class="dso-document-card-type-item">Gemeente Amsterdam</span>`,
 ];
 
-export const labelsItems = [
-  html`<dso-label status="bright">BouwWerken</dso-label>`,
-  html`<dso-label status="bright">Kleine windturbine</dso-label>`,
-];
+const labels = ["BouwWerken", "Kleine windturbine"];
+export const labelsItems = labels.map(
+  (label) => html` <span style="border: 1px solid #333; border-radius: 4px; padding: 0 8px;">${label}</span> `,
+);
 
 export function infoButton({ richContentTemplate }: Templates): InfoButton<TemplateResult> {
   return {
