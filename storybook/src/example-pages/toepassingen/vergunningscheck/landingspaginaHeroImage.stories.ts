@@ -10,8 +10,11 @@ import { headerPartial } from "../../partials/header";
 import { accordionSections } from "./landingspagina.content";
 
 /**
- * @deprecated Uses deprecated CSS classes (e.g., `.dso-banner`) in `landingspagina.stories.ts`.
+ * @deprecated Uses deprecated CSS classes (e.g. `.dso-banner`) from
+ * `landingspagina.stories.ts`.
  * The `.dso-banner` selector will be removed in `#3923`.
+ * Remove this story when `.dso-banner` is replaced in
+ * `landingspagina.stories.ts`.
  */
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Vergunningscheck/Landingspagina",
@@ -27,7 +30,7 @@ const LandingspaginaHeroImage = examplePageStories((templates) => {
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Vergunningscheck") })}
       <main>
         <dso-hero-image>
-          <div class="my-beautiful-image" slot="image">
+          <div slot="image">
             <img src="images/hero2.jpeg" alt="Hero image" />
           </div>
           ${highlightBoxTemplate({
@@ -170,4 +173,4 @@ const LandingspaginaHeroImage = examplePageStories((templates) => {
   `;
 });
 
-export { LandingspaginaHeroImage as LandingspaginaHeroImage };
+export { LandingspaginaHeroImage };
