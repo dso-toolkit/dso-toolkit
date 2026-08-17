@@ -1,5 +1,4 @@
-FROM cypress/included:cypress-15.19.0-node-24.18.0-chrome-150.0.7871.128-1-ff-153.0-edge-150.0.4078.83-1
-
+FROM cypress/included:cypress-15.20.1-node-24.19.0-chrome-151.0.7922.108-1-ff-153.0.3-edge-151.0.4129.78-1
 RUN apt-get update && apt-get install --yes \
   apt-transport-https \
   ca-certificates \
