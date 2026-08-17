@@ -192,6 +192,7 @@ import { coreScrollable } from "./components/scrollable/scrollable.core-template
 import { cssSearchBar } from "./components/search-bar/search-bar.css-template";
 import { coreSegmentedButton } from "./components/segmented-button/segmented-button.core-template";
 import { coreSelectable } from "./components/selectable/selectable.core-template";
+import { coreShoppingCart } from "./components/shopping-cart/shopping-cart.core-template";
 import { cssShoppingCart } from "./components/shopping-cart/shopping-cart.css-template";
 import { coreSkiplink } from "./components/skiplink/skiplink.core-template";
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
@@ -385,6 +386,7 @@ templateContainer.add(coreResponsiveElement);
 templateContainer.add(coreScrollable);
 templateContainer.add(coreSegmentedButton);
 templateContainer.add(coreSelectable);
+templateContainer.add(coreShoppingCart);
 templateContainer.add(coreSkiplink);
 templateContainer.add(coreSlideToggle);
 templateContainer.add(coreSurveyRating);

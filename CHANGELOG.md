@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Hero Image: Nieuw component ([#3797](https://github.com/dso-toolkit/dso-toolkit/issues/3797))
+* Shopping Cart: Herontwerp en Web Component ([#3853](https://github.com/dso-toolkit/dso-toolkit/issues/3853)) 
 
 ### Task
 * Storybook: Verwijder React Storybook ([#3929](https://github.com/dso-toolkit/dso-toolkit/issues/3929))
