@@ -66,10 +66,11 @@ describe("Document Card", () => {
   });
 
   it("should show labels next to each other", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-document-card--with-labels")
-      .get("dso-document-card.hydrated")
-      .find("[slot='labels'] > span")
-      .should("have.length", 2);
+    cy.visit("http://localhost:45000/iframe.html?id=core-document-card--with-labels");
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-document-card.hydrated");
+
+    cy.get("dso-document-card.hydrated").find("[slot='labels'] li").should("have.length", 2);
 
     cy.get("dso-document-card.hydrated").matchImageSnapshot();
   });

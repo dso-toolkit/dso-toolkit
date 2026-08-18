@@ -84,9 +84,7 @@
 
 .dso-document-card-heading + .dso-document-card-type,
 .dso-document-card-heading + .dso-document-card-status,
-.dso-document-card-heading + .dso-document-card-labels,
 .dso-document-card-type + .dso-document-card-status,
-.dso-document-card-type + .dso-document-card-labels,
 .dso-document-card-status + .dso-document-card-labels {
   margin-block-start: units.$u1;
 }
@@ -100,7 +98,5 @@
 }
 
 ::slotted([slot="labels"]) {
-  display: flex;
-  flex-wrap: wrap;
-  gap: units.$u1;
+  margin-block-end: 0 !important;
 }
