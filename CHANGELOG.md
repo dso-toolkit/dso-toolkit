@@ -5,11 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Hero Image: Nieuw component ([#3797](https://github.com/dso-toolkit/dso-toolkit/issues/3797))
+
 ## 🍍 Release 100.1.0 - 2026-08-17
 
 ### Added
 * Table: Koppel knop vergroten aan tabel ([#3905](https://github.com/dso-toolkit/dso-toolkit/issues/3905))
-* Hero Image: Nieuw component ([#3797](https://github.com/dso-toolkit/dso-toolkit/issues/3797))
 
 ### Fixed
 * Packages: Patch Stencil runtime tegen Null is not an object (evaluating 'e.__insertBefore') in Safari ([#3826](https://github.com/dso-toolkit/dso-toolkit/issues/3826))

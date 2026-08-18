@@ -9,10 +9,6 @@ import { headerPartial } from "../../partials/header";
 
 import { accordionSections } from "./landingspagina.content";
 
-/**
- * @deprecated Uses deprecated CSS classes (e.g., `.dso-banner`).
- * The `.dso-banner` selector will be removed in `#3923`.
- */
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Vergunningscheck/Landingspagina",
 };
@@ -26,29 +22,23 @@ const Landingspagina = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Vergunningscheck") })}
       <main>
-        <!-- START DEPRECATED: het <dso-hero-image> Web Component -->
-        <div
-          class="row dso-banner dso-banner-implementation-specific-image"
-          style="background-image: url('images/hero2.jpeg')"
-        >
-          <div class="col-lg-6 col-sm-8">
-            ${highlightBoxTemplate({
-              white: true,
-              content: richContentTemplate({
-                children: html`
-                  <h1>Vergunningcheck</h1>
-                  <p>
-                    De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
-                    zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
-                    bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
-                  </p>
-                  <p>${linkTemplate({ label: "Doe de vergunningcheck", url: "#", modifier: "dso-primary" })}</p>
-                `,
-              }),
-            })}
-          </div>
-        </div>
-        <!-- END DEPRECATED -->
+        <dso-hero-image>
+          <div slot="image" style="background-image: url('images/hero2.jpeg')"></div>
+          ${highlightBoxTemplate({
+            white: true,
+            content: richContentTemplate({
+              children: html`
+                <h1>Vergunningcheck</h1>
+                <p>
+                  De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
+                  zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
+                  bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
+                </p>
+                <p>${linkTemplate({ label: "Doe de vergunningcheck", url: "#", modifier: "dso-primary" })}</p>
+              `,
+            }),
+          })}
+        </dso-hero-image>
         <div class="row">
           <div class="col-lg-8">
             ${richContentTemplate({

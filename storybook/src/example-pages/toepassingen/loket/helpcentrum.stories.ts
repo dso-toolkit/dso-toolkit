@@ -9,10 +9,6 @@ import { headerPartial } from "../../partials/header";
 
 import { linkList } from "./helpcentrum.content";
 
-/**
- * @deprecated Uses deprecated CSS classes (e.g., `.dso-banner`).
- * The `.dso-banner` selector will be removed in `#3923`.
- */
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Loket/Helpcentrum",
 };
@@ -26,7 +22,7 @@ const Helpcentrum = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main>
-        <!-- START DEPRECATED: het <dso-hero-image> Web Component -->
+        <!-- START DEPRECATED: use <dso-hero-image> -->
         <div
           class="row dso-banner no-button-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hero2.jpeg')"

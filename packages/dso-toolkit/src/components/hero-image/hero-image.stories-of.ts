@@ -4,7 +4,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-import { HeroImageArgs, heroImageArgTypes, heroImageArgs, heroImageArgsMapper } from "./hero-image.args.js";
+import { HeroImageArgs, heroImageArgTypes, heroImageArgs } from "./hero-image.args.js";
 import { HeroImage } from "./hero-image.models.js";
 
 type HeroImageStory = StoryObj<HeroImageArgs, Renderer>;
@@ -47,9 +47,7 @@ export function heroImageStories<Implementation, Templates, TemplateFnReturnType
 }: HeroImageStoriesParameters<Implementation, Templates, TemplateFnReturnType>): HeroImageStories {
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (args, { heroImageTemplate }) =>
-        heroImageTemplate(heroImageArgsMapper(args)),
-      ),
+      render: templateContainer.render(storyTemplates, (args, { heroImageTemplate }) => heroImageTemplate(args)),
     },
   };
 }

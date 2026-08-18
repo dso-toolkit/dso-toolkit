@@ -163,6 +163,10 @@ form {
   }
 }
 
+dso-hero-image + .row {
+  margin-block-start: units.$u3;
+}
+
 .row-no-gutters {
   margin-inline-end: 0;
   margin-inline-start: 0;

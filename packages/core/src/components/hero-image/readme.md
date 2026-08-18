@@ -8,7 +8,7 @@
 
 | Slot      | Description                                                                                                    |
 | --------- | -------------------------------------------------------------------------------------------------------------- |
-|           | Rich content that is shown in a box on top of the image.                                                       |
+|           | The Highlight Box with Rich Content that is shown on top of or below the image.                                |
 | `"image"` | Element that provides the background image, e.g. a `div` with a custom CSS class that sets `background-image`. |
 
 

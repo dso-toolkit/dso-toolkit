@@ -1,0 +1,35 @@
+---
+authors: [xiangjuzou-prog]
+---
+
+# DSO Toolkit v100.2.0 🪅
+
+Deze release bevat een **deprecation** voor een onderdeel van het volgende component:
+
+- Grid
+
+<!-- truncate -->
+
+## Grid
+
+De selectors `.dso-banner` en `.no-button-banner` in combinatie met de selector `.row` van het op het van Bootstrap afgeleide 12-koloms gridsysteem (het DSO design system component Grid) zijn deprecated en worden verwijderd in een toekomstige **BREAKING** release.
+Afnemers die deze selectors momenteel gebruiken om een Highlight Box op of onder een achtergrondafbeeldingen op landingspagina's te tonen, moeten overstappen naar het nieuwe web component `Hero Image`.
+
+### Migratiepad
+
+Vervang de oude HTML markup met classes `row dso-banner no-button-banner` en de custom-class met daarin de background-image styling door het web component `Hero Image`.
+
+```html
+❌
+<div class="row dso-banner no-button-banner my-beautiful-image">
+  <div class="col-lg-6 col-md-9 col-sm-12 col-xs-12">
+    <dso-highlight-box white> ... </dso-highlight-box>
+  </div>
+</div>
+
+✅
+<dso-hero-image>
+  <div class="my-beautiful-image" slot="image"></div>
+  <dso-highlight-box white> ... </dso-highlight-box>
+</dso-hero-image>
+```
