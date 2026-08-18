@@ -10,7 +10,7 @@ import { DocumentCardClickEvent } from "./document-card.interfaces";
  * @slot meta - An optional slot to place a `Label` in.
  * @slot status - A slot to hold some status information on the document.
  * @slot interactions - An optional slot for one or more `Badge`'s.
- * @slot labels - An optional slot for one or more labels of the document, rendered without a background color.
+ * @slot labels - An optional slot to place a `Label Group` in.
  */
 @Component({
   tag: "dso-document-card",

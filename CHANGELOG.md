@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Hero Image: Nieuw component ([#3797](https://github.com/dso-toolkit/dso-toolkit/issues/3797))
 * Shopping Cart: Herontwerp en Web Component ([#3853](https://github.com/dso-toolkit/dso-toolkit/issues/3853))
 
+### Changed
+* Document Card: Toevoeging label row ([#3716](https://github.com/dso-toolkit/dso-toolkit/issues/3716))
+
 ### Task
 * Storybook: Verwijder React Storybook ([#3929](https://github.com/dso-toolkit/dso-toolkit/issues/3929))
 
@@ -24,9 +27,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Table: Koppel knop vergroten aan tabel ([#3905](https://github.com/dso-toolkit/dso-toolkit/issues/3905))
-
-### Changed
-* Document Card: Toevoeging label row ([#3716](https://github.com/dso-toolkit/dso-toolkit/issues/3716))
 
 ### Fixed
 * Packages: Patch Stencil runtime tegen Null is not an object (evaluating 'e.__insertBefore') in Safari ([#3826](https://github.com/dso-toolkit/dso-toolkit/issues/3826))

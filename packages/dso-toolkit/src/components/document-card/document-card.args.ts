@@ -61,7 +61,7 @@ export function documentCardArgsMapper<TemplateFnReturnType>(
   a: DocumentCardArgs<TemplateFnReturnType>,
   typeItems: TemplateFnReturnType[],
   infoButton?: InfoButton<TemplateFnReturnType>,
-  labels?: TemplateFnReturnType[],
+  labels?: Label[],
 ): DocumentCard<TemplateFnReturnType> {
   return {
     typeToelichting: infoButton,
