@@ -1,18 +1,17 @@
-import { HeroImage } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
 
-export const coreHeroImage: ComponentImplementation<HeroImage> = {
+export const coreHeroImage: ComponentImplementation<object> = {
   component: "heroImage",
   implementation: "core",
   template: (templates) => {
     const { highlightBoxTemplate, linkTemplate, richContentTemplate } = templates;
 
-    return function heroImageTemplate({ imageUrl }: HeroImage) {
+    return function heroImageTemplate() {
       return html`
         <dso-hero-image>
-          <div slot="image" style=${`background-image: url(${imageUrl})`}></div>
+          <div slot="image" style="background-image: url('images/banner-image.webp')"></div>
           ${highlightBoxTemplate({
             white: true,
             content: richContentTemplate({
