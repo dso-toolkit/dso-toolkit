@@ -4,7 +4,9 @@ import { heroImageMeta, heroImageStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-const meta: Meta<object> = {
+import { image } from "./hero-image.content";
+
+const meta: Meta = {
   ...heroImageMeta({ readme }),
   title: "Core/Hero Image",
 };
@@ -18,6 +20,7 @@ const { Default } = heroImageStories({
 
     return {
       heroImageTemplate,
+      image,
     };
   },
 });
