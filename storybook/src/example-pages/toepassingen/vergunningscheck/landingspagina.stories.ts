@@ -22,27 +22,23 @@ const Landingspagina = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Vergunningscheck") })}
       <main>
-        <div
-          class="row dso-banner dso-banner-implementation-specific-image"
-          style="background-image: url('images/hero2.jpeg')"
-        >
-          <div class="col-lg-6 col-sm-8">
-            ${highlightBoxTemplate({
-              white: true,
-              content: richContentTemplate({
-                children: html`
-                  <h1>Vergunningcheck</h1>
-                  <p>
-                    De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
-                    zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
-                    bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
-                  </p>
-                  <p>${linkTemplate({ label: "Doe de vergunningcheck", url: "#", modifier: "dso-primary" })}</p>
-                `,
-              }),
-            })}
-          </div>
-        </div>
+        <dso-hero-image>
+          <div slot="image" style="background-image: url('images/hero2.jpeg')"></div>
+          ${highlightBoxTemplate({
+            white: true,
+            content: richContentTemplate({
+              children: html`
+                <h1>Vergunningcheck</h1>
+                <p>
+                  De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
+                  zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
+                  bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
+                </p>
+                <p>${linkTemplate({ label: "Doe de vergunningcheck", url: "#", modifier: "dso-primary" })}</p>
+              `,
+            }),
+          })}
+        </dso-hero-image>
         <div class="row">
           <div class="col-lg-8">
             ${richContentTemplate({

@@ -35,6 +35,7 @@ const Homepage = examplePageStories((templates) => {
       <div id="navigation"><!-- for skiplink --></div>
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main id="main">
+        <!-- START DEPRECATED: use <dso-hero-image> -->
         <div
           class="row dso-banner no-button-banner my-beautiful-image"
           style="background-image: url('images/hero2.jpeg')"
@@ -56,6 +57,7 @@ const Homepage = examplePageStories((templates) => {
             })}
           </div>
         </div>
+        <!-- END DEPRECATED -->
         <div class="row dso-featured dso-equal-heights">
           <div class="col-xs-12">
             ${highlightBoxTemplate({

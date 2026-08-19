@@ -48,6 +48,7 @@ import {
   FormGroupTextarea,
   Header,
   Heading,
+  HeroImage,
   HighlightBox,
   HistoryItem,
   Icon,
@@ -150,6 +151,7 @@ import { cssFormGroupTextarea } from "./components/form-group/form-group-textare
 import { cssFormGroup } from "./components/form-group/form-group.css-template";
 import { coreHeader } from "./components/header/header.core-template";
 import { cssHeading } from "./components/heading/heading.css-template";
+import { coreHeroImage } from "./components/hero-image/hero-image.core-template";
 import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-template";
 import { coreHistoryItem } from "./components/history-item/history-item.core-template";
 import { coreIcon } from "./components/icon/icon.core-template";
@@ -250,6 +252,7 @@ export interface Components {
   formGroupTextarea: FormGroupTextarea<TemplateResult>;
   header: Header;
   heading: Heading<TemplateResult>;
+  heroImage: HeroImage;
   highlightBox: HighlightBox<TemplateResult | string>;
   historyItem: HistoryItem;
   icon: Icon;
@@ -352,6 +355,7 @@ templateContainer.add(coreDocumentComponent);
 templateContainer.add(coreDropdownMenu);
 templateContainer.add(coreExpandable);
 templateContainer.add(coreHeader);
+templateContainer.add(coreHeroImage);
 templateContainer.add(coreHighlightBox);
 templateContainer.add(coreHistoryItem);
 templateContainer.add(coreIcon);

@@ -20,6 +20,7 @@ const Landingspagina = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
+        <!-- START DEPRECATED: use <dso-hero-image> -->
         <div
           class="row dso-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hands-on-trackpad.jpg'); padding-block-end: 16px;"
@@ -41,6 +42,7 @@ const Landingspagina = examplePageStories((templates) => {
             })}
           </div>
         </div>
+        <!-- END DEPRECATED -->
         <div class="row">
           <div class="col-lg-8">
             ${highlightBoxTemplate({

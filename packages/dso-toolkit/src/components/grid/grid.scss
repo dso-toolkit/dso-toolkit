@@ -87,6 +87,7 @@ form {
     flex-wrap: wrap;
   }
 
+  /* The `.dso-banner` selector will be removed in #3923 */
   &.dso-banner {
     --dso-banner-background-color: #{colors.$grasgroen-10};
 
@@ -160,6 +161,10 @@ form {
     background-color: css-grid-variables.$featured-background-color;
     color: colors.$zwart;
   }
+}
+
+dso-hero-image + .row {
+  margin-block-start: units.$u3;
 }
 
 .row-no-gutters {

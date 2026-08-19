@@ -735,6 +735,8 @@ export namespace Components {
          */
         "userProfileUrl"?: string;
     }
+    interface DsoHeroImage {
+    }
     interface DsoHighlightBox {
         /**
           * For a bordered Highlight Box.
@@ -2060,6 +2062,12 @@ declare global {
         prototype: HTMLDsoHeaderElement;
         new (): HTMLDsoHeaderElement;
     };
+    interface HTMLDsoHeroImageElement extends Components.DsoHeroImage, HTMLStencilElement {
+    }
+    var HTMLDsoHeroImageElement: {
+        prototype: HTMLDsoHeroImageElement;
+        new (): HTMLDsoHeroImageElement;
+    };
     interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
     }
     var HTMLDsoHighlightBoxElement: {
@@ -2771,6 +2779,7 @@ declare global {
         "dso-dropdown-menu-item": HTMLDsoDropdownMenuItemElement;
         "dso-expandable": HTMLDsoExpandableElement;
         "dso-header": HTMLDsoHeaderElement;
+        "dso-hero-image": HTMLDsoHeroImageElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-history-item": HTMLDsoHistoryItemElement;
         "dso-icon": HTMLDsoIconElement;
@@ -3564,6 +3573,8 @@ declare namespace LocalJSX {
           * The URL to open when the user activates the profile url.
          */
         "userProfileUrl"?: string;
+    }
+    interface DsoHeroImage {
     }
     interface DsoHighlightBox {
         /**
@@ -4935,6 +4946,7 @@ declare namespace LocalJSX {
         "dso-dropdown-menu-item": Omit<DsoDropdownMenuItem, keyof DsoDropdownMenuItemAttributes> & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes]?: DsoDropdownMenuItem[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `attr:${K}`]?: DsoDropdownMenuItemAttributes[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `prop:${K}`]?: DsoDropdownMenuItem[K] } & OneOf<"type", DsoDropdownMenuItem["type"], DsoDropdownMenuItemAttributes["type"]>;
         "dso-expandable": Omit<DsoExpandable, keyof DsoExpandableAttributes> & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes]?: DsoExpandable[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `attr:${K}`]?: DsoExpandableAttributes[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `prop:${K}`]?: DsoExpandable[K] };
         "dso-header": Omit<DsoHeader, keyof DsoHeaderAttributes> & { [K in keyof DsoHeader & keyof DsoHeaderAttributes]?: DsoHeader[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `attr:${K}`]?: DsoHeaderAttributes[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `prop:${K}`]?: DsoHeader[K] };
+        "dso-hero-image": DsoHeroImage;
         "dso-highlight-box": Omit<DsoHighlightBox, keyof DsoHighlightBoxAttributes> & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes]?: DsoHighlightBox[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `attr:${K}`]?: DsoHighlightBoxAttributes[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `prop:${K}`]?: DsoHighlightBox[K] };
         "dso-history-item": Omit<DsoHistoryItem, keyof DsoHistoryItemAttributes> & { [K in keyof DsoHistoryItem & keyof DsoHistoryItemAttributes]?: DsoHistoryItem[K] } & { [K in keyof DsoHistoryItem & keyof DsoHistoryItemAttributes as `attr:${K}`]?: DsoHistoryItemAttributes[K] } & { [K in keyof DsoHistoryItem & keyof DsoHistoryItemAttributes as `prop:${K}`]?: DsoHistoryItem[K] } & OneOf<"type", DsoHistoryItem["type"], DsoHistoryItemAttributes["type"]>;
         "dso-icon": Omit<DsoIcon, keyof DsoIconAttributes> & { [K in keyof DsoIcon & keyof DsoIconAttributes]?: DsoIcon[K] } & { [K in keyof DsoIcon & keyof DsoIconAttributes as `attr:${K}`]?: DsoIconAttributes[K] } & { [K in keyof DsoIcon & keyof DsoIconAttributes as `prop:${K}`]?: DsoIcon[K] };
@@ -5017,6 +5029,7 @@ declare module "@stencil/core" {
             "dso-dropdown-menu-item": LocalJSX.IntrinsicElements["dso-dropdown-menu-item"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuItemElement>;
             "dso-expandable": LocalJSX.IntrinsicElements["dso-expandable"] & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
             "dso-header": LocalJSX.IntrinsicElements["dso-header"] & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
+            "dso-hero-image": LocalJSX.IntrinsicElements["dso-hero-image"] & JSXBase.HTMLAttributes<HTMLDsoHeroImageElement>;
             "dso-highlight-box": LocalJSX.IntrinsicElements["dso-highlight-box"] & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-history-item": LocalJSX.IntrinsicElements["dso-history-item"] & JSXBase.HTMLAttributes<HTMLDsoHistoryItemElement>;
             "dso-icon": LocalJSX.IntrinsicElements["dso-icon"] & JSXBase.HTMLAttributes<HTMLDsoIconElement>;

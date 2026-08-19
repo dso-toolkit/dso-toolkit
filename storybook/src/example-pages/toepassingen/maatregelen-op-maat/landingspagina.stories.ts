@@ -22,6 +22,7 @@ const Landingspagina = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
+        <!-- START DEPRECATED: use <dso-hero-image> -->
         <div
           class="row dso-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hero4.jpeg')"
@@ -43,6 +44,7 @@ const Landingspagina = examplePageStories((templates) => {
             })}
           </div>
         </div>
+        <!-- END DEPRECATED -->
         <div class="row">
           <div class="col-md-8">
             <h2>Voldoen aan de regels</h2>

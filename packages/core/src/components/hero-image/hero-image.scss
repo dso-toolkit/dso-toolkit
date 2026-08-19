@@ -1,0 +1,62 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/grid/grid.variables" as css-grid-variables;
+@use "~dso-toolkit/src/components/grid/grid.mixins" as css-grid-mixins;
+
+:host {
+  --dso-hero-image-background-color: #{colors.$grasgroen-10};
+
+  @include css-grid-mixins.full-width-row(css-grid-variables.$grid-gutter-width);
+
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--dso-hero-image-background-color);
+
+  @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    min-block-size: 352px;
+  }
+}
+
+::slotted([slot="image"]) {
+  display: block;
+  inline-size: 100%;
+  min-block-size: calc(100vw / 6 + 1dvi);
+  background-color: var(--dso-hero-image-background-color);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    position: absolute;
+    inset: 0;
+    min-block-size: unset;
+  }
+}
+
+.hero-image-container {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  inline-size: 100%;
+  padding-inline: units.$u2;
+  padding-block-end: units.$u2;
+  margin-block-start: units.$u2;
+
+  @media (min-width: media-query-breakpoints.$screen-sm-min) {
+    margin-block-start: units.$u5;
+  }
+
+  @media (min-width: media-query-breakpoints.$screen-md-min) {
+    max-inline-size: media-query-breakpoints.$screen-md-min;
+    margin-block-start: units.$u5;
+  }
+
+  ::slotted(*) {
+    @media (min-width: media-query-breakpoints.$screen-md-min) {
+      display: block;
+      inline-size: clamp(0px, 38vw, 545px);
+    }
+  }
+}

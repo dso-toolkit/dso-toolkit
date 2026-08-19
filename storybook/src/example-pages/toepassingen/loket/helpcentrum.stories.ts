@@ -22,6 +22,7 @@ const Helpcentrum = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main>
+        <!-- START DEPRECATED: use <dso-hero-image> -->
         <div
           class="row dso-banner no-button-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hero2.jpeg')"
@@ -41,6 +42,7 @@ const Helpcentrum = examplePageStories((templates) => {
             })}
           </div>
         </div>
+        <!-- END DEPRECATED -->
         <h2>Waarmee kunnen we u helpen?</h2>
         <div class="row">
           <div class="col-md-8">
