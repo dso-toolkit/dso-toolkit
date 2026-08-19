@@ -29,7 +29,13 @@ Vervang de oude HTML markup met classes `row dso-banner no-button-banner` en de 
 
 ✅
 <dso-hero-image>
-  <div class="my-beautiful-image" slot="image"></div>
+  <div slot="image" class="my-beautiful-image"></div>
+  <dso-highlight-box white> ... </dso-highlight-box>
+</dso-hero-image>
+
+✅
+<dso-hero-image>
+  <div slot="image" style="background-image: url(images/my-beautiful-image.webp)"></div>
   <dso-highlight-box white> ... </dso-highlight-box>
 </dso-hero-image>
 ```
