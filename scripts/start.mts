@@ -11,7 +11,6 @@ rimraf.sync("storybook/www");
 rimraf.sync("packages/react/src/components.ts");
 rimraf.sync("packages/react/src/react-component-lib");
 rimraf.sync("packages/react/dist");
-rimraf.sync("packages/react/www");
 rimraf.sync("angular-workspace/.angular");
 rimraf.sync("angular-workspace/www");
 rimraf.sync("angular-workspace/projects/component-library/src/lib/stencil-generated");
