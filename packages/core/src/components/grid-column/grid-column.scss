@@ -1,0 +1,29 @@
+@use "sass:color";
+@use "~dso-toolkit/src/variables/colors";
+
+:host([overlay]) {
+  position: relative;
+}
+
+.grid-column {
+  position: relative;
+
+  &.grid-column-overlay {
+    z-index: 1000;
+    position: absolute;
+    background-color: colors.$wit;
+    opacity: 1;
+
+    .grid-column-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: color.scale(colors.$wit, $alpha: -40%);
+      z-index: -1;
+    }
+
+    .grid-column-content {
+      position: relative;
+      z-index: 1001;
+    }
+  }
+}

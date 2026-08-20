@@ -46,6 +46,7 @@ import {
   FormGroupSelect,
   FormGroupStatic,
   FormGroupTextarea,
+  GridColumn,
   Header,
   Heading,
   HeroImage,
@@ -149,6 +150,7 @@ import { cssFormGroupSelect } from "./components/form-group/form-group-select.cs
 import { cssFormGroupStatic } from "./components/form-group/form-group-static.css-template";
 import { cssFormGroupTextarea } from "./components/form-group/form-group-textarea.css-template";
 import { cssFormGroup } from "./components/form-group/form-group.css-template";
+import { coreGridColumn } from "./components/grid-column/grid-column.core-template";
 import { coreHeader } from "./components/header/header.core-template";
 import { cssHeading } from "./components/heading/heading.css-template";
 import { coreHeroImage } from "./components/hero-image/hero-image.core-template";
@@ -192,6 +194,7 @@ import { coreScrollable } from "./components/scrollable/scrollable.core-template
 import { cssSearchBar } from "./components/search-bar/search-bar.css-template";
 import { coreSegmentedButton } from "./components/segmented-button/segmented-button.core-template";
 import { coreSelectable } from "./components/selectable/selectable.core-template";
+import { coreShoppingCart } from "./components/shopping-cart/shopping-cart.core-template";
 import { cssShoppingCart } from "./components/shopping-cart/shopping-cart.css-template";
 import { coreSkiplink } from "./components/skiplink/skiplink.core-template";
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
@@ -293,6 +296,7 @@ export interface Components {
   searchBar: SearchBar;
   segmentedButton: SegmentedButton;
   selectable: Selectable<TemplateResult>;
+  gridColumn: GridColumn<TemplateResult>;
   shoppingCart: ShoppingCart;
   skiplink: Skiplink;
   slideToggle: SlideToggle;
@@ -385,6 +389,8 @@ templateContainer.add(coreResponsiveElement);
 templateContainer.add(coreScrollable);
 templateContainer.add(coreSegmentedButton);
 templateContainer.add(coreSelectable);
+templateContainer.add(coreGridColumn);
+templateContainer.add(coreShoppingCart);
 templateContainer.add(coreSkiplink);
 templateContainer.add(coreSlideToggle);
 templateContainer.add(coreSurveyRating);

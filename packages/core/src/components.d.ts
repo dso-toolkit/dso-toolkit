@@ -51,6 +51,8 @@ import { ResponsiveElementSize } from "./components/responsive-element/responsiv
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
+import { ShoppingCartToggleEvent, ShoppingCartVariant } from "./components/shopping-cart/shopping-cart.interfaces";
+import { ShoppingCartItemCloseEvent, ShoppingCartItemDeleteEvent, ShoppingCartItemEditEvent, ShoppingCartItemVariant } from "./components/shopping-cart/shopping-cart-item/shopping-cart-item.interfaces";
 import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
@@ -104,6 +106,8 @@ export { ResponsiveElementSize } from "./components/responsive-element/responsiv
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
+export { ShoppingCartToggleEvent, ShoppingCartVariant } from "./components/shopping-cart/shopping-cart.interfaces";
+export { ShoppingCartItemCloseEvent, ShoppingCartItemDeleteEvent, ShoppingCartItemEditEvent, ShoppingCartItemVariant } from "./components/shopping-cart/shopping-cart-item/shopping-cart-item.interfaces";
 export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
@@ -683,6 +687,17 @@ export namespace Components {
           * Set to `true` to expand the content.
          */
         "open"?: boolean;
+    }
+    interface DsoGridColumn {
+        /**
+          * The column classes to apply (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix.
+         */
+        "columns": string;
+        /**
+          * When set, the column renders with a modal overlay backdrop.
+          * @default false
+         */
+        "overlay": boolean;
     }
     interface DsoHeader {
         /**
@@ -1332,6 +1347,41 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface DsoShoppingCart {
+        /**
+          * The title of the Shopping Cart.
+         */
+        "cartTitle": string | undefined;
+        /**
+          * The accessible label of the toggle button. In the `main` variant it is also shown as the button text.
+         */
+        "toggleLabel"?: string;
+        /**
+          * The variant of the Shopping Cart.
+          * @default "side"
+         */
+        "variant": ShoppingCartVariant;
+    }
+    interface DsoShoppingCartItem {
+        /**
+          * An optional line of information shown below the name.
+         */
+        "info"?: string;
+        /**
+          * The name of the item. In the `form` variant this is used as the title.
+         */
+        "label": string | undefined;
+        /**
+          * The variant of the Shopping Cart Item.
+          * @default "side"
+         */
+        "variant": ShoppingCartItemVariant;
+        /**
+          * When set a warning icon is rendered before the name.
+          * @default false
+         */
+        "warning": boolean;
+    }
     interface DsoSkiplink {
         /**
           * link text
@@ -1669,6 +1719,14 @@ export interface DsoSegmentedButtonCustomEvent<T> extends CustomEvent<T> {
 export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSelectableElement;
+}
+export interface DsoShoppingCartCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoShoppingCartElement;
+}
+export interface DsoShoppingCartItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoShoppingCartItemElement;
 }
 export interface DsoSkiplinkCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2044,6 +2102,12 @@ declare global {
     var HTMLDsoExpandableElement: {
         prototype: HTMLDsoExpandableElement;
         new (): HTMLDsoExpandableElement;
+    };
+    interface HTMLDsoGridColumnElement extends Components.DsoGridColumn, HTMLStencilElement {
+    }
+    var HTMLDsoGridColumnElement: {
+        prototype: HTMLDsoGridColumnElement;
+        new (): HTMLDsoGridColumnElement;
     };
     interface HTMLDsoHeaderElementEventMap {
         "dsoHeaderClick": HeaderEvent;
@@ -2603,6 +2667,42 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
+    interface HTMLDsoShoppingCartElementEventMap {
+        "dsoToggle": ShoppingCartToggleEvent;
+    }
+    interface HTMLDsoShoppingCartElement extends Components.DsoShoppingCart, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoShoppingCartElementEventMap>(type: K, listener: (this: HTMLDsoShoppingCartElement, ev: DsoShoppingCartCustomEvent<HTMLDsoShoppingCartElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoShoppingCartElementEventMap>(type: K, listener: (this: HTMLDsoShoppingCartElement, ev: DsoShoppingCartCustomEvent<HTMLDsoShoppingCartElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoShoppingCartElement: {
+        prototype: HTMLDsoShoppingCartElement;
+        new (): HTMLDsoShoppingCartElement;
+    };
+    interface HTMLDsoShoppingCartItemElementEventMap {
+        "dsoEdit": ShoppingCartItemEditEvent;
+        "dsoDelete": ShoppingCartItemDeleteEvent;
+        "dsoClose": ShoppingCartItemCloseEvent;
+    }
+    interface HTMLDsoShoppingCartItemElement extends Components.DsoShoppingCartItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoShoppingCartItemElementEventMap>(type: K, listener: (this: HTMLDsoShoppingCartItemElement, ev: DsoShoppingCartItemCustomEvent<HTMLDsoShoppingCartItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoShoppingCartItemElementEventMap>(type: K, listener: (this: HTMLDsoShoppingCartItemElement, ev: DsoShoppingCartItemCustomEvent<HTMLDsoShoppingCartItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoShoppingCartItemElement: {
+        prototype: HTMLDsoShoppingCartItemElement;
+        new (): HTMLDsoShoppingCartItemElement;
+    };
     interface HTMLDsoSkiplinkElementEventMap {
         "dsoSkiplinkClick": SkiplinkClickEvent;
     }
@@ -2778,6 +2878,7 @@ declare global {
         "dso-dropdown-menu-group": HTMLDsoDropdownMenuGroupElement;
         "dso-dropdown-menu-item": HTMLDsoDropdownMenuItemElement;
         "dso-expandable": HTMLDsoExpandableElement;
+        "dso-grid-column": HTMLDsoGridColumnElement;
         "dso-header": HTMLDsoHeaderElement;
         "dso-hero-image": HTMLDsoHeroImageElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
@@ -2815,6 +2916,8 @@ declare global {
         "dso-scrollable": HTMLDsoScrollableElement;
         "dso-segmented-button": HTMLDsoSegmentedButtonElement;
         "dso-selectable": HTMLDsoSelectableElement;
+        "dso-shopping-cart": HTMLDsoShoppingCartElement;
+        "dso-shopping-cart-item": HTMLDsoShoppingCartItemElement;
         "dso-skiplink": HTMLDsoSkiplinkElement;
         "dso-slide-toggle": HTMLDsoSlideToggleElement;
         "dso-survey-rating": HTMLDsoSurveyRatingElement;
@@ -3518,6 +3621,17 @@ declare namespace LocalJSX {
           * Set to `true` to expand the content.
          */
         "open"?: boolean;
+    }
+    interface DsoGridColumn {
+        /**
+          * The column classes to apply (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix.
+         */
+        "columns": string;
+        /**
+          * When set, the column renders with a modal overlay backdrop.
+          * @default false
+         */
+        "overlay"?: boolean;
     }
     interface DsoHeader {
         /**
@@ -4311,6 +4425,57 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface DsoShoppingCart {
+        /**
+          * The title of the Shopping Cart.
+         */
+        "cartTitle"?: string | undefined;
+        /**
+          * Emitted when the user clicks the toggle button (the button in the `side` variant or the "Sluiten" button in the `main` variant).
+         */
+        "onDsoToggle"?: (event: DsoShoppingCartCustomEvent<ShoppingCartToggleEvent>) => void;
+        /**
+          * The accessible label of the toggle button. In the `main` variant it is also shown as the button text.
+         */
+        "toggleLabel"?: string;
+        /**
+          * The variant of the Shopping Cart.
+          * @default "side"
+         */
+        "variant"?: ShoppingCartVariant;
+    }
+    interface DsoShoppingCartItem {
+        /**
+          * An optional line of information shown below the name.
+         */
+        "info"?: string;
+        /**
+          * The name of the item. In the `form` variant this is used as the title.
+         */
+        "label"?: string | undefined;
+        /**
+          * Emitted when the user clicks the close button in the `form` variant.
+         */
+        "onDsoClose"?: (event: DsoShoppingCartItemCustomEvent<ShoppingCartItemCloseEvent>) => void;
+        /**
+          * Emitted when the user clicks the delete (trash) action.
+         */
+        "onDsoDelete"?: (event: DsoShoppingCartItemCustomEvent<ShoppingCartItemDeleteEvent>) => void;
+        /**
+          * Emitted when the user clicks the edit (pencil) action.
+         */
+        "onDsoEdit"?: (event: DsoShoppingCartItemCustomEvent<ShoppingCartItemEditEvent>) => void;
+        /**
+          * The variant of the Shopping Cart Item.
+          * @default "side"
+         */
+        "variant"?: ShoppingCartItemVariant;
+        /**
+          * When set a warning icon is rendered before the name.
+          * @default false
+         */
+        "warning"?: boolean;
+    }
     interface DsoSkiplink {
         /**
           * link text
@@ -4693,6 +4858,10 @@ declare namespace LocalJSX {
         "enableAnimation": boolean;
         "minimumHeight": number;
     }
+    interface DsoGridColumnAttributes {
+        "columns": string;
+        "overlay": boolean;
+    }
     interface DsoHeaderAttributes {
         "compact": HeaderCompactMode;
         "authStatus": HeaderAuthStatus;
@@ -4878,6 +5047,17 @@ declare namespace LocalJSX {
         "indeterminate": boolean;
         "infoFixed": boolean;
     }
+    interface DsoShoppingCartAttributes {
+        "variant": ShoppingCartVariant;
+        "cartTitle": string | undefined;
+        "toggleLabel": string;
+    }
+    interface DsoShoppingCartItemAttributes {
+        "variant": ShoppingCartItemVariant;
+        "label": string | undefined;
+        "info": string;
+        "warning": boolean;
+    }
     interface DsoSkiplinkAttributes {
         "to": string | undefined;
         "label": string | undefined;
@@ -4945,6 +5125,7 @@ declare namespace LocalJSX {
         "dso-dropdown-menu-group": Omit<DsoDropdownMenuGroup, keyof DsoDropdownMenuGroupAttributes> & { [K in keyof DsoDropdownMenuGroup & keyof DsoDropdownMenuGroupAttributes]?: DsoDropdownMenuGroup[K] } & { [K in keyof DsoDropdownMenuGroup & keyof DsoDropdownMenuGroupAttributes as `attr:${K}`]?: DsoDropdownMenuGroupAttributes[K] } & { [K in keyof DsoDropdownMenuGroup & keyof DsoDropdownMenuGroupAttributes as `prop:${K}`]?: DsoDropdownMenuGroup[K] };
         "dso-dropdown-menu-item": Omit<DsoDropdownMenuItem, keyof DsoDropdownMenuItemAttributes> & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes]?: DsoDropdownMenuItem[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `attr:${K}`]?: DsoDropdownMenuItemAttributes[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `prop:${K}`]?: DsoDropdownMenuItem[K] } & OneOf<"type", DsoDropdownMenuItem["type"], DsoDropdownMenuItemAttributes["type"]>;
         "dso-expandable": Omit<DsoExpandable, keyof DsoExpandableAttributes> & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes]?: DsoExpandable[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `attr:${K}`]?: DsoExpandableAttributes[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `prop:${K}`]?: DsoExpandable[K] };
+        "dso-grid-column": Omit<DsoGridColumn, keyof DsoGridColumnAttributes> & { [K in keyof DsoGridColumn & keyof DsoGridColumnAttributes]?: DsoGridColumn[K] } & { [K in keyof DsoGridColumn & keyof DsoGridColumnAttributes as `attr:${K}`]?: DsoGridColumnAttributes[K] } & { [K in keyof DsoGridColumn & keyof DsoGridColumnAttributes as `prop:${K}`]?: DsoGridColumn[K] } & OneOf<"columns", DsoGridColumn["columns"], DsoGridColumnAttributes["columns"]>;
         "dso-header": Omit<DsoHeader, keyof DsoHeaderAttributes> & { [K in keyof DsoHeader & keyof DsoHeaderAttributes]?: DsoHeader[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `attr:${K}`]?: DsoHeaderAttributes[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `prop:${K}`]?: DsoHeader[K] };
         "dso-hero-image": DsoHeroImage;
         "dso-highlight-box": Omit<DsoHighlightBox, keyof DsoHighlightBoxAttributes> & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes]?: DsoHighlightBox[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `attr:${K}`]?: DsoHighlightBoxAttributes[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `prop:${K}`]?: DsoHighlightBox[K] };
@@ -4982,6 +5163,8 @@ declare namespace LocalJSX {
         "dso-scrollable": Omit<DsoScrollable, keyof DsoScrollableAttributes> & { [K in keyof DsoScrollable & keyof DsoScrollableAttributes]?: DsoScrollable[K] } & { [K in keyof DsoScrollable & keyof DsoScrollableAttributes as `attr:${K}`]?: DsoScrollableAttributes[K] } & { [K in keyof DsoScrollable & keyof DsoScrollableAttributes as `prop:${K}`]?: DsoScrollable[K] };
         "dso-segmented-button": Omit<DsoSegmentedButton, keyof DsoSegmentedButtonAttributes> & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes]?: DsoSegmentedButton[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `attr:${K}`]?: DsoSegmentedButtonAttributes[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `prop:${K}`]?: DsoSegmentedButton[K] } & OneOf<"label", DsoSegmentedButton["label"], DsoSegmentedButtonAttributes["label"]>;
         "dso-selectable": Omit<DsoSelectable, keyof DsoSelectableAttributes> & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes]?: DsoSelectable[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `attr:${K}`]?: DsoSelectableAttributes[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `prop:${K}`]?: DsoSelectable[K] } & OneOf<"type", DsoSelectable["type"], DsoSelectableAttributes["type"]>;
+        "dso-shopping-cart": Omit<DsoShoppingCart, keyof DsoShoppingCartAttributes> & { [K in keyof DsoShoppingCart & keyof DsoShoppingCartAttributes]?: DsoShoppingCart[K] } & { [K in keyof DsoShoppingCart & keyof DsoShoppingCartAttributes as `attr:${K}`]?: DsoShoppingCartAttributes[K] } & { [K in keyof DsoShoppingCart & keyof DsoShoppingCartAttributes as `prop:${K}`]?: DsoShoppingCart[K] };
+        "dso-shopping-cart-item": Omit<DsoShoppingCartItem, keyof DsoShoppingCartItemAttributes> & { [K in keyof DsoShoppingCartItem & keyof DsoShoppingCartItemAttributes]?: DsoShoppingCartItem[K] } & { [K in keyof DsoShoppingCartItem & keyof DsoShoppingCartItemAttributes as `attr:${K}`]?: DsoShoppingCartItemAttributes[K] } & { [K in keyof DsoShoppingCartItem & keyof DsoShoppingCartItemAttributes as `prop:${K}`]?: DsoShoppingCartItem[K] };
         "dso-skiplink": Omit<DsoSkiplink, keyof DsoSkiplinkAttributes> & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes]?: DsoSkiplink[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `attr:${K}`]?: DsoSkiplinkAttributes[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `prop:${K}`]?: DsoSkiplink[K] } & OneOf<"to", DsoSkiplink["to"], DsoSkiplinkAttributes["to"]> & OneOf<"label", DsoSkiplink["label"], DsoSkiplinkAttributes["label"]>;
         "dso-slide-toggle": Omit<DsoSlideToggle, keyof DsoSlideToggleAttributes> & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes]?: DsoSlideToggle[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `attr:${K}`]?: DsoSlideToggleAttributes[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `prop:${K}`]?: DsoSlideToggle[K] };
         "dso-survey-rating": DsoSurveyRating;
@@ -5028,6 +5211,7 @@ declare module "@stencil/core" {
             "dso-dropdown-menu-group": LocalJSX.IntrinsicElements["dso-dropdown-menu-group"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuGroupElement>;
             "dso-dropdown-menu-item": LocalJSX.IntrinsicElements["dso-dropdown-menu-item"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuItemElement>;
             "dso-expandable": LocalJSX.IntrinsicElements["dso-expandable"] & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
+            "dso-grid-column": LocalJSX.IntrinsicElements["dso-grid-column"] & JSXBase.HTMLAttributes<HTMLDsoGridColumnElement>;
             "dso-header": LocalJSX.IntrinsicElements["dso-header"] & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-hero-image": LocalJSX.IntrinsicElements["dso-hero-image"] & JSXBase.HTMLAttributes<HTMLDsoHeroImageElement>;
             "dso-highlight-box": LocalJSX.IntrinsicElements["dso-highlight-box"] & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
@@ -5068,6 +5252,8 @@ declare module "@stencil/core" {
             "dso-scrollable": LocalJSX.IntrinsicElements["dso-scrollable"] & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
             "dso-segmented-button": LocalJSX.IntrinsicElements["dso-segmented-button"] & JSXBase.HTMLAttributes<HTMLDsoSegmentedButtonElement>;
             "dso-selectable": LocalJSX.IntrinsicElements["dso-selectable"] & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
+            "dso-shopping-cart": LocalJSX.IntrinsicElements["dso-shopping-cart"] & JSXBase.HTMLAttributes<HTMLDsoShoppingCartElement>;
+            "dso-shopping-cart-item": LocalJSX.IntrinsicElements["dso-shopping-cart-item"] & JSXBase.HTMLAttributes<HTMLDsoShoppingCartItemElement>;
             "dso-skiplink": LocalJSX.IntrinsicElements["dso-skiplink"] & JSXBase.HTMLAttributes<HTMLDsoSkiplinkElement>;
             "dso-slide-toggle": LocalJSX.IntrinsicElements["dso-slide-toggle"] & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
             "dso-survey-rating": LocalJSX.IntrinsicElements["dso-survey-rating"] & JSXBase.HTMLAttributes<HTMLDsoSurveyRatingElement>;

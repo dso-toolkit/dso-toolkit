@@ -1,0 +1,42 @@
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+:host {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+.shopping-cart {
+  background-color: colors.$lichtblauw-20;
+  padding-block: units.$u2;
+  padding-inline: units.$u2;
+}
+
+.shopping-cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: units.$u2;
+  margin-block-end: units.$u2;
+}
+
+.shopping-cart-title {
+  margin: 0;
+}
+
+.shopping-cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: units.$u1;
+}
+
+button {
+  @include button.element();
+
+  &.dso-secondary {
+    @include button.secondary($base-styling: true);
+  }
+}

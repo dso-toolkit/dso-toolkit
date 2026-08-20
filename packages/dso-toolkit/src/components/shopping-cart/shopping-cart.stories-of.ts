@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
 import { componentArgs } from "../../storybook";
@@ -12,14 +13,16 @@ import { ShoppingCart } from "./shopping-cart.models.js";
 type ShoppingCartStory = StoryObj<ShoppingCartArgs, Renderer>;
 
 interface ShoppingCartStories {
-  Default: ShoppingCartStory;
-  ItemsCollapsed: ShoppingCartStory;
-  ItemsNonCollapsable: ShoppingCartStory;
-  RemoveAllItemsOption: ShoppingCartStory;
-  EditItems: ShoppingCartStory;
-  WithSubitems: ShoppingCartStory;
-  WithSubitemsAndHiddenSummary: ShoppingCartStory;
-  WithSubitemsAndWarning: ShoppingCartStory;
+  Default: ShoppingCartStory; // HTML/CSS
+  ItemsCollapsed: ShoppingCartStory; // HTML/CSS
+  ItemsNonCollapsable: ShoppingCartStory; // HTML/CSS
+  RemoveAllItemsOption: ShoppingCartStory; // HTML/CSS
+  EditItems: ShoppingCartStory; // HTML/CSS
+  WithSubitems: ShoppingCartStory; // HTML/CSS
+  WithSubitemsAndHiddenSummary: ShoppingCartStory; // HTML/CSS
+  WithSubitemsAndWarning: ShoppingCartStory; // HTML/CSS
+  Side: ShoppingCartStory; // Core
+  Main: ShoppingCartStory; // Core
 }
 
 interface ShoppingCartStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -40,14 +43,19 @@ export function shoppingCartMeta<TRenderer extends Renderer>({ readme }: MetaOpt
   return {
     argTypes: shoppingCartArgTypes,
     args: componentArgs<ShoppingCartArgs>({
+      _implementation: "html/css",
       collapsable: true,
       collapsed: false,
       hideSummary: false,
       removeAll: false,
       isOpen: false,
-      shoppingcartTitle: "Mijn activiteiten",
+      shoppingcartTitle: "Gekozen activiteiten",
       shoppingcartTitleTag: "h2",
       items: [],
+      dsoToggle: fn(),
+      dsoClose: fn(),
+      dsoEdit: fn(),
+      dsoDelete: fn(),
     }),
     parameters: {
       docs: readme
@@ -69,6 +77,64 @@ export function shoppingCartStories<Implementation, Templates, TemplateFnReturnT
 
   return {
     Default: {
+      render,
+    },
+    Side: {
+      args: componentArgs<Pick<ShoppingCartArgs, "variant" | "toggleLabel" | "items" | "_implementation">>({
+        _implementation: "core",
+        variant: "side",
+        toggleLabel: "Openen",
+        items: [
+          {
+            label:
+              "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
+            info: "Aanvraag vergunning (Gemeente Utrecht)",
+            warning: true,
+          },
+          {
+            label: "Flora- en fauna-activiteit",
+            info: "Aanvraag vergunning",
+          },
+          {
+            label: "Verspreiding Aziatische duizendknoopsoorten voorkomen",
+            info: "Melding (gemeente Woerden) - 2x",
+          },
+        ],
+      }),
+      render,
+    },
+    Main: {
+      args: componentArgs<Pick<ShoppingCartArgs, "variant" | "toggleLabel" | "items" | "_implementation">>({
+        _implementation: "core",
+        variant: "main",
+        toggleLabel: "Sluiten",
+        items: [
+          {
+            variant: "form",
+            label: "Toevoeging bij activiteitnaam veranderen",
+          },
+          {
+            label:
+              "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam, niet zijnde de Noordzee, of waterkering in beheer bij het Rijk",
+            info: "Aanvraag vergunning (Gemeente Woerden)",
+            warning: true,
+            subitems: [
+              {
+                label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
+                warning: true,
+              },
+            ],
+          },
+          {
+            label: "Verspreiding Aziatische duizendknoopsoorten voorkomen (1)",
+            info: "Melding (gemeente Woerden)",
+          },
+          {
+            label: "Graven in bodem met een kwaliteit onder of gelijk aan de interventiewaarde bodemkwaliteit",
+            info: "Informatie",
+          },
+        ],
+      }),
       render,
     },
     EditItems: {

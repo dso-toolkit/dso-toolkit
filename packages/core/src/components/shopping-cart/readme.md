@@ -1,0 +1,48 @@
+# `<dso-shopping-cart>`
+
+ 
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property      | Attribute      | Description                                                                                           | Type                  | Default     |
+| ------------- | -------------- | ----------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
+| `cartTitle`   | `cart-title`   | The title of the Shopping Cart.                                                                       | `string \| undefined` | `undefined` |
+| `toggleLabel` | `toggle-label` | The accessible label of the toggle button. In the `main` variant it is also shown as the button text. | `string \| undefined` | `undefined` |
+| `variant`     | `variant`      | The variant of the Shopping Cart.                                                                     | `"main" \| "side"`    | `"side"`    |
+
+
+## Events
+
+| Event       | Description                                                                                                                      | Type                                   |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `dsoToggle` | Emitted when the user clicks the toggle button (the button in the `side` variant or the "Sluiten" button in the `main` variant). | `CustomEvent<ShoppingCartToggleEvent>` |
+
+
+## Slots
+
+| Slot | Description                                                 |
+| ---- | ----------------------------------------------------------- |
+|      | The slot to place the `dso-shopping-cart-item` elements in. |
+
+
+## Dependencies
+
+### Depends on
+
+- [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
+
+### Graph
+```mermaid
+graph TD;
+  dso-shopping-cart --> dso-icon
+  dso-shopping-cart --> dso-icon-button
+  dso-icon-button --> dso-icon
+  style dso-shopping-cart fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
