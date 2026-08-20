@@ -49,7 +49,7 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<TemplateResu
               </span>`
             : nothing
         }
-        ${labels?.length ? html` <div slot="labels">${labelGroupTemplate({ labels })}</div> ` : nothing}
+        ${labels?.length ? labelGroupTemplate({ labels, slotName: "labels" }) : nothing}
       </dso-document-card>`;
     },
 };
