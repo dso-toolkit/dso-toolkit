@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreShoppingCart: ComponentImplementation<ShoppingCart> = {
   component: "shoppingCart",
   implementation: "core",
-  template: ({ buttonTemplate, contextTemplate, formGroupInputTemplate, formGroupStaticTemplate }) =>
+  template: ({ buttonTemplate, formGroupInputTemplate, formGroupStaticTemplate }) =>
     function shoppingCartTemplate({ variant, toggleLabel, shoppingcartTitle, items, dsoToggle }) {
       const itemVariant = variant === "main" ? "main" : "side";
 

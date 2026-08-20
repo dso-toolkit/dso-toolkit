@@ -688,6 +688,17 @@ export namespace Components {
          */
         "open"?: boolean;
     }
+    interface DsoGridColumn {
+        /**
+          * The column classes to apply (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix.
+         */
+        "columns": string;
+        /**
+          * When set, the column renders with a modal overlay backdrop.
+          * @default false
+         */
+        "overlay": boolean;
+    }
     interface DsoHeader {
         /**
           * Used to show the login/logout option. 'none' renders nothing.
@@ -2092,6 +2103,12 @@ declare global {
         prototype: HTMLDsoExpandableElement;
         new (): HTMLDsoExpandableElement;
     };
+    interface HTMLDsoGridColumnElement extends Components.DsoGridColumn, HTMLStencilElement {
+    }
+    var HTMLDsoGridColumnElement: {
+        prototype: HTMLDsoGridColumnElement;
+        new (): HTMLDsoGridColumnElement;
+    };
     interface HTMLDsoHeaderElementEventMap {
         "dsoHeaderClick": HeaderEvent;
     }
@@ -2861,6 +2878,7 @@ declare global {
         "dso-dropdown-menu-group": HTMLDsoDropdownMenuGroupElement;
         "dso-dropdown-menu-item": HTMLDsoDropdownMenuItemElement;
         "dso-expandable": HTMLDsoExpandableElement;
+        "dso-grid-column": HTMLDsoGridColumnElement;
         "dso-header": HTMLDsoHeaderElement;
         "dso-hero-image": HTMLDsoHeroImageElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
@@ -3603,6 +3621,17 @@ declare namespace LocalJSX {
           * Set to `true` to expand the content.
          */
         "open"?: boolean;
+    }
+    interface DsoGridColumn {
+        /**
+          * The column classes to apply (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix.
+         */
+        "columns": string;
+        /**
+          * When set, the column renders with a modal overlay backdrop.
+          * @default false
+         */
+        "overlay"?: boolean;
     }
     interface DsoHeader {
         /**
@@ -4829,6 +4858,10 @@ declare namespace LocalJSX {
         "enableAnimation": boolean;
         "minimumHeight": number;
     }
+    interface DsoGridColumnAttributes {
+        "columns": string;
+        "overlay": boolean;
+    }
     interface DsoHeaderAttributes {
         "compact": HeaderCompactMode;
         "authStatus": HeaderAuthStatus;
@@ -5092,6 +5125,7 @@ declare namespace LocalJSX {
         "dso-dropdown-menu-group": Omit<DsoDropdownMenuGroup, keyof DsoDropdownMenuGroupAttributes> & { [K in keyof DsoDropdownMenuGroup & keyof DsoDropdownMenuGroupAttributes]?: DsoDropdownMenuGroup[K] } & { [K in keyof DsoDropdownMenuGroup & keyof DsoDropdownMenuGroupAttributes as `attr:${K}`]?: DsoDropdownMenuGroupAttributes[K] } & { [K in keyof DsoDropdownMenuGroup & keyof DsoDropdownMenuGroupAttributes as `prop:${K}`]?: DsoDropdownMenuGroup[K] };
         "dso-dropdown-menu-item": Omit<DsoDropdownMenuItem, keyof DsoDropdownMenuItemAttributes> & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes]?: DsoDropdownMenuItem[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `attr:${K}`]?: DsoDropdownMenuItemAttributes[K] } & { [K in keyof DsoDropdownMenuItem & keyof DsoDropdownMenuItemAttributes as `prop:${K}`]?: DsoDropdownMenuItem[K] } & OneOf<"type", DsoDropdownMenuItem["type"], DsoDropdownMenuItemAttributes["type"]>;
         "dso-expandable": Omit<DsoExpandable, keyof DsoExpandableAttributes> & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes]?: DsoExpandable[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `attr:${K}`]?: DsoExpandableAttributes[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `prop:${K}`]?: DsoExpandable[K] };
+        "dso-grid-column": Omit<DsoGridColumn, keyof DsoGridColumnAttributes> & { [K in keyof DsoGridColumn & keyof DsoGridColumnAttributes]?: DsoGridColumn[K] } & { [K in keyof DsoGridColumn & keyof DsoGridColumnAttributes as `attr:${K}`]?: DsoGridColumnAttributes[K] } & { [K in keyof DsoGridColumn & keyof DsoGridColumnAttributes as `prop:${K}`]?: DsoGridColumn[K] } & OneOf<"columns", DsoGridColumn["columns"], DsoGridColumnAttributes["columns"]>;
         "dso-header": Omit<DsoHeader, keyof DsoHeaderAttributes> & { [K in keyof DsoHeader & keyof DsoHeaderAttributes]?: DsoHeader[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `attr:${K}`]?: DsoHeaderAttributes[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `prop:${K}`]?: DsoHeader[K] };
         "dso-hero-image": DsoHeroImage;
         "dso-highlight-box": Omit<DsoHighlightBox, keyof DsoHighlightBoxAttributes> & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes]?: DsoHighlightBox[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `attr:${K}`]?: DsoHighlightBoxAttributes[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `prop:${K}`]?: DsoHighlightBox[K] };
@@ -5177,6 +5211,7 @@ declare module "@stencil/core" {
             "dso-dropdown-menu-group": LocalJSX.IntrinsicElements["dso-dropdown-menu-group"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuGroupElement>;
             "dso-dropdown-menu-item": LocalJSX.IntrinsicElements["dso-dropdown-menu-item"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuItemElement>;
             "dso-expandable": LocalJSX.IntrinsicElements["dso-expandable"] & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
+            "dso-grid-column": LocalJSX.IntrinsicElements["dso-grid-column"] & JSXBase.HTMLAttributes<HTMLDsoGridColumnElement>;
             "dso-header": LocalJSX.IntrinsicElements["dso-header"] & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-hero-image": LocalJSX.IntrinsicElements["dso-hero-image"] & JSXBase.HTMLAttributes<HTMLDsoHeroImageElement>;
             "dso-highlight-box": LocalJSX.IntrinsicElements["dso-highlight-box"] & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
