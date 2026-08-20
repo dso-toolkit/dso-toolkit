@@ -1,10 +1,10 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
-import { Label } from "../../index.js";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { InfoButton } from "../info-button";
+import { Label } from "../label";
 
 import {
   DocumentCardArgs,

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Viewer Grid: Document-tab conditioneel kunnen verbergen ([#3925](https://github.com/dso-toolkit/dso-toolkit/issues/3925))
+* Document Card: Toevoeging label row ([#3716](https://github.com/dso-toolkit/dso-toolkit/issues/3716))
 
 ### Fixed
 * Map Message: NVDA leest niet voor bij verschijnen ([#3943](https://github.com/dso-toolkit/dso-toolkit/issues/3943))
@@ -16,9 +17,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Hero Image: Nieuw component ([#3797](https://github.com/dso-toolkit/dso-toolkit/issues/3797))
 * Shopping Cart: Herontwerp en Web Component ([#3853](https://github.com/dso-toolkit/dso-toolkit/issues/3853))
-
-### Changed
-* Document Card: Toevoeging label row ([#3716](https://github.com/dso-toolkit/dso-toolkit/issues/3716))
 
 ### Task
 * Storybook: Verwijder React Storybook ([#3929](https://github.com/dso-toolkit/dso-toolkit/issues/3929))
