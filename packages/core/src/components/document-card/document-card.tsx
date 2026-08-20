@@ -10,6 +10,7 @@ import { DocumentCardClickEvent } from "./document-card.interfaces";
  * @slot meta - An optional slot to place a `Label` in.
  * @slot status - A slot to hold some status information on the document.
  * @slot interactions - An optional slot for one or more `Badge`'s.
+ * @slot labels - An optional slot to place a `Label Group` in.
  */
 @Component({
   tag: "dso-document-card",
@@ -68,6 +69,10 @@ export class DocumentCard implements ComponentInterface {
     return this.host.querySelector("[slot='interactions']");
   }
 
+  get labelsSlottedElement() {
+    return this.host.querySelector("[slot='labels']");
+  }
+
   render() {
     return (
       <div class="dso-document-card-container">
@@ -87,6 +92,11 @@ export class DocumentCard implements ComponentInterface {
           <slot name="status" />
           {this.interactionsSlottedElement !== null && <slot name="interactions" />}
         </div>
+        {this.labelsSlottedElement !== null && (
+          <div class="dso-document-card-labels">
+            <slot name="labels" />
+          </div>
+        )}
       </div>
     );
   }

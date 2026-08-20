@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Hero Image: Nieuw component ([#3797](https://github.com/dso-toolkit/dso-toolkit/issues/3797))
 
+### Changed
+* Document Card: Toevoeging label row ([#3716](https://github.com/dso-toolkit/dso-toolkit/issues/3716))
+
 ### Task
 * Storybook: Verwijder React Storybook ([#3929](https://github.com/dso-toolkit/dso-toolkit/issues/3929))
 

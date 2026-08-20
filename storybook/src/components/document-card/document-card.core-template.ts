@@ -4,10 +4,10 @@ import { TemplateResult, html, nothing } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
 
-export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
+export const coreDocumentCard: ComponentImplementation<DocumentCard<TemplateResult>> = {
   component: "documentCard",
   implementation: "core",
-  template: ({ labelTemplate, infoButtonTemplate, badgeTemplate }) =>
+  template: ({ labelTemplate, labelGroupTemplate, infoButtonTemplate, badgeTemplate }) =>
     function documentCardTemplate({
       label,
       href,
@@ -18,6 +18,7 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
       statusToelichtingWarning,
       meta,
       status,
+      labels,
       dsoDocumentCardClick,
     }: DocumentCard<TemplateResult>) {
       return html`<dso-document-card
@@ -48,6 +49,7 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
               </span>`
             : nothing
         }
+        ${labels?.length ? labelGroupTemplate({ labels, slotName: "labels" }) : nothing}
       </dso-document-card>`;
     },
 };

@@ -84,7 +84,8 @@
 
 .dso-document-card-heading + .dso-document-card-type,
 .dso-document-card-heading + .dso-document-card-status,
-.dso-document-card-type + .dso-document-card-status {
+.dso-document-card-type + .dso-document-card-status,
+.dso-document-card-status + .dso-document-card-labels {
   margin-block-start: units.$u1;
 }
 
@@ -94,4 +95,8 @@
 
 ::slotted([slot="status"]) {
   margin-inline-end: units.$u1;
+}
+
+::slotted([slot="labels"]) {
+  margin-block-end: 0 !important;
 }
