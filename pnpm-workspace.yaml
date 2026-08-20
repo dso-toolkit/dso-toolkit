@@ -61,7 +61,6 @@ catalogs:
     "@storybook/addon-a11y": "10.5.7"
     "@storybook/addon-docs": "10.5.7"
     "@storybook/builder-vite": "10.5.7"
-    "@storybook/react-vite": "10.5.7"
     "@storybook/web-components-vite": "10.5.7"
     eslint-plugin-storybook: "10.5.7"
     storybook: "10.5.7"

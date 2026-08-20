@@ -17,10 +17,6 @@ const config: StorybookConfig = {
           title: "Angular",
           url: `//storybook.dso-toolkit.nl/!angular/${getVersion() ?? "master"}`,
         },
-        react: {
-          title: "React",
-          url: `//storybook.dso-toolkit.nl/!react/${getVersion() ?? "master"}`,
-        },
       };
     }
     return {};

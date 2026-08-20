@@ -11,7 +11,6 @@ rimraf.sync("storybook/www");
 rimraf.sync("packages/react/src/components.ts");
 rimraf.sync("packages/react/src/react-component-lib");
 rimraf.sync("packages/react/dist");
-rimraf.sync("packages/react/www");
 rimraf.sync("angular-workspace/.angular");
 rimraf.sync("angular-workspace/www");
 rimraf.sync("angular-workspace/projects/component-library/src/lib/stencil-generated");
@@ -39,12 +38,6 @@ const watchToolkit = {
   name: "toolkit",
 };
 
-const startReact = {
-  command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter @dso-toolkit/react storybook:start",
-  name: "react",
-};
-
 const startAngular = {
   command:
     "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && pnpm --filter angular-workspace storybook:start",
@@ -65,10 +58,7 @@ const runProcesses = (processes: Parameters<typeof concurrently>[0]) => {
 if (!argv.mode) {
   if (argv.all) {
     // --all
-    runProcesses([watchToolkit, watchCore, startStorybook, startReact, startAngular, startCypress]);
-  } else if (argv.react) {
-    // --react
-    runProcesses([watchToolkit, watchCore, startReact]);
+    runProcesses([watchToolkit, watchCore, startStorybook, startAngular, startCypress]);
   } else if (argv.angular) {
     // --angular
     runProcesses([watchToolkit, watchCore, startAngular]);

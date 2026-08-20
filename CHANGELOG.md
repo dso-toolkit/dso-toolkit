@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Hero Image: Nieuw component ([#3797](https://github.com/dso-toolkit/dso-toolkit/issues/3797))
 
+### Task
+* Storybook: Verwijder React Storybook ([#3929](https://github.com/dso-toolkit/dso-toolkit/issues/3929))
+
 ## 🍍 Release 100.1.0 - 2026-08-17
 
 ### Added

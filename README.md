@@ -84,7 +84,6 @@ The easiest way to start this environment is with one of the following commands:
 
 ```
 pnpm start
-pnpm start --react
 pnpm start --angular
 pnpm start --all
 ```
@@ -94,15 +93,14 @@ This will run the corresponding Storybook(s). Since these commands contain a col
 The following processes are started:
 
 - **default**: CSS in watch mode, Stencil in watch mode, Storybook and Cypress
-- **--react**: CSS in watch mode, Stencil in watch mode, Storybook for React components
 - **--angular**: CSS in watch mode, Stencil in watch mode, Storybook for Angular components
-- **--all**: CSS in watch mode, Stencil in watch mode, Storybook, and Storybook for React and Angular components
+- **--all**: CSS in watch mode, Stencil in watch mode, Storybook, and Storybook for Angular components
 
 This will start Stencil on http://localhost:45333, Storybook on http://localhost:45000 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
 
 ## Requirements
 
-Node 26. For development on the DSO Toolkit you also need pnpm (enabled via `corepack enable`).
+Node 24. For development on the DSO Toolkit you also need pnpm (enabled via `corepack enable`).
 
 ## Ports
 
@@ -111,5 +109,4 @@ Ports used during development:
 - 43300 - Docusaurus
 - 45333 - Stencil
 - 45000 - Storybook for HTML/CSS + Web Components
-- 45600 - Storybook for React components
 - 46006 - Storybook for Angular Components

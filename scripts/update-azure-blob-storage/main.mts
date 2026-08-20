@@ -88,7 +88,6 @@ async function main(
     { path: "cdn.dso-toolkit.nl/www/dso-toolkit" },
     { path: "cdn.dso-toolkit.nl/www/@dso-toolkit/core" },
     { path: "dso-toolkit.nl/www", main: true },
-    { path: "react.dso-toolkit.nl/www" },
     { path: "storybook.dso-toolkit.nl/www" },
   ];
 
