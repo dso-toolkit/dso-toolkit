@@ -5,22 +5,101 @@ describe("dso-map-message - Storybook slot rendering", () => {
   it("renders success variant and ARIA role", () => {
     cy.visit(`${storybookBaseUrl}success`);
     cy.get(mapMessageSelector).should("have.attr", "variant", "success");
-    cy.get(mapMessageSelector).shadow().find(".map-message-content").should("have.attr", "role", "status");
+    cy.get(mapMessageSelector).shadow().find(".map-message-body").should("have.attr", "role", "status");
     cy.get(mapMessageSelector).find('[slot="message"]').should("exist");
   });
 
   it("renders error variant and ARIA role", () => {
     cy.visit(`${storybookBaseUrl}error`);
     cy.get(mapMessageSelector).should("have.attr", "variant", "error");
-    cy.get(mapMessageSelector).shadow().find(".map-message-content").should("have.attr", "role", "alert");
+    cy.get(mapMessageSelector).shadow().find(".map-message-body").should("have.attr", "role", "alert");
     cy.get(mapMessageSelector).find('[slot="message"]').should("exist");
   });
 
   it("renders instruction variant and ARIA role", () => {
     cy.visit(`${storybookBaseUrl}instruction`);
     cy.get(mapMessageSelector).should("have.attr", "variant", "instruction");
-    cy.get(mapMessageSelector).shadow().find(".map-message-content").should("have.attr", "role", "status");
+    cy.get(mapMessageSelector).shadow().find(".map-message-body").should("have.attr", "role", "status");
     cy.get(mapMessageSelector).find('[slot="message"]').should("exist");
+  });
+
+  // #3943: komen live region en melding tegelijk de DOM in, dan leest een screenreader
+  // het kaartbericht niet voor.
+  it("renders the live region empty first and adds the message in a later frame", () => {
+    cy.visit(`${storybookBaseUrl}instruction`);
+    cy.get(mapMessageSelector).should("exist");
+
+    cy.window().then((win) => {
+      type RegionState = { frame: number; slotPresent: boolean; flatText: string };
+
+      return new Cypress.Promise<RegionState[]>((resolve) => {
+        const doc = win.document;
+        const states: RegionState[] = [];
+        let frame = 0;
+
+        const countFrames = () => {
+          frame++;
+          win.requestAnimationFrame(countFrames);
+        };
+        win.requestAnimationFrame(countFrames);
+
+        const origAttachShadow = win.Element.prototype.attachShadow;
+        win.Element.prototype.attachShadow = function (init: ShadowRootInit): ShadowRoot {
+          const shadowRoot = origAttachShadow.call(this, init);
+
+          if (this.tagName === "DSO-MAP-MESSAGE") {
+            win.Element.prototype.attachShadow = origAttachShadow;
+
+            const record = () => {
+              const region = shadowRoot.querySelector('[role="status"], [role="alert"]');
+              if (!region) {
+                return;
+              }
+
+              const slot = region.querySelector<HTMLSlotElement>('slot[name="message"]');
+              const flatText = slot
+                ? slot
+                    .assignedNodes({ flatten: true })
+                    .map((node) => node.textContent)
+                    .join("")
+                    .trim()
+                : "";
+
+              states.push({ frame, slotPresent: slot !== null, flatText });
+
+              if (flatText !== "") {
+                resolve(states);
+              }
+            };
+
+            new win.MutationObserver(record).observe(shadowRoot, { subtree: true, childList: true });
+            record();
+          }
+
+          return shadowRoot;
+        };
+
+        doc.querySelector("dso-map-message")?.remove();
+
+        const mapMessage = doc.createElement("dso-map-message");
+        mapMessage.setAttribute("variant", "instruction");
+        const message = doc.createElement("span");
+        message.slot = "message";
+        message.textContent = "Klik in de kaart om een punt te tekenen";
+        mapMessage.append(message);
+        doc.body.append(mapMessage);
+      }).then((states) => {
+        const empty = states.find((state) => !state.slotPresent);
+        const filled = states.find((state) => state.flatText !== "");
+
+        expect(empty, "live region is rendered empty first").to.not.equal(undefined);
+        expect(filled, "message is added to the live region").to.not.equal(undefined);
+
+        if (empty && filled) {
+          expect(filled.frame, "message is added in a later animation frame").to.be.greaterThan(empty.frame);
+        }
+      });
+    });
   });
 
   it("should be accessible", () => {

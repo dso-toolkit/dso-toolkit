@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Hero Image: Nieuw component ([#3797](https://github.com/dso-toolkit/dso-toolkit/issues/3797))
 
+### Fixed
+* Map Message: NVDA leest niet voor bij verschijnen ([#3943](https://github.com/dso-toolkit/dso-toolkit/issues/3943))
+
 ### Task
 * Storybook: Verwijder React Storybook ([#3929](https://github.com/dso-toolkit/dso-toolkit/issues/3929))
 
