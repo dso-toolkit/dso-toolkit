@@ -75,7 +75,16 @@ describe("Shopping Cart", () => {
     });
 
     it("updates the action label when the slotted name changes", () => {
-      cy.get("dso-shopping-cart-item.hydrated").first().children("[slot='name']").invoke("text", "Nieuwe naam");
+      cy.get("dso-shopping-cart-item.hydrated")
+        .first()
+        .children("[slot='name']")
+        .then(($name) => {
+          const textNode = Array.from($name[0]!.childNodes).find(
+            (node) => node.nodeType === Node.TEXT_NODE && !!node.nodeValue?.trim(),
+          );
+
+          textNode!.nodeValue = "Nieuwe naam";
+        });
 
       cy.get("dso-shopping-cart-item.hydrated")
         .first()

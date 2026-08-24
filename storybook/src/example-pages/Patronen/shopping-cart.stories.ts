@@ -132,10 +132,10 @@ export const Block = examplePageStories<ShoppingCartBlockArgs>(
       formDsoSubmit: argTypeAction(),
     },
     args: {
-      shoppingCartItemDsoEdit: fn(),
-      shoppingCartItemDsoDelete: fn(),
-      shoppingCartItemDsoClose: fn(),
-      formDsoSubmit: fn(),
+      shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
+      shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
+      shoppingCartItemDsoClose: fn().mockName("dsoClose"),
+      formDsoSubmit: fn().mockName("dsoSubmit"),
     },
   },
 );
@@ -369,12 +369,12 @@ export const Overlay = examplePageStories<ShoppingCartOverlayArgs>(
     },
     args: {
       mode: "main",
-      gridColumnDsoClose: fn(),
-      shoppingCartDsoToggle: fn(),
-      shoppingCartItemDsoEdit: fn(),
-      shoppingCartItemDsoDelete: fn(),
-      shoppingCartItemDsoClose: fn(),
-      formDsoSubmit: fn(),
+      gridColumnDsoClose: fn().mockName("dsoClose"),
+      shoppingCartDsoToggle: fn().mockName("dsoToggle"),
+      shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
+      shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
+      shoppingCartItemDsoClose: fn().mockName("dsoClose"),
+      formDsoSubmit: fn().mockName("dsoSubmit"),
     },
   },
 );

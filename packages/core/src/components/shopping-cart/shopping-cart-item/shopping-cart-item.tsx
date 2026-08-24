@@ -68,7 +68,7 @@ export class ShoppingCartItem implements ComponentInterface {
   connectedCallback(): void {
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
 
-    this.mutationObserver.observe(this.host, { attributes: true, childList: true, subtree: true });
+    this.mutationObserver.observe(this.host, { attributes: true, characterData: true, childList: true, subtree: true });
   }
 
   disconnectedCallback(): void {
@@ -76,7 +76,7 @@ export class ShoppingCartItem implements ComponentInterface {
   }
 
   get name(): string {
-    return this.host.querySelector("[slot='name']")?.textContent?.trim() ?? "";
+    return this.host.querySelector(":scope > [slot='name']")?.textContent?.trim() ?? "";
   }
 
   private renderWarning() {
