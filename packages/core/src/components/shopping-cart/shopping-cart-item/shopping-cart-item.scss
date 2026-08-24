@@ -1,7 +1,7 @@
 @use "~dso-toolkit/src/components/button";
-@use "~dso-toolkit/src/components/heading/heading.mixins" as heading-mixins;
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
 
@@ -54,8 +54,6 @@ button {
 }
 
 .item-name {
-  margin: 0;
-  font-weight: var(--_dso-shopping-cart-item-name-weight, 600);
   display: flex;
   align-items: flex-start;
   gap: units.$ru1;
@@ -63,6 +61,16 @@ button {
 
   dso-icon {
     flex: none;
+  }
+
+  ::slotted([slot="name"]) {
+    margin-block: 0 !important;
+    margin-inline: 0 !important;
+    font-weight: var(--_dso-shopping-cart-item-name-weight, 600) !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: var(--_dso-shopping-cart-line-clamp, none) !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 }
 
@@ -79,23 +87,22 @@ button {
   gap: units.$ru1;
 }
 
-.item-label {
-  display: -webkit-box;
-  -webkit-line-clamp: var(--_dso-shopping-cart-line-clamp, none);
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .item-edit-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: units.$u2;
-}
 
-.item-title {
-  @include heading-mixins.h3();
+  ::slotted([slot="name"]) {
+    margin-block: 0 !important;
+    margin-inline: 0 !important;
+    color: colors.$bosgroen !important;
+    font-size: units.$font-size-h3s !important;
+    font-weight: 600 !important;
+    line-height: units.$font-line-height-h3 !important;
 
-  margin: 0;
-  line-height: units.$font-line-height-h3;
+    @media (min-width: media-query-breakpoints.$screen-xs-min) {
+      font-size: units.$font-size-h3 !important;
+    }
+  }
 }

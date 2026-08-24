@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Event, EventEmitter, Prop, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Prop, forceUpdate, h } from "@stencil/core";
 
 import {
   ShoppingCartItemCloseEvent,
@@ -9,6 +9,7 @@ import {
 
 /**
  * @slot - In the `edit` mode it holds the form content. In the `view` mode it can hold nested Shopping Cart Items, which render as sub items.
+ * @slot name - The name of the item. In the `edit` mode it is the title of the form; use a heading element (e.g. `<h4 slot="name">`) matching the heading hierarchy of the page. The text is also used in the labels of the edit and delete actions.
  * @slot info - An optional line of information shown below the name.
  */
 @Component({
@@ -17,17 +18,16 @@ import {
   shadow: true,
 })
 export class ShoppingCartItem implements ComponentInterface {
+  private mutationObserver?: MutationObserver;
+
+  @Element()
+  host!: HTMLDsoShoppingCartItemElement;
+
   /**
    * The mode of the Shopping Cart Item.
    */
   @Prop({ reflect: true })
   mode: ShoppingCartItemMode = "view";
-
-  /**
-   * The name of the item. In the `edit` mode this is used as the title.
-   */
-  @Prop({ reflect: true })
-  label: string | undefined;
 
   /**
    * When set a warning icon is rendered before the name.
@@ -65,6 +65,20 @@ export class ShoppingCartItem implements ComponentInterface {
   @Event({ bubbles: false })
   dsoClose!: EventEmitter<ShoppingCartItemCloseEvent>;
 
+  connectedCallback(): void {
+    this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
+
+    this.mutationObserver.observe(this.host, { attributes: true, childList: true, subtree: true });
+  }
+
+  disconnectedCallback(): void {
+    this.mutationObserver?.disconnect();
+  }
+
+  get name(): string {
+    return this.host.querySelector("[slot='name']")?.textContent?.trim() ?? "";
+  }
+
   private renderWarning() {
     return [
       <dso-icon icon="status-warning" aria-hidden="true"></dso-icon>,
@@ -79,7 +93,7 @@ export class ShoppingCartItem implements ComponentInterface {
           <dso-icon-button
             icon="pencil"
             variant="tertiary"
-            label={`Wijzig ${this.label}`}
+            label={`Wijzig ${this.name}`}
             onDsoClick={(e) => this.dsoEdit.emit({ originalEvent: e.detail.originalEvent })}
           ></dso-icon-button>
         )}
@@ -87,7 +101,7 @@ export class ShoppingCartItem implements ComponentInterface {
           <dso-icon-button
             icon="trash"
             variant="tertiary"
-            label={`Verwijder ${this.label}`}
+            label={`Verwijder ${this.name}`}
             onDsoClick={(e) => this.dsoDelete.emit({ originalEvent: e.detail.originalEvent })}
           ></dso-icon-button>
         )}
@@ -100,7 +114,7 @@ export class ShoppingCartItem implements ComponentInterface {
       return (
         <div class="item item-edit">
           <div class="item-edit-header">
-            <h3 class="item-title">{this.label}</h3>
+            <slot name="name"></slot>
             <button type="button" class="dso-tertiary" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
               Sluiten
               <dso-icon icon="cross"></dso-icon>
@@ -116,10 +130,10 @@ export class ShoppingCartItem implements ComponentInterface {
     return (
       <div class="item">
         <div class="item-header">
-          <p class="item-name">
+          <div class="item-name">
             {this.warning && this.renderWarning()}
-            <span class="item-label">{this.label}</span>
-          </p>
+            <slot name="name"></slot>
+          </div>
           {(this.editable || this.removable) && this.renderActions()}
         </div>
         <slot></slot>

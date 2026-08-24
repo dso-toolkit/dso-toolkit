@@ -48,18 +48,18 @@ export const Block = examplePageStories<ShoppingCartBlockArgs>(
               id: "toevoeging",
               type: "text",
               label: "Toevoeging",
+              formButtons: {
+                buttons: [
+                  {
+                    type: "submit",
+                    label: "Opslaan",
+                    variant: "primary",
+                    compact: true,
+                  },
+                ],
+              },
             },
           ],
-          formButtons: {
-            buttons: [
-              {
-                type: "submit",
-                label: "Opslaan",
-                variant: "primary",
-                compact: true,
-              },
-            ],
-          },
           dsoSubmit: (event) => {
             event.preventDefault();
             formDsoSubmit(event);
@@ -201,18 +201,18 @@ export const Overlay = examplePageStories<ShoppingCartOverlayArgs>(
               id: "toevoeging",
               type: "text",
               label: "Toevoeging",
+              formButtons: {
+                buttons: [
+                  {
+                    type: "submit",
+                    label: "Opslaan",
+                    variant: "primary",
+                    compact: true,
+                  },
+                ],
+              },
             },
           ],
-          formButtons: {
-            buttons: [
-              {
-                type: "submit",
-                label: "Opslaan",
-                variant: "primary",
-                compact: true,
-              },
-            ],
-          },
           dsoSubmit: (event) => {
             event.preventDefault();
             formDsoSubmit(event);
@@ -259,7 +259,7 @@ export const Overlay = examplePageStories<ShoppingCartOverlayArgs>(
         <main>
           <h1>Shopping Cart Overlay</h1>
           <p>
-            De Shopping Cart staat als side-variant rechts in beeld over 4 kolommen. Met de <code>variant</code>-control
+            De Shopping Cart staat als side-variant rechts in beeld over 4 kolommen. Met de <code>mode</code>-control
             wissel je naar de main-variant: de Grid Column zet dan zijn overlay-modus aan en het paneel rekt op tot de
             volledige rij. Alle events zijn aangesloten; de toggle-knop, de item-acties, een klik op de backdrop en
             Escape zie je terug in het Actions-panel. Onder de sm-grens doet de overlay niets en wisselt de cart in de

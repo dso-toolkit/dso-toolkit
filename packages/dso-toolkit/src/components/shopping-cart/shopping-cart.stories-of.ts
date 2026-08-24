@@ -163,18 +163,18 @@ export function shoppingCartStories<Implementation, Templates, TemplateFnReturnT
                 type: "text",
                 label: "Toevoeging",
                 value: "1",
+                formButtons: {
+                  buttons: [
+                    {
+                      type: "submit",
+                      label: "Opslaan",
+                      variant: "primary",
+                      compact: true,
+                    },
+                  ],
+                },
               },
             ],
-            formButtons: {
-              buttons: [
-                {
-                  type: "submit",
-                  label: "Opslaan",
-                  variant: "primary",
-                  compact: true,
-                },
-              ],
-            },
           },
         }
       : {

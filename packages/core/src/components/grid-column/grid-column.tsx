@@ -38,7 +38,7 @@ export class GridColumn implements ComponentInterface {
    * offset are not supported.
    */
   @Prop({ reflect: true })
-  columns!: string;
+  columns!: string | undefined;
 
   /**
    * When set, the column content expands to the full width of the row and renders as a modal overlay with a backdrop.
@@ -150,6 +150,14 @@ export class GridColumn implements ComponentInterface {
     this.dsoClose.emit({ originalEvent: event });
   };
 
+  private handleDialogClose = (event: Event) => {
+    this.dsoClose.emit({ originalEvent: event });
+
+    if (this.overlayActive && this.dialogElement && !this.dialogElement.open) {
+      this.dialogElement.showModal();
+    }
+  };
+
   render() {
     return (
       <Host>
@@ -159,6 +167,7 @@ export class GridColumn implements ComponentInterface {
             ref={(element) => (this.dialogElement = element)}
             onClick={this.handleDialogClick}
             onCancel={this.handleDialogCancel}
+            onClose={this.handleDialogClose}
           >
             <slot></slot>
           </dialog>

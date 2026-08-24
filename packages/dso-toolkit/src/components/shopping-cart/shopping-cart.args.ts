@@ -59,15 +59,15 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs<never>> = {
       type: "boolean",
     },
   },
-  mode: argTypeAction(),
+  mode: noControl,
   toggleable: {
     if: { arg: "_implementation", eq: "core" },
     control: {
       type: "boolean",
     },
   },
-  editable: argTypeAction(),
-  removable: argTypeAction(),
+  editable: noControl,
+  removable: noControl,
   itemMode: noControl,
   warning: {
     if: { arg: "_implementation", eq: "core" },
@@ -75,7 +75,7 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs<never>> = {
       type: "boolean",
     },
   },
-  items: argTypeAction(),
+  items: noControl,
   shoppingcartTitleTag: {
     if: { arg: "_implementation", eq: "html/css" },
     options: ["h2", "h3"],
@@ -93,7 +93,7 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs<never>> = {
   dsoDelete: argTypeAction(),
   dsoClose: argTypeAction(),
   dsoSubmit: argTypeAction(),
-  _implementation: argTypeAction(),
+  _implementation: noControl,
 };
 
 export function shoppingCartArgsMapper<TemplateFnReturnType>(
@@ -118,14 +118,12 @@ export function shoppingCartArgsMapper<TemplateFnReturnType>(
           a.dsoSubmit(event);
         },
       },
-      dsoClose: () => a.dsoClose(),
-      dsoEdit: () => a.dsoEdit(),
-      dsoDelete: () => a.dsoDelete(),
+      dsoClose: (event) => a.dsoClose(event),
+      dsoEdit: (event) => a.dsoEdit(event),
+      dsoDelete: (event) => a.dsoDelete(event),
     })),
     titleTag: a.shoppingcartTitleTag,
     title: a.shoppingcartTitle,
-    dsoToggle: () => {
-      a.dsoToggle();
-    },
+    dsoToggle: (event) => a.dsoToggle(event),
   };
 }

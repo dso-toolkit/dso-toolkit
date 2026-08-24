@@ -33,22 +33,19 @@ describe("Shopping Cart", () => {
     it("truncates the item name to two lines", () => {
       cy.get("dso-shopping-cart-item.hydrated")
         .first()
-        .shadow()
-        .find(".item-label")
+        .children("[slot='name']")
         .should("have.css", "-webkit-line-clamp", "2");
     });
 
     it("renders a nested item as sub item", () => {
       cy.get("dso-shopping-cart-item.hydrated dso-shopping-cart-item.hydrated")
         .first()
-        .shadow()
-        .find(".item-name")
+        .children("[slot='name']")
         .should("have.css", "font-weight", "400");
 
       cy.get("dso-shopping-cart-item.hydrated dso-shopping-cart-item.hydrated")
         .first()
-        .shadow()
-        .find(".item-label")
+        .children("[slot='name']")
         .should("have.css", "-webkit-line-clamp", "2");
     });
 
@@ -60,6 +57,32 @@ describe("Shopping Cart", () => {
         .should("have.length", 1)
         .invoke("prop", "label")
         .should("contain", "Verwijder");
+    });
+
+    it("uses the slotted name in the action label", () => {
+      cy.get("dso-shopping-cart-item.hydrated")
+        .first()
+        .children("[slot='name']")
+        .invoke("text")
+        .then((name) => {
+          cy.get("dso-shopping-cart-item.hydrated")
+            .first()
+            .shadow()
+            .find(".item-actions dso-icon-button")
+            .invoke("prop", "label")
+            .should("equal", `Verwijder ${name.trim()}`);
+        });
+    });
+
+    it("updates the action label when the slotted name changes", () => {
+      cy.get("dso-shopping-cart-item.hydrated").first().children("[slot='name']").invoke("text", "Nieuwe naam");
+
+      cy.get("dso-shopping-cart-item.hydrated")
+        .first()
+        .shadow()
+        .find(".item-actions dso-icon-button")
+        .invoke("prop", "label")
+        .should("equal", "Verwijder Nieuwe naam");
     });
 
     it("renders a warning icon only on items with a warning", () => {
@@ -128,8 +151,7 @@ describe("Shopping Cart", () => {
     it("does not truncate the item name", () => {
       cy.get("dso-shopping-cart-item.hydrated:not([mode='edit'])")
         .first()
-        .shadow()
-        .find(".item-label")
+        .children("[slot='name']")
         .should("have.css", "-webkit-line-clamp", "none");
     });
 

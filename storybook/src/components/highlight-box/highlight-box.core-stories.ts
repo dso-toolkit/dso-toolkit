@@ -12,7 +12,7 @@ const meta: Meta<HighlightBoxArgs> = {
 
 export default meta;
 
-export function createContent(templates: Templates, heading: TemplateResult) {
+function createContent(templates: Templates, heading: TemplateResult) {
   const { linkTemplate, buttonTemplate, richContentTemplate } = templates;
 
   return richContentTemplate({

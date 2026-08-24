@@ -1,9 +1,30 @@
+@use "../../../variables/units";
 @use "../form-group.mixins" as form-group-mixins;
 
 .form-group.dso-input {
   &.dso-required {
     .control-label::after {
       @include form-group-mixins.form-group-required();
+    }
+  }
+
+  &:has(> .dso-form-buttons) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    column-gap: units.$u1;
+    row-gap: units.$u1;
+
+    .dso-label-container {
+      grid-column: 1 / -1;
+    }
+
+    .dso-label-container + .dso-field-container {
+      margin-block-start: 0;
+    }
+
+    .dso-form-buttons {
+      margin-block: 0;
     }
   }
 }

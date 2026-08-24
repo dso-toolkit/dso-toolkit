@@ -12,7 +12,6 @@ export const coreShoppingCart: ComponentImplementation<ShoppingCart<TemplateResu
       const renderItem = (item: ShoppingCartItem<TemplateResult>): TemplateResult => html`
         <dso-shopping-cart-item
           mode=${ifDefined(item.mode)}
-          label=${item.label}
           ?warning=${item.warning}
           ?editable=${item.editable}
           ?removable=${item.removable}
@@ -20,6 +19,7 @@ export const coreShoppingCart: ComponentImplementation<ShoppingCart<TemplateResu
           @dsoDelete=${item.dsoDelete}
           @dsoClose=${item.dsoClose}
         >
+          ${item.mode === "edit" ? html`<h4 slot="name">${item.label}</h4>` : html`<p slot="name">${item.label}</p>`}
           ${item.mode === "edit" ? item.form && formTemplate(item.form) : (item.subitems ?? []).map(renderItem)}
           ${item.info ? html`<p slot="info">${item.info}</p>` : nothing}
         </dso-shopping-cart-item>

@@ -1,3 +1,4 @@
+import { FormButtons } from "../../form-buttons/form-buttons.models.js";
 import { Icon } from "../../icon/icon.models";
 import { FormGroupBase } from "../form-group.base-model";
 
@@ -9,6 +10,7 @@ export interface FormGroupInput<TemplateFnReturnType> extends FormGroupBase<Temp
   size?: number;
   autocomplete?: boolean;
   feedback?: Icon;
+  formButtons?: FormButtons;
 }
 
 export interface FormGroupInputDate<TemplateFnReturnType> extends Omit<FormGroupInput<TemplateFnReturnType>, "type"> {

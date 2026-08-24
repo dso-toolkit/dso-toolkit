@@ -694,7 +694,7 @@ export namespace Components {
         /**
           * The column widths per breakpoint (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix. Widths only; push, pull and offset are not supported.
          */
-        "columns": string;
+        "columns": string | undefined;
         /**
           * When set, the column content expands to the full width of the row and renders as a modal overlay with a backdrop. The column keeps its own place in the row; the overlay panel is anchored to the row and scrolls with the page. Below the sm breakpoint the overlay does not apply and the content stays in the flow of the page.
           * @default false
@@ -1367,10 +1367,6 @@ export namespace Components {
           * @default false
          */
         "editable": boolean;
-        /**
-          * The name of the item. In the `edit` mode this is used as the title.
-         */
-        "label": string | undefined;
         /**
           * The mode of the Shopping Cart Item.
           * @default "view"
@@ -3646,7 +3642,7 @@ declare namespace LocalJSX {
         /**
           * The column widths per breakpoint (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix. Widths only; push, pull and offset are not supported.
          */
-        "columns": string;
+        "columns": string | undefined;
         /**
           * Emitted when the user dismisses the overlay: a click on the backdrop or the Escape key.
          */
@@ -4472,10 +4468,6 @@ declare namespace LocalJSX {
          */
         "editable"?: boolean;
         /**
-          * The name of the item. In the `edit` mode this is used as the title.
-         */
-        "label"?: string | undefined;
-        /**
           * The mode of the Shopping Cart Item.
           * @default "view"
          */
@@ -4886,7 +4878,7 @@ declare namespace LocalJSX {
         "minimumHeight": number;
     }
     interface DsoGridColumnAttributes {
-        "columns": string;
+        "columns": string | undefined;
         "overlay": boolean;
     }
     interface DsoHeaderAttributes {
@@ -5080,7 +5072,6 @@ declare namespace LocalJSX {
     }
     interface DsoShoppingCartItemAttributes {
         "mode": ShoppingCartItemMode;
-        "label": string | undefined;
         "warning": boolean;
         "editable": boolean;
         "removable": boolean;
