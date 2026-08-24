@@ -1,18 +1,18 @@
-import { ShoppingCart, ShoppingCartItem, ShoppingCartSubitem } from "dso-toolkit";
-import { html, nothing } from "lit-html";
+import { ShoppingCart, ShoppingCartItem } from "dso-toolkit";
+import { TemplateResult, html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
 
-function accumulateItems(items: ShoppingCartItem[]) {
-  return items.reduce<ShoppingCartItem[]>((t, item) => t.concat(item), []);
+function accumulateItems(items: ShoppingCartItem<TemplateResult>[]) {
+  return items.reduce<ShoppingCartItem<TemplateResult>[]>((t, item) => t.concat(item), []);
 }
 
-function countItems(items: ShoppingCartItem[]) {
+function countItems(items: ShoppingCartItem<TemplateResult>[]) {
   return accumulateItems(items).length;
 }
 
-function hasWarning(items: ShoppingCartItem[] | ShoppingCartSubitem[]) {
+function hasWarning(items: ShoppingCartItem<TemplateResult>[]) {
   for (const item of items) {
     if ("subitems" in item) {
       if (item.subitems?.some((subitem) => subitem.warning)) {
@@ -28,22 +28,13 @@ function hasWarning(items: ShoppingCartItem[] | ShoppingCartSubitem[]) {
   return false;
 }
 
-export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
+export const cssShoppingCart: ComponentImplementation<ShoppingCart<TemplateResult>> = {
   component: "shoppingCart",
   implementation: "html-css",
   template: ({ buttonTemplate, iconTemplate }) =>
-    function shoppingCartTemplate({
-      collapsable,
-      collapsed,
-      hideSummary,
-      removeAll,
-      isOpen,
-      items,
-      shoppingcartTitleTag,
-      shoppingcartTitle,
-    }) {
+    function shoppingCartTemplate({ collapsable, collapsed, hideSummary, removeAll, isOpen, items, titleTag, title }) {
       return html`
-        ${shoppingcartTitleTag === "h2" ? html`<h2>${shoppingcartTitle}</h2>` : html`<h3>${shoppingcartTitle}</h3>`}
+        ${titleTag === "h2" ? html`<h2>${title}</h2>` : html`<h3>${title}</h3>`}
 
         <div class="dso-shopping-cart">
           <div class="dso-contents">

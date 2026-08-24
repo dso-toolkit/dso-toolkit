@@ -8,7 +8,7 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
   component: "form",
   implementation: "html-css",
   template: ({ formGroupTemplate, formButtonsTemplate }) =>
-    function formTemplate({ asteriskExplanation, mode, formModifier, content, formButtons }) {
+    function formTemplate({ asteriskExplanation, mode, formModifier, content, formButtons, dsoSubmit }) {
       function asteriskExplanationTemplate() {
         return html`<div class="form-explanation" aria-hidden="true">
           <p class="form-explanation-text">
@@ -58,6 +58,7 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
             "form-horizontal": mode === "horizontal",
             [formModifier || ""]: !!formModifier,
           })}
+          @submit=${dsoSubmit}
         >
           ${asteriskExplanation === "top" || asteriskExplanation === "both" ? asteriskExplanationTemplate() : nothing}
           ${content.map((formGroup) =>

@@ -10,7 +10,7 @@ export const cssFormGroupInput: ComponentImplementation<
 > = {
   component: "formGroupInput",
   implementation: "html-css",
-  template: ({ infoButtonTemplate, infoTemplate, datePickerTemplate, iconTemplate }) =>
+  template: ({ infoButtonTemplate, infoTemplate, datePickerTemplate, iconTemplate, formButtonsTemplate }) =>
     function formGroupInputTemplate(formGroup) {
       const errorTextId = `${formGroup.id}-error-text`;
       const helpTextId = `${formGroup.id}-help-text`;
@@ -22,6 +22,53 @@ export const cssFormGroupInput: ComponentImplementation<
           .join(" ") || undefined;
 
       const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
+
+      const fieldContainer = html`
+        <div class="dso-field-container">
+          ${
+            formGroup.type === "date"
+              ? html`
+                  ${datePickerTemplate({
+                    id: formGroup.id,
+                    disabled: !!formGroup.disabled,
+                    min: formGroup.min,
+                    max: formGroup.max,
+                    value: formGroup.value,
+                  })}
+                `
+              : html`
+                  <input
+                    type=${formGroup.type}
+                    id=${formGroup.id}
+                    class="form-control"
+                    placeholder=${ifDefined(formGroup.placeholder)}
+                    size=${ifDefined(formGroup.size)}
+                    value=${ifDefined(formGroup.value)}
+                    autocomplete=${ifDefined(formGroup.autocomplete)}
+                    aria-describedby=${ifDefined(ariaDescribedBy)}
+                    aria-errormessage=${ifDefined(ariaErrorMessage)}
+                    aria-invalid=${formGroup.state === "invalid"}
+                    ?disabled=${formGroup.disabled}
+                    ?readonly=${formGroup.readonly}
+                    ?required=${formGroup.required}
+                  />
+                `
+          }
+          ${
+            formGroup.feedback
+              ? html`
+                  <span class="form-control-feedback" aria-hidden="true">${iconTemplate(formGroup.feedback)}</span>
+                `
+              : nothing
+          }
+          ${
+            formGroup.errorText && formGroup.state === "invalid"
+              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
+              : nothing
+          }
+          ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
+        </div>
+      `;
 
       return html`
         <div
@@ -41,50 +88,7 @@ export const cssFormGroupInput: ComponentImplementation<
             }
             ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
           </div>
-          <div class="dso-field-container">
-            ${
-              formGroup.type === "date"
-                ? html`
-                    ${datePickerTemplate({
-                      id: formGroup.id,
-                      disabled: !!formGroup.disabled,
-                      min: formGroup.min,
-                      max: formGroup.max,
-                      value: formGroup.value,
-                    })}
-                  `
-                : html`
-                    <input
-                      type=${formGroup.type}
-                      id=${formGroup.id}
-                      class="form-control"
-                      placeholder=${ifDefined(formGroup.placeholder)}
-                      size=${ifDefined(formGroup.size)}
-                      value=${ifDefined(formGroup.value)}
-                      autocomplete=${ifDefined(formGroup.autocomplete)}
-                      aria-describedby=${ifDefined(ariaDescribedBy)}
-                      aria-errormessage=${ifDefined(ariaErrorMessage)}
-                      aria-invalid=${formGroup.state === "invalid"}
-                      ?disabled=${formGroup.disabled}
-                      ?readonly=${formGroup.readonly}
-                      ?required=${formGroup.required}
-                    />
-                  `
-            }
-            ${
-              formGroup.feedback
-                ? html`
-                    <span class="form-control-feedback" aria-hidden="true">${iconTemplate(formGroup.feedback)}</span>
-                  `
-                : nothing
-            }
-            ${
-              formGroup.errorText && formGroup.state === "invalid"
-                ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
-                : nothing
-            }
-            ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
-          </div>
+          ${fieldContainer} ${formGroup.formButtons ? formButtonsTemplate(formGroup.formButtons) : nothing}
         </div>
       `;
     },

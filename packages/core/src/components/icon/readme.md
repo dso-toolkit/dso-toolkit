@@ -37,6 +37,8 @@
  - [dso-pagination](../pagination)
  - [dso-plekinfo-card](../plekinfo-card)
  - [dso-progress-indicator](../progress-indicator)
+ - [dso-shopping-cart](../shopping-cart)
+ - [dso-shopping-cart-item](../shopping-cart/shopping-cart-item)
  - [dso-skiplink](../skiplink)
  - [dso-table](../table)
  - [dso-tijdreis-banner](../tijdreis-banner)
@@ -68,6 +70,8 @@ graph TD;
   dso-pagination --> dso-icon
   dso-plekinfo-card --> dso-icon
   dso-progress-indicator --> dso-icon
+  dso-shopping-cart --> dso-icon
+  dso-shopping-cart-item --> dso-icon
   dso-skiplink --> dso-icon
   dso-table --> dso-icon
   dso-tijdreis-banner --> dso-icon
