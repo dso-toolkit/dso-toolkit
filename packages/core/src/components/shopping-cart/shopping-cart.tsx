@@ -57,11 +57,11 @@ export class ShoppingCart implements ComponentInterface {
     return (
       <div class="shopping-cart">
         <div class="header">
-          <slot name="heading"></slot>
+          <slot name="heading" />
           {this.toggleable && this.renderToggle()}
         </div>
         <div class="items">
-          <slot></slot>
+          <slot />
         </div>
       </div>
     );

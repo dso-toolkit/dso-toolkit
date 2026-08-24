@@ -169,11 +169,11 @@ export class GridColumn implements ComponentInterface {
             onCancel={this.handleDialogCancel}
             onClose={this.handleDialogClose}
           >
-            <slot></slot>
+            <slot />
           </dialog>
         ) : (
           <div class="grid-column-content">
-            <slot></slot>
+            <slot />
           </div>
         )}
       </Host>

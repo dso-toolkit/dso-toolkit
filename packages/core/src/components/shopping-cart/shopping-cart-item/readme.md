@@ -36,14 +36,14 @@
 
 ### Depends on
 
-- [dso-icon](../../icon)
 - [dso-icon-button](../../icon-button)
+- [dso-icon](../../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-shopping-cart-item --> dso-icon
   dso-shopping-cart-item --> dso-icon-button
+  dso-shopping-cart-item --> dso-icon
   dso-icon-button --> dso-icon
   style dso-shopping-cart-item fill:#f9f,stroke:#333,stroke-width:4px
 ```

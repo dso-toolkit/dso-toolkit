@@ -1,6 +1,7 @@
 # `<dso-shopping-cart>`
 
- 
+Zie de voorbeeldpagina's onder Patronen voor hoe de Shopping Cart samenwerkt met `<dso-grid-column>`.
+
 <!-- Auto Generated Below -->
 
 

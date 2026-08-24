@@ -1,4 +1,14 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Prop, forceUpdate, h } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  Prop,
+  forceUpdate,
+  h,
+} from "@stencil/core";
 
 import {
   ShoppingCartItemCloseEvent,
@@ -79,13 +89,6 @@ export class ShoppingCartItem implements ComponentInterface {
     return this.host.querySelector(":scope > [slot='name']")?.textContent?.trim() ?? "";
   }
 
-  private renderWarning() {
-    return [
-      <dso-icon icon="status-warning" aria-hidden="true"></dso-icon>,
-      <span class="sr-only">waarschuwing: </span>,
-    ];
-  }
-
   private renderActions() {
     return (
       <div class="item-actions">
@@ -114,14 +117,14 @@ export class ShoppingCartItem implements ComponentInterface {
       return (
         <div class="item item-edit">
           <div class="item-edit-header">
-            <slot name="name"></slot>
+            <slot name="name" />
             <button type="button" class="dso-tertiary" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
               Sluiten
               <dso-icon icon="cross"></dso-icon>
             </button>
           </div>
           <div class="item-edit-body">
-            <slot></slot>
+            <slot />
           </div>
         </div>
       );
@@ -131,13 +134,18 @@ export class ShoppingCartItem implements ComponentInterface {
       <div class="item">
         <div class="item-header">
           <div class="item-name">
-            {this.warning && this.renderWarning()}
-            <slot name="name"></slot>
+            {this.warning && (
+              <Fragment>
+                <dso-icon icon="status-warning" aria-hidden="true"></dso-icon>
+                <span class="sr-only">waarschuwing: </span>
+              </Fragment>
+            )}
+            <slot name="name" />
           </div>
           {(this.editable || this.removable) && this.renderActions()}
         </div>
-        <slot></slot>
-        <slot name="info"></slot>
+        <slot />
+        <slot name="info" />
       </div>
     );
   }
