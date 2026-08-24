@@ -7,6 +7,7 @@ export interface Form<TemplateFnReturnType> {
   formModifier?: string;
   content: FormContent<TemplateFnReturnType>;
   formButtons?: FormButtons;
+  dsoSubmit?: (event: SubmitEvent) => void;
 }
 
 export type FormAsteriskExplanationPosition = "top" | "bottom" | "both";

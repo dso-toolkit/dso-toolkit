@@ -1,29 +1,34 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { argTypeAction } from "../../storybook";
+import { argTypeAction, noControl } from "../../storybook";
 
 import { ShoppingCart, ShoppingCartItem } from "./shopping-cart.models.js";
 
-export interface ShoppingCartArgs {
+export interface ShoppingCartArgs<TemplateFnReturnType> {
   _implementation: "html/css" | "core";
   collapsable?: boolean;
   collapsed?: boolean;
   hideSummary?: boolean;
   removeAll?: boolean;
   isOpen?: boolean;
-  items: ShoppingCartItem[];
+  items: ShoppingCartItem<TemplateFnReturnType>[];
   shoppingcartTitleTag: "h2" | "h3";
   shoppingcartTitle: string;
-  variant?: "main" | "side";
-  toggleLabel?: string;
+  mode?: "main" | "side";
+  toggleable?: boolean;
+  editable?: boolean;
+  removable?: boolean;
+  itemMode?: "view" | "edit";
+  warning?: boolean;
   dsoToggle: HandlerFunction;
   dsoEdit: HandlerFunction;
   dsoDelete: HandlerFunction;
   dsoClose: HandlerFunction;
+  dsoSubmit: HandlerFunction;
 }
 
-export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
+export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs<never>> = {
   collapsable: {
     if: { arg: "_implementation", eq: "html/css" },
     control: {
@@ -54,11 +59,20 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
       type: "boolean",
     },
   },
-  variant: argTypeAction(),
-  toggleLabel: {
+  mode: argTypeAction(),
+  toggleable: {
     if: { arg: "_implementation", eq: "core" },
     control: {
-      type: "text",
+      type: "boolean",
+    },
+  },
+  editable: argTypeAction(),
+  removable: argTypeAction(),
+  itemMode: noControl,
+  warning: {
+    if: { arg: "_implementation", eq: "core" },
+    control: {
+      type: "boolean",
     },
   },
   items: argTypeAction(),
@@ -78,26 +92,38 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
   dsoEdit: argTypeAction(),
   dsoDelete: argTypeAction(),
   dsoClose: argTypeAction(),
+  dsoSubmit: argTypeAction(),
   _implementation: argTypeAction(),
 };
 
-export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
+export function shoppingCartArgsMapper<TemplateFnReturnType>(
+  a: ShoppingCartArgs<TemplateFnReturnType>,
+): ShoppingCart<TemplateFnReturnType> {
   return {
     collapsable: a.collapsable,
     collapsed: a.collapsed,
     hideSummary: a.hideSummary,
     removeAll: a.removeAll,
     isOpen: a.isOpen,
-    variant: a.variant,
-    toggleLabel: a.toggleLabel,
+    mode: a.mode,
+    toggleable: a.toggleable,
     items: a.items.map((item) => ({
       ...item,
+      editable: a.editable ?? item.editable,
+      removable: a.removable ?? item.removable,
+      form: item.form && {
+        ...item.form,
+        dsoSubmit: (event) => {
+          event.preventDefault();
+          a.dsoSubmit(event);
+        },
+      },
       dsoClose: () => a.dsoClose(),
       dsoEdit: () => a.dsoEdit(),
       dsoDelete: () => a.dsoDelete(),
     })),
-    shoppingcartTitleTag: a.shoppingcartTitleTag,
-    shoppingcartTitle: a.shoppingcartTitle,
+    titleTag: a.shoppingcartTitleTag,
+    title: a.shoppingcartTitle,
     dsoToggle: () => {
       a.dsoToggle();
     },

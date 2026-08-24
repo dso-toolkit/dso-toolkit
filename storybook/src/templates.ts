@@ -297,7 +297,7 @@ export interface Components {
   segmentedButton: SegmentedButton;
   selectable: Selectable<TemplateResult>;
   gridColumn: GridColumn<TemplateResult>;
-  shoppingCart: ShoppingCart;
+  shoppingCart: ShoppingCart<TemplateResult>;
   skiplink: Skiplink;
   slideToggle: SlideToggle;
   surveyRating: SurveyRating;

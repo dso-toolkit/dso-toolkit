@@ -4,7 +4,7 @@ import readme from "dso-toolkit/src/components/shopping-cart/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
-const meta: Meta<ShoppingCartArgs> = {
+const meta: Meta<ShoppingCartArgs<never>> = {
   ...shoppingCartMeta({ readme }),
   title: "HTML|CSS/Shopping Cart",
 };

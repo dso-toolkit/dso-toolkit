@@ -1,4 +1,4 @@
-export type ShoppingCartItemVariant = "side" | "main" | "form";
+export type ShoppingCartItemMode = "view" | "edit";
 
 export interface ShoppingCartItemEditEvent {
   originalEvent: MouseEvent;

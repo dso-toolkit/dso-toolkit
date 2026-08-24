@@ -8,21 +8,21 @@ import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
-import { ShoppingCart } from "./shopping-cart.models.js";
+import { ShoppingCart, ShoppingCartItem } from "./shopping-cart.models.js";
 
-type ShoppingCartStory = StoryObj<ShoppingCartArgs, Renderer>;
+type ShoppingCartStory<TemplateFnReturnType> = StoryObj<ShoppingCartArgs<TemplateFnReturnType>, Renderer>;
 
-interface ShoppingCartStories {
-  Default: ShoppingCartStory; // HTML/CSS
-  ItemsCollapsed: ShoppingCartStory; // HTML/CSS
-  ItemsNonCollapsable: ShoppingCartStory; // HTML/CSS
-  RemoveAllItemsOption: ShoppingCartStory; // HTML/CSS
-  EditItems: ShoppingCartStory; // HTML/CSS
-  WithSubitems: ShoppingCartStory; // HTML/CSS
-  WithSubitemsAndHiddenSummary: ShoppingCartStory; // HTML/CSS
-  WithSubitemsAndWarning: ShoppingCartStory; // HTML/CSS
-  Side: ShoppingCartStory; // Core
-  Main: ShoppingCartStory; // Core
+interface ShoppingCartStories<TemplateFnReturnType> {
+  Default: ShoppingCartStory<TemplateFnReturnType>; // HTML/CSS
+  ItemsCollapsed: ShoppingCartStory<TemplateFnReturnType>; // HTML/CSS
+  ItemsNonCollapsable: ShoppingCartStory<TemplateFnReturnType>; // HTML/CSS
+  RemoveAllItemsOption: ShoppingCartStory<TemplateFnReturnType>; // HTML/CSS
+  EditItems: ShoppingCartStory<TemplateFnReturnType>; // HTML/CSS
+  WithSubitems: ShoppingCartStory<TemplateFnReturnType>; // HTML/CSS
+  WithSubitemsAndHiddenSummary: ShoppingCartStory<TemplateFnReturnType>; // HTML/CSS
+  WithSubitemsAndWarning: ShoppingCartStory<TemplateFnReturnType>; // HTML/CSS
+  Side: ShoppingCartStory<TemplateFnReturnType>; // Core
+  Main: ShoppingCartStory<TemplateFnReturnType>; // Core
 }
 
 interface ShoppingCartStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -33,16 +33,16 @@ interface ShoppingCartStoriesParameters<Implementation, Templates, TemplateFnRet
 > {}
 
 export interface ShoppingCartTemplates<TemplateFnReturnType> {
-  shoppingCartTemplate: (shoppingCartProperties: ShoppingCart) => TemplateFnReturnType;
+  shoppingCartTemplate: (shoppingCartProperties: ShoppingCart<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
 export function shoppingCartMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,
-  ShoppingCartArgs
+  ShoppingCartArgs<never>
 > {
   return {
     argTypes: shoppingCartArgTypes,
-    args: componentArgs<ShoppingCartArgs>({
+    args: componentArgs<ShoppingCartArgs<never>>({
       _implementation: "html/css",
       collapsable: true,
       collapsed: false,
@@ -56,6 +56,7 @@ export function shoppingCartMeta<TRenderer extends Renderer>({ readme }: MetaOpt
       dsoClose: fn(),
       dsoEdit: fn(),
       dsoDelete: fn(),
+      dsoSubmit: fn(),
     }),
     parameters: {
       docs: readme
@@ -70,75 +71,189 @@ export function shoppingCartMeta<TRenderer extends Renderer>({ readme }: MetaOpt
 export function shoppingCartStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
-}: ShoppingCartStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ShoppingCartStories {
-  const render = templateContainer.render(storyTemplates, (args: ShoppingCartArgs, { shoppingCartTemplate }) =>
-    shoppingCartTemplate(shoppingCartArgsMapper(args)),
+}: ShoppingCartStoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType
+>): ShoppingCartStories<TemplateFnReturnType> {
+  const render = templateContainer.render(
+    storyTemplates,
+    (args: ShoppingCartArgs<TemplateFnReturnType>, { shoppingCartTemplate }) =>
+      shoppingCartTemplate(shoppingCartArgsMapper(args)),
   );
+
+  const sideItems = ({
+    warning,
+  }: Pick<ShoppingCartArgs<TemplateFnReturnType>, "warning">): ShoppingCartItem<TemplateFnReturnType>[] => [
+    {
+      label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
+      info: "Aanvraag vergunning (Gemeente Utrecht)",
+      warning,
+      subitems: [
+        {
+          label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
+          warning,
+        },
+      ],
+    },
+    {
+      label: "Flora- en fauna-activiteit",
+      info: "Aanvraag vergunning",
+      warning,
+    },
+    {
+      label: "Verspreiding Aziatische duizendknoopsoorten voorkomen",
+      info: "Melding (gemeente Woerden) - 2x",
+    },
+    {
+      label:
+        "Lozen bij ontgravingen, baggerwerkzaamheden en werkzaamheden door de waterbeheerder op een oppervlaktewaterlichaam",
+      info: "Informatie",
+      subitems: [
+        {
+          label: "Lozen van grondwater bij ontwatering",
+          warning,
+        },
+      ],
+    },
+    {
+      label: "Graven in bodem met een kwaliteit onder of gelijk aan de interventiewaarde bodemkwaliteit",
+      info: "Informatie",
+    },
+  ];
+
+  const mainItems = ({
+    warning,
+    itemMode,
+  }: Pick<
+    ShoppingCartArgs<TemplateFnReturnType>,
+    "warning" | "itemMode"
+  >): ShoppingCartItem<TemplateFnReturnType>[] => [
+    {
+      label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
+      info: "Aanvraag vergunning (Gemeente Utrecht)",
+      warning,
+      subitems: [
+        {
+          label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
+          warning,
+        },
+      ],
+    },
+    {
+      label: "Flora- en fauna-activiteit",
+      info: "Aanvraag vergunning",
+      warning,
+    },
+    itemMode === "edit"
+      ? {
+          mode: "edit",
+          label: "Toevoeging bij activiteitnaam veranderen",
+          form: {
+            content: [
+              {
+                group: "static",
+                id: "activiteitnaam",
+                label: "Activiteitnaam",
+                value: "Verspreiding Aziatische duizendknoopsoorten voorkomen",
+              },
+              {
+                group: "input",
+                id: "toevoeging",
+                type: "text",
+                label: "Toevoeging",
+                value: "1",
+              },
+            ],
+            formButtons: {
+              buttons: [
+                {
+                  type: "submit",
+                  label: "Opslaan",
+                  variant: "primary",
+                  compact: true,
+                },
+              ],
+            },
+          },
+        }
+      : {
+          label: "Verspreiding Aziatische duizendknoopsoorten voorkomen - 1",
+          info: "Melding (gemeente Woerden)",
+        },
+    {
+      label: "Verspreiding Aziatische duizendknoopsoorten voorkomen - 2",
+      info: "Melding (gemeente Woerden)",
+    },
+    {
+      label:
+        "Lozen bij ontgravingen, baggerwerkzaamheden en werkzaamheden door de waterbeheerder op een oppervlaktewaterlichaam",
+      info: "Informatie",
+      subitems: [
+        {
+          label: "Lozen van grondwater bij ontwatering",
+          warning,
+        },
+      ],
+    },
+    {
+      label: "Graven in bodem met een kwaliteit onder of gelijk aan de interventiewaarde bodemkwaliteit",
+      info: "Informatie",
+    },
+  ];
 
   return {
     Default: {
       render,
     },
     Side: {
-      args: componentArgs<Pick<ShoppingCartArgs, "variant" | "toggleLabel" | "items" | "_implementation">>({
+      args: componentArgs<
+        Pick<
+          ShoppingCartArgs<TemplateFnReturnType>,
+          "mode" | "toggleable" | "editable" | "removable" | "warning" | "items" | "_implementation"
+        >
+      >({
         _implementation: "core",
-        variant: "side",
-        toggleLabel: "Openen",
-        items: [
-          {
-            label:
-              "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
-            info: "Aanvraag vergunning (Gemeente Utrecht)",
-            warning: true,
-          },
-          {
-            label: "Flora- en fauna-activiteit",
-            info: "Aanvraag vergunning",
-          },
-          {
-            label: "Verspreiding Aziatische duizendknoopsoorten voorkomen",
-            info: "Melding (gemeente Woerden) - 2x",
-          },
-        ],
+        mode: "side",
+        toggleable: true,
+        editable: false,
+        removable: true,
+        warning: true,
+        items: sideItems({ warning: true }),
       }),
-      render,
+      render: (args, context) => render({ ...args, items: sideItems(args) }, context),
     },
     Main: {
-      args: componentArgs<Pick<ShoppingCartArgs, "variant" | "toggleLabel" | "items" | "_implementation">>({
+      argTypes: {
+        itemMode: {
+          options: ["view", "edit"],
+          control: {
+            type: "radio",
+          },
+          table: {
+            disable: false,
+          },
+        },
+      },
+      args: componentArgs<
+        Pick<
+          ShoppingCartArgs<TemplateFnReturnType>,
+          "mode" | "toggleable" | "editable" | "removable" | "warning" | "itemMode" | "items" | "_implementation"
+        >
+      >({
         _implementation: "core",
-        variant: "main",
-        toggleLabel: "Sluiten",
-        items: [
-          {
-            variant: "form",
-            label: "Toevoeging bij activiteitnaam veranderen",
-          },
-          {
-            label:
-              "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam, niet zijnde de Noordzee, of waterkering in beheer bij het Rijk",
-            info: "Aanvraag vergunning (Gemeente Woerden)",
-            warning: true,
-            subitems: [
-              {
-                label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
-                warning: true,
-              },
-            ],
-          },
-          {
-            label: "Verspreiding Aziatische duizendknoopsoorten voorkomen (1)",
-            info: "Melding (gemeente Woerden)",
-          },
-          {
-            label: "Graven in bodem met een kwaliteit onder of gelijk aan de interventiewaarde bodemkwaliteit",
-            info: "Informatie",
-          },
-        ],
+        mode: "main",
+        toggleable: true,
+        editable: true,
+        removable: true,
+        warning: true,
+        itemMode: "view",
+        items: mainItems({ warning: true, itemMode: "view" }),
       }),
-      render,
+      render: (args, context) => render({ ...args, items: mainItems(args) }, context),
     },
     EditItems: {
-      args: componentArgs<Pick<ShoppingCartArgs, "items">>({
+      args: componentArgs<Pick<ShoppingCartArgs<never>, "items">>({
         items: [
           {
             id: uuidv4(),
@@ -155,7 +270,7 @@ export function shoppingCartStories<Implementation, Templates, TemplateFnReturnT
       render,
     },
     ItemsCollapsed: {
-      args: componentArgs<Pick<ShoppingCartArgs, "collapsed" | "items">>({
+      args: componentArgs<Pick<ShoppingCartArgs<never>, "collapsed" | "items">>({
         collapsed: true,
         items: [
           {
@@ -172,7 +287,7 @@ export function shoppingCartStories<Implementation, Templates, TemplateFnReturnT
       render,
     },
     ItemsNonCollapsable: {
-      args: componentArgs<Pick<ShoppingCartArgs, "collapsable" | "removeAll" | "items">>({
+      args: componentArgs<Pick<ShoppingCartArgs<never>, "collapsable" | "removeAll" | "items">>({
         collapsable: false,
         removeAll: true,
         items: [
@@ -200,7 +315,7 @@ export function shoppingCartStories<Implementation, Templates, TemplateFnReturnT
       render,
     },
     RemoveAllItemsOption: {
-      args: componentArgs<Pick<ShoppingCartArgs, "removeAll" | "collapsed" | "items">>({
+      args: componentArgs<Pick<ShoppingCartArgs<never>, "removeAll" | "collapsed" | "items">>({
         removeAll: true,
         collapsed: true,
         items: [
@@ -218,7 +333,7 @@ export function shoppingCartStories<Implementation, Templates, TemplateFnReturnT
       render,
     },
     WithSubitems: {
-      args: componentArgs<Pick<ShoppingCartArgs, "items">>({
+      args: componentArgs<Pick<ShoppingCartArgs<never>, "items">>({
         items: [
           {
             id: uuidv4(),
@@ -256,7 +371,7 @@ export function shoppingCartStories<Implementation, Templates, TemplateFnReturnT
       render,
     },
     WithSubitemsAndHiddenSummary: {
-      args: componentArgs<Pick<ShoppingCartArgs, "hideSummary" | "items">>({
+      args: componentArgs<Pick<ShoppingCartArgs<never>, "hideSummary" | "items">>({
         hideSummary: true,
         items: [
           {
@@ -284,7 +399,7 @@ export function shoppingCartStories<Implementation, Templates, TemplateFnReturnT
       render,
     },
     WithSubitemsAndWarning: {
-      args: componentArgs<Pick<ShoppingCartArgs, "isOpen" | "items">>({
+      args: componentArgs<Pick<ShoppingCartArgs<never>, "isOpen" | "items">>({
         isOpen: true,
         items: [
           {

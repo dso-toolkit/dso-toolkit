@@ -1,29 +1,58 @@
 @use "sass:color";
-@use "~dso-toolkit/src/variables/colors";
 
-:host([overlay]) {
-  position: relative;
+@use "~dso-toolkit/src/components/grid/grid.mixins" as grid-mixins;
+@use "~dso-toolkit/src/components/grid/grid.variables" as grid-variables;
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+
+@use "../modal/modal.variables" as modal-variables;
+
+$viewports: (
+  "xs": null,
+  "sm": media-query-breakpoints.$screen-sm-min,
+  "md": media-query-breakpoints.$screen-md-min,
+  "lg": media-query-breakpoints.$screen-lg-min,
+);
+
+@mixin from($min-width) {
+  @if $min-width {
+    @media (min-width: $min-width) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
 }
 
-.grid-column {
-  position: relative;
+:host {
+  display: block;
 
-  &.grid-column-overlay {
-    z-index: 1000;
-    position: absolute;
-    background-color: colors.$wit;
-    opacity: 1;
+  @include grid-mixins.column-base();
+}
 
-    .grid-column-backdrop {
-      position: fixed;
-      inset: 0;
-      background-color: color.scale(colors.$wit, $alpha: -40%);
-      z-index: -1;
+@each $viewport, $min-width in $viewports {
+  @for $i from 1 through grid-variables.$grid-columns {
+    :host([columns~="#{$viewport}-#{$i}"]) {
+      @include from($min-width) {
+        @include grid-mixins.column-width($i);
+      }
     }
+  }
+}
 
-    .grid-column-content {
-      position: relative;
-      z-index: 1001;
-    }
+dialog.grid-column-content {
+  position: absolute;
+  inset-block-start: var(--_dso-grid-column-overlay-inset-block-start);
+  inset-inline-start: var(--_dso-grid-column-overlay-inset-inline-start);
+  inline-size: var(--_dso-grid-column-overlay-inline-size);
+  max-inline-size: none;
+  max-block-size: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: colors.$wit;
+
+  &::backdrop {
+    background-color: color.scale(modal-variables.$backdrop-bg, $alpha: modal-variables.$backdrop-opacity);
   }
 }

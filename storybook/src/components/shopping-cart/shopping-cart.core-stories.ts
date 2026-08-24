@@ -6,9 +6,16 @@ import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
 
-const meta: Meta<ShoppingCartArgs> = {
+const meta: Meta<ShoppingCartArgs<never>> = {
   ...shoppingCartMeta({ readme: readme + componentsReadme }),
   title: "Core/Shopping Cart",
+  decorators: [
+    (story, { args }) => html`
+      <div class="row">
+        <div class=${args.mode === "side" ? "col-xs-4 col-xs-push-4" : "col-xs-12"}>${story()}</div>
+      </div>
+    `,
+  ],
 };
 
 export default meta;
@@ -23,16 +30,5 @@ const { Side, Main } = shoppingCartStories({
     };
   },
 });
-
-// The Side variant is not responsible for its own width. This decorator demonstrates
-// the intended placement: a 4-column area (col-xs-4), offset by 4 columns (col-xs-push-4)
-// to center it horizontally in the available space.
-Side.decorators = [
-  (story) => html`
-    <div class="row">
-      <div class="col-xs-4 col-xs-push-4">${story()}</div>
-    </div>
-  `,
-];
 
 export { Main, Side };

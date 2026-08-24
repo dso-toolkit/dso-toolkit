@@ -1,4 +1,3 @@
-export interface GridColumnVariant {
-  columns: string;
-  overlay?: boolean;
+export interface GridColumnCloseEvent {
+  originalEvent: MouseEvent | Event;
 }

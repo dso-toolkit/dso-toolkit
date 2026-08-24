@@ -75,6 +75,8 @@ export * from "./components/form-buttons";
 
 export * from "./components/form-group";
 
+export * from "./components/grid-column";
+
 export * from "./components/header";
 
 export * from "./components/heading";

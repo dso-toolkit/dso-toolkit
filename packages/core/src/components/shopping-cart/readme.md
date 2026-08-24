@@ -6,25 +6,25 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                           | Type                  | Default     |
-| ------------- | -------------- | ----------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `cartTitle`   | `cart-title`   | The title of the Shopping Cart.                                                                       | `string \| undefined` | `undefined` |
-| `toggleLabel` | `toggle-label` | The accessible label of the toggle button. In the `main` variant it is also shown as the button text. | `string \| undefined` | `undefined` |
-| `variant`     | `variant`      | The variant of the Shopping Cart.                                                                     | `"main" \| "side"`    | `"side"`    |
+| Property     | Attribute    | Description                                                                                                                                                                | Type               | Default  |
+| ------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------- |
+| `mode`       | `mode`       | The mode of the Shopping Cart.                                                                                                                                             | `"main" \| "side"` | `"side"` |
+| `toggleable` | `toggleable` | When set, a toggle button is rendered. In the `side` mode this is a button to expand the Shopping Cart, in the `main` mode this is a button to collapse the Shopping Cart. | `boolean`          | `false`  |
 
 
 ## Events
 
-| Event       | Description                                                                                                                      | Type                                   |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| `dsoToggle` | Emitted when the user clicks the toggle button (the button in the `side` variant or the "Sluiten" button in the `main` variant). | `CustomEvent<ShoppingCartToggleEvent>` |
+| Event       | Description                                                                                                                | Type                                   |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `dsoToggle` | Emitted when the user clicks the toggle button (the button in the `side` mode or the "Sluiten" button in the `main` mode). | `CustomEvent<ShoppingCartToggleEvent>` |
 
 
 ## Slots
 
-| Slot | Description                                                 |
-| ---- | ----------------------------------------------------------- |
-|      | The slot to place the `dso-shopping-cart-item` elements in. |
+| Slot        | Description                                                                                                                   |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
+|             | The slot to place the `dso-shopping-cart-item` elements in.                                                                   |
+| `"heading"` | The title of the Shopping Cart, as a heading element (e.g. `<h3 slot="heading">`) matching the heading hierarchy of the page. |
 
 
 ## Dependencies

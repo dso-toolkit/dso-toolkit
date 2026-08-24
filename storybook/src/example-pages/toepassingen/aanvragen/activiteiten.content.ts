@@ -1,9 +1,9 @@
 import { Label, ListButton, Selectable, ShoppingCart } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
 
-export const shoppingCart: ShoppingCart = {
-  shoppingcartTitle: "Mijn activiteiten",
-  shoppingcartTitleTag: "h3",
+export const shoppingCart: ShoppingCart<TemplateResult> = {
+  title: "Mijn activiteiten",
+  titleTag: "h3",
   collapsable: true,
   collapsed: true,
   removeAll: true,

@@ -1,4 +1,4 @@
-export type ShoppingCartVariant = "side" | "main";
+export type ShoppingCartMode = "side" | "main";
 
 export interface ShoppingCartToggleEvent {
   originalEvent: MouseEvent;

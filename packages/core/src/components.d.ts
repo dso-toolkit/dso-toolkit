@@ -26,6 +26,7 @@ import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 import { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { DropdownMenuInternalState, DropdownMenuItemClickEvent, DropdownMenuItemType } from "./components/dropdown-menu/dropdown-menu.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable.interfaces";
+import { GridColumnCloseEvent } from "./components/grid-column/grid-column.interfaces";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
@@ -51,8 +52,8 @@ import { ResponsiveElementSize } from "./components/responsive-element/responsiv
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
-import { ShoppingCartToggleEvent, ShoppingCartVariant } from "./components/shopping-cart/shopping-cart.interfaces";
-import { ShoppingCartItemCloseEvent, ShoppingCartItemDeleteEvent, ShoppingCartItemEditEvent, ShoppingCartItemVariant } from "./components/shopping-cart/shopping-cart-item/shopping-cart-item.interfaces";
+import { ShoppingCartMode, ShoppingCartToggleEvent } from "./components/shopping-cart/shopping-cart.interfaces";
+import { ShoppingCartItemCloseEvent, ShoppingCartItemDeleteEvent, ShoppingCartItemEditEvent, ShoppingCartItemMode } from "./components/shopping-cart/shopping-cart-item/shopping-cart-item.interfaces";
 import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
@@ -81,6 +82,7 @@ export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 export { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { DropdownMenuInternalState, DropdownMenuItemClickEvent, DropdownMenuItemType } from "./components/dropdown-menu/dropdown-menu.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable.interfaces";
+export { GridColumnCloseEvent } from "./components/grid-column/grid-column.interfaces";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
@@ -106,8 +108,8 @@ export { ResponsiveElementSize } from "./components/responsive-element/responsiv
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
-export { ShoppingCartToggleEvent, ShoppingCartVariant } from "./components/shopping-cart/shopping-cart.interfaces";
-export { ShoppingCartItemCloseEvent, ShoppingCartItemDeleteEvent, ShoppingCartItemEditEvent, ShoppingCartItemVariant } from "./components/shopping-cart/shopping-cart-item/shopping-cart-item.interfaces";
+export { ShoppingCartMode, ShoppingCartToggleEvent } from "./components/shopping-cart/shopping-cart.interfaces";
+export { ShoppingCartItemCloseEvent, ShoppingCartItemDeleteEvent, ShoppingCartItemEditEvent, ShoppingCartItemMode } from "./components/shopping-cart/shopping-cart-item/shopping-cart-item.interfaces";
 export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
@@ -690,11 +692,11 @@ export namespace Components {
     }
     interface DsoGridColumn {
         /**
-          * The column classes to apply (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix.
+          * The column widths per breakpoint (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix. Widths only; push, pull and offset are not supported.
          */
         "columns": string;
         /**
-          * When set, the column renders with a modal overlay backdrop.
+          * When set, the column content expands to the full width of the row and renders as a modal overlay with a backdrop. The column keeps its own place in the row; the overlay panel is anchored to the row and scrolls with the page. Below the sm breakpoint the overlay does not apply and the content stays in the flow of the page.
           * @default false
          */
         "overlay": boolean;
@@ -1349,33 +1351,36 @@ export namespace Components {
     }
     interface DsoShoppingCart {
         /**
-          * The title of the Shopping Cart.
-         */
-        "cartTitle": string | undefined;
-        /**
-          * The accessible label of the toggle button. In the `main` variant it is also shown as the button text.
-         */
-        "toggleLabel"?: string;
-        /**
-          * The variant of the Shopping Cart.
+          * The mode of the Shopping Cart.
           * @default "side"
          */
-        "variant": ShoppingCartVariant;
+        "mode": ShoppingCartMode;
+        /**
+          * When set, a toggle button is rendered. In the `side` mode this is a button to expand the Shopping Cart, in the `main` mode this is a button to collapse the Shopping Cart.
+          * @default false
+         */
+        "toggleable": boolean;
     }
     interface DsoShoppingCartItem {
         /**
-          * An optional line of information shown below the name.
+          * When set an edit (pencil) action is rendered.
+          * @default false
          */
-        "info"?: string;
+        "editable": boolean;
         /**
-          * The name of the item. In the `form` variant this is used as the title.
+          * The name of the item. In the `edit` mode this is used as the title.
          */
         "label": string | undefined;
         /**
-          * The variant of the Shopping Cart Item.
-          * @default "side"
+          * The mode of the Shopping Cart Item.
+          * @default "view"
          */
-        "variant": ShoppingCartItemVariant;
+        "mode": ShoppingCartItemMode;
+        /**
+          * When set a delete (trash) action is rendered.
+          * @default false
+         */
+        "removable": boolean;
         /**
           * When set a warning icon is rendered before the name.
           * @default false
@@ -1603,6 +1608,10 @@ export interface DsoDropdownMenuItemCustomEvent<T> extends CustomEvent<T> {
 export interface DsoExpandableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoExpandableElement;
+}
+export interface DsoGridColumnCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoGridColumnElement;
 }
 export interface DsoHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2103,7 +2112,18 @@ declare global {
         prototype: HTMLDsoExpandableElement;
         new (): HTMLDsoExpandableElement;
     };
+    interface HTMLDsoGridColumnElementEventMap {
+        "dsoClose": GridColumnCloseEvent;
+    }
     interface HTMLDsoGridColumnElement extends Components.DsoGridColumn, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoGridColumnElementEventMap>(type: K, listener: (this: HTMLDsoGridColumnElement, ev: DsoGridColumnCustomEvent<HTMLDsoGridColumnElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoGridColumnElementEventMap>(type: K, listener: (this: HTMLDsoGridColumnElement, ev: DsoGridColumnCustomEvent<HTMLDsoGridColumnElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoGridColumnElement: {
         prototype: HTMLDsoGridColumnElement;
@@ -3624,11 +3644,15 @@ declare namespace LocalJSX {
     }
     interface DsoGridColumn {
         /**
-          * The column classes to apply (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix.
+          * The column widths per breakpoint (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix. Widths only; push, pull and offset are not supported.
          */
         "columns": string;
         /**
-          * When set, the column renders with a modal overlay backdrop.
+          * Emitted when the user dismisses the overlay: a click on the backdrop or the Escape key.
+         */
+        "onDsoClose"?: (event: DsoGridColumnCustomEvent<GridColumnCloseEvent>) => void;
+        /**
+          * When set, the column content expands to the full width of the row and renders as a modal overlay with a backdrop. The column keeps its own place in the row; the overlay panel is anchored to the row and scrolls with the page. Below the sm breakpoint the overlay does not apply and the content stays in the flow of the page.
           * @default false
          */
         "overlay"?: boolean;
@@ -4427,34 +4451,37 @@ declare namespace LocalJSX {
     }
     interface DsoShoppingCart {
         /**
-          * The title of the Shopping Cart.
+          * The mode of the Shopping Cart.
+          * @default "side"
          */
-        "cartTitle"?: string | undefined;
+        "mode"?: ShoppingCartMode;
         /**
-          * Emitted when the user clicks the toggle button (the button in the `side` variant or the "Sluiten" button in the `main` variant).
+          * Emitted when the user clicks the toggle button (the button in the `side` mode or the "Sluiten" button in the `main` mode).
          */
         "onDsoToggle"?: (event: DsoShoppingCartCustomEvent<ShoppingCartToggleEvent>) => void;
         /**
-          * The accessible label of the toggle button. In the `main` variant it is also shown as the button text.
+          * When set, a toggle button is rendered. In the `side` mode this is a button to expand the Shopping Cart, in the `main` mode this is a button to collapse the Shopping Cart.
+          * @default false
          */
-        "toggleLabel"?: string;
-        /**
-          * The variant of the Shopping Cart.
-          * @default "side"
-         */
-        "variant"?: ShoppingCartVariant;
+        "toggleable"?: boolean;
     }
     interface DsoShoppingCartItem {
         /**
-          * An optional line of information shown below the name.
+          * When set an edit (pencil) action is rendered.
+          * @default false
          */
-        "info"?: string;
+        "editable"?: boolean;
         /**
-          * The name of the item. In the `form` variant this is used as the title.
+          * The name of the item. In the `edit` mode this is used as the title.
          */
         "label"?: string | undefined;
         /**
-          * Emitted when the user clicks the close button in the `form` variant.
+          * The mode of the Shopping Cart Item.
+          * @default "view"
+         */
+        "mode"?: ShoppingCartItemMode;
+        /**
+          * Emitted when the user clicks the close button in the `edit` mode.
          */
         "onDsoClose"?: (event: DsoShoppingCartItemCustomEvent<ShoppingCartItemCloseEvent>) => void;
         /**
@@ -4466,10 +4493,10 @@ declare namespace LocalJSX {
          */
         "onDsoEdit"?: (event: DsoShoppingCartItemCustomEvent<ShoppingCartItemEditEvent>) => void;
         /**
-          * The variant of the Shopping Cart Item.
-          * @default "side"
+          * When set a delete (trash) action is rendered.
+          * @default false
          */
-        "variant"?: ShoppingCartItemVariant;
+        "removable"?: boolean;
         /**
           * When set a warning icon is rendered before the name.
           * @default false
@@ -5048,15 +5075,15 @@ declare namespace LocalJSX {
         "infoFixed": boolean;
     }
     interface DsoShoppingCartAttributes {
-        "variant": ShoppingCartVariant;
-        "cartTitle": string | undefined;
-        "toggleLabel": string;
+        "mode": ShoppingCartMode;
+        "toggleable": boolean;
     }
     interface DsoShoppingCartItemAttributes {
-        "variant": ShoppingCartItemVariant;
+        "mode": ShoppingCartItemMode;
         "label": string | undefined;
-        "info": string;
         "warning": boolean;
+        "editable": boolean;
+        "removable": boolean;
     }
     interface DsoSkiplinkAttributes {
         "to": string | undefined;
