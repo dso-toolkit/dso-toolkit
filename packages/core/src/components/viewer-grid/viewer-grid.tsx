@@ -304,6 +304,8 @@ export class ViewerGrid {
   }
 
   render() {
+    const tabs = viewerGridTabs.filter((tab) => tab !== "document" || this.documentPanelOpen);
+
     return (
       <Fragment>
         <slot name="top-bar" />
@@ -311,7 +313,7 @@ export class ViewerGrid {
           {this.tabView && (
             <nav class="dso-navbar">
               <ul class="dso-nav dso-nav-sub">
-                {viewerGridTabs.map((tab) => (
+                {tabs.map((tab) => (
                   <li key={tab} class={clsx({ "dso-active": this.activeTab === tab })}>
                     <button
                       type="button"
@@ -332,7 +334,7 @@ export class ViewerGrid {
               mainSize={this.mainSize}
               documentPanelOpen={this.documentPanelOpen}
               mainPanelExpanded={this.mainPanelExpanded}
-              mainPanelHidden={this.mainPanelHidden}
+              mainPanelHidden={this.tabView ? false : this.mainPanelHidden}
               toggleMainPanel={this.toggleMainPanel}
               dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
               printFilterPanel={
@@ -350,7 +352,7 @@ export class ViewerGrid {
             </div>
           )}
           {((!this.tabView && this.documentPanelOpen) ||
-            (this.tabView && this.activeTab === "document") ||
+            (this.tabView && this.activeTab === "document" && this.documentPanelOpen) ||
             this.print) && (
             <DocumentPanel
               tabView={this.tabView}

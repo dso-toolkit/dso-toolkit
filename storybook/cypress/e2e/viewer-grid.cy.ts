@@ -241,6 +241,7 @@ describe("Viewer Grid", () => {
     cy.viewport(400, 600)
       .get("dso-viewer-grid.hydrated")
       .then((e) => e.on("dsoActiveTabSwitch", cy.stub().as("dsoActiveTabSwitch")))
+      .invoke("attr", "document-panel-open", "")
       .invoke("attr", "active-tab", "search")
       .shadow()
       .as("dsoViewerGrid")
@@ -314,6 +315,71 @@ describe("Viewer Grid", () => {
       .and("be.visible");
   });
 
+  it("should update aria-current when active tab changes", () => {
+    cy.viewport(400, 600);
+    cy.visit(url);
+
+    cy.get("dso-viewer-grid.hydrated").as("grid").invoke("prop", "activeTab", "search");
+
+    cy.get("@grid").shadow().find("nav button").eq(0).should("have.attr", "aria-current", "page");
+
+    cy.get("@grid").invoke("prop", "activeTab", "map");
+
+    cy.get("@grid").shadow().find("nav button").eq(1).should("have.attr", "aria-current", "page");
+
+    cy.get("@grid").shadow().find("nav button").eq(0).should("not.have.attr", "aria-current");
+  });
+
+  it("should only show the Document tab on mobile when documentPanelOpen is set", () => {
+    cy.viewport(400, 600);
+    cy.visit(url);
+
+    cy.get("dso-viewer-grid.hydrated")
+      .shadow()
+      .find("nav > ul > li")
+      .should("have.length", 2)
+      .and("not.contain.text", "Document");
+
+    cy.get("dso-viewer-grid.hydrated")
+      .invoke("attr", "document-panel-open", "")
+      .shadow()
+      .find("nav > ul > li")
+      .should("have.length", 3)
+      .and("contain.text", "Document");
+  });
+
+  it("should not show Document tab or panel when no document is selected", () => {
+    cy.viewport(400, 600);
+    cy.visit(url);
+
+    cy.get("dso-viewer-grid.hydrated")
+      .shadow()
+      .find("nav > ul > li")
+      .should("have.length", 2)
+      .and("not.contain.text", "Document");
+
+    cy.get("dso-viewer-grid.hydrated")
+      .invoke("attr", "active-tab", "document")
+      .shadow()
+      .find(".dso-document-panel")
+      .should("not.exist");
+  });
+
+  it("should keep main panel content visible in mobile view even when mainPanelHidden is true", () => {
+    cy.viewport(400, 600);
+    cy.visit(url);
+
+    cy.get("dso-viewer-grid.hydrated")
+      .invoke("attr", "active-tab", "search")
+      .invoke("attr", "main-panel-hidden", "")
+      .shadow()
+      .find(".dso-main-panel")
+      .should("exist")
+      .and("be.visible")
+      .find(".content")
+      .should("not.have.class", "invisible");
+  });
+
   it("should have the correct aria-label on the filter panel", () => {
     cy.visit(url);
     cy.get("dso-viewer-grid.hydrated")
@@ -380,18 +446,3 @@ function shouldHavePhrase(size: string) {
     .find(".sizing-buttons > span.sr-only")
     .should("have.text", `Breedte documentpaneel: ${size}`);
 }
-
-it("should update aria-current when active tab changes", () => {
-  cy.viewport(400, 600);
-  cy.visit(url);
-
-  cy.get("dso-viewer-grid.hydrated").as("grid").invoke("prop", "activeTab", "search");
-
-  cy.get("@grid").shadow().find("nav button").eq(0).should("have.attr", "aria-current", "page");
-
-  cy.get("@grid").invoke("prop", "activeTab", "map");
-
-  cy.get("@grid").shadow().find("nav button").eq(1).should("have.attr", "aria-current", "page");
-
-  cy.get("@grid").shadow().find("nav button").eq(0).should("not.have.attr", "aria-current");
-});
