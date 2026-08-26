@@ -145,6 +145,13 @@ const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState }> = (
   }
 };
 
+function isDsoBadgeComponent(element: Element | undefined): element is HTMLDsoBadgeElement {
+  return element?.tagName === "DSO-BADGE";
+}
+
+/**
+ * @slot badge - Een optioneel slot om een Badge in de handle achter de titel te plaatsen.
+ */
 @Component({
   tag: "dso-accordion-section",
   styleUrl: "accordion-section.scss",
@@ -263,6 +270,9 @@ export class AccordionSection implements ComponentInterface {
   @State()
   hover = false;
 
+  @State()
+  badgeSlottedElement: HTMLDsoBadgeElement | null = null;
+
   get containsNestedAccordion() {
     return this.host.querySelector("dso-accordion") !== null;
   }
@@ -273,11 +283,21 @@ export class AccordionSection implements ComponentInterface {
 
       forceUpdate(this.host);
     });
+
+    this.badgeSlottedElement = this.host.querySelector('[slot="badge"]');
   }
 
   get isNeutral() {
     return this.accordionState?.variant === "neutral";
   }
+
+  private handleBadgeSlotChange = (e: Event) => {
+    const slot = e.target as HTMLSlotElement;
+    const element = slot.assignedElements()[0];
+    if (isDsoBadgeComponent(element)) {
+      this.badgeSlottedElement = element;
+    }
+  };
 
   private async scrollIntoView(bodyHeight: number | undefined, behavior: ScrollBehavior = "auto"): Promise<void> {
     log(
@@ -354,10 +374,16 @@ export class AccordionSection implements ComponentInterface {
   }
 
   private handleClick = (event: MouseEvent) => {
-    this.dsoToggleClick.emit({
-      originalEvent: event,
-      open: !this.open,
-    });
+    const clickedInsideBadge = event
+      .composedPath()
+      .some((target) => target instanceof HTMLElement && isDsoBadgeComponent(target));
+
+    if (!clickedInsideBadge) {
+      this.dsoToggleClick.emit({
+        originalEvent: event,
+        open: !this.open,
+      });
+    }
   };
 
   private handleActiveChange = (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => {
@@ -438,7 +464,10 @@ export class AccordionSection implements ComponentInterface {
                     <HandleIcon icon={this.icon} />
                   </div>
                 )}
-                <dso-renvooi value={this.handleTitle} />
+                <span>
+                  <dso-renvooi value={this.handleTitle} />
+                  <slot name="badge" onSlotchange={this.handleBadgeSlotChange} />
+                </span>
                 {this.label && (
                   <dso-label status={this.labelStatus} compact>
                     {this.label}
@@ -458,6 +487,7 @@ export class AccordionSection implements ComponentInterface {
                   {this.isNeutral && (
                     <dso-icon class="info-icon" icon={this.open || this.hover ? "info-solid" : "info-outline"} />
                   )}
+                  <slot name="badge" onSlotchange={this.handleBadgeSlotChange} />
                 </span>
                 {this.label && (
                   <dso-label status={this.labelStatus} compact>
