@@ -15,8 +15,16 @@
     },
     "packages/core": {},
     "angular-workspace": {
-      "entry": [".storybook/middleware.js"],
-      "ignoreDependencies": ["@angular/cdk", "@angular/router", "@compodoc/compodoc"]
+      "entry": ["projects/component-library/src/public-api.ts"],
+      "ignoreDependencies": [
+        "@angular-devkit/architect",
+        "@angular-devkit/core",
+        "@angular/cdk",
+        "@angular/platform-browser-dynamic",
+        "@angular/router",
+        "@dso-toolkit/core",
+        "dso-toolkit"
+      ]
     },
     "storybook": {
       "entry": [".storybook/middleware.js", "scripts/*.ts"],

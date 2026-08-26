@@ -30,7 +30,6 @@ export default [
       "angular-workspace/.angular",
       "angular-workspace/dist",
       "angular-workspace/projects/component-library/src/lib/stencil-generated",
-      "angular-workspace/www",
       "packages/*/dist",
       "packages/*/www",
       "packages/core/loader",
@@ -133,16 +132,7 @@ export default [
       "@typescript-eslint/no-require-imports": [
         "error",
         {
-          allow: [
-            "concurrently",
-            "@angular-devkit/build-angular/plugins/karma",
-            "karma-coverage",
-            "karma-jasmine-html-reporter",
-            "karma-chrome-launcher",
-            "karma-jasmine",
-            "path",
-            "prism-react-renderer",
-          ],
+          allow: ["concurrently", "path", "prism-react-renderer"],
         },
       ],
       "no-restricted-properties": [

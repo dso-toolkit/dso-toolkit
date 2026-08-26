@@ -84,7 +84,6 @@ async function main(
    * site roots to where releases are deployed to, without trailing slash
    */
   const siteRoots: Array<{ path: string; main?: boolean }> = [
-    { path: "angular.dso-toolkit.nl/www" },
     { path: "cdn.dso-toolkit.nl/www/dso-toolkit" },
     { path: "cdn.dso-toolkit.nl/www/@dso-toolkit/core" },
     { path: "dso-toolkit.nl/www", main: true },

@@ -51,7 +51,6 @@ catalogs:
     "@angular/platform-browser-dynamic": "^21.2.19"
     "@angular/router": "^21.2.19"
     "@compodoc/compodoc": "^2.0.0"
-    "@storybook/angular": "10.5.7"
     mkdirp: "^3.0.1"
     ng-packagr: "^21.2.5"
     rxjs: "~7.8.2"

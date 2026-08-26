@@ -8,9 +8,9 @@ import { getVersion } from "@site/src/functions/versions.function";
 
 import styles from "./styles.module.scss";
 
-type Implementation = "core" | "angular" | "html-css";
+type Implementation = "core" | "html-css";
 
-const allImplementations = ["core", "angular", "html-css"] as const;
+const allImplementations = ["core", "html-css"] as const;
 
 interface Props {
   /**
@@ -38,14 +38,6 @@ interface Props {
   args?: Record<string, unknown>;
 }
 
-function getSubDomain(implementation: Implementation) {
-  return isComposedStorybook(implementation) ? implementation : "storybook";
-}
-
-function isComposedStorybook(implementation: Implementation) {
-  return implementation === "angular";
-}
-
 function joinNameAndVariant(name: string, variant: string | undefined) {
   return [name, variant].filter((t) => !!t).join("--");
 }
@@ -56,10 +48,6 @@ function getStoryUrlId(
   variant: string | undefined,
   isExamplePage: boolean | undefined,
 ) {
-  if (isComposedStorybook(implementation)) {
-    return `${implementation}_${joinNameAndVariant(name, variant)}`;
-  }
-
   if (isExamplePage) {
     return joinNameAndVariant(name, variant);
   }
@@ -82,7 +70,7 @@ function stringifyStorybookArg(key: string, value: unknown) {
 }
 
 function getStoryIframeId(implementation: Implementation, name: string, variant: string | undefined) {
-  if (isComposedStorybook(implementation) || name.startsWith("voorbeeldpagina") || name.startsWith("patronen")) {
+  if (name.startsWith("voorbeeldpagina") || name.startsWith("patronen")) {
     return joinNameAndVariant(name, variant);
   }
 
@@ -115,9 +103,9 @@ function getStoryIframeUrlLocalhost() {
   return new URL("iframe.html", "http://localhost:45000");
 }
 
-function getStoryIframeUrlRemote(implementation: Implementation) {
+function getStoryIframeUrlRemote(_implementation: Implementation) {
   const version = getVersion();
-  const subDomain = getSubDomain(implementation);
+  const subDomain = "storybook";
 
   const path = [`!${subDomain}`, version !== "local" ? version : "master", "iframe.html"].join("/");
   return new URL(path, `https://${window.location.host}`);
