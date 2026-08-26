@@ -14,9 +14,17 @@
 
 @include utilities.box-sizing();
 
+.advanced-select-container {
+  container-type: inline-size;
+}
+
 .advanced-select {
   display: flex;
   flex-direction: row;
+
+  @container (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
 .advanced-select-button {
@@ -75,6 +83,12 @@
   gap: advanced-select.$block-padding;
   padding-block-start: units.$u1;
   padding-inline-start: units.$u1;
+
+  @container (max-width: 480px) {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-inline-start: 0;
+  }
 }
 
 .groups-container {
@@ -168,7 +182,7 @@
 
 .option {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: units.$u1;
   inline-size: 100%;
   padding-block: advanced-select.$block-padding * 2;
@@ -222,4 +236,5 @@
   padding-block: advanced-select.$block-padding * 2;
   padding-inline: advanced-select.$inline-padding;
   color: advanced-select.$option-placeholder-color;
+  font-style: italic;
 }
