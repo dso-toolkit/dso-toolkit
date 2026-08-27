@@ -1,8 +1,5 @@
 import concurrently from "concurrently";
-import minimist from "minimist";
 import { rimraf } from "rimraf";
-
-const argv = minimist(process.argv.slice(2));
 
 rimraf.sync("packages/dso-toolkit/dist");
 rimraf.sync("packages/core/dist");
@@ -48,13 +45,4 @@ const runProcesses = (processes: Parameters<typeof concurrently>[0]) => {
   }
 };
 
-if (!argv.mode) {
-  if (argv.all) {
-    runProcesses([watchToolkit, watchCore, startStorybook, startCypress]);
-  } else {
-    // normal
-    runProcesses([watchToolkit, watchCore, startStorybook, startCypress]);
-  }
-} else {
-  // nothing
-}
+runProcesses([watchToolkit, watchCore, startStorybook, startCypress]);

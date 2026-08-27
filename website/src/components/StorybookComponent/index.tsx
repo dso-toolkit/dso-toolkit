@@ -38,7 +38,7 @@ interface Props {
   args?: Record<string, unknown>;
 }
 
-function joinNameAndVariant(name: string, variant: string | undefined) {
+function joinNameAndVariant(name: string, variant: string | undefined): string {
   return [name, variant].filter((t) => !!t).join("--");
 }
 
@@ -47,7 +47,7 @@ function getStoryUrlId(
   name: string,
   variant: string | undefined,
   isExamplePage: boolean | undefined,
-) {
+): string {
   if (isExamplePage) {
     return joinNameAndVariant(name, variant);
   }
@@ -61,7 +61,7 @@ function stringifyStorybookArgs(args: Record<string, unknown>): string {
     .join(";");
 }
 
-function stringifyStorybookArg(key: string, value: unknown) {
+function stringifyStorybookArg(key: string, value: unknown): string {
   if (typeof value === "boolean") {
     return `${key}:${`!${value}`}`;
   }
@@ -69,7 +69,7 @@ function stringifyStorybookArg(key: string, value: unknown) {
   return `${key}:${value}`;
 }
 
-function getStoryIframeId(implementation: Implementation, name: string, variant: string | undefined) {
+function getStoryIframeId(implementation: Implementation, name: string, variant: string | undefined): string {
   if (name.startsWith("voorbeeldpagina") || name.startsWith("patronen")) {
     return joinNameAndVariant(name, variant);
   }
@@ -99,11 +99,11 @@ function getNameFromPathname(pathname: string): string {
   return component;
 }
 
-function getStoryIframeUrlLocalhost() {
+function getStoryIframeUrlLocalhost(): URL {
   return new URL("iframe.html", "http://localhost:45000");
 }
 
-function getStoryIframeUrlRemote(_implementation: Implementation) {
+function getStoryIframeUrlRemote(): URL {
   const version = getVersion();
   const subDomain = "storybook";
 
@@ -117,8 +117,7 @@ function getStoryIframeUrl(
   variant?: string,
   args?: Record<string, unknown>,
 ): string {
-  const url =
-    window.location.hostname === "localhost" ? getStoryIframeUrlLocalhost() : getStoryIframeUrlRemote(implementation);
+  const url = window.location.hostname === "localhost" ? getStoryIframeUrlLocalhost() : getStoryIframeUrlRemote();
   const id = getStoryIframeId(implementation, name, variant);
 
   const searchParamsObject: Record<string, string> = {
@@ -135,11 +134,11 @@ function getStoryIframeUrl(
   return `${url}?${searchParams}`;
 }
 
-function getStoryUrlLocalhost() {
+function getStoryUrlLocalhost(): string {
   return "http://localhost:45000";
 }
 
-function getStoryUrlRemote(version: string) {
+function getStoryUrlRemote(version: string): string {
   return `https://storybook.dso-toolkit.nl/${version !== "local" ? version : "master"}`;
 }
 
