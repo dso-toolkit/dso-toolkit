@@ -61,6 +61,7 @@ export function documentCardArgsMapper<TemplateFnReturnType>(
   a: DocumentCardArgs<TemplateFnReturnType>,
   typeItems: TemplateFnReturnType[],
   infoButton?: InfoButton<TemplateFnReturnType>,
+  labels?: Label[],
 ): DocumentCard<TemplateFnReturnType> {
   return {
     typeToelichting: infoButton,
@@ -72,6 +73,7 @@ export function documentCardArgsMapper<TemplateFnReturnType>(
     statusToelichtingOutline: a.statusToelichtingOutline,
     statusToelichtingWarning: a.statusToelichtingWarning,
     meta: a.meta,
+    labels,
     dsoDocumentCardClick: (e) => a.dsoDocumentCardClick(e.detail),
   };
 }

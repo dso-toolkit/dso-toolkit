@@ -4,6 +4,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { InfoButton } from "../info-button";
+import { Label } from "../label";
 
 import {
   DocumentCardArgs,
@@ -20,6 +21,7 @@ interface DocumentCardStories<TemplateFnReturnType> {
   WithLabel: DocumentCardStory<TemplateFnReturnType>;
   WithTypeToelichting: DocumentCardStory<TemplateFnReturnType>;
   WithStatusToelichting: DocumentCardStory<TemplateFnReturnType>;
+  WithLabels: DocumentCardStory<TemplateFnReturnType>;
 }
 
 interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -33,6 +35,7 @@ interface DocumentCardTemplates<TemplateFnReturnType> {
   documentCardTemplate: (documentCardProperties: DocumentCard<TemplateFnReturnType>) => TemplateFnReturnType;
   typeItems: TemplateFnReturnType[];
   infoButton: InfoButton<TemplateFnReturnType>;
+  labels: Label[];
 }
 
 export function documentCardMeta<TRenderer extends Renderer, TemplateFnReturnType>({
@@ -98,6 +101,12 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
       },
       render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>
         documentCardTemplate(documentCardArgsMapper(args, typeItems)),
+      ),
+    },
+    WithLabels: {
+      args: documentCardArgs,
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems, labels }) =>
+        documentCardTemplate(documentCardArgsMapper(args, typeItems, undefined, labels)),
       ),
     },
   };
