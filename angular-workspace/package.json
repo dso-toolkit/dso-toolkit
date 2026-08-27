@@ -6,25 +6,17 @@
     "clear": "rimraf .angular"
   },
   "dependencies": {
-    "@angular/animations": "catalog:angular",
     "@angular/common": "catalog:angular",
     "@angular/core": "catalog:angular",
     "@angular/forms": "catalog:angular",
-    "@angular/platform-browser": "catalog:angular",
     "rxjs": "catalog:angular",
-    "tslib": "catalog:",
-    "zone.js": "catalog:angular"
+    "tslib": "catalog:"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "catalog:angular",
     "@angular-devkit/build-angular": "catalog:angular",
     "@angular-devkit/core": "catalog:angular",
     "@angular/cdk": "catalog:angular",
     "@angular/cli": "catalog:angular",
-    "@angular/compiler": "catalog:angular",
-    "@angular/compiler-cli": "catalog:angular",
-    "@angular/platform-browser-dynamic": "catalog:angular",
-    "@angular/router": "catalog:angular",
     "@dso-toolkit/core": "workspace:*",
     "@types/node": "catalog:",
     "dso-toolkit": "workspace:*",

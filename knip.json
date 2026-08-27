@@ -17,11 +17,8 @@
     "angular-workspace": {
       "entry": ["projects/component-library/src/public-api.ts"],
       "ignoreDependencies": [
-        "@angular-devkit/architect",
         "@angular-devkit/core",
         "@angular/cdk",
-        "@angular/platform-browser-dynamic",
-        "@angular/router",
         "@dso-toolkit/core",
         "dso-toolkit"
       ]
