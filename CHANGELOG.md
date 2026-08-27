@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Viewer Grid: Document-tab conditioneel kunnen verbergen ([#3925](https://github.com/dso-toolkit/dso-toolkit/issues/3925))
 
+### Fixed
+* Map Message: NVDA leest niet voor bij verschijnen ([#3943](https://github.com/dso-toolkit/dso-toolkit/issues/3943))
+
 ## 🪅 Release 100.2.0 - 2026-08-25
 
 ### Added
