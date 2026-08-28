@@ -43,8 +43,6 @@ catalogs:
     "@angular/common": "^21.2.19"
     "@angular/core": "^21.2.19"
     "@angular/forms": "^21.2.19"
-    "@compodoc/compodoc": "^2.0.0"
-    mkdirp: "^3.0.1"
     ng-packagr: "^21.2.5"
     rxjs: "~7.8.2"
 
@@ -91,7 +89,6 @@ overrides:
   webpack-dev-server>http-proxy-middleware: "^2.0.10"
 
 allowBuilds:
-  "@compodoc/compodoc": true
   "@parcel/watcher": true
   core-js: true
   cypress: true

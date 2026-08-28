@@ -58,7 +58,7 @@ The referenced scripts are very small: Only the actually used Web Components are
 
 ### Develop or mockups
 
-To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 26 and pnpm. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 24 and pnpm. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 Enable pnpm via corepack (ships with Node):
 
@@ -78,21 +78,20 @@ Depending on the work being done, development can be done in several environment
 
 #### `development`
 
-This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation).
+This environment is used to develop new components in Storybook.
 
-The easiest way to start this environment is with one of the following commands:
+The easiest way to start the development environment is with:
 
 ```
 pnpm start
-pnpm start --all
 ```
 
-This will run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
+This will start the following processes:
 
-The following processes are started:
-
-- **default**: CSS in watch mode, Stencil in watch mode, Storybook and Cypress
-- **--all**: CSS in watch mode, Stencil in watch mode and Storybook
+- CSS in watch mode
+- Stencil in watch mode
+- Storybook
+- Cypress
 
 This will start Stencil on http://localhost:45333, Storybook on http://localhost:45000 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
 

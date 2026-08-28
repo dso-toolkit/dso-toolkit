@@ -190,9 +190,15 @@ importers:
       '@octokit/rest':
         specifier: ^22.0.1
         version: 22.0.1
+      '@stencil/eslint-plugin':
+        specifier: ^1.4.0
+        version: 1.4.0(@stencil/core@4.43.5(patch_hash=34bfaf9320d514b108ba4981facd6b85c4328ee5d53d357d253e3f10082a87a1))(@typescript-eslint/eslint-plugin@8.67.0(@typescript-eslint/parser@8.67.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(@typescript-eslint/parser@8.67.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0)))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@types/minimist':
         specifier: ^1.2.5
         version: 1.2.5
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.13.3
       '@types/semver':
         specifier: ^7.8.0
         version: 7.8.0
@@ -229,6 +235,9 @@ importers:
       eslint-plugin-react:
         specifier: ^7.37.5
         version: 7.37.5(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))
+      eslint-plugin-storybook:
+        specifier: catalog:storybook
+        version: 10.5.7(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(storybook@10.5.7(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(supports-color@7.2.0)(typescript@5.9.3)
       globals:
         specifier: ^17.9.0
         version: 17.10.0
@@ -274,35 +283,9 @@ importers:
       wait-on:
         specifier: 'catalog:'
         version: 9.1.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
-    devDependencies:
-      '@stencil/eslint-plugin':
-        specifier: ^1.4.0
-        version: 1.4.0(@stencil/core@4.43.5(patch_hash=34bfaf9320d514b108ba4981facd6b85c4328ee5d53d357d253e3f10082a87a1))(@typescript-eslint/eslint-plugin@8.67.0(@typescript-eslint/parser@8.67.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(@typescript-eslint/parser@8.67.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0)))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
-      '@types/node':
-        specifier: 'catalog:'
-        version: 24.13.3
-      eslint-plugin-storybook:
-        specifier: catalog:storybook
-        version: 10.5.7(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(storybook@10.5.7(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(supports-color@7.2.0)(typescript@5.9.3)
 
   angular-workspace:
     dependencies:
-      '@angular/common':
-        specifier: catalog:angular
-        version: 21.2.21(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2)
-      '@angular/core':
-        specifier: catalog:angular
-        version: 21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2)
-      '@angular/forms':
-        specifier: catalog:angular
-        version: 21.2.21(@angular/common@21.2.21(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2))(@angular/platform-browser@21.2.21(@angular/animations@21.2.21(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2)))(@angular/common@21.2.21(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2)))(rxjs@7.8.2)
-      rxjs:
-        specifier: catalog:angular
-        version: 7.8.2
-      tslib:
-        specifier: 'catalog:'
-        version: 2.8.1
-    devDependencies:
       '@angular-devkit/build-angular':
         specifier: catalog:angular
         version: 21.2.22(2bc4782b85cb0c2ceb701fedef106cb5)
@@ -315,15 +298,21 @@ importers:
       '@angular/cli':
         specifier: catalog:angular
         version: 21.2.22(@types/node@24.13.3)(chokidar@5.0.0)(supports-color@10.2.2)
+      '@angular/common':
+        specifier: catalog:angular
+        version: 21.2.21(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2)
+      '@angular/core':
+        specifier: catalog:angular
+        version: 21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2)
+      '@angular/forms':
+        specifier: catalog:angular
+        version: 21.2.21(@angular/common@21.2.21(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2))(@angular/platform-browser@21.2.21(@angular/animations@21.2.21(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2)))(@angular/common@21.2.21(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@21.2.21(@angular/compiler@21.2.21)(rxjs@7.8.2)(zone.js@0.16.2)))(rxjs@7.8.2)
       '@dso-toolkit/core':
         specifier: workspace:*
         version: link:../packages/core
       '@types/node':
         specifier: 'catalog:'
         version: 24.13.3
-      dso-toolkit:
-        specifier: workspace:*
-        version: link:../packages/dso-toolkit
       eslint:
         specifier: 'catalog:'
         version: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
@@ -333,6 +322,12 @@ importers:
       rimraf:
         specifier: 'catalog:'
         version: 6.1.3
+      rxjs:
+        specifier: catalog:angular
+        version: 7.8.2
+      tslib:
+        specifier: 'catalog:'
+        version: 2.8.1
       typescript:
         specifier: 'catalog:'
         version: 5.9.3

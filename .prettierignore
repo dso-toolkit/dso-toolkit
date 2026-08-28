@@ -5,7 +5,6 @@
 /dependency-graph.svg
 /angular-workspace/.angular
 /angular-workspace/dist
-/angular-workspace/documentation.json
 /angular-workspace/projects/component-library/src/lib/stencil-generated
 /packages/*/dist
 /packages/*/www

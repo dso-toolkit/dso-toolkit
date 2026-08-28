@@ -10,16 +10,13 @@
     "@angular/core": "catalog:angular",
     "@angular/forms": "catalog:angular",
     "rxjs": "catalog:angular",
-    "tslib": "catalog:"
-  },
-  "devDependencies": {
+    "tslib": "catalog:",
     "@angular-devkit/build-angular": "catalog:angular",
     "@angular-devkit/core": "catalog:angular",
     "@angular/cdk": "catalog:angular",
     "@angular/cli": "catalog:angular",
     "@dso-toolkit/core": "workspace:*",
     "@types/node": "catalog:",
-    "dso-toolkit": "workspace:*",
     "eslint": "catalog:",
     "ng-packagr": "catalog:angular",
     "rimraf": "catalog:",
