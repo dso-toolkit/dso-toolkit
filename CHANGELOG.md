@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* List: Selector `ol.dso-list-ordered-action` terugzetten ([#3956](https://github.com/dso-toolkit/dso-toolkit/issues/3956))
+
 ### Changed
 * Viewer Grid: Document-tab conditioneel kunnen verbergen ([#3925](https://github.com/dso-toolkit/dso-toolkit/issues/3925))
 * Document Card: Toevoeging label row ([#3716](https://github.com/dso-toolkit/dso-toolkit/issues/3716))
