@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🕵 Release 100.3.0 - 2026-08-31
+
 ### Added
 * List: Selector `ol.dso-list-ordered-action` terugzetten ([#3956](https://github.com/dso-toolkit/dso-toolkit/issues/3956))
 
