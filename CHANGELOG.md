@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Document Card: Toevoeging label row ([#3716](https://github.com/dso-toolkit/dso-toolkit/issues/3716))
 * Advanced Select: Meerdere aanpassingen ([#3917](https://github.com/dso-toolkit/dso-toolkit/issues/3917))
 
+### Deprecated
+* List: Deprecate `ol.dso-list-ordered-action` selector ([#3955](https://github.com/dso-toolkit/dso-toolkit/issues/3955))
+
 ### Fixed
 * Map Message: NVDA leest niet voor bij verschijnen ([#3943](https://github.com/dso-toolkit/dso-toolkit/issues/3943))
 
