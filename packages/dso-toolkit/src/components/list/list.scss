@@ -143,6 +143,7 @@ ul:has(dso-project-item) {
 }
 
 /* The ol.dso-list-ordered-action selector is deprecated and will be removed in #3954 */
+ol.dso-list-ordered-action,
 ol.dso-action-list,
 ul.dso-action-list {
   @include list.unstyled();
