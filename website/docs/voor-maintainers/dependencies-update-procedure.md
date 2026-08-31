@@ -84,12 +84,6 @@ In `/storybook`:
 pnpm dlx storybook@latest upgrade
 ```
 
-In `/angular-workspace`:
-
-```sh
-pnpm dlx storybook@latest upgrade
-```
-
 Doorzoek alle `package.json` in de repository op de oude versie van Storybook, er zijn meer `@storybook/` packages die buiten een Storybook installatie worden gebruikt. Let erop dat alle Storybook packages exact dezelfde versie hebben.
 
 Daarna weer dedupe:

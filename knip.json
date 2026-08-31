@@ -15,8 +15,8 @@
     },
     "packages/core": {},
     "angular-workspace": {
-      "entry": [".storybook/middleware.js"],
-      "ignoreDependencies": ["@angular/cdk", "@angular/router", "@compodoc/compodoc"]
+      "entry": ["projects/component-library/src/public-api.ts"],
+      "ignoreDependencies": ["@angular-devkit/core", "@angular/cdk", "@dso-toolkit/core"]
     },
     "storybook": {
       "entry": [".storybook/middleware.js", "scripts/*.ts"],
