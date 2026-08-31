@@ -1,9 +1,10 @@
 import { Component, ComponentInterface, Element, Host, Prop, State, h } from "@stencil/core";
 import { clsx } from "clsx";
 
-import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
+import { ToggletipController } from "../../functional-components/tooltip/toggletip.controller";
+import { TooltipController } from "../../functional-components/tooltip/tooltip.controller";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
-import { TooltipClean, TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
+import { TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
 
 import { BadgeStatus } from "./badge.interfaces";
 
@@ -23,13 +24,25 @@ export class Badge implements ComponentInterface {
   private tooltipArrowElRef?: HTMLSpanElement;
   private toggletipElRef?: HTMLDivElement;
   private toggletipArrowElRef?: HTMLSpanElement;
-  private cleanUpFunctionToggletip: TooltipClean | undefined;
-  private cleanUpFunctionTooltip: TooltipClean | undefined;
   private mutationObserver?: MutationObserver;
   private restrictContentElement?: HTMLElement;
-  private tooltipTimeout?: number;
-  private lastClickTime = 0;
-  private tooltipShowDelay = 500;
+
+  private tooltipController = new TooltipController({
+    getReferenceElement: () => this.buttonElRef,
+    getTipElement: () => this.tooltipElRef,
+    getTipArrowElement: () => this.tooltipArrowElRef,
+    getPlacement: () => "top",
+    showDelay: 500,
+    respectClickDelay: true,
+  });
+
+  private toggletipController = new ToggletipController({
+    getReferenceElement: () => this.buttonElRef,
+    getTipElement: () => this.toggletipElRef,
+    getTipArrowElement: () => this.toggletipArrowElRef,
+    getRestrictContentElement: () => this.restrictContentElement,
+    getPlacement: () => this.toggletipPlacement,
+  });
 
   @Element()
   host!: HTMLDsoBadgeElement;
@@ -59,51 +72,17 @@ export class Badge implements ComponentInterface {
   hasToggletip = false;
 
   private handleToggle() {
-    this.lastClickTime = Date.now();
+    this.tooltipController.notifyClick();
     this.toggletipActive = !this.toggletipActive;
     this.handleHideTooltip();
   }
 
   private handleShowTooltip = () => {
-    // Don't show the tooltip if the button is clicked within 500ms of the last click
-    if (Date.now() - this.lastClickTime < this.tooltipShowDelay) {
-      return;
-    }
-
-    this.clearToolTipTimeout();
-
-    this.tooltipTimeout = window.setTimeout(() => {
-      if (!this.tooltipElRef?.isConnected) {
-        return;
-      }
-
-      this.tooltipElRef?.showPopover();
-
-      if (!this.cleanUpFunctionTooltip && this.buttonElRef && this.tooltipElRef && this.tooltipArrowElRef) {
-        this.cleanUpFunctionTooltip = positionTooltip({
-          referenceElement: this.buttonElRef,
-          tipRef: this.tooltipElRef,
-          tipArrowRef: this.tooltipArrowElRef,
-          placementTip: "top",
-          topPositionSmallViewPort: false,
-          halfMainAxisOffset: false,
-          forceVisible: true,
-        });
-      }
-    }, this.tooltipShowDelay);
+    this.tooltipController.show();
   };
 
   private handleHideTooltip = () => {
-    this.clearToolTipTimeout();
-
-    if (this.tooltipElRef?.isConnected && this.tooltipElRef.matches(":popover-open")) {
-      this.tooltipElRef.hidePopover();
-    }
-
-    if (this.cleanUpFunctionTooltip) {
-      this.cleanUpFunctionTooltip();
-      this.cleanUpFunctionTooltip = undefined;
-    }
+    this.tooltipController.hide();
   };
 
   private keyDownHandler = (event: KeyboardEvent) => {
@@ -121,56 +100,14 @@ export class Badge implements ComponentInterface {
     }
   };
 
-  private clearToolTipTimeout = () => {
-    if (this.tooltipTimeout) {
-      clearTimeout(this.tooltipTimeout);
-    }
-  };
-
-  private cleanUpToggletip() {
-    this.cleanUpFunctionToggletip?.();
-    this.cleanUpFunctionToggletip = undefined;
-  }
-
-  private cleanUpTooltip() {
-    this.clearToolTipTimeout();
-
-    this.cleanUpFunctionTooltip?.();
-    this.cleanUpFunctionTooltip = undefined;
-  }
-
   componentDidRender() {
     if (!this.hasToggletip) {
-      this.toggletipElRef?.hidePopover();
-      this.cleanUpToggletip();
-      this.cleanUpTooltip();
+      this.tooltipController.hide();
+      this.toggletipController.dispose();
       return;
     }
 
-    if (
-      !this.cleanUpFunctionToggletip &&
-      this.toggletipActive &&
-      this.buttonElRef &&
-      this.toggletipElRef &&
-      this.toggletipArrowElRef
-    ) {
-      this.cleanUpFunctionToggletip = positionTooltip({
-        referenceElement: this.buttonElRef,
-        tipRef: this.toggletipElRef,
-        tipArrowRef: this.toggletipArrowElRef,
-        placementTip: this.toggletipPlacement,
-        restrictContentElement: this.restrictContentElement,
-      });
-    }
-
-    if (this.cleanUpFunctionToggletip) {
-      if (this.toggletipActive) {
-        this.toggletipElRef?.showPopover();
-      } else {
-        this.toggletipElRef?.hidePopover();
-        this.cleanUpToggletip();
-      }
-    }
+    this.toggletipController.update(this.toggletipActive);
   }
 
   connectedCallback(): void {
@@ -185,7 +122,7 @@ export class Badge implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.cleanUpToggletip();
+    this.toggletipController.dispose();
     this.mutationObserver?.disconnect();
 
     delete this.mutationObserver;

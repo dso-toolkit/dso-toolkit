@@ -12,9 +12,9 @@ import {
   h,
 } from "@stencil/core";
 
-import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
+import { ToggletipController, isEventOutside } from "../../functional-components/tooltip/toggletip.controller";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
-import { TooltipClean, TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
+import { TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
 
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
 
@@ -27,9 +27,16 @@ export class InfoButton implements ComponentInterface {
   private button?: HTMLDsoIconButtonElement;
   private toggletipElRef?: HTMLDivElement;
   private toggletipArrowElRef?: HTMLSpanElement;
-  private cleanUpFunction: TooltipClean | undefined;
   private mutationObserver?: MutationObserver;
   private restrictContentElement?: HTMLElement;
+
+  private toggletipController = new ToggletipController({
+    getReferenceElement: () => this.button,
+    getTipElement: () => this.toggletipElRef,
+    getTipArrowElement: () => this.toggletipArrowElRef,
+    getRestrictContentElement: () => this.restrictContentElement,
+    getPlacement: () => this.toggletipPlacement,
+  });
 
   @Element()
   host!: HTMLDsoInfoButtonElement;
@@ -93,7 +100,7 @@ export class InfoButton implements ComponentInterface {
       return;
     }
 
-    if (!event.composedPath().includes(this.host)) {
+    if (isEventOutside(this.host, event)) {
       this.closeToggletip();
     }
   };
@@ -119,48 +126,16 @@ export class InfoButton implements ComponentInterface {
   private closeToggletip() {
     this.toggletipActive = false;
 
-    if (this.toggletipElRef?.isConnected && this.toggletipElRef.matches(":popover-open")) {
-      this.toggletipElRef.hidePopover();
-    }
-
-    this.cleanUpTooltip();
-  }
-
-  private cleanUpTooltip() {
-    this.cleanUpFunction?.();
-    this.cleanUpFunction = undefined;
+    this.toggletipController.update(false);
   }
 
   componentDidRender() {
     if (!this.hasToggletip) {
-      this.toggletipElRef?.hidePopover();
-      this.cleanUpTooltip();
+      this.toggletipController.update(false);
       return;
     }
 
-    if (
-      !this.cleanUpFunction &&
-      this.toggletipActive &&
-      this.button &&
-      this.toggletipElRef &&
-      this.toggletipArrowElRef
-    ) {
-      this.cleanUpFunction = positionTooltip({
-        referenceElement: this.button,
-        tipRef: this.toggletipElRef,
-        tipArrowRef: this.toggletipArrowElRef,
-        placementTip: this.toggletipPlacement,
-        restrictContentElement: this.restrictContentElement,
-      });
-    }
-
-    if (this.cleanUpFunction) {
-      if (this.toggletipActive) {
-        this.toggletipElRef?.showPopover();
-      } else {
-        this.closeToggletip();
-      }
-    }
+    this.toggletipController.update(this.toggletipActive);
   }
 
   connectedCallback(): void {

@@ -15,9 +15,8 @@ import {
 import { clsx } from "clsx";
 import debounce from "debounce";
 
-import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
+import { TooltipController } from "../../functional-components/tooltip/tooltip.controller";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
-import { TooltipClean } from "../../functional-components/tooltip/tooltip.interfaces";
 
 import { LabelStatus } from "./label.interfaces";
 
@@ -49,7 +48,13 @@ export class Label implements ComponentInterface {
   private mutationObserver?: MutationObserver;
   private tooltipElRef?: HTMLDivElement;
   private tooltipArrowElRef?: HTMLSpanElement;
-  private cleanUpFunction: TooltipClean | undefined;
+
+  private tooltipController = new TooltipController({
+    getReferenceElement: () => this.labelContent,
+    getTipElement: () => this.tooltipElRef,
+    getTipArrowElement: () => this.tooltipArrowElRef,
+    getPlacement: () => "top",
+  });
 
   @Element()
   private host!: HTMLDsoLabelElement;
@@ -135,11 +140,6 @@ export class Label implements ComponentInterface {
     this.labelText = this.host.textContent?.trim() ?? "";
   }
 
-  private cleanUpTooltip() {
-    this.cleanUpFunction?.();
-    this.cleanUpFunction = undefined;
-  }
-
   componentDidLoad() {
     if (this.truncate) {
       this.startTruncate();
@@ -155,31 +155,15 @@ export class Label implements ComponentInterface {
 
     this.stopMutationObserver(true);
 
-    this.cleanUpTooltip();
+    this.tooltipController.dispose();
   }
 
   private handleShowTooltip = () => {
-    this.tooltipElRef?.showPopover();
-
-    if (!this.cleanUpFunction && this.labelContent && this.tooltipElRef && this.tooltipArrowElRef) {
-      this.cleanUpFunction = positionTooltip({
-        referenceElement: this.labelContent,
-        tipRef: this.tooltipElRef,
-        tipArrowRef: this.tooltipArrowElRef,
-        placementTip: "top",
-        topPositionSmallViewPort: false,
-        halfMainAxisOffset: false,
-        forceVisible: true,
-      });
-    }
+    this.tooltipController.show();
   };
 
   private handleHideTooltip = () => {
-    if (this.tooltipElRef?.isConnected && this.tooltipElRef.matches(":popover-open")) {
-      this.tooltipElRef.hidePopover();
-    }
-
-    this.cleanUpTooltip();
+    this.tooltipController.hide();
   };
 
   /** The mutationObserver fetches the text placed inside the label, this is then used for the remove button and tooltip. */
