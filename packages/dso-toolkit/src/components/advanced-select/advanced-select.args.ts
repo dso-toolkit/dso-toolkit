@@ -21,7 +21,6 @@ export interface AdvancedSelectArgs {
 }
 
 export const advancedSelectArgs: AdvancedSelectArgs = {
-  activeHint: "Deze bekijkt u nu",
   optionsOrGroup: options,
   dsoChange: fn(),
   dsoRedirect: fn(),

@@ -2,6 +2,7 @@ export type AdvancedSelectVariant = "primary" | "success" | "info" | "warning" |
 
 export interface AdvancedSelectOption<T> {
   label: string;
+  selectedLabel?: string;
   value?: T;
 }
 
