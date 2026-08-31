@@ -16,6 +16,14 @@ describe("AdvancedSelect", () => {
     cy.get("dso-advanced-select.hydrated").matchImageSnapshot("advanced-select--default");
   });
 
+  it("matches snapshot closed with badges below the button on a narrow viewport", () => {
+    cy.viewport(400, 400);
+
+    cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
+
+    cy.get("dso-advanced-select.hydrated").matchImageSnapshot("advanced-select--default-narrow-viewport");
+  });
+
   it("matches snapshots", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
 
@@ -47,7 +55,7 @@ describe("AdvancedSelect", () => {
       .should("exist");
   });
 
-  it("should show active hint on active option when options are shown", () => {
+  it("shows active option with aria-current and optionally with active hint when options are shown", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default&args=activeIndex:2");
 
     cy.get("dso-advanced-select.hydrated").shadow().find("button.active-option").as("active-option-button");
@@ -56,12 +64,25 @@ describe("AdvancedSelect", () => {
       .click()
       .get("dso-advanced-select.hydrated")
       .shadow()
+      .find(".option-active")
+      .should("have.attr", "aria-current", "true");
+
+    cy.get("@active-option-button")
+      .click()
+      .get("dso-advanced-select.hydrated")
+      .shadow()
       .find(".groups .group:first .options li:first .option-hint")
-      .should("not.exist")
+      .should("not.exist");
+
+    cy.get("dso-advanced-select.hydrated").invoke("prop", "activeHint", "Deze bekijkt u nu");
+
+    cy.get("@active-option-button")
+      .click()
       .get("dso-advanced-select.hydrated")
       .shadow()
       .find(".groups .group:nth-child(2) .options li:nth-child(2) .option-hint")
-      .should("exist");
+      .should("exist")
+      .and("have.text", "(Deze bekijkt u nu)");
   });
 
   it("should show activeLabel on active option", () => {

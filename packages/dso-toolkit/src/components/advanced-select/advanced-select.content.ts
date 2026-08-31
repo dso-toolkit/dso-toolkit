@@ -11,6 +11,7 @@ export const options: (AdvancedSelectOption<unknown> | AdvancedSelectGroup<unkno
     options: [
       {
         label: "In werking (laatst gewijzigd: 01-01-2024)",
+        selectedLabel: "Geldende versie",
       },
     ],
   },
