@@ -10,15 +10,6 @@
       },
       "dependsOn": ["^build"],
       "outputs": ["{projectRoot}/dist/component-library"]
-    },
-    "build-www": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": ["pnpm clear", "pnpm storybook:build"],
-        "cwd": "angular-workspace"
-      },
-      "dependsOn": ["build"],
-      "outputs": ["{projectRoot}/documentation.json", "{projectRoot}/www"]
     }
   }
 }

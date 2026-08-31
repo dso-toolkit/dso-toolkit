@@ -36,26 +36,15 @@ catalog:
 
 catalogs:
   angular:
-    "@angular-devkit/architect": "~0.2102.19"
     "@angular-devkit/build-angular": "^21.2.19"
     "@angular-devkit/core": "^21.2.19"
-    "@angular/animations": "^21.2.19"
     "@angular/cdk": "^21.2.14"
     "@angular/cli": "~21.2.19"
     "@angular/common": "^21.2.19"
-    "@angular/compiler": "^21.2.19"
-    "@angular/compiler-cli": "^21.2.19"
     "@angular/core": "^21.2.19"
     "@angular/forms": "^21.2.19"
-    "@angular/platform-browser": "^21.2.19"
-    "@angular/platform-browser-dynamic": "^21.2.19"
-    "@angular/router": "^21.2.19"
-    "@compodoc/compodoc": "^2.0.0"
-    "@storybook/angular": "10.5.7"
-    mkdirp: "^3.0.1"
     ng-packagr: "^21.2.5"
     rxjs: "~7.8.2"
-    zone.js: "~0.16.2"
 
   storybook:
     "@storybook/addon-a11y": "10.5.7"
@@ -100,7 +89,6 @@ overrides:
   webpack-dev-server>http-proxy-middleware: "^2.0.10"
 
 allowBuilds:
-  "@compodoc/compodoc": true
   "@parcel/watcher": true
   core-js: true
   cypress: true

@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Map Message: NVDA leest niet voor bij verschijnen ([#3943](https://github.com/dso-toolkit/dso-toolkit/issues/3943))
 
+### Task
+* Storybook: Verwijder Angular Storybook ([#3930](https://github.com/dso-toolkit/dso-toolkit/issues/3930))
+
 ## 🪅 Release 100.2.0 - 2026-08-25
 
 ### Added

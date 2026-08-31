@@ -8,9 +8,9 @@ import { getVersion } from "@site/src/functions/versions.function";
 
 import styles from "./styles.module.scss";
 
-type Implementation = "core" | "angular" | "html-css";
+type Implementation = "core" | "html-css";
 
-const allImplementations = ["core", "angular", "html-css"] as const;
+const allImplementations = ["core", "html-css"] as const;
 
 interface Props {
   /**
@@ -38,15 +38,7 @@ interface Props {
   args?: Record<string, unknown>;
 }
 
-function getSubDomain(implementation: Implementation) {
-  return isComposedStorybook(implementation) ? implementation : "storybook";
-}
-
-function isComposedStorybook(implementation: Implementation) {
-  return implementation === "angular";
-}
-
-function joinNameAndVariant(name: string, variant: string | undefined) {
+function joinNameAndVariant(name: string, variant: string | undefined): string {
   return [name, variant].filter((t) => !!t).join("--");
 }
 
@@ -55,11 +47,7 @@ function getStoryUrlId(
   name: string,
   variant: string | undefined,
   isExamplePage: boolean | undefined,
-) {
-  if (isComposedStorybook(implementation)) {
-    return `${implementation}_${joinNameAndVariant(name, variant)}`;
-  }
-
+): string {
   if (isExamplePage) {
     return joinNameAndVariant(name, variant);
   }
@@ -73,7 +61,7 @@ function stringifyStorybookArgs(args: Record<string, unknown>): string {
     .join(";");
 }
 
-function stringifyStorybookArg(key: string, value: unknown) {
+function stringifyStorybookArg(key: string, value: unknown): string {
   if (typeof value === "boolean") {
     return `${key}:${`!${value}`}`;
   }
@@ -81,8 +69,8 @@ function stringifyStorybookArg(key: string, value: unknown) {
   return `${key}:${value}`;
 }
 
-function getStoryIframeId(implementation: Implementation, name: string, variant: string | undefined) {
-  if (isComposedStorybook(implementation) || name.startsWith("voorbeeldpagina") || name.startsWith("patronen")) {
+function getStoryIframeId(implementation: Implementation, name: string, variant: string | undefined): string {
+  if (name.startsWith("voorbeeldpagina") || name.startsWith("patronen")) {
     return joinNameAndVariant(name, variant);
   }
 
@@ -111,13 +99,13 @@ function getNameFromPathname(pathname: string): string {
   return component;
 }
 
-function getStoryIframeUrlLocalhost() {
+function getStoryIframeUrlLocalhost(): URL {
   return new URL("iframe.html", "http://localhost:45000");
 }
 
-function getStoryIframeUrlRemote(implementation: Implementation) {
+function getStoryIframeUrlRemote(): URL {
   const version = getVersion();
-  const subDomain = getSubDomain(implementation);
+  const subDomain = "storybook";
 
   const path = [`!${subDomain}`, version !== "local" ? version : "master", "iframe.html"].join("/");
   return new URL(path, `https://${window.location.host}`);
@@ -129,8 +117,7 @@ function getStoryIframeUrl(
   variant?: string,
   args?: Record<string, unknown>,
 ): string {
-  const url =
-    window.location.hostname === "localhost" ? getStoryIframeUrlLocalhost() : getStoryIframeUrlRemote(implementation);
+  const url = window.location.hostname === "localhost" ? getStoryIframeUrlLocalhost() : getStoryIframeUrlRemote();
   const id = getStoryIframeId(implementation, name, variant);
 
   const searchParamsObject: Record<string, string> = {
@@ -147,11 +134,11 @@ function getStoryIframeUrl(
   return `${url}?${searchParams}`;
 }
 
-function getStoryUrlLocalhost() {
+function getStoryUrlLocalhost(): string {
   return "http://localhost:45000";
 }
 
-function getStoryUrlRemote(version: string) {
+function getStoryUrlRemote(version: string): string {
   return `https://storybook.dso-toolkit.nl/${version !== "local" ? version : "master"}`;
 }
 

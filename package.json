@@ -24,7 +24,9 @@
     "@eslint/js": "^9.39.5",
     "@lit-labs/ssr": "^4.1.0",
     "@octokit/rest": "^22.0.1",
+    "@stencil/eslint-plugin": "^1.4.0",
     "@types/minimist": "^1.2.5",
+    "@types/node": "catalog:",
     "@types/semver": "^7.8.0",
     "@typescript-eslint/eslint-plugin": "^8.67.0",
     "@typescript-eslint/parser": "^8.67.0",
@@ -37,6 +39,7 @@
     "eslint-plugin-lit": "^2.3.1",
     "eslint-plugin-only-warn": "^1.2.1",
     "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-storybook": "catalog:storybook",
     "globals": "^17.9.0",
     "knip": "^6.32.1",
     "minimist": "^1.2.8",
@@ -53,10 +56,5 @@
     "typescript": "catalog:",
     "wait-on": "catalog:"
   },
-  "packageManager": "pnpm@11.21.0+sha512.521705bce689924eac72f5a3587122f362689ef6571e55ba80076fd637c11132ecffada26fad4ea79c485bfddbfd3d5a2a5b05805a77e893de71ec8a6cca3bb1",
-  "devDependencies": {
-    "@stencil/eslint-plugin": "^1.4.0",
-    "@types/node": "catalog:",
-    "eslint-plugin-storybook": "catalog:storybook"
-  }
+  "packageManager": "pnpm@11.21.0+sha512.521705bce689924eac72f5a3587122f362689ef6571e55ba80076fd637c11132ecffada26fad4ea79c485bfddbfd3d5a2a5b05805a77e893de71ec8a6cca3bb1"
 }

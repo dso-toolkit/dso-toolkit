@@ -1,26 +1,8 @@
 import type { StorybookConfig } from "@storybook/web-components-vite";
 
-function getVersion() {
-  if (process.env.CI && process.env.DT_REF) {
-    return process.env.DT_REF;
-  }
-  return undefined;
-}
-
 const config: StorybookConfig = {
   typescript: { check: true },
   staticDirs: ["../../packages/dso-toolkit/storybook-assets"],
-  refs: (_config, { configType }) => {
-    if (configType === "PRODUCTION") {
-      return {
-        angular: {
-          title: "Angular",
-          url: `//storybook.dso-toolkit.nl/!angular/${getVersion() ?? "master"}`,
-        },
-      };
-    }
-    return {};
-  },
   addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
   stories: ["../src/components/**/*.{core-,css-}stories.ts", "../src/example-pages/**/*.stories.ts"],
   previewHead: (head) =>
