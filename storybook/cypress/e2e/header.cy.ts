@@ -194,15 +194,27 @@ describe("Header", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
+
+    cy.get("dso-header.hydrated").invoke("attr", "show-help", "true");
     cy.dsoCheckA11y("dso-header.hydrated");
 
-    cy.get("dso-header.hydrated").invoke("attr", "compact", "always").dsoCheckA11y("dso-header.hydrated");
+    cy.get("dso-header.hydrated").invoke("attr", "compact", "always");
+    cy.dsoCheckA11y("dso-header.hydrated");
 
-    cy.get("dso-header.hydrated")
-      .viewport(400, 600)
-      .get("dso-header")
-      .invoke("attr", "compact", "auto")
-      .dsoCheckA11y("dso-header.hydrated");
+    cy.viewport(400, 600);
+    cy.get("dso-header.hydrated").invoke("attr", "compact", "auto");
+    cy.dsoCheckA11y("dso-header.hydrated");
+
+    cy.get("@dsoHeaderShadow").find(".dropdown-menu > button").click();
+    ensureCompactMenuOpen();
+    cy.get("@dsoHeaderShadow").find(".dropdown-menu .dropdown-menu-options").should("be.visible");
+
+    cy.dsoCheckA11y("dso-header.hydrated", {
+      rules: {
+        "aria-required-children": { enabled: false },
+        listitem: { enabled: false },
+      },
+    });
   });
 
   it("should act on user-profile attributes", () => {
