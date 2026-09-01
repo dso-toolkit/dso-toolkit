@@ -422,4 +422,30 @@ describe("Accordion", () => {
       cy.get("dso-accordion.hydrated").matchImageSnapshot({ failureThreshold: 0 });
     });
   });
+
+  describe("With Badge", () => {
+    beforeEach(() => {
+      cy.viewport(360, 640);
+      cy.visit("http://localhost:45000/iframe.html?id=core-accordion--compact-black&args=badge:!true");
+    });
+
+    it("does not toggle the section when the badge is clicked", () => {
+      cy.get("dso-accordion.hydrated")
+        .find("dso-accordion-section:nth-child(2)")
+        .as("section")
+        .then(($section) => {
+          $section.on("dsoToggleClick", cy.stub().as("dsoToggleClick"));
+        });
+
+      cy.get("@section").find('[slot="badge"] dso-badge').click();
+
+      cy.get("@dsoToggleClick").should("not.be.called");
+
+      cy.get("@section").shadow().find(".dso-section-handle > button").click();
+
+      cy.get("@dsoToggleClick").should("be.calledOnce");
+
+      cy.get("dso-accordion.hydrated").matchImageSnapshot({ failureThreshold: 0 });
+    });
+  });
 });

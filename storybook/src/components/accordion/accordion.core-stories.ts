@@ -4,6 +4,7 @@ import type { Meta } from "@storybook/web-components-vite";
 import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+import { children } from "../badge/badge.content";
 
 import {
   activatableSections,
@@ -56,6 +57,7 @@ const {
       renvooiSections,
       activatableSections,
       animatedFormGroupSections: animatedFormGroupSections(templates),
+      badgeChildren: children(templates),
     };
   },
 });

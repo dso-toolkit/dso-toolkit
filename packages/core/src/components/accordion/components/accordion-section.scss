@@ -132,6 +132,10 @@
   }
 }
 
+::slotted([slot="badge"]) {
+  margin-inline: units.$u1 !important;
+}
+
 // Default
 :host(.dso-accordion-default) {
   @include accordion-section-theme-default.dso-web-component-accordion-default();

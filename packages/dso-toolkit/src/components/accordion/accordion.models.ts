@@ -1,3 +1,4 @@
+import { Badge } from "../badge";
 import { IconAlias } from "../icon";
 import { LabelStatus } from "../label";
 import { RenvooiValue } from "../renvooi";
@@ -31,6 +32,7 @@ export interface AccordionSection<TemplateFnReturnType> {
   label?: string;
   activatable?: boolean;
   active?: boolean;
+  badge?: Badge<TemplateFnReturnType>;
   dsoActiveChange?: (e: CustomEvent<AccordionSectionActiveChangeEvent>) => void;
   dsoToggleClick?: (e: CustomEvent<AccordionSectionToggleClickEvent>) => void;
   dsoAnimationStart?: (e: CustomEvent<AccordionSectionAnimationStartEvent>) => void;

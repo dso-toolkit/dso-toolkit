@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> = {
   component: "accordion",
   implementation: "core",
-  template: () =>
+  template: ({ badgeTemplate }) =>
     function accordionTemplate({ variant, reverseAlign, sections }) {
       return html`
         <dso-accordion .variant=${variant} ?reverse-align=${reverseAlign}>
@@ -30,6 +30,7 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
               label,
               activatable,
               active,
+              badge,
               dsoActiveChange,
             }) =>
               html`<dso-accordion-section
@@ -51,7 +52,7 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
                 @dsoAnimationEnd=${dsoAnimationEnd}
                 @dsoActiveChange=${dsoActiveChange}
               >
-                ${content}
+                ${badge ? html`<span slot="badge">${badgeTemplate(badge)}</span>` : null} ${content}
               </dso-accordion-section>`,
           )}
         </dso-accordion>

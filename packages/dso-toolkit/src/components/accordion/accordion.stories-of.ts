@@ -45,6 +45,7 @@ interface AccordionTemplates<TemplateFnReturnType> {
   renvooiSections: AccordionSection<TemplateFnReturnType>[];
   activatableSections: AccordionSection<TemplateFnReturnType>[];
   animatedFormGroupSections?: AccordionSection<TemplateFnReturnType>[];
+  badgeChildren?: TemplateFnReturnType;
 }
 
 export function accordionMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -74,24 +75,26 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
         label: "Attentie",
         labelStatus: "attention",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, basicSections }) =>
-        accordionTemplate(accordionArgsMapper(args, basicSections)),
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, basicSections, badgeChildren }) =>
+        accordionTemplate(accordionArgsMapper(args, basicSections, badgeChildren)),
       ),
     },
     Compact: {
       args: {
         variant: "compact",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, compactSections }) =>
-        accordionTemplate(accordionArgsMapper(args, compactSections)),
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, compactSections, badgeChildren }) =>
+        accordionTemplate(accordionArgsMapper(args, compactSections, badgeChildren)),
       ),
     },
     CompactBlack: {
       args: {
         variant: "compact-black",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, compactBlackSections }) =>
-        accordionTemplate(accordionArgsMapper(args, compactBlackSections)),
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { accordionTemplate, compactBlackSections, badgeChildren }) =>
+          accordionTemplate(accordionArgsMapper(args, compactBlackSections, badgeChildren)),
       ),
     },
     Activatable: {
@@ -100,63 +103,71 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
         activatable: true,
         active: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, activatableSections }) =>
-        accordionTemplate(accordionArgsMapper(args, activatableSections)),
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { accordionTemplate, activatableSections, badgeChildren }) =>
+          accordionTemplate(accordionArgsMapper(args, activatableSections, badgeChildren)),
       ),
     },
     Neutral: {
       args: {
         variant: "neutral",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, neutralSections }) =>
-        accordionTemplate(accordionArgsMapper(args, neutralSections)),
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, neutralSections, badgeChildren }) =>
+        accordionTemplate(accordionArgsMapper(args, neutralSections, badgeChildren)),
       ),
     },
     Conclusion: {
       args: {
         variant: "conclusion",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, conclusionSections }) =>
-        accordionTemplate(accordionArgsMapper(args, conclusionSections)),
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { accordionTemplate, conclusionSections, badgeChildren }) =>
+          accordionTemplate(accordionArgsMapper(args, conclusionSections, badgeChildren)),
       ),
     },
     HandleAnchors: {
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, anchorSections }) =>
-        accordionTemplate(accordionArgsMapper(args, anchorSections)),
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, anchorSections, badgeChildren }) =>
+        accordionTemplate(accordionArgsMapper(args, anchorSections, badgeChildren)),
       ),
     },
     Nested: {
       args: {
         open: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, nestedSections }) =>
-        accordionTemplate(accordionArgsMapper(args, nestedSections)),
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, nestedSections, badgeChildren }) =>
+        accordionTemplate(accordionArgsMapper(args, nestedSections, badgeChildren)),
       ),
     },
     AddonsSections: {
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, addonsSections }) =>
-        accordionTemplate(accordionArgsMapper(args, addonsSections)),
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, addonsSections, badgeChildren }) =>
+        accordionTemplate(accordionArgsMapper(args, addonsSections, badgeChildren)),
       ),
     },
     AlignmentSections: {
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, alignmentSections }) =>
-        accordionTemplate(accordionArgsMapper(args, alignmentSections)),
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { accordionTemplate, alignmentSections, badgeChildren }) =>
+          accordionTemplate(accordionArgsMapper(args, alignmentSections, badgeChildren)),
       ),
     },
     RenvooiSections: {
       args: {
         variant: "compact-black",
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, renvooiSections }) =>
-        accordionTemplate(accordionArgsMapper(args, renvooiSections)),
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, renvooiSections, badgeChildren }) =>
+        accordionTemplate(accordionArgsMapper(args, renvooiSections, badgeChildren)),
       ),
     },
     AnimatedFormGroupSections: {
       args: {
         open: true,
       },
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, animatedFormGroupSections }) =>
-        accordionTemplate(accordionArgsMapper(args, animatedFormGroupSections ?? [])),
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { accordionTemplate, animatedFormGroupSections, badgeChildren }) =>
+          accordionTemplate(accordionArgsMapper(args, animatedFormGroupSections ?? [], badgeChildren)),
       ),
     },
   };

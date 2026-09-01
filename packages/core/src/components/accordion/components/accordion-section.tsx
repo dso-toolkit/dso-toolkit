@@ -145,6 +145,13 @@ const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState }> = (
   }
 };
 
+function isDsoBadgeComponent(element: Element | undefined): element is HTMLDsoBadgeElement {
+  return element?.tagName === "DSO-BADGE";
+}
+
+/**
+ * @slot badge - Een optioneel slot om een Badge in de handle achter de titel te plaatsen.
+ */
 @Component({
   tag: "dso-accordion-section",
   styleUrl: "accordion-section.scss",
@@ -354,6 +361,14 @@ export class AccordionSection implements ComponentInterface {
   }
 
   private handleClick = (event: MouseEvent) => {
+    const clickedInsideBadge = event
+      .composedPath()
+      .some((target) => target instanceof HTMLElement && isDsoBadgeComponent(target));
+
+    if (clickedInsideBadge) {
+      return;
+    }
+
     this.dsoToggleClick.emit({
       originalEvent: event,
       open: !this.open,
@@ -438,7 +453,10 @@ export class AccordionSection implements ComponentInterface {
                     <HandleIcon icon={this.icon} />
                   </div>
                 )}
-                <dso-renvooi value={this.handleTitle} />
+                <span>
+                  <dso-renvooi value={this.handleTitle} />
+                  <slot name="badge" />
+                </span>
                 {this.label && (
                   <dso-label status={this.labelStatus} compact>
                     {this.label}
@@ -458,6 +476,7 @@ export class AccordionSection implements ComponentInterface {
                   {this.isNeutral && (
                     <dso-icon class="info-icon" icon={this.open || this.hover ? "info-solid" : "info-outline"} />
                   )}
+                  <slot name="badge" />
                 </span>
                 {this.label && (
                   <dso-label status={this.labelStatus} compact>
