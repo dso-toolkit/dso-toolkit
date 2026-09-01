@@ -133,7 +133,7 @@
 }
 
 ::slotted([slot="badge"]) {
-  margin-inline: units.$u1;
+  margin-inline: units.$u1 !important;
 }
 
 // Default

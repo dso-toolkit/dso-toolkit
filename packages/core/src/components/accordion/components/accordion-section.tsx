@@ -365,12 +365,14 @@ export class AccordionSection implements ComponentInterface {
       .composedPath()
       .some((target) => target instanceof HTMLElement && isDsoBadgeComponent(target));
 
-    if (!clickedInsideBadge) {
-      this.dsoToggleClick.emit({
-        originalEvent: event,
-        open: !this.open,
-      });
+    if (clickedInsideBadge) {
+      return;
     }
+
+    this.dsoToggleClick.emit({
+      originalEvent: event,
+      open: !this.open,
+    });
   };
 
   private handleActiveChange = (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => {
