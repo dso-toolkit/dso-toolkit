@@ -36,11 +36,13 @@ export interface AccordionArgs {
   active: boolean;
   activatable: boolean;
   dsoActiveChange: HandlerFunction;
+  badge: boolean;
 }
 
 export const accordionArgs: Pick<
   AccordionArgs,
   | "demoScrollIntoView"
+  | "badge"
   | "open"
   | "handleTitle"
   | "dsoToggleClick"
@@ -48,6 +50,7 @@ export const accordionArgs: Pick<
   | "dsoAnimationEnd"
   | "dsoActiveChange"
 > = {
+  badge: false,
   open: false,
   demoScrollIntoView: undefined,
   handleTitle: "ongewijzigd",
@@ -144,11 +147,17 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: "text",
     },
   },
+  badge: {
+    control: {
+      type: "boolean",
+    },
+  },
 };
 
 export function accordionArgsMapper<TemplateFnReturnType>(
   a: AccordionArgs,
   sections: AccordionSection<TemplateFnReturnType>[],
+  badgeChildren?: TemplateFnReturnType,
 ): Accordion<TemplateFnReturnType> {
   return {
     variant: a.variant,
@@ -161,6 +170,14 @@ export function accordionArgsMapper<TemplateFnReturnType>(
       };
 
       if (i === 1) {
+        section.badge = a.badge
+          ? {
+              status: "warning",
+              message: "!",
+              label: "Toelichting",
+              children: badgeChildren,
+            }
+          : undefined;
         section.open = a.open;
         section.statusDescription = a.statusDescription;
         section.status = a.status;

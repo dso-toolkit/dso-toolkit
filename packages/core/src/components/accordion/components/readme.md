@@ -46,6 +46,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot      | Description                                                               |
+| --------- | ------------------------------------------------------------------------- |
+| `"badge"` | Een optioneel slot om een Badge in de handle achter de titel te plaatsen. |
+
+
 ## Dependencies
 
 ### Depends on
