@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Fragment,
   Host,
+  JSX,
   Prop,
   State,
   Watch,
@@ -33,6 +34,7 @@ import {
 import { MenuItem } from "./menu-item.functional-component";
 
 const minDesktopViewportWidth = 992;
+const minMobileViewportWidth = 480;
 
 interface ClickHandlerOptions {
   menuItem?: HeaderMenuItem;
@@ -208,8 +210,12 @@ export class Header implements ComponentInterface {
     this.visibleMenuItemsCount = undefined;
   };
 
-  private get isCompact() {
+  private get isCompact(): boolean {
     return this.compact === "always" || window.innerWidth < minDesktopViewportWidth;
+  }
+
+  private get isMobileViewport(): boolean {
+    return window.innerWidth < minMobileViewportWidth;
   }
 
   private clickHandler = (e: MouseEvent, type: HeaderNavigationType, options?: ClickHandlerOptions) => {
@@ -284,7 +290,7 @@ export class Header implements ComponentInterface {
     return visibleMenuItems;
   }
 
-  private calculateDropdownOptionsOffset() {
+  private calculateDropdownOptionsOffset(): number {
     if (!this.dropdownElement) {
       return 0;
     }
@@ -446,6 +452,7 @@ export class Header implements ComponentInterface {
           <div class="logo-container">
             <slot name="logo" />
           </div>
+          {this.renderHeaderSession()}
           {this.isCompact ? this.renderCompact() : this.renderNormal()}
         </div>
       </Host>
@@ -480,7 +487,79 @@ export class Header implements ComponentInterface {
     }
   }
 
-  private renderCompact() {
+  private renderHelpButton(): JSX.Element {
+    return this.helpUrl ? (
+      <a href={this.helpUrl} class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}>
+        <span>{this.text("help")}</span>
+        <dso-icon icon="help-outline"></dso-icon>
+      </a>
+    ) : (
+      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
+        <span>{this.text("help")}</span>
+        <dso-icon icon="help-outline"></dso-icon>
+      </button>
+    );
+  }
+
+  private renderHeaderSession(): JSX.Element {
+    return (
+      <div class="dso-header-session">
+        {!this.isCompact && (
+          <Fragment>
+            {this.userProfileUrl && this.userProfileName && this.authStatus === "loggedIn" && (
+              <div class="profile">
+                <a
+                  href={this.userProfileUrl}
+                  class="dso-tertiary"
+                  onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
+                >
+                  {this.userProfileName}
+                </a>
+              </div>
+            )}
+            {this.authStatus === "loggedOut" && (
+              <div class="login">
+                {this.loginUrl ? (
+                  <a
+                    href={this.loginUrl}
+                    class="dso-tertiary"
+                    onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
+                  >
+                    {this.text("login")}
+                  </a>
+                ) : (
+                  <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "login")}>
+                    {this.text("login")}
+                  </button>
+                )}
+              </div>
+            )}
+            {this.authStatus === "loggedIn" && (
+              <div class="logout">
+                {this.logoutUrl ? (
+                  <a
+                    href={this.logoutUrl}
+                    class="dso-tertiary"
+                    onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
+                  >
+                    {this.text("logout")}
+                  </a>
+                ) : (
+                  <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "logout")}>
+                    {this.text("logout")}
+                  </button>
+                )}
+              </div>
+            )}
+          </Fragment>
+        )}
+
+        {this.showHelp && !this.isMobileViewport && <div class="help">{this.renderHelpButton()}</div>}
+      </div>
+    );
+  }
+
+  private renderCompact(): JSX.Element {
     return (
       (this.mainMenu.length > 0 || this.userHomeUrl || this.authStatus !== "none") && (
         <div class="dropdown">
@@ -565,25 +644,7 @@ export class Header implements ComponentInterface {
                       )}
                     </li>
                   )}
-                  {this.showHelp && (
-                    <li role="menuitem">
-                      {this.helpUrl ? (
-                        <a
-                          href={this.helpUrl}
-                          class="dso-tertiary"
-                          onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
-                        >
-                          <span>{this.text("help")}</span>
-                          <dso-icon icon="help-outline"></dso-icon>
-                        </a>
-                      ) : (
-                        <button type="button" class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help")}>
-                          <span>{this.text("help")}</span>
-                          <dso-icon icon="help-outline"></dso-icon>
-                        </button>
-                      )}
-                    </li>
-                  )}
+                  {this.showHelp && this.isMobileViewport && <li role="menuitem">{this.renderHelpButton()}</li>}
                 </ul>
               </dso-scrollable>
             </div>
@@ -598,72 +659,6 @@ export class Header implements ComponentInterface {
 
     return (
       <Fragment>
-        <div class="dso-header-session">
-          {this.userProfileUrl && this.userProfileName && this.authStatus === "loggedIn" && (
-            <div class="profile">
-              <a
-                href={this.userProfileUrl}
-                class="dso-tertiary"
-                onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
-              >
-                {this.userProfileName}
-              </a>
-            </div>
-          )}
-          {this.authStatus === "loggedOut" && (
-            <div class="login">
-              {this.loginUrl ? (
-                <a
-                  href={this.loginUrl}
-                  class="dso-tertiary"
-                  onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
-                >
-                  {this.text("login")}
-                </a>
-              ) : (
-                <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "login")}>
-                  {this.text("login")}
-                </button>
-              )}
-            </div>
-          )}
-          {this.authStatus === "loggedIn" && (
-            <div class="logout">
-              {this.logoutUrl ? (
-                <a
-                  href={this.logoutUrl}
-                  class="dso-tertiary"
-                  onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
-                >
-                  {this.text("logout")}
-                </a>
-              ) : (
-                <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "logout")}>
-                  {this.text("logout")}
-                </button>
-              )}
-            </div>
-          )}
-          {this.showHelp && (
-            <div class="help">
-              {this.helpUrl ? (
-                <a
-                  href={this.helpUrl}
-                  class="dso-tertiary"
-                  onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
-                >
-                  <span>{this.text("help")}</span>
-                  <dso-icon icon="help-outline"></dso-icon>
-                </a>
-              ) : (
-                <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
-                  <span>{this.text("help")}</span>
-                  <dso-icon icon="help-outline"></dso-icon>
-                </button>
-              )}
-            </div>
-          )}
-        </div>
         {(this.mainMenu.length > 0 || this.userHomeUrl) && (
           <nav class="dso-navbar">
             <ul
