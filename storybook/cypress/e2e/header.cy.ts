@@ -232,12 +232,48 @@ describe("Header", () => {
       .should("not.exist");
   });
 
-  it("should act on show-help attribute", () => {
+  it("should show help outside the menu above the mobile breakpoint", () => {
+    cy.viewport(1200, 600);
+
     cy.get("dso-header.hydrated")
-      .invoke("attr", "show-help", true)
+      .invoke("attr", "show-help", "true")
       .get("@dsoHeaderShadow")
-      .find(".dso-header-session .help button")
-      .should("be.visible");
+      .find(".dso-header-session .help")
+      .should("be.visible")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown-menu-options .help")
+      .should("not.exist");
+  });
+
+  it("should show help outside the menu at the mobile breakpoint", () => {
+    cy.viewport(480, 600);
+
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "show-help", "true")
+      .get("@dsoHeaderShadow")
+      .find(".dso-header-session .help")
+      .should("be.visible")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown-menu-options .help")
+      .should("not.exist");
+  });
+
+  it("should show help in the menu below the mobile breakpoint", () => {
+    cy.viewport(400, 600);
+
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "show-help", "true")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown-menu-options .help")
+      .should("not.exist");
+
+    cy.get("@dsoHeaderShadow").find(".dropdown-menu > button").click();
+
+    ensureCompactMenuOpen();
+
+    cy.get("@dsoHeaderShadow").find(".dropdown-menu-options .dso-tertiary").should("exist");
+
+    cy.get("@dsoHeaderShadow").find(".dso-header-session .help").should("not.exist");
   });
 
   it("should use an anchor if help-url is passed", () => {
