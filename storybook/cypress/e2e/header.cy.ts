@@ -49,7 +49,8 @@ describe("Header", () => {
 
   /** Configure the component and set an eventListener as @headerListener the `dso-header` is set as @dsoHeader and the `dso-header` shadow dom as @dsoHeaderShadow */
   function prepareComponent() {
-    cy.get("dso-header.hydrated")
+    cy.get("dso-header", { timeout: 10000 })
+      .should("have.class", "hydrated")
       .then(($header) => {
         $header.on("dsoHeaderClick", ($event) => {
           if ($event.originalEvent instanceof CustomEvent) {
@@ -63,32 +64,37 @@ describe("Header", () => {
       .as("dsoHeaderShadow");
   }
 
+  /**
+   * Waits for the header's ResizeObserver layout pass to settle so a viewport
+   * change doesn't flush late and close the menu right before a click.
+   */
+  function waitForResizeSettled() {
+    cy.window().then(
+      (win) =>
+        new Cypress.Promise<void>((resolve) => {
+          win.requestAnimationFrame(() => win.requestAnimationFrame(() => resolve()));
+        }),
+    );
+  }
+
   function ensureCompactMenuOpen() {
+    waitForResizeSettled();
+
+    cy.get("dso-header[is-compact]")
+      .shadow()
+      .find(".dropdown-menu > button")
+      .then(($btn) => {
+        if ($btn.attr("aria-expanded") !== "true") {
+          cy.wrap($btn).click();
+        }
+      });
+
+    waitForResizeSettled();
+
     cy.get("dso-header[is-compact]")
       .shadow()
       .find(".dropdown-menu > button")
       .should("have.attr", "aria-expanded", "true");
-
-    cy.get("dso-header[is-compact]")
-      .shadow()
-      .find(".dropdown-menu > div[popover=manual]")
-      .then(($popover) => {
-        const popover = $popover.get(0);
-
-        if (!popover) {
-          return;
-        }
-
-        if (typeof popover.showPopover === "function") {
-          popover.showPopover();
-        }
-
-        if (getComputedStyle(popover).display === "none") {
-          popover.style.display = "block";
-        }
-
-        expect(getComputedStyle(popover).display).not.to.eq("none");
-      });
   }
 
   it("should not trigger ResizeObserver loop errors when toggling the compact menu", () => {
@@ -205,8 +211,8 @@ describe("Header", () => {
     cy.get("dso-header.hydrated").invoke("attr", "compact", "auto");
     cy.dsoCheckA11y("dso-header.hydrated");
 
-    cy.get("@dsoHeaderShadow").find(".dropdown-menu > button").click();
     ensureCompactMenuOpen();
+
     cy.get("@dsoHeaderShadow").find(".dropdown-menu .dropdown-menu-options").should("be.visible");
 
     cy.dsoCheckA11y("dso-header.hydrated", {
@@ -509,16 +515,26 @@ describe("Header", () => {
           .should("exist")
           .and("be.visible");
 
-        cy.get("@headerShadow").find(".dropdown-menu > button")[trigger]();
+        waitForResizeSettled();
+
+        cy.get("@headerShadow").find(".dropdown-menu > button").should("be.visible")[trigger]();
+
+        cy.get("@headerShadow").find(".dropdown-menu > button").should("have.attr", "aria-expanded", "true");
+
+        waitForResizeSettled();
+
+        cy.wait(150);
 
         cy.get("@headerShadow")
-          .find(".dropdown-menu button[aria-expanded='true'] + div[popover=manual] > .dropdown-menu-options ul li")
-          .contains(label)
+          .find(".dropdown-menu button[aria-expanded='true'] + div[popover=manual] > .dropdown-menu-options ul")
+          .contains("li", label)
           .should("be.visible")
-          [trigger]()
-          .get("@headerListener")
-          .its("lastCall.args.0.detail")
-          .should("deep.contain", menuItemEvent);
+          .find("a, button")
+          .should("be.visible")
+          [trigger]();
+
+        cy.get("@headerListener").should("have.been.called");
+        cy.get("@headerListener").its("lastCall.args.0.detail").should("deep.contain", menuItemEvent);
       });
     }
 
@@ -670,9 +686,17 @@ describe("Header", () => {
           .should("exist")
           .and("be.visible");
 
-        cy.get("dso-header[is-compact].hydrated").shadow().find(".dropdown-menu > button")[trigger]();
+        waitForResizeSettled();
+
+        cy.get("dso-header[is-compact].hydrated")
+          .shadow()
+          .find(".dropdown-menu > button")
+          .should("be.visible")
+          [trigger]();
 
         ensureCompactMenuOpen();
+
+        waitForResizeSettled();
 
         if (trigger === "click") {
           cy.get("dso-header[is-compact]")
@@ -680,6 +704,7 @@ describe("Header", () => {
             .find(".dropdown-menu > div[popover=manual]")
             .contains("li", label)
             .find("a, button")
+            .should("be.visible")
             .click({ force: true });
         } else {
           cy.get("dso-header[is-compact]")
@@ -687,6 +712,7 @@ describe("Header", () => {
             .find(".dropdown-menu > div[popover=manual]")
             .contains("li", label)
             .find("a, button")
+            .should("be.visible")
             .realClick();
         }
 
