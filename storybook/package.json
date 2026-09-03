@@ -13,7 +13,7 @@
   "dependencies": {
     "@dso-toolkit/core": "workspace:*",
     "@iframe-resizer/child": "catalog:",
-    "@simonsmith/cypress-image-snapshot": "^10.1.1",
+    "@simonsmith/cypress-image-snapshot": "^11.0.0",
     "@storybook/addon-a11y": "catalog:storybook",
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/builder-vite": "catalog:storybook",
@@ -21,7 +21,7 @@
     "@types/lodash.startcase": "catalog:",
     "axe-core": "catalog:",
     "cheerio": "^1.2.0",
-    "cypress": "15.20.1",
+    "cypress": "16.0.0",
     "cypress-axe": "^1.7.0",
     "cypress-real-events": "^1.15.0",
     "dso-toolkit": "workspace:*",

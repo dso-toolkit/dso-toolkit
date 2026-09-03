@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Header: Help-knop in menu bij mobiele viewport ([#3017](https://github.com/dso-toolkit/dso-toolkit/issues/3017))
 * Functional Component Tooltip: Implementatie refactor ([#3667](https://github.com/dso-toolkit/dso-toolkit/issues/3667))
 
+### Task
+* Packages: Dependencies updates ([#3937](https://github.com/dso-toolkit/dso-toolkit/issues/3937))
+
 ## 🧧 Release 100.3.1 - 2026-09-08
 
 ### Fixed
