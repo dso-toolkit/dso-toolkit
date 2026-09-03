@@ -1,13 +1,17 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
+import { linkListTemplate } from "../../../components/link-list/link-list.template.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
+import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { linkList } from "./helpcentrum.content";
+import { linkList } from "./helpcentrum.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Loket/Helpcentrum",
@@ -15,12 +19,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Helpcentrum = examplePageStories((templates) => {
-  const { linkListTemplate, highlightBoxTemplate, richContentTemplate, searchBarTemplate } = templates;
-
+const Helpcentrum = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main>
         <!-- START DEPRECATED: use <dso-hero-image> -->
         <div
@@ -120,7 +122,7 @@ const Helpcentrum = examplePageStories((templates) => {
           </div>
         </div>
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

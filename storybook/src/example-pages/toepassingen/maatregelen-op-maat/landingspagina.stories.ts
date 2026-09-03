@@ -1,13 +1,17 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { accordionTemplate } from "../../../components/accordion/accordion.template.js";
+import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { accordionSections } from "./landingspagina.content";
+import { accordionSections } from "./landingspagina.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Maatregelen op maat/Landingspagina",
@@ -15,12 +19,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Landingspagina = examplePageStories((templates) => {
-  const { accordionTemplate, linkTemplate, highlightBoxTemplate, richContentTemplate } = templates;
-
+const Landingspagina = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
         <!-- START DEPRECATED: use <dso-hero-image> -->
         <div
@@ -144,7 +146,7 @@ const Landingspagina = examplePageStories((templates) => {
           </div>
         </div>
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

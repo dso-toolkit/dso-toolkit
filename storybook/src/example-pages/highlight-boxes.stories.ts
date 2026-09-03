@@ -1,12 +1,15 @@
 import { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../example-page-stories";
+import { buttonTemplate } from "../components/button/button.template.js";
+import { highlightBoxTemplate } from "../components/highlight-box/highlight-box.template.js";
+import { richContentTemplate } from "../components/rich-content/rich-content.template.js";
+import { examplePageStory } from "../example-page-story.js";
 
-import { header } from "./content/header.content";
-import { mainMenu } from "./content/main-menu.content";
-import { footerPartial } from "./partials/footer";
-import { headerPartial } from "./partials/header";
+import { header } from "./content/header.content.js";
+import { mainMenu } from "./content/main-menu.content.js";
+import { footerPartial } from "./partials/footer.js";
+import { headerPartial } from "./partials/header.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Meerdere highlight boxes",
@@ -14,12 +17,10 @@ const meta: Meta = {
 
 export default meta;
 
-const MeerdereHighlightBoxes = examplePageStories((templates) => {
-  const { buttonTemplate, highlightBoxTemplate, richContentTemplate } = templates;
-
+const MeerdereHighlightBoxes = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
         <h1>Highlight-box Banner aspect-ratio demo pagina</h1>
         <p>
@@ -119,7 +120,7 @@ const MeerdereHighlightBoxes = examplePageStories((templates) => {
           </div>
         </div>
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

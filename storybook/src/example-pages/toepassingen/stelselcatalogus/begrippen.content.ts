@@ -1,7 +1,8 @@
-import { Definition } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
-import { Templates } from "../../../templates";
+import type { Definition } from "../../../components/definition-list/definition-list.models.js";
+import { infoButtonTemplate } from "../../../components/info-button/info-button.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
 
 export const mainMenu = [
   {
@@ -35,7 +36,7 @@ export const mainMenu = [
   },
 ];
 
-export function definitions1({ linkTemplate, infoButtonTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions1(): Definition<TemplateResult>[] {
   return [
     {
       term: html`
@@ -94,7 +95,7 @@ export function definitions1({ linkTemplate, infoButtonTemplate }: Templates): D
   ];
 }
 
-export function definitions2({ infoButtonTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions2(): Definition<TemplateResult>[] {
   return [
     {
       term: html`
@@ -118,7 +119,7 @@ export function definitions2({ infoButtonTemplate, linkTemplate }: Templates): D
   ];
 }
 
-export function definitions3({ infoButtonTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions3(): Definition<TemplateResult>[] {
   return [
     {
       term: html`
@@ -138,7 +139,7 @@ export function definitions3({ infoButtonTemplate, linkTemplate }: Templates): D
   ];
 }
 
-export function definitions4({ infoButtonTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions4(): Definition<TemplateResult>[] {
   return [
     {
       term: html`
@@ -158,7 +159,7 @@ export function definitions4({ infoButtonTemplate, linkTemplate }: Templates): D
   ];
 }
 
-export function definitions5({ infoButtonTemplate, linkTemplate }: Templates): Definition<TemplateResult>[] {
+export function definitions5(): Definition<TemplateResult>[] {
   return [
     {
       term: html`

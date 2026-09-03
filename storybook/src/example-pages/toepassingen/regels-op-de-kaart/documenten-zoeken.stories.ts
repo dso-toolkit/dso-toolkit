@@ -1,11 +1,19 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { headerPartial } from "../../partials/header";
-import { dropdownItems } from "../aanvragen/locatie.content";
+import { buttonTemplate } from "../../../components/button/button.template.js";
+import { dropdownMenuTemplate } from "../../../components/dropdown-menu/dropdown-menu.template.js";
+import { mapControlsTemplate } from "../../../components/map-controls/map-controls.template.js";
+import { onboardingTipTemplate } from "../../../components/onboarding-tip/onboarding-tip.template.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
+import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
+import { tabsTemplate } from "../../../components/tabs/tabs.template.js";
+import { viewerGridTemplate } from "../../../components/viewer-grid/viewer-grid.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { headerPartial } from "../../partials/header.js";
+import { dropdownItems } from "../aanvragen/locatie.content.js";
 
-import { header, tabItems } from "./documenten.content";
+import { header, tabItems } from "./documenten.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten zoeken",
@@ -13,18 +21,7 @@ const meta: Meta = {
 
 export default meta;
 
-const DocumentenZoeken = examplePageStories((templates) => {
-  const {
-    buttonTemplate,
-    dropdownMenuTemplate,
-    mapControlsTemplate,
-    searchBarTemplate,
-    viewerGridTemplate,
-    tabsTemplate,
-    onboardingTipTemplate,
-    richContentTemplate,
-  } = templates;
-
+const DocumentenZoeken = examplePageStory(() => {
   return html`
     <style>
       .demo-container {
@@ -42,7 +39,7 @@ const DocumentenZoeken = examplePageStories((templates) => {
       }
     </style>
     <div class="demo-container">
-      ${headerPartial(templates, header)}
+      ${headerPartial(header)}
 
       <main class="demo-main">
         ${viewerGridTemplate({
@@ -68,8 +65,8 @@ const DocumentenZoeken = examplePageStories((templates) => {
                   </span>
                   <div class="dso-context-container">
                     ${dropdownMenuTemplate({
-                      button: { variant: "tertiary", label: "Meer zoekopties" },
-                      id: "locatie--dropdownmenu",
+                      variant: "tertiary",
+                      label: "Meer zoekopties",
                       groups: dropdownItems,
                     })}
                   </div>

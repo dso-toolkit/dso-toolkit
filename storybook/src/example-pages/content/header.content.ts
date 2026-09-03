@@ -1,4 +1,5 @@
-import { Breadcrumbs, Header } from "dso-toolkit";
+import type { Breadcrumbs } from "../../components/breadcrumbs/breadcrumbs.models.js";
+import type { Header } from "../../components/header/header.models.js";
 
 export const header: Header = {
   compact: "auto",

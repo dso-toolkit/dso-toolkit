@@ -1,5 +1,8 @@
-import { Breadcrumbs, DefinitionList, Header } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
+
+import type { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
+import type { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
+import type { Header } from "../../../components/header/header.models.js";
 
 export const header: Header = {
   ribbon: "beta",

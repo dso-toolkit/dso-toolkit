@@ -1,5 +1,6 @@
-import { AccordionSection } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
+
+import type { AccordionSection } from "../../../components/accordion/accordion.models.js";
 
 export const accordionSections1: AccordionSection<TemplateResult>[] = [
   {

@@ -1,13 +1,21 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { buttonTemplate } from "../../../components/button/button.template.js";
+import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
+import { linkListTemplate } from "../../../components/link-list/link-list.template.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
+import { skiplinkTemplate } from "../../../components/skiplink/skiplink.template.js";
+import { surveyRatingTemplate } from "../../../components/survey-rating/survey-rating.template.js";
+import { tileTemplate } from "../../../components/tile/tile.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { linkList } from "./homepage.content";
+import { linkList } from "./homepage.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Loket/Homepage",
@@ -15,25 +23,14 @@ const meta: Meta = {
 
 export default meta;
 
-const Homepage = examplePageStories((templates) => {
-  const {
-    linkTemplate,
-    linkListTemplate,
-    highlightBoxTemplate,
-    richContentTemplate,
-    tileTemplate,
-    buttonTemplate,
-    skiplinkTemplate,
-    surveyRatingTemplate,
-  } = templates;
-
+const Homepage = examplePageStory(() => {
   return html`
     ${surveyRatingTemplate({})} ${skiplinkTemplate({ label: "Ga naar navigatie", to: "navigation" })}
     ${skiplinkTemplate({ label: "Ga naar inhoud", to: "main" })}
     ${skiplinkTemplate({ label: "Ga naar website-informatie", to: "footer" })}
     <div class="container">
       <div id="navigation"><!-- for skiplink --></div>
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main id="main">
         <!-- START DEPRECATED: use <dso-hero-image> -->
         <div
@@ -183,7 +180,7 @@ const Homepage = examplePageStories((templates) => {
         </div>
       </main>
       <div id="footer"><!-- for skiplink --></div>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

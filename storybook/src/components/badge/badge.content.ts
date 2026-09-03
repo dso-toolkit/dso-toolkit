@@ -1,8 +1,8 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-export function children({ richContentTemplate }: Templates) {
+export function children() {
   return richContentTemplate({
     children: html`<p>Er zijn wijzigingsbesluiten genomen. Bekijk een besluit om de veranderingen te zien.</p>`,
   });

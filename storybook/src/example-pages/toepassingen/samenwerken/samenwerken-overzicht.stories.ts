@@ -1,11 +1,15 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { applicationHeadingTemplate } from "../../../components/application-heading/application-heading.template.js";
+import { badgeTemplate } from "../../../components/badge/badge.template.js";
+import { buttonRowTemplate } from "../../../components/button-row/button-row.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { header } from "./samenwerken-overzicht.content";
+import { header } from "./samenwerken-overzicht.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Samenwerken/Samenwerken overzicht",
@@ -13,12 +17,10 @@ const meta: Meta = {
 
 export default meta;
 
-const SamenwerkenOverzicht = examplePageStories((templates) => {
-  const { linkTemplate, buttonRowTemplate, applicationHeadingTemplate, badgeTemplate } = templates;
-
+const SamenwerkenOverzicht = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, header)}
+      ${headerPartial(header)}
       <main>
         ${applicationHeadingTemplate({
           title: "Samenwerken aan behandelen",
@@ -73,7 +75,7 @@ const SamenwerkenOverzicht = examplePageStories((templates) => {
           </table>
         </div>
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

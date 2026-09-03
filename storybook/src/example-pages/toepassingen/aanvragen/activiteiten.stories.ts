@@ -1,13 +1,24 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { alertTemplate } from "../../../components/alert/alert.template.js";
+import { applicationHeadingTemplate } from "../../../components/application-heading/application-heading.template.js";
+import { contextTemplate } from "../../../components/context/context.template.js";
+import { formButtonsTemplate } from "../../../components/form-buttons/form-buttons.template.js";
+import { formGroupCheckboxesTemplate } from "../../../components/form-group/form-group-checkboxes.template.js";
+import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
+import { labelGroupTemplate } from "../../../components/label-group/label-group.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
+import { listButtonTemplate } from "../../../components/list-button/list-button.template.js";
+import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
+import { cssShoppingCartTemplate } from "../../../components/shopping-cart/shopping-cart.css-template";
+import { examplePageStory } from "../../../example-page-story.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { bestuurslaag, labels, listButtons, shoppingCart, toestemming } from "./activiteiten.content";
+import { bestuurslaag, labels, listButtons, shoppingCart, toestemming } from "./activiteiten.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Activiteiten",
@@ -15,24 +26,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Activiteiten = examplePageStories((templates) => {
-  const {
-    applicationHeadingTemplate,
-    alertTemplate,
-    linkTemplate,
-    shoppingCartTemplate,
-    highlightBoxTemplate,
-    searchBarTemplate,
-    formGroupCheckboxesTemplate,
-    contextTemplate,
-    labelGroupTemplate,
-    listButtonTemplate,
-    formButtonsTemplate,
-  } = templates;
-
+const Activiteiten = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <form>
           ${applicationHeadingTemplate({
@@ -45,7 +42,7 @@ const Activiteiten = examplePageStories((templates) => {
             ${linkTemplate({ label: "Vergunningscheck", url: "#" })}.`,
             status: "info",
           })}
-          ${shoppingCartTemplate(shoppingCart)}
+          ${cssShoppingCartTemplate(shoppingCart)}
           ${highlightBoxTemplate({
             content: html`
               ${searchBarTemplate({
@@ -119,7 +116,7 @@ const Activiteiten = examplePageStories((templates) => {
             asideButtons: [{ label: "Vorige stap", variant: "tertiary", icon: { icon: "chevron-left" } }],
           })}
         </form>
-        ${footerPartial(templates)}
+        ${footerPartial()}
       </main>
     </div>
   `;

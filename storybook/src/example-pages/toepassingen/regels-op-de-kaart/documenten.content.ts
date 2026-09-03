@@ -1,7 +1,13 @@
-import { AdvancedSelect, Breadcrumbs, DocumentCard, Header, Navbar, PlekinfoCard, TabsItem } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
-import { mainMenu } from "../../content/main-menu.content";
+import type { AdvancedSelect } from "../../../components/advanced-select/advanced-select.models.js";
+import type { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
+import type { DocumentCard } from "../../../components/document-card/document-card.models.js";
+import type { Header } from "../../../components/header/header.models.js";
+import type { Navbar } from "../../../components/navbar/navbar.models.js";
+import type { PlekinfoCard } from "../../../components/plekinfo-card/plekinfo-card.models.js";
+import type { TabsItem } from "../../../components/tabs/tabs.models.js";
+import { mainMenu } from "../../content/main-menu.content.js";
 
 export const header: Header = {
   label: "Regels op de kaart",
@@ -26,7 +32,7 @@ export const breadcrumbs: Breadcrumbs = {
   ],
 };
 
-export const advancedSelect: AdvancedSelect<unknown> = {
+export const advancedSelect: AdvancedSelect<TemplateResult> = {
   options: [
     {
       label: "Geldende versie",

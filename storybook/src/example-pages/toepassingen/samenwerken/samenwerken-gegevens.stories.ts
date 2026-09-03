@@ -1,11 +1,14 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { buttonTemplate } from "../../../components/button/button.template.js";
+import { buttonRowTemplate } from "../../../components/button-row/button-row.template.js";
+import { tabsTemplate } from "../../../components/tabs/tabs.template.js";
+import { examplePageStory } from "../../../example-page-story.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { header, items } from "./samenwerken-gegevens.content";
+import { header, items } from "./samenwerken-gegevens.content.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Samenwerken/Samenwerken gegevens",
@@ -13,12 +16,10 @@ const meta: Meta = {
 
 export default meta;
 
-const SamenwerkenGegevens = examplePageStories((templates) => {
-  const { buttonTemplate, buttonRowTemplate, tabsTemplate } = templates;
-
+const SamenwerkenGegevens = examplePageStory(() => {
   return html`
     <div class="container">
-      ${headerPartial(templates, header)}
+      ${headerPartial(header)}
       <main>
         ${buttonRowTemplate({
           buttons: [
@@ -47,9 +48,9 @@ const SamenwerkenGegevens = examplePageStories((templates) => {
             </div>
           </div>
         </div>
-        ${tabsTemplate(items(templates))}
+        ${tabsTemplate(items())}
       </main>
-      ${footerPartial(templates)}
+      ${footerPartial()}
     </div>
   `;
 });

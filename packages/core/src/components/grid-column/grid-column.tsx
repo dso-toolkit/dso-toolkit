@@ -150,9 +150,7 @@ export class GridColumn implements ComponentInterface {
     this.dsoClose.emit({ originalEvent: event });
   };
 
-  private handleDialogClose = (event: Event) => {
-    this.dsoClose.emit({ originalEvent: event });
-
+  private handleDialogClose = () => {
     if (this.overlayActive && this.dialogElement && !this.dialogElement.open) {
       this.dialogElement.showModal();
     }

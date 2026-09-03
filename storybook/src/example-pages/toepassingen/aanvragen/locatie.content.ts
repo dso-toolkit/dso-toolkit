@@ -1,5 +1,8 @@
-import { DropdownMenuGroup, JustifyFormGroups } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
+import { fn } from "storybook/test";
+
+import type { DropdownMenuGroup } from "../../../components/dropdown-menu/dropdown-menu.models.js";
+import type { JustifyFormGroups } from "../../../components/justify-form-groups/justify-form-groups.models.js";
 
 export const dropdownItems: DropdownMenuGroup[] = [
   {
@@ -7,22 +10,27 @@ export const dropdownItems: DropdownMenuGroup[] = [
       {
         label: "Adres",
         type: "button",
+        dsoClick: fn(),
       },
       {
         label: "Postcode en huisnummer",
         type: "button",
+        dsoClick: fn(),
       },
       {
         label: "Kadastraal nummer",
         type: "button",
+        dsoClick: fn(),
       },
       {
         label: "Coordinaten",
         type: "button",
+        dsoClick: fn(),
       },
       {
         label: "Teken een gebied op de kaart",
         type: "button",
+        dsoClick: fn(),
       },
     ],
   },
