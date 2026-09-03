@@ -1,5 +1,5 @@
-import { configureVisualRegression } from "cypress-visual-regression";
 import { defineConfig } from "cypress";
+import { configureVisualRegression } from "cypress-visual-regression";
 
 export default defineConfig({
   e2e: {
