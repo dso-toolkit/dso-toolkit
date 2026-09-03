@@ -12,13 +12,13 @@ describe("Survey Rating", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-survey-rating.hydrated");
 
-    cy.get("dso-survey-rating.hydrated").should("exist").get("dso-survey-rating.hydrated").matchImageSnapshot();
+    cy.get("dso-survey-rating.hydrated").should("exist").get("dso-survey-rating.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
 
     cy.viewport(320, 720)
       .get("dso-survey-rating.hydrated")
       .should("exist")
       .get("dso-survey-rating.hydrated")
-      .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" -- ")} -- small viewport`);
+      .compareSnapshot(`${Cypress.currentTest.titlePath.join(" -- ")} -- small viewport`);
   });
 
   it("emits dsoSubmitEvent with rating undefined", () => {

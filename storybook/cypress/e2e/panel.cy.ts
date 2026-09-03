@@ -9,7 +9,7 @@ describe("Panel", () => {
   });
 
   it("should matchImageSnapshot", () => {
-    cy.get("dso-panel.hydrated").matchImageSnapshot();
+    cy.get("dso-panel.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should emit dsoCloseClick event when user clicks the panel close button", () => {
@@ -40,6 +40,6 @@ describe("Panel", () => {
       .find(".panel-heading")
       .should("have.css", "background-color", "rgb(220, 212, 0)");
 
-    cy.get("dso-panel.hydrated").matchImageSnapshot();
+    cy.get("dso-panel.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

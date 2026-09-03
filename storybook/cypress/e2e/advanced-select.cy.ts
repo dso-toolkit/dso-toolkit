@@ -13,7 +13,7 @@ describe("AdvancedSelect", () => {
   it("matches snapshot closed", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
 
-    cy.get("dso-advanced-select.hydrated").matchImageSnapshot("advanced-select--default");
+    cy.get("dso-advanced-select.hydrated").compareSnapshot("advanced-select--default");
   });
 
   it("matches snapshot closed with badges below the button on a narrow viewport", () => {
@@ -21,7 +21,7 @@ describe("AdvancedSelect", () => {
 
     cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
 
-    cy.get("dso-advanced-select.hydrated").matchImageSnapshot("advanced-select--default-narrow-viewport");
+    cy.get("dso-advanced-select.hydrated").compareSnapshot("advanced-select--default-narrow-viewport");
   });
 
   it("matches snapshots", () => {
@@ -29,7 +29,7 @@ describe("AdvancedSelect", () => {
 
     cy.get("dso-advanced-select.hydrated").click().shadow().find(".groups-container").should("exist");
 
-    cy.matchImageSnapshot(`${Cypress.currentTest.title} - open`, {
+    cy.compareSnapshot(`${Cypress.currentTest.title} - open`, {
       capture: "viewport",
     });
   });

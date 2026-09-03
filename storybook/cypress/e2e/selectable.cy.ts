@@ -5,7 +5,7 @@ describe("Selectable", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-selectable.hydrated");
 
-    cy.get("dso-selectable.hydrated").matchImageSnapshot();
+    cy.get("dso-selectable.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
 
     cy.get("dso-selectable .dso-rich-content").as("info-content").should("exist").and("not.be.visible");
 

@@ -13,7 +13,7 @@ describe("Plekinfo Card", () => {
   });
 
   it("screenshot", () => {
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should call dsoPlekinfoCardClick event when user clicks the title in the heading", () => {
@@ -32,7 +32,7 @@ describe("Plekinfo Card", () => {
       .find(".dso-plekinfo-card-container")
       .should("have.css", "background-color", "rgb(229, 229, 229)");
 
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show compact label with status='warning'", () => {
@@ -41,7 +41,7 @@ describe("Plekinfo Card", () => {
       .find("[slot='meta'] > dso-label[status='warning'][compact]")
       .should("exist");
 
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show renvooi for changed title", () => {
@@ -50,7 +50,7 @@ describe("Plekinfo Card", () => {
       .find("[slot='heading'] > dso-renvooi")
       .should("exist");
 
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should be marked with wijzigactie='verwijder'", () => {
@@ -61,7 +61,7 @@ describe("Plekinfo Card", () => {
       .find("del.dso-plekinfo-card-container")
       .should("exist");
 
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
 
     cy.get("dso-plekinfo-card.hydrated")
       .invoke("prop", "active", true)
@@ -69,7 +69,7 @@ describe("Plekinfo Card", () => {
       .find("del.dso-plekinfo-card-container")
       .should("have.css", "background-color", "rgb(221, 195, 198)");
 
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- active`);
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(`${Cypress.currentTest.title} -- active`);
   });
 
   it("should be marked with wijzigactie='voegtoe'", () => {
@@ -80,7 +80,7 @@ describe("Plekinfo Card", () => {
       .find("ins.dso-plekinfo-card-container")
       .should("exist");
 
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
 
     cy.get("dso-plekinfo-card.hydrated")
       .invoke("prop", "active", true)
@@ -88,7 +88,7 @@ describe("Plekinfo Card", () => {
       .find("ins.dso-plekinfo-card-container")
       .should("have.css", "background-color", "rgb(206, 217, 191)");
 
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- active`);
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(`${Cypress.currentTest.title} -- active`);
   });
 
   it("should show the title without an anchor", () => {
@@ -98,7 +98,7 @@ describe("Plekinfo Card", () => {
       .find(".dso-plekinfo-card-heading > slot[name='heading']")
       .should("exist");
 
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show a slide toggle", () => {
@@ -107,6 +107,6 @@ describe("Plekinfo Card", () => {
       .find("dso-slide-toggle")
       .should("exist");
 
-    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    cy.get("dso-plekinfo-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

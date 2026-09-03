@@ -30,7 +30,7 @@ describe("Renvooi", () => {
       .should("contain", "ongewijzigd")
       .get("@renvooi")
       .parent()
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("renders RenvooiValue toegevoegd", () => {
@@ -42,7 +42,7 @@ describe("Renvooi", () => {
       .should("contain", "toegevoegd")
       .get("@renvooi")
       .parent()
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("renders RenvooiValue verwijderd", () => {
@@ -53,7 +53,7 @@ describe("Renvooi", () => {
       .find("del")
       .should("contain", "verwijderd")
       .get("@renvooi")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("renders RenvooiValue was-wordt", () => {
@@ -69,7 +69,7 @@ describe("Renvooi", () => {
       .should("contain", "nieuwe waarde")
       .get("@renvooi")
       .parent()
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should mark and highlight", () => {
@@ -106,6 +106,6 @@ describe("Renvooi", () => {
       })
       .get("dso-renvooi.hydrated")
       .parent()
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

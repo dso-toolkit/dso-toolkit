@@ -13,7 +13,7 @@ describe("Document Card", () => {
   });
 
   it("screenshot", () => {
-    cy.get("dso-document-card.hydrated").matchImageSnapshot();
+    cy.get("dso-document-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should call dsoDocumentCardClick event when user clicks the title in the heading", () => {
@@ -32,7 +32,7 @@ describe("Document Card", () => {
       .find(".dso-document-card-container")
       .should("have.css", "background-color", "rgb(229, 229, 229)");
 
-    cy.get("dso-document-card.hydrated").matchImageSnapshot();
+    cy.get("dso-document-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show compact label with status='warning'", () => {
@@ -41,7 +41,7 @@ describe("Document Card", () => {
       .find("[slot='meta'] > dso-label[status='warning'][compact]")
       .should("exist");
 
-    cy.get("dso-document-card.hydrated").matchImageSnapshot();
+    cy.get("dso-document-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show info button with toggletip next to type", () => {
@@ -50,7 +50,7 @@ describe("Document Card", () => {
       .find("[slot='type'] > dso-info-button")
       .should("exist");
 
-    cy.get("dso-document-card.hydrated").matchImageSnapshot();
+    cy.get("dso-document-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show two badges next to status text", () => {
@@ -62,7 +62,7 @@ describe("Document Card", () => {
         cy.get("dso-badge").last().should("have.attr", "status", "warning");
       });
 
-    cy.get("dso-document-card.hydrated").matchImageSnapshot();
+    cy.get("dso-document-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show labels next to each other", () => {
@@ -72,6 +72,6 @@ describe("Document Card", () => {
 
     cy.get("dso-document-card.hydrated").find("[slot='labels'] li").should("have.length", 2);
 
-    cy.get("dso-document-card.hydrated").matchImageSnapshot();
+    cy.get("dso-document-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

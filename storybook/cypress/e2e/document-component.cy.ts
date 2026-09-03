@@ -161,7 +161,7 @@ describe("Document Component", () => {
           cy.get("@document-component").should("not.have.attr", "annotations-wijzigactie");
         }
 
-        cy.get("@document-component").matchImageSnapshot();
+        cy.get("@document-component").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
       });
     }
   }
@@ -185,7 +185,7 @@ describe("Document Component", () => {
 
       cy.get("@document-component").should("have.attr", "mode", "table-of-contents").and("not.have.attr", "filtered");
 
-      cy.get("@document-component").matchImageSnapshot();
+      cy.get("@document-component").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
   }
 
@@ -242,7 +242,7 @@ describe("Document Component", () => {
       kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>HOOFDSTUK</Label><Nummer>1</Nummer><Opschrift>ALGEMEEN</Opschrift></Kop>",
     });
 
-    cy.get("@document-component").matchImageSnapshot();
+    cy.get("@document-component").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("shows a gereserveerd alert when gereserveerd prop is set and the wijzigactie is 'voegtoe'", () => {
@@ -252,7 +252,7 @@ describe("Document Component", () => {
 
     expectAlert("Dit onderdeel is gereserveerd voor toekomstige toevoeging.");
 
-    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- gereserveerd`);
+    cy.get("@document-component").compareSnapshot(`${Cypress.currentTest.title} -- gereserveerd`);
   });
 
   it("shows a gereserveerd alert when gereserveerd prop is set", () => {
@@ -270,7 +270,7 @@ describe("Document Component", () => {
 
     expectAlert("Dit onderdeel is gereserveerd voor toekomstige toevoeging.");
 
-    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- gereserveerd`);
+    cy.get("@document-component").compareSnapshot(`${Cypress.currentTest.title} -- gereserveerd`);
   });
 
   it("shows a gereserveerd label with status verwijder when gereserveerd prop is set with wijzigactie='verwijder'", () => {
@@ -292,7 +292,7 @@ describe("Document Component", () => {
 
     expectAlert();
 
-    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- gereserveerd verwijderd`);
+    cy.get("@document-component").compareSnapshot(`${Cypress.currentTest.title} -- gereserveerd verwijderd`);
   });
 
   it("shows a gereserveerd label with a verwijderd status (set with wijzigactie='verwijder') and a vervallen label with toegevoegd status (set with wijzigactie='voegtoe')", () => {
@@ -315,7 +315,7 @@ describe("Document Component", () => {
 
     expectAlert();
 
-    cy.get("@document-component").matchImageSnapshot(
+    cy.get("@document-component").compareSnapshot(
       `${Cypress.currentTest.title} -- gereserveerd verwijderd & vervallen voegtoe`,
     );
   });
@@ -338,7 +338,7 @@ describe("Document Component", () => {
 
     expectAlert();
 
-    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- vervallen voegtoe`);
+    cy.get("@document-component").compareSnapshot(`${Cypress.currentTest.title} -- vervallen voegtoe`);
   });
 
   it("shows a vervallen label with when vervallen prop is set", () => {
@@ -355,7 +355,7 @@ describe("Document Component", () => {
 
     expectAlert("Dit onderdeel is vervallen.");
 
-    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- vervallen`);
+    cy.get("@document-component").compareSnapshot(`${Cypress.currentTest.title} -- vervallen`);
   });
 
   it("marks and highlights alternativeTitle", () => {

@@ -19,7 +19,7 @@ describe("Label", () => {
 
   // Onderstaande test fixen via #3522
   it.skip("must truncate label", () => {
-    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- before truncation`);
+    cy.get("@dsoLabel").compareSnapshot(`${Cypress.currentTest.title} -- before truncation`);
 
     cy.get("@dsoLabel")
       .should("have.text", defaultLabelText)
@@ -37,7 +37,7 @@ describe("Label", () => {
       .find(".dso-label-content.dso-truncate")
       .should("exist");
 
-    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- after truncation`);
+    cy.get("@dsoLabel").compareSnapshot(`${Cypress.currentTest.title} -- after truncation`);
   });
 
   it("should show tooltip on focus", () => {
@@ -133,7 +133,7 @@ describe("Label", () => {
     it(`matches snapshots for status "${status}"`, () => {
       cy.get("@dsoLabel").invoke("attr", "status", status);
 
-      cy.get("@dsoLabel").matchImageSnapshot();
+      cy.get("@dsoLabel").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
   });
 });

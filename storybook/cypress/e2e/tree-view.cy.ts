@@ -64,7 +64,7 @@ describe("Tree View", () => {
 
     cy.injectAxe();
     cy.dsoCheckA11y("dso-tree-view.hydrated");
-    cy.get("dso-tree-view.hydrated").matchImageSnapshot();
+    cy.get("dso-tree-view.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
 
     cy.get("@bouwwerken")
       .prev()

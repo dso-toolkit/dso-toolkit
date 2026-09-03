@@ -26,7 +26,7 @@ describe("Map Controls", () => {
   });
 
   it("shows a Button with Icon 'layers' and text 'Kaartlagen'", () => {
-    cy.viewport(768, 660).get("@toggleVisibilityButton").matchImageSnapshot();
+    cy.viewport(768, 660).get("@toggleVisibilityButton").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("shows a Button with Icon 'layers' and text 'Map layers'", () => {
@@ -35,7 +35,7 @@ describe("Map Controls", () => {
       .get("dso-map-controls.hydrated")
       .shadow()
       .find(".toggle-visibility-button")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("shows an Icon Button with Icon 'layers' and attribute label='Kaartlagen`", () => {
@@ -44,7 +44,7 @@ describe("Map Controls", () => {
       .shadow()
       .find(".toggle-visibility-icon-button")
       .should("have.attr", "label", "Kaartlagen")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("shows an Icon Button with Icon 'layers' and attribute label='Map layers`", () => {
@@ -101,7 +101,7 @@ describe("Map Controls", () => {
 
     cy.get("dso-map-controls.hydrated")
       .wait(300) // transitionDuration
-      .matchImageSnapshot({ padding: [0, 16, 0, 100] });
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { padding: [0, 16, 0, 100] });
   });
 
   it('panel should have English header "Map layers" and close button "Hide panel Map layers"', () => {
@@ -125,7 +125,7 @@ describe("Map Controls", () => {
 
     cy.get("dso-map-controls[open].hydrated")
       .wait(300) // transitionDuration
-      .matchImageSnapshot({ padding: [0, 16, 0, 100] });
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { padding: [0, 16, 0, 100] });
   });
 
   it("should render the panel as a named region", () => {

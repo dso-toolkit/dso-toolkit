@@ -22,7 +22,7 @@ describe("Ozon Content", () => {
         expect(call.args[0].detail.node.nodeName).to.equal("IntRef");
       });
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it('shows a toggletip on IntRef[@scope="begrip"]', () => {
@@ -59,7 +59,7 @@ describe("Ozon Content", () => {
       .find("dso-ozon-content-toggletip span[role=paragraph]")
       .should("be.visible")
       .get("dso-ozon-content.hydrated")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should open and close notes", () => {
@@ -83,7 +83,7 @@ describe("Ozon Content", () => {
       .find("span[role=paragraph]")
       .should("be.visible");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
 
     cy.get("dso-ozon-content.hydrated")
       .shadow()
@@ -171,7 +171,7 @@ describe("Ozon Content", () => {
 
     cy.get("dso-ozon-content.hydrated").shadow().find("span.fallback.od-aap").should("exist").contains("baviaan");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render br element", () => {
@@ -188,7 +188,7 @@ describe("Ozon Content", () => {
       .should("exist")
       .and("be.empty");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render Al element", () => {
@@ -202,7 +202,7 @@ describe("Ozon Content", () => {
       .should("exist")
       .and("have.text", "Meer tekst");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render sub, sup, strong, b, i and u elements", () => {
@@ -233,7 +233,7 @@ describe("Ozon Content", () => {
       .children("span.fallback.od-inner")
       .contains("text");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render Inhoud element and handle xml namespace", () => {
@@ -254,7 +254,7 @@ describe("Ozon Content", () => {
       .children("span.od-e")
       .contains("de inhoud");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   describe("IntIoRef", () => {
@@ -282,12 +282,12 @@ describe("Ozon Content", () => {
         .find("dso-ozon-content-toggletip span[role=paragraph]")
         .should("be.visible")
         .get("dso-ozon-content.hydrated")
-        .matchImageSnapshot();
+        .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
 
     it("breaks toggletip button over 2 lines", () => {
       cy.viewport(510, 660);
-      cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+      cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
 
     it("renders the 'Officiële publicaties' Link as ExtIoRef", () => {
@@ -353,7 +353,7 @@ describe("Ozon Content", () => {
 
       cy.window().then((win) => new Cypress.Promise((resolve) => win.requestAnimationFrame(() => resolve(null))));
 
-      cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+      cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
   });
 
@@ -370,7 +370,7 @@ describe("Ozon Content", () => {
       .should("have.text", "document")
       .and("have.attr", "title", "Opent andere website in nieuw tabblad");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render ExtIoRef element", () => {
@@ -390,7 +390,7 @@ describe("Ozon Content", () => {
       )
       .and("have.text", "/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render Illustratie element", () => {
@@ -405,7 +405,7 @@ describe("Ozon Content", () => {
       .find("img[src = 'images/afbeelding.jpg'][height = '12'][width = '34']")
       .should("exist");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render simple table", () => {
@@ -423,7 +423,7 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("3");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(2)").contains("4");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render table with heading", () => {
@@ -439,7 +439,7 @@ describe("Ozon Content", () => {
     cy.get("@head").find("tr:nth-child(1) th:nth-child(1)").contains("een");
     cy.get("@head").find("tr:nth-child(1) th:nth-child(2)").contains("twee");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render table with rowspan", () => {
@@ -456,7 +456,7 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(1) td:nth-child(2)").contains("2");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("4");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render table with colspan", () => {
@@ -475,7 +475,7 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("3");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(2)").contains("4");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render table with a removed and added row", () => {
@@ -483,7 +483,7 @@ describe("Ozon Content", () => {
 
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render Kop with inline paragraphs in Opschrift", () => {
@@ -501,7 +501,7 @@ describe("Ozon Content", () => {
       .find("p")
       .should("not.exist");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render Kop with multiple Subtitels with renvooi", () => {
@@ -510,7 +510,7 @@ describe("Ozon Content", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should have correct display", () => {
@@ -573,7 +573,7 @@ describe("Ozon Content", () => {
         .find(".dso-ozon-figuur > .figuur-bijschrift")
         .should("have.text", "Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)");
 
-      cy.get("@OzonContent").matchImageSnapshot();
+      cy.get("@OzonContent").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
 
     it("only marks Titel and Bijschirft outside dso-image-overlay", () => {
@@ -632,7 +632,7 @@ describe("Ozon Content", () => {
       .get("@dsoOzonLijst")
       .find("> ul");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render renvooi-weergave elements", () => {
@@ -687,7 +687,7 @@ describe("Ozon Content", () => {
       .find("dso-image-overlay.hydrated")
       .should("exist")
       .get("dso-ozon-content.hydrated")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show <Bron> at a table", () => {
@@ -761,7 +761,7 @@ describe("Ozon Content", () => {
 
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
 
     cy.get("dso-ozon-content.hydrated")
       .shadow()
@@ -780,7 +780,7 @@ describe("Ozon Content", () => {
 
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
 
     cy.get("dso-ozon-content.hydrated").shadow().find("span.od-abbr").should("exist").and("not.have.text");
     cy.get("dso-ozon-content.hydrated").shadow().find("abbr").should("exist").and("have.text", "XYZ");
@@ -795,13 +795,13 @@ describe("Ozon Content", () => {
       .then((c) => {
         c.prop("content", baseXml(element, "verwijder"));
       })
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- verwijder`);
+      .compareSnapshot(`${Cypress.currentTest.title} -- verwijder`);
 
     cy.get("dso-ozon-content.hydrated")
       .then((c) => {
         c.prop("content", baseXml(element, "voegtoe"));
       })
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- voegtoe`);
+      .compareSnapshot(`${Cypress.currentTest.title} -- voegtoe`);
   }
 
   it(`should show a kop with renvooi 'wijzigactie="voegtoe | verwijder"' in the Label`, () => {
@@ -821,6 +821,6 @@ describe("Ozon Content", () => {
 
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

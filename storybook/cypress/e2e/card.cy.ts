@@ -89,6 +89,6 @@ describe("Card", () => {
       .find(".dso-card-container")
       .should("have.css", "background-color", "rgb(229, 229, 229)");
 
-    cy.get("dso-card.hydrated").matchImageSnapshot();
+    cy.get("dso-card.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

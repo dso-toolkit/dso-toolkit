@@ -5,6 +5,6 @@ describe("Info", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-info.hydrated");
 
-    cy.get("dso-info.hydrated").should("exist").matchImageSnapshot();
+    cy.get("dso-info.hydrated").should("exist").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

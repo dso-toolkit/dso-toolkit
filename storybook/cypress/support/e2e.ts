@@ -21,7 +21,7 @@ import "./resize-observer-loop-guard";
 import "cypress-axe";
 import "cypress-real-events";
 
-import { addMatchImageSnapshotCommand } from "@simonsmith/cypress-image-snapshot/command";
+import { addCompareSnapshotCommand } from "cypress-visual-regression/dist/command";
 
 // Todo: In 3288 gaan we onderstaande afvang van "uncaught:exception" oplossen.
 Cypress.on("uncaught:exception", (_err, _runnable) => {
@@ -29,10 +29,8 @@ Cypress.on("uncaught:exception", (_err, _runnable) => {
   return false;
 });
 
-addMatchImageSnapshotCommand({
-  failureThreshold: 0.04,
-  failureThresholdType: "percent",
+addCompareSnapshotCommand({
+  capture: "fullPage",
   padding: 16, // units.$u2 for buiten-elementse functionele styling
-  customDiffDir: "cypress/snapshot-diff",
-  customSnapshotsDir: "cypress/snapshot-baseline",
+  errorThreshold: 0.04,
 });

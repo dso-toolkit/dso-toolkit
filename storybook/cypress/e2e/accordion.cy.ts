@@ -67,7 +67,7 @@ describe("Accordion", () => {
     cy.get("dso-accordion.hydrated, dso-accordion-section.hydrated")
       .should("exist")
       .get("dso-accordion.hydrated")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render handle as <a> when handleUrl is set", () => {
@@ -138,7 +138,7 @@ describe("Accordion", () => {
       .find(".dso-section-handle .dso-status")
       .should("contain.text", statusDescription);
 
-    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- status description`);
+    cy.get("@accordionSection").compareSnapshot(`${Cypress.currentTest.title} -- status description`);
   });
 
   it("should render the handle correctly in reverseAlign mode", () => {
@@ -165,7 +165,7 @@ describe("Accordion", () => {
       .children("dso-icon")
       .should("exist");
 
-    cy.get("@dsoAccordion").matchImageSnapshot(`${Cypress.currentTest.title} -- reverse-align mode`);
+    cy.get("@dsoAccordion").compareSnapshot(`${Cypress.currentTest.title} -- reverse-align mode`);
   });
 
   it("should focus handle element with AccordionSection.focusHandle()", () => {
@@ -220,7 +220,7 @@ describe("Accordion", () => {
       .should("exist")
       .and("have.text", "Dit is toegevoegde tekst");
 
-    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- toegevoegde tekst`);
+    cy.get("@accordionSection").compareSnapshot(`${Cypress.currentTest.title} -- toegevoegde tekst`);
 
     cy.get("@accordionSection")
       .invoke("prop", "handleTitle", { verwijderd: "Dit is verwijderde tekst" })
@@ -231,7 +231,7 @@ describe("Accordion", () => {
       .should("exist")
       .and("have.text", "Dit is verwijderde tekst");
 
-    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- verwijderde tekst`);
+    cy.get("@accordionSection").compareSnapshot(`${Cypress.currentTest.title} -- verwijderde tekst`);
 
     cy.get("@accordionSection")
       .invoke("prop", "handleTitle", { was: "Dit was de tekst", wordt: "Dit is de tekst" })
@@ -249,7 +249,7 @@ describe("Accordion", () => {
       .should("exist")
       .and("have.text", "Dit is de tekst");
 
-    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- was wordt`);
+    cy.get("@accordionSection").compareSnapshot(`${Cypress.currentTest.title} -- was wordt`);
 
     cy.get("@accordionSection")
       .invoke("prop", "handleTitle", [
@@ -281,7 +281,7 @@ describe("Accordion", () => {
       .should("exist")
       .and("have.text", "Nog meer toegevoegde tekst");
 
-    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- was wordt toegevoegd`);
+    cy.get("@accordionSection").compareSnapshot(`${Cypress.currentTest.title} -- was wordt toegevoegd`);
   });
 
   it("should render wijzigactie in the section", () => {
@@ -292,11 +292,11 @@ describe("Accordion", () => {
       .as("accordionSection")
       .invoke("prop", "wijzigactie", "voegtoe")
       .should("have.class", "dso-accordion-wijzigactie-voegtoe")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- Toegevoegd`)
+      .compareSnapshot(`${Cypress.currentTest.title} -- Toegevoegd`)
       .get("@accordionSection")
       .invoke("prop", "wijzigactie", "verwijder")
       .should("have.class", "dso-accordion-wijzigactie-verwijder")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- Verwijderd`);
+      .compareSnapshot(`${Cypress.currentTest.title} -- Verwijderd`);
   });
 
   describe("Nested", () => {
@@ -310,7 +310,7 @@ describe("Accordion", () => {
         .and("be.visible")
         .and("have.css", "background-color", "rgb(139, 74, 106)")
         .get("dso-accordion.hydrated:has(dso-accordion.hydrated)")
-        .matchImageSnapshot();
+        .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
   });
 
@@ -353,7 +353,7 @@ describe("Accordion", () => {
     it("shows a Slide Toggle", () => {
       cy.get("@accordionSection").shadow().find("dso-slide-toggle").should("exist");
 
-      cy.get("dso-accordion.hydrated").should("exist").and("be.visible").matchImageSnapshot();
+      cy.get("dso-accordion.hydrated").should("exist").and("be.visible").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
 
     it("does not show a Slide Toggle", () => {
@@ -419,7 +419,7 @@ describe("Accordion", () => {
       cy.injectAxe();
       cy.dsoCheckA11y("dso-accordion.hydrated");
 
-      cy.get("dso-accordion.hydrated").matchImageSnapshot({ failureThreshold: 0 });
+      cy.get("dso-accordion.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { errorThreshold: 0 });
     });
   });
 
@@ -445,7 +445,7 @@ describe("Accordion", () => {
 
       cy.get("@dsoToggleClick").should("be.calledOnce");
 
-      cy.get("dso-accordion.hydrated").matchImageSnapshot({ failureThreshold: 0 });
+      cy.get("dso-accordion.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { errorThreshold: 0 });
     });
   });
 });

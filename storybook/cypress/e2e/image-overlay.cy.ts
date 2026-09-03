@@ -35,7 +35,7 @@ describe("Image Overlay", () => {
     openOverlay();
 
     // Take the entire page, otherwise the enlargement of the image will not be snapshotted
-    cy.matchImageSnapshot();
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
 
     cy.get("dso-image-overlay").shadow().find("dso-icon-button.close.hydrated").click();
     cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");

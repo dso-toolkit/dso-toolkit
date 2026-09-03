@@ -14,7 +14,7 @@ describe("Card Container", () => {
 
     it(`matches imageSnapshot (${story})`, () => {
       cy.visit(`http://localhost:45000/iframe.html?id=core-card-container--${story}`);
-      cy.get("dso-card-container.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} - ${story}`);
+      cy.get("dso-card-container.hydrated").compareSnapshot(`${Cypress.currentTest.title} - ${story}`);
     });
   }
 });

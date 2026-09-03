@@ -27,6 +27,6 @@ describe("Input Range", () => {
     cy.get("dso-input-range.hydrated").shadow().find(".counter").first().should("have.text", "10px");
     cy.get("dso-input-range.hydrated").shadow().find(".counter").last().should("have.text", "90px");
 
-    cy.get("dso-input-range.hydrated").matchImageSnapshot();
+    cy.get("dso-input-range.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

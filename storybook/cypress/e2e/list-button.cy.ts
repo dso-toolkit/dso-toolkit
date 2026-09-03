@@ -37,7 +37,7 @@ describe("ListButton", () => {
       .find('> [slot="subcontent"]')
       .should("have.attr", "aria-hidden", "true")
       .get("@dsoListButton")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render subcontent in slot without prefix", () => {
@@ -58,7 +58,7 @@ describe("ListButton", () => {
       .find(".dso-selectable-input-wrapper > label > span > .sr-only")
       .should("contain.html", "<span>Subcontent met <strong>HTML</strong></span>")
       .get("dso-list-button.hydrated")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render subcontent in slot with prefix", () => {

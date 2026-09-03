@@ -9,7 +9,7 @@ describe("History Item", () => {
   });
 
   it("matches snapshot", () => {
-    cy.get("dso-history-item.hydrated").matchImageSnapshot();
+    cy.get("dso-history-item.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("emits dsoClick event when user clicks the title of a History Item", () => {

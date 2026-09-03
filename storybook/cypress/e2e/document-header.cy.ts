@@ -15,7 +15,7 @@ describe("Document Header", () => {
 
     it(`matches imageSnapshot (${story})`, () => {
       cy.visit(`http://localhost:45000/iframe.html?id=html-css-document-header--${story}`);
-      cy.get(".dso-document-header").matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" -- ")}`);
+      cy.get(".dso-document-header").compareSnapshot(`${Cypress.currentTest.titlePath.join(" -- ")}`);
     });
   }
 
@@ -27,7 +27,7 @@ describe("Document Header", () => {
     for (const story of stickyStories) {
       it(`matches imageSnapshot (${story})`, () => {
         cy.visit(`http://localhost:45000/iframe.html?id=html-css-document-header--${story}`);
-        cy.get(".dso-document-header").matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" -- ")}`);
+        cy.get(".dso-document-header").compareSnapshot(`${Cypress.currentTest.titlePath.join(" -- ")}`);
       });
     }
   });

@@ -21,7 +21,7 @@ describe("Segmented Button", () => {
   });
 
   it("visual snapshot", () => {
-    cy.get("@segmentedButton").matchImageSnapshot("segmented-button");
+    cy.get("@segmentedButton").compareSnapshot("segmented-button");
   });
 
   it("updates activeOption on click", () => {
@@ -63,7 +63,7 @@ describe("Segmented Button - WithDisabledButton story", () => {
   });
 
   it("visual snapshot for disabled buttons", () => {
-    cy.get("@segmentedButton").matchImageSnapshot("segmented-button-disabled");
+    cy.get("@segmentedButton").compareSnapshot("segmented-button-disabled");
   });
 
   it("should not activate disabled buttons", () => {

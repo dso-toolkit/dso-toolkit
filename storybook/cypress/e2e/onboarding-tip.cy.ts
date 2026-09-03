@@ -17,7 +17,7 @@ describe("Onboarding Tip", () => {
   it("should render onboarding tip", () => {
     shouldShowOnboardingTip();
 
-    cy.matchImageSnapshot({ capture: "viewport" });
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { capture: "viewport" });
   });
 
   it("should hide onboarding tip when it is outside the viewport", () => {
@@ -25,7 +25,7 @@ describe("Onboarding Tip", () => {
 
     shouldHideOnboardingTip();
 
-    cy.matchImageSnapshot({ capture: "viewport" });
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { capture: "viewport" });
   });
 
   it("should place onboarding tip to the left", () => {
@@ -33,7 +33,7 @@ describe("Onboarding Tip", () => {
 
     shouldShowOnboardingTip();
 
-    cy.matchImageSnapshot({ capture: "viewport" });
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { capture: "viewport" });
   });
 
   it("should place onboarding tip to the right", () => {
@@ -41,7 +41,7 @@ describe("Onboarding Tip", () => {
 
     shouldShowOnboardingTip();
 
-    cy.matchImageSnapshot({ capture: "viewport" });
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { capture: "viewport" });
   });
 
   it("should place onboarding tip to the top", () => {
@@ -49,7 +49,7 @@ describe("Onboarding Tip", () => {
 
     shouldShowOnboardingTip();
 
-    cy.matchImageSnapshot({ capture: "viewport" });
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { capture: "viewport" });
   });
 
   it("should place onboarding tip to the bottom", () => {
@@ -59,6 +59,6 @@ describe("Onboarding Tip", () => {
 
     shouldShowOnboardingTip();
 
-    cy.matchImageSnapshot({ capture: "viewport" });
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { capture: "viewport" });
   });
 });

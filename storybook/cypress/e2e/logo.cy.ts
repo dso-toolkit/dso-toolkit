@@ -10,7 +10,7 @@ describe("Logo", () => {
       .find(".logo-label")
       .should("not.exist");
     cy.get("dso-logo").shadow().find(".logo-wordmark").should("exist");
-    cy.get("dso-logo.hydrated").matchImageSnapshot();
+    cy.get("dso-logo.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     cy.injectAxe();
     cy.dsoCheckA11y("dso-logo.hydrated");
   });
@@ -20,7 +20,7 @@ describe("Logo", () => {
     cy.get("dso-logo").shadow().find(".logo-wordmark-omgevings").should("have.text", "Environment & Planning");
     cy.get("dso-logo").shadow().find(".logo-wordmark-loket").should("have.text", " Portal");
 
-    cy.get("dso-logo.hydrated").matchImageSnapshot();
+    cy.get("dso-logo.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show default wordmark when name is not provided (undefined)", () => {
@@ -186,7 +186,7 @@ describe("Logo", () => {
       .find(".logo-label")
       .should("be.visible");
     cy.get("dso-logo").invoke("prop", "label", "Beheerportaal").shadow().find(".logo-wordmark").should("be.visible");
-    cy.get("dso-logo.hydrated").matchImageSnapshot();
+    cy.get("dso-logo.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     cy.injectAxe();
     cy.dsoCheckA11y("dso-logo.hydrated");
   });
@@ -205,7 +205,7 @@ describe("Logo", () => {
       .shadow()
       .find(".logo-wordmark")
       .should("not.be.visible");
-    cy.get("dso-logo.hydrated").matchImageSnapshot();
+    cy.get("dso-logo.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     cy.injectAxe();
     cy.dsoCheckA11y("dso-logo.hydrated");
   });
@@ -217,7 +217,7 @@ describe("Logo", () => {
       .find(".logo-ribbon")
       .should("be.visible")
       .should("have.text", "beta");
-    cy.get("dso-logo.hydrated").matchImageSnapshot();
+    cy.get("dso-logo.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     cy.injectAxe();
     cy.dsoCheckA11y("dso-logo.hydrated");
   });
@@ -230,13 +230,13 @@ describe("Logo", () => {
       .find(".logo-ribbon")
       .should("be.visible")
       .should("have.text", "beta");
-    cy.get("dso-logo.hydrated").matchImageSnapshot();
+    cy.get("dso-logo.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     cy.injectAxe();
     cy.dsoCheckA11y("dso-logo.hydrated");
   });
 
   it("should be accessible", () => {
-    cy.get("dso-logo.hydrated").matchImageSnapshot();
+    cy.get("dso-logo.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     cy.injectAxe();
     cy.dsoCheckA11y("dso-logo.hydrated");
   });

@@ -19,7 +19,7 @@ describe("Highlight Box", () => {
 
     it(`matches imageSnapshot (${story})`, () => {
       cy.visit(`http://localhost:45000/iframe.html?id=core-highlight-box--${story}`);
-      cy.get("dso-highlight-box.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} - ${story}`);
+      cy.get("dso-highlight-box.hydrated").compareSnapshot(`${Cypress.currentTest.title} - ${story}`);
     });
   }
 });

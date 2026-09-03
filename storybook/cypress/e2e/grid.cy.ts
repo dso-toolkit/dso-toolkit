@@ -10,7 +10,7 @@ describe("Grid Column", () => {
     it("matches image snapshot", () => {
       waitForComponents();
 
-      cy.matchImageSnapshot("grid-column-overlay");
+      cy.compareSnapshot("grid-column-overlay");
     });
 
     it("should be accessible", () => {

@@ -27,7 +27,7 @@ describe("Banner", () => {
     cy.get("@dsoBannerShadow").find(".dso-banner").should("be.visible");
     cy.get("@dsoBanner").find(".dso-rich-content").should("contain.text", "Storingsmelding:");
     cy.get("@dsoBanner").find("dso-icon-button").should("have.length", 1);
-    cy.get("@dsoBanner").matchImageSnapshot();
+    cy.get("@dsoBanner").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   for (const { storyId, status, text } of statuses) {
@@ -40,7 +40,7 @@ describe("Banner", () => {
 
       cy.get("@dsoBannerShadow").find(`.dso-banner.alert-${status}`).should("be.visible");
       cy.get("@dsoBanner").find(".dso-rich-content").should("contain.text", text);
-      cy.get("@dsoBanner").matchImageSnapshot(`banner-${status}`);
+      cy.get("@dsoBanner").compareSnapshot(`banner-${status}`);
     });
 
     it(`should be accessible for status "${status}"`, () => {
@@ -71,6 +71,6 @@ describe("Banner", () => {
       .find("dso-icon-button")
       .should("not.exist")
       .get("@dsoBanner")
-      .matchImageSnapshot("banner-info-compact-non-removable");
+      .compareSnapshot("banner-info-compact-non-removable");
   });
 });

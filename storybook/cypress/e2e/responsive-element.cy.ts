@@ -13,22 +13,22 @@ describe("Responsive element", () => {
     cy.viewport(1312, 660);
     cy.get(responsiveElementSelector).first().should("have.attr", "large");
     cy.get(responsiveElementSelector).eq(2).should("have.attr", "small");
-    cy.matchImageSnapshot(`${Cypress.currentTest.title}: 1312 - large`);
+    cy.compareSnapshot(`${Cypress.currentTest.title}: 1312 - large`);
 
     cy.viewport(992, 660);
     cy.get(responsiveElementSelector).first().should("have.attr", "medium");
-    cy.matchImageSnapshot(`${Cypress.currentTest.title}: 992 - medium`);
+    cy.compareSnapshot(`${Cypress.currentTest.title}: 992 - medium`);
 
     cy.viewport(656, 660);
     cy.get(responsiveElementSelector).first().should("have.attr", "large");
-    cy.matchImageSnapshot(`${Cypress.currentTest.title}: 656 - large`);
+    cy.compareSnapshot(`${Cypress.currentTest.title}: 656 - large`);
 
     cy.viewport(407, 660);
     cy.get(responsiveElementSelector).first().should("have.attr", "medium");
-    cy.matchImageSnapshot(`${Cypress.currentTest.title}: 407 - medium`);
+    cy.compareSnapshot(`${Cypress.currentTest.title}: 407 - medium`);
 
     cy.viewport(406, 660);
     cy.get(responsiveElementSelector).first().should("have.attr", "small");
-    cy.matchImageSnapshot(`${Cypress.currentTest.title}: 406 - small`);
+    cy.compareSnapshot(`${Cypress.currentTest.title}: 406 - small`);
   });
 });

@@ -9,6 +9,6 @@ describe("Cursor Tooltip", () => {
   });
 
   it("matches snapshot", () => {
-    cy.get("dso-cursor-tooltip.hydrated").matchImageSnapshot();
+    cy.get("dso-cursor-tooltip.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

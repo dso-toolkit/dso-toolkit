@@ -37,11 +37,11 @@ export function voorbeeldpaginaImageSnapshots(
         waitForComponents();
 
         if (voorbeelpagina.args) {
-          cy.matchImageSnapshot(
+          cy.compareSnapshot(
             `Voorbeeldpagina image snapshots (${label}) -- ${Cypress.currentTest.title} (${voorbeelpagina.args})`,
           );
         } else {
-          cy.matchImageSnapshot();
+          cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
         }
       });
     }

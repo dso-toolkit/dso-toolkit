@@ -19,7 +19,7 @@ describe("Skiplink", () => {
 
     cy.get("dso-skiplink.hydrated").shadow().find("a").should("be.visible");
 
-    cy.matchImageSnapshot();
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should call event on mouse click", () => {

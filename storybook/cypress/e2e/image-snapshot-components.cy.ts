@@ -17,11 +17,11 @@ function checkA11y(component: Component) {
 }
 
 function matchImageSnapshot(id: string, component: Component) {
-  const config = component.failureThreshold >= 0 ? { failureThreshold: component.failureThreshold } : undefined;
+  const config = component.failureThreshold >= 0 ? { errorThreshold: component.failureThreshold } : undefined;
   if (component.selector) {
-    cy.get(component.selector).matchImageSnapshot(id, config);
+    cy.get(component.selector).compareSnapshot(id, config);
   } else {
-    cy.matchImageSnapshot(id, config);
+    cy.compareSnapshot(id, config);
   }
 }
 

@@ -11,7 +11,7 @@ describe("Scrollable", () => {
     cy.get("@scrollContainer")
       .should("have.class", "dso-scroll-top")
       .get("dso-scrollable.hydrated")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should scroll", () => {

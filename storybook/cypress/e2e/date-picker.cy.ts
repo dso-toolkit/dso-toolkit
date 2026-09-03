@@ -13,7 +13,7 @@ describe("Date Picker", () => {
 
         cy.dsoCheckA11y("#root-inner");
 
-        cy.get("dso-date-picker.hydrated").matchImageSnapshot();
+        cy.get("dso-date-picker.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
       });
   });
 

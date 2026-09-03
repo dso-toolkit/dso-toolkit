@@ -31,7 +31,7 @@ describe("Autosuggest", () => {
     cy.get("dso-autosuggest.hydrated").find("div[role='option']").should("have.length", 10);
 
     // Take the entire page, otherwise the list of suggestions will not be snapped
-    cy.matchImageSnapshot();
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should regexp-escape suggestions", () => {
@@ -328,7 +328,7 @@ describe("Autosuggest", () => {
       .should("be.visible")
       .contains("is niet gevonden.");
 
-    cy.matchImageSnapshot({ clip: { x: 0, y: 0, width: 1000, height: 150 } });
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { clip: { x: 0, y: 0, width: 1000, height: 150 } });
   });
 
   it("should show not found text in English when no results are found", () => {
@@ -345,7 +345,7 @@ describe("Autosuggest", () => {
       .should("be.visible")
       .contains("was not found.");
 
-    cy.matchImageSnapshot({ clip: { x: 0, y: 0, width: 1000, height: 150 } });
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "), { clip: { x: 0, y: 0, width: 1000, height: 150 } });
   });
 
   it("should escape special characters (only once)", () => {
@@ -450,7 +450,7 @@ describe("Autosuggest", () => {
     cy.get("input").focus().type("sugg");
     waitForAutosuggestListboxLayout();
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
-    cy.matchImageSnapshot();
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should limit the block-size of the listbox-container to the available block-size within viewport", () => {
@@ -459,7 +459,7 @@ describe("Autosuggest", () => {
     cy.get("input").focus().type("sugg");
     waitForAutosuggestListboxLayout();
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
-    cy.matchImageSnapshot();
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   describe("click propagation", () => {
@@ -508,7 +508,7 @@ describe("Autosuggest", () => {
       cy.get("dso-autosuggest.hydrated").find("div[role='option']").should("have.length", 12);
 
       // Take the entire page, otherwise the list of suggestions will not be snapped
-      cy.matchImageSnapshot();
+      cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
 
     it("ArrowDown selects first option", { browser: "!firefox" }, () => {

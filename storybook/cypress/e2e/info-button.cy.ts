@@ -13,7 +13,7 @@ describe("Info Button", () => {
       .should("have.css", "visibility", "visible")
       .should("have.css", "opacity", "1");
 
-    cy.matchImageSnapshot(Cypress.currentTest.title);
+    cy.compareSnapshot(Cypress.currentTest.title);
 
     getComponent()
       .realClick()
@@ -30,7 +30,7 @@ describe("Info Button", () => {
       cy.injectAxe();
       cy.dsoCheckA11y("dso-info-button.hydrated");
 
-      getComponent().matchImageSnapshot(Cypress.currentTest.title);
+      getComponent().compareSnapshot(Cypress.currentTest.title);
     });
   });
 

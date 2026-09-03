@@ -14,7 +14,7 @@ describe("Legend", () => {
       cy.get("@dsoLegendShadow").find(".tab").should("include.text", "Legenda").should("have.class", "active");
       cy.get("@dsoLegendShadow").find(".close-button");
 
-      cy.get("@dsoLegend").matchImageSnapshot(`${Cypress.currentTest.title}`);
+      cy.get("@dsoLegend").compareSnapshot(`${Cypress.currentTest.title}`);
     });
 
     it("should emit the dsoContentSwitch event when clicked on a topbar tab item", () => {
@@ -61,14 +61,14 @@ describe("Legend", () => {
 
     it("should show all legend items in view mode", () => {
       cy.get("@dsoLegendShadow").find(".content").invoke("css", "max-block-size", "none");
-      cy.get("@dsoLegend").matchImageSnapshot("legend view mode", { failureThreshold: 0.001 });
+      cy.get("@dsoLegend").compareSnapshot("legend view mode", { errorThreshold: 0.001 });
     });
 
     it("should show all legend items in edit mode", () => {
       cy.visit("http://localhost:45000/iframe.html?id=core-legend--legenda&args=mode:edit");
       cy.get("dso-legend.hydrated").as("dsoLegend").shadow().as("dsoLegendShadow");
       cy.get("@dsoLegendShadow").find(".content").invoke("css", "max-block-size", "none");
-      cy.get("@dsoLegend").matchImageSnapshot("legend edit mode", { failureThreshold: 0.001 });
+      cy.get("@dsoLegend").compareSnapshot("legend edit mode", { errorThreshold: 0.001 });
     });
 
     it("should show group options slot in edit mode", () => {
@@ -204,7 +204,7 @@ describe("Legend", () => {
 
     it("should show all kaartlagen items", () => {
       cy.get("@dsoLegendShadow").find(".content").invoke("css", "max-block-size", "none");
-      cy.get("@dsoLegend").matchImageSnapshot("kaartlagen view mode", { failureThreshold: 0.001 });
+      cy.get("@dsoLegend").compareSnapshot("kaartlagen view mode", { errorThreshold: 0.001 });
     });
 
     it("should show the options-button when the item is active", () => {

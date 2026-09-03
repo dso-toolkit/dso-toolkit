@@ -17,7 +17,7 @@ describe("Icon Button", () => {
       cy.get("dso-icon-button.hydrated").invoke("prop", "variant", variant);
       cy.get("dso-icon-button.hydrated").realHover().shadow().find(".dso-tooltip").should("exist");
       cy.get("dso-icon-button.hydrated").trigger("mouseleave");
-      cy.get("dso-icon-button.hydrated").matchImageSnapshot(`${Cypress.currentTest.title}`);
+      cy.get("dso-icon-button.hydrated").compareSnapshot(`${Cypress.currentTest.title}`);
     });
   });
 

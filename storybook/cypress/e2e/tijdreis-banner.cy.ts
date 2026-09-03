@@ -9,11 +9,11 @@ describe("Tijdreis Banner", () => {
   });
 
   it("matches snapshot", () => {
-    cy.get(`dso-tijdreis-banner.hydrated`).matchImageSnapshot();
+    cy.get(`dso-tijdreis-banner.hydrated`).compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("matches snapshot on sm breakpoint", () => {
     cy.viewport(320, 660);
-    cy.get(`dso-tijdreis-banner.hydrated`).matchImageSnapshot("tijdreis-banner-sm-breakpoint");
+    cy.get(`dso-tijdreis-banner.hydrated`).compareSnapshot("tijdreis-banner-sm-breakpoint");
   });
 });

@@ -9,6 +9,6 @@ describe("Contact information", () => {
   });
 
   it("matches snapshot", () => {
-    cy.get(`dso-contact-information.hydrated`).matchImageSnapshot();
+    cy.get(`dso-contact-information.hydrated`).compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

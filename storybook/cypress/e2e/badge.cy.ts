@@ -13,7 +13,7 @@ describe("Badge", () => {
       .should("have.css", "visibility", "visible")
       .should("have.css", "opacity", "1");
 
-    cy.matchImageSnapshot(Cypress.currentTest.title);
+    cy.compareSnapshot(Cypress.currentTest.title);
 
     getComponent().shadow().find(".toggletip-button").realClick();
     getComponent()
@@ -29,7 +29,7 @@ describe("Badge", () => {
       visitStory(story);
       cy.injectAxe();
       cy.dsoCheckA11y("dso-badge.hydrated");
-      getComponent().matchImageSnapshot(Cypress.currentTest.title);
+      getComponent().compareSnapshot(Cypress.currentTest.title);
     });
   });
 

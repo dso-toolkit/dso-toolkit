@@ -10,7 +10,7 @@ describe("Slide Toggle", () => {
   });
 
   it("should render the slide-button states correctly", () => {
-    cy.get("dso-slide-toggle.hydrated").matchImageSnapshot(`${Cypress.currentTest.title}" -- off`);
+    cy.get("dso-slide-toggle.hydrated").compareSnapshot(`${Cypress.currentTest.title}" -- off`);
     cy.injectAxe();
     cy.dsoCheckA11y("dso-slide-toggle.hydrated");
 
@@ -23,7 +23,7 @@ describe("Slide Toggle", () => {
       .should("have.attr", "aria-checked", "true")
       .wait(400);
 
-    cy.get("dso-slide-toggle.hydrated").matchImageSnapshot(`${Cypress.currentTest.title}" -- on`);
+    cy.get("dso-slide-toggle.hydrated").compareSnapshot(`${Cypress.currentTest.title}" -- on`);
 
     cy.get("dso-slide-toggle")
       .invoke("attr", "disabled", true)
@@ -31,7 +31,7 @@ describe("Slide Toggle", () => {
       .should("have.attr", "disabled")
       .wait(400);
 
-    cy.get("dso-slide-toggle.hydrated").matchImageSnapshot(`${Cypress.currentTest.title}" -- disabled`);
+    cy.get("dso-slide-toggle.hydrated").compareSnapshot(`${Cypress.currentTest.title}" -- disabled`);
   });
 
   it("should correctly set aria-label", () => {

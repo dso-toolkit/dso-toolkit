@@ -17,6 +17,6 @@ describe("ActionList", () => {
       .shadow()
       .find(".dso-section-handle dso-icon.hydrated");
 
-    cy.get("dso-action-list.hydrated").matchImageSnapshot();
+    cy.get("dso-action-list.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

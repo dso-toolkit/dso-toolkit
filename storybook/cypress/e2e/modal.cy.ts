@@ -30,7 +30,7 @@ describe("Modal", () => {
       .should("have.css", "visibility", "visible")
       .should("have.css", "opacity", "1");
 
-    cy.matchImageSnapshot();
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should pass role to dialog", () => {
@@ -163,7 +163,7 @@ describe("Modal", () => {
       .find(".dso-dialog")
       .should("have.css", "opacity", "1");
 
-    cy.matchImageSnapshot();
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should be rendered with Datepicker", () => {
@@ -171,7 +171,7 @@ describe("Modal", () => {
 
     cy.get("dso-modal.hydrated").shadow().find(".dso-dialog").should("have.css", "opacity", "1");
 
-    cy.matchImageSnapshot();
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should display modal correctly on top of background content", () => {
@@ -181,7 +181,7 @@ describe("Modal", () => {
 
     cy.get("dso-modal").shadow().find(".dso-dialog").should("exist");
 
-    cy.matchImageSnapshot();
+    cy.compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });
 

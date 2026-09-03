@@ -9,6 +9,6 @@ describe("Project Item", () => {
   });
 
   it("matches snapshot", () => {
-    cy.get("dso-project-item.hydrated").matchImageSnapshot();
+    cy.get("dso-project-item.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

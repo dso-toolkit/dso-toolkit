@@ -167,7 +167,7 @@ function setupAnnotation(type: "activiteit" | "gebiedsaanwijzing" | "omgevingsno
   });
 
   it("matches snapshot", () => {
-    cy.get(`@annotation`).matchImageSnapshot();
+    cy.get(`@annotation`).compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("reflects wijzigactie", () => {

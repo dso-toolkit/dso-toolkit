@@ -130,7 +130,7 @@ describe("Header", () => {
       .find(".dropdown-menu")
       .should("not.exist")
       .get("dso-header.hydrated")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("matches snapshot (compact)", () => {
@@ -139,7 +139,7 @@ describe("Header", () => {
       .then(($header) => setMenuItems($header, defaultMenuItems))
       .invoke("prop", "compact", "always")
       .get("dso-header[is-compact]")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show and remove dropdownmenu", () => {
@@ -185,11 +185,11 @@ describe("Header", () => {
 
     cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
       .then(($header) => setMenuItems($header, []))
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- Profile, Uitloggen and Help`);
+      .compareSnapshot(`${Cypress.currentTest.title} -- Profile, Uitloggen and Help`);
 
     cy.get("dso-header.hydrated")
       .invoke("attr", "auth-status", "loggedOut")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
+      .compareSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
   });
 
   it("should be accessible", () => {
@@ -497,7 +497,7 @@ describe("Header", () => {
 
       cy.get("@dsoHeaderShadow").find(".dropdown-menu-options ul li a").should("have.length", 2);
 
-      cy.get("dso-header.hydrated").matchImageSnapshot();
+      cy.get("dso-header.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
   });
 

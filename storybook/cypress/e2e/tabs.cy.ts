@@ -20,7 +20,7 @@ describe("Tabs", () => {
 
     it(`matches imageSnapshot (${story})`, () => {
       cy.visit(`http://localhost:45000/iframe.html?id=core-tabs--${story}`);
-      cy.get("dso-tabs.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} - ${story}`);
+      cy.get("dso-tabs.hydrated").compareSnapshot(`${Cypress.currentTest.title} - ${story}`);
     });
   }
 });

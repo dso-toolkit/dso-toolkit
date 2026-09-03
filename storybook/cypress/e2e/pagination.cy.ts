@@ -36,7 +36,7 @@ describe("Pagination", () => {
         .find('a[aria-label="Volgende pagina"]')
         .should("be.visible");
 
-      cy.get("dso-pagination.hydrated").matchImageSnapshot();
+      cy.get("dso-pagination.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
 
     it("should not show ellipsis when page count is in range", () => {
@@ -57,7 +57,7 @@ describe("Pagination", () => {
         .find("a")
         .should("have.text", "Pagina 7");
 
-      cy.get("dso-pagination.hydrated").matchImageSnapshot();
+      cy.get("dso-pagination.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
 
     it("should show ... when first and/or last page are out of range", () => {
@@ -338,7 +338,7 @@ describe("Pagination", () => {
         .find('a[aria-label="Volgende pagina"]')
         .should("be.visible");
 
-      cy.get("dso-pagination.hydrated").matchImageSnapshot();
+      cy.get("dso-pagination.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
 
     it("should not show the ellipsis after 1 when page count is in range", () => {
@@ -357,7 +357,7 @@ describe("Pagination", () => {
         .eq(6)
         .should("contain.html", "<span>...</span>");
 
-      cy.get("dso-pagination.hydrated").matchImageSnapshot();
+      cy.get("dso-pagination.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
 
     it("should not show previous and ellipsis when current page is 1", () => {

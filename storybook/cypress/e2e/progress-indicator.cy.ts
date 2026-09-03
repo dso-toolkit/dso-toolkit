@@ -45,7 +45,7 @@ describe("Progress Indicator", () => {
         .get("@spinner")
         .invoke("attr", "style", "visibility: hidden;") // hide the spinner to prevent false negatives
         .get("@dsoProgressIndicator")
-        .matchImageSnapshot(`core-progress-indicator--${size}`);
+        .compareSnapshot(`core-progress-indicator--${size}`);
     });
   }
 
@@ -62,6 +62,6 @@ describe("Progress Indicator", () => {
       .find(".dso-progress-indicator-spinner")
       .invoke("attr", "style", "visibility: hidden;") // hide the spinner to prevent false negatives
       .get("dso-progress-indicator.hydrated")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

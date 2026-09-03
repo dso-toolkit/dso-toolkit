@@ -6,7 +6,7 @@ describe("Shopping Cart", () => {
     });
 
     it("matches image snapshot", () => {
-      cy.get("dso-shopping-cart.hydrated").matchImageSnapshot("shopping-cart-side");
+      cy.get("dso-shopping-cart.hydrated").compareSnapshot("shopping-cart-side");
     });
 
     it("should be accessible", () => {
@@ -117,7 +117,7 @@ describe("Shopping Cart", () => {
     });
 
     it("matches image snapshot", () => {
-      cy.get("dso-shopping-cart.hydrated").matchImageSnapshot("shopping-cart-main");
+      cy.get("dso-shopping-cart.hydrated").compareSnapshot("shopping-cart-main");
     });
 
     it("should be accessible", () => {

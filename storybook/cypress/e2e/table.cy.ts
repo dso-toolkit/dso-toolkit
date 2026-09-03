@@ -23,7 +23,7 @@ describe("Table", () => {
         expect($tableBody[0].scrollWidth).to.be.greaterThan($tableBody[0].getBoundingClientRect().width),
       );
 
-    cy.get("dso-table.hydrated").matchImageSnapshot();
+    cy.get("dso-table.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should render the open modal button in the light DOM with aria-controls referencing the table id", () => {

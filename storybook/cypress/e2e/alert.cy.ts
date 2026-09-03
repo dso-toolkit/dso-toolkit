@@ -26,7 +26,7 @@ describe("Alert", () => {
       .get("@dsoCloseListener")
       .should("have.been.calledOnce")
       .get("dso-alert.hydrated")
-      .matchImageSnapshot();
+      .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   const statuses: Array<{
@@ -59,7 +59,7 @@ describe("Alert", () => {
         .invoke("prop", "icon")
         .should("equal", icon)
         .get("dso-alert.hydrated")
-        .matchImageSnapshot();
+        .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
   }
 
@@ -91,7 +91,7 @@ describe("Alert", () => {
         .find(".alert.dso-compact")
         .should("exist")
         .get("dso-alert.hydrated")
-        .matchImageSnapshot();
+        .compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
     });
   }
 

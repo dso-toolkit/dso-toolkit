@@ -17,7 +17,7 @@ describe("Viewer Grid", () => {
       .invoke("attr", "main-panel-expanded", "")
       .invoke("attr", "document-panel-open", "")
       .invoke("attr", "document-panel-size", "small")
-      .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open-false - large viewport`);
+      .compareSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open-false - large viewport`);
 
     cy.get("@viewer-grid")
       .invoke("attr", "main-size", "medium")
@@ -26,18 +26,18 @@ describe("Viewer Grid", () => {
       .invoke("attr", "filter-panel-title", "De titel van het filter paneel")
       .invoke("attr", "filter-panel-open", true)
       .wait(250)
-      .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open-true - large viewport`);
+      .compareSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open-true - large viewport`);
 
     cy.viewport(1124, 600)
       .wait(250)
       .get("@viewer-grid")
-      .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open - medium viewport`);
+      .compareSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open - medium viewport`);
 
     cy.viewport(1024, 600)
       .get("@viewer-grid")
       .invoke("attr", "active-tab", "search")
       .wait(250)
-      .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open - small viewport`);
+      .compareSnapshot(`${Cypress.currentTest.titlePath.join(" - ")} -- filter-panel-open - small viewport`);
   });
 
   it("should be accessible (overlay closed)", () => {
@@ -90,13 +90,13 @@ describe("Viewer Grid", () => {
   it("should not show overlay", () => {
     cy.visit(urlOverlayClosed);
     cy.get("dso-viewer-grid.hydrated").shadow().find(".overlay").should("exist").and("not.have.attr", "open");
-    cy.get("dso-viewer-grid.hydrated").matchImageSnapshot();
+    cy.get("dso-viewer-grid.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should show overlay", () => {
     cy.visit(urlOverlayOpened);
     cy.get("dso-viewer-grid.hydrated").shadow().find(".overlay").should("exist").and("have.attr", "open");
-    cy.get("dso-viewer-grid.hydrated").matchImageSnapshot();
+    cy.get("dso-viewer-grid.hydrated").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 
   it("should emit closeOverlay", () => {
@@ -174,13 +174,13 @@ describe("Viewer Grid", () => {
             .find(".filter-panel[open] h3")
             .should("be.visible")
             .and("contain.text", "Titel van filterpaneel");
-          cy.get("dso-viewer-grid.hydrated").matchImageSnapshot(`${base} -- open`);
+          cy.get("dso-viewer-grid.hydrated").compareSnapshot(`${base} -- open`);
 
           cy.get("dso-viewer-grid.hydrated").invoke("attr", "filter-panel-open", null);
 
           cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel").should("not.have.attr", "open");
           cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("not.exist");
-          cy.get("dso-viewer-grid.hydrated").matchImageSnapshot(`${base} -- closed`);
+          cy.get("dso-viewer-grid.hydrated").compareSnapshot(`${base} -- closed`);
         });
       });
     }
@@ -409,7 +409,7 @@ describe("Viewer Grid", () => {
 
     it(`matches imageSnapshot (${story})`, () => {
       cy.visit(`http://localhost:45000/iframe.html?id=core-viewer-grid--${story}`);
-      cy.get("dso-viewer-grid.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} - ${story}`);
+      cy.get("dso-viewer-grid.hydrated").compareSnapshot(`${Cypress.currentTest.title} - ${story}`);
     });
   }
 });

@@ -5,6 +5,6 @@ describe("Attachments Counter", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-attachments-counter.hydrated");
 
-    cy.get("dso-attachments-counter.hydrated").should("exist").matchImageSnapshot();
+    cy.get("dso-attachments-counter.hydrated").should("exist").compareSnapshot(Cypress.currentTest.titlePath.join(" -- "));
   });
 });

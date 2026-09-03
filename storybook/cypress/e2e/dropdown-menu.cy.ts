@@ -90,7 +90,7 @@ describe("Dropdown menu - anchors", () => {
   });
 
   it("matches snapshots", () => {
-    cy.get("dso-dropdown-menu.hydrated").matchImageSnapshot(`type=link -- ${Cypress.currentTest.title} -- not open`);
+    cy.get("dso-dropdown-menu.hydrated").compareSnapshot(`type=link -- ${Cypress.currentTest.title} -- not open`);
 
     cy.get("@button").should("be.visible").focus().click();
 
@@ -99,7 +99,7 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").should("be.visible");
 
     cy.viewport(408, 408);
-    cy.matchImageSnapshot(`type=link -- ${Cypress.currentTest.title} -- open`);
+    cy.compareSnapshot(`type=link -- ${Cypress.currentTest.title} -- open`);
   });
 
   it("should have aria-expanded", () => {
@@ -341,7 +341,7 @@ describe("Dropdown menu - buttons", () => {
   });
 
   it("matches snapshots", () => {
-    cy.get("dso-dropdown-menu.hydrated").matchImageSnapshot(`type=button -- ${Cypress.currentTest.title} -- not open`);
+    cy.get("dso-dropdown-menu.hydrated").compareSnapshot(`type=button -- ${Cypress.currentTest.title} -- not open`);
 
     cy.get("@button").should("be.visible").focus().click();
 
@@ -350,7 +350,7 @@ describe("Dropdown menu - buttons", () => {
     cy.get("@menuitems").should("be.visible");
 
     cy.viewport(200, 150);
-    cy.matchImageSnapshot(`type=button -- ${Cypress.currentTest.title} -- open`);
+    cy.compareSnapshot(`type=button -- ${Cypress.currentTest.title} -- open`);
   });
 
   it("should have role menu with menuitem", () => {

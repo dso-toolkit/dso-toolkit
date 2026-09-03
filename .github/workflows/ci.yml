@@ -36,7 +36,7 @@ jobs:
                 core.exportVariable('DT_DIST_TAG', 'latest');
               }
 
-              core.exportVariable('DT_CYPRESS_SNAPSHOT_MODE', type === 'heads' && ref === 'master' ? 'CYPRESS_updateSnapshots=true' : 'CYPRESS_requireSnapshots=true');
+              core.exportVariable('DT_CYPRESS_SNAPSHOT_MODE', type === 'heads' && ref === 'master' ? 'CYPRESS_visualRegressionType=base' : 'CYPRESS_visualRegressionType=regression');
             }
       - name: Output DT_REF
         run: echo $DT_REF;

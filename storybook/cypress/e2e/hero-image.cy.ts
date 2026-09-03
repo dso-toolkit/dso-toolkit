@@ -13,17 +13,17 @@ describe("Hero Image", () => {
 
   it("matches imageSnapshot for breakpoint S", () => {
     cy.viewport(767, 800);
-    cy.get("dso-hero-image.hydrated").matchImageSnapshot("hero-image-s");
+    cy.get("dso-hero-image.hydrated").compareSnapshot("hero-image-s");
   });
 
   it("matches imageSnapshot for breakpoint M", () => {
     cy.viewport(768, 800);
-    cy.get("dso-hero-image.hydrated").matchImageSnapshot("hero-image-m");
+    cy.get("dso-hero-image.hydrated").compareSnapshot("hero-image-m");
   });
 
   it("matches imageSnapshot for breakpoint L", () => {
     cy.viewport(992, 800);
-    cy.get("dso-hero-image.hydrated").matchImageSnapshot("hero-image-l");
+    cy.get("dso-hero-image.hydrated").compareSnapshot("hero-image-l");
   });
 
   it("should be accessible", () => {

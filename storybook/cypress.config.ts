@@ -1,10 +1,24 @@
-import { addMatchImageSnapshotPlugin } from "@simonsmith/cypress-image-snapshot/plugin";
+import { configureVisualRegression } from "cypress-visual-regression";
 import { defineConfig } from "cypress";
 
 export default defineConfig({
   e2e: {
-    setupNodeEvents(on, _config) {
-      addMatchImageSnapshotPlugin(on);
+    expose: {
+      visualRegressionType: "regression",
+      visualRegressionBaseDirectory: "cypress/snapshot-baseline",
+      visualRegressionDiffDirectory: "cypress/snapshot-diff",
+    },
+    setupNodeEvents(on, config) {
+      configureVisualRegression(on);
+
+      if (config.env.visualRegressionType) {
+        config.expose.visualRegressionType = config.env.visualRegressionType;
+      }
+
+      if (config.env.visualRegressionUpdateSnapshots) {
+        config.expose.visualRegressionUpdateSnapshots = config.env.visualRegressionUpdateSnapshots;
+      }
+
       on("task", {
         error(message) {
           console.error(message);
@@ -22,6 +36,8 @@ export default defineConfig({
           return null;
         },
       });
+
+      return config;
     },
   },
 });
