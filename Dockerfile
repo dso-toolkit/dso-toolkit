@@ -1,4 +1,4 @@
-FROM cypress/included:cypress-15.20.1-node-24.19.0-chrome-151.0.7922.108-1-ff-153.0.3-edge-151.0.4129.78-1
+FROM cypress/included:cypress-16.0.0-node-24.20.0-chrome-152.0.7977.64-1-ff-155.0-edge-152.0.4191.53-1
 RUN apt-get update && apt-get install --yes \
   apt-transport-https \
   ca-certificates \
@@ -41,14 +41,12 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*;
 
 # AzCopy install
-RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.32.6/azcopy_linux_amd64_10.32.6.tar.gz \
+RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.32.8/azcopy_linux_amd64_10.32.8.tar.gz \
   | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
 
 WORKDIR /usr/src/app
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
-
-COPY patches ./patches
 
 COPY angular-workspace/package.json ./angular-workspace/package.json
 COPY packages/core/package.json ./packages/core/package.json
