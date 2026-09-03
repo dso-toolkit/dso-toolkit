@@ -114,15 +114,23 @@ div[popover] {
 
   .profile + .logout,
   .logout + .help,
-  .login + .help,
-  .help + .dropdown,
-  .help + .dso-header-menu,
-  & + .dropdown,
-  & + .dso-navbar {
+  .login + .help {
     @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1px}) {
       border-inline-start: 3px solid colors.$grijs-20;
       margin-inline-start: units.$u1;
       padding-inline-start: units.$u1;
+    }
+  }
+
+  &:has(*) {
+    & + .dropdown,
+    & + .dso-navbar,
+    & + .dso-header-menu {
+      @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1px}) {
+        border-inline-start: 3px solid colors.$grijs-20;
+        margin-inline-start: units.$u1;
+        padding-inline-start: units.$u1;
+      }
     }
   }
 
