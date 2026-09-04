@@ -49,7 +49,7 @@ describe("Header", () => {
 
   /** Configure the component and set an eventListener as @headerListener the `dso-header` is set as @dsoHeader and the `dso-header` shadow dom as @dsoHeaderShadow */
   function prepareComponent() {
-    cy.get("dso-header", { timeout: 10000 })
+    cy.get("dso-header")
       .should("have.class", "hydrated")
       .then(($header) => {
         $header.on("dsoHeaderClick", ($event) => {
@@ -523,8 +523,6 @@ describe("Header", () => {
 
         waitForResizeSettled();
 
-        cy.wait(150);
-
         cy.get("@headerShadow")
           .find(".dropdown-menu button[aria-expanded='true'] + div[popover=manual] > .dropdown-menu-options ul")
           .contains("li", label)
@@ -695,8 +693,6 @@ describe("Header", () => {
           [trigger]();
 
         ensureCompactMenuOpen();
-
-        waitForResizeSettled();
 
         if (trigger === "click") {
           cy.get("dso-header[is-compact]")
