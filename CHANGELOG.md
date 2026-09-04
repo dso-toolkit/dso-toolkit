@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Accordion: Optionele Badge in handle van Accordion Section ([#3936](https://github.com/dso-toolkit/dso-toolkit/issues/3936))
+* Header: Help-knop in menu bij mobiele viewport ([#3017](https://github.com/dso-toolkit/dso-toolkit/issues/3017))
 
 ## 🕵 Release 100.3.0 - 2026-08-31
 

@@ -34,6 +34,7 @@
 
   .dso-header {
     flex-wrap: nowrap;
+    align-items: center;
   }
 
   .dropdown-menu {
@@ -93,17 +94,11 @@ div[popover] {
   .help {
     .dso-tertiary {
       display: flex;
-
       cursor: pointer;
-
       border: 0;
-
       background-color: transparent;
-
       padding-inline: 0;
-
       outline-offset: 2px;
-
       font-family: typography.$font-family-base;
       color: colors.$grasgroen;
       font-size: typography.$font-size-base;
@@ -119,16 +114,40 @@ div[popover] {
 
   .profile + .logout,
   .logout + .help,
-  .login + .help {
-    border-inline-start: 3px solid colors.$grijs-20;
-    margin-inline-start: units.$u1;
-    padding-inline-start: units.$u1;
+  .login + .help,
+  &:has(*) + .dropdown {
+    @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1px}) {
+      border-inline-start: 3px solid colors.$grijs-20;
+      block-size: 20px;
+      margin-inline-start: units.$u1;
+      padding-inline-start: units.$u1;
+    }
   }
 
   .help {
     a,
     button {
       display: flex;
+      align-items: center;
+      gap: units.$u2;
+
+      dso-icon {
+        order: -1;
+        margin-inline-start: 0;
+      }
+
+      span {
+        order: 0;
+      }
+
+      @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1px}) {
+        gap: 0;
+
+        dso-icon {
+          order: 1;
+          margin-inline-start: units.$u1 * 0.5;
+        }
+      }
     }
   }
 }
@@ -255,6 +274,22 @@ div[popover] {
         &.dso-active {
           a {
             font-weight: 600;
+          }
+        }
+
+        a.dso-tertiary,
+        button.dso-tertiary {
+          align-items: center;
+          display: flex;
+          gap: units.$u1 * 0.5;
+
+          dso-icon {
+            margin-inline-start: 0;
+            order: -1;
+          }
+
+          span {
+            order: 0;
           }
         }
 
