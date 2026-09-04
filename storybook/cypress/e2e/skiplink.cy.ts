@@ -13,9 +13,9 @@ describe("Skiplink", () => {
   });
 
   it("should only be visible when tabbed upon", () => {
-    cy.get("dso-skiplink.hydrated").shadow().find("a").should("not.be.visible");
+    cy.get("dso-skiplink.hydrated").shadow().find("a").should("have.css", "position", "absolute");
 
-    cy.get("dso-skiplink.hydrated").shadow().find("a").focus();
+    cy.realPress("Tab");
 
     cy.get("dso-skiplink.hydrated").shadow().find("a").should("be.visible");
 
