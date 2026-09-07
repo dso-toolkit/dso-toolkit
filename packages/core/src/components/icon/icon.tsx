@@ -270,8 +270,10 @@ export class Icon {
   render() {
     if (this.icon) {
       const icon = icons.find((i) => i.alias === this.icon);
+
       if (!icon) {
-        throw new TypeError(`Unknown svg: ${this.icon}`);
+        console.warn(`Unknown svg: ${this.icon}`);
+        return;
       }
 
       return <span class="icon-container" innerHTML={icon.svg} />;

@@ -29,6 +29,29 @@ describe("Alert", () => {
       .matchImageSnapshot();
   });
 
+  const invalidStatusses = [undefined, "invalid"];
+
+  for (const invalidStatus of invalidStatusses) {
+    it(`warns on invalid status ${invalidStatus} and renders without icon`, () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-alert--success");
+
+      cy.get("dso-alert.hydrated")
+        .then(($el: JQuery<HTMLDsoAlertElement>) => {
+          // @ts-expect-error Purposefully setting an invalid status to test the behavior of the component
+          $el[0].status = invalidStatus;
+        })
+        .shadow()
+        .find(".alert > dso-icon.icon-status")
+        .should("not.exist")
+        .get("dso-alert.hydrated")
+        .shadow()
+        .find(".alert > span.sr-only")
+        .should("not.exist")
+        .get("dso-alert.hydrated")
+        .matchImageSnapshot(`${Cypress.currentTest.title} -- status ${invalidStatus}`);
+    });
+  }
+
   const statuses: Array<{
     status: string;
     message: string;
