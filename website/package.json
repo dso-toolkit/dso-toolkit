@@ -26,7 +26,7 @@
     "@tsconfig/docusaurus": "^2.0.9",
     "@types/react": "catalog:",
     "clsx": "catalog:",
-    "docusaurus-plugin-sass": "^0.2.6",
+    "docusaurus-plugin-sass": "^0.2.7",
     "dso-toolkit": "workspace:*",
     "prism-react-renderer": "^2.4.1",
     "react": "catalog:",
