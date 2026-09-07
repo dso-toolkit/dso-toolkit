@@ -56,6 +56,8 @@ button {
   inline-size: max-content;
   padding: 0;
   z-index: zindex.$dropdown-options;
+
+  --_dso-scrollable-block-size: auto; // niet leunen op block-size:100% tegen fit-content popover (Safari collapse)
 }
 
 ::slotted(dso-dropdown-menu-group:not(:last-child)) {

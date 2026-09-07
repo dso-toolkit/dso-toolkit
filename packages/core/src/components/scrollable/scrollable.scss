@@ -3,7 +3,7 @@
 
 :host {
   display: block;
-  block-size: 100%;
+  block-size: var(--_dso-scrollable-block-size, 100%);
   overflow-y: hidden;
   border-radius: var(--_dso-scrollable-border-radius, 0);
 }

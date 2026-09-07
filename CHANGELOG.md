@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Header: Menu klapt niet open in Safari ([#3963](https://github.com/dso-toolkit/dso-toolkit/issues/3963))
+
 ## 🕵 Release 100.3.0 - 2026-08-31
 
 ### Added
