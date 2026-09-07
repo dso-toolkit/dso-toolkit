@@ -19,6 +19,9 @@ import {
   DropdownMenuItemType,
 } from "../dropdown-menu.interfaces";
 
+/**
+ * @slot - The content or label of the dropdown menu item.
+ */
 @Component({
   tag: "dso-dropdown-menu-item",
   styleUrl: "dropdown-menu-item.scss",

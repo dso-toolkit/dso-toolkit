@@ -7,6 +7,9 @@ import { isModifiedEvent } from "../../utils/is-modified-event";
 import { translations } from "./legend.i18n";
 import { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./legend.interfaces";
 
+/**
+ * @slot - Content to be displayed inside the active tab panel of the legend.
+ */
 @Component({
   tag: "dso-legend",
   styleUrl: "legend.scss",

@@ -1,5 +1,8 @@
 import { Component, ComponentInterface, Host, h } from "@stencil/core";
 
+/**
+ * @slot - Content to be displayed inside the cursor tooltip.
+ */
 @Component({
   tag: "dso-cursor-tooltip",
   styleUrl: "cursor-tooltip.scss",

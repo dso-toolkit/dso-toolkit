@@ -18,6 +18,13 @@
 | `dsoClose` | Emitted when the user activates the close button. | `CustomEvent<MouseEvent>` |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ## Dependencies
 
 ### Used by

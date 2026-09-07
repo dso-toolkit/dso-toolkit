@@ -7,9 +7,6 @@ import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
 import { watcher } from "../annotation-watcher";
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "../annotation.interfaces";
 
-/**
- * @slot symbool - Een optionele afbeelding die de annotatie symboliseert.
- */
 @Component({
   tag: "dso-annotation-gebiedsaanwijzing",
   styleUrl: "../annotation.scss",

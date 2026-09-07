@@ -50,6 +50,7 @@ Type: `Promise<void>`
 
 | Slot      | Description                                                               |
 | --------- | ------------------------------------------------------------------------- |
+|           | The default slot                                                          |
 | `"badge"` | Een optioneel slot om een Badge in de handle achter de titel te plaatsen. |
 
 

@@ -12,6 +12,13 @@
 | `status` _(required)_ | `status`  | The status of the banner.                                                                         | `"error" \| "info" \| "success" \| "warning"` | `undefined` |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ## Dependencies
 
 ### Depends on

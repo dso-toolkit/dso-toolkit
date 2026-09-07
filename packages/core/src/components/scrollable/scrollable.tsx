@@ -45,6 +45,9 @@ function isDsoScrollableComponent(element: Element): element is HTMLDsoScrollabl
   return element.tagName === "DSO-SCROLLABLE";
 }
 
+/**
+ * @slot - Content to be made scrollable inside the container.
+ */
 @Component({
   tag: "dso-scrollable",
   styleUrl: "scrollable.scss",

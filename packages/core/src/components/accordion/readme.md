@@ -11,6 +11,13 @@
 | `variant`      | `variant`       | The variant of the Accordion.                                                                                                                 | `"compact" \| "compact-black" \| "conclusion" \| "default" \| "neutral"` | `undefined` |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

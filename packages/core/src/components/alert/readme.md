@@ -20,6 +20,13 @@
 | `dsoClose` | Emitted when the user closes the Alert. | `CustomEvent<AlertCloseEvent>` |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ## Dependencies
 
 ### Used by

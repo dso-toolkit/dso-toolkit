@@ -23,6 +23,13 @@ Type: `Promise<ResponsiveElementSize>`
 
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ## Dependencies
 
 ### Used by

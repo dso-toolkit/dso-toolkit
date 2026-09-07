@@ -5,6 +5,9 @@ import { IconAlias } from "../icon/icon.interfaces";
 
 type BannerStatusType = "success" | "error" | "info" | "warning";
 
+/**
+ * @slot - Content displayed inside the banner.
+ */
 @Component({
   tag: "dso-banner",
   styleUrl: "banner.scss",

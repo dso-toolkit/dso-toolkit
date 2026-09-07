@@ -17,6 +17,9 @@ const elementSizes: [ElementSize, ElementSize, ElementSize] = [
   },
 ];
 
+/**
+ * @slot - The content to be made responsive based on the element's width.
+ */
 @Component({
   tag: "dso-responsive-element",
   styleUrl: "./responsive-element.scss",

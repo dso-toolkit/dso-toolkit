@@ -4,6 +4,10 @@ import { ToggletipController, isEventOutside } from "../../../../functional-comp
 import { Tooltip } from "../../../../functional-components/tooltip/tooltip.functional-component";
 import { IconAlias } from "../../../icon/icon.interfaces";
 
+/**
+ * @slot - A slot to place the main content inside the toggletip overlay.
+ * @slot label - A slot to place the trigger label text of the toggletip.
+ */
 @Component({
   tag: "dso-ozon-content-toggletip",
   styleUrl: "./ozon-content-toggletip.scss",

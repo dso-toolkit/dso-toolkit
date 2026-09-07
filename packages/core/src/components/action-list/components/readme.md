@@ -16,6 +16,13 @@
 | `warning`           | `warning`    | When there is a warning.                        | `boolean`             | `false`     |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ## Dependencies
 
 ### Depends on

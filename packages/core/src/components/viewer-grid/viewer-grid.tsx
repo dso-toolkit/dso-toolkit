@@ -36,13 +36,9 @@ const tabViewBreakpoint = 992 + buttonWidth;
 const minMapElementWidth = 440;
 
 /**
- * @slot top-bar - Een slot die bovenaan de viewer over de hele breedte kan worden gevuld met bijv een banner.
- * @slot main
- * @slot map
- * @slot legend - Een slot die kan worden gevuld met een legend component.
- * @slot filter-panel
- * @slot overlay
- * @slot document-panel
+ * @slot top-bar - An optional slot to place content above the main viewer grid layout.
+ * @slot map - A slot for the map content displayed within the map area.
+ * @slot legend - An optional slot to place legend content in the map area.
  */
 @Component({
   tag: "dso-viewer-grid",

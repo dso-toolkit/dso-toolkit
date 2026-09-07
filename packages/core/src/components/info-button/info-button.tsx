@@ -18,6 +18,9 @@ import { TooltipPlacement } from "../../functional-components/tooltip/tooltip.in
 
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
 
+/**
+ * @slot toggletip - A slot for content displayed inside the info button toggletip.
+ */
 @Component({
   tag: "dso-info-button",
   shadow: true,

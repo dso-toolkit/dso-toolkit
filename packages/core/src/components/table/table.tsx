@@ -2,6 +2,10 @@ import { Component, ComponentInterface, Element, Fragment, Host, Prop, State, h 
 import debounce from "debounce";
 import { v4 as uuidv4 } from "uuid";
 
+/**
+ * @slot - A slot to place the target HTML `<table>` element in.
+ * @slot open-modal-button - An internal slot used for rendering the open-modal trigger button.
+ */
 @Component({
   tag: "dso-table",
   styleUrl: "table.scss",
