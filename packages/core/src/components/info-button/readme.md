@@ -48,6 +48,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot          | Description |
+| ------------- | ----------- |
+| `"toggletip"` |             |
+
+
 ## Dependencies
 
 ### Used by

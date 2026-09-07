@@ -35,6 +35,15 @@ Zie ook de documentatie van het component Ozon Content (onder de kop Afbeeldinge
 | `wijzigactie` | `wijzigactie` | The wijzigactie. | `string \| undefined` | `undefined` |
 
 
+## Slots
+
+| Slot           | Description      |
+| -------------- | ---------------- |
+|                | The default slot |
+| `"bijschrift"` |                  |
+| `"titel"`      |                  |
+
+
 ## Dependencies
 
 ### Used by

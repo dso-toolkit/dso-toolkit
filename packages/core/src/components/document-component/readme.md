@@ -48,6 +48,14 @@
 | `dsoTableOfContentsClick` | Emitted when the user clicks the heading in mode="table-of-contents".                                                                                       | `CustomEvent<DocumentComponentTableOfContentsClickEvent>` |
 
 
+## Slots
+
+| Slot            | Description      |
+| --------------- | ---------------- |
+|                 | The default slot |
+| `"annotations"` |                  |
+
+
 ## Shadow Parts
 
 | Part                      | Description                 |

@@ -20,6 +20,13 @@
 | `dsoExpandableAnimationStart` | Fired before expanding. | `CustomEvent<ExpandableAnimationStartEvent>` |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ## Dependencies
 
 ### Used by

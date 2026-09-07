@@ -19,6 +19,13 @@
 | `dsoContentSwitch` | Emitted when a tabItem is pressed.       | `CustomEvent<LegendContentSwitchEvent>` |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ## Dependencies
 
 ### Depends on

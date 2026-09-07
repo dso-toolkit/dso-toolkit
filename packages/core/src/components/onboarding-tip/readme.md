@@ -35,6 +35,14 @@ De onboarding tip wordt in de top layer geplaatst. Dit betekent dat hij altijd b
 | `dsoClose` | Emitted when the user closes the Onboarding Tip. | `CustomEvent<OnboardingTipCloseEvent>` |
 
 
+## Slots
+
+| Slot        | Description      |
+| ----------- | ---------------- |
+|             | The default slot |
+| `"heading"` |                  |
+
+
 ## Dependencies
 
 ### Depends on

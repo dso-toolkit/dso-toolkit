@@ -12,6 +12,16 @@
 | `label`  | `label`   | The label of the project item. | `string \| undefined` | `undefined` |
 
 
+## Slots
+
+| Slot         | Description |
+| ------------ | ----------- |
+| `"actions"`  |             |
+| `"progress"` |             |
+| `"status"`   |             |
+| `"title"`    |             |
+
+
 ## Dependencies
 
 ### Depends on

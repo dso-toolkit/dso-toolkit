@@ -28,6 +28,14 @@ In beiden gevallen wordt de tekst uitgelezen door middel van `HTMLElement.textCo
 | `dsoRemoveClick` | Emitted when the user activates the remove button. | `CustomEvent<MouseEvent>` |
 
 
+## Slots
+
+| Slot       | Description      |
+| ---------- | ---------------- |
+|            | The default slot |
+| `"symbol"` |                  |
+
+
 ## Dependencies
 
 ### Used by

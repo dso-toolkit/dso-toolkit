@@ -10,6 +10,14 @@
 | `noModal` | `no-modal` | Prevents the table being opened in a modal. | `boolean` | `false` |
 
 
+## Slots
+
+| Slot                  | Description      |
+| --------------------- | ---------------- |
+|                       | The default slot |
+| `"open-modal-button"` |                  |
+
+
 ## Dependencies
 
 ### Used by

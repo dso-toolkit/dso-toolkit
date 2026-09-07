@@ -4,6 +4,14 @@
 <!-- Auto Generated Below -->
 
 
+## Slots
+
+| Slot       | Description      |
+| ---------- | ---------------- |
+|            | The default slot |
+| `"button"` |                  |
+
+
 ## Dependencies
 
 ### Depends on

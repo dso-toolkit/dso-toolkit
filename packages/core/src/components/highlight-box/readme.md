@@ -25,6 +25,14 @@ The default background color is `grey`. Other available variants are:
 | `yellow`     | `yellow`      | For yellow Highlight Box.                | `boolean \| undefined` | `undefined` |
 
 
+## Slots
+
+| Slot     | Description      |
+| -------- | ---------------- |
+|          | The default slot |
+| `"icon"` |                  |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

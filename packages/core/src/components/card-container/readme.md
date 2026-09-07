@@ -12,6 +12,13 @@ Een Card Container bevat een lijst of een grid van Cards, Document Cards of Plek
 | `mode`   | `mode`    | The mode of the Card Container. | `"grid" \| "list"` | `"list"` |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
