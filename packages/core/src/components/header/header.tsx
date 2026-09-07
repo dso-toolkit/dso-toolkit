@@ -501,6 +501,24 @@ export class Header implements ComponentInterface {
     );
   }
 
+  private renderLoginButton(): JSX.Element {
+    return this.loginUrl ? (
+      <a
+        href={this.loginUrl}
+        class="dso-tertiary"
+        onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
+      >
+        <span>{this.text("login")}</span>
+        <dso-icon icon="user-outline"></dso-icon>
+      </a>
+    ) : (
+      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "login")}>
+        <span>{this.text("login")}</span>
+        <dso-icon icon="user-outline"></dso-icon>
+      </button>
+    );
+  }
+
   private renderHeaderSession(): JSX.Element {
     return (
       <div class="dso-header-session">
@@ -517,23 +535,7 @@ export class Header implements ComponentInterface {
                 </a>
               </div>
             )}
-            {this.authStatus === "loggedOut" && (
-              <div class="login">
-                {this.loginUrl ? (
-                  <a
-                    href={this.loginUrl}
-                    class="dso-tertiary"
-                    onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
-                  >
-                    {this.text("login")}
-                  </a>
-                ) : (
-                  <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "login")}>
-                    {this.text("login")}
-                  </button>
-                )}
-              </div>
-            )}
+            {this.authStatus === "loggedOut" && <div class="login">{this.renderLoginButton()}</div>}
             {this.authStatus === "loggedIn" && (
               <div class="logout">
                 {this.logoutUrl ? (
@@ -615,19 +617,6 @@ export class Header implements ComponentInterface {
                       </a>
                     </li>
                   )}
-                  {this.authStatus === "loggedOut" && (
-                    <li role="menuitem">
-                      {this.loginUrl ? (
-                        <a href={this.loginUrl} onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}>
-                          {this.text("login")}
-                        </a>
-                      ) : (
-                        <button type="button" onClick={(e) => this.clickHandler(e, "login")}>
-                          {this.text("login")}
-                        </button>
-                      )}
-                    </li>
-                  )}
                   {this.authStatus === "loggedIn" && (
                     <li role="menuitem">
                       {this.logoutUrl ? (
@@ -645,6 +634,7 @@ export class Header implements ComponentInterface {
                     </li>
                   )}
                   {this.showHelp && this.isMobileViewport && <li role="menuitem">{this.renderHelpButton()}</li>}
+                  {this.authStatus === "loggedOut" && <li role="menuitem">{this.renderLoginButton()}</li>}
                 </ul>
               </dso-scrollable>
             </div>

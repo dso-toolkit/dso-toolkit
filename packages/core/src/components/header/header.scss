@@ -34,7 +34,6 @@
 
   .dso-header {
     flex-wrap: nowrap;
-    align-items: center;
   }
 
   .dropdown-menu {
@@ -45,10 +44,6 @@
 }
 
 :host(:not([is-compact])) {
-  .dso-header {
-    align-items: center;
-  }
-
   .dropdown-menu {
     .dropdown-menu-options {
       inline-size: 375px;
@@ -69,6 +64,7 @@ div[popover] {
   border-block-end: 1px solid colors.$grijs-20;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   position: relative;
 
   .dso-nav {
@@ -124,7 +120,8 @@ div[popover] {
     }
   }
 
-  .help {
+  .help,
+  .login {
     a,
     button {
       display: flex;
@@ -139,7 +136,12 @@ div[popover] {
       span {
         order: 0;
       }
+    }
+  }
 
+  .help {
+    a,
+    button {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1px}) {
         gap: 0;
 
@@ -171,6 +173,7 @@ div[popover] {
     line-height: normal;
     letter-spacing: inherit;
     position: relative;
+    padding-inline-start: 0;
 
     &::after {
       margin-inline-start: units.$u1;

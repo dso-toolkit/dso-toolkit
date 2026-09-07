@@ -187,6 +187,7 @@ export function headerStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         showHelp: true,
         helpUrl: "#help",
+        authStatus: "loggedOut",
       },
       render: templateContainer.render(storyTemplates, (args, { headerTemplate }) =>
         headerTemplate(headerArgsMapper(args)),
@@ -195,6 +196,7 @@ export function headerStories<Implementation, Templates, TemplateFnReturnType>({
     WithButtonToHelp: {
       args: {
         showHelp: true,
+        authStatus: "loggedOut",
       },
       render: templateContainer.render(storyTemplates, (args, { headerTemplate }) =>
         headerTemplate(headerArgsMapper(args)),

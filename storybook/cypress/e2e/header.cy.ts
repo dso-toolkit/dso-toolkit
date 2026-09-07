@@ -191,6 +191,7 @@ describe("Header", () => {
 
     cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
       .then(($header) => setMenuItems($header, []))
+      .invoke("attr", "auth-status", "loggedIn")
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Profile, Uitloggen and Help`);
 
     cy.get("dso-header.hydrated")
@@ -294,6 +295,30 @@ describe("Header", () => {
     cy.get("@dsoHeaderShadow").find(".dso-header-session .help").should("not.exist");
   });
 
+  it("should show login with user-outline icon below help in the menu below the mobile breakpoint", () => {
+    cy.viewport(400, 600);
+
+    cy.get("dso-header.hydrated").invoke("attr", "show-help", "true").invoke("attr", "auth-status", "loggedOut");
+
+    ensureCompactMenuOpen();
+
+    cy.get("@dsoHeaderShadow")
+      .find(".dropdown-menu-options ul li:last-child a")
+      .should("contain.text", "Inloggen")
+      .find("dso-icon")
+      .should("have.prop", "icon", "user-outline");
+
+    cy.get("@dsoHeaderShadow")
+      .find(".dropdown-menu-options ul li:last-child")
+      .prev("li")
+      .find("dso-icon")
+      .should("have.prop", "icon", "help-outline");
+
+    cy.get("@dsoHeaderShadow").find(".dropdown-menu-options ul li:last-child a").click({ force: true });
+
+    cy.get("@headerListener").its("lastCall.args.0.detail").should("deep.contain", { type: "login", url: "#login" });
+  });
+
   it("should use an anchor if help-url is passed", () => {
     cy.get("dso-header.hydrated")
       .invoke("attr", "show-help", true)
@@ -312,6 +337,8 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find(".login > a")
       .should("be.visible")
+      .find("dso-icon")
+      .should("have.prop", "icon", "user-outline")
       .get("dso-header")
       .invoke("attr", "auth-status", "loggedIn")
       .get("@dsoHeaderShadow")
@@ -519,9 +546,9 @@ describe("Header", () => {
 
         cy.get("@headerShadow").find(".dropdown-menu > button").should("be.visible")[trigger]();
 
-        cy.get("@headerShadow").find(".dropdown-menu > button").should("have.attr", "aria-expanded", "true");
-
         waitForResizeSettled();
+
+        cy.get("@headerShadow").find(".dropdown-menu > button").should("have.attr", "aria-expanded", "true");
 
         cy.get("@headerShadow")
           .find(".dropdown-menu button[aria-expanded='true'] + div[popover=manual] > .dropdown-menu-options ul")
