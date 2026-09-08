@@ -1,11 +1,4 @@
 [
-  { "name": "icon", "selector": "dso-icon.hydrated", "stories": ["default"], "type": "core" },
-  {
-    "name": "icon",
-    "selector": "#icon-overview-list",
-    "stories": ["overview"],
-    "type": "core"
-  },
   {
     "name": "list-button",
     "selector": "dso-list-button.hydrated",

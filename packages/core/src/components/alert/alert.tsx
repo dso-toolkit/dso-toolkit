@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Prop, h } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
 import { clsx } from "clsx";
 
 import { i18n } from "../../utils/i18n";
@@ -48,26 +48,29 @@ export class Alert {
   private text = i18n(() => this.host, translations);
 
   render() {
-    const status = this.text(this.status);
-    if (!status) {
-      throw new Error(`Invalid status ${this.status}`);
+    const isValidStatus = ["success", "info", "warning", "error"].includes(this.status);
+    if (!isValidStatus) {
+      console.warn(`Invalid status ${this.status}`);
     }
 
     return (
       <div
-        class={clsx("alert", `alert-${this.status}`, { "dso-compact": this.compact })}
+        class={clsx("alert", { [`alert-${this.status}`]: isValidStatus }, { "dso-compact": this.compact })}
         role={this.roleAlert ? "alert" : undefined}
       >
-        {!this.compact && (
-          <dso-icon
-            class="icon-status"
-            icon={`status-${this.status === "info" ? "info-solid" : this.status}`}
-            aria-hidden="true"
-          />
+        {isValidStatus && (
+          <>
+            {!this.compact && (
+              <dso-icon
+                class="icon-status"
+                icon={`status-${this.status === "info" ? "info-solid" : this.status}`}
+                aria-hidden="true"
+              />
+            )}
+            <span class="sr-only">{this.text(this.status)}:</span>
+          </>
         )}
-        <span class="sr-only">{status}:</span>
         <slot></slot>
-
         {this.closable && (
           <dso-icon-button
             label={this.text("close")}
