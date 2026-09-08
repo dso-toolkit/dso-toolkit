@@ -122,12 +122,7 @@ div[popover] {
   .help {
     a {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1px}) {
-        gap: 0;
-
-        dso-icon {
-          order: 1;
-          margin-inline-start: units.$u1 * 0.5;
-        }
+        gap: units.$u1 * 0.5;
       }
     }
   }
@@ -266,11 +261,7 @@ div[popover] {
         button.dso-tertiary {
           align-items: center;
           display: flex;
-          gap: units.$u1 * 0.5;
-
-          @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min}) {
-            gap: 10px;
-          }
+          gap: 10px;
 
           dso-icon {
             margin-inline-start: 0;
