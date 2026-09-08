@@ -38,7 +38,7 @@ export class ShoppingCart implements ComponentInterface {
       return (
         <button type="button" class="dso-secondary" onClick={(e) => this.dsoToggle.emit({ originalEvent: e })}>
           <span>Sluiten</span>
-          <dso-icon icon="chevron-right"></dso-icon>
+          <dso-icon icon="cross"></dso-icon>
         </button>
       );
     }
