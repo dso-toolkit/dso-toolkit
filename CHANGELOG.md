@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Header: Menu klapt niet open in Safari ([#3963](https://github.com/dso-toolkit/dso-toolkit/issues/3963))
 * Alert & Icon: Geen exceptie bij ontbrekende of onbekende input ([#3970](https://github.com/dso-toolkit/dso-toolkit/issues/3970))
+* Grid: `.row.dso-featured` direct na `dso-hero-image` krijgt margin-block-start ([#3972](https://github.com/dso-toolkit/dso-toolkit/issues/3972))
 
 ## 🕵 Release 100.3.0 - 2026-08-31
 
