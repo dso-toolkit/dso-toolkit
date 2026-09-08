@@ -35,29 +35,26 @@ const Homepage = examplePageStories((templates) => {
       <div id="navigation"><!-- for skiplink --></div>
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main id="main">
-        <!-- START DEPRECATED: use <dso-hero-image> -->
-        <div
-          class="row dso-banner no-button-banner my-beautiful-image"
-          style="background-image: url('images/hero2.jpeg')"
-        >
-          <!-- ^^ background-image set by inline style purely for demo purposes. Please use a class (like the
-             dummy class above) to set your desired background-image! -->
-          <div class="col-lg-6 col-sm-8">
-            ${highlightBoxTemplate({
-              white: true,
-              content: richContentTemplate({
-                children: html`
-                  <h1>Homepage</h1>
-                  <p>
-                    Een vergunning aanvragen of melding doen, bijvoorbeeld voor een nieuwe dakkapel, een nieuw
-                    bedrijfspand of een activiteit op of aan een dijk. Het kan met het nieuwe Omgevingsloket.
-                  </p>
-                `,
-              }),
-            })}
-          </div>
-        </div>
-        <!-- END DEPRECATED -->
+        <style>
+          .my-beautiful-image {
+            background-image: url("images/hero2.jpeg");
+          }
+        </style>
+        <dso-hero-image>
+          <div slot="image" class="my-beautiful-image"></div>
+          ${highlightBoxTemplate({
+            white: true,
+            content: richContentTemplate({
+              children: html`
+                <h1>Homepage</h1>
+                <p>
+                  Een vergunning aanvragen of melding doen, bijvoorbeeld voor een nieuwe dakkapel, een nieuw
+                  bedrijfspand of een activiteit op of aan een dijk. Het kan met het nieuwe Omgevingsloket.
+                </p>
+              `,
+            }),
+          })}
+        </dso-hero-image>
         <div class="row dso-featured dso-equal-heights">
           <div class="col-xs-12">
             ${highlightBoxTemplate({

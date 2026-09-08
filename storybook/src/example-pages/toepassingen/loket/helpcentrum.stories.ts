@@ -22,27 +22,26 @@ const Helpcentrum = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main>
-        <!-- START DEPRECATED: use <dso-hero-image> -->
-        <div
-          class="row dso-banner no-button-banner dso-banner-implementation-specific-image"
-          style="background-image: url('images/hero2.jpeg')"
-        >
-          <div class="col-lg-6 col-sm-8">
-            ${highlightBoxTemplate({
-              white: true,
-              content: richContentTemplate({
-                children: html`
-                  <h1>Helpcentrum</h1>
-                  <p>
-                    Heeft u een vraag over de werking van de Vergunningcheck of over geldende regelgeving? Wij hebben de
-                    veelgestelde vragen per thema voor u op een rij gezet.
-                  </p>
-                `,
-              }),
-            })}
-          </div>
-        </div>
-        <!-- END DEPRECATED -->
+        <style>
+          .my-beautiful-image {
+            background-image: url("images/hero2.jpeg");
+          }
+        </style>
+        <dso-hero-image>
+          <div slot="image" class="my-beautiful-image"></div>
+          ${highlightBoxTemplate({
+            white: true,
+            content: richContentTemplate({
+              children: html`
+                <h1>Helpcentrum</h1>
+                <p>
+                  Heeft u een vraag over de werking van de Vergunningcheck of over geldende regelgeving? Wij hebben de
+                  veelgestelde vragen per thema voor u op een rij gezet.
+                </p>
+              `,
+            }),
+          })}
+        </dso-hero-image>
         <h2>Waarmee kunnen we u helpen?</h2>
         <div class="row">
           <div class="col-md-8">

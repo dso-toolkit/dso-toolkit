@@ -20,29 +20,23 @@ const Landingspagina = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
-        <!-- START DEPRECATED: use <dso-hero-image> -->
-        <div
-          class="row dso-banner dso-banner-implementation-specific-image"
-          style="background-image: url('images/hands-on-trackpad.jpg'); padding-block-end: 16px;"
-        >
-          <div class="col-lg-6 col-sm-8">
-            ${highlightBoxTemplate({
-              white: true,
-              content: richContentTemplate({
-                children: html`
-                  <h1>Direct een aanvraag of melding indienen</h1>
-                  <p>
-                    De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
-                    zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
-                    bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
-                  </p>
-                  <p>${linkTemplate({ label: "Start met aanvragen", url: "#", modifier: "dso-primary" })}</p>
-                `,
-              }),
-            })}
-          </div>
-        </div>
-        <!-- END DEPRECATED -->
+        <dso-hero-image>
+          <div slot="image" style="background-image: url('images/hands-on-trackpad.jpg')"></div>
+          ${highlightBoxTemplate({
+            white: true,
+            content: richContentTemplate({
+              children: html`
+                <h1>Direct een aanvraag of melding indienen</h1>
+                <p>
+                  De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
+                  zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
+                  bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
+                </p>
+                <p>${linkTemplate({ label: "Start met aanvragen", url: "#", modifier: "dso-primary" })}</p>
+              `,
+            }),
+          })}
+        </dso-hero-image>
         <div class="row">
           <div class="col-lg-8">
             ${highlightBoxTemplate({
