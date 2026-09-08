@@ -193,6 +193,8 @@ div[popover] {
     padding-inline: 0;
     z-index: zindex.$dropdown-options;
 
+    --_dso-scrollable-block-size: auto; // niet leunen op block-size:100% tegen fit-content popover (Safari collapse)
+
     ul {
       margin: 0;
       padding: 0;
