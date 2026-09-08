@@ -215,7 +215,7 @@ export class Header implements ComponentInterface {
   }
 
   private get isMobileViewport(): boolean {
-    return window.innerWidth < minMobileViewportWidth;
+    return window.innerWidth <= minMobileViewportWidth;
   }
 
   private clickHandler = (e: MouseEvent, type: HeaderNavigationType, options?: ClickHandlerOptions) => {
@@ -487,35 +487,25 @@ export class Header implements ComponentInterface {
     }
   }
 
-  private renderHelpButton(): JSX.Element {
-    return this.helpUrl ? (
+  private renderHelp(): JSX.Element {
+    return (
       <a href={this.helpUrl} class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}>
         <span>{this.text("help")}</span>
         <dso-icon icon="help-outline"></dso-icon>
       </a>
-    ) : (
-      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
-        <span>{this.text("help")}</span>
-        <dso-icon icon="help-outline"></dso-icon>
-      </button>
     );
   }
 
-  private renderLoginButton(): JSX.Element {
-    return this.loginUrl ? (
+  private renderLogin(): JSX.Element {
+    return (
       <a
         href={this.loginUrl}
         class="dso-tertiary"
         onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
       >
+        {this.isMobileViewport && <dso-icon icon="user-outline"></dso-icon>}
         <span>{this.text("login")}</span>
-        <dso-icon icon="user-outline"></dso-icon>
       </a>
-    ) : (
-      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "login")}>
-        <span>{this.text("login")}</span>
-        <dso-icon icon="user-outline"></dso-icon>
-      </button>
     );
   }
 
@@ -535,7 +525,7 @@ export class Header implements ComponentInterface {
                 </a>
               </div>
             )}
-            {this.authStatus === "loggedOut" && <div class="login">{this.renderLoginButton()}</div>}
+            {this.authStatus === "loggedOut" && <div class="login">{this.renderLogin()}</div>}
             {this.authStatus === "loggedIn" && (
               <div class="logout">
                 {this.logoutUrl ? (
@@ -556,7 +546,7 @@ export class Header implements ComponentInterface {
           </Fragment>
         )}
 
-        {this.showHelp && !this.isMobileViewport && <div class="help">{this.renderHelpButton()}</div>}
+        {this.showHelp && !this.isMobileViewport && <div class="help">{this.renderHelp()}</div>}
       </div>
     );
   }
@@ -579,7 +569,11 @@ export class Header implements ComponentInterface {
               aria-expanded={this.open ? "true" : "false"}
             >
               <span>{this.text("menu")}</span>
-              <dso-icon icon="chevron-down"></dso-icon>
+              {this.compact === "always" && !this.isMobileViewport ? (
+                <dso-icon icon="chevron-down"></dso-icon>
+              ) : (
+                <dso-icon icon="bars"></dso-icon>
+              )}
             </button>
             <div popover="manual" ref={(element) => (this.popoverElement = element)}>
               <dso-scrollable
@@ -633,8 +627,8 @@ export class Header implements ComponentInterface {
                       )}
                     </li>
                   )}
-                  {this.showHelp && this.isMobileViewport && <li role="menuitem">{this.renderHelpButton()}</li>}
-                  {this.authStatus === "loggedOut" && <li role="menuitem">{this.renderLoginButton()}</li>}
+                  {this.showHelp && this.isMobileViewport && <li role="menuitem">{this.renderHelp()}</li>}
+                  {this.authStatus === "loggedOut" && <li role="menuitem">{this.renderLogin()}</li>}
                 </ul>
               </dso-scrollable>
             </div>

@@ -171,6 +171,33 @@ describe("Header", () => {
       .should("not.exist");
   });
 
+  it("should show bars for auto compact menu below desktop breakpoint", () => {
+    cy.viewport(991, 600)
+      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .invoke("prop", "compact", "auto")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown-menu > button dso-icon")
+      .should("have.prop", "icon", "bars");
+  });
+
+  it("should show chevron for forced compact menu between mobile and desktop breakpoint", () => {
+    cy.viewport(991, 600)
+      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .invoke("prop", "compact", "always")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown-menu > button dso-icon")
+      .should("have.prop", "icon", "chevron-down");
+  });
+
+  it("should show bars for compact menu at mobile breakpoint", () => {
+    cy.viewport(480, 600)
+      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .invoke("prop", "compact", "always")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown-menu > button dso-icon")
+      .should("have.prop", "icon", "bars");
+  });
+
   it("should not show menu", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label&args=noMainMenu:true");
 
@@ -264,8 +291,8 @@ describe("Header", () => {
       .should("not.exist");
   });
 
-  it("should show help outside the menu at the mobile breakpoint", () => {
-    cy.viewport(480, 600);
+  it("should show help in the menu at the mobile breakpoint", () => {
+    cy.viewport(481, 600);
 
     cy.get("dso-header.hydrated")
       .invoke("attr", "show-help", "true")
@@ -329,6 +356,8 @@ describe("Header", () => {
   });
 
   it("should show login or logout when no menuItems are provided", () => {
+    cy.viewport(992, 600);
+
     cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
       .then(($header) => setMenuItems($header, []))
       .invoke("attr", "login-url", "#login")
@@ -337,8 +366,6 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find(".login > a")
       .should("be.visible")
-      .find("dso-icon")
-      .should("have.prop", "icon", "user-outline")
       .get("dso-header")
       .invoke("attr", "auth-status", "loggedIn")
       .get("@dsoHeaderShadow")
@@ -347,20 +374,23 @@ describe("Header", () => {
   });
 
   it("should show correct login and logout when appropriate (and as anchors when url is provided)", () => {
+    cy.viewport(992, 600);
+
     cy.get("dso-header.hydrated")
-      // Show as <button>
+      // Show login as <a>
       .invoke("removeAttr", "login-url")
       .invoke("removeAttr", "logout-url")
       .invoke("attr", "auth-status", "loggedOut")
       .get("@dsoHeaderShadow")
-      .find(".login > button")
+      .find(".login > a")
       .should("be.visible")
+      // Show logout as <button>
       .get("dso-header")
       .invoke("attr", "auth-status", "loggedIn")
       .get("@dsoHeaderShadow")
       .find(".logout > button")
       .should("be.visible")
-      // Show as <a>
+      // Show login as <a> with URL
       .get("dso-header")
       .invoke("attr", "login-url", "#login")
       .invoke("attr", "logout-url", "#logout")
@@ -368,6 +398,7 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find(".login > a")
       .should("be.visible")
+      // Show logout as <a> with URL
       .get("dso-header")
       .invoke("attr", "auth-status", "loggedIn")
       .get("@dsoHeaderShadow")
@@ -479,23 +510,28 @@ describe("Header", () => {
       .should("have.class", "dso-active")
       .find("a")
       .should("have.attr", "aria-current", "page")
-      .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
-      .get("dso-header")
-      .invoke("attr", "user-home-active", "true")
-      .get("dso-header")
+      .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)");
+
+    cy.get<HTMLDsoHeaderElement>("dso-header")
+      .invoke("prop", "userHomeActive", true)
       .then(($header) => {
         setMenuItems(
           $header,
           defaultMenuItems.map((menuItem) => ({ ...menuItem, active: false })),
         );
-      })
-      .get("@dsoHeaderShadow")
+      });
+
+    cy.get("@dsoHeaderShadow")
       .find("nav li:first")
       .should("not.have.class", "dso-active")
       .find("a")
-      .should("not.have.attr", "aria-current", "page")
-      .and("not.have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
-      .get("@dsoHeaderShadow")
+      .should("not.have.attr", "aria-current");
+
+    cy.get("@dsoHeaderShadow")
+      .find("nav li:first a")
+      .should("not.have.css", "border-bottom", "4px solid rgb(139, 74, 106)");
+
+    cy.get("@dsoHeaderShadow")
       .find("nav li.menu-user-home")
       .should("have.class", "dso-active")
       .find("a")

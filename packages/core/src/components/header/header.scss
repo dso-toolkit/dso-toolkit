@@ -81,7 +81,6 @@ div[popover] {
 
 .dso-header-session {
   display: flex;
-  align-items: center;
   margin-inline-start: auto;
 
   .profile,
@@ -120,28 +119,8 @@ div[popover] {
     }
   }
 
-  .help,
-  .login {
-    a,
-    button {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      dso-icon {
-        order: -1;
-        margin-inline-start: 0;
-      }
-
-      span {
-        order: 0;
-      }
-    }
-  }
-
   .help {
-    a,
-    button {
+    a {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1px}) {
         gap: 0;
 
@@ -263,6 +242,7 @@ div[popover] {
             &:visited {
               color: colors.$bosgroen;
             }
+
             background-color: colors.$wit;
             text-decoration: underline;
           }
@@ -287,6 +267,10 @@ div[popover] {
           align-items: center;
           display: flex;
           gap: units.$u1 * 0.5;
+
+          @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min}) {
+            gap: 10px;
+          }
 
           dso-icon {
             margin-inline-start: 0;
