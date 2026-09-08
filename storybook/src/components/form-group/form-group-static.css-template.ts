@@ -8,7 +8,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssFormGroupStatic: ComponentImplementation<FormGroupStatic<TemplateResult>> = {
   component: "formGroupStatic",
   implementation: "html-css",
-  template: ({ infoButtonTemplate, infoTemplate, buttonTemplate }) =>
+  template: ({ infoButtonTemplate, infoTemplate, iconButtonTemplate }) =>
     function formGroupStaticTemplate(formGroup) {
       const infoTextId = `${formGroup.id}-info-text`;
 
@@ -30,13 +30,11 @@ export const cssFormGroupStatic: ComponentImplementation<FormGroupStatic<Templat
             ${formGroup.value}
             ${
               formGroup.edit
-                ? buttonTemplate({
-                    type: "button",
+                ? html`${iconButtonTemplate({
                     variant: "tertiary",
                     label: "Edit",
-                    icon: { icon: "pencil" },
-                    iconMode: "only",
-                  })
+                    icon: "pencil",
+                  })}`
                 : nothing
             }
           </div>

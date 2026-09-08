@@ -1,0 +1,53 @@
+---
+authors: [xiangjuzou-prog]
+---
+
+# DSO Toolkit v101.0.0 😾
+
+Deze release bevat een **BREAKING** change voor het volgende component:
+
+- Form Group
+
+<!-- truncate -->
+
+## Form Group
+
+**Breaking**: In het HTML/CSS component Form Group (Static) schrijven wij nog het gebruik voor van een `icon-only` Button. Dit gaan we vervangen door een Icon Button (dso-icon-button).
+
+### Migratiepad
+
+Gebruik de Core implementatie van Icon Button.
+
+```html
+❌
+<div class="form-group dso-static">
+  <div class="dso-label-container">
+    <label class="control-label" for="mijn-id"> Kleur van object </label>
+    <button type="button" class="dso-info-button" aria-expanded="false">
+      <span class="sr-only"> Toelichting bij veld </span>
+    </button>
+  </div>
+  <div class="dso-field-container">
+    rood
+
+    <button type="button" class="dso-tertiary">
+      <span class="sr-only">Edit</span><dso-icon icon="pencil"></dso-icon>
+    </button>
+  </div>
+</div>
+
+✅
+<div class="form-group dso-static">
+  <div class="dso-label-container">
+    <label class="control-label" for="mijn-id"> Kleur van object </label>
+    <button type="button" class="dso-info-button" aria-expanded="false">
+      <span class="sr-only"> Toelichting bij veld </span>
+    </button>
+  </div>
+  <div class="dso-field-container">
+    rood
+
+    <dso-icon-button variant="tertiary" icon="pencil" label="Edit" tooltip-placement="top"></dso-icon-button>
+  </div>
+</div>
+```
