@@ -508,7 +508,7 @@ export class Header implements ComponentInterface {
         class={tertiary ? "dso-tertiary" : undefined}
         onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
       >
-        {this.isMobileViewport && <dso-icon icon="user-outline"></dso-icon>}
+        <dso-icon icon="user-outline"></dso-icon>
         <span>{this.text("login")}</span>
       </a>
     ) : (
@@ -517,7 +517,7 @@ export class Header implements ComponentInterface {
         type="button"
         onClick={(e) => this.clickHandler(e, "login")}
       >
-        {this.isMobileViewport && <dso-icon icon="user-outline"></dso-icon>}
+        <dso-icon icon="user-outline"></dso-icon>
         <span>{this.text("login")}</span>
       </button>
     );
