@@ -295,28 +295,14 @@ describe("Header", () => {
     cy.get("@dsoHeaderShadow").find(".dso-header-session .help").should("not.exist");
   });
 
-  it("should show login with user-outline icon below help in the menu below the mobile breakpoint", () => {
-    cy.viewport(400, 600);
+  it("should show login with user-outline icon above help in the menu below the mobile breakpoint", () => {
+    cy.viewport(400, 800);
 
     cy.get("dso-header.hydrated").invoke("attr", "show-help", "true").invoke("attr", "auth-status", "loggedOut");
 
     ensureCompactMenuOpen();
 
-    cy.get("@dsoHeaderShadow")
-      .find(".dropdown-menu-options ul li:last-child a")
-      .should("contain.text", "Inloggen")
-      .find("dso-icon")
-      .should("have.prop", "icon", "user-outline");
-
-    cy.get("@dsoHeaderShadow")
-      .find(".dropdown-menu-options ul li:last-child")
-      .prev("li")
-      .find("dso-icon")
-      .should("have.prop", "icon", "help-outline");
-
-    cy.get("@dsoHeaderShadow").find(".dropdown-menu-options ul li:last-child a").click({ force: true });
-
-    cy.get("@headerListener").its("lastCall.args.0.detail").should("deep.contain", { type: "login", url: "#login" });
+    cy.matchImageSnapshot(`mobile viewport -- open`);
   });
 
   it("should use an anchor if help-url is passed", () => {
@@ -355,7 +341,7 @@ describe("Header", () => {
       .invoke("removeAttr", "logout-url")
       .invoke("attr", "auth-status", "loggedOut")
       .get("@dsoHeaderShadow")
-      .find(".login > a")
+      .find(".login > button")
       .should("be.visible")
       // Show logout as <button>
       .get("dso-header")

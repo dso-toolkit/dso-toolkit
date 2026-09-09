@@ -488,24 +488,54 @@ export class Header implements ComponentInterface {
   }
 
   private renderHelp(): JSX.Element {
-    return (
+    return this.helpUrl ? (
       <a href={this.helpUrl} class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}>
         <span>{this.text("help")}</span>
         <dso-icon icon="help-outline"></dso-icon>
       </a>
+    ) : (
+      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
+        <span>{this.text("help")}</span>
+        <dso-icon icon="help-outline"></dso-icon>
+      </button>
     );
   }
 
-  private renderLogin(): JSX.Element {
-    return (
+  private renderLogin(tertiary = true): JSX.Element {
+    return this.loginUrl ? (
       <a
         href={this.loginUrl}
-        class="dso-tertiary"
+        class={tertiary ? "dso-tertiary" : undefined}
         onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
       >
         {this.isMobileViewport && <dso-icon icon="user-outline"></dso-icon>}
         <span>{this.text("login")}</span>
       </a>
+    ) : (
+      <button
+        class={tertiary ? "dso-tertiary" : undefined}
+        type="button"
+        onClick={(e) => this.clickHandler(e, "login")}
+      >
+        {this.isMobileViewport && <dso-icon icon="user-outline"></dso-icon>}
+        <span>{this.text("login")}</span>
+      </button>
+    );
+  }
+
+  private renderLogout(): JSX.Element {
+    return this.logoutUrl ? (
+      <a
+        href={this.logoutUrl}
+        class="dso-tertiary"
+        onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
+      >
+        {this.text("logout")}
+      </a>
+    ) : (
+      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "logout")}>
+        {this.text("logout")}
+      </button>
     );
   }
 
@@ -526,23 +556,7 @@ export class Header implements ComponentInterface {
               </div>
             )}
             {this.authStatus === "loggedOut" && <div class="login">{this.renderLogin()}</div>}
-            {this.authStatus === "loggedIn" && (
-              <div class="logout">
-                {this.logoutUrl ? (
-                  <a
-                    href={this.logoutUrl}
-                    class="dso-tertiary"
-                    onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
-                  >
-                    {this.text("logout")}
-                  </a>
-                ) : (
-                  <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "logout")}>
-                    {this.text("logout")}
-                  </button>
-                )}
-              </div>
-            )}
+            {this.authStatus === "loggedIn" && <div class="logout">{this.renderLogout()}</div>}
           </Fragment>
         )}
 
@@ -607,24 +621,9 @@ export class Header implements ComponentInterface {
                       </a>
                     </li>
                   )}
-                  {this.authStatus === "loggedIn" && (
-                    <li role="menuitem">
-                      {this.logoutUrl ? (
-                        <a
-                          href={this.logoutUrl}
-                          onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
-                        >
-                          {this.text("logout")}
-                        </a>
-                      ) : (
-                        <button type="button" onClick={(e) => this.clickHandler(e, "logout")}>
-                          {this.text("logout")}
-                        </button>
-                      )}
-                    </li>
-                  )}
-                  {this.showHelp && this.isMobileViewport && <li role="menuitem">{this.renderHelp()}</li>}
+                  {this.authStatus === "loggedIn" && <li role="menuitem">{this.renderLogout()}</li>}
                   {this.authStatus === "loggedOut" && <li role="menuitem">{this.renderLogin()}</li>}
+                  {this.showHelp && this.isMobileViewport && <li role="menuitem">{this.renderHelp()}</li>}
                 </ul>
               </dso-scrollable>
             </div>
