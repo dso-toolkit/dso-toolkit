@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { buttonTemplate } from "../button/button.template.js";
@@ -6,15 +6,15 @@ import { iconTemplate } from "../icon/icon.template.js";
 
 import { ShoppingCart, ShoppingCartItem } from "./shopping-cart.models.js";
 
-function accumulateItems(items: ShoppingCartItem<TemplateResult>[]) {
-  return items.reduce<ShoppingCartItem<TemplateResult>[]>((t, item) => t.concat(item), []);
+function accumulateItems(items: ShoppingCartItem[]) {
+  return items.reduce<ShoppingCartItem[]>((t, item) => t.concat(item), []);
 }
 
-function countItems(items: ShoppingCartItem<TemplateResult>[]) {
+function countItems(items: ShoppingCartItem[]) {
   return accumulateItems(items).length;
 }
 
-function hasWarning(items: ShoppingCartItem<TemplateResult>[]) {
+function hasWarning(items: ShoppingCartItem[]) {
   for (const item of items) {
     if ("subitems" in item) {
       if (item.subitems?.some((subitem) => subitem.warning)) {
@@ -30,7 +30,7 @@ function hasWarning(items: ShoppingCartItem<TemplateResult>[]) {
   return false;
 }
 
-export function cssShoppingCartTemplate({
+export function shoppingCartTemplate({
   collapsable,
   collapsed,
   hideSummary,
@@ -39,7 +39,7 @@ export function cssShoppingCartTemplate({
   items,
   titleTag,
   title,
-}: ShoppingCart<TemplateResult>) {
+}: ShoppingCart) {
   return html`
     ${titleTag === "h2" ? html`<h2>${title}</h2>` : html`<h3>${title}</h3>`}
 

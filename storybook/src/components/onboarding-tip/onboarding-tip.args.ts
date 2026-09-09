@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
@@ -29,11 +30,11 @@ export const onboardingTipArgTypes: ArgTypes<OnboardingTipArgs> = {
   dsoClose: argTypeAction(),
 };
 
-export function onboardingTipArgsMapper<TemplateFnReturnType>(
+export function onboardingTipArgsMapper(
   a: OnboardingTipArgs,
-  heading?: TemplateFnReturnType,
-  content?: TemplateFnReturnType,
-): OnboardingTip<TemplateFnReturnType> {
+  heading?: TemplateResult | string,
+  content?: TemplateResult | string,
+): OnboardingTip {
   return {
     id: a.id,
     placement: a.placement,

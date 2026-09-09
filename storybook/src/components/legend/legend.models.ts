@@ -1,5 +1,7 @@
-export interface Legend<TemplateFnReturnType> {
-  content: TemplateFnReturnType;
+import { TemplateResult } from "lit-html";
+
+export interface Legend {
+  content: TemplateResult | string;
   tabItems: LegendTabItem[];
   dsoContentSwitch?: (e: CustomEvent<LegendContentSwitchEvent>) => void;
   dsoClose?: (e: CustomEvent<LegendCloseEvent>) => void;
@@ -23,9 +25,9 @@ export interface LegendCloseEvent {
   originalEvent?: MouseEvent | Event;
 }
 
-export interface LegendItem<TemplateFnReturnType> {
-  options?: TemplateFnReturnType;
-  content?: TemplateFnReturnType;
+export interface LegendItem {
+  options?: TemplateResult | string;
+  content?: TemplateResult | string;
   disabled?: boolean;
   disabledMessage?: string;
   dsoMouseEnter?: (e: CustomEvent<MouseEvent>) => void;
@@ -34,7 +36,7 @@ export interface LegendItem<TemplateFnReturnType> {
   dsoDelete?: (e: CustomEvent) => void;
   active?: boolean;
   activatable?: boolean;
-  symbol?: TemplateFnReturnType;
+  symbol?: TemplateResult | string;
 }
 
 export interface LegendItemActiveChangeEvent {
@@ -51,10 +53,10 @@ export interface LegendItemActiveChangeEvent {
   originalEvent: Event;
 }
 
-export interface LegendGroup<TemplateFnReturnType = unknown> {
+export interface LegendGroup {
   mode?: LegendMode;
-  heading?: TemplateFnReturnType;
-  options?: TemplateFnReturnType;
-  children?: TemplateFnReturnType;
+  heading?: TemplateResult | string;
+  options?: TemplateResult | string;
+  children?: TemplateResult | string;
   dsoLegendGroupModeChange?: (e: CustomEvent) => void;
 }

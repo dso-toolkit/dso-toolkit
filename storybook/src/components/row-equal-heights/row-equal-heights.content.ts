@@ -1,7 +1,7 @@
 import { HighlightBox } from "../highlight-box/highlight-box.models.js";
 import { Tile } from "../tile/tile.models.js";
 
-export const highlightBoxes: HighlightBox<string>[] = [
+export const highlightBoxes: HighlightBox[] = [
   {
     yellow: false,
     white: false,

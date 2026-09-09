@@ -23,11 +23,10 @@ const meta: Meta<ButtonArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args: ButtonArgs) => buttonTemplate(buttonArgsMapper(args)),
 };
 
 export default meta;
-
-const render = (args: ButtonArgs) => buttonTemplate(buttonArgsMapper(args));
 
 export const Primary: ButtonStory = {
   argTypes: {
@@ -39,7 +38,6 @@ export const Primary: ButtonStory = {
     variant: "primary",
     label: "Primary button",
   },
-  render,
 };
 
 export const PrimaryCompact: ButtonStory = {
@@ -48,7 +46,6 @@ export const PrimaryCompact: ButtonStory = {
     label: "Primary button",
     compact: true,
   },
-  render,
 };
 
 export const Secondary: ButtonStory = {
@@ -56,7 +53,6 @@ export const Secondary: ButtonStory = {
     variant: "secondary",
     label: "Secondary button",
   },
-  render,
 };
 
 export const Tertiary: ButtonStory = {
@@ -64,7 +60,6 @@ export const Tertiary: ButtonStory = {
     variant: "tertiary",
     label: "Tertiary button",
   },
-  render,
 };
 
 export const Map: ButtonStory = {
@@ -72,5 +67,4 @@ export const Map: ButtonStory = {
     variant: "map",
     label: "Map button",
   },
-  render,
 };

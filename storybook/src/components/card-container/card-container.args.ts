@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
@@ -82,10 +83,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
   ],
 };
 
-export function cardContainerArgsMapper<TemplateFnReturnType>(
-  a: CardContainerArgs,
-  content: TemplateFnReturnType[],
-): CardContainer<TemplateFnReturnType> {
+export function cardContainerArgsMapper(a: CardContainerArgs, content: (TemplateResult | string)[]): CardContainer {
   return {
     ...a,
     cards: a.cards.map((card, index) => {

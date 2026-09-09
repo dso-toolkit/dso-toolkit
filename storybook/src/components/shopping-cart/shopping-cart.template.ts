@@ -5,15 +5,8 @@ import { formTemplate } from "../form/form.template.js";
 
 import { ShoppingCart, ShoppingCartItem } from "./shopping-cart.models.js";
 
-export function coreShoppingCartTemplate({
-  mode,
-  toggleable,
-  title,
-  titleTag,
-  items,
-  dsoToggle,
-}: ShoppingCart<TemplateResult>) {
-  const renderItem = (item: ShoppingCartItem<TemplateResult>): TemplateResult => html`
+export function shoppingCartTemplate({ mode, toggleable, title, titleTag, items, dsoToggle }: ShoppingCart) {
+  const renderItem = (item: ShoppingCartItem): TemplateResult => html`
     <dso-shopping-cart-item
       mode=${ifDefined(item.mode)}
       ?warning=${item.warning}

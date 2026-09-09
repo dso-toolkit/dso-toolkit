@@ -1,9 +1,9 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 
 import { Context } from "./context.models.js";
 
-function contextLabelTemplate({ label, content, children, alignLeft }: Context<TemplateResult>) {
+function contextLabelTemplate({ label, content, children, alignLeft }: Context) {
   return html`
     <div
       class="dso-context-wrapper ${classMap({
@@ -17,7 +17,7 @@ function contextLabelTemplate({ label, content, children, alignLeft }: Context<T
   `;
 }
 
-function contextFieldsetTemplate({ label, content, children, alignLeft }: Context<TemplateResult>) {
+function contextFieldsetTemplate({ label, content, children, alignLeft }: Context) {
   return html`
     <fieldset>
       <legend class="sr-only">${label}</legend>
@@ -34,7 +34,7 @@ function contextFieldsetTemplate({ label, content, children, alignLeft }: Contex
   `;
 }
 
-export function contextTemplate(context: Context<TemplateResult>) {
+export function contextTemplate(context: Context) {
   switch (context.type) {
     case "label":
       return contextLabelTemplate(context);

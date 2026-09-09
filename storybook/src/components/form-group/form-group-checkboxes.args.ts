@@ -98,9 +98,7 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
   },
 };
 
-export function formGroupCheckboxesArgsMapper<TemplateFnReturnType>(
-  a: FormGroupCheckboxesArgs,
-): FormGroupCheckboxes<TemplateFnReturnType> {
+export function formGroupCheckboxesArgsMapper(a: FormGroupCheckboxesArgs): FormGroupCheckboxes {
   return {
     group: "checkboxes",
     id: a.id,

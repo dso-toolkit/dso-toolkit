@@ -1,6 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/selectable/readme.md?raw";
 import type { Meta } from "@storybook/web-components-vite";
-import { TemplateResult } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 import { Renderer } from "storybook/internal/types";
 import { v4 as uuidv4 } from "uuid";
@@ -12,9 +11,9 @@ import { infoRichContent } from "./selectable.content.js";
 import { Selectable } from "./selectable.models.js";
 import { selectableTemplate } from "./selectable.template.js";
 
-type SelectableStory = StoryObj<SelectableArgs<TemplateResult>, Renderer>;
+type SelectableStory = StoryObj<SelectableArgs, Renderer>;
 
-const meta: Meta<SelectableArgs<TemplateResult>> = {
+const meta: Meta<SelectableArgs> = {
   title: "Core/Selectable",
   argTypes: selectableArgTypes,
   args: {
@@ -39,8 +38,7 @@ const meta: Meta<SelectableArgs<TemplateResult>> = {
 
 export default meta;
 
-const render = (args: SelectableArgs<TemplateResult>) =>
-  selectableTemplate(selectableArgsMapper(args, infoRichContent));
+const render = (args: SelectableArgs) => selectableTemplate(selectableArgsMapper(args, infoRichContent));
 
 export const Radio: SelectableStory = {
   args: {
@@ -148,7 +146,7 @@ export const Nested: SelectableStory = {
         id: "checkbox-sub-1-4",
         name: "checkbox-sub-1",
       },
-    ] satisfies Selectable<TemplateResult>[],
+    ] satisfies Selectable[],
   },
   render,
 };

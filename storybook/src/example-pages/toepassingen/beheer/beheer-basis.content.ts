@@ -1,8 +1,8 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
-import type { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
-import type { Header } from "../../../components/header/header.models.js";
+import { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
+import { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
+import { Header } from "../../../components/header/header.models.js";
 
 export const header: Header = {
   ribbon: "beta",
@@ -44,7 +44,7 @@ export const breadcrumbs: Breadcrumbs = {
   ],
 };
 
-export const definitionList: DefinitionList<TemplateResult> = {
+export const definitionList: DefinitionList = {
   modifier: "dso-columns dso-3-columns",
   definitions: [
     {

@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -11,7 +11,7 @@ import { selectableTemplate } from "../selectable/selectable.template.js";
 
 import { FormGroupFiles } from "./form-group-files.models.js";
 
-export function formGroupFilesTemplate(formGroup: FormGroupFiles<TemplateResult>) {
+export function formGroupFilesTemplate(formGroup: FormGroupFiles) {
   const errorTextId = `${formGroup.id}-error-text`;
   const infoTextId = `${formGroup.id}-info-text`;
 

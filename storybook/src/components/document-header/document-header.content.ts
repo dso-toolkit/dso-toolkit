@@ -1,10 +1,10 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
 import { linkTemplate } from "../link/link.template.js";
 
 import { featuresContentType } from "./document-header.models.js";
 
-export const featuresContent: featuresContentType<TemplateResult> = new Map([
+export const featuresContent: featuresContentType = new Map([
   [
     "vastgesteld",
     new Map([

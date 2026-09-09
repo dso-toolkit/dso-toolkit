@@ -1,7 +1,7 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
 import { RowEqualHeights } from "./row-equal-heights.models.js";
 
-export function rowEqualHeightsTemplate({ children }: RowEqualHeights<TemplateResult>) {
+export function rowEqualHeightsTemplate({ children }: RowEqualHeights) {
   return html`<div class="row dso-equal-heights">${children}</div>`;
 }

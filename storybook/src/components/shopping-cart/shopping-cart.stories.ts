@@ -9,12 +9,12 @@ import { fn } from "storybook/test";
 import { StoryObj } from "../../shared/story-obj.js";
 
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
-import { coreShoppingCartTemplate } from "./shopping-cart.core-template";
 import { ShoppingCartItem } from "./shopping-cart.models.js";
+import { shoppingCartTemplate } from "./shopping-cart.template.js";
 
-type ShoppingCartStory = StoryObj<ShoppingCartArgs<never>, Renderer>;
+type ShoppingCartStory = StoryObj<ShoppingCartArgs, Renderer>;
 
-const meta: Meta<ShoppingCartArgs<never>> = {
+const meta: Meta<ShoppingCartArgs> = {
   title: "Core/Shopping Cart",
   argTypes: shoppingCartArgTypes,
   args: {
@@ -49,9 +49,9 @@ const meta: Meta<ShoppingCartArgs<never>> = {
 
 export default meta;
 
-const render = (args: ShoppingCartArgs<never>) => coreShoppingCartTemplate(shoppingCartArgsMapper(args));
+const render = (args: ShoppingCartArgs) => shoppingCartTemplate(shoppingCartArgsMapper(args));
 
-const sideItems = ({ warning }: Pick<ShoppingCartArgs<never>, "warning">): ShoppingCartItem<never>[] => [
+const sideItems = ({ warning }: Pick<ShoppingCartArgs, "warning">): ShoppingCartItem[] => [
   {
     label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
     info: "Aanvraag vergunning (Gemeente Utrecht)",
@@ -89,10 +89,7 @@ const sideItems = ({ warning }: Pick<ShoppingCartArgs<never>, "warning">): Shopp
   },
 ];
 
-const mainItems = ({
-  warning,
-  itemMode,
-}: Pick<ShoppingCartArgs<never>, "warning" | "itemMode">): ShoppingCartItem<never>[] => [
+const mainItems = ({ warning, itemMode }: Pick<ShoppingCartArgs, "warning" | "itemMode">): ShoppingCartItem[] => [
   {
     label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
     info: "Aanvraag vergunning (Gemeente Utrecht)",

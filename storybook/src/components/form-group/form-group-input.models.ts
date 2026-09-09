@@ -3,7 +3,7 @@ import { Icon } from "../icon/icon.models.js";
 
 import { FormGroupBase } from "./form-group.base-model.js";
 
-export interface FormGroupInput<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
+export interface FormGroupInput extends FormGroupBase {
   group: "input";
   type: "text" | "email" | "password" | "url" | "tel";
   value?: string;
@@ -14,7 +14,7 @@ export interface FormGroupInput<TemplateFnReturnType> extends FormGroupBase<Temp
   formButtons?: FormButtons;
 }
 
-export interface FormGroupInputDate<TemplateFnReturnType> extends Omit<FormGroupInput<TemplateFnReturnType>, "type"> {
+export interface FormGroupInputDate extends Omit<FormGroupInput, "type"> {
   type: "date";
   min?: string;
   max?: string;

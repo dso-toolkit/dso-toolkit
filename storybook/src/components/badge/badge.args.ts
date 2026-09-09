@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
@@ -51,10 +52,7 @@ export const badgeArgTypes: ArgTypes<BadgeArgs> = {
   toggletip: argTypeAction(),
 };
 
-export function badgeArgsMapper<TemplateFnReturnType>(
-  a: BadgeArgs,
-  children?: TemplateFnReturnType,
-): Badge<TemplateFnReturnType> {
+export function badgeArgsMapper(a: BadgeArgs, children?: TemplateResult | string): Badge {
   return {
     ...a,
     children,

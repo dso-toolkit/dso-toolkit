@@ -1,15 +1,16 @@
-import type { Meta } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
 
-import type { Button } from "../../components/button/button.models.js";
+import { Button } from "../../components/button/button.models.js";
 import { buttonTemplate } from "../../components/button/button.template.js";
-import type { IconButton } from "../../components/icon-button/icon-button.models.js";
+import { IconButton } from "../../components/icon-button/icon-button.models.js";
 import { iconButtonTemplate } from "../../components/icon-button/icon-button.template.js";
 import { InfoButton } from "../../components/info-button/info-button.models.js";
 import { infoButtonTemplate } from "../../components/info-button/info-button.template.js";
 import { examplePageStory } from "../../example-page-story.js";
 
 import "./button-on-color.scss";
+
+import type { Meta } from "@storybook/web-components-vite";
 
 const meta: Meta = {
   title: "Patronen/Button on color",
@@ -98,7 +99,7 @@ const mapIconButtons: IconButton[] = [
   { label: "Map Icon Button (Disabled)", variant: "map", icon: "chevron-right", disabled: true },
 ];
 
-const infoButtons: InfoButton<TemplateResult>[] = [
+const infoButtons: InfoButton[] = [
   { label: "Default active", active: true },
   { label: "Information", children: html`Dit is content in de tooltip` },
 ];

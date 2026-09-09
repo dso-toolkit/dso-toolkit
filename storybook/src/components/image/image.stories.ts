@@ -22,26 +22,21 @@ const meta: Meta<ImageArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args: ImageArgs) => imageTemplate(imageArgsMapper(args)),
 };
 
 export default meta;
 
-const render = (args: ImageArgs) => imageTemplate(imageArgsMapper(args));
-
-export const Default: ImageStory = {
-  render,
-};
+export const Default: ImageStory = {};
 
 export const Responsive: ImageStory = {
   args: {
     modifier: "img-responsive",
   },
-  render,
 };
 
 export const Circle: ImageStory = {
   args: {
     modifier: "img-circle",
   },
-  render,
 };

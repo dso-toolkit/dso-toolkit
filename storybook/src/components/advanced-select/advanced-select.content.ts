@@ -1,10 +1,6 @@
-import { TemplateResult } from "lit-html";
-
 import { AdvancedSelectGroup, AdvancedSelectOption, AdvancedSelectPlaceholder } from "./advanced-select.models.js";
 
-export const options: (
-  AdvancedSelectOption<TemplateResult> | AdvancedSelectGroup<TemplateResult> | AdvancedSelectPlaceholder
-)[] = [
+export const options: (AdvancedSelectOption | AdvancedSelectGroup | AdvancedSelectPlaceholder)[] = [
   {
     label: "Geldende versie",
     variant: "success",

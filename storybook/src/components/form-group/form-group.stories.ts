@@ -123,14 +123,14 @@ export const Files: FormGroupFilesStory = {
   args: formGroupFilesArgs,
   argTypes: formGroupFilesArgTypes,
   render: (args) => formGroupFilesTemplate(formGroupFilesArgsMapper(args, files)),
-  storyName: "Files (files uploaded)",
+  name: "Files (files uploaded)",
 };
 
 export const NoFiles: FormGroupFilesStory = {
   args: formGroupFilesArgs,
   argTypes: formGroupFilesArgTypes,
   render: (args) => formGroupFilesTemplate(formGroupFilesArgsMapper(args, [])),
-  storyName: "Files (no files uploaded)",
+  name: "Files (no files uploaded)",
 };
 
 export const Input: FormGroupInputStory = {

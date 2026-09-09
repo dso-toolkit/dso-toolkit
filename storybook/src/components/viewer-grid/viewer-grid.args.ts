@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
@@ -7,13 +8,13 @@ import { ViewerGrid, ViewerGridPanelSize, ViewerGridTab } from "./viewer-grid.mo
 
 const panelSizes = ["small", "medium", "large"];
 
-export interface ViewerGridExample<TemplateFnReturnType> {
-  topBar?: TemplateFnReturnType;
-  main: (mainExpanded: boolean) => TemplateFnReturnType;
-  map: TemplateFnReturnType;
-  documentPanel: TemplateFnReturnType;
-  filterPanel: TemplateFnReturnType;
-  overlay: TemplateFnReturnType;
+export interface ViewerGridExample {
+  topBar?: TemplateResult | string;
+  main: (mainExpanded: boolean) => TemplateResult;
+  map: TemplateResult | string;
+  documentPanel: TemplateResult | string;
+  filterPanel: TemplateResult | string;
+  overlay: TemplateResult | string;
 }
 
 export interface ViewerGridArgs {
@@ -93,10 +94,7 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   dsoActiveTabSwitch: argTypeAction(),
 };
 
-export function viewerGridArgsMapper<TemplateFnReturnType>(
-  a: ViewerGridArgs,
-  example: ViewerGridExample<TemplateFnReturnType>,
-): ViewerGrid<TemplateFnReturnType> {
+export function viewerGridArgsMapper(a: ViewerGridArgs, example: ViewerGridExample): ViewerGrid {
   return {
     ...a,
     ...example,

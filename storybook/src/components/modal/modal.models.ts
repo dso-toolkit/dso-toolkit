@@ -1,8 +1,10 @@
-export interface Modal<TemplateFnReturnType> {
-  body: TemplateFnReturnType;
+import { TemplateResult } from "lit-html";
+
+export interface Modal {
+  body: TemplateResult | string;
   fullscreen?: boolean;
   modalTitle?: string;
-  footer?: TemplateFnReturnType;
+  footer?: TemplateResult | string;
   role?: ModalRole;
   closable?: boolean;
   dsoClose?: (e: CustomEvent<ModalCloseEvent>) => void;

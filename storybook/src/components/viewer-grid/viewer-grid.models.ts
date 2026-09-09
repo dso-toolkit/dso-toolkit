@@ -1,4 +1,6 @@
-export interface ViewerGrid<TemplateFnReturnType> {
+import { TemplateResult } from "lit-html";
+
+export interface ViewerGrid {
   filterPanelOpen?: boolean;
   filterPanelTitle?: string;
   overlayOpen?: boolean;
@@ -16,13 +18,13 @@ export interface ViewerGrid<TemplateFnReturnType> {
   dsoDocumentPanelSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
   dsoMainPanelToggle?: (e: CustomEvent<ViewerGridMainToggleEvent>) => void;
-  topBar?: TemplateFnReturnType;
-  filterPanel?: TemplateFnReturnType;
-  main: TemplateFnReturnType;
-  map: TemplateFnReturnType;
-  legend?: TemplateFnReturnType;
-  documentPanel?: TemplateFnReturnType;
-  overlay?: TemplateFnReturnType;
+  topBar?: TemplateResult | string;
+  filterPanel?: TemplateResult | string;
+  main: TemplateResult | string;
+  map: TemplateResult | string;
+  legend?: TemplateResult | string;
+  documentPanel?: TemplateResult | string;
+  overlay?: TemplateResult | string;
 }
 
 export type ViewerGridPanelSize = "small" | "medium" | "large";

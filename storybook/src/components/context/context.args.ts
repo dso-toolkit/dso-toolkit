@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { ArgTypes } from "storybook/internal/types";
 
 import { Context } from "./context.models.js";
@@ -21,12 +22,12 @@ export const contextArgTypes: ArgTypes<ContextArgs> = {
   },
 };
 
-export function contextArgsMapper<TemplateFnReturnType>(
+export function contextArgsMapper(
   a: ContextArgs,
-  content: TemplateFnReturnType,
-  children: TemplateFnReturnType,
-  label: TemplateFnReturnType,
-): Context<TemplateFnReturnType> {
+  content: TemplateResult | string,
+  children: TemplateResult | string,
+  label: TemplateResult | string,
+): Context {
   return {
     content,
     children,

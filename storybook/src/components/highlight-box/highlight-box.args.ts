@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { ArgTypes } from "storybook/internal/types";
 
 import { IconAlias } from "../icon/icon.models.js";
@@ -66,11 +67,11 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
   },
 };
 
-export function highlightBoxArgsMapper<TemplateFnReturnType>(
+export function highlightBoxArgsMapper(
   a: HighlightBoxArgs,
-  content: TemplateFnReturnType,
-  stepContent: TemplateFnReturnType,
-): HighlightBox<TemplateFnReturnType> {
+  content: TemplateResult | string,
+  stepContent: TemplateResult | string,
+): HighlightBox {
   return {
     border: a.border,
     dropShadow: a.dropShadow,

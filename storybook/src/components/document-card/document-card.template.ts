@@ -1,5 +1,5 @@
 import { DsoDocumentCardCustomEvent } from "@dso-toolkit/core";
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 
 import { badgeTemplate } from "../badge/badge.template.js";
 import { infoButtonTemplate } from "../info-button/info-button.template.js";
@@ -20,7 +20,7 @@ export function documentCardTemplate({
   status,
   labels,
   dsoDocumentCardClick,
-}: DocumentCard<TemplateResult>) {
+}: DocumentCard) {
   return html`<dso-document-card
     href=${href}
     ?active=${active}

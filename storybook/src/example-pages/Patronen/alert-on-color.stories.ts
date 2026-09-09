@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { Alert } from "../../components/alert/alert.models.js";
+import { Alert } from "../../components/alert/alert.models.js";
 import { alertTemplate } from "../../components/alert/alert.template.js";
 import { highlightBoxTemplate } from "../../components/highlight-box/highlight-box.template.js";
 import { examplePageStory } from "../../example-page-story.js";
@@ -48,7 +48,7 @@ export const AlertOnColor = examplePageStory(() => {
 });
 
 const content = function () {
-  const alerts: Alert<TemplateResult>[] = [
+  const alerts: Alert[] = [
     { status: "error", message: "Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan." },
     { status: "success", message: "Alles werkt prima!" },
     { status: "info", message: "Even een info-melding." },

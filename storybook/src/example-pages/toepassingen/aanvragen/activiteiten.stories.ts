@@ -11,7 +11,7 @@ import { labelGroupTemplate } from "../../../components/label-group/label-group.
 import { linkTemplate } from "../../../components/link/link.template.js";
 import { listButtonTemplate } from "../../../components/list-button/list-button.template.js";
 import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
-import { cssShoppingCartTemplate } from "../../../components/shopping-cart/shopping-cart.css-template";
+import { shoppingCartTemplate } from "../../../components/shopping-cart/shopping-cart-html-css.template.js";
 import { examplePageStory } from "../../../example-page-story.js";
 import { header } from "../../content/header.content.js";
 import { mainMenu } from "../../content/main-menu.content.js";
@@ -42,7 +42,7 @@ const Activiteiten = examplePageStory(() => {
             ${linkTemplate({ label: "Vergunningscheck", url: "#" })}.`,
             status: "info",
           })}
-          ${cssShoppingCartTemplate(shoppingCart)}
+          ${shoppingCartTemplate(shoppingCart)}
           ${highlightBoxTemplate({
             content: html`
               ${searchBarTemplate({

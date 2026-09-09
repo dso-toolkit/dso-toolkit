@@ -1,8 +1,8 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
 import { Definition } from "./definition-list.models.js";
 
-export const definitions: Definition<TemplateResult>[] = [
+export const definitions: Definition[] = [
   {
     term: html`Thema:`,
     descriptions: [
@@ -87,7 +87,7 @@ export const definitions: Definition<TemplateResult>[] = [
   },
 ];
 
-export const definitionsSrOnlyColon: Definition<TemplateResult>[] = [
+export const definitionsSrOnlyColon: Definition[] = [
   {
     term: html`Thema<span class="sr-only">:</span>`,
     descriptions: [
@@ -172,7 +172,7 @@ export const definitionsSrOnlyColon: Definition<TemplateResult>[] = [
   },
 ];
 
-export const columnDefinitions: Definition<TemplateResult>[] = [
+export const columnDefinitions: Definition[] = [
   {
     term: html`Verzoek 1:`,
     descriptions: [
@@ -215,7 +215,7 @@ export const columnDefinitions: Definition<TemplateResult>[] = [
   },
 ];
 
-export const smallContentDefinitions: Definition<TemplateResult>[] = [
+export const smallContentDefinitions: Definition[] = [
   {
     term: html`Organisator:`,
     descriptions: [
@@ -274,7 +274,7 @@ export const smallContentDefinitions: Definition<TemplateResult>[] = [
   },
 ];
 
-export const listDefinitions: Definition<TemplateResult>[] = [
+export const listDefinitions: Definition[] = [
   {
     term: html`Trefwoorden:`,
     descriptions: [

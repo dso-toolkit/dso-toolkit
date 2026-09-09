@@ -6,7 +6,7 @@ import { argTypeAction } from "../../shared/arg-type-action.js";
 
 import { Selectable } from "./selectable.models.js";
 
-export interface SelectableArgs<TemplateFnReturnType> {
+export interface SelectableArgs {
   type: "radio" | "checkbox";
   id: string;
   name?: string;
@@ -20,15 +20,15 @@ export interface SelectableArgs<TemplateFnReturnType> {
   indeterminate?: boolean;
   disabled?: boolean;
   dsoChange: HandlerFunction;
-  infoRichContent?: TemplateFnReturnType;
+  infoRichContent?: TemplateResult | string;
   infoFixed?: boolean;
   infoActive?: boolean;
   infoClosed: HandlerFunction;
   infoToggled: HandlerFunction;
-  options?: Selectable<TemplateFnReturnType>[];
+  options?: Selectable[];
 }
 
-export const selectableArgTypes: ArgTypes<SelectableArgs<TemplateResult>> = {
+export const selectableArgTypes: ArgTypes<SelectableArgs> = {
   type: {
     options: ["radio", "checkbox"],
     control: {
@@ -116,10 +116,10 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<TemplateResult>> = {
   },
 };
 
-export function selectableArgsMapper<TemplateFnReturnType>(
-  a: SelectableArgs<TemplateFnReturnType>,
-  infoRichContent: TemplateFnReturnType | undefined,
-): Selectable<TemplateFnReturnType> {
+export function selectableArgsMapper(
+  a: SelectableArgs,
+  infoRichContent: TemplateResult | string | undefined,
+): Selectable {
   return {
     ...a,
     info: infoRichContent

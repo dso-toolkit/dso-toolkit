@@ -1,5 +1,5 @@
 import { DsoCardCustomEvent } from "@dso-toolkit/core";
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { isButtonInterface } from "../button/button.models.js";
@@ -10,20 +10,12 @@ import { isLabelInterface } from "../label/label.models.js";
 import { labelTemplate } from "../label/label.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 import { selectableTemplate } from "../selectable/selectable.template.js";
-import { SlideToggle, isSlideToggleInterface } from "../slide-toggle/slide-toggle.models.js";
+import { isSlideToggleInterface } from "../slide-toggle/slide-toggle.models.js";
 
 import { Card, CardClickEvent } from "./card.models.js";
+import { slideToggleTemplate } from "../slide-toggle/slide-toggle.template.js";
 
-export function cardTemplate({
-  label,
-  selectable,
-  content,
-  interactions,
-  href,
-  active,
-  mode,
-  dsoCardClick,
-}: Card<TemplateResult>) {
+export function cardTemplate({ label, selectable, content, interactions, href, active, mode, dsoCardClick }: Card) {
   return html`
     <dso-card
       href=${href}
@@ -56,30 +48,5 @@ export function cardTemplate({
       }
       ${content && richContentTemplate({ children: content, slot: "content" })}
     </dso-card>
-  `;
-}
-
-function slideToggleTemplate({
-  checked,
-  disabled,
-  accessibleLabel,
-  labelledbyId,
-  label,
-  useOwnLabelId,
-  dsoActiveChange,
-}: SlideToggle) {
-  return html`
-    ${useOwnLabelId ? html`<div><label for=${useOwnLabelId}>Label gemaakt door de implementatie.</label></div>` : null}
-    ${labelledbyId ? html`<div><span id=${labelledbyId}>Label elders op de pagina</span></div>` : null}
-    <dso-slide-toggle
-      identifier=${ifDefined(useOwnLabelId)}
-      checked=${ifDefined(checked)}
-      disabled=${ifDefined(disabled)}
-      accessible-label=${ifDefined(accessibleLabel)}
-      labelledby-id=${ifDefined(labelledbyId)}
-      @dsoActiveChange=${dsoActiveChange}
-    >
-      ${label && html`<span>${label}</span>`}
-    </dso-slide-toggle>
   `;
 }

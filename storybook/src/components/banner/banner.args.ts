@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { ArgTypes } from "storybook/internal/types";
 
 import { Banner, BannerStatus } from "./banner.models.js";
@@ -23,10 +24,7 @@ export const bannerArgTypes: ArgTypes<BannerArgs> = {
   },
 };
 
-export function bannerArgsMapper<TemplateFnReturnType>(
-  a: BannerArgs,
-  content: TemplateFnReturnType,
-): Banner<TemplateFnReturnType> {
+export function bannerArgsMapper(a: BannerArgs, content: TemplateResult | string): Banner {
   return {
     ...a,
     content,

@@ -19,21 +19,21 @@ type CardContainerStory = StoryObj<CardContainerArgs, Renderer>;
 const meta: Meta<CardContainerArgs> = {
   title: "Core/Card Container",
   argTypes: cardContainerArgTypes,
+  args: cardContainerArgs,
   parameters: {
     docs: {
       page: () => compiler(readme),
     },
   },
+  render: (args: CardContainerArgs) => cardContainerTemplate(cardContainerArgsMapper(args, content)),
 };
 
 export default meta;
 
 export const CardGrid: CardContainerStory = {
-  args: { ...cardContainerArgs, mode: "grid" },
-  render: (args: CardContainerArgs) => cardContainerTemplate(cardContainerArgsMapper(args, content)),
+  args: { mode: "grid" },
 };
 
 export const CardList: CardContainerStory = {
-  args: { ...cardContainerArgs, mode: "list" },
-  render: (args: CardContainerArgs) => cardContainerTemplate(cardContainerArgsMapper(args, content)),
+  args: { mode: "list" },
 };

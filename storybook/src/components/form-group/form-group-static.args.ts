@@ -77,9 +77,7 @@ export const formGroupStaticArgTypes: ArgTypes<FormGroupStaticArgs> = {
   },
 };
 
-export function formGroupStaticArgsMapper<TemplateFnReturnType>(
-  a: FormGroupStaticArgs,
-): FormGroupStatic<TemplateFnReturnType> {
+export function formGroupStaticArgsMapper(a: FormGroupStaticArgs): FormGroupStatic {
   return {
     group: "static",
     id: a.id,

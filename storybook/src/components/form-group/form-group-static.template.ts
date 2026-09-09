@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -8,7 +8,7 @@ import { infoButtonTemplate } from "../info-button/info-button.template.js";
 
 import { FormGroupStatic } from "./form-group-static.models.js";
 
-export function formGroupStaticTemplate(formGroup: FormGroupStatic<TemplateResult>) {
+export function formGroupStaticTemplate(formGroup: FormGroupStatic) {
   const infoTextId = `${formGroup.id}-info-text`;
 
   const ariaDescribedBy = [formGroup.info?.fixed ? infoTextId : undefined].filter((s) => !!s).join(" ") || undefined;

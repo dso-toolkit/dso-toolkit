@@ -1,5 +1,3 @@
-import { TemplateResult } from "lit-html";
-
 import { formGroupCheckboxesTemplate } from "./form-group-checkboxes.template.js";
 import { formGroupConfirmTemplate } from "./form-group-confirm.template.js";
 import { formGroupDatePickerTemplate } from "./form-group-date-picker.template.js";
@@ -12,7 +10,7 @@ import { formGroupStaticTemplate } from "./form-group-static.template.js";
 import { formGroupTextareaTemplate } from "./form-group-textarea.template.js";
 import { FormGroup } from "./form-group.models.js";
 
-export function formGroupTemplate(formGroup: FormGroup<TemplateResult>) {
+export function formGroupTemplate(formGroup: FormGroup) {
   switch (formGroup.group) {
     case "checkboxes":
       return formGroupCheckboxesTemplate(formGroup);

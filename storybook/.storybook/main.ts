@@ -4,11 +4,7 @@ const config: StorybookConfig = {
   typescript: { check: true },
   staticDirs: ["../assets"],
   addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
-  stories: [
-    "../src/components/**/*.stories.ts",
-    "../src/components/**/*.{core-,css-}stories.ts",
-    "../src/example-pages/**/*.stories.ts",
-  ],
+  stories: ["../src/components/**/*.stories.ts", "../src/example-pages/**/*.stories.ts"],
   previewHead: (head) =>
     process.env.CI
       ? `

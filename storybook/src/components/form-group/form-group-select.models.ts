@@ -2,7 +2,7 @@ import { Icon } from "../icon/icon.models.js";
 
 import { FormGroupBase } from "./form-group.base-model.js";
 
-export interface FormGroupSelect<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
+export interface FormGroupSelect extends FormGroupBase {
   group: "select";
   value?: string;
   multiple?: boolean;

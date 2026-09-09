@@ -1,3 +1,5 @@
+import { TemplateResult } from "lit-html";
+
 interface TableHeadingUnsortable {
   label: string;
 }
@@ -10,16 +12,16 @@ interface TableHeadingSortable {
 
 export type TableSorting = "ascending" | "descending";
 
-export interface TableContent<TemplateFnReturnType> {
+export interface TableContent {
   caption: string;
   head: (TableHeadingUnsortable | TableHeadingSortable)[];
-  rows: (TemplateFnReturnType | string)[][];
+  rows: (TemplateResult | string)[][];
 }
 
-export interface Table<TemplateFnReturnType> {
+export interface Table {
   /** Prevents the table being opened in a modal. */
   noModal?: boolean;
-  content: TableContent<TemplateFnReturnType>;
+  content: TableContent;
   headingColumns?: boolean;
   role?: string;
   verticalLines?: boolean;

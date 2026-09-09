@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -6,7 +6,7 @@ import { selectableTemplate } from "../selectable/selectable.template.js";
 
 import { FormGroupConfirm } from "./form-group-confirm.models.js";
 
-export function formGroupConfirmTemplate(formGroup: FormGroupConfirm<TemplateResult>) {
+export function formGroupConfirmTemplate(formGroup: FormGroupConfirm) {
   const errorTextId = `${formGroup.id}-error-text`;
   const helpTextId = `${formGroup.id}-help-text`;
 

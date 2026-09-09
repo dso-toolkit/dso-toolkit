@@ -1,4 +1,4 @@
-import type { HeaderMenuItem } from "../../components/header/header.models.js";
+import { HeaderMenuItem } from "../../components/header/header.models.js";
 
 export function mainMenu(label?: string): HeaderMenuItem[] {
   return [

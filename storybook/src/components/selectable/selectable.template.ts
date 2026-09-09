@@ -24,7 +24,7 @@ export function selectableTemplate({
   info,
   options,
   slot,
-}: Selectable<TemplateResult>): TemplateResult {
+}: Selectable): TemplateResult {
   return html`
     <dso-selectable
       type=${type}

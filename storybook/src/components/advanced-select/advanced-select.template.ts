@@ -1,15 +1,9 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { AdvancedSelect } from "./advanced-select.models.js";
 
-export function advancedSelectTemplate({
-  options,
-  active,
-  activeHint,
-  dsoChange,
-  dsoRedirect,
-}: AdvancedSelect<TemplateResult>) {
+export function advancedSelectTemplate({ options, active, activeHint, dsoChange, dsoRedirect }: AdvancedSelect) {
   return html` <dso-advanced-select
     .options=${options}
     .active=${ifDefined(active)}

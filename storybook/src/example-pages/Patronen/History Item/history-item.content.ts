@@ -1,4 +1,4 @@
-import type { HistoryItem } from "../../../components/history-item/history-item.models.js";
+import { HistoryItem } from "../../../components/history-item/history-item.models.js";
 
 export const historyItemsOntwerp: HistoryItem[] = [
   {

@@ -32,7 +32,7 @@ export const infoArgTypes: ArgTypes<InfoArgs> = {
   dsoClose: argTypeAction(),
 };
 
-export function infoArgsMapper(a: InfoArgs, content: TemplateResult): Required<Info<TemplateResult>> {
+export function infoArgsMapper(a: InfoArgs, content: TemplateResult): Required<Info> {
   return {
     id: a.id,
     fixed: a.fixed,

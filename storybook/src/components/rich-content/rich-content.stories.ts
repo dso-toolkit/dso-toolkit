@@ -1,6 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/rich-content/readme.md?raw";
-import { TemplateResult } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 import { Renderer } from "storybook/internal/types";
 
@@ -10,9 +9,9 @@ import { RichContentArgs, richContentArgTypes, richContentArgsMapper } from "./r
 import { children } from "./rich-content.content.js";
 import { richContentTemplate } from "./rich-content.template.js";
 
-type RichContentStory = StoryObj<RichContentArgs<TemplateResult>, Renderer>;
+type RichContentStory = StoryObj<RichContentArgs, Renderer>;
 
-const meta: Meta<RichContentArgs<TemplateResult>> = {
+const meta: Meta<RichContentArgs> = {
   title: "HTML|CSS/Rich Content",
   argTypes: richContentArgTypes,
   parameters: {

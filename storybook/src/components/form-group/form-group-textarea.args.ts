@@ -129,9 +129,7 @@ export const formGroupTextareaArgTypes: ArgTypes<FormGroupTextareaArgs> = {
   },
 };
 
-export function formGroupTextareaArgsMapper<TemplateFnReturnType>(
-  a: FormGroupTextareaArgs,
-): FormGroupTextarea<TemplateFnReturnType> {
+export function formGroupTextareaArgsMapper(a: FormGroupTextareaArgs): FormGroupTextarea {
   return {
     group: "textarea",
     id: a.id,

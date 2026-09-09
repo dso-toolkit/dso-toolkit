@@ -1,18 +1,20 @@
+import { TemplateResult } from "lit-html";
+
 import { isObject } from "../../shared/is-object.js";
 import { Badge } from "../badge/badge.models.js";
 import { InfoButton } from "../info-button/info-button.models.js";
 import { Label } from "../label/label.models.js";
 
-export interface DocumentCard<TemplateFnReturnType> {
+export interface DocumentCard {
   label: string;
   href: string;
   active?: boolean;
   meta?: Label;
-  typeItems: TemplateFnReturnType[];
-  typeToelichting?: InfoButton<TemplateFnReturnType>;
+  typeItems: (TemplateResult | string)[];
+  typeToelichting?: InfoButton;
   status: string;
-  statusToelichtingOutline?: Badge<TemplateFnReturnType>;
-  statusToelichtingWarning?: Badge<TemplateFnReturnType>;
+  statusToelichtingOutline?: Badge;
+  statusToelichtingWarning?: Badge;
   labels?: Label[];
   dsoDocumentCardClick?: (e: CustomEvent<DocumentCardClickEvent>) => void;
 }
@@ -23,8 +25,6 @@ export interface DocumentCardClickEvent {
   isModifiedEvent: boolean;
 }
 
-export function isDocumentCardInterface<TemplateFnReturnType>(
-  object: unknown,
-): object is DocumentCard<TemplateFnReturnType> {
+export function isDocumentCardInterface(object: unknown): object is DocumentCard {
   return isObject(object) && "status" in object;
 }

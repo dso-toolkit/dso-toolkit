@@ -1,3 +1,5 @@
+import { TemplateResult } from "lit-html";
+
 import { isObject } from "../../shared/is-object.js";
 import { Button } from "../button/button.models.js";
 import { InfoButton } from "../info-button/info-button.models.js";
@@ -6,14 +8,14 @@ import { Link } from "../link/link.models.js";
 import { Selectable } from "../selectable/selectable.models.js";
 import { SlideToggle } from "../slide-toggle/slide-toggle.models.js";
 
-export interface Card<TemplateFnReturnType> {
+export interface Card {
   label: string;
   href: string;
   active?: boolean;
   mode?: Link["mode"];
-  selectable?: Selectable<TemplateFnReturnType>;
-  content?: TemplateFnReturnType;
-  interactions?: Array<Button | Label | InfoButton<TemplateFnReturnType> | SlideToggle>;
+  selectable?: Selectable;
+  content?: TemplateResult | string;
+  interactions?: Array<Button | Label | InfoButton | SlideToggle>;
   dsoCardClick?: (e: CustomEvent<CardClickEvent>) => void;
 }
 
@@ -23,6 +25,6 @@ export interface CardClickEvent {
   isModifiedEvent: boolean;
 }
 
-export function isCardInterface<TemplateFnReturnType>(object: unknown): object is Card<TemplateFnReturnType> {
+export function isCardInterface(object: unknown): object is Card {
   return isObject(object) && !("targetBlank" in object) && !("status" in object);
 }

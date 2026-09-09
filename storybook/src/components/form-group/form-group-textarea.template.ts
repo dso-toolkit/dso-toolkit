@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -8,7 +8,7 @@ import { infoButtonTemplate } from "../info-button/info-button.template.js";
 
 import { FormGroupTextarea } from "./form-group-textarea.models.js";
 
-export function formGroupTextareaTemplate(formGroup: FormGroupTextarea<TemplateResult>) {
+export function formGroupTextareaTemplate(formGroup: FormGroupTextarea) {
   const errorTextId = `${formGroup.id}-error-text`;
   const helpTextId = `${formGroup.id}-help-text`;
   const infoTextId = `${formGroup.id}-info-text`;

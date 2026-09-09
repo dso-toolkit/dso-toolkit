@@ -5,14 +5,14 @@ import { argTypeAction } from "../../shared/arg-type-action.js";
 
 import { ShoppingCart, ShoppingCartItem } from "./shopping-cart.models.js";
 
-export interface ShoppingCartArgs<TemplateFnReturnType> {
+export interface ShoppingCartArgs {
   _implementation: "html/css" | "core";
   collapsable?: boolean;
   collapsed?: boolean;
   hideSummary?: boolean;
   removeAll?: boolean;
   isOpen?: boolean;
-  items: ShoppingCartItem<TemplateFnReturnType>[];
+  items: ShoppingCartItem[];
   shoppingcartTitleTag: "h2" | "h3";
   shoppingcartTitle: string;
   mode?: "main" | "side";
@@ -28,7 +28,7 @@ export interface ShoppingCartArgs<TemplateFnReturnType> {
   dsoSubmit: HandlerFunction;
 }
 
-export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs<never>> = {
+export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
   collapsable: {
     if: { arg: "_implementation", eq: "html/css" },
     control: {
@@ -102,9 +102,7 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs<never>> = {
   _implementation: argTypeAction(),
 };
 
-export function shoppingCartArgsMapper<TemplateFnReturnType>(
-  a: ShoppingCartArgs<TemplateFnReturnType>,
-): ShoppingCart<TemplateFnReturnType> {
+export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
   return {
     collapsable: a.collapsable,
     collapsed: a.collapsed,

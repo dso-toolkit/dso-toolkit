@@ -96,9 +96,7 @@ export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
   },
 };
 
-export function formGroupSearchBarArgsMapper<TemplateFnReturnType>(
-  a: FormGroupSearchBarArgs,
-): FormGroupSearchBar<TemplateFnReturnType> {
+export function formGroupSearchBarArgsMapper(a: FormGroupSearchBarArgs): FormGroupSearchBar {
   return {
     group: "search-bar",
     id: a.id,

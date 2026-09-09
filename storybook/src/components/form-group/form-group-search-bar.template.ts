@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 
 import { infoTemplate } from "../info/info.template.js";
@@ -7,7 +7,7 @@ import { searchBarTemplate } from "../search-bar/search-bar.template.js";
 
 import { FormGroupSearchBar } from "./form-group-search-bar.models.js";
 
-export function formGroupSearchBarTemplate(formGroup: FormGroupSearchBar<TemplateResult>) {
+export function formGroupSearchBarTemplate(formGroup: FormGroupSearchBar) {
   const errorTextId = `${formGroup.id}-error-text`;
   const helpTextId = `${formGroup.id}-help-text`;
   const infoTextId = `${formGroup.id}-info-text`;

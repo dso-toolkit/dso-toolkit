@@ -1,8 +1,7 @@
-import { TemplateResult } from "lit-html";
 import { fn } from "storybook/test";
 
-import type { DropdownMenuGroup } from "../../../components/dropdown-menu/dropdown-menu.models.js";
-import type { JustifyFormGroups } from "../../../components/justify-form-groups/justify-form-groups.models.js";
+import { DropdownMenuGroup } from "../../../components/dropdown-menu/dropdown-menu.models.js";
+import { JustifyFormGroups } from "../../../components/justify-form-groups/justify-form-groups.models.js";
 
 export const dropdownItems: DropdownMenuGroup[] = [
   {
@@ -36,7 +35,7 @@ export const dropdownItems: DropdownMenuGroup[] = [
   },
 ];
 
-export const formGroup: JustifyFormGroups<TemplateResult> = {
+export const formGroup: JustifyFormGroups = {
   formGroups: [
     {
       group: "select",

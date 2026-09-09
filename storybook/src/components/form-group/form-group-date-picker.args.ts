@@ -59,9 +59,7 @@ export const formGroupDatePickerArgTypes: ArgTypes<FormGroupDatePickerArgs> = {
   },
 };
 
-export function formGroupDatePickerArgsMapper<TemplateFnReturnType>(
-  a: FormGroupDatePickerArgs,
-): FormGroupDatePicker<TemplateFnReturnType> {
+export function formGroupDatePickerArgsMapper(a: FormGroupDatePickerArgs): FormGroupDatePicker {
   return {
     group: "date-picker",
     id: a.id,

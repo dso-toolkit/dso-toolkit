@@ -1,10 +1,12 @@
+import { TemplateResult } from "lit-html";
+
 import { Info } from "../info/info.models.js";
 
-export interface Selectable<TemplateFnReturnType> {
+export interface Selectable {
   type: "radio" | "checkbox";
   id: string;
   name?: string;
-  label?: string | TemplateFnReturnType;
+  label?: TemplateResult | string;
   value?: string;
   required?: boolean;
   invalid?: boolean;
@@ -15,9 +17,9 @@ export interface Selectable<TemplateFnReturnType> {
   indeterminate?: boolean;
   disabled?: boolean;
   dsoChange?: (e: SelectableChangeEvent) => void;
-  info?: Info<TemplateFnReturnType>;
+  info?: Info;
   slot?: string;
-  options?: Selectable<TemplateFnReturnType>[];
+  options?: Selectable[];
 }
 
 export interface SelectableChangeEvent {

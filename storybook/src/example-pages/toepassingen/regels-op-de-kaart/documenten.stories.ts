@@ -19,7 +19,7 @@ import { navbarTemplate } from "../../../components/navbar/navbar.template.js";
 import { plekinfoCardTemplate } from "../../../components/plekinfo-card/plekinfo-card.template.js";
 import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
 import { selectableTemplate } from "../../../components/selectable/selectable.template.js";
-import type { ViewerGridTab } from "../../../components/viewer-grid/viewer-grid.models.js";
+import { ViewerGridTab } from "../../../components/viewer-grid/viewer-grid.models.js";
 import { viewerGridTemplate } from "../../../components/viewer-grid/viewer-grid.template.js";
 import { examplePageStory } from "../../../example-page-story.js";
 import { headerPartial } from "../../partials/header.js";

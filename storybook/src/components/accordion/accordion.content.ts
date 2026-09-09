@@ -1,4 +1,4 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
 import { getAnimatedFormContent } from "../../example-pages/Patronen/animated-form.content.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
@@ -6,7 +6,7 @@ import { richContentTemplate } from "../rich-content/rich-content.template.js";
 import { AccordionSection } from "./accordion.models.js";
 import { accordionTemplate } from "./accordion.template.js";
 
-const section1: AccordionSection<TemplateResult> = {
+const section1: AccordionSection = {
   handleTitle: "Is het verplicht om de Vergunningcheck te doen?",
   heading: "h2",
   content: html`<p>
@@ -19,7 +19,7 @@ const section1: AccordionSection<TemplateResult> = {
     </p>`,
 };
 
-const section2: AccordionSection<TemplateResult> = {
+const section2: AccordionSection = {
   handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
   heading: "h2",
   content: html`<div class="dso-rich-content">
@@ -49,14 +49,14 @@ const section2: AccordionSection<TemplateResult> = {
   </div>`,
 };
 
-const section3: AccordionSection<TemplateResult> = {
+const section3: AccordionSection = {
   handleTitle: "Hoe lang duurt de Vergunningcheck?",
   heading: "h2",
   content: html`De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u
   alle benodigde informatie bij de hand heeft.`,
 };
 
-const section4: AccordionSection<TemplateResult> = {
+const section4: AccordionSection = {
   handleTitle: "Wat kan ik met de uitkomst van de Vergunningcheck?",
   heading: "h2",
   content: richContentTemplate({
@@ -83,7 +83,7 @@ const section4: AccordionSection<TemplateResult> = {
   }),
 };
 
-const sectionWithHeadings: AccordionSection<TemplateResult> = {
+const sectionWithHeadings: AccordionSection = {
   handleTitle: "Inhoudsopgave",
   heading: "h2",
   open: true,
@@ -92,7 +92,7 @@ const sectionWithHeadings: AccordionSection<TemplateResult> = {
     <h4>Uit hoofdregeling omgevingsplan</h4>`,
 };
 
-export const basicSections: AccordionSection<TemplateResult>[] = [
+export const basicSections: AccordionSection[] = [
   section1,
   section2,
   {
@@ -102,9 +102,9 @@ export const basicSections: AccordionSection<TemplateResult>[] = [
   section4,
 ];
 
-export const compactSections: AccordionSection<TemplateResult>[] = [...basicSections, sectionWithHeadings];
+export const compactSections: AccordionSection[] = [...basicSections, sectionWithHeadings];
 
-export const anchorSections: AccordionSection<TemplateResult>[] = [
+export const anchorSections: AccordionSection[] = [
   {
     ...section1,
     handleUrl: "#",
@@ -124,7 +124,7 @@ export const anchorSections: AccordionSection<TemplateResult>[] = [
   },
 ];
 
-export const nestedSections: AccordionSection<TemplateResult>[] = [
+export const nestedSections: AccordionSection[] = [
   section1,
   {
     ...section2,
@@ -157,7 +157,7 @@ export const nestedSections: AccordionSection<TemplateResult>[] = [
   section4,
 ];
 
-export const addonsSections: AccordionSection<TemplateResult>[] = [
+export const addonsSections: AccordionSection[] = [
   {
     ...section1,
     icon: "user-outline",
@@ -188,7 +188,7 @@ export const addonsSections: AccordionSection<TemplateResult>[] = [
   },
 ];
 
-export const alignmentSections: AccordionSection<TemplateResult>[] = [
+export const alignmentSections: AccordionSection[] = [
   {
     ...section1,
     icon: "user-outline",
@@ -204,7 +204,7 @@ export const alignmentSections: AccordionSection<TemplateResult>[] = [
   },
 ];
 
-export const renvooiSections: AccordionSection<TemplateResult>[] = [
+export const renvooiSections: AccordionSection[] = [
   {
     ...section1,
   },
@@ -237,7 +237,7 @@ export const renvooiSections: AccordionSection<TemplateResult>[] = [
   },
 ];
 
-export const activatableSections: AccordionSection<TemplateResult>[] = [
+export const activatableSections: AccordionSection[] = [
   {
     ...section1,
     activatable: true,
@@ -276,7 +276,7 @@ export const activatableSections: AccordionSection<TemplateResult>[] = [
   },
 ];
 
-export function animatedFormGroupSections(): AccordionSection<TemplateResult>[] {
+export function animatedFormGroupSections(): AccordionSection[] {
   const content = getAnimatedFormContent();
 
   return [

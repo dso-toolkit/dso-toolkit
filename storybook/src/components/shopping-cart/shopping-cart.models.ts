@@ -20,7 +20,7 @@ export interface ShoppingCartItemCloseEvent {
   originalEvent: MouseEvent;
 }
 
-export interface ShoppingCart<TemplateFnReturnType> {
+export interface ShoppingCart {
   // HTML/CSS Shopping cart
   collapsable?: boolean;
   collapsed?: boolean;
@@ -32,12 +32,12 @@ export interface ShoppingCart<TemplateFnReturnType> {
   toggleable?: boolean;
   dsoToggle?: (event: CustomEvent<ShoppingCartToggleEvent>) => void;
   // shared
-  items: ShoppingCartItem<TemplateFnReturnType>[];
+  items: ShoppingCartItem[];
   title: string;
   titleTag?: string;
 }
 
-export interface ShoppingCartItem<TemplateFnReturnType> {
+export interface ShoppingCartItem {
   // HTML/CSS Shopping cart item
   additive?: string;
   edit?: boolean;
@@ -48,11 +48,11 @@ export interface ShoppingCartItem<TemplateFnReturnType> {
   info?: string;
   editable?: boolean;
   removable?: boolean;
-  form?: Form<TemplateFnReturnType>;
+  form?: Form;
   // shared
   label: string;
   warning?: boolean;
-  subitems?: ShoppingCartItem<TemplateFnReturnType>[];
+  subitems?: ShoppingCartItem[];
   dsoEdit?: (event: CustomEvent<ShoppingCartItemEditEvent>) => void;
   dsoDelete?: (event: CustomEvent<ShoppingCartItemDeleteEvent>) => void;
   dsoClose?: (event: CustomEvent<ShoppingCartItemCloseEvent>) => void;

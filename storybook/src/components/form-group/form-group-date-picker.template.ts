@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -18,7 +18,7 @@ export function formGroupDatePickerTemplate({
   label,
   info,
   infoButton,
-}: FormGroupDatePicker<TemplateResult>) {
+}: FormGroupDatePicker) {
   const errorTextId = `${id}-error-text`;
   const helpTextId = `${id}-help-text`;
   const infoTextId = `${id}-info-text`;

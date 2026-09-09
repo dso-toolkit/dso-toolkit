@@ -1,3 +1,5 @@
+import { TemplateResult } from "lit-html";
+
 import { BadgeStatus } from "../badge/badge.models.js";
 import { LabelStatus } from "../label/label.models.js";
 import {
@@ -7,13 +9,13 @@ import {
   OzonContentUrlResolver,
 } from "../ozon-content/ozon-content.models.js";
 
-export interface DocumentComponent<TemplateFnReturnType> {
+export interface DocumentComponent {
   alternativeTitle?: string;
   annotated?: boolean;
   badge?: string;
   badgeStatus?: BadgeStatus;
   badgeTooltip?: string;
-  children?: TemplateFnReturnType;
+  children?: TemplateResult | string;
   dsoAnnotationToggle?: (e: CustomEvent<DocumentComponentAnnotationToggleEvent>) => void;
   dsoToggle?: (e: CustomEvent<DocumentComponentToggleEvent>) => void;
   filtered?: boolean;

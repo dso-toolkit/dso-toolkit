@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { MapLayer } from "./map-layer.models.js";
@@ -11,7 +11,7 @@ export function mapLayerTemplate({
   nameSlot,
   labelSlot,
   objects,
-}: MapLayer<TemplateResult>) {
+}: MapLayer) {
   return html`<dso-map-layer
     ?active=${active}
     ?activatable=${activatable}

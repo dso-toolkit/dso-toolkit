@@ -14,16 +14,18 @@ type HistoryItemStory = StoryObj<HistoryItemArgs, Renderer>;
 const meta: Meta<HistoryItemArgs> = {
   title: "Core/History Item",
   argTypes: historyItemArgTypes,
+  args: {
+    dsoClick: fn(),
+  },
   parameters: {
     docs: {
       page: () => compiler(readme),
     },
   },
+  render: (args: HistoryItemArgs) => historyItemTemplate(historyItemArgsMapper(args)),
 };
 
 export default meta;
-
-const render = (args: HistoryItemArgs) => historyItemTemplate(historyItemArgsMapper(args));
 
 export const InWerking: HistoryItemStory = {
   args: {
@@ -33,9 +35,7 @@ export const InWerking: HistoryItemStory = {
     title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
     warning: "Waarschuwing message",
     explanation: "Uitleg message",
-    dsoClick: fn(),
   },
-  render,
 };
 
 export const Besluit: HistoryItemStory = {
@@ -44,9 +44,7 @@ export const Besluit: HistoryItemStory = {
     statusMessage: "Inzage tot 20-10-2025",
     type: "besluit",
     title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
-    dsoClick: fn(),
   },
-  render,
 };
 
 export const TijdelijkRegelingdeel: HistoryItemStory = {
@@ -55,9 +53,7 @@ export const TijdelijkRegelingdeel: HistoryItemStory = {
     statusMessage: "Inzage tot 20-10-2025",
     type: "tijdelijk-regelingdeel",
     title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
-    dsoClick: fn(),
   },
-  render,
 };
 
 export const TijdelijkRegelingdeelBesluit: HistoryItemStory = {
@@ -66,9 +62,7 @@ export const TijdelijkRegelingdeelBesluit: HistoryItemStory = {
     statusMessage: "Inzage tot 20-10-2025",
     type: "tijdelijk-regelingdeel-besluit",
     title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
-    dsoClick: fn(),
   },
-  render,
 };
 
 export const Waarschuwing: HistoryItemStory = {
@@ -76,9 +70,7 @@ export const Waarschuwing: HistoryItemStory = {
     date: "20-07-2025",
     statusMessage: "Inzage tot 20-10-2025",
     type: "waarschuwing",
-    dsoClick: fn(),
   },
-  render,
 };
 
 export const Ontwerp: HistoryItemStory = {
@@ -87,7 +79,5 @@ export const Ontwerp: HistoryItemStory = {
     statusMessage: "Inzage tot 20-10-2025",
     type: "ontwerp",
     title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
-    dsoClick: fn(),
   },
-  render,
 };

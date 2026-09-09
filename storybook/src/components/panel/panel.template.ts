@@ -1,9 +1,9 @@
 import { DsoPanelCustomEvent } from "@dso-toolkit/core";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
 import { Panel, PanelCloseEvent } from "./panel.models.js";
 
-export function panelTemplate({ children, heading, dsoCloseClick, emphasized }: Panel<TemplateResult>) {
+export function panelTemplate({ children, heading, dsoCloseClick, emphasized }: Panel) {
   return html`<dso-panel
     ?emphasized=${emphasized}
     @dsoCloseClick=${(e: DsoPanelCustomEvent<PanelCloseEvent>) => dsoCloseClick?.(e)}

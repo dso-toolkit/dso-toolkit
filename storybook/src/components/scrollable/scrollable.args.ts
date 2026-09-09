@@ -14,7 +14,7 @@ export const scrollableArgTypes: ArgTypes<ScrollableArgs> = {
   dsoScrollEnd: argTypeAction(),
 };
 
-export function scrollableArgsMapper(a: ScrollableArgs, children: TemplateResult): Scrollable<TemplateResult> {
+export function scrollableArgsMapper(a: ScrollableArgs, children: TemplateResult): Scrollable {
   return {
     ...a,
     dsoScrollEnd: (e) => a.dsoScrollEnd(e.detail),

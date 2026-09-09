@@ -1,7 +1,6 @@
 import componentsReadme from "@dso-toolkit/core/src/components/tabs/components/readme.md?raw";
 import readme from "@dso-toolkit/core/src/components/tabs/readme.md?raw";
 import type { Meta } from "@storybook/web-components-vite";
-import type { TemplateResult } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -11,9 +10,9 @@ import { StoryObj } from "../../shared/story-obj.js";
 import { TabsArgs, tabsArgTypes, tabsArgsMapper } from "./tabs.args.js";
 import { tabsTemplate } from "./tabs.template.js";
 
-type TabsStory = StoryObj<TabsArgs<TemplateResult>, Renderer>;
+type TabsStory = StoryObj<TabsArgs, Renderer>;
 
-const meta: Meta<TabsArgs<TemplateResult>> = {
+const meta: Meta<TabsArgs> = {
   title: "Core/Tabs",
   argTypes: tabsArgTypes,
   args: {
@@ -28,7 +27,7 @@ const meta: Meta<TabsArgs<TemplateResult>> = {
 
 export default meta;
 
-const render = (args: TabsArgs<TemplateResult>) => tabsTemplate(tabsArgsMapper(args));
+const render = (args: TabsArgs) => tabsTemplate(tabsArgsMapper(args));
 
 export const AsAnchors: TabsStory = {
   args: {

@@ -1,6 +1,8 @@
-export interface Tabs<TemplateFnReturnType> {
+import { TemplateResult } from "lit-html";
+
+export interface Tabs {
   items: TabsItem[];
-  content: TemplateFnReturnType | string;
+  content: TemplateResult | string;
 }
 
 export interface TabsItem {

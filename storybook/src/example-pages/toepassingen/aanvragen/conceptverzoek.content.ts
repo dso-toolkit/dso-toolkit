@@ -1,10 +1,10 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
-import type { FormGroupRadios } from "../../../components/form-group/form-group-radios.models.js";
+import { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
+import { FormGroupRadios } from "../../../components/form-group/form-group-radios.models.js";
 import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
 
-export const definitionList1: DefinitionList<TemplateResult> = {
+export const definitionList1: DefinitionList = {
   definitions: [
     {
       term: html`Verzoek 1:`,
@@ -49,7 +49,7 @@ export const definitionList1: DefinitionList<TemplateResult> = {
   ],
 };
 
-export const definitionlist2: DefinitionList<TemplateResult> = {
+export const definitionlist2: DefinitionList = {
   definitions: [
     {
       term: html`Verzoek 2:`,
@@ -94,7 +94,7 @@ export const definitionlist2: DefinitionList<TemplateResult> = {
   ],
 };
 
-export function radios(): FormGroupRadios<TemplateResult> {
+export function radios(): FormGroupRadios {
   return {
     group: "radios",
     id: "conceptverzoek-radio",

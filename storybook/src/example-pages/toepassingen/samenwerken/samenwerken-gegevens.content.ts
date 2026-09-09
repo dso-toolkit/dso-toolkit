@@ -1,11 +1,11 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
+import { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
 import { buttonRowTemplate } from "../../../components/button-row/button-row.template.js";
-import type { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
+import { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
 import { definitionListTemplate } from "../../../components/definition-list/definition-list.template.js";
-import type { Header } from "../../../components/header/header.models.js";
-import type { Tabs } from "../../../components/tabs/tabs.models.js";
+import { Header } from "../../../components/header/header.models.js";
+import { Tabs } from "../../../components/tabs/tabs.models.js";
 
 export const header: Header = {
   label: "Regels op de kaart",
@@ -35,7 +35,7 @@ export const breadcrumbs: Breadcrumbs = {
   ],
 };
 
-export function items(): Tabs<TemplateResult> {
+export function items(): Tabs {
   return {
     items: [
       {
@@ -68,7 +68,7 @@ export function items(): Tabs<TemplateResult> {
   };
 }
 
-export const definitions: DefinitionList<TemplateResult> = {
+export const definitions: DefinitionList = {
   definitions: [
     {
       term: html`Initiator:`,

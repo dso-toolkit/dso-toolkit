@@ -1,9 +1,9 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { DefinitionList } from "../components/definition-list/definition-list.models.js";
-import type { List } from "../components/list/list.models.js";
+import { DefinitionList } from "../components/definition-list/definition-list.models.js";
+import { List } from "../components/list/list.models.js";
 
-export const definitionList: DefinitionList<TemplateResult> = {
+export const definitionList: DefinitionList = {
   definitions: [
     {
       term: html`Description lists:`,

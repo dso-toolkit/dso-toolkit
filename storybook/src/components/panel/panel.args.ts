@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -25,11 +26,11 @@ export const panelArgTypes: ArgTypes<PanelArgs> = {
   },
 };
 
-export function panelArgsMapper<TemplateFnReturnType>(
+export function panelArgsMapper(
   a: PanelArgs,
-  children: TemplateFnReturnType,
-  heading: TemplateFnReturnType,
-): Panel<TemplateFnReturnType> {
+  children: TemplateResult | string,
+  heading: TemplateResult | string,
+): Panel {
   return {
     ...a,
     children,

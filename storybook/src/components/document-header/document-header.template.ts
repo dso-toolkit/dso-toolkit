@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 
 import { advancedSelectTemplate } from "../advanced-select/advanced-select.template.js";
@@ -19,7 +19,7 @@ export function documentHeaderTemplate({
   sticky,
   statusMessage,
   variant,
-}: DocumentHeader<TemplateResult>) {
+}: DocumentHeader) {
   const variantFeaturesContent = featuresContent.get(variant ? variant : "vastgesteld");
   const features = variantFeaturesContent?.get("features");
   const besluitInformatie = variantFeaturesContent?.get("besluitinformatie");

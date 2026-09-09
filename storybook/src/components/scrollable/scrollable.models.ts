@@ -1,6 +1,8 @@
-export interface Scrollable<TemplateFnReturnType> {
+import { TemplateResult } from "lit-html";
+
+export interface Scrollable {
   dsoScrollEnd?: (e: CustomEvent<DsoScrollEndEvent>) => void;
-  children: TemplateFnReturnType;
+  children: TemplateResult | string;
 }
 
 export interface DsoScrollEndEvent {

@@ -10,19 +10,19 @@ import { Label } from "../label/label.models.js";
 
 import { DocumentCard } from "./document-card.models.js";
 
-export interface DocumentCardArgs<TemplateFnReturnType> {
+export interface DocumentCardArgs {
   label: string;
   href: string;
   active: boolean;
   meta: Label;
   status: string;
-  statusToelichtingOutline?: Badge<TemplateFnReturnType>;
-  statusToelichtingWarning?: Badge<TemplateFnReturnType>;
+  statusToelichtingOutline?: Badge;
+  statusToelichtingWarning?: Badge;
   dsoDocumentCardClick: HandlerFunction;
 }
 
 export const documentCardArgs: Omit<
-  DocumentCardArgs<TemplateResult>,
+  DocumentCardArgs,
   "meta" | "typeToelichting" | "statusToelichtingOutline" | "statusToelichtingWarning"
 > = {
   href: "#",
@@ -33,7 +33,7 @@ export const documentCardArgs: Omit<
 };
 
 export const documentCardArgTypes: ArgTypes<
-  Omit<DocumentCardArgs<TemplateResult>, "meta" | "statusToelichtingOutline" | "statusToelichtingWarning">
+  Omit<DocumentCardArgs, "meta" | "statusToelichtingOutline" | "statusToelichtingWarning">
 > = {
   label: {
     control: {
@@ -58,12 +58,12 @@ export const documentCardArgTypes: ArgTypes<
   dsoDocumentCardClick: argTypeAction(),
 };
 
-export function documentCardArgsMapper<TemplateFnReturnType>(
-  a: DocumentCardArgs<TemplateFnReturnType>,
-  typeItems: TemplateFnReturnType[],
-  infoButton?: InfoButton<TemplateFnReturnType>,
+export function documentCardArgsMapper(
+  a: DocumentCardArgs,
+  typeItems: (TemplateResult | string)[],
+  infoButton?: InfoButton,
   labels?: Label[],
-): DocumentCard<TemplateFnReturnType> {
+): DocumentCard {
   return {
     typeToelichting: infoButton,
     label: a.label,

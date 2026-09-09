@@ -1,8 +1,8 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { CardContainer } from "../components/card-container/card-container.models.js";
+import { CardContainer } from "../components/card-container/card-container.models.js";
 
-export const cardContainer: CardContainer<TemplateResult> = {
+export const cardContainer: CardContainer = {
   mode: "list",
   cards: [
     {

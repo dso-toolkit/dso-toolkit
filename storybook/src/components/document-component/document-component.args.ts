@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -274,10 +275,10 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
 const isOdd = (n: number): boolean => n % 2 === 1;
 const escapeStringRegexp = (value: string): string => value.replace(/[|\\{}()[\]^$+*?.-]/g, "\\$&");
 
-export function documentComponentMapper<TemplateFnReturnType>(
+export function documentComponentMapper(
   a: DocumentComponentArgs,
-  children?: TemplateFnReturnType,
-): DocumentComponent<TemplateFnReturnType> {
+  children?: TemplateResult | string,
+): DocumentComponent {
   const { searchTerm } = a;
   let highlighted = false;
 
