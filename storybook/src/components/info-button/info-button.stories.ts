@@ -23,19 +23,13 @@ const meta: Meta<InfoButtonArgs> = {
     docs: {
       page: () => compiler(readme),
     },
+    layout: "centered",
   },
+  render: (args: InfoButtonArgs) => infoButtonTemplate(infoButtonArgsMapper(args, children)),
 };
 
 export default meta;
 
-const render = (args: InfoButtonArgs) => infoButtonTemplate(infoButtonArgsMapper(args, children));
+export const Default: InfoButtonStory = {};
 
-export const Default: InfoButtonStory = {
-  parameters: { layout: "centered" },
-  render,
-};
-
-export const Information: InfoButtonStory = {
-  parameters: { layout: "centered" },
-  render,
-};
+export const Information: InfoButtonStory = {};

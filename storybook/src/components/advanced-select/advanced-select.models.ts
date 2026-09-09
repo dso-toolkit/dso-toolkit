@@ -1,9 +1,11 @@
+import { TemplateResult } from "lit-html";
+
 export type AdvancedSelectVariant = "primary" | "success" | "info" | "warning" | "error" | "attention";
 
-export interface AdvancedSelectOption<T> {
+export interface AdvancedSelectOption {
   label: string;
   selectedLabel?: string;
-  value?: T;
+  value?: TemplateResult | string;
 }
 
 export interface AdvancedSelectGroupRedirect {
@@ -11,13 +13,13 @@ export interface AdvancedSelectGroupRedirect {
   href: string;
 }
 
-export interface AdvancedSelectGroup<T> {
+export interface AdvancedSelectGroup {
   label: string;
   badgeLabel?: string;
   activeLabel?: string;
   summaryCounter?: boolean;
   redirect?: AdvancedSelectGroupRedirect;
-  options: AdvancedSelectOption<T>[];
+  options: AdvancedSelectOption[];
   variant?: AdvancedSelectVariant;
   toggletip?: string;
 }
@@ -28,17 +30,17 @@ export interface AdvancedSelectPlaceholder {
   placeholder: string;
 }
 
-export interface AdvancedSelect<T> {
-  options: (AdvancedSelectOption<T> | AdvancedSelectGroup<T> | AdvancedSelectPlaceholder)[];
-  active?: AdvancedSelectOption<T>;
+export interface AdvancedSelect {
+  options: (AdvancedSelectOption | AdvancedSelectGroup | AdvancedSelectPlaceholder)[];
+  active?: AdvancedSelectOption;
   activeHint?: string;
-  dsoChange?: (e: CustomEvent<AdvancedSelectChangeEvent<T>>) => void;
+  dsoChange?: (e: CustomEvent<AdvancedSelectChangeEvent>) => void;
   dsoRedirect?: (e: CustomEvent<AdvancedSelectRedirectEvent>) => void;
 }
 
-export interface AdvancedSelectChangeEvent<T> {
+export interface AdvancedSelectChangeEvent {
   originalEvent: MouseEvent;
-  option: AdvancedSelectOption<T>;
+  option: AdvancedSelectOption;
 }
 
 export interface AdvancedSelectRedirectEvent {

@@ -1,4 +1,4 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
@@ -12,23 +12,17 @@ import {
   DefinitionList,
 } from "./definition-list.models.js";
 
-export function definitionListTemplate({
-  modifier,
-  definitions,
-  slotName,
-}: DefinitionList<TemplateResult> & SlottableTemplate) {
+export function definitionListTemplate({ modifier, definitions, slotName }: DefinitionList & SlottableTemplate) {
   const modifierClasses = modifier?.split(" ") ?? [];
 
-  function definitionTemplate({ term, descriptions }: Definition<TemplateResult>) {
+  function definitionTemplate({ term, descriptions }: Definition) {
     return html`
       <dt>${term}</dt>
       ${descriptions.map((description) => html`<dd>${definitionContentTemplate(description)}</dd>`)}
     `;
   }
 
-  function definitionContentTemplate(
-    description: DefinitionDescriptionContent<TemplateResult> | DefinitionDescriptionItems,
-  ) {
+  function definitionContentTemplate(description: DefinitionDescriptionContent | DefinitionDescriptionItems) {
     if ("content" in description) {
       if (typeof description.content === "string") {
         return unsafeHTML(description.content);

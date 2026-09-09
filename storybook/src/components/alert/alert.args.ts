@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
@@ -44,10 +45,7 @@ export const alertArgTypes: ArgTypes<AlertArgs> = {
   dsoClose: argTypeAction(),
 };
 
-export function alertArgsMapper<TemplateFnReturnType>(
-  a: AlertArgs,
-  message: TemplateFnReturnType,
-): Alert<TemplateFnReturnType> {
+export function alertArgsMapper(a: AlertArgs, message: TemplateResult | string): Alert {
   return {
     message,
     status: a.status,

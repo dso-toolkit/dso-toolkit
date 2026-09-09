@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -52,12 +53,12 @@ export const mapLayerArgTypes: ArgTypes<MapLayerArgs> = {
   dsoMouseLeave: argTypeAction(),
 };
 
-export function mapLayerArgsMapper<TemplateFnReturnType>(
+export function mapLayerArgsMapper(
   a: MapLayerArgs,
-  objects: MapLayerObject<TemplateFnReturnType>[],
-  nameSlot: TemplateFnReturnType,
-  labelSlot?: TemplateFnReturnType,
-): MapLayer<TemplateFnReturnType> {
+  objects: MapLayerObject[],
+  nameSlot: TemplateResult | string,
+  labelSlot?: TemplateResult | string,
+): MapLayer {
   return {
     ...a,
     nameSlot,

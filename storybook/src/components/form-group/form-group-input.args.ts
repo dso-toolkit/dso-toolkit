@@ -149,9 +149,7 @@ export const formGroupInputArgTypes: ArgTypes<FormGroupInputArgs> = {
   },
 };
 
-export function formGroupInputArgsMapper<TemplateFnReturnType>(
-  a: FormGroupInputArgs,
-): FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType> {
+export function formGroupInputArgsMapper(a: FormGroupInputArgs): FormGroupInput | FormGroupInputDate {
   return {
     group: "input",
     type: a.type,

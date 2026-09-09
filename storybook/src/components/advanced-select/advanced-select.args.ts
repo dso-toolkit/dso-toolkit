@@ -1,4 +1,3 @@
-import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -16,9 +15,7 @@ import {
 export interface AdvancedSelectArgs {
   activeIndex?: number;
   activeHint?: string;
-  optionsOrGroup: (
-    AdvancedSelectOption<TemplateResult> | AdvancedSelectGroup<TemplateResult> | AdvancedSelectPlaceholder
-  )[];
+  optionsOrGroup: (AdvancedSelectOption | AdvancedSelectGroup | AdvancedSelectPlaceholder)[];
   dsoChange: HandlerFunction;
   dsoRedirect: HandlerFunction;
 }
@@ -51,7 +48,7 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
   dsoRedirect: argTypeAction(),
 };
 
-export function advancedSelectArgsMapper(a: AdvancedSelectArgs): AdvancedSelect<TemplateResult> {
+export function advancedSelectArgsMapper(a: AdvancedSelectArgs): AdvancedSelect {
   return {
     options: a.optionsOrGroup,
     active: selectExampleOption(a.activeIndex, a.optionsOrGroup),
@@ -66,12 +63,10 @@ export function advancedSelectArgsMapper(a: AdvancedSelectArgs): AdvancedSelect<
   };
 }
 
-export function selectExampleOption<TemplateFnReturnType>(
+export function selectExampleOption(
   index: number = 0,
-  options: (
-    AdvancedSelectOption<TemplateFnReturnType> | AdvancedSelectGroup<TemplateFnReturnType> | AdvancedSelectPlaceholder
-  )[],
-): AdvancedSelectOption<TemplateFnReturnType> | undefined {
+  options: (AdvancedSelectOption | AdvancedSelectGroup | AdvancedSelectPlaceholder)[],
+): AdvancedSelectOption | undefined {
   return options.flatMap((optionOrGroup) =>
     "options" in optionOrGroup ? optionOrGroup.options : "placeholder" in optionOrGroup ? [] : optionOrGroup,
   )[index];

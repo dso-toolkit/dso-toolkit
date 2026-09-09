@@ -1,11 +1,11 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { fn } from "storybook/test";
 
 import { gridColumnTemplate } from "../../components/grid-column/grid-column.template.js";
-import { coreShoppingCartTemplate } from "../../components/shopping-cart/shopping-cart.core-template";
-import type { ShoppingCartItem } from "../../components/shopping-cart/shopping-cart.models.js";
+import { ShoppingCartItem } from "../../components/shopping-cart/shopping-cart.models.js";
+import { shoppingCartTemplate } from "../../components/shopping-cart/shopping-cart.template.js";
 import { examplePageStory } from "../../example-page-story.js";
 import { argTypeAction } from "../../shared/arg-type-action.js";
 
@@ -31,7 +31,7 @@ type ShoppingCartOverlayArgs = {
 
 export const Block = examplePageStory<ShoppingCartBlockArgs>(
   ({ shoppingCartItemDsoEdit, shoppingCartItemDsoDelete, shoppingCartItemDsoClose, formDsoSubmit }) => {
-    const items: ShoppingCartItem<TemplateResult>[] = [
+    const items: ShoppingCartItem[] = [
       {
         mode: "edit",
         label: "Toevoeging bij activiteitnaam veranderen",
@@ -114,7 +114,7 @@ export const Block = examplePageStory<ShoppingCartBlockArgs>(
 
           <div class="row">
             <div class="col-xs-12">
-              ${coreShoppingCartTemplate({
+              ${shoppingCartTemplate({
                 mode: "main",
                 title: "Gekozen activiteiten",
                 items,
@@ -151,7 +151,7 @@ export const Overlay = examplePageStory<ShoppingCartOverlayArgs>(
     shoppingCartItemDsoClose,
     formDsoSubmit,
   }) => {
-    const sideItems: ShoppingCartItem<TemplateResult>[] = [
+    const sideItems: ShoppingCartItem[] = [
       {
         label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
         info: "Aanvraag vergunning (Gemeente Utrecht)",
@@ -179,7 +179,7 @@ export const Overlay = examplePageStory<ShoppingCartOverlayArgs>(
       },
     ];
 
-    const mainItems: ShoppingCartItem<TemplateResult>[] = [
+    const mainItems: ShoppingCartItem[] = [
       {
         mode: "edit",
         label: "Toevoeging bij activiteitnaam veranderen",
@@ -335,7 +335,7 @@ export const Overlay = examplePageStory<ShoppingCartOverlayArgs>(
               columns: "xs-12 sm-4",
               overlay: mode === "main",
               dsoClose: gridColumnDsoClose,
-              content: coreShoppingCartTemplate({
+              content: shoppingCartTemplate({
                 mode,
                 toggleable: true,
                 title: "Gekozen activiteiten",

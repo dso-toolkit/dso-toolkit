@@ -1,21 +1,23 @@
+import { TemplateResult } from "lit-html";
+
 import { List } from "../list/list.models.js";
 
-export interface DefinitionList<TemplateFnReturnType> {
+export interface DefinitionList {
   /**
    * `dso-columns` with `dso-column-*` specification.
    * `grouped` to group dt and dd elements.
    */
   modifier?: string;
-  definitions: Definition<TemplateFnReturnType>[];
+  definitions: Definition[];
 }
 
-export interface Definition<TemplateFnReturnType> {
-  term: TemplateFnReturnType;
-  descriptions: (DefinitionDescriptionContent<TemplateFnReturnType> | DefinitionDescriptionItems)[];
+export interface Definition {
+  term: TemplateResult | string;
+  descriptions: (DefinitionDescriptionContent | DefinitionDescriptionItems)[];
 }
 
-export interface DefinitionDescriptionContent<TemplateFnReturnType> {
-  content: string | TemplateFnReturnType;
+export interface DefinitionDescriptionContent {
+  content: TemplateResult | string;
 }
 
 export interface DefinitionDescriptionItems {

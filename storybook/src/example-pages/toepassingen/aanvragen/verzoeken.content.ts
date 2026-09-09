@@ -1,8 +1,6 @@
-import { TemplateResult } from "lit-html";
+import { Alert } from "../../../components/alert/alert.models.js";
 
-import type { Alert } from "../../../components/alert/alert.models.js";
-
-export const alerts: Alert<TemplateResult>[] = [
+export const alerts: Alert[] = [
   {
     status: "warning",
     message:

@@ -18,11 +18,10 @@ const meta: Meta<FormButtonsArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args: FormButtonsArgs) => formButtonsTemplate(formButtonsArgsMapper(args)),
 };
 
 export default meta;
-
-const render = (args: FormButtonsArgs) => formButtonsTemplate(formButtonsArgsMapper(args));
 
 export const Default: FormButtonsStory = {
   args: {
@@ -37,7 +36,6 @@ export const Default: FormButtonsStory = {
       },
     ],
   },
-  render,
 };
 
 export const MultiPage: FormButtonsStory = {
@@ -66,7 +64,6 @@ export const MultiPage: FormButtonsStory = {
       },
     ],
   },
-  render,
 };
 
 export const Sections: FormButtonsStory = {
@@ -82,7 +79,6 @@ export const Sections: FormButtonsStory = {
       },
     ],
   },
-  render,
 };
 
 export const SimpleForm: FormButtonsStory = {
@@ -94,5 +90,4 @@ export const SimpleForm: FormButtonsStory = {
       },
     ],
   },
-  render,
 };

@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -73,10 +74,7 @@ export const legendArgs: LegendArgs = {
   dsoDelete: fn(),
 };
 
-export function legendArgsMapper<TemplateFnReturnType>(
-  a: LegendArgs,
-  content: TemplateFnReturnType,
-): Legend<TemplateFnReturnType> {
+export function legendArgsMapper(a: LegendArgs, content: TemplateResult | string): Legend {
   return {
     tabItems: a.tabItems,
     content,

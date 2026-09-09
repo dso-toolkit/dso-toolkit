@@ -1,11 +1,9 @@
-import { TemplateResult } from "lit-html";
+import { Label } from "../../../components/label/label.models.js";
+import { ListButton } from "../../../components/list-button/list-button.models.js";
+import { Selectable } from "../../../components/selectable/selectable.models.js";
+import { ShoppingCart } from "../../../components/shopping-cart/shopping-cart.models.js";
 
-import type { Label } from "../../../components/label/label.models.js";
-import type { ListButton } from "../../../components/list-button/list-button.models.js";
-import type { Selectable } from "../../../components/selectable/selectable.models.js";
-import type { ShoppingCart } from "../../../components/shopping-cart/shopping-cart.models.js";
-
-export const shoppingCart: ShoppingCart<TemplateResult> = {
+export const shoppingCart: ShoppingCart = {
   title: "Mijn activiteiten",
   titleTag: "h3",
   collapsable: true,
@@ -21,7 +19,7 @@ export const shoppingCart: ShoppingCart<TemplateResult> = {
   ],
 };
 
-export const bestuurslaag: Selectable<TemplateResult>[] = [
+export const bestuurslaag: Selectable[] = [
   {
     id: "checkbox_1",
     type: "checkbox",
@@ -36,7 +34,7 @@ export const bestuurslaag: Selectable<TemplateResult>[] = [
   },
 ];
 
-export const toestemming: Selectable<TemplateResult>[] = [
+export const toestemming: Selectable[] = [
   {
     id: "checkbox_3",
     type: "checkbox",

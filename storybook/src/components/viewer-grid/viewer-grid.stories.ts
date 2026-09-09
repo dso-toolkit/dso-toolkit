@@ -1,6 +1,6 @@
 import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 import type { Meta } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { when } from "lit-html/directives/when.js";
 import { compiler } from "markdown-to-jsx/react";
 import { Renderer } from "storybook/internal/types";
@@ -69,7 +69,7 @@ const defaultArgs: ViewerGridStoryArgs = {
 
 const parameters = { layout: "fullscreen" as const };
 
-const example: ViewerGridExample<TemplateResult> = {
+const example: ViewerGridExample = {
   main: (mainExpanded) =>
     html`${alertTemplate({
       status: "info",

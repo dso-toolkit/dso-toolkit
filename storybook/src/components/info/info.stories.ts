@@ -20,23 +20,20 @@ const meta: Meta<InfoArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args: InfoArgs) => infoTemplate(infoArgsMapper(args, richContent)),
 };
 
 export default meta;
-
-const render = (args: InfoArgs) => infoTemplate(infoArgsMapper(args, richContent));
 
 export const Default: InfoStory = {
   args: {
     active: true,
     dsoClose: fn(),
   },
-  render,
 };
 
 export const Fixed: InfoStory = {
   args: {
     fixed: true,
   },
-  render,
 };

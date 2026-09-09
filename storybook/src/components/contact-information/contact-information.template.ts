@@ -1,11 +1,11 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 
 import { headingTemplate } from "../heading/heading.template.js";
 import { linkTemplate } from "../link/link.template.js";
 
 import { ContactInformation } from "./contact-information.models.js";
 
-export function contactInformationTemplate({ heading, linkItems, infoItems }: ContactInformation<TemplateResult>) {
+export function contactInformationTemplate({ heading, linkItems, infoItems }: ContactInformation) {
   return html`<dso-contact-information>
     ${
       heading

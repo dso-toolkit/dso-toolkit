@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
@@ -38,11 +39,7 @@ export const modalArgTypes: ArgTypes<ModalArgs> = {
   dsoClose: argTypeAction(),
 };
 
-export function modalArgsMapper<TemplateFnReturnType>(
-  a: ModalArgs,
-  body: TemplateFnReturnType,
-  footer?: TemplateFnReturnType,
-): Modal<TemplateFnReturnType> {
+export function modalArgsMapper(a: ModalArgs, body: TemplateResult | string, footer?: TemplateResult | string): Modal {
   return {
     ...a,
     body,

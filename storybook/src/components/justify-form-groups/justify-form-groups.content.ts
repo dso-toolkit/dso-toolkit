@@ -1,8 +1,6 @@
-import { TemplateResult } from "lit-html";
-
 import { JustifyFormGroups } from "./justify-form-groups.models.js";
 
-export const content: JustifyFormGroups<TemplateResult> = {
+export const content: JustifyFormGroups = {
   formGroups: [
     {
       group: "select",

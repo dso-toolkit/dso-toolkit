@@ -3,7 +3,7 @@ import { FormGroup } from "../form-group/form-group.models.js";
 
 import { FormGroupCollection } from "./form.models.js";
 
-const persoonlijkeGegevensFormGroups: FormGroup<never>[] = [
+const persoonlijkeGegevensFormGroups: FormGroup[] = [
   {
     group: "input",
     id: "mijn-voornaam",
@@ -63,7 +63,7 @@ const persoonlijkeGegevensFormGroups: FormGroup<never>[] = [
   },
 ];
 
-const overigeVragenFormGroups: FormGroup<never>[] = [
+const overigeVragenFormGroups: FormGroup[] = [
   {
     group: "files",
     id: "mijn-files",
@@ -323,9 +323,9 @@ const overigeVragenFormGroups: FormGroup<never>[] = [
   },
 ];
 
-export const formGroupContent: FormGroup<never>[] = [...persoonlijkeGegevensFormGroups, ...overigeVragenFormGroups];
+export const formGroupContent: FormGroup[] = [...persoonlijkeGegevensFormGroups, ...overigeVragenFormGroups];
 
-export const formGroupCollectionContent: FormGroupCollection<never>[] = [
+export const formGroupCollectionContent: FormGroupCollection[] = [
   {
     title: "Persoonlijke gegevens",
     headingLevel: "h2",

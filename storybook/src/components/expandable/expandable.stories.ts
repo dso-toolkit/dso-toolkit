@@ -15,6 +15,9 @@ type ExpandableStory = StoryObj<ExpandableArgs, Renderer>;
 const meta: Meta<ExpandableArgs> = {
   title: "Core/Expandable",
   argTypes: expandableArgTypes,
+  args: {
+    open: false,
+  },
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -23,32 +26,27 @@ const meta: Meta<ExpandableArgs> = {
       root: "#expandable-mock",
     },
   },
+  render: (args: ExpandableArgs) => expandableTemplate(expandableArgsMapper(args, expandableContent)),
 };
 
 export default meta;
 
-const render = (args: ExpandableArgs) => expandableTemplate(expandableArgsMapper(args, expandableContent));
-
 export const Default: ExpandableStory = {
   args: {
-    open: false,
     enableAnimation: false,
   },
   decorators: [(story) => decorator(story)],
   parameters: {
     layout: "fullscreen",
   },
-  render,
 };
 
 export const WithAnimation: ExpandableStory = {
   args: {
-    open: false,
     enableAnimation: true,
   },
   decorators: [(story) => decorator(story)],
   parameters: {
     layout: "fullscreen",
   },
-  render,
 };

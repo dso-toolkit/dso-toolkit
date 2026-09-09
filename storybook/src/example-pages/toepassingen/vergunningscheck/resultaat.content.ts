@@ -1,8 +1,6 @@
-import { TemplateResult } from "lit-html";
+import { AccordionSection } from "../../../components/accordion/accordion.models.js";
 
-import type { AccordionSection } from "../../../components/accordion/accordion.models.js";
-
-export const accordionSections1: AccordionSection<TemplateResult>[] = [
+export const accordionSections1: AccordionSection[] = [
   {
     handleTitle: "U heeft een vergunning nodig voor 1 activiteit.",
     heading: "h4",
@@ -20,7 +18,7 @@ export const accordionSections1: AccordionSection<TemplateResult>[] = [
   },
 ];
 
-export const accordionSections2: AccordionSection<TemplateResult>[] = [
+export const accordionSections2: AccordionSection[] = [
   {
     handleTitle: "Het is verboden deze werkzaamheid uit te voeren.",
     heading: "h4",

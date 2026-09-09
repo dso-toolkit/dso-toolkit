@@ -4,7 +4,7 @@ import { RenvooiValue } from "../renvooi/renvooi.models.js";
 
 import { MapLayerObject } from "./map-layer.models.js";
 
-const object1: MapLayerObject<TemplateResult> = {
+const object1: MapLayerObject = {
   name: html`<span
     >Dit is een lange voorbeeldtekst om te testen hoe de kaartlaag omgaat met een langere naam die over meerdere regels
     loopt</span
@@ -12,7 +12,7 @@ const object1: MapLayerObject<TemplateResult> = {
   symboolCode: "vszt030",
 };
 
-const object2: MapLayerObject<TemplateResult> = {
+const object2: MapLayerObject = {
   active: true,
   name: html`<span>Map layer object 2 (Gebiedsoverschrijdingszone)</span>`,
   labelSlot: html`<dso-label slot="label" status="warning">Nieuw</dso-label>`,
@@ -27,17 +27,17 @@ const renvooiLabel: RenvooiValue[] = [
   " gebied",
 ];
 
-const object3: MapLayerObject<TemplateResult> = {
+const object3: MapLayerObject = {
   active: true,
   name: html`<dso-renvooi .value=${renvooiLabel}></dso-renvooi>`,
   symboolCode: "vszt030",
 };
 
-export function multipleMapLayerObjects(): MapLayerObject<TemplateResult>[] {
+export function multipleMapLayerObjects(): MapLayerObject[] {
   return [object1, object2, object3];
 }
 
-export function singleMapLayerObject(): MapLayerObject<TemplateResult>[] {
+export function singleMapLayerObject(): MapLayerObject[] {
   return [object1];
 }
 

@@ -1,7 +1,7 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
 import { Footer } from "./footer.models.js";
 
-export function footerTemplate({ children }: Footer<TemplateResult>) {
+export function footerTemplate({ children }: Footer) {
   return html`<footer>${children}</footer>`;
 }

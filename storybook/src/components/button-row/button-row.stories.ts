@@ -18,11 +18,10 @@ const meta: Meta<ButtonRowArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args: ButtonRowArgs) => buttonRowTemplate(buttonRowArgsMapper(args)),
 };
 
 export default meta;
-
-const render = (args: ButtonRowArgs) => buttonRowTemplate(buttonRowArgsMapper(args));
 
 export const Default: ButtonRowStory = {
   args: {
@@ -49,7 +48,6 @@ export const Default: ButtonRowStory = {
       },
     ],
   },
-  render,
 };
 
 export const AlleButtonVarianten: ButtonRowStory = {
@@ -92,7 +90,6 @@ export const AlleButtonVarianten: ButtonRowStory = {
       },
     ],
   },
-  render,
 };
 
 export const PrimaireButtonVarianten: ButtonRowStory = {
@@ -169,7 +166,6 @@ export const PrimaireButtonVarianten: ButtonRowStory = {
       },
     ],
   },
-  render,
 };
 
 export const SecundaireButtonVarianten: ButtonRowStory = {
@@ -247,7 +243,6 @@ export const SecundaireButtonVarianten: ButtonRowStory = {
       },
     ],
   },
-  render,
 };
 
 export const TertiaireButtonVarianten: ButtonRowStory = {
@@ -325,7 +320,6 @@ export const TertiaireButtonVarianten: ButtonRowStory = {
       },
     ],
   },
-  render,
 };
 
 export const Emphasized: ButtonRowStory = {
@@ -369,5 +363,4 @@ export const Emphasized: ButtonRowStory = {
       },
     ],
   },
-  render,
 };

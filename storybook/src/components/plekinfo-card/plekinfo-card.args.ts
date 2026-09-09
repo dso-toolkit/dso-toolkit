@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -61,11 +62,11 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
   dsoPlekinfoCardClick: argTypeAction(),
 };
 
-export function plekinfoCardArgsMapper<TemplateFnReturnType>(
+export function plekinfoCardArgsMapper(
   a: PlekinfoCardArgs,
-  symbool?: TemplateFnReturnType,
-  content?: TemplateFnReturnType,
-): PlekinfoCard<TemplateFnReturnType> {
+  symbool?: TemplateResult | string,
+  content?: TemplateResult | string,
+): PlekinfoCard {
   return {
     label: a.label,
     href: a.href,

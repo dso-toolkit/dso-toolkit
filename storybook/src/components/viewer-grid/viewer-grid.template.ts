@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ViewerGrid } from "./viewer-grid.models.js";
@@ -28,7 +28,7 @@ export function viewerGridTemplate({
   legend,
   documentPanel,
   overlay,
-}: ViewerGrid<TemplateResult>) {
+}: ViewerGrid) {
   return html`
     <dso-viewer-grid
       main-size=${ifDefined(mainSize)}

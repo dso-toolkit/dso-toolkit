@@ -1,12 +1,12 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { AdvancedSelect } from "../../../components/advanced-select/advanced-select.models.js";
-import type { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
-import type { DocumentCard } from "../../../components/document-card/document-card.models.js";
-import type { Header } from "../../../components/header/header.models.js";
-import type { Navbar } from "../../../components/navbar/navbar.models.js";
-import type { PlekinfoCard } from "../../../components/plekinfo-card/plekinfo-card.models.js";
-import type { TabsItem } from "../../../components/tabs/tabs.models.js";
+import { AdvancedSelect } from "../../../components/advanced-select/advanced-select.models.js";
+import { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
+import { DocumentCard } from "../../../components/document-card/document-card.models.js";
+import { Header } from "../../../components/header/header.models.js";
+import { Navbar } from "../../../components/navbar/navbar.models.js";
+import { PlekinfoCard } from "../../../components/plekinfo-card/plekinfo-card.models.js";
+import { TabsItem } from "../../../components/tabs/tabs.models.js";
 import { mainMenu } from "../../content/main-menu.content.js";
 
 export const header: Header = {
@@ -32,7 +32,7 @@ export const breadcrumbs: Breadcrumbs = {
   ],
 };
 
-export const advancedSelect: AdvancedSelect<TemplateResult> = {
+export const advancedSelect: AdvancedSelect = {
   options: [
     {
       label: "Geldende versie",
@@ -93,7 +93,7 @@ export const advancedSelect: AdvancedSelect<TemplateResult> = {
   ],
 };
 
-const documentCardDefault: DocumentCard<TemplateResult> = {
+const documentCardDefault: DocumentCard = {
   href: "#",
   label: "Omgevingsplan gemeente Apeldoorn",
   status: "In werking vanaf 03-03-2023",
@@ -108,13 +108,13 @@ const documentCardDefault: DocumentCard<TemplateResult> = {
   },
 };
 
-export const documentCardList: DocumentCard<TemplateResult>[] = [
+export const documentCardList: DocumentCard[] = [
   documentCardDefault,
   { ...documentCardDefault, label: "Chw bestemmingsplan Algemene regels Apeldoorn" },
   { ...documentCardDefault, label: "TAM-voorbereidingsbesluit voorbeschermingsregels" },
 ];
 
-export const mainSubmenu: Navbar<TemplateResult> = {
+export const mainSubmenu: Navbar = {
   open: false,
   modifier: "sub",
   items: [
@@ -138,7 +138,7 @@ export const mainSubmenu: Navbar<TemplateResult> = {
   ],
 };
 
-export const documentPanelSubmenu: Navbar<TemplateResult> = {
+export const documentPanelSubmenu: Navbar = {
   open: false,
   modifier: "sub",
   items: [
@@ -170,7 +170,7 @@ export const documentPanelSubmenu: Navbar<TemplateResult> = {
   ],
 };
 
-const plekInfoCardDefault: PlekinfoCard<TemplateResult> = {
+const plekInfoCardDefault: PlekinfoCard = {
   href: "#",
   targetBlank: false,
   interaction: {
@@ -181,7 +181,7 @@ const plekInfoCardDefault: PlekinfoCard<TemplateResult> = {
   active: false,
 };
 
-export const plekinfoCardsListActiviteiten: PlekinfoCard<TemplateResult>[] = [
+export const plekinfoCardsListActiviteiten: PlekinfoCard[] = [
   { ...plekInfoCardDefault },
   {
     ...plekInfoCardDefault,
@@ -197,7 +197,7 @@ export const plekinfoCardsListActiviteiten: PlekinfoCard<TemplateResult>[] = [
   },
 ];
 
-export const plekinfoCardsListLocaties: PlekinfoCard<TemplateResult>[] = [
+export const plekinfoCardsListLocaties: PlekinfoCard[] = [
   {
     ...plekInfoCardDefault,
     label: "ambtsgebied",

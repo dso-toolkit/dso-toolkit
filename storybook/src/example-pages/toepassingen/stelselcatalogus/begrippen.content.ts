@@ -1,6 +1,6 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { Definition } from "../../../components/definition-list/definition-list.models.js";
+import { Definition } from "../../../components/definition-list/definition-list.models.js";
 import { infoButtonTemplate } from "../../../components/info-button/info-button.template.js";
 import { linkTemplate } from "../../../components/link/link.template.js";
 
@@ -36,7 +36,7 @@ export const mainMenu = [
   },
 ];
 
-export function definitions1(): Definition<TemplateResult>[] {
+export function definitions1(): Definition[] {
   return [
     {
       term: html`
@@ -95,7 +95,7 @@ export function definitions1(): Definition<TemplateResult>[] {
   ];
 }
 
-export function definitions2(): Definition<TemplateResult>[] {
+export function definitions2(): Definition[] {
   return [
     {
       term: html`
@@ -119,7 +119,7 @@ export function definitions2(): Definition<TemplateResult>[] {
   ];
 }
 
-export function definitions3(): Definition<TemplateResult>[] {
+export function definitions3(): Definition[] {
   return [
     {
       term: html`
@@ -139,7 +139,7 @@ export function definitions3(): Definition<TemplateResult>[] {
   ];
 }
 
-export function definitions4(): Definition<TemplateResult>[] {
+export function definitions4(): Definition[] {
   return [
     {
       term: html`
@@ -159,7 +159,7 @@ export function definitions4(): Definition<TemplateResult>[] {
   ];
 }
 
-export function definitions5(): Definition<TemplateResult>[] {
+export function definitions5(): Definition[] {
   return [
     {
       term: html`

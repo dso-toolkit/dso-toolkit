@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 
 import { Card, isCardInterface } from "../card/card.models.js";
 import { cardTemplate } from "../card/card.template.js";
@@ -8,7 +8,7 @@ import { PlekinfoCard } from "../plekinfo-card/plekinfo-card.models.js";
 
 import { CardContainer } from "./card-container.models.js";
 
-export function cardContainerTemplate({ mode, cards }: CardContainer<TemplateResult>) {
+export function cardContainerTemplate({ mode, cards }: CardContainer) {
   return html`
     <dso-card-container mode=${mode}>
       ${cards.map((card) => (mode === "list" ? html`<li>${template(card)}</li>` : template(card)))}
@@ -16,7 +16,7 @@ export function cardContainerTemplate({ mode, cards }: CardContainer<TemplateRes
   `;
 }
 
-function template(card: Card<TemplateResult> | DocumentCard<TemplateResult> | PlekinfoCard<TemplateResult>) {
+function template(card: Card | DocumentCard | PlekinfoCard) {
   if (isCardInterface(card)) {
     return cardTemplate(card);
   }

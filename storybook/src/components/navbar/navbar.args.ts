@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
@@ -51,10 +52,7 @@ export const navbarArgs: Omit<NavbarArgs, "extension" | "extensionOpen"> = {
   dsoExtensionToggle: fn(),
 };
 
-export function navbarArgsMapper<TemplateFnReturnType>(
-  a: NavbarArgs,
-  extension?: TemplateFnReturnType,
-): Navbar<TemplateFnReturnType> {
+export function navbarArgsMapper(a: NavbarArgs, extension?: TemplateResult | string): Navbar {
   return {
     items: a.items,
     modifier: a.modifier,

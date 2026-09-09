@@ -1,14 +1,8 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
 import { InfoButton } from "./info-button.models.js";
 
-export function infoButtonTemplate({
-  label,
-  active,
-  toggletipPlacement,
-  dsoToggle,
-  children,
-}: InfoButton<TemplateResult>) {
+export function infoButtonTemplate({ label, active, toggletipPlacement, dsoToggle, children }: InfoButton) {
   return html`
     <dso-info-button
       label=${label}

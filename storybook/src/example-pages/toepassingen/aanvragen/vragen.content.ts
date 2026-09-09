@@ -1,10 +1,10 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { FormGroupCheckboxes } from "../../../components/form-group/form-group-checkboxes.models.js";
-import type { FormGroupRadios } from "../../../components/form-group/form-group-radios.models.js";
+import { FormGroupCheckboxes } from "../../../components/form-group/form-group-checkboxes.models.js";
+import { FormGroupRadios } from "../../../components/form-group/form-group-radios.models.js";
 import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
 
-export function radios(): FormGroupRadios<TemplateResult> {
+export function radios(): FormGroupRadios {
   return {
     group: "radios",
     id: "radios",
@@ -34,7 +34,7 @@ export function radios(): FormGroupRadios<TemplateResult> {
   };
 }
 
-export const checkboxes: FormGroupCheckboxes<TemplateResult> = {
+export const checkboxes: FormGroupCheckboxes = {
   group: "checkboxes",
   id: "checkboxes",
   label: "Test Vraag 2",

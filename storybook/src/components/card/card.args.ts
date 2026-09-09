@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
@@ -17,7 +18,7 @@ export interface CardArgs {
   active: boolean;
   mode?: Link["mode"];
   selectable: boolean;
-  interactions: Array<Button | IconButton | InfoButton<never> | Label | SlideToggle>;
+  interactions: Array<Button | IconButton | InfoButton | Label | SlideToggle>;
   dsoCardClick: HandlerFunction;
 }
 
@@ -91,11 +92,7 @@ export const cardContentSlideToggle: Omit<CardArgs, "dsoCardClick"> = {
   ],
 };
 
-export function cardArgsMapper<TemplateFnReturnType>(
-  a: CardArgs,
-  content: TemplateFnReturnType,
-  infoButton?: InfoButton<TemplateFnReturnType>,
-): Card<TemplateFnReturnType> {
+export function cardArgsMapper(a: CardArgs, content: TemplateResult | string, infoButton?: InfoButton): Card {
   return {
     label: a.label,
     href: a.href,

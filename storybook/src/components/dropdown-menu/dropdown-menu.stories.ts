@@ -19,6 +19,9 @@ const meta: Meta<DropdownMenuArgs> = {
   title: "Core/Dropdown Menu",
   argTypes: dropdownMenuArgTypes,
   args: {
+    buttonVariant: "secondary",
+    dropdownAlign: "left",
+    dsoClick: fn(),
     id: uuidv4(),
   },
   parameters: {
@@ -26,6 +29,7 @@ const meta: Meta<DropdownMenuArgs> = {
       page: () => compiler(`${readme}\n${dropdownMenuGroupReadme}\n${dropdownMenuItemReadme}`),
     },
   },
+  render: (args: DropdownMenuArgs) => dropdownMenuTemplate(dropdownMenuArgsMapper(args)),
 };
 
 export default meta;
@@ -33,23 +37,15 @@ export default meta;
 export const Anchors: DropdownMenuStory = {
   args: {
     buttonLabel: "Versies",
-    buttonVariant: "secondary",
     checkable: true,
-    dropdownAlign: "left",
     groups: content.versions,
-    dsoClick: fn(),
   },
-  render: (args: DropdownMenuArgs) => dropdownMenuTemplate(dropdownMenuArgsMapper(args)),
 };
 
 export const Buttons: DropdownMenuStory = {
   args: {
     buttonLabel: "Opties",
-    buttonVariant: "secondary",
     checkable: false,
-    dropdownAlign: "left",
     groups: content.settings,
-    dsoClick: fn(),
   },
-  render: (args: DropdownMenuArgs) => dropdownMenuTemplate(dropdownMenuArgsMapper(args)),
 };

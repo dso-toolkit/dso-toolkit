@@ -1,4 +1,4 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { Autosuggest } from "./autosuggest.models.js";
@@ -14,7 +14,7 @@ export function autosuggestTemplate({
   notFoundLabel,
   mark,
   children,
-}: Autosuggest<TemplateResult>) {
+}: Autosuggest) {
   return html`
     <dso-autosuggest
       .suggestions=${suggestions}

@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
@@ -20,10 +21,7 @@ export const expandableArgTypes: ArgTypes<ExpandableArgs> = {
   minimumHeight: argTypeAction(),
 };
 
-export function expandableArgsMapper<TemplateFnReturnType>(
-  a: ExpandableArgs,
-  content: TemplateFnReturnType,
-): Expandable<TemplateFnReturnType> {
+export function expandableArgsMapper(a: ExpandableArgs, content: TemplateResult | string): Expandable {
   return {
     ...a,
     content,

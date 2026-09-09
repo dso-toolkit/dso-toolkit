@@ -1,3 +1,4 @@
+import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -148,16 +149,16 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   },
 };
 
-export function accordionArgsMapper<TemplateFnReturnType>(
+export function accordionArgsMapper(
   a: AccordionArgs,
-  sections: AccordionSection<TemplateFnReturnType>[],
-  badgeChildren?: TemplateFnReturnType,
-): Accordion<TemplateFnReturnType> {
+  sections: AccordionSection[],
+  badgeChildren?: TemplateResult | string,
+): Accordion {
   return {
     variant: a.variant,
     reverseAlign: a.reverseAlign,
     sections: sections.map((s, i) => {
-      const section: AccordionSection<TemplateFnReturnType> = {
+      const section: AccordionSection = {
         ...s,
         dsoToggleClick: (e) => a.dsoToggleClick(e.detail),
         dsoActiveChange: (e) => a.dsoActiveChange(e.detail),

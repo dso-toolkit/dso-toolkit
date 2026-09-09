@@ -1,5 +1,5 @@
-import type { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
-import type { Header } from "../../../components/header/header.models.js";
+import { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
+import { Header } from "../../../components/header/header.models.js";
 
 export const header: Header = {
   label: "Regels op de kaart",

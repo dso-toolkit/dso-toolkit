@@ -1,21 +1,11 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-import { Badge } from "../badge/badge.models.js";
+import { badgeTemplate } from "../badge/badge.template.js";
 
 import { Accordion } from "./accordion.models.js";
 
-function badgeTemplate({ status, message, label, toggletipPlacement, children }: Badge<TemplateResult>) {
-  return html`<dso-badge
-    .status=${ifDefined(status)}
-    .label=${ifDefined(label)}
-    .toggletipPlacement=${ifDefined(toggletipPlacement)}
-  >
-    ${message} ${children ? html`<div slot="toggletip">${children}</div>` : nothing}
-  </dso-badge>`;
-}
-
-export function accordionTemplate({ variant, reverseAlign, sections }: Accordion<TemplateResult>) {
+export function accordionTemplate({ variant, reverseAlign, sections }: Accordion) {
   return html`
     <dso-accordion .variant=${variant} ?reverse-align=${reverseAlign}>
       ${sections.map(

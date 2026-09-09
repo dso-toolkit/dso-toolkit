@@ -1,11 +1,11 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { SlottableTemplate } from "../../shared/slottable-template";
 
 import { Heading } from "./heading.models.js";
 
-export function headingTemplate({ level, children, slotName }: Heading<TemplateResult> & SlottableTemplate) {
+export function headingTemplate({ level, children, slotName }: Heading & SlottableTemplate) {
   if (level === 1) {
     return html`<h1 slot=${ifDefined(slotName)}>${children}</h1>`;
   }

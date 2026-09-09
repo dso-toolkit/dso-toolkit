@@ -1,8 +1,10 @@
-export interface Navbar<TemplateFnReturnType> {
+import { TemplateResult } from "lit-html";
+
+export interface Navbar {
   items: NavbarItem[];
   modifier: string;
   open: boolean;
-  extension?: TemplateFnReturnType;
+  extension?: TemplateResult | string;
   extensionOpen?: boolean;
   extensionAnimation?: boolean;
   dsoExtensionToggle?(event: NavBarToggleExtensionEvent): void;

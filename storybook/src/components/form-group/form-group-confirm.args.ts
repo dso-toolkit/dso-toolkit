@@ -67,9 +67,7 @@ export const formGroupConfirmArgTypes: ArgTypes<FormGroupConfirmArgs> = {
   },
 };
 
-export function formGroupConfirmArgsMapper<TemplateFnReturnType>(
-  a: FormGroupConfirmArgs,
-): FormGroupConfirm<TemplateFnReturnType> {
+export function formGroupConfirmArgsMapper(a: FormGroupConfirmArgs): FormGroupConfirm {
   return {
     group: "confirm",
     id: a.id,

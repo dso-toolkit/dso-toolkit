@@ -1,8 +1,10 @@
-export interface Banner<TemplateFnReturnType> {
+import { TemplateResult } from "lit-html";
+
+export interface Banner {
   status: BannerStatus;
   compact?: boolean;
   icon?: boolean;
-  content: TemplateFnReturnType;
+  content: TemplateResult | string;
 }
 
 export type BannerStatus = "success" | "error" | "info" | "warning";

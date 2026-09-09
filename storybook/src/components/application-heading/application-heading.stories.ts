@@ -22,17 +22,15 @@ const meta: Meta<ApplicationHeadingArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args: ApplicationHeadingArgs) => applicationHeadingTemplate(applicationHeadingArgsMapper(args)),
 };
 
 export default meta;
-
-const render = (args: ApplicationHeadingArgs) => applicationHeadingTemplate(applicationHeadingArgsMapper(args));
 
 export const Default: ApplicationHeadingStory = {
   args: {
     title: "H1 Paginatitel",
   },
-  render,
 };
 
 export const WithSubtitle: ApplicationHeadingStory = {
@@ -40,7 +38,6 @@ export const WithSubtitle: ApplicationHeadingStory = {
     title: "H1 Paginatitel",
     subtitle: "H2 Subtitel",
   },
-  render,
 };
 
 export const WithSubtitleAndSteps: ApplicationHeadingStory = {
@@ -49,14 +46,12 @@ export const WithSubtitleAndSteps: ApplicationHeadingStory = {
     subtitle: "H2 Subtitel",
     step: "Stap x van x",
   },
-  render,
 };
 
 export const SubtitleOnly: ApplicationHeadingStory = {
   args: {
     subtitle: "H2 Subtitel",
   },
-  render,
 };
 
 export const SubtitleAndStepsOnly: ApplicationHeadingStory = {
@@ -64,5 +59,4 @@ export const SubtitleAndStepsOnly: ApplicationHeadingStory = {
     subtitle: "H2 Subtitel",
     step: "Stap x van x",
   },
-  render,
 };

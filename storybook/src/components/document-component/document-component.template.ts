@@ -1,4 +1,4 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { DocumentComponent } from "./document-component.models.js";
@@ -36,7 +36,7 @@ export function documentComponentTemplate({
   dsoMarkItemHighlight,
   dsoTableOfContentsClick,
   dsoOzonContentClick,
-}: DocumentComponent<TemplateResult>) {
+}: DocumentComponent) {
   return html`<dso-responsive-element class="dso-document-components">
     <dso-document-component
       ?annotated=${annotated}

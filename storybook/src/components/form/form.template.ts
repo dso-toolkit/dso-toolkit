@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 
 import { formButtonsTemplate } from "../form-buttons/form-buttons.template.js";
@@ -6,14 +6,7 @@ import { formGroupTemplate } from "../form-group/form-group.template.js";
 
 import { Form, FormGroupCollection, FormGroupCollectionHeadingLevel } from "./form.models.js";
 
-export function formTemplate({
-  asteriskExplanation,
-  mode,
-  formModifier,
-  content,
-  formButtons,
-  dsoSubmit,
-}: Form<TemplateResult>) {
+export function formTemplate({ asteriskExplanation, mode, formModifier, content, formButtons, dsoSubmit }: Form) {
   function asteriskExplanationTemplate() {
     return html`<div class="form-explanation" aria-hidden="true">
       <p class="form-explanation-text">
@@ -50,7 +43,7 @@ export function formTemplate({
     return html`${title}`;
   }
 
-  function formGroupCollection({ title, headingLevel, formGroups }: FormGroupCollection<TemplateResult>) {
+  function formGroupCollection({ title, headingLevel, formGroups }: FormGroupCollection) {
     return html`<fieldset class="dso-form-group-collection">
       <legend>${heading(title, headingLevel)}</legend>
       ${formGroups.map((formGroup) => formGroupTemplate(formGroup))}

@@ -1,4 +1,3 @@
-import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
@@ -16,7 +15,7 @@ export interface DocumentHeaderArgs {
   featureAction: HandlerFunction;
   featuresOpen: boolean;
   activeIndex: number;
-  advancedSelect: AdvancedSelect<TemplateResult>;
+  advancedSelect: AdvancedSelect;
   sticky: boolean;
   statusMessage?: string;
   variant?: variant;
@@ -70,10 +69,7 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
   },
 };
 
-export function documentHeaderArgsMapper(
-  a: DocumentHeaderArgs,
-  featuresContent: featuresContentType<TemplateResult>,
-): DocumentHeader<TemplateResult> {
+export function documentHeaderArgsMapper(a: DocumentHeaderArgs, featuresContent: featuresContentType): DocumentHeader {
   return {
     title: a.title,
     owner: a.owner,

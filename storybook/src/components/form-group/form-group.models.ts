@@ -21,15 +21,15 @@ export { FormGroupStatic } from "./form-group-static.models.js";
 export { FormGroupTextarea } from "./form-group-textarea.models.js";
 export { FormGroupBase } from "./form-group.base-model.js";
 
-export type FormGroup<TemplateFnReturnType> =
-  | FormGroupCheckboxes<TemplateFnReturnType>
-  | FormGroupConfirm<TemplateFnReturnType>
-  | FormGroupDatePicker<TemplateFnReturnType>
-  | FormGroupFiles<TemplateFnReturnType>
-  | FormGroupInput<TemplateFnReturnType>
-  | FormGroupInputDate<TemplateFnReturnType>
-  | FormGroupRadios<TemplateFnReturnType>
-  | FormGroupSearchBar<TemplateFnReturnType>
-  | FormGroupSelect<TemplateFnReturnType>
-  | FormGroupStatic<TemplateFnReturnType>
-  | FormGroupTextarea<TemplateFnReturnType>;
+export type FormGroup =
+  | FormGroupCheckboxes
+  | FormGroupConfirm
+  | FormGroupDatePicker
+  | FormGroupFiles
+  | FormGroupInput
+  | FormGroupInputDate
+  | FormGroupRadios
+  | FormGroupSearchBar
+  | FormGroupSelect
+  | FormGroupStatic
+  | FormGroupTextarea;

@@ -2,34 +2,7 @@ import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { Header } from "./header.models.js";
-
-function logoTemplate({
-  name,
-  label,
-  ribbon,
-  labelUrl,
-  logoUrl,
-  dsoLogoClick,
-  dsoLabelClick,
-}: {
-  name?: string;
-  label?: string;
-  ribbon?: string;
-  labelUrl?: string;
-  logoUrl?: string;
-  dsoLogoClick?: (event: Event) => void;
-  dsoLabelClick?: (event: Event) => void;
-}) {
-  return html`<dso-logo
-    .name=${ifDefined(name)}
-    .label=${ifDefined(label)}
-    .labelUrl=${ifDefined(labelUrl)}
-    .logoUrl=${ifDefined(logoUrl)}
-    ribbon=${ifDefined(ribbon)}
-    @dsoLogoClick=${ifDefined(dsoLogoClick)}
-    @dsoLabelClick=${ifDefined(dsoLabelClick)}
-  ></dso-logo>`;
-}
+import { logoTemplate } from "../logo/logo.template.js";
 
 export function headerTemplate({
   label,

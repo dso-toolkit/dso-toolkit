@@ -1,6 +1,8 @@
-export interface Heading<TemplateFnReturnType> {
+import { TemplateResult } from "lit-html";
+
+export interface Heading {
   level: number;
-  children: TemplateFnReturnType | string;
+  children: TemplateResult | string;
 }
 
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;

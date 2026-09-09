@@ -1,4 +1,4 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
 import { accordionTemplate } from "../accordion/accordion.template.js";
 import { buttonTemplate } from "../button/button.template.js";
@@ -8,7 +8,7 @@ import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
 import { ActionListItem } from "./action-list.models.js";
 
-function item1(): ActionListItem<TemplateResult> {
+function item1(): ActionListItem {
   return {
     flowLine: true,
     content: buttonTemplate({
@@ -19,7 +19,7 @@ function item1(): ActionListItem<TemplateResult> {
   };
 }
 
-function item2(): ActionListItem<TemplateResult> {
+function item2(): ActionListItem {
   return {
     title: "Neem contact op met het waterschap en de gemeente",
     flowLine: true,
@@ -70,7 +70,7 @@ function item2(): ActionListItem<TemplateResult> {
   };
 }
 
-function item3(): ActionListItem<TemplateResult> {
+function item3(): ActionListItem {
   return {
     title: "Vergunningen aanvragen",
     flowLine: true,
@@ -94,7 +94,7 @@ function item3(): ActionListItem<TemplateResult> {
   };
 }
 
-function item4(): ActionListItem<TemplateResult> {
+function item4(): ActionListItem {
   return {
     title: "Meldingen en informatie voorbereiden",
     flowLine: true,
@@ -134,7 +134,7 @@ function item4(): ActionListItem<TemplateResult> {
   };
 }
 
-function item5(flowLine = true): ActionListItem<TemplateResult> {
+function item5(flowLine = true): ActionListItem {
   return {
     title: "Om rekening mee te houden",
     flowLine,
@@ -161,7 +161,7 @@ function item5(flowLine = true): ActionListItem<TemplateResult> {
   };
 }
 
-function item6(flowLine = true): ActionListItem<TemplateResult> {
+function item6(flowLine = true): ActionListItem {
   return {
     title: "Start de werkzaamheden",
     flowLine,
@@ -197,7 +197,7 @@ function item6(flowLine = true): ActionListItem<TemplateResult> {
   };
 }
 
-function warning(): ActionListItem<TemplateResult> {
+function warning(): ActionListItem {
   return {
     title: "Let op",
     warning: true,
@@ -210,16 +210,9 @@ function warning(): ActionListItem<TemplateResult> {
   };
 }
 
-export const actionListItems: ActionListItem<TemplateResult>[] = [
-  item1(),
-  item2(),
-  item3(),
-  item4(),
-  item5(),
-  item6(false),
-];
+export const actionListItems: ActionListItem[] = [item1(), item2(), item3(), item4(), item5(), item6(false)];
 
-export const actionListWithWarningItems: ActionListItem<TemplateResult>[] = [
+export const actionListWithWarningItems: ActionListItem[] = [
   item1(),
   item2(),
   item3(),

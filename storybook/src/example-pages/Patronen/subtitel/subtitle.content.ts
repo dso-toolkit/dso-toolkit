@@ -1,8 +1,8 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import type { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
+import { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
 
-export const definitionList: DefinitionList<TemplateResult> = {
+export const definitionList: DefinitionList = {
   modifier: "dso-bordered",
   definitions: [
     {

@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -8,7 +8,7 @@ import { selectableTemplate } from "../selectable/selectable.template.js";
 
 import { FormGroupRadios } from "./form-group-radios.models.js";
 
-export function formGroupRadiosTemplate(formGroup: FormGroupRadios<TemplateResult>) {
+export function formGroupRadiosTemplate(formGroup: FormGroupRadios) {
   const errorTextId = `${formGroup.id}-error-text`;
   const helpTextId = `${formGroup.id}-help-text`;
   const infoTextId = `${formGroup.id}-info-text`;

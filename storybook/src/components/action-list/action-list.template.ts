@@ -1,9 +1,9 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ActionList } from "./action-list.models.js";
 
-export function actionListTemplate({ title, actionListItems }: ActionList<TemplateResult>) {
+export function actionListTemplate({ title, actionListItems }: ActionList) {
   return html`
     <dso-action-list list-title=${title}>
       ${actionListItems.map(

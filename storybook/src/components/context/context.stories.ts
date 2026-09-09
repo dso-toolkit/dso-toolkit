@@ -14,37 +14,31 @@ type ContextStory = StoryObj<ContextArgs, Renderer>;
 const meta: Meta<ContextArgs> = {
   title: "HTML|CSS/Context",
   argTypes: contextArgTypes,
+  args: {
+    type: "label",
+  },
   parameters: {
     docs: {
       page: () => compiler(readme),
     },
   },
+  render: (args: ContextArgs) => contextTemplate(contextArgsMapper(args, content, children, label)),
 };
 
 export default meta;
 
-const render = (args: ContextArgs) => contextTemplate(contextArgsMapper(args, content, children, label));
+export const Label: ContextStory = {};
 
-export const Label: ContextStory = {
+export const LabelAlignLeft: ContextStory = {
   args: {
-    type: "label",
+    alignLeft: true,
   },
-  render,
 };
 
 export const Legend: ContextStory = {
   args: {
     type: "legend",
   },
-  render,
-};
-
-export const LabelAlignLeft: ContextStory = {
-  args: {
-    type: "label",
-    alignLeft: true,
-  },
-  render,
 };
 
 export const LegendAlignLeft: ContextStory = {
@@ -52,5 +46,4 @@ export const LegendAlignLeft: ContextStory = {
     type: "legend",
     alignLeft: true,
   },
-  render,
 };

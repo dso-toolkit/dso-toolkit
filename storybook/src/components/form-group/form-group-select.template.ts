@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -12,7 +12,7 @@ function selectOptionTemplate(option: SelectOption) {
   return html`<option value=${option.value} ?selected=${option.selected}>${option.label}</option>`;
 }
 
-export function formGroupSelectTemplate(formGroup: FormGroupSelect<TemplateResult>) {
+export function formGroupSelectTemplate(formGroup: FormGroupSelect) {
   const errorTextId = `${formGroup.id}-error-text`;
   const helpTextId = `${formGroup.id}-help-text`;
   const infoTextId = `${formGroup.id}-info-text`;

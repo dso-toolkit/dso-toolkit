@@ -104,9 +104,7 @@ export const formGroupRadiosArgTypes: ArgTypes<FormGroupRadiosArgs> = {
   },
 };
 
-export function formGroupRadiosArgsMapper<TemplateFnReturnType>(
-  a: FormGroupRadiosArgs,
-): FormGroupRadios<TemplateFnReturnType> {
+export function formGroupRadiosArgsMapper(a: FormGroupRadiosArgs): FormGroupRadios {
   return {
     group: "radios",
     id: a.id,

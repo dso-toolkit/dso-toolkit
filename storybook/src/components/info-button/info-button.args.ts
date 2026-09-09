@@ -33,6 +33,6 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
   dsoToggle: argTypeAction(),
 };
 
-export function infoButtonArgsMapper(a: InfoButtonArgs, children?: TemplateResult): InfoButton<TemplateResult> {
+export function infoButtonArgsMapper(a: InfoButtonArgs, children?: TemplateResult): InfoButton {
   return { ...a, children };
 }

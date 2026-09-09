@@ -1,4 +1,4 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -46,7 +46,7 @@ export const projectItemArgTypes: ArgTypes<ProjectItemArgs> = {
   dsoRemove: argTypeAction(),
 };
 
-export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<TemplateResult> {
+export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem {
   return {
     href: a.href,
     title: a.title,

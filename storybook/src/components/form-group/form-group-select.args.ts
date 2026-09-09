@@ -111,9 +111,7 @@ export const formGroupSelectArgTypes: ArgTypes<FormGroupSelectArgs> = {
   },
 };
 
-export function formGroupSelectArgsMapper<TemplateFnReturnType>(
-  a: FormGroupSelectArgs,
-): FormGroupSelect<TemplateFnReturnType> {
+export function formGroupSelectArgsMapper(a: FormGroupSelectArgs): FormGroupSelect {
   return {
     group: "select",
     id: a.id,

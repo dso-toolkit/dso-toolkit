@@ -1,8 +1,6 @@
-import { TemplateResult } from "lit-html";
-
 import { ContactInformation } from "./contact-information.models.js";
 
-export const contactInformationContent: ContactInformation<TemplateResult> = {
+export const contactInformationContent: ContactInformation = {
   linkItems: [
     { label: "14-303", url: "tel:40-303", icon: { icon: "call" } },
     { label: "noreply@dso-toolkit.nl", url: "mailto:no-reply@dso-toolkit.nl", icon: { icon: "mail-outline" } },

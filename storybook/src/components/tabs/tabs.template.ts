@@ -1,10 +1,10 @@
 import { DsoTabCustomEvent } from "@dso-toolkit/core";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { Tabs, TabsItem, TabsSwitchEvent } from "./tabs.models.js";
 
-export function tabsTemplate({ items, content }: Tabs<TemplateResult>) {
+export function tabsTemplate({ items, content }: Tabs) {
   return html`
     <dso-tabs>
       ${items.map(

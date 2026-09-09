@@ -30,9 +30,6 @@ export const tableArgTypes: ArgTypes<TableArgs> = {
   role: argTypeAction(),
 };
 
-export function tableArgsMapper<TemplateFnReturnType>(
-  a: TableArgs,
-  content: TableContent<TemplateFnReturnType>,
-): Table<TemplateFnReturnType> {
+export function tableArgsMapper(a: TableArgs, content: TableContent): Table {
   return { ...a, content };
 }

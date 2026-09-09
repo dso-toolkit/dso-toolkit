@@ -1,6 +1,6 @@
 import { FormGroupBase } from "./form-group.base-model.js";
 
-export interface FormGroupFiles<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
+export interface FormGroupFiles extends FormGroupBase {
   group: "files";
   addFileButtonVariant: "primary" | "secondary";
   files: FormGroupFilesFile[];

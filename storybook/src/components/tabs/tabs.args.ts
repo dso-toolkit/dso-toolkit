@@ -6,19 +6,19 @@ import { argTypeAction } from "../../shared/arg-type-action.js";
 
 import { Tabs, TabsItem } from "./tabs.models.js";
 
-export interface TabsArgs<TemplateFnReturnType> {
+export interface TabsArgs {
   items: TabsItem[];
-  content: TemplateFnReturnType | string;
+  content: TemplateResult | string;
   dsoTabSwitch: HandlerFunction;
 }
 
-export const tabsArgTypes: ArgTypes<TabsArgs<TemplateResult>> = {
+export const tabsArgTypes: ArgTypes<TabsArgs> = {
   items: argTypeAction(),
   content: argTypeAction(),
   dsoTabSwitch: argTypeAction(),
 };
 
-export function tabsArgsMapper<TemplateFnReturnType>(a: TabsArgs<TemplateFnReturnType>): Tabs<TemplateFnReturnType> {
+export function tabsArgsMapper(a: TabsArgs): Tabs {
   return {
     ...a,
     items: a.items.map((i: TabsItem) => {

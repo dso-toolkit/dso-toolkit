@@ -1,12 +1,14 @@
-export interface ActionList<TemplateFnReturnType> {
+import { TemplateResult } from "lit-html";
+
+export interface ActionList {
   title: string;
-  actionListItems: ActionListItem<TemplateFnReturnType>[];
+  actionListItems: ActionListItem[];
 }
 
-export interface ActionListItem<TemplateFnReturnType> {
+export interface ActionListItem {
   title?: string;
   flowLine?: boolean;
   warning?: boolean;
   divider?: boolean;
-  content?: TemplateFnReturnType;
+  content?: TemplateResult | string;
 }

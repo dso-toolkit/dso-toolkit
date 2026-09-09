@@ -24,10 +24,7 @@ export const formArgTypes: ArgTypes<FormArgs> = {
   },
 };
 
-export function formArgsMapper<TemplateFnReturnType>(
-  a: FormArgs,
-  content: FormContent<TemplateFnReturnType>,
-): Form<TemplateFnReturnType> {
+export function formArgsMapper(a: FormArgs, content: FormContent): Form {
   return {
     asteriskExplanation: a.asteriskExplanation,
     mode: a.mode,

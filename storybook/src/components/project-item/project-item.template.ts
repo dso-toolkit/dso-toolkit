@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 
 import { definitionListTemplate } from "../definition-list/definition-list.template.js";
 import { headingTemplate } from "../heading/heading.template.js";
@@ -7,15 +7,7 @@ import { linkTemplate } from "../link/link.template.js";
 
 import { ProjectItem } from "./project-item.models.js";
 
-export function projectItemTemplate({
-  href,
-  title,
-  headingLevel,
-  label,
-  actions,
-  progress,
-  status,
-}: ProjectItem<TemplateResult>) {
+export function projectItemTemplate({ href, title, headingLevel, label, actions, progress, status }: ProjectItem) {
   return html`<dso-project-item label=${label}>
     ${headingTemplate({
       level: headingLevel ?? 2,

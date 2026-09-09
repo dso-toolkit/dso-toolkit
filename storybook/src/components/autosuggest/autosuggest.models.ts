@@ -1,6 +1,8 @@
+import { TemplateResult } from "lit-html";
+
 export type AutosuggestMarkItem = { mark: string } | string;
 
-export interface Autosuggest<TemplateFnReturnType> {
+export interface Autosuggest {
   suggestions: AutosuggestSuggestion[] | AutosuggestSuggestionGroup[] | null;
   loading: boolean;
   loadingLabel?: string;
@@ -9,7 +11,7 @@ export interface Autosuggest<TemplateFnReturnType> {
   dsoChange: (value: CustomEvent<string>) => void;
   dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
   dsoSearch: (value: CustomEvent<string>) => void;
-  children: TemplateFnReturnType;
+  children: TemplateResult | string;
   mark?: (
     suggestion: AutosuggestSuggestion,
     text: string,

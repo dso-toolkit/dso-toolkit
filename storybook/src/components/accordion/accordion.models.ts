@@ -1,3 +1,5 @@
+import { TemplateResult } from "lit-html";
+
 import { Badge } from "../badge/badge.models.js";
 import { IconAlias } from "../icon/icon.models.js";
 import { LabelStatus } from "../label/label.models.js";
@@ -11,13 +13,13 @@ export type AccordionHeading = "h2" | "h3" | "h4" | "h5";
 
 export type AccordionSectionWijzigactie = "voegtoe" | "verwijder";
 
-export interface Accordion<TemplateFnReturnType> {
+export interface Accordion {
   variant?: AccordionVariant;
   reverseAlign?: boolean;
-  sections: AccordionSection<TemplateFnReturnType>[];
+  sections: AccordionSection[];
 }
 
-export interface AccordionSection<TemplateFnReturnType> {
+export interface AccordionSection {
   open?: boolean;
   handleTitle: RenvooiValue | RenvooiValue[];
   heading: AccordionHeading;
@@ -27,12 +29,12 @@ export interface AccordionSection<TemplateFnReturnType> {
   status?: AccordionSectionStatus;
   icon?: IconAlias;
   attachmentCount?: number;
-  content?: TemplateFnReturnType;
+  content?: TemplateResult | string;
   labelStatus?: LabelStatus;
   label?: string;
   activatable?: boolean;
   active?: boolean;
-  badge?: Badge<TemplateFnReturnType>;
+  badge?: Badge;
   dsoActiveChange?: (e: CustomEvent<AccordionSectionActiveChangeEvent>) => void;
   dsoToggleClick?: (e: CustomEvent<AccordionSectionToggleClickEvent>) => void;
   dsoAnimationStart?: (e: CustomEvent<AccordionSectionAnimationStartEvent>) => void;

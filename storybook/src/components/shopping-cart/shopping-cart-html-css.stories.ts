@@ -7,12 +7,12 @@ import { v4 as uuidv4 } from "uuid";
 
 import { StoryObj } from "../../shared/story-obj.js";
 
+import { shoppingCartTemplate } from "./shopping-cart-html-css.template.js";
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
-import { cssShoppingCartTemplate } from "./shopping-cart.css-template";
 
-type ShoppingCartStory = StoryObj<ShoppingCartArgs<never>, Renderer>;
+type ShoppingCartStory = StoryObj<ShoppingCartArgs, Renderer>;
 
-const meta: Meta<ShoppingCartArgs<never>> = {
+const meta: Meta<ShoppingCartArgs> = {
   title: "HTML|CSS/Shopping Cart",
   argTypes: shoppingCartArgTypes,
   args: {
@@ -40,7 +40,7 @@ const meta: Meta<ShoppingCartArgs<never>> = {
 
 export default meta;
 
-const render = (args: ShoppingCartArgs<never>) => cssShoppingCartTemplate(shoppingCartArgsMapper(args));
+const render = (args: ShoppingCartArgs) => shoppingCartTemplate(shoppingCartArgsMapper(args));
 
 export const Default: ShoppingCartStory = {
   render,

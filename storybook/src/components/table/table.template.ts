@@ -1,11 +1,11 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { Table, TableSorting } from "./table.models.js";
 
-export function tableTemplate({ noModal, content, headingColumns, role, verticalLines }: Table<TemplateResult>) {
+export function tableTemplate({ noModal, content, headingColumns, role, verticalLines }: Table) {
   function getAriaRoledescription(sorting: TableSorting | undefined): string | undefined {
     if (sorting === "ascending") {
       return "sorteer oplopend knop";

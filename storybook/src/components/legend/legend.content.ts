@@ -1,4 +1,4 @@
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { type LegendArgs } from "./legend.args.js";
@@ -6,13 +6,13 @@ import { type LegendGroup, type LegendItem } from "./legend.models.js";
 
 const defaultSymbol = html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
 
-const legendGroupTemplate = (p: LegendGroup<TemplateResult>) =>
+const legendGroupTemplate = (p: LegendGroup) =>
   html`<dso-legend-group .mode=${ifDefined(p.mode)} @dsoLegendGroupModeChange=${ifDefined(p.dsoLegendGroupModeChange)}>
     ${p.heading || nothing} ${p.options ? html`<div slot="options">${p.options}</div>` : nothing}
     ${p.children || nothing}
   </dso-legend-group>`;
 
-const legendItemTemplate = (p: LegendItem<TemplateResult>) =>
+const legendItemTemplate = (p: LegendItem) =>
   html`<dso-legend-item
     .disabled=${p.disabled}
     .disabledMessage=${ifDefined(p.disabledMessage)}
