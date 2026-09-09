@@ -1,12 +1,16 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../example-page-stories";
+import { bannerTemplate } from "../components/banner/banner.template.js";
+import { highlightBoxTemplate } from "../components/highlight-box/highlight-box.template.js";
+import { linkTemplate } from "../components/link/link.template.js";
+import { richContentTemplate } from "../components/rich-content/rich-content.template.js";
+import { examplePageStory } from "../example-page-story.js";
 
-import { header } from "./content/header.content";
-import { mainMenu } from "./content/main-menu.content";
-import { footerPartial } from "./partials/footer";
-import { headerPartial } from "./partials/header";
+import { header } from "./content/header.content.js";
+import { mainMenu } from "./content/main-menu.content.js";
+import { footerPartial } from "./partials/footer.js";
+import { headerPartial } from "./partials/header.js";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Pagina met banner",
@@ -14,9 +18,7 @@ const meta: Meta = {
 
 export default meta;
 
-const PaginaMetBanner = examplePageStories((templates) => {
-  const { linkTemplate, bannerTemplate, highlightBoxTemplate, richContentTemplate } = templates;
-
+const PaginaMetBanner = examplePageStory(() => {
   return html`
     ${bannerTemplate({
       status: "error",
@@ -30,7 +32,7 @@ const PaginaMetBanner = examplePageStories((templates) => {
       }),
     })}
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
+      ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <div class="row">
           <div class="col-lg-8">
@@ -84,7 +86,7 @@ const PaginaMetBanner = examplePageStories((templates) => {
         </div>
       </main>
 
-      ${footerPartial(templates)}
+      ${footerPartial()}
       </div>
     </div>
   `;

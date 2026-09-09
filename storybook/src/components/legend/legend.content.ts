@@ -1,6 +1,8 @@
-import { type LegendArgs, type LegendGroup, type LegendItem } from "dso-toolkit";
 import { TemplateResult, html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { type LegendArgs } from "./legend.args.js";
+import { type LegendGroup, type LegendItem } from "./legend.models.js";
 
 const defaultSymbol = html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
 

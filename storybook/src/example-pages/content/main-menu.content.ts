@@ -1,4 +1,4 @@
-import { HeaderMenuItem } from "dso-toolkit";
+import type { HeaderMenuItem } from "../../components/header/header.models.js";
 
 export function mainMenu(label?: string): HeaderMenuItem[] {
   return [

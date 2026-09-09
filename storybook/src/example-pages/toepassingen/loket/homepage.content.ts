@@ -1,5 +1,7 @@
-import { AccordionSection, LinkList, LinkListType } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
+
+import type { AccordionSection } from "../../../components/accordion/accordion.models.js";
+import { type LinkList, LinkListType } from "../../../components/link-list/link-list.models.js";
 
 export const accordionSections: AccordionSection<TemplateResult>[] = [
   {

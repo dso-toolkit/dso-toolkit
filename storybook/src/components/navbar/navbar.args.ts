@@ -1,0 +1,67 @@
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
+
+import { argTypeAction } from "../../shared/arg-type-action.js";
+
+import { NavBarToggleExtensionEvent, Navbar, NavbarItem } from "./navbar.models.js";
+
+export interface NavbarArgs {
+  items: NavbarItem[];
+  modifier: string;
+  open: boolean;
+  extensionOpen?: boolean;
+  extensionAnimation?: boolean;
+  dsoExtensionToggle(event: NavBarToggleExtensionEvent): void;
+}
+
+export const navbarArgTypes: ArgTypes<NavbarArgs> = {
+  items: {
+    control: {
+      disable: true,
+    },
+  },
+  modifier: {
+    options: ["main", "sub"],
+    control: {
+      type: "select",
+    },
+  },
+  open: {
+    control: {
+      type: "boolean",
+    },
+  },
+  extensionOpen: {
+    control: {
+      type: "boolean",
+    },
+  },
+  extensionAnimation: {
+    control: {
+      type: "boolean",
+    },
+  },
+  dsoExtensionToggle: argTypeAction(),
+};
+
+export const navbarArgs: Omit<NavbarArgs, "extension" | "extensionOpen"> = {
+  open: false,
+  modifier: "",
+  items: [],
+  dsoExtensionToggle: fn(),
+};
+
+export function navbarArgsMapper<TemplateFnReturnType>(
+  a: NavbarArgs,
+  extension?: TemplateFnReturnType,
+): Navbar<TemplateFnReturnType> {
+  return {
+    items: a.items,
+    modifier: a.modifier,
+    open: a.open,
+    extension,
+    extensionOpen: !!extension && a.extensionOpen,
+    extensionAnimation: !!extension && !!a.extensionAnimation,
+    dsoExtensionToggle: (e) => a.dsoExtensionToggle(e),
+  };
+}

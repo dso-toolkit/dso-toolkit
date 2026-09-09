@@ -1,5 +1,9 @@
-import { Label, ListButton, Selectable, ShoppingCart } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
+
+import type { Label } from "../../../components/label/label.models.js";
+import type { ListButton } from "../../../components/list-button/list-button.models.js";
+import type { Selectable } from "../../../components/selectable/selectable.models.js";
+import type { ShoppingCart } from "../../../components/shopping-cart/shopping-cart.models.js";
 
 export const shoppingCart: ShoppingCart<TemplateResult> = {
   title: "Mijn activiteiten",
