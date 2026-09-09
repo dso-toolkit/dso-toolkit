@@ -569,11 +569,7 @@ export class Header implements ComponentInterface {
               aria-expanded={this.open ? "true" : "false"}
             >
               <span>{this.text("menu")}</span>
-              {this.compact === "always" && !this.isMobileViewport ? (
-                <dso-icon icon="chevron-down"></dso-icon>
-              ) : (
-                <dso-icon icon="bars"></dso-icon>
-              )}
+              <dso-icon icon="chevron-down"></dso-icon>
             </button>
             <div popover="manual" ref={(element) => (this.popoverElement = element)}>
               <dso-scrollable

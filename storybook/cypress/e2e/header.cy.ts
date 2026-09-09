@@ -171,33 +171,6 @@ describe("Header", () => {
       .should("not.exist");
   });
 
-  it("should show bars for auto compact menu below desktop breakpoint", () => {
-    cy.viewport(991, 600)
-      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
-      .invoke("prop", "compact", "auto")
-      .get("@dsoHeaderShadow")
-      .find(".dropdown-menu > button dso-icon")
-      .should("have.prop", "icon", "bars");
-  });
-
-  it("should show chevron for forced compact menu between mobile and desktop breakpoint", () => {
-    cy.viewport(991, 600)
-      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
-      .invoke("prop", "compact", "always")
-      .get("@dsoHeaderShadow")
-      .find(".dropdown-menu > button dso-icon")
-      .should("have.prop", "icon", "chevron-down");
-  });
-
-  it("should show bars for compact menu at mobile breakpoint", () => {
-    cy.viewport(480, 600)
-      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
-      .invoke("prop", "compact", "always")
-      .get("@dsoHeaderShadow")
-      .find(".dropdown-menu > button dso-icon")
-      .should("have.prop", "icon", "bars");
-  });
-
   it("should not show menu", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label&args=noMainMenu:true");
 
