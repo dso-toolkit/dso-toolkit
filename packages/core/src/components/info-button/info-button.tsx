@@ -130,12 +130,7 @@ export class InfoButton implements ComponentInterface {
   }
 
   componentDidRender() {
-    if (!this.hasToggletip) {
-      this.toggletipController.update(false);
-      return;
-    }
-
-    this.toggletipController.update(this.toggletipActive);
+    this.toggletipController.update(this.hasToggletip && this.toggletipActive);
   }
 
   connectedCallback(): void {
@@ -150,7 +145,7 @@ export class InfoButton implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.closeToggletip();
+    this.toggletipController.dispose();
     this.mutationObserver?.disconnect();
 
     delete this.mutationObserver;

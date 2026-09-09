@@ -10,14 +10,20 @@ export interface ToggletipControllerOptions {
 }
 
 /**
- * Shared controller for the click/keyboard Toggletip behaviour used by Badge,
- * Info Button and Ozon Content Toggletip. Intended to be called from `componentDidRender`.
+ * Shared controller for the positioning, showing, and hiding of a Toggletip.
  */
 export class ToggletipController {
   private cleanUpFunction: TooltipClean | undefined;
 
   constructor(private options: ToggletipControllerOptions) {}
 
+  /**
+   * Position the Toggletip and show or hide it based on the `active` parameter.
+   *
+   * Intended to be called from `componentDidRender`.
+   *
+   * @param active Whether the Toggletip should be active.
+   */
   update(active: boolean): void {
     const tipRef = this.options.getTipElement();
 
@@ -40,7 +46,10 @@ export class ToggletipController {
       if (active) {
         tipRef?.showPopover();
       } else {
-        tipRef?.hidePopover();
+        if (tipRef?.isConnected && tipRef.matches(":popover-open")) {
+          tipRef?.hidePopover();
+        }
+
         this.cleanUpToggletip();
       }
     }

@@ -23,7 +23,6 @@ export class IconButton implements ComponentInterface {
     getTipArrowElement: () => this.tooltipArrowElRef,
     getPlacement: () => this.tooltipPlacement,
     showDelay: 500,
-    respectClickDelay: true,
   });
 
   /**

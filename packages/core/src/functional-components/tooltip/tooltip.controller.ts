@@ -8,12 +8,10 @@ export interface TooltipControllerOptions {
   getPlacement: () => TooltipPlacement;
   /** Delay in ms before the tooltip is shown. Defaults to 0 (no delay). */
   showDelay?: number;
-  /** When true, `show()` is ignored if it is called within `showDelay` ms of the last `notifyClick()`. */
-  respectClickDelay?: boolean;
 }
 
 /**
- * Shared controller for the hover/focus Tooltip behaviour used by Icon Button, Badge and Label.
+ * Shared controller for the positioning, showing, and hiding of a Tooltip.
  */
 export class TooltipController {
   private cleanUpFunction: TooltipClean | undefined;
@@ -26,14 +24,16 @@ export class TooltipController {
    * Registers a click, used together with `respectClickDelay` to suppress the tooltip
    * from (re)appearing right after a click on the reference element.
    */
-  notifyClick = (): void => {
+  notifyClick(): void {
     this.lastClickTime = Date.now();
-  };
+  }
 
-  show = (): void => {
-    const { showDelay = 0, respectClickDelay } = this.options;
+  show(): void {
+    const { showDelay = 0 } = this.options;
 
-    if (respectClickDelay && Date.now() - this.lastClickTime < showDelay) {
+    this.clearShowTimeout();
+
+    if (Date.now() - this.lastClickTime < showDelay) {
       return;
     }
 
@@ -44,9 +44,9 @@ export class TooltipController {
     } else {
       this.doShow();
     }
-  };
+  }
 
-  hide = (): void => {
+  hide(): void {
     this.clearShowTimeout();
 
     const tipRef = this.options.getTipElement();
@@ -56,7 +56,7 @@ export class TooltipController {
     }
 
     this.cleanUpTooltip();
-  };
+  }
 
   dispose(): void {
     this.clearShowTimeout();

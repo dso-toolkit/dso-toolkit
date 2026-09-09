@@ -33,7 +33,6 @@ export class Badge implements ComponentInterface {
     getTipArrowElement: () => this.tooltipArrowElRef,
     getPlacement: () => "top",
     showDelay: 500,
-    respectClickDelay: true,
   });
 
   private toggletipController = new ToggletipController({
@@ -96,7 +95,6 @@ export class Badge implements ComponentInterface {
   private focusOutHandler = (event: FocusEvent) => {
     if (!this.host.contains(event.relatedTarget as Node)) {
       this.toggletipActive = false;
-      this.toggletipElRef?.hidePopover();
     }
   };
 
@@ -104,6 +102,7 @@ export class Badge implements ComponentInterface {
     if (!this.hasToggletip) {
       this.tooltipController.hide();
       this.toggletipController.dispose();
+
       return;
     }
 
@@ -123,6 +122,8 @@ export class Badge implements ComponentInterface {
 
   disconnectedCallback() {
     this.toggletipController.dispose();
+    this.tooltipController.dispose();
+
     this.mutationObserver?.disconnect();
 
     delete this.mutationObserver;
