@@ -1,11 +1,8 @@
-@use "../../../utilities";
+﻿@use "../../../utilities";
 @use "../../../variables/units";
 @use "../../../variables/colors";
 @use "../../../variables/media-query-breakpoints";
-@use "../../../variables/typography";
 @use "../../button";
-
-@use "../../../di";
 
 @use "../form-group.variables" as form-group-variables;
 @use "../form-group.mixins" as form-group-mixins;
@@ -106,35 +103,14 @@
 
       .dso-selectable,
       dso-selectable {
-        + .dso-remove {
+        + dso-icon-button[icon="trash"] {
           margin-inline-start: units.$u4 + units.$u1;
         }
       }
 
-      .dso-remove,
-      .dso-download {
-        font-size: 0;
-        min-inline-size: auto;
-        padding: #{units.$u1 * 0.5};
+      dso-icon-button {
+        --_dso-icon-button-tertiary-color: #{colors.$bosgroen};
         margin-inline-start: units.$u1 * 0.5;
-
-        &::before {
-          content: "";
-          display: block;
-          font-size: typography.$font-size-base;
-        }
-      }
-
-      .dso-remove {
-        &::before {
-          @include di.base("trash-bosgroen");
-        }
-      }
-
-      .dso-download {
-        &::before {
-          @include di.base("download-bosgroen");
-        }
       }
 
       .dso-filename,
@@ -155,54 +131,54 @@
       margin-block-start: units.$u2;
     }
 
-    &:has(.dso-download) {
+    &:has(dso-icon-button[icon="download"]) {
       .dso-selectable,
       dso-selectable,
       .dso-upload-loading {
-        + .dso-remove {
+        + dso-icon-button[icon="trash"] {
           margin-inline-start: (units.$u4 * 2) + (units.$u1 * 1.5);
         }
-        + .dso-download {
+        + dso-icon-button[icon="download"] {
           margin-inline-start: units.$u4 + units.$u1;
         }
       }
 
       dso-icon {
-        + .dso-remove {
+        + dso-icon-button[icon="trash"] {
           margin-inline-start: units.$u4 + units.$u1;
         }
       }
 
       @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
-        li:has(.dso-download) {
+        li:has(dso-icon-button[icon="download"]) {
           .dso-selectable,
           dso-selectable,
           .dso-upload-loading,
           dso-icon {
-            + .dso-download {
+            + dso-icon-button[icon="download"] {
               margin-inline-start: auto;
             }
           }
         }
 
-        li:not(:has(.dso-download)) {
+        li:not(:has(dso-icon-button[icon="download"])) {
           .dso-selectable,
           dso-selectable,
           .dso-upload-loading,
           dso-icon {
-            + .dso-remove {
+            + dso-icon-button[icon="trash"] {
               margin-inline-start: auto;
             }
           }
         }
       }
     }
-    &:not(:has(.dso-download)) {
+    &:not(:has(dso-icon-button[icon="download"])) {
       @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
         .dso-selectable,
         dso-selectable,
         dso-icon {
-          + .dso-remove {
+          + dso-icon-button[icon="trash"] {
             margin-inline-start: auto;
           }
         }
