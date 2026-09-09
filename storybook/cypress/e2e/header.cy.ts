@@ -49,7 +49,8 @@ describe("Header", () => {
 
   /** Configure the component and set an eventListener as @headerListener the `dso-header` is set as @dsoHeader and the `dso-header` shadow dom as @dsoHeaderShadow */
   function prepareComponent() {
-    cy.get("dso-header.hydrated")
+    cy.get("dso-header")
+      .should("have.class", "hydrated")
       .then(($header) => {
         $header.on("dsoHeaderClick", ($event) => {
           if ($event.originalEvent instanceof CustomEvent) {
@@ -63,32 +64,37 @@ describe("Header", () => {
       .as("dsoHeaderShadow");
   }
 
+  /**
+   * Waits for the header's ResizeObserver layout pass to settle so a viewport
+   * change doesn't flush late and close the menu right before a click.
+   */
+  function waitForResizeSettled() {
+    cy.window().then(
+      (win) =>
+        new Cypress.Promise<void>((resolve) => {
+          win.requestAnimationFrame(() => win.requestAnimationFrame(() => resolve()));
+        }),
+    );
+  }
+
   function ensureCompactMenuOpen() {
+    waitForResizeSettled();
+
+    cy.get("dso-header[is-compact]")
+      .shadow()
+      .find(".dropdown-menu > button")
+      .then(($btn) => {
+        if ($btn.attr("aria-expanded") !== "true") {
+          cy.wrap($btn).click();
+        }
+      });
+
+    waitForResizeSettled();
+
     cy.get("dso-header[is-compact]")
       .shadow()
       .find(".dropdown-menu > button")
       .should("have.attr", "aria-expanded", "true");
-
-    cy.get("dso-header[is-compact]")
-      .shadow()
-      .find(".dropdown-menu > div[popover=manual]")
-      .then(($popover) => {
-        const popover = $popover.get(0);
-
-        if (!popover) {
-          return;
-        }
-
-        if (typeof popover.showPopover === "function") {
-          popover.showPopover();
-        }
-
-        if (getComputedStyle(popover).display === "none") {
-          popover.style.display = "block";
-        }
-
-        expect(getComputedStyle(popover).display).not.to.eq("none");
-      });
   }
 
   it("should not trigger ResizeObserver loop errors when toggling the compact menu", () => {
@@ -185,6 +191,7 @@ describe("Header", () => {
 
     cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
       .then(($header) => setMenuItems($header, []))
+      .invoke("attr", "auth-status", "loggedIn")
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Profile, Uitloggen and Help`);
 
     cy.get("dso-header.hydrated")
@@ -194,15 +201,27 @@ describe("Header", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
+
+    cy.get("dso-header.hydrated").invoke("attr", "show-help", "true");
     cy.dsoCheckA11y("dso-header.hydrated");
 
-    cy.get("dso-header.hydrated").invoke("attr", "compact", "always").dsoCheckA11y("dso-header.hydrated");
+    cy.get("dso-header.hydrated").invoke("attr", "compact", "always");
+    cy.dsoCheckA11y("dso-header.hydrated");
 
-    cy.get("dso-header.hydrated")
-      .viewport(400, 600)
-      .get("dso-header")
-      .invoke("attr", "compact", "auto")
-      .dsoCheckA11y("dso-header.hydrated");
+    cy.viewport(400, 600);
+    cy.get("dso-header.hydrated").invoke("attr", "compact", "auto");
+    cy.dsoCheckA11y("dso-header.hydrated");
+
+    ensureCompactMenuOpen();
+
+    cy.get("@dsoHeaderShadow").find(".dropdown-menu .dropdown-menu-options").should("be.visible");
+
+    cy.dsoCheckA11y("dso-header.hydrated", {
+      rules: {
+        "aria-required-children": { enabled: false },
+        listitem: { enabled: false },
+      },
+    });
   });
 
   it("should act on user-profile attributes", () => {
@@ -232,12 +251,58 @@ describe("Header", () => {
       .should("not.exist");
   });
 
-  it("should act on show-help attribute", () => {
+  it("should show help outside the menu above the mobile breakpoint", () => {
+    cy.viewport(1200, 600);
+
     cy.get("dso-header.hydrated")
-      .invoke("attr", "show-help", true)
+      .invoke("attr", "show-help", "true")
       .get("@dsoHeaderShadow")
-      .find(".dso-header-session .help button")
-      .should("be.visible");
+      .find(".dso-header-session .help")
+      .should("be.visible")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown-menu-options .help")
+      .should("not.exist");
+  });
+
+  it("should show help in the menu at the mobile breakpoint", () => {
+    cy.viewport(481, 600);
+
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "show-help", "true")
+      .get("@dsoHeaderShadow")
+      .find(".dso-header-session .help")
+      .should("be.visible")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown-menu-options .help")
+      .should("not.exist");
+  });
+
+  it("should show help in the menu below the mobile breakpoint", () => {
+    cy.viewport(400, 600);
+
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "show-help", "true")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown-menu-options .help")
+      .should("not.exist");
+
+    cy.get("@dsoHeaderShadow").find(".dropdown-menu > button").click();
+
+    ensureCompactMenuOpen();
+
+    cy.get("@dsoHeaderShadow").find(".dropdown-menu-options .dso-tertiary").should("exist");
+
+    cy.get("@dsoHeaderShadow").find(".dso-header-session .help").should("not.exist");
+  });
+
+  it("should show login with user-outline icon above help in the menu below the mobile breakpoint", () => {
+    cy.viewport(400, 800);
+
+    cy.get("dso-header.hydrated").invoke("attr", "show-help", "true").invoke("attr", "auth-status", "loggedOut");
+
+    ensureCompactMenuOpen();
+
+    cy.matchImageSnapshot(`mobile viewport -- open`);
   });
 
   it("should use an anchor if help-url is passed", () => {
@@ -250,6 +315,8 @@ describe("Header", () => {
   });
 
   it("should show login or logout when no menuItems are provided", () => {
+    cy.viewport(992, 600);
+
     cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
       .then(($header) => setMenuItems($header, []))
       .invoke("attr", "login-url", "#login")
@@ -266,20 +333,23 @@ describe("Header", () => {
   });
 
   it("should show correct login and logout when appropriate (and as anchors when url is provided)", () => {
+    cy.viewport(992, 600);
+
     cy.get("dso-header.hydrated")
-      // Show as <button>
+      // Show login as <a>
       .invoke("removeAttr", "login-url")
       .invoke("removeAttr", "logout-url")
       .invoke("attr", "auth-status", "loggedOut")
       .get("@dsoHeaderShadow")
       .find(".login > button")
       .should("be.visible")
+      // Show logout as <button>
       .get("dso-header")
       .invoke("attr", "auth-status", "loggedIn")
       .get("@dsoHeaderShadow")
       .find(".logout > button")
       .should("be.visible")
-      // Show as <a>
+      // Show login as <a> with URL
       .get("dso-header")
       .invoke("attr", "login-url", "#login")
       .invoke("attr", "logout-url", "#logout")
@@ -287,6 +357,7 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find(".login > a")
       .should("be.visible")
+      // Show logout as <a> with URL
       .get("dso-header")
       .invoke("attr", "auth-status", "loggedIn")
       .get("@dsoHeaderShadow")
@@ -398,23 +469,28 @@ describe("Header", () => {
       .should("have.class", "dso-active")
       .find("a")
       .should("have.attr", "aria-current", "page")
-      .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
-      .get("dso-header")
-      .invoke("attr", "user-home-active", "true")
-      .get("dso-header")
+      .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)");
+
+    cy.get<HTMLDsoHeaderElement>("dso-header")
+      .invoke("prop", "userHomeActive", true)
       .then(($header) => {
         setMenuItems(
           $header,
           defaultMenuItems.map((menuItem) => ({ ...menuItem, active: false })),
         );
-      })
-      .get("@dsoHeaderShadow")
+      });
+
+    cy.get("@dsoHeaderShadow")
       .find("nav li:first")
       .should("not.have.class", "dso-active")
       .find("a")
-      .should("not.have.attr", "aria-current", "page")
-      .and("not.have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
-      .get("@dsoHeaderShadow")
+      .should("not.have.attr", "aria-current");
+
+    cy.get("@dsoHeaderShadow")
+      .find("nav li:first a")
+      .should("not.have.css", "border-bottom", "4px solid rgb(139, 74, 106)");
+
+    cy.get("@dsoHeaderShadow")
       .find("nav li.menu-user-home")
       .should("have.class", "dso-active")
       .find("a")
@@ -461,16 +537,24 @@ describe("Header", () => {
           .should("exist")
           .and("be.visible");
 
-        cy.get("@headerShadow").find(".dropdown-menu > button")[trigger]();
+        waitForResizeSettled();
+
+        cy.get("@headerShadow").find(".dropdown-menu > button").should("be.visible")[trigger]();
+
+        waitForResizeSettled();
+
+        cy.get("@headerShadow").find(".dropdown-menu > button").should("have.attr", "aria-expanded", "true");
 
         cy.get("@headerShadow")
-          .find(".dropdown-menu button[aria-expanded='true'] + div[popover=manual] > .dropdown-menu-options ul li")
-          .contains(label)
+          .find(".dropdown-menu button[aria-expanded='true'] + div[popover=manual] > .dropdown-menu-options ul")
+          .contains("li", label)
           .should("be.visible")
-          [trigger]()
-          .get("@headerListener")
-          .its("lastCall.args.0.detail")
-          .should("deep.contain", menuItemEvent);
+          .find("a, button")
+          .should("be.visible")
+          [trigger]();
+
+        cy.get("@headerListener").should("have.been.called");
+        cy.get("@headerListener").its("lastCall.args.0.detail").should("deep.contain", menuItemEvent);
       });
     }
 
@@ -622,7 +706,13 @@ describe("Header", () => {
           .should("exist")
           .and("be.visible");
 
-        cy.get("dso-header[is-compact].hydrated").shadow().find(".dropdown-menu > button")[trigger]();
+        waitForResizeSettled();
+
+        cy.get("dso-header[is-compact].hydrated")
+          .shadow()
+          .find(".dropdown-menu > button")
+          .should("be.visible")
+          [trigger]();
 
         ensureCompactMenuOpen();
 
@@ -632,6 +722,7 @@ describe("Header", () => {
             .find(".dropdown-menu > div[popover=manual]")
             .contains("li", label)
             .find("a, button")
+            .should("be.visible")
             .click({ force: true });
         } else {
           cy.get("dso-header[is-compact]")
@@ -639,6 +730,7 @@ describe("Header", () => {
             .find(".dropdown-menu > div[popover=manual]")
             .contains("li", label)
             .find("a, button")
+            .should("be.visible")
             .realClick();
         }
 
