@@ -21,8 +21,8 @@ export class TooltipController {
   constructor(private options: TooltipControllerOptions) {}
 
   /**
-   * Registers a click, used together with `respectClickDelay` to suppress the tooltip
-   * from (re)appearing right after a click on the reference element.
+   * Registers a click to suppress the tooltip from (re)appearing within showDelay milliseconds after a click on the
+   * reference element.
    */
   notifyClick(): void {
     this.lastClickTime = Date.now();
@@ -36,8 +36,6 @@ export class TooltipController {
     if (Date.now() - this.lastClickTime < showDelay) {
       return;
     }
-
-    this.clearShowTimeout();
 
     if (showDelay > 0) {
       this.tooltipTimeout = window.setTimeout(this.doShow, showDelay);
