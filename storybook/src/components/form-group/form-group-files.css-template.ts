@@ -8,14 +8,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateResult>> = {
   component: "formGroupFiles",
   implementation: "html-css",
-  template: ({
-    infoButtonTemplate,
-    infoTemplate,
-    selectableTemplate,
-    iconTemplate,
-    iconButtonTemplate,
-    alertTemplate,
-  }) =>
+  template: ({ infoButtonTemplate, infoTemplate, selectableTemplate, iconTemplate, buttonTemplate, alertTemplate }) =>
     function formGroupFilesTemplate(formGroup) {
       const errorTextId = `${formGroup.id}-error-text`;
       const infoTextId = `${formGroup.id}-info-text`;
@@ -66,15 +59,17 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
                                 })
                           }
                           ${file.confidential ? iconTemplate({ icon: "status-warning" }) : nothing}
-                          ${iconButtonTemplate({
-                            label: "download document ${file.filename}",
+                          ${buttonTemplate({
+                            label: "download document",
                             variant: "tertiary",
-                            icon: "download",
+                            modifier: "dso-download",
+                            ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
                           })}
-                          ${iconButtonTemplate({
-                            label: "Verwijder document ${file.filename}",
+                          ${buttonTemplate({
+                            label: "Verwijder document",
                             variant: "tertiary",
-                            icon: "trash",
+                            modifier: "dso-remove",
+                            ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
                           })}
                         </li>`,
                     )}
