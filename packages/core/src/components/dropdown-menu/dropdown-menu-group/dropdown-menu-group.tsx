@@ -4,6 +4,9 @@ import { v4 as uuidv4 } from "uuid";
 
 import { DropdownMenuInternalState } from "../dropdown-menu.interfaces";
 
+/**
+ * @slot - The dropdown menu items to be grouped.
+ */
 @Component({
   tag: "dso-dropdown-menu-group",
   styleUrl: "dropdown-menu-group.scss",

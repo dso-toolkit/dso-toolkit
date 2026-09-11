@@ -92,6 +92,9 @@ function isFlat(suggestions: Suggestion[] | SuggestionGroup[] | null): suggestio
   );
 }
 
+/**
+ * @slot - The input element to be enhanced with autosuggest functionality.
+ */
 @Component({
   tag: "dso-autosuggest",
   styleUrl: "autosuggest.scss",

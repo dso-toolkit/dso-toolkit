@@ -3,6 +3,9 @@ import { createStore } from "@stencil/store";
 
 import { AccordionInternalState, AccordionVariant } from "./accordion.interfaces";
 
+/**
+ * @slot - A slot for the accordion sections.
+ */
 @Component({
   tag: "dso-accordion",
   styleUrl: "accordion.scss",
