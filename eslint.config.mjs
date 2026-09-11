@@ -180,8 +180,6 @@ export default [
       "@typescript-eslint/no-shadow": 2,
       "stencil/strict-boolean-conditions": 0,
       "stencil/own-props-must-be-private": "error",
-      // New rules in @stencil/eslint-plugin not present in @stencil-community/eslint-plugin
-      "stencil/enforce-slot-jsdoc": 0,
       "stencil/ban-side-effects": 0,
       "stencil/decorators-style": [
         "error",

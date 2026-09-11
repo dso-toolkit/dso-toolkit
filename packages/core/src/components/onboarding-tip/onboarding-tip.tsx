@@ -16,6 +16,10 @@ import { TooltipClean, TooltipPlacement } from "../../functional-components/tool
 
 import { OnboardingTipCloseEvent } from "./onboarding-tip.interfaces";
 
+/**
+ * @slot heading - A slot for the heading of the onboarding tip.
+ * @slot - A slot for the main content of the onboarding tip.
+ */
 @Component({
   tag: "dso-onboarding-tip",
   styleUrl: "onboarding-tip.scss",

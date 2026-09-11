@@ -29,9 +29,9 @@
 
 ## Slots
 
-| Slot           | Description |
-| -------------- | ----------- |
-| `"subcontent"` |             |
+| Slot           | Description                                                                        |
+| -------------- | ---------------------------------------------------------------------------------- |
+| `"subcontent"` | An optional slot for additional content or details displayed below the main label. |
 
 
 ## Dependencies

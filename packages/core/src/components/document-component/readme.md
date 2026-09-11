@@ -50,10 +50,10 @@
 
 ## Slots
 
-| Slot            | Description      |
-| --------------- | ---------------- |
-|                 | The default slot |
-| `"annotations"` |                  |
+| Slot            | Description                                                     |
+| --------------- | --------------------------------------------------------------- |
+|                 | A slot to place child elements of the document component in.    |
+| `"annotations"` | A slot to place annotation elements (metadata and map data) in. |
 
 
 ## Shadow Parts

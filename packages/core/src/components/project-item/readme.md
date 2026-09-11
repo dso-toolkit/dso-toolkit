@@ -14,12 +14,12 @@
 
 ## Slots
 
-| Slot         | Description |
-| ------------ | ----------- |
-| `"actions"`  |             |
-| `"progress"` |             |
-| `"status"`   |             |
-| `"title"`    |             |
+| Slot         | Description                                                  |
+| ------------ | ------------------------------------------------------------ |
+| `"actions"`  | An optional slot to place interactive actions or buttons in. |
+| `"progress"` | An optional slot to place progress indicators or labels in.  |
+| `"status"`   | An optional slot to place status indicators or metadata in.  |
+| `"title"`    | A slot to place the title of the project item in.            |
 
 
 ## Dependencies

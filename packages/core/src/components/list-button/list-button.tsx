@@ -13,6 +13,9 @@ import { clsx } from "clsx";
 
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
+/**
+ * @slot subcontent - An optional slot for additional content or details displayed below the main label.
+ */
 @Component({
   tag: "dso-list-button",
   shadow: true,

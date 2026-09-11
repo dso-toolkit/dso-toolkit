@@ -12,10 +12,10 @@
 
 ## Slots
 
-| Slot                  | Description      |
-| --------------------- | ---------------- |
-|                       | The default slot |
-| `"open-modal-button"` |                  |
+| Slot                  | Description                                                        |
+| --------------------- | ------------------------------------------------------------------ |
+|                       | A slot to place the target HTML `<table>` element in.              |
+| `"open-modal-button"` | An internal slot used for rendering the open-modal trigger button. |
 
 
 ## Dependencies

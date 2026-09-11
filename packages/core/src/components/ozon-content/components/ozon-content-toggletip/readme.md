@@ -14,10 +14,10 @@
 
 ## Slots
 
-| Slot      | Description      |
-| --------- | ---------------- |
-|           | The default slot |
-| `"label"` |                  |
+| Slot      | Description                                                    |
+| --------- | -------------------------------------------------------------- |
+|           | A slot to place the main content inside the toggletip overlay. |
+| `"label"` | A slot to place the trigger label text of the toggletip.       |
 
 
 ## Dependencies

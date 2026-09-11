@@ -27,10 +27,10 @@ The default background color is `grey`. Other available variants are:
 
 ## Slots
 
-| Slot     | Description      |
-| -------- | ---------------- |
-|          | The default slot |
-| `"icon"` |                  |
+| Slot     | Description                                                                 |
+| -------- | --------------------------------------------------------------------------- |
+|          | A slot to place content inside the highlight box.                           |
+| `"icon"` | A slot to display an icon inside the step counter instead of a step number. |
 
 
 ----------------------------------------------

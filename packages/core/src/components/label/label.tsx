@@ -39,6 +39,10 @@ function hasEllipses(el: HTMLElement): boolean {
   return el.scrollWidth > el.clientWidth;
 }
 
+/**
+ * @slot - A slot for the label text or content.
+ * @slot symbol - An optional slot for an icon or symbol displayed before the label text.
+ */
 @Component({
   tag: "dso-label",
   styleUrl: "label.scss",

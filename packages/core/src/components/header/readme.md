@@ -29,9 +29,9 @@
 
 ## Slots
 
-| Slot     | Description |
-| -------- | ----------- |
-| `"logo"` |             |
+| Slot     | Description                                            |
+| -------- | ------------------------------------------------------ |
+| `"logo"` | A slot to place the logo element (e.g. `dso-logo`) in. |
 
 
 ## Dependencies

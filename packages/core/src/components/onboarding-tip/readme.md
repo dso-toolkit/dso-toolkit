@@ -37,10 +37,10 @@ De onboarding tip wordt in de top layer geplaatst. Dit betekent dat hij altijd b
 
 ## Slots
 
-| Slot        | Description      |
-| ----------- | ---------------- |
-|             | The default slot |
-| `"heading"` |                  |
+| Slot        | Description                                        |
+| ----------- | -------------------------------------------------- |
+|             | A slot for the main content of the onboarding tip. |
+| `"heading"` | A slot for the heading of the onboarding tip.      |
 
 
 ## Dependencies
