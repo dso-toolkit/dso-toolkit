@@ -17,9 +17,9 @@ Must contain at least one `<dso-dropdown-menu-group>`. A `<dso-dropdown-menu-gro
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                                             |
+| ---- | ----------------------------------------------------------------------- |
+|      | Menu items and content displayed inside the dropdown menu options list. |
 
 
 ## Dependencies

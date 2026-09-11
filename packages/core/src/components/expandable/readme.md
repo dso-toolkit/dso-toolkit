@@ -22,9 +22,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                                   |
+| ---- | ------------------------------------------------------------- |
+|      | Content to be shown or hidden when the expandable is toggled. |
 
 
 ## Dependencies

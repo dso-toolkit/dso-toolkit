@@ -18,9 +18,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                                        |
+| ---- | ------------------------------------------------------------------ |
+|      | A slot for the main content body placed underneath the item title. |
 
 
 ## Dependencies

@@ -14,9 +14,9 @@ Een Card Container bevat een lijst of een grid van Cards, Document Cards of Plek
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                 |
+| ---- | ------------------------------------------- |
+|      | Cards to be displayed inside the container. |
 
 
 ----------------------------------------------

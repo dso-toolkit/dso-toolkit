@@ -20,9 +20,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                      |
+| ---- | ------------------------------------------------ |
+|      | The content to be displayed inside the info box. |
 
 
 ## Dependencies

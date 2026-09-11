@@ -44,9 +44,9 @@ De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeer
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                                      |
+| ---- | ---------------------------------------------------------------- |
+|      | The input element to be enhanced with autosuggest functionality. |
 
 
 ## Dependencies

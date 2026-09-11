@@ -23,9 +23,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                     |
+| ---- | ----------------------------------------------- |
+|      | The content or label of the dropdown menu item. |
 
 
 ## Dependencies

@@ -12,9 +12,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                         |
+| ---- | --------------------------------------------------- |
+|      | Content to be made scrollable inside the container. |
 
 
 ## Dependencies

@@ -21,9 +21,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                                        |
+| ---- | ------------------------------------------------------------------ |
+|      | Content to be displayed inside the active tab panel of the legend. |
 
 
 ## Dependencies

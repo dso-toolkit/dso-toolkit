@@ -6,9 +6,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                        |
+| ---- | -------------------------------------------------- |
+|      | Content to be displayed inside the cursor tooltip. |
 
 
 ----------------------------------------------

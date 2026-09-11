@@ -34,15 +34,11 @@
 
 ## Slots
 
-| Slot               | Description                                                                                 |
-| ------------------ | ------------------------------------------------------------------------------------------- |
-| `"document-panel"` |                                                                                             |
-| `"filter-panel"`   |                                                                                             |
-| `"legend"`         | Een slot die kan worden gevuld met een legend component.                                    |
-| `"main"`           |                                                                                             |
-| `"map"`            |                                                                                             |
-| `"overlay"`        |                                                                                             |
-| `"top-bar"`        | Een slot die bovenaan de viewer over de hele breedte kan worden gevuld met bijv een banner. |
+| Slot        | Description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| `"legend"`  | An optional slot to place legend content in the map area.            |
+| `"map"`     | A slot for the map content displayed within the map area.            |
+| `"top-bar"` | An optional slot to place content above the main viewer grid layout. |
 
 
 ----------------------------------------------

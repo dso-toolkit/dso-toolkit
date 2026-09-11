@@ -13,9 +13,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                        |
+| ---- | ---------------------------------- |
+|      | A slot for the accordion sections. |
 
 
 ----------------------------------------------

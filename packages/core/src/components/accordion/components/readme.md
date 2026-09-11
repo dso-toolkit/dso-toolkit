@@ -48,10 +48,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot      | Description                                                               |
-| --------- | ------------------------------------------------------------------------- |
-|           | The default slot                                                          |
-| `"badge"` | Een optioneel slot om een Badge in de handle achter de titel te plaatsen. |
+| Slot      | Description                                                        |
+| --------- | ------------------------------------------------------------------ |
+|           | A slot for the main accordion sections.                            |
+| `"badge"` | An optional slot to place a badge in the accordion section handle. |
 
 
 ## Dependencies
