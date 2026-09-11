@@ -38,12 +38,15 @@ Componenten waarvan een web component aanwezig is hanteren de `dso` prefix voor 
 
 ### Storybook definities
 
-Per component wordt de Storybook definitie bijgehouden. In de basis is dit een `export function storiesOfComponent(storybookParameters, componentParameters)`:
+Per component staat de Storybook definitie in `storybook/src/components/<component>/`, geschreven in native CSF:
 
-- `storybookParameters` is een component-overstijgend model voor de basis functionaliteit van Storybook.
-- `componentParameters` is een component specifiek model. Over het algemeen zal dit alleen om de implementatie-specifieke template van het component gaan, maar voor complexe werkvormen kan dit uitgebreid worden om de documentatie te verbeteren.
+- `<component>.models.ts`: het component model.
+- `<component>.args.ts`: de args en argTypes, plus de mapper die args naar het model vertaalt.
+- `<component>.content.ts`: demo- en dummy content.
+- `<component>.template.ts`: de lit-html template. Heeft een template een ander component nodig, dan importeert die de template daarvan, zodat er per component één bron blijft.
+- `<component>.stories.ts`: de meta met titel, argTypes, args en render, en per story een named export met alleen wat afwijkt.
 
-Met deze opzet worden implementaties geforceerd identieke varianten op te leveren.
+Een nieuw component genereer je met `npx plop new-stencil-component`.
 
 ### Storybook args
 
