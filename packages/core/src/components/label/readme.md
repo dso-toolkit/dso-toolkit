@@ -30,10 +30,10 @@ In beiden gevallen wordt de tekst uitgelezen door middel van `HTMLElement.textCo
 
 ## Slots
 
-| Slot       | Description                                                          |
-| ---------- | -------------------------------------------------------------------- |
-|            | A slot for the label text or content.                                |
-| `"symbol"` | Optional slot for an icon or symbol displayed before the label text. |
+| Slot       | Description                                                             |
+| ---------- | ----------------------------------------------------------------------- |
+|            | A slot for the label text or content.                                   |
+| `"symbol"` | An optional slot for an icon or symbol displayed before the label text. |
 
 
 ## Dependencies

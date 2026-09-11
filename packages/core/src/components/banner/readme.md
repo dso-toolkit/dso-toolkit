@@ -14,9 +14,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                          |
+| ---- | ------------------------------------ |
+|      | Content displayed inside the banner. |
 
 
 ## Dependencies

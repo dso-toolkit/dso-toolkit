@@ -22,9 +22,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                            |
+| ---- | ------------------------------------------------------ |
+|      | A slot for the main content body of the alert message. |
 
 
 ## Dependencies

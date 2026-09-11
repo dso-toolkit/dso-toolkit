@@ -14,9 +14,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                                    |
+| ---- | -------------------------------------------------------------- |
+|      | The buttons or elements to be grouped within the button group. |
 
 
 ## Dependencies

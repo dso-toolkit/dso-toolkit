@@ -14,9 +14,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                            |
+| ---- | -------------------------------------- |
+|      | The dropdown menu items to be grouped. |
 
 
 ----------------------------------------------

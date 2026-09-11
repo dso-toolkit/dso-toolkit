@@ -22,13 +22,6 @@
 | `dsoActiveChange` | Een optionele event listener voor wijzigingen aan de status van de annotatie. | `CustomEvent<AnnotationActiveChangeEvent>` |
 
 
-## Slots
-
-| Slot        | Description                                             |
-| ----------- | ------------------------------------------------------- |
-| `"symbool"` | Een optionele afbeelding die de annotatie symboliseert. |
-
-
 ## Dependencies
 
 ### Depends on

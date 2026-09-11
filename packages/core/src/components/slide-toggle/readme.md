@@ -25,9 +25,9 @@
 
 ## Slots
 
-| Slot | Description      |
-| ---- | ---------------- |
-|      | The default slot |
+| Slot | Description                                       |
+| ---- | ------------------------------------------------- |
+|      | Optional visible label text for the slide toggle. |
 
 
 ## Dependencies
