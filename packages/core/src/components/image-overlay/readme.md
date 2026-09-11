@@ -35,6 +35,15 @@ Zie ook de documentatie van het component Ozon Content (onder de kop Afbeeldinge
 | `wijzigactie` | `wijzigactie` | The wijzigactie. | `string \| undefined` | `undefined` |
 
 
+## Slots
+
+| Slot           | Description                                                                 |
+| -------------- | --------------------------------------------------------------------------- |
+|                | A slot to place the target `<img>` element in to make it zoomable.          |
+| `"bijschrift"` | An optional slot to place a caption in, displayed inside the modal overlay. |
+| `"titel"`      | An optional slot to place a title in, displayed inside the modal overlay.   |
+
+
 ## Dependencies
 
 ### Used by

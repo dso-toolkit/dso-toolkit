@@ -41,6 +41,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot | Description                                                |
+| ---- | ---------------------------------------------------------- |
+|      | The content to be displayed inside the map controls panel. |
+
+
 ## Dependencies
 
 ### Depends on

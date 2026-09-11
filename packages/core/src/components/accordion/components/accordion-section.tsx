@@ -150,7 +150,8 @@ function isDsoBadgeComponent(element: Element | undefined): element is HTMLDsoBa
 }
 
 /**
- * @slot badge - Een optioneel slot om een Badge in de handle achter de titel te plaatsen.
+ * @slot - A slot for the main accordion sections.
+ * @slot badge - An optional slot to place a badge in the accordion section handle.
  */
 @Component({
   tag: "dso-accordion-section",

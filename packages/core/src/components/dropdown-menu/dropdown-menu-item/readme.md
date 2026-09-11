@@ -21,6 +21,13 @@
 | `dsoClick` | Emitted when the user clicks the Dropdown Menu Item. | `CustomEvent<DropdownMenuItemClickEvent>` |
 
 
+## Slots
+
+| Slot | Description                                     |
+| ---- | ----------------------------------------------- |
+|      | The content or label of the dropdown menu item. |
+
+
 ## Dependencies
 
 ### Depends on

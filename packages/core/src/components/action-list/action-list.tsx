@@ -1,5 +1,8 @@
 import { Component, ComponentInterface, Host, Prop, h } from "@stencil/core";
 
+/**
+ * @slot - A slot for action list items.
+ */
 @Component({
   tag: "dso-action-list",
   styleUrl: "action-list.scss",

@@ -1,5 +1,9 @@
 import { Component, ComponentInterface, Fragment, h } from "@stencil/core";
 
+/**
+ * @slot - A slot to place the primary banner text or message.
+ * @slot button - A slot to place an action button in.
+ */
 @Component({
   tag: "dso-tijdreis-banner",
   styleUrl: "tijdreis-banner.scss",

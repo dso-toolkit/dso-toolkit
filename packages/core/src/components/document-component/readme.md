@@ -48,6 +48,14 @@
 | `dsoTableOfContentsClick` | Emitted when the user clicks the heading in mode="table-of-contents".                                                                                       | `CustomEvent<DocumentComponentTableOfContentsClickEvent>` |
 
 
+## Slots
+
+| Slot            | Description                                                     |
+| --------------- | --------------------------------------------------------------- |
+|                 | A slot to place child elements of the document component in.    |
+| `"annotations"` | A slot to place annotation elements (metadata and map data) in. |
+
+
 ## Shadow Parts
 
 | Part                      | Description                 |

@@ -8,11 +8,6 @@ import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
 import { watcher } from "../annotation-watcher";
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "../annotation.interfaces";
 
-/**
- * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
- *
- * @slot symbool - Een optionele afbeelding die de annotatie symboliseert.
- */
 @Component({
   tag: "dso-annotation-omgevingsnormwaarde",
   styleUrl: "../annotation.scss",

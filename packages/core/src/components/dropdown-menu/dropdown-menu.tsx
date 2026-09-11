@@ -20,6 +20,9 @@ import {
   DropdownMenuTabbable,
 } from "./dropdown-menu.interfaces";
 
+/**
+ * @slot - Menu items and content displayed inside the dropdown menu options list.
+ */
 @Component({
   tag: "dso-dropdown-menu",
   styleUrl: "dropdown-menu.scss",

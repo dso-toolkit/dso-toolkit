@@ -10,6 +10,14 @@
 | `noModal` | `no-modal` | Prevents the table being opened in a modal. | `boolean` | `false` |
 
 
+## Slots
+
+| Slot                  | Description                                                        |
+| --------------------- | ------------------------------------------------------------------ |
+|                       | A slot to place the target HTML `<table>` element in.              |
+| `"open-modal-button"` | An internal slot used for rendering the open-modal trigger button. |
+
+
 ## Dependencies
 
 ### Used by

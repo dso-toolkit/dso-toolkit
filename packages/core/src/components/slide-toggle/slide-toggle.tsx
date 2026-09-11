@@ -3,6 +3,9 @@ import { v4 } from "uuid";
 
 import { SlideToggleActiveEvent } from "./slide-toggle.interfaces";
 
+/**
+ * @slot - Optional visible label text for the slide toggle.
+ */
 @Component({
   tag: "dso-slide-toggle",
   styleUrl: "slide-toggle.scss",

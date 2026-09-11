@@ -41,6 +41,9 @@ interface ClickHandlerOptions {
   url?: string;
 }
 
+/**
+ * @slot logo - A slot to place the logo element (e.g. `dso-logo`) in.
+ */
 @Component({
   tag: "dso-header",
   styleUrl: "header.scss",

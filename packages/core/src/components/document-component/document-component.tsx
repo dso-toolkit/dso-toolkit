@@ -96,6 +96,8 @@ const AantekenAlert: FunctionalComponent<{
 };
 
 /**
+ * @slot - A slot to place child elements of the document component in.
+ * @slot annotations - A slot to place annotation elements (metadata and map data) in.
  * @part _annotation-container - private part, do not touch.
  * @part _children-container - private part, do not touch.
  * @part _content - private part, do not touch.

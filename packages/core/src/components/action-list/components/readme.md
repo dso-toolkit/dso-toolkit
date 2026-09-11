@@ -16,6 +16,13 @@
 | `warning`           | `warning`    | When there is a warning.                        | `boolean`             | `false`     |
 
 
+## Slots
+
+| Slot | Description                                                        |
+| ---- | ------------------------------------------------------------------ |
+|      | A slot for the main content body placed underneath the item title. |
+
+
 ## Dependencies
 
 ### Depends on

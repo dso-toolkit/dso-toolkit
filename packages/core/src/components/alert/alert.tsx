@@ -6,6 +6,9 @@ import { i18n } from "../../utils/i18n";
 import { translations } from "./alert.i18n";
 import { AlertCloseEvent } from "./alert.interfaces";
 
+/**
+ * @slot - A slot for the main content body of the alert message.
+ */
 @Component({
   tag: "dso-alert",
   styleUrl: "alert.scss",

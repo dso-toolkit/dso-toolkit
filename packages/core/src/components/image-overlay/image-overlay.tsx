@@ -40,6 +40,11 @@ const Dimmer: FunctionalComponent<{
     </dialog>
   );
 
+/**
+ * @slot - A slot to place the target `<img>` element in to make it zoomable.
+ * @slot bijschrift - An optional slot to place a caption in, displayed inside the modal overlay.
+ * @slot titel - An optional slot to place a title in, displayed inside the modal overlay.
+ */
 @Component({
   tag: "dso-image-overlay",
   styleUrl: "./image-overlay.scss",

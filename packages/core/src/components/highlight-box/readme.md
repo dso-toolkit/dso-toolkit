@@ -25,6 +25,14 @@ The default background color is `grey`. Other available variants are:
 | `yellow`     | `yellow`      | For yellow Highlight Box.                | `boolean \| undefined` | `undefined` |
 
 
+## Slots
+
+| Slot     | Description                                                                 |
+| -------- | --------------------------------------------------------------------------- |
+|          | A slot to place content inside the highlight box.                           |
+| `"icon"` | A slot to display an icon inside the step counter instead of a step number. |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

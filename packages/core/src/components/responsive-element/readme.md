@@ -23,6 +23,13 @@ Type: `Promise<ResponsiveElementSize>`
 
 
 
+## Slots
+
+| Slot | Description                                                     |
+| ---- | --------------------------------------------------------------- |
+|      | The content to be made responsive based on the element's width. |
+
+
 ## Dependencies
 
 ### Used by
