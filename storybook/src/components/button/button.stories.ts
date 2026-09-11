@@ -1,15 +1,12 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/button/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ButtonArgs, buttonArgTypes, buttonArgsMapper } from "./button.args.js";
 import { buttonTemplate } from "./button.template.js";
 
-type ButtonStory = StoryObj<ButtonArgs, Renderer>;
+type ButtonStory = StoryObj<ButtonArgs>;
 
 const meta: Meta<ButtonArgs> = {
   title: "HTML|CSS/Button",
@@ -23,7 +20,7 @@ const meta: Meta<ButtonArgs> = {
       page: () => compiler(readme),
     },
   },
-  render: (args: ButtonArgs) => buttonTemplate(buttonArgsMapper(args)),
+  render: (args) => buttonTemplate(buttonArgsMapper(args)),
 };
 
 export default meta;

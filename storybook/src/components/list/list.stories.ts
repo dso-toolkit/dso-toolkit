@@ -1,15 +1,12 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/list/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ListArgs, listArgTypes, listArgsMapper } from "./list.args.js";
 import { Type } from "./list.models.js";
 import { listTemplate } from "./list.template.js";
 
-type ListStory = StoryObj<ListArgs, Renderer>;
+type ListStory = StoryObj<ListArgs>;
 
 const meta: Meta<ListArgs> = {
   argTypes: listArgTypes,
@@ -28,18 +25,16 @@ const meta: Meta<ListArgs> = {
     },
   },
   title: "HTML|CSS/List",
+  render: (args) => listTemplate(listArgsMapper(args)),
 };
 
 export default meta;
-
-const render = (args: ListArgs) => listTemplate(listArgsMapper(args));
 
 export const Columns: ListStory = {
   args: {
     type: Type.Ul,
     modifier: "columns",
   },
-  render,
 };
 
 export const Group: ListStory = {
@@ -47,7 +42,6 @@ export const Group: ListStory = {
     type: Type.Ul,
     modifier: "group",
   },
-  render,
 };
 
 export const Icons: ListStory = {
@@ -75,7 +69,6 @@ export const Icons: ListStory = {
       },
     ],
   },
-  render,
 };
 
 export const ImageList: ListStory = {
@@ -105,14 +98,12 @@ export const ImageList: ListStory = {
       },
     ],
   },
-  render,
 };
 
 export const Ordered: ListStory = {
   args: {
     type: Type.Ol,
   },
-  render,
 };
 
 export const OrderedAction: ListStory = {
@@ -134,14 +125,12 @@ export const OrderedAction: ListStory = {
       },
     },
   },
-  render,
 };
 
 export const Unordered: ListStory = {
   args: {
     type: Type.Ul,
   },
-  render,
 };
 
 export const UnorderedAction: ListStory = {
@@ -163,7 +152,6 @@ export const UnorderedAction: ListStory = {
       },
     },
   },
-  render,
 };
 
 export const Unstyled: ListStory = {
@@ -171,5 +159,4 @@ export const Unstyled: ListStory = {
     type: Type.Ul,
     modifier: "unstyled",
   },
-  render,
 };

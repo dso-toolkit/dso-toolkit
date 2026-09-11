@@ -1,16 +1,11 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/footer/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { children } from "./footer.content.js";
 import { footerTemplate } from "./footer.template.js";
 
-type FooterStory = StoryObj<Record<string, never>, Renderer>;
-
-const meta: Meta<Record<string, never>> = {
+const meta: Meta = {
   title: "HTML|CSS/Footer",
   parameters: {
     docs: {
@@ -21,6 +16,6 @@ const meta: Meta<Record<string, never>> = {
 
 export default meta;
 
-export const Footer: FooterStory = {
+export const Footer: StoryObj = {
   render: () => footerTemplate({ children: children() }),
 };

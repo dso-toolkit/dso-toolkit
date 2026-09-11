@@ -1,8 +1,9 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 import { Button } from "../button/button.models.js";
 import { IconButton } from "../icon-button/icon-button.models.js";
 import { InfoButton } from "../info-button/info-button.models.js";
@@ -44,8 +45,8 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
       type: "select",
     },
   },
-  selectable: argTypeAction(),
-  interactions: argTypeAction(),
+  selectable: noControl(),
+  interactions: noControl(),
   dsoCardClick: argTypeAction(),
 };
 

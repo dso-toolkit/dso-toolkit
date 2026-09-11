@@ -1,9 +1,6 @@
-import { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/application-heading/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import {
   ApplicationHeadingArgs,
@@ -12,7 +9,7 @@ import {
 } from "./application-heading.args.js";
 import { applicationHeadingTemplate } from "./application-heading.template.js";
 
-type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs, Renderer>;
+type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs>;
 
 const meta: Meta<ApplicationHeadingArgs> = {
   title: "HTML|CSS/Application Heading",
@@ -22,7 +19,7 @@ const meta: Meta<ApplicationHeadingArgs> = {
       page: () => compiler(readme),
     },
   },
-  render: (args: ApplicationHeadingArgs) => applicationHeadingTemplate(applicationHeadingArgsMapper(args)),
+  render: (args) => applicationHeadingTemplate(applicationHeadingArgsMapper(args)),
 };
 
 export default meta;

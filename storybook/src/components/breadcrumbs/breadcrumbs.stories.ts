@@ -1,14 +1,11 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/breadcrumbs/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { BreadcrumbsArgs, breadcrumbsArgTypes, breadcrumbsArgsMapper } from "./breadcrumbs.args.js";
 import { breadcrumbsTemplate } from "./breadcrumbs.template.js";
 
-type BreadcrumbsStory = StoryObj<BreadcrumbsArgs, Renderer>;
+type BreadcrumbsStory = StoryObj<BreadcrumbsArgs>;
 
 const meta: Meta<BreadcrumbsArgs> = {
   title: "HTML|CSS/Breadcrumbs",
@@ -38,5 +35,5 @@ export const Breadcrumbs: BreadcrumbsStory = {
       },
     ],
   },
-  render: (args: BreadcrumbsArgs) => breadcrumbsTemplate(breadcrumbsArgsMapper(args)),
+  render: (args) => breadcrumbsTemplate(breadcrumbsArgsMapper(args)),
 };

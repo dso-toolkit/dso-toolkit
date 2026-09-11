@@ -1,16 +1,13 @@
 import componentsReadme from "@dso-toolkit/core/src/components/action-list/components/readme.md?raw";
 import readme from "@dso-toolkit/core/src/components/action-list/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ActionListArgs, actionListArgTypes, actionListArgs, actionListArgsMapper } from "./action-list.args.js";
 import { actionListItems, actionListWithWarningItems } from "./action-list.content.js";
 import { actionListTemplate } from "./action-list.template.js";
 
-type ActionListStory = StoryObj<ActionListArgs, Renderer>;
+type ActionListStory = StoryObj<ActionListArgs>;
 
 const meta: Meta<ActionListArgs> = {
   title: "Core/Action List",

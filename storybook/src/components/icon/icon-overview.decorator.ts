@@ -1,7 +1,7 @@
+import type { Decorator } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
-import { PartialStoryFn } from "storybook/internal/types";
 
-export type IconOverviewDecorator = (story: PartialStoryFn, icons: string[]) => TemplateResult;
+export type IconOverviewDecorator = (story: Parameters<Decorator>[0], icons: string[]) => TemplateResult;
 
 export const decorator: IconOverviewDecorator = (story, icons) => html`
   <ul id="icon-overview-list" class="icon-overview-list">

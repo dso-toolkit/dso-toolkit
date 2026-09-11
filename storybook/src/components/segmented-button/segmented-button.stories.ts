@@ -1,9 +1,6 @@
 import readme from "@dso-toolkit/core/src/components/segmented-button/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import {
   SegmentedButtonArgs,
@@ -13,7 +10,7 @@ import {
 } from "./segmented-button.args.js";
 import { segmentedButtonTemplate } from "./segmented-button.template.js";
 
-type SegmentedButtonStory = StoryObj<SegmentedButtonArgs, Renderer>;
+type SegmentedButtonStory = StoryObj<SegmentedButtonArgs>;
 
 const meta: Meta<SegmentedButtonArgs> = {
   title: "Core/Segmented Button",
@@ -26,15 +23,12 @@ const meta: Meta<SegmentedButtonArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args) => segmentedButtonTemplate(segmentedButtonArgsMapper(args)),
 };
 
 export default meta;
 
-const render = (args: SegmentedButtonArgs) => segmentedButtonTemplate(segmentedButtonArgsMapper(args));
-
-export const Default: SegmentedButtonStory = {
-  render,
-};
+export const Default: SegmentedButtonStory = {};
 
 export const WithDisabledButton: SegmentedButtonStory = {
   args: {
@@ -55,5 +49,4 @@ export const WithDisabledButton: SegmentedButtonStory = {
       },
     ],
   },
-  render,
 };

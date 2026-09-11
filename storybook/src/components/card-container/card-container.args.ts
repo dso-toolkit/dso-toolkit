@@ -1,7 +1,7 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
-import { ArgTypes } from "storybook/internal/types";
 
-import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 import { CardArgs, cardArgsMapper } from "../card/card.args.js";
 
 import { CardContainer, CardContainerMode } from "./card-container.models.js";
@@ -18,7 +18,7 @@ export const cardContainerArgTypes: ArgTypes<CardContainerArgs> = {
       type: "select",
     },
   },
-  cards: argTypeAction(),
+  cards: noControl(),
 };
 
 export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {

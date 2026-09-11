@@ -1,15 +1,12 @@
 import readme from "@dso-toolkit/core/src/components/header/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { HeaderArgs, headerArgTypes, headerArgsMapper } from "./header.args.js";
 import { headerTemplate } from "./header.template.js";
 
-type HeaderStory = StoryObj<HeaderArgs, Renderer>;
+type HeaderStory = StoryObj<HeaderArgs>;
 
 const meta: Meta<HeaderArgs> = {
   title: "Core/Header",

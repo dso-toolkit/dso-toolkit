@@ -1,8 +1,9 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { MarkBar } from "./mark-bar.models.js";
 
@@ -46,7 +47,7 @@ export const markBarArgTypes: ArgTypes<MarkBarArgs> = {
   dsoNext: argTypeAction(),
   dsoPrevious: argTypeAction(),
   dsoClear: argTypeAction(),
-  focus: argTypeAction(),
+  focus: noControl(),
 };
 
 export function markBarArgsMapper(a: MarkBarArgs): MarkBar {

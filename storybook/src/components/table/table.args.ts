@@ -1,6 +1,6 @@
-import { ArgTypes } from "storybook/internal/types";
+import type { ArgTypes } from "@storybook/web-components-vite";
 
-import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { Table, TableContent } from "./table.models.js";
 
@@ -27,7 +27,7 @@ export const tableArgTypes: ArgTypes<TableArgs> = {
       type: "boolean",
     },
   },
-  role: argTypeAction(),
+  role: noControl(),
 };
 
 export function tableArgsMapper(a: TableArgs, content: TableContent): Table {

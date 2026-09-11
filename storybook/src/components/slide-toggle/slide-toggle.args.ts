@@ -1,7 +1,8 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { SlideToggle } from "./slide-toggle.models.js";
 
@@ -26,11 +27,11 @@ export const slideToggleArgTypes: ArgTypes<SlideToggleArgs> = {
       type: "boolean",
     },
   },
-  accessibleLabel: argTypeAction(),
-  labelledbyId: argTypeAction(),
-  useOwnLabelId: argTypeAction(),
+  accessibleLabel: noControl(),
+  labelledbyId: noControl(),
+  useOwnLabelId: noControl(),
   // Re-enable when label will officially be part of the component.
-  label: argTypeAction(),
+  label: noControl(),
   dsoActiveChange: argTypeAction(),
 };
 

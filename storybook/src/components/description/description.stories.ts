@@ -1,10 +1,7 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/description/readme.md?raw";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import {
   DescriptionArgs,
@@ -16,8 +13,8 @@ import {
 import { descriptionExample, termContent } from "./description.content.js";
 import { descriptionTemplate } from "./description.template.js";
 
-type DescriptionStory = StoryObj<DescriptionArgs, Renderer>;
-type DescriptionExampleStory = StoryObj<DescriptionExampleArgs, Renderer>;
+type DescriptionStory = StoryObj<DescriptionArgs>;
+type DescriptionExampleStory = StoryObj<DescriptionExampleArgs>;
 
 const meta: Meta = {
   title: "HTML|CSS/Description",
@@ -36,7 +33,7 @@ const exampleTemplate = (exampleData: ReturnType<typeof descriptionExample>) =>
 export const Term: DescriptionStory = {
   args: termContent,
   argTypes: descriptionArgTypes,
-  render: (args: DescriptionArgs) => descriptionTemplate(descriptionArgsMapper(args)),
+  render: (args) => descriptionTemplate(descriptionArgsMapper(args)),
 };
 
 export const Example: DescriptionExampleStory = {
@@ -44,5 +41,5 @@ export const Example: DescriptionExampleStory = {
     openTerm: false,
   },
   argTypes: descriptionExampleArgTypes,
-  render: (args: DescriptionExampleArgs) => exampleTemplate(descriptionExample(args.openTerm)),
+  render: (args) => exampleTemplate(descriptionExample(args.openTerm)),
 };

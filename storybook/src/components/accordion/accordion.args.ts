@@ -1,9 +1,10 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 import { IconAlias } from "../icon/icon.models.js";
 import { LabelStatus } from "../label/label.models.js";
 import { RenvooiValue } from "../renvooi/renvooi.models.js";
@@ -115,14 +116,14 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       text: "select",
     },
   },
-  handleTitle: argTypeAction(),
-  wijzigactie: argTypeAction(),
+  handleTitle: noControl(),
+  wijzigactie: noControl(),
   active: {
     control: {
       type: "boolean",
     },
   },
-  activatable: argTypeAction(),
+  activatable: noControl(),
   dsoActiveChange: argTypeAction(),
   labelStatus: {
     options: [undefined, "primary", "success", "info", "warning", "danger", "error", "bright", "attention"],

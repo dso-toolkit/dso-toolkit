@@ -1,10 +1,8 @@
 import readme from "@dso-toolkit/core/src/components/highlight-box/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 
-import { StoryObj } from "../../shared/story-obj.js";
 import { buttonTemplate } from "../button/button.template.js";
 import { linkTemplate } from "../link/link.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
@@ -12,7 +10,7 @@ import { richContentTemplate } from "../rich-content/rich-content.template.js";
 import { HighlightBoxArgs, highlightBoxArgTypes, highlightBoxArgsMapper } from "./highlight-box.args.js";
 import { highlightBoxTemplate } from "./highlight-box.template.js";
 
-type HighlightBoxStory = StoryObj<HighlightBoxArgs, Renderer>;
+type HighlightBoxStory = StoryObj<HighlightBoxArgs>;
 
 const meta: Meta<HighlightBoxArgs> = {
   title: "Core/Highlight Box",

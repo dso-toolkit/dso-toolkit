@@ -1,16 +1,11 @@
 import readme from "@dso-toolkit/core/src/components/contact-information/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { contactInformationContent } from "./contact-information.content.js";
 import { contactInformationTemplate } from "./contact-information.template.js";
 
-type ContactInformationStory = StoryObj<Record<string, never>, Renderer>;
-
-const meta: Meta<Record<string, never>> = {
+const meta: Meta = {
   title: "Core/Contact Information",
   parameters: {
     docs: {
@@ -21,7 +16,7 @@ const meta: Meta<Record<string, never>> = {
 
 export default meta;
 
-export const Default: ContactInformationStory = {
+export const Default: StoryObj = {
   render: () =>
     contactInformationTemplate({
       ...contactInformationContent,

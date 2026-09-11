@@ -1,14 +1,11 @@
 import readme from "@dso-toolkit/core/src/components/renvooi/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { RenvooiArgs, renvooiArgTypes, renvooiArgs, renvooiArgsMapper } from "./renvooi.args.js";
 import { renvooiTemplate } from "./renvooi.template.js";
 
-type RenvooiStory = StoryObj<RenvooiArgs, Renderer>;
+type RenvooiStory = StoryObj<RenvooiArgs>;
 
 const meta: Meta<RenvooiArgs> = {
   title: "Core/Renvooi",

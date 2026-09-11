@@ -1,8 +1,7 @@
 import type { ArgTypes } from "@storybook/web-components-vite";
 
-export function argTypeAction(): ArgTypes[string] {
+export function noControl(): ArgTypes[string] {
   return {
-    type: "function",
     control: false,
     table: {
       disable: true,

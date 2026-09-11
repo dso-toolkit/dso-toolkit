@@ -1,18 +1,15 @@
 import readme from "@dso-toolkit/core/src/components/shopping-cart/readme.md?raw";
 import componentsReadme from "@dso-toolkit/core/src/components/shopping-cart/shopping-cart-item/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
 import { ShoppingCartItem } from "./shopping-cart.models.js";
 import { shoppingCartTemplate } from "./shopping-cart.template.js";
 
-type ShoppingCartStory = StoryObj<ShoppingCartArgs, Renderer>;
+type ShoppingCartStory = StoryObj<ShoppingCartArgs>;
 
 const meta: Meta<ShoppingCartArgs> = {
   title: "Core/Shopping Cart",

@@ -1,17 +1,14 @@
 import readme from "@dso-toolkit/core/src/components/scrollable/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ScrollableArgs, scrollableArgTypes, scrollableArgsMapper } from "./scrollable.args.js";
 import { defaultContent, dynamicContent } from "./scrollable.content.js";
 import { scrollableTemplate } from "./scrollable.template.js";
 
-type ScrollableStory = StoryObj<ScrollableArgs, Renderer>;
+type ScrollableStory = StoryObj<ScrollableArgs>;
 
 const meta: Meta<ScrollableArgs> = {
   title: "Core/Scrollable",

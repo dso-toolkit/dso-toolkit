@@ -1,9 +1,6 @@
 import readme from "@dso-toolkit/core/src/components/attachments-counter/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import {
   AttachmentsCounterArgs,
@@ -12,7 +9,7 @@ import {
 } from "./attachments-counter.args.js";
 import { attachmentsCounterTemplate } from "./attachments-counter.template.js";
 
-type AttachmentsCounterStory = StoryObj<AttachmentsCounterArgs, Renderer>;
+type AttachmentsCounterStory = StoryObj<AttachmentsCounterArgs>;
 
 const meta: Meta<AttachmentsCounterArgs> = {
   title: "Core/Attachments Counter",
@@ -30,5 +27,5 @@ export const AttachmentsCounter: AttachmentsCounterStory = {
   args: {
     count: 3,
   },
-  render: (args: AttachmentsCounterArgs) => attachmentsCounterTemplate(attachmentsCounterArgsMapper(args)),
+  render: (args) => attachmentsCounterTemplate(attachmentsCounterArgsMapper(args)),
 };

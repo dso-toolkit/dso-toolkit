@@ -1,11 +1,9 @@
 import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
-import { StoryObj } from "../../shared/story-obj.js";
 import { buttonTemplate } from "../button/button.template.js";
 
 import { AutosuggestArgs, autosuggestArgTypes } from "./autosuggest.args.js";
@@ -13,7 +11,7 @@ import { fetchSuggestionGroups, fetchSuggestions, mark } from "./autosuggest.dem
 import { AutosuggestSuggestion, AutosuggestSuggestionGroup } from "./autosuggest.models.js";
 import { autosuggestTemplate } from "./autosuggest.template.js";
 
-type AutosuggestStory = StoryObj<AutosuggestArgs, Renderer>;
+type AutosuggestStory = StoryObj<AutosuggestArgs>;
 type AutosuggestConnector = (
   parameters: [
     (value: string) => AutosuggestSuggestion[] | AutosuggestSuggestionGroup[],
@@ -169,7 +167,7 @@ function autosuggestInSearchBarTemplate(
 }
 
 export const Example: AutosuggestStory = {
-  render: (args: AutosuggestArgs) =>
+  render: (args) =>
     autosuggestDemoTemplate(
       fetchSuggestions,
       args.dsoSelect,
@@ -183,7 +181,7 @@ export const Example: AutosuggestStory = {
 };
 
 export const Minimal3Characters: AutosuggestStory = {
-  render: (args: AutosuggestArgs) =>
+  render: (args) =>
     autosuggestDemoTemplate(
       fetchSuggestions,
       args.dsoSelect,
@@ -198,7 +196,7 @@ export const Minimal3Characters: AutosuggestStory = {
 };
 
 export const InSearchbar: AutosuggestStory = {
-  render: (args: AutosuggestArgs) =>
+  render: (args) =>
     autosuggestInSearchBarTemplate(
       fetchSuggestions,
       args.dsoSelect,
@@ -212,7 +210,7 @@ export const InSearchbar: AutosuggestStory = {
 };
 
 export const WithProvidedMarkFunction: AutosuggestStory = {
-  render: (args: AutosuggestArgs) =>
+  render: (args) =>
     autosuggestInSearchBarTemplate(
       fetchSuggestions,
       args.dsoSelect,
@@ -228,7 +226,7 @@ export const WithProvidedMarkFunction: AutosuggestStory = {
 };
 
 export const SuggestionGroups: AutosuggestStory = {
-  render: (args: AutosuggestArgs) =>
+  render: (args) =>
     autosuggestDemoTemplate(
       fetchSuggestionGroups,
       args.dsoSelect,

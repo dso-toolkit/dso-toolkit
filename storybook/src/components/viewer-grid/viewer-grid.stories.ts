@@ -1,12 +1,10 @@
 import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { when } from "lit-html/directives/when.js";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
-import { StoryObj } from "../../shared/story-obj.js";
 import { alertTemplate } from "../alert/alert.template.js";
 import { bannerTemplate } from "../banner/banner.template.js";
 import { buttonTemplate } from "../button/button.template.js";
@@ -16,7 +14,7 @@ import { richContentTemplate } from "../rich-content/rich-content.template.js";
 import { ViewerGridArgs, ViewerGridExample, viewerGridArgTypes, viewerGridArgsMapper } from "./viewer-grid.args.js";
 import { viewerGridTemplate } from "./viewer-grid.template.js";
 
-type ViewerGridStory = StoryObj<ViewerGridArgs, Renderer>;
+type ViewerGridStory = StoryObj<ViewerGridArgs>;
 
 type ViewerGridStoryArgs = Pick<
   ViewerGridArgs,
@@ -51,6 +49,7 @@ const meta: Meta<ViewerGridArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args) => viewerGridTemplate(viewerGridArgsMapper(args, example)),
 };
 
 export default meta;
@@ -133,11 +132,8 @@ const example: ViewerGridExample = {
   })}`,
 };
 
-const render = (args: ViewerGridArgs) => viewerGridTemplate(viewerGridArgsMapper(args, example));
-
 export const ViewerGrid: ViewerGridStory = {
   args: defaultArgs,
-  render,
   parameters,
 };
 
@@ -148,7 +144,6 @@ export const FilterPanel: ViewerGridStory = {
     filterPanelOpen: true,
     documentPanelSize: "medium",
   },
-  render,
   parameters,
 };
 
@@ -161,6 +156,5 @@ export const DocumentPanel: ViewerGridStory = {
     mainPanelHidden: true,
     activeTab: "document",
   },
-  render,
   parameters,
 };

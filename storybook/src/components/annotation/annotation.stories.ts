@@ -4,11 +4,8 @@ import kaartReadme from "@dso-toolkit/core/src/components/annotation/annotation-
 import locatieReadme from "@dso-toolkit/core/src/components/annotation/annotation-locatie/readme.md?raw";
 import omgevingsnormwaardeReadme from "@dso-toolkit/core/src/components/annotation/annotation-omgevingsnormwaarde/readme.md?raw";
 import rootReadme from "@dso-toolkit/core/src/components/annotation/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import {
   AnnotationActiviteitArgs,
@@ -44,11 +41,11 @@ const readme = [
   locatieReadme,
 ].join("\n\n");
 
-type AnnotationActiviteitStory = StoryObj<AnnotationActiviteitArgs, Renderer>;
-type AnnotationGebiedsaanwijzingStory = StoryObj<AnnotationGebiedsaanwijzingArgs, Renderer>;
-type AnnotationOmgevingsnormwaardeStory = StoryObj<AnnotationOmgevingsnormwaardeArgs, Renderer>;
-type AnnotationLocatieStory = StoryObj<AnnotationLocatieArgs, Renderer>;
-type AnnotationKaartStory = StoryObj<AnnotationKaartArgs, Renderer>;
+type AnnotationActiviteitStory = StoryObj<AnnotationActiviteitArgs>;
+type AnnotationGebiedsaanwijzingStory = StoryObj<AnnotationGebiedsaanwijzingArgs>;
+type AnnotationOmgevingsnormwaardeStory = StoryObj<AnnotationOmgevingsnormwaardeArgs>;
+type AnnotationLocatieStory = StoryObj<AnnotationLocatieArgs>;
+type AnnotationKaartStory = StoryObj<AnnotationKaartArgs>;
 
 const meta: Meta = {
   title: "Core/Annotation",
@@ -65,34 +62,33 @@ export const Activiteit: AnnotationActiviteitStory = {
   decorators: [(story) => decorator(story)],
   args: annotationActiviteitArgs,
   argTypes: annotationActiviteitArgTypes,
-  render: (args: AnnotationActiviteitArgs) => annotationTemplate(annotationActiviteitArgsMapper(args)),
+  render: (args) => annotationTemplate(annotationActiviteitArgsMapper(args)),
 };
 
 export const Gebiedsaanwijzing: AnnotationGebiedsaanwijzingStory = {
   decorators: [(story) => decorator(story)],
   args: annotationGebiedsaanwijzingArgs,
   argTypes: annotationGebiedsaanwijzingArgTypes,
-  render: (args: AnnotationGebiedsaanwijzingArgs) => annotationTemplate(annotationGebiedsaanwijzingArgsMapper(args)),
+  render: (args) => annotationTemplate(annotationGebiedsaanwijzingArgsMapper(args)),
 };
 
 export const Omgevingsnormwaarde: AnnotationOmgevingsnormwaardeStory = {
   decorators: [(story) => decorator(story)],
   args: annotationOmgevingsnormwaardeArgs,
   argTypes: annotationOmgevingsnormwaardeArgTypes,
-  render: (args: AnnotationOmgevingsnormwaardeArgs) =>
-    annotationTemplate(annotationOmgevingsnormwaardeArgsMapper(args)),
+  render: (args) => annotationTemplate(annotationOmgevingsnormwaardeArgsMapper(args)),
 };
 
 export const Locatie: AnnotationLocatieStory = {
   decorators: [(story) => decorator(story)],
   args: annotationLocatieArgs,
   argTypes: annotationLocatieArgTypes,
-  render: (args: AnnotationLocatieArgs) => annotationTemplate(annotationLocatieArgsMapper(args)),
+  render: (args) => annotationTemplate(annotationLocatieArgsMapper(args)),
 };
 
 export const Kaart: AnnotationKaartStory = {
   decorators: [(story) => decorator(story)],
   args: annotationKaartArgs,
   argTypes: annotationKaartArgTypes,
-  render: (args: AnnotationKaartArgs) => annotationTemplate(annotationKaartArgsMapper(args)),
+  render: (args) => annotationTemplate(annotationKaartArgsMapper(args)),
 };

@@ -1,16 +1,13 @@
 import readme from "@dso-toolkit/core/src/components/info-button/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { InfoButtonArgs, infoButtonArgTypes, infoButtonArgsMapper } from "./info-button.args.js";
 import { children } from "./info-button.content.js";
 import { infoButtonTemplate } from "./info-button.template.js";
 
-type InfoButtonStory = StoryObj<InfoButtonArgs, Renderer>;
+type InfoButtonStory = StoryObj<InfoButtonArgs>;
 
 const meta: Meta<InfoButtonArgs> = {
   title: "Core/Info Button",
@@ -25,7 +22,7 @@ const meta: Meta<InfoButtonArgs> = {
     },
     layout: "centered",
   },
-  render: (args: InfoButtonArgs) => infoButtonTemplate(infoButtonArgsMapper(args, children)),
+  render: (args) => infoButtonTemplate(infoButtonArgsMapper(args, children)),
 };
 
 export default meta;

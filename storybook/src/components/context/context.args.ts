@@ -1,5 +1,5 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
-import { ArgTypes } from "storybook/internal/types";
 
 import { Context } from "./context.models.js";
 

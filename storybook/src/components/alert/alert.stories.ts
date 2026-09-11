@@ -1,10 +1,7 @@
 import readme from "@dso-toolkit/core/src/components/alert/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { AlertArgs, alertArgTypes, alertArgsMapper } from "./alert.args.js";
 import {
@@ -16,7 +13,7 @@ import {
 } from "./alert.content.js";
 import { alertTemplate } from "./alert.template.js";
 
-type AlertStory = StoryObj<AlertArgs, Renderer>;
+type AlertStory = StoryObj<AlertArgs>;
 
 const meta: Meta<AlertArgs> = {
   title: "Core/Alert",

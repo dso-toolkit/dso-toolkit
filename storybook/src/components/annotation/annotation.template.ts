@@ -1,4 +1,4 @@
-import { DsoAnnotationActiviteitCustomEvent, DsoAnnotationKaartCustomEvent } from "@dso-toolkit/core/src";
+import { DsoAnnotationActiviteitCustomEvent, DsoAnnotationKaartCustomEvent } from "@dso-toolkit/core";
 import { html, nothing } from "lit-html";
 
 import { assertNever } from "../../shared/assert-never.js";

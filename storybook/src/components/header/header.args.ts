@@ -1,7 +1,8 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { Header } from "./header.models.js";
 
@@ -30,11 +31,11 @@ export interface HeaderArgs {
 }
 
 export const headerArgTypes: ArgTypes<HeaderArgs> = {
-  label: argTypeAction(),
-  labelUrl: argTypeAction(),
-  logoUrl: argTypeAction(),
-  ribbon: argTypeAction(),
-  mainMenu: argTypeAction(),
+  label: noControl(),
+  labelUrl: noControl(),
+  logoUrl: noControl(),
+  ribbon: noControl(),
+  mainMenu: noControl(),
   noMainMenu: {
     name: "Geen menu",
     control: {
@@ -85,8 +86,8 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
       type: "text",
     },
   },
-  userHomeActive: argTypeAction(),
-  userProfileUrl: argTypeAction(),
+  userHomeActive: noControl(),
+  userProfileUrl: noControl(),
   userProfileName: {
     name: "Naam gebruiker",
     control: {

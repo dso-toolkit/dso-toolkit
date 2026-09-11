@@ -1,15 +1,12 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/form/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { FormArgs, formArgTypes, formArgsMapper } from "./form.args.js";
 import { formGroupCollectionContent, formGroupContent } from "./form.content.js";
 import { formTemplate } from "./form.template.js";
 
-type FormStory = StoryObj<FormArgs, Renderer>;
+type FormStory = StoryObj<FormArgs>;
 
 const meta: Meta<FormArgs> = {
   title: "HTML|CSS/Form",

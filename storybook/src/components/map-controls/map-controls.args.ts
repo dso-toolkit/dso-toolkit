@@ -1,7 +1,8 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { baseLayers, overlays } from "./map-controls.content.js";
 import { MapControls } from "./map-controls.models.js";
@@ -25,10 +26,10 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
   dsoZoomIn: argTypeAction(),
   dsoZoomOut: argTypeAction(),
   dsoToggle: argTypeAction(),
-  baseLayers: argTypeAction(),
+  baseLayers: noControl(),
 
   dsoBaseLayerChange: argTypeAction(),
-  overlays: argTypeAction(),
+  overlays: noControl(),
   dsoToggleOverlay: argTypeAction(),
   disableZoom: {
     options: ["both", "in", "out"],

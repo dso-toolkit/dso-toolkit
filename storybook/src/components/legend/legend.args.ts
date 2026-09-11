@@ -1,9 +1,10 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { Legend, LegendMode, LegendTabItem } from "./legend.models.js";
 
@@ -41,7 +42,7 @@ export const legendArgTypes: ArgTypes<LegendArgs> = {
   label: {
     control: { type: "text" },
   },
-  tabItems: argTypeAction(),
+  tabItems: noControl(),
   dsoContentSwitch: argTypeAction(),
   dsoClose: argTypeAction(),
   dsoLegendGroupModeChange: argTypeAction(),

@@ -1,13 +1,13 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
+import escapeStringRegexp from "escape-string-regexp";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { isOdd } from "../../shared/is-odd.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { begripResolver } from "./ozon-content.content.js";
 import { OzonContent, OzonContentBegripResolver, OzonContentUrlResolver } from "./ozon-content.models.js";
-
-const isOdd = (n: number): boolean => n % 2 === 1;
-const escapeStringRegexp = (value: string): string => value.replace(/[|\\{}()[\]^$+*?.-]/g, "\\$&");
 
 export interface OzonContentArgs {
   content: string;
@@ -42,7 +42,7 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
       type: "boolean",
     },
   },
-  annotated: argTypeAction(),
+  annotated: noControl(),
   dsoClick: argTypeAction(),
   dsoOzonContentMarkItemHighlight: argTypeAction(),
   urlResolver: argTypeAction(),

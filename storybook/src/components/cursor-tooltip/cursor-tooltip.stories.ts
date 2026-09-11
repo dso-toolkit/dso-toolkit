@@ -1,9 +1,6 @@
 import readme from "@dso-toolkit/core/src/components/cursor-tooltip/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import {
   CursorTooltipArgs,
@@ -13,7 +10,7 @@ import {
 } from "./cursor-tooltip.args.js";
 import { cursorTooltipTemplate } from "./cursor-tooltip.template.js";
 
-type CursorTooltipStory = StoryObj<CursorTooltipArgs, Renderer>;
+type CursorTooltipStory = StoryObj<CursorTooltipArgs>;
 
 const meta: Meta<CursorTooltipArgs> = {
   title: "Core/Cursor Tooltip",
@@ -29,7 +26,7 @@ const meta: Meta<CursorTooltipArgs> = {
 export default meta;
 
 export const Default: CursorTooltipStory = {
-  render: (args: CursorTooltipArgs) => cursorTooltipTemplate(cursorTooltipArgsMapper(args)),
+  render: (args) => cursorTooltipTemplate(cursorTooltipArgsMapper(args)),
   parameters: {
     layout: "centered",
   },

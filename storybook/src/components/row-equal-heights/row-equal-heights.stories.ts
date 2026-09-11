@@ -1,10 +1,8 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/row-equal-heights/readme.md?raw";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 
-import { StoryObj } from "../../shared/story-obj.js";
 import { highlightBoxTemplate } from "../highlight-box/highlight-box.template.js";
 import { tileTemplate } from "../tile/tile.template.js";
 
@@ -12,9 +10,7 @@ import { highlightBoxes, tiles } from "./row-equal-heights.content.js";
 import { decorator } from "./row-equal-heights.decorator";
 import { rowEqualHeightsTemplate } from "./row-equal-heights.template.js";
 
-type RowEqualHeightsStory = StoryObj<Record<string, never>, Renderer>;
-
-const meta: Meta<Record<string, never>> = {
+const meta: Meta = {
   title: "HTML|CSS/Row Equal Heights",
   parameters: {
     docs: {
@@ -25,7 +21,7 @@ const meta: Meta<Record<string, never>> = {
 
 export default meta;
 
-export const HighlightBoxes: RowEqualHeightsStory = {
+export const HighlightBoxes: StoryObj = {
   decorators: [(story) => decorator(story)],
   render: () =>
     rowEqualHeightsTemplate({
@@ -35,7 +31,7 @@ export const HighlightBoxes: RowEqualHeightsStory = {
     }),
 };
 
-export const Tiles: RowEqualHeightsStory = {
+export const Tiles: StoryObj = {
   decorators: [(story) => decorator(story)],
   render: () =>
     rowEqualHeightsTemplate({

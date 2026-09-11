@@ -1,7 +1,8 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 import { selectExampleOption } from "../advanced-select/advanced-select.args.js";
 import { options } from "../advanced-select/advanced-select.content.js";
 import { AdvancedSelect } from "../advanced-select/advanced-select.models.js";
@@ -49,7 +50,7 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
       type: "number",
     },
   },
-  advancedSelect: argTypeAction(),
+  advancedSelect: noControl(),
   sticky: {
     control: {
       type: "boolean",

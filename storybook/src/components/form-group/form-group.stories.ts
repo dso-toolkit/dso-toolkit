@@ -1,10 +1,7 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/form-group/readme.md?raw";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import {
   FormGroupCheckboxesArgs,
@@ -78,16 +75,16 @@ import {
 } from "./form-group-textarea.args.js";
 import { formGroupTextareaTemplate } from "./form-group-textarea.template.js";
 
-type FormGroupCheckboxesStory = StoryObj<FormGroupCheckboxesArgs, Renderer>;
-type FormGroupConfirmStory = StoryObj<FormGroupConfirmArgs, Renderer>;
-type FormGroupDatePickerStory = StoryObj<FormGroupDatePickerArgs, Renderer>;
-type FormGroupFilesStory = StoryObj<FormGroupFilesArgs, Renderer>;
-type FormGroupInputStory = StoryObj<FormGroupInputArgs, Renderer>;
-type FormGroupRadiosStory = StoryObj<FormGroupRadiosArgs, Renderer>;
-type FormGroupSearchBarStory = StoryObj<FormGroupSearchBarArgs, Renderer>;
-type FormGroupSelectStory = StoryObj<FormGroupSelectArgs, Renderer>;
-type FormGroupStaticStory = StoryObj<FormGroupStaticArgs, Renderer>;
-type FormGroupTextareaStory = StoryObj<FormGroupTextareaArgs, Renderer>;
+type FormGroupCheckboxesStory = StoryObj<FormGroupCheckboxesArgs>;
+type FormGroupConfirmStory = StoryObj<FormGroupConfirmArgs>;
+type FormGroupDatePickerStory = StoryObj<FormGroupDatePickerArgs>;
+type FormGroupFilesStory = StoryObj<FormGroupFilesArgs>;
+type FormGroupInputStory = StoryObj<FormGroupInputArgs>;
+type FormGroupRadiosStory = StoryObj<FormGroupRadiosArgs>;
+type FormGroupSearchBarStory = StoryObj<FormGroupSearchBarArgs>;
+type FormGroupSelectStory = StoryObj<FormGroupSelectArgs>;
+type FormGroupStaticStory = StoryObj<FormGroupStaticArgs>;
+type FormGroupTextareaStory = StoryObj<FormGroupTextareaArgs>;
 
 const meta: Meta = {
   title: "HTML|CSS/Form Group",

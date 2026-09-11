@@ -1,11 +1,8 @@
 import readme from "@dso-toolkit/core/src/components/tree-view/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { TreeViewArgs, treeViewArgTypes } from "./tree-view.args.js";
 import * as TreeViewDemo from "./tree-view.demo";
@@ -33,7 +30,7 @@ const meta: Meta<TreeViewArgs> = {
 
 export default meta;
 
-export const TreeView: StoryObj<TreeViewArgs, Renderer> = {
+export const TreeView: StoryObj<TreeViewArgs> = {
   render: (args) => {
     const treeViewDemoTemplate = (
       collection: TreeViewItem[],

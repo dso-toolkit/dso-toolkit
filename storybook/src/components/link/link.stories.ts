@@ -1,14 +1,11 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/link/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { LinkArgs, linkArgTypes, linkArgsMapper } from "./link.args.js";
 import { linkTemplate } from "./link.template.js";
 
-type LinkStory = StoryObj<LinkArgs, Renderer>;
+type LinkStory = StoryObj<LinkArgs>;
 
 const meta: Meta<LinkArgs> = {
   title: "HTML|CSS/Link",
@@ -18,18 +15,16 @@ const meta: Meta<LinkArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args) => linkTemplate(linkArgsMapper(args)),
 };
 
 export default meta;
-
-const render = (args: LinkArgs) => linkTemplate(linkArgsMapper(args));
 
 export const Default: LinkStory = {
   args: {
     label: "Home",
     url: "#",
   },
-  render,
 };
 
 export const DownloadLink: LinkStory = {
@@ -38,7 +33,6 @@ export const DownloadLink: LinkStory = {
     url: "afvalkalender.pdf",
     mode: "download",
   },
-  render,
 };
 
 export const ExternalLink: LinkStory = {
@@ -47,7 +41,6 @@ export const ExternalLink: LinkStory = {
     url: "http://www.google.nl",
     mode: "extern",
   },
-  render,
 };
 
 export const LinkWithIcon: LinkStory = {
@@ -56,7 +49,6 @@ export const LinkWithIcon: LinkStory = {
     url: "#",
     icon: "search",
   },
-  render,
 };
 
 export const MailLinkWithIcon: LinkStory = {
@@ -64,7 +56,6 @@ export const MailLinkWithIcon: LinkStory = {
     label: "noreply@dso-toolkit.nl",
     url: "mailto:no-reply@dso-toolkit.nl",
   },
-  render,
 };
 
 export const PhoneLinkWithIcon: LinkStory = {
@@ -72,5 +63,4 @@ export const PhoneLinkWithIcon: LinkStory = {
     label: "Bel ons",
     url: "tel:012-34567891",
   },
-  render,
 };

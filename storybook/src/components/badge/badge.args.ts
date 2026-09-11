@@ -1,7 +1,7 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
-import { ArgTypes } from "storybook/internal/types";
 
-import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { Badge, BadgeStatus, BadgeTooltipPlacement } from "./badge.models.js";
 
@@ -49,7 +49,7 @@ export const badgeArgTypes: ArgTypes<BadgeArgs> = {
       type: "select",
     },
   },
-  toggletip: argTypeAction(),
+  toggletip: noControl(),
 };
 
 export function badgeArgsMapper(a: BadgeArgs, children?: TemplateResult | string): Badge {

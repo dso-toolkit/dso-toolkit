@@ -1,4 +1,4 @@
-import { ArgTypes } from "storybook/internal/types";
+import type { ArgTypes } from "@storybook/web-components-vite";
 
 import { List, ListItem, Type } from "./list.models.js";
 

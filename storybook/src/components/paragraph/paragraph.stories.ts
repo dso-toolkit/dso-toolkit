@@ -1,15 +1,12 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/paragraph/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ParagraphArgs, paragraphArgTypes, paragraphArgsMapper } from "./paragraph.args.js";
 import { defaultContent, disclaimerContent } from "./paragraph.content.js";
 import { paragraphTemplate } from "./paragraph.template.js";
 
-type ParagraphStory = StoryObj<ParagraphArgs, Renderer>;
+type ParagraphStory = StoryObj<ParagraphArgs>;
 
 const meta: Meta<ParagraphArgs> = {
   title: "HTML|CSS/Paragraph",

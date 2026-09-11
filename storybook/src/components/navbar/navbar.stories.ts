@@ -1,16 +1,14 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/navbar/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 
-import { StoryObj } from "../../shared/story-obj.js";
 import { MarkBarArgs, markBarArgsMapper } from "../mark-bar/mark-bar.args.js";
 import { markBarTemplate } from "../mark-bar/mark-bar.template.js";
 
 import { NavbarArgs, navbarArgTypes, navbarArgs, navbarArgsMapper } from "./navbar.args.js";
 import { navbarTemplate } from "./navbar.template.js";
 
-type NavbarStory = StoryObj<NavbarArgs, Renderer>;
+type NavbarStory = StoryObj<NavbarArgs>;
 
 const meta: Meta<NavbarArgs> = {
   title: "HTML|CSS/Navbar",

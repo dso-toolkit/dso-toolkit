@@ -1,6 +1,6 @@
-import { ArgTypes } from "storybook/internal/types";
+import type { ArgTypes } from "@storybook/web-components-vite";
 
-import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { Paragraph } from "./paragraph.models.js";
 
@@ -16,7 +16,7 @@ export const paragraphArgTypes: ArgTypes<ParagraphArgs> = {
       type: "select",
     },
   },
-  content: argTypeAction(),
+  content: noControl(),
 };
 
 export function paragraphArgsMapper(p: ParagraphArgs, content: string): Paragraph {

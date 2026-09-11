@@ -1,16 +1,11 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/label-group/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { labelGroupArgsMapper } from "./label-group.args.js";
 import { labelGroupTemplate } from "./label-group.template.js";
 
-type LabelGroupStory = StoryObj<Record<string, never>, Renderer>;
-
-const meta: Meta<Record<string, never>> = {
+const meta: Meta = {
   title: "HTML|CSS/Label Group",
   parameters: {
     docs: {
@@ -21,6 +16,6 @@ const meta: Meta<Record<string, never>> = {
 
 export default meta;
 
-export const LabelGroup: LabelGroupStory = {
+export const LabelGroup: StoryObj = {
   render: () => labelGroupTemplate(labelGroupArgsMapper()),
 };

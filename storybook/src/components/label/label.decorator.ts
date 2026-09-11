@@ -1,7 +1,7 @@
+import type { Decorator } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
-import { PartialStoryFn } from "storybook/internal/types";
 
-export const decorator = (story: PartialStoryFn, css: string): TemplateResult => html`
+export const decorator = (story: Parameters<Decorator>[0], css: string): TemplateResult => html`
   ${story()}
 
   <style>

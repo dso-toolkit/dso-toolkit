@@ -1,8 +1,6 @@
+import type { ArgTypes, Args, StoryObj } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { ArgTypes, Args, Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "./shared/story-obj.js";
 
 interface ExamplePageStoryOptions<TArgs extends Args> {
   argTypes?: Partial<ArgTypes<TArgs>>;
@@ -12,7 +10,7 @@ interface ExamplePageStoryOptions<TArgs extends Args> {
 export function examplePageStory<TArgs extends Args = Args>(
   template: (args: TArgs) => TemplateResult,
   options?: ExamplePageStoryOptions<TArgs>,
-): StoryObj<TArgs, Renderer> {
+): StoryObj<TArgs> {
   return {
     argTypes: options?.argTypes,
     args: options?.args,

@@ -1,16 +1,13 @@
 import readme from "@dso-toolkit/core/src/components/list-button/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ListButtonArgs, listButtonArgTypes, listButtonArgsMapper, listButtonDefaultArgs } from "./list-button.args.js";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.models.js";
 import { listButtonTemplate } from "./list-button.template.js";
 
-type ListButtonStory = StoryObj<ListButtonArgs, Renderer>;
+type ListButtonStory = StoryObj<ListButtonArgs>;
 
 const meta: Meta<ListButtonArgs> = {
   title: "Core/List Button",
@@ -25,6 +22,7 @@ const meta: Meta<ListButtonArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args) => listButtonTemplate(listButtonConnector([listButtonArgsMapper(args)])),
 };
 
 export default meta;
@@ -41,11 +39,7 @@ const listButtonConnector = ([props]: [ReturnType<typeof listButtonArgsMapper>])
   },
 });
 
-const render = (args: ListButtonArgs) => listButtonTemplate(listButtonConnector([listButtonArgsMapper(args)]));
-
-export const SingleSelect: ListButtonStory = {
-  render,
-};
+export const SingleSelect: ListButtonStory = {};
 
 export const MultiSelect: ListButtonStory = {
   args: listButtonDefaultArgs({
@@ -53,5 +47,4 @@ export const MultiSelect: ListButtonStory = {
     min: 0,
     max: 99,
   }),
-  render,
 };

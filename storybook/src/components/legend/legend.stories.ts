@@ -1,11 +1,8 @@
 import legendGroupReadme from "@dso-toolkit/core/src/components/legend/legend-group/readme.md?raw";
 import legendItemReadme from "@dso-toolkit/core/src/components/legend/legend-item/readme.md?raw";
 import legendReadme from "@dso-toolkit/core/src/components/legend/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { decorator } from "./legend-item/legend-item.decorator";
 import {
@@ -19,7 +16,7 @@ import {
 import { kaartlagenRichContent, legendaRichContent } from "./legend.content.js";
 import { legendTemplate } from "./legend.template.js";
 
-type LegendStory = StoryObj<LegendArgs, Renderer>;
+type LegendStory = StoryObj<LegendArgs>;
 
 const meta: Meta<LegendArgs> = {
   title: "Core/Legend",

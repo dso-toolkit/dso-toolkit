@@ -1,8 +1,9 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { Tabs, TabsItem } from "./tabs.models.js";
 
@@ -13,8 +14,8 @@ export interface TabsArgs {
 }
 
 export const tabsArgTypes: ArgTypes<TabsArgs> = {
-  items: argTypeAction(),
-  content: argTypeAction(),
+  items: noControl(),
+  content: noControl(),
   dsoTabSwitch: argTypeAction(),
 };
 

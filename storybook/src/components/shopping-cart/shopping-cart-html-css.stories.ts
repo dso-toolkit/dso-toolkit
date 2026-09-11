@@ -1,16 +1,13 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/shopping-cart/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { shoppingCartTemplate } from "./shopping-cart-html-css.template.js";
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
 
-type ShoppingCartStory = StoryObj<ShoppingCartArgs, Renderer>;
+type ShoppingCartStory = StoryObj<ShoppingCartArgs>;
 
 const meta: Meta<ShoppingCartArgs> = {
   title: "HTML|CSS/Shopping Cart",
@@ -36,15 +33,12 @@ const meta: Meta<ShoppingCartArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args) => shoppingCartTemplate(shoppingCartArgsMapper(args)),
 };
 
 export default meta;
 
-const render = (args: ShoppingCartArgs) => shoppingCartTemplate(shoppingCartArgsMapper(args));
-
-export const Default: ShoppingCartStory = {
-  render,
-};
+export const Default: ShoppingCartStory = {};
 
 export const EditItems: ShoppingCartStory = {
   args: {
@@ -61,7 +55,6 @@ export const EditItems: ShoppingCartStory = {
       },
     ],
   },
-  render,
 };
 
 export const ItemsCollapsed: ShoppingCartStory = {
@@ -79,7 +72,6 @@ export const ItemsCollapsed: ShoppingCartStory = {
       },
     ],
   },
-  render,
 };
 
 export const ItemsNonCollapsable: ShoppingCartStory = {
@@ -108,7 +100,6 @@ export const ItemsNonCollapsable: ShoppingCartStory = {
       },
     ],
   },
-  render,
 };
 
 export const RemoveAllItemsOption: ShoppingCartStory = {
@@ -127,7 +118,6 @@ export const RemoveAllItemsOption: ShoppingCartStory = {
       },
     ],
   },
-  render,
 };
 
 export const WithSubitems: ShoppingCartStory = {
@@ -166,7 +156,6 @@ export const WithSubitems: ShoppingCartStory = {
       },
     ],
   },
-  render,
 };
 
 export const WithSubitemsAndHiddenSummary: ShoppingCartStory = {
@@ -195,7 +184,6 @@ export const WithSubitemsAndHiddenSummary: ShoppingCartStory = {
       },
     ],
   },
-  render,
 };
 
 export const WithSubitemsAndWarning: ShoppingCartStory = {
@@ -228,5 +216,4 @@ export const WithSubitemsAndWarning: ShoppingCartStory = {
       },
     ],
   },
-  render,
 };

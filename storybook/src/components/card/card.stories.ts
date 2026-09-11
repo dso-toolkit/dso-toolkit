@@ -1,10 +1,7 @@
 import readme from "@dso-toolkit/core/src/components/card/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import {
   CardArgs,
@@ -18,7 +15,7 @@ import {
 import { content, infoButton } from "./card.content.js";
 import { cardTemplate } from "./card.template.js";
 
-type CardStory = StoryObj<CardArgs, Renderer>;
+type CardStory = StoryObj<CardArgs>;
 
 const meta: Meta<CardArgs> = {
   title: "Core/Card",
@@ -38,7 +35,7 @@ export default meta;
 
 export const Default: CardStory = {
   args: cardContent,
-  render: (args: CardArgs) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content)),
 };
 
 export const WithSelectableAndButton: CardStory = {
@@ -46,27 +43,27 @@ export const WithSelectableAndButton: CardStory = {
     ...cardContentButton,
     selectable: true,
   },
-  render: (args: CardArgs) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content)),
 };
 
 export const WithButton: CardStory = {
   args: cardContentButton,
-  render: (args: CardArgs) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content)),
 };
 
 export const WithLabel: CardStory = {
   args: {
     ...cardContentLabel,
   },
-  render: (args: CardArgs) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content)),
 };
 
 export const WithSlideToggle: CardStory = {
   args: cardContentSlideToggle,
-  render: (args: CardArgs) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content)),
 };
 
 export const WithInfoButtonWithToggletip: CardStory = {
   args: cardContent,
-  render: (args: CardArgs) => cardTemplate(cardArgsMapper(args, content, infoButton())),
+  render: (args) => cardTemplate(cardArgsMapper(args, content, infoButton())),
 };

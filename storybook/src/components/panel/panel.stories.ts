@@ -1,17 +1,15 @@
 import readme from "@dso-toolkit/core/src/components/panel/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 
-import { StoryObj } from "../../shared/story-obj.js";
 import { infoTemplate } from "../info/info.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
 import { PanelArgs, panelArgTypes, panelArgs, panelArgsMapper } from "./panel.args.js";
 import { panelTemplate } from "./panel.template.js";
 
-type PanelStory = StoryObj<PanelArgs, Renderer>;
+type PanelStory = StoryObj<PanelArgs>;
 
 const meta: Meta<PanelArgs> = {
   title: "Core/Panel",
@@ -22,6 +20,7 @@ const meta: Meta<PanelArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args) => panelTemplate(panelArgsMapper(args, children, heading)),
 };
 
 export default meta;
@@ -50,15 +49,10 @@ const children = richContentTemplate({
     </ul>
   `,
 });
-const render = (args: PanelArgs) => panelTemplate(panelArgsMapper(args, children, heading));
-
-export const Default: PanelStory = {
-  render,
-};
+export const Default: PanelStory = {};
 
 export const Emphasized: PanelStory = {
   args: {
     emphasized: true,
   },
-  render,
 };

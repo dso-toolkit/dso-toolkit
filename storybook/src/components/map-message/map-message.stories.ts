@@ -1,14 +1,11 @@
 import readme from "@dso-toolkit/core/src/components/map-message/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { MapMessageArgs, mapMessageArgTypes, mapMessageArgsMapper } from "./map-message.args.js";
 import { mapMessageTemplate } from "./map-message.template.js";
 
-type MapMessageStory = StoryObj<MapMessageArgs, Renderer>;
+type MapMessageStory = StoryObj<MapMessageArgs>;
 
 const meta: Meta<MapMessageArgs> = {
   title: "Core/Map Message",
@@ -18,11 +15,11 @@ const meta: Meta<MapMessageArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args) => mapMessageTemplate(mapMessageArgsMapper(args)),
 };
 
 export default meta;
 
-const render = (args: MapMessageArgs) => mapMessageTemplate(mapMessageArgsMapper(args));
 const parameters = {
   layout: "centered",
 };
@@ -33,7 +30,6 @@ export const Instruction: MapMessageStory = {
     variant: "instruction",
     message: "Dit is een instructie kaartbericht.",
   },
-  render,
 };
 
 export const Success: MapMessageStory = {
@@ -60,7 +56,6 @@ export const Success: MapMessageStory = {
       },
     ],
   },
-  render,
 };
 
 export const Error: MapMessageStory = {
@@ -87,5 +82,4 @@ export const Error: MapMessageStory = {
       },
     ],
   },
-  render,
 };

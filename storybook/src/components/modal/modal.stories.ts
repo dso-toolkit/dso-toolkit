@@ -1,10 +1,7 @@
 import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ModalArgs, modalArgTypes, modalArgsMapper } from "./modal.args.js";
 import {
@@ -19,7 +16,7 @@ import {
 } from "./modal.content.js";
 import { modalTemplate } from "./modal.template.js";
 
-type ModalStory = StoryObj<ModalArgs, Renderer>;
+type ModalStory = StoryObj<ModalArgs>;
 
 const meta: Meta<ModalArgs> = {
   title: "Core/Modal",

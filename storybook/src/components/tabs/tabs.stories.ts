@@ -1,16 +1,13 @@
 import componentsReadme from "@dso-toolkit/core/src/components/tabs/components/readme.md?raw";
 import readme from "@dso-toolkit/core/src/components/tabs/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { TabsArgs, tabsArgTypes, tabsArgsMapper } from "./tabs.args.js";
 import { tabsTemplate } from "./tabs.template.js";
 
-type TabsStory = StoryObj<TabsArgs, Renderer>;
+type TabsStory = StoryObj<TabsArgs>;
 
 const meta: Meta<TabsArgs> = {
   title: "Core/Tabs",
@@ -23,11 +20,10 @@ const meta: Meta<TabsArgs> = {
       page: () => compiler(`${readme}\n${componentsReadme}`),
     },
   },
+  render: (args) => tabsTemplate(tabsArgsMapper(args)),
 };
 
 export default meta;
-
-const render = (args: TabsArgs) => tabsTemplate(tabsArgsMapper(args));
 
 export const AsAnchors: TabsStory = {
   args: {
@@ -52,7 +48,6 @@ export const AsAnchors: TabsStory = {
     ],
     content: "Inhoud Zoek op adres",
   },
-  render,
 };
 
 export const AsAnchorsDisabled: TabsStory = {
@@ -79,7 +74,6 @@ export const AsAnchorsDisabled: TabsStory = {
     ],
     content: "Inhoud Postcode en huisnummer",
   },
-  render,
 };
 
 export const AsButtons: TabsStory = {
@@ -101,7 +95,6 @@ export const AsButtons: TabsStory = {
     ],
     content: "Inhoud Kadastraal nummer",
   },
-  render,
 };
 
 export const AsButtonsDisabled: TabsStory = {
@@ -125,5 +118,4 @@ export const AsButtonsDisabled: TabsStory = {
     ],
     content: "Inhoud Coördinaten",
   },
-  render,
 };

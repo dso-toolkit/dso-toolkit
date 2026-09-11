@@ -1,15 +1,12 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/context/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ContextArgs, contextArgTypes, contextArgsMapper } from "./context.args.js";
 import { children, content, label } from "./context.content.js";
 import { contextTemplate } from "./context.template.js";
 
-type ContextStory = StoryObj<ContextArgs, Renderer>;
+type ContextStory = StoryObj<ContextArgs>;
 
 const meta: Meta<ContextArgs> = {
   title: "HTML|CSS/Context",
@@ -22,7 +19,7 @@ const meta: Meta<ContextArgs> = {
       page: () => compiler(readme),
     },
   },
-  render: (args: ContextArgs) => contextTemplate(contextArgsMapper(args, content, children, label)),
+  render: (args) => contextTemplate(contextArgsMapper(args, content, children, label)),
 };
 
 export default meta;

@@ -1,18 +1,15 @@
 import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { DatePickerArgs, datePickerArgTypes, datePickerArgsMapper } from "./date-picker.args.js";
 import { datePickerWithLabelTemplate } from "./date-picker.content.js";
 import { datePickerTemplate } from "./date-picker.template.js";
 
-type DatePickerStory = StoryObj<DatePickerArgs, Renderer>;
+type DatePickerStory = StoryObj<DatePickerArgs>;
 
 const meta: Meta<DatePickerArgs> = {
   title: "Core/Date Picker",

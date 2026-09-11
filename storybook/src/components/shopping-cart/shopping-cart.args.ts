@@ -1,7 +1,8 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { ShoppingCart, ShoppingCartItem } from "./shopping-cart.models.js";
 
@@ -59,15 +60,15 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
       type: "boolean",
     },
   },
-  mode: argTypeAction(),
+  mode: noControl(),
   toggleable: {
     if: { arg: "_implementation", eq: "core" },
     control: {
       type: "boolean",
     },
   },
-  editable: argTypeAction(),
-  removable: argTypeAction(),
+  editable: noControl(),
+  removable: noControl(),
   itemMode: {
     if: { arg: "_implementation", eq: "core" },
     control: {
@@ -81,7 +82,7 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
       type: "boolean",
     },
   },
-  items: argTypeAction(),
+  items: noControl(),
   shoppingcartTitleTag: {
     if: { arg: "_implementation", eq: "html/css" },
     options: ["h2", "h3"],
@@ -99,7 +100,7 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
   dsoDelete: argTypeAction(),
   dsoClose: argTypeAction(),
   dsoSubmit: argTypeAction(),
-  _implementation: argTypeAction(),
+  _implementation: noControl(),
 };
 
 export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {

@@ -1,7 +1,8 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { DropdownMenu, DropdownMenuGroup } from "./dropdown-menu.models.js";
 
@@ -43,7 +44,7 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
       type: "boolean",
     },
   },
-  groups: argTypeAction(),
+  groups: noControl(),
   dsoClick: argTypeAction(),
 };
 

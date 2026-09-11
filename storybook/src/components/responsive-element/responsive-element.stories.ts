@@ -1,11 +1,8 @@
 import readme from "@dso-toolkit/core/src/components/responsive-element/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { ResponsiveElementArgs, responsiveElementArgTypes } from "./responsive-element.args.js";
 import { responsiveElementTemplate } from "./responsive-element.template.js";
@@ -49,7 +46,7 @@ const css = `
   }
 `;
 
-type ResponsiveElementStory = StoryObj<ResponsiveElementArgs, Renderer>;
+type ResponsiveElementStory = StoryObj<ResponsiveElementArgs>;
 
 const meta: Meta<ResponsiveElementArgs> = {
   title: "Core/Responsive Element",

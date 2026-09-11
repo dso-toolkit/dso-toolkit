@@ -1,15 +1,13 @@
 import { DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
 import readme from "@dso-toolkit/core/src/components/document-component/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { compiler } from "markdown-to-jsx/react";
 import { HandlerFunction } from "storybook/actions";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
-import { StoryObj } from "../../shared/story-obj.js";
 import { annotationTemplate } from "../annotation/annotation.template.js";
 import { definitionListTemplate } from "../definition-list/definition-list.template.js";
 import { OzonContentBegripResolver, OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
@@ -41,8 +39,8 @@ interface DocumentComponentDemoArgs {
   ozonContentBegripResolver?: OzonContentBegripResolver;
 }
 
-type DocumentComponentStory = StoryObj<DocumentComponentArgs, Renderer>;
-type DocumentComponentDemoStory = StoryObj<DocumentComponentDemoArgs, Renderer>;
+type DocumentComponentStory = StoryObj<DocumentComponentArgs>;
+type DocumentComponentDemoStory = StoryObj<DocumentComponentDemoArgs>;
 
 const begripResolver: OzonContentBegripResolver = (ref, element) => {
   if ((ref === "eId_van_begrip" || ref === "chp_1__art_1.2__list_o_1__item_1") && element) {
@@ -130,7 +128,7 @@ export const Default: DocumentComponentStory = {
   decorators: [(story) => decorator(story)],
   args: documentComponentArgs,
   argTypes: documentComponentArgTypes,
-  render: (args: DocumentComponentArgs) => documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
+  render: (args) => documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
 };
 
 export const Contents: DocumentComponentDemoStory = {
@@ -236,7 +234,7 @@ export const Contents: DocumentComponentDemoStory = {
     ozonContentBegripResolver: argTypeAction(),
   },
   parameters: { layout: "fullscreen" },
-  render: (args: DocumentComponentDemoArgs) =>
+  render: (args) =>
     demoTemplate(
       args.jsonFile,
       args.openDefault,
@@ -299,7 +297,7 @@ export const Inhoudsopgave: DocumentComponentDemoStory = {
     dsoTableOfContentsClick: argTypeAction(),
   },
   parameters: { layout: "fullscreen" },
-  render: (args: DocumentComponentDemoArgs) =>
+  render: (args) =>
     demoTemplate(
       args.jsonFile,
       args.openDefault,
@@ -332,6 +330,5 @@ export const IMRO: DocumentComponentStory = {
     kop: undefined,
   },
   argTypes: documentComponentArgTypes,
-  render: (args: DocumentComponentArgs) =>
-    documentComponentTemplate(documentComponentMapper(args, imroTemplate(imroContent))),
+  render: (args) => documentComponentTemplate(documentComponentMapper(args, imroTemplate(imroContent))),
 };

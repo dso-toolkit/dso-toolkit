@@ -1,8 +1,9 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { OnboardingTip, onboardingTipPlacements } from "./onboarding-tip.models.js";
 
@@ -14,7 +15,7 @@ export interface OnboardingTipArgs {
 }
 
 export const onboardingTipArgTypes: ArgTypes<OnboardingTipArgs> = {
-  id: argTypeAction(),
+  id: noControl(),
   placement: {
     options: onboardingTipPlacements,
     control: {

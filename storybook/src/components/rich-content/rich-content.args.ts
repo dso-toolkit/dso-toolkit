@@ -1,7 +1,7 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
-import { ArgTypes } from "storybook/internal/types";
 
-import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { RichContent } from "./rich-content.models.js";
 
@@ -11,8 +11,8 @@ export interface RichContentArgs {
 }
 
 export const richContentArgTypes: ArgTypes<RichContentArgs> = {
-  children: argTypeAction(),
-  slot: argTypeAction(),
+  children: noControl(),
+  slot: noControl(),
 };
 
 export function richContentArgsMapper(a: RichContentArgs, children: TemplateResult | string): RichContent {

@@ -1,6 +1,6 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";

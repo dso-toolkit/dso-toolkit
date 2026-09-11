@@ -1,7 +1,7 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
-import { ArgTypes } from "storybook/internal/types";
 
-import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { Expandable } from "./expandable.models.js";
 
@@ -18,7 +18,7 @@ export const expandableArgTypes: ArgTypes<ExpandableArgs> = {
   enableAnimation: {
     type: "boolean",
   },
-  minimumHeight: argTypeAction(),
+  minimumHeight: noControl(),
 };
 
 export function expandableArgsMapper(a: ExpandableArgs, content: TemplateResult | string): Expandable {

@@ -1,13 +1,12 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
+import escapeStringRegexp from "escape-string-regexp";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { isOdd } from "../../shared/is-odd.js";
 
 import { Renvooi, RenvooiValue } from "./renvooi.models.js";
-
-const isOdd = (n: number): boolean => n % 2 === 1;
-const escapeStringRegexp = (value: string): string => value.replace(/[|\\{}()[\]^$+*?.-]/g, "\\$&");
 
 export interface RenvooiArgs {
   voorbeeld: "was-wordt" | "toegevoegd" | "verwijderd" | "ongewijzigd";

@@ -1,11 +1,8 @@
 import readme from "@dso-toolkit/core/src/components/slide-toggle/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import {
   SlideToggleArgs,
@@ -16,7 +13,7 @@ import {
 import { SlideToggleChangeEvent } from "./slide-toggle.models.js";
 import { slideToggleTemplate } from "./slide-toggle.template.js";
 
-type SlideToggleStory = StoryObj<SlideToggleArgs, Renderer>;
+type SlideToggleStory = StoryObj<SlideToggleArgs>;
 
 const meta: Meta<SlideToggleArgs> = {
   title: "Core/Slide Toggle",
@@ -29,6 +26,7 @@ const meta: Meta<SlideToggleArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args) => slideToggleTemplate(slideToggleConnector([slideToggleArgsMapper(args)])),
 };
 
 export default meta;
@@ -41,14 +39,11 @@ const slideToggleConnector = ([props]: [ReturnType<typeof slideToggleArgsMapper>
   },
 });
 
-const render = (args: SlideToggleArgs) => slideToggleTemplate(slideToggleConnector([slideToggleArgsMapper(args)]));
-
 export const Default: SlideToggleStory = {
   args: slideToggleDefaultArgs({
     checked: false,
     accessibleLabel: "sr-only label van het schuifje",
   }),
-  render,
 };
 
 export const Disabled: SlideToggleStory = {
@@ -56,7 +51,6 @@ export const Disabled: SlideToggleStory = {
     checked: false,
     disabled: true,
   }),
-  render,
 };
 
 export const ZichtbaarLabel: SlideToggleStory = {
@@ -64,7 +58,6 @@ export const ZichtbaarLabel: SlideToggleStory = {
     checked: false,
     useOwnLabelId: uuidv4(),
   }),
-  render,
 };
 
 export const LabelledById: SlideToggleStory = {
@@ -72,5 +65,4 @@ export const LabelledById: SlideToggleStory = {
     checked: false,
     labelledbyId: uuidv4(),
   }),
-  render,
 };

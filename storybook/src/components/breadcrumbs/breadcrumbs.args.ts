@@ -1,6 +1,6 @@
-import { ArgTypes } from "storybook/internal/types";
+import type { ArgTypes } from "@storybook/web-components-vite";
 
-import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 
 import { Breadcrumb, Breadcrumbs } from "./breadcrumbs.models.js";
 
@@ -9,7 +9,7 @@ export interface BreadcrumbsArgs {
 }
 
 export const breadcrumbsArgTypes: ArgTypes<BreadcrumbsArgs> = {
-  breadcrumbs: argTypeAction(),
+  breadcrumbs: noControl(),
 };
 
 export function breadcrumbsArgsMapper(a: BreadcrumbsArgs): Breadcrumbs {

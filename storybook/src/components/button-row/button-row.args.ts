@@ -1,6 +1,6 @@
-import { ArgTypes } from "storybook/internal/types";
+import type { ArgTypes } from "@storybook/web-components-vite";
 
-import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 import { Button } from "../button/button.models.js";
 
 import { ButtonRow } from "./button-row.models.js";
@@ -13,7 +13,7 @@ export interface ButtonRowArgs {
 }
 
 export const buttonRowArgTypes: ArgTypes<ButtonRowArgs> = {
-  buttons: argTypeAction(),
+  buttons: noControl(),
   emphasized: {
     control: {
       type: "boolean",

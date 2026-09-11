@@ -1,9 +1,10 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
 import { Label } from "../label/label.models.js";
 import { Renvooi } from "../renvooi/renvooi.models.js";
 import { SlideToggle } from "../slide-toggle/slide-toggle.models.js";
@@ -58,7 +59,7 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
       type: "select",
     },
   },
-  interaction: argTypeAction(),
+  interaction: noControl(),
   dsoPlekinfoCardClick: argTypeAction(),
 };
 

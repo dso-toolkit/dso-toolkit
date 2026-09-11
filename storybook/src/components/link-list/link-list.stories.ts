@@ -1,10 +1,8 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/link-list/readme.md?raw";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 
-import { StoryObj } from "../../shared/story-obj.js";
 import { highlightBoxTemplate } from "../highlight-box/highlight-box.template.js";
 
 import { LinkListArgs, linkListArgTypes, linkListArgsMapper } from "./link-list.args.js";
@@ -12,7 +10,7 @@ import { links, navLinks } from "./link-list.content.js";
 import { LinkListType } from "./link-list.models.js";
 import { linkListTemplate } from "./link-list.template.js";
 
-type LinkListStory = StoryObj<LinkListArgs, Renderer>;
+type LinkListStory = StoryObj<LinkListArgs>;
 
 const meta: Meta<LinkListArgs> = {
   title: "HTML|CSS/Link List",

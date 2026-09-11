@@ -1,14 +1,11 @@
 import readme from "@dso-toolkit/core/src/components/mark-bar/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { MarkBarArgs, markBarArgTypes, markBarArgs, markBarArgsMapper } from "./mark-bar.args.js";
 import { markBarTemplate } from "./mark-bar.template.js";
 
-type MarkBarStory = StoryObj<MarkBarArgs, Renderer>;
+type MarkBarStory = StoryObj<MarkBarArgs>;
 
 const meta: Meta<MarkBarArgs> = {
   title: "Core/Mark Bar",
@@ -19,12 +16,9 @@ const meta: Meta<MarkBarArgs> = {
       page: () => compiler(readme),
     },
   },
+  render: (args) => markBarTemplate(markBarArgsMapper(args)),
 };
 
 export default meta;
 
-const render = (args: MarkBarArgs) => markBarTemplate(markBarArgsMapper(args));
-
-export const Default: MarkBarStory = {
-  render,
-};
+export const Default: MarkBarStory = {};

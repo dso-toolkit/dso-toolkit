@@ -1,9 +1,6 @@
 import readme from "@dso-toolkit/core/src/components/table/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { TableArgs, tableArgTypes, tableArgsMapper } from "./table.args.js";
 import {
@@ -15,7 +12,7 @@ import {
 } from "./table.content.js";
 import { tableTemplate } from "./table.template.js";
 
-type TableStory = StoryObj<TableArgs, Renderer>;
+type TableStory = StoryObj<TableArgs>;
 
 const meta: Meta<TableArgs> = {
   title: "Core/Table",

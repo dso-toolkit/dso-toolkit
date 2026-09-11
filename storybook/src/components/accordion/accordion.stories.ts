@@ -1,10 +1,8 @@
 import componentsReadme from "@dso-toolkit/core/src/components/accordion/components/readme.md?raw";
 import readme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
 
-import { StoryObj } from "../../shared/story-obj.js";
 import { children } from "../badge/badge.content.js";
 
 import { AccordionArgs, accordionArgTypes, accordionArgs, accordionArgsMapper } from "./accordion.args.js";
@@ -21,7 +19,7 @@ import {
 } from "./accordion.content.js";
 import { accordionTemplate } from "./accordion.template.js";
 
-type AccordionStory = StoryObj<AccordionArgs, Renderer>;
+type AccordionStory = StoryObj<AccordionArgs>;
 
 const meta: Meta<AccordionArgs> = {
   title: "Core/Accordion",

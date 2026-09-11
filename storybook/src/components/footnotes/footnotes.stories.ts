@@ -1,10 +1,7 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/footnotes/readme.md?raw";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { footnoteTemplate } from "./footnote.template.js";
 import {
@@ -20,11 +17,11 @@ import {
 import { footnotes } from "./footnotes.content.js";
 import { footnotesTemplate } from "./footnotes.template.js";
 
-type FootnotesExampleStory = StoryObj<FootnotesExampleArgs, Renderer>;
-type FootnotesReferenceStory = StoryObj<FootnotesReferenceArgs, Renderer>;
-type FootnotesListStory = StoryObj<FootnotesListArgs, Renderer>;
+type FootnotesExampleStory = StoryObj<FootnotesExampleArgs>;
+type FootnotesReferenceStory = StoryObj<FootnotesReferenceArgs>;
+type FootnotesListStory = StoryObj<FootnotesListArgs>;
 
-const meta: Meta<Record<string, never>> = {
+const meta: Meta = {
   title: "HTML|CSS/Footnotes",
   argTypes: {},
   args: {},

@@ -1,14 +1,11 @@
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/form-buttons/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
-import { Renderer } from "storybook/internal/types";
-
-import { StoryObj } from "../../shared/story-obj.js";
 
 import { FormButtonsArgs, formButtonsArgTypes, formButtonsArgsMapper } from "./form-buttons.args.js";
 import { formButtonsTemplate } from "./form-buttons.template.js";
 
-type FormButtonsStory = StoryObj<FormButtonsArgs, Renderer>;
+type FormButtonsStory = StoryObj<FormButtonsArgs>;
 
 const meta: Meta<FormButtonsArgs> = {
   title: "HTML|CSS/Form Buttons",
@@ -18,7 +15,7 @@ const meta: Meta<FormButtonsArgs> = {
       page: () => compiler(readme),
     },
   },
-  render: (args: FormButtonsArgs) => formButtonsTemplate(formButtonsArgsMapper(args)),
+  render: (args) => formButtonsTemplate(formButtonsArgsMapper(args)),
 };
 
 export default meta;

@@ -1,4 +1,4 @@
-import { ArgTypes } from "storybook/internal/types";
+import type { ArgTypes } from "@storybook/web-components-vite";
 
 import { FormGroupDatePicker } from "./form-group-date-picker.models.js";
 

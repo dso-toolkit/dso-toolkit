@@ -1,9 +1,11 @@
+import type { ArgTypes } from "@storybook/web-components-vite";
+import escapeStringRegexp from "escape-string-regexp";
 import { TemplateResult } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
-import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { isOdd } from "../../shared/is-odd.js";
 import { BadgeStatus } from "../badge/badge.models.js";
 import { LabelStatus } from "../label/label.models.js";
 import { OzonContentBegripResolver, OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
@@ -271,9 +273,6 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     },
   },
 };
-
-const isOdd = (n: number): boolean => n % 2 === 1;
-const escapeStringRegexp = (value: string): string => value.replace(/[|\\{}()[\]^$+*?.-]/g, "\\$&");
 
 export function documentComponentMapper(
   a: DocumentComponentArgs,
