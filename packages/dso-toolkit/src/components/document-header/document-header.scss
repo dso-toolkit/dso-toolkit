@@ -131,6 +131,12 @@
 
   .dso-document-header-container {
     position: relative;
+
+    > dso-icon-button {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+    }
   }
 
   .dso-document-header-owner-wrapper {
@@ -144,7 +150,6 @@
     display: inline-block;
   }
 
-  .dso-document-header-map-action,
   .dso-document-header-toggle-features,
   .dso-document-header-toggle-status {
     @include button.tertiary();
@@ -153,14 +158,12 @@
     font-weight: normal;
   }
 
-  .dso-document-header-map-action {
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline-end: 0;
-  }
-
   .dso-document-header-features-wrapper {
     margin-block-end: units.$u1;
+
+    > button {
+      color: colors.$zwart;
+    }
   }
 
   dl.dso-document-header-features {

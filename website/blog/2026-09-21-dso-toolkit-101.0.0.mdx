@@ -1,0 +1,86 @@
+---
+authors: [xiangjuzou-prog]
+---
+
+# DSO Toolkit v101.0.0 😾
+
+Deze release bevat een **BREAKING** change voor de volgende componenten:
+
+- Form Group
+- Document Header
+
+<!-- truncate -->
+
+## Form Group
+
+**Breaking**: In het HTML/CSS component Form Group (Static) schrijven wij nog het gebruik voor van een `icon-only` Button. Dit gaan we vervangen door een Icon Button (dso-icon-button).
+
+### Migratiepad
+
+Gebruik de Core implementatie van Icon Button.
+
+```html
+❌
+<div class="form-group dso-static">
+  <div class="dso-label-container">
+    <label class="control-label" for="mijn-id"> Kleur van object </label>
+    <button type="button" class="dso-info-button" aria-expanded="false">
+      <span class="sr-only"> Toelichting bij veld </span>
+    </button>
+  </div>
+  <div class="dso-field-container">
+    rood
+
+    <button type="button" class="dso-tertiary">
+      <span class="sr-only">Edit</span><dso-icon icon="pencil"></dso-icon>
+    </button>
+  </div>
+</div>
+
+✅
+<div class="form-group dso-static">
+  <div class="dso-label-container">
+    <label class="control-label" for="mijn-id"> Kleur van object </label>
+    <button type="button" class="dso-info-button" aria-expanded="false">
+      <span class="sr-only"> Toelichting bij veld </span>
+    </button>
+  </div>
+  <div class="dso-field-container">
+    rood
+
+    <dso-icon-button variant="tertiary" icon="pencil" label="Edit" tooltip-placement="top"></dso-icon-button>
+  </div>
+</div>
+```
+
+## Document Header
+
+**Breaking**: In het HTML/CSS component Document Header schrijven wij nog het gebruik voor van een `icon-only` Button. Dit gaan we vervangen door een Icon Button (dso-icon-button).
+
+### Migratiepad
+
+Gebruik de Core implementatie van Icon Button.
+
+```html
+❌
+<dso-responsive-element class="dso-document-header">
+  ...
+  <div class="dso-document-header-container">
+    ...
+    <button type="button" class="dso-document-header-map-action">
+      <span class="sr-only">Actie</span><dso-icon icon="map-location"></dso-icon>
+    </button>
+    ...
+  </div>
+</dso-responsive-element>
+
+✅
+<dso-responsive-element class="dso-document-header">
+  ...
+  <div class="dso-document-header-container">
+    ...
+    <dso-icon-button variant="tertiary" icon="map-location" label="Actie" tooltip-placement="top"></dso-icon-button>
+    ...
+  </div>
+</dso-responsive-element>
+```
