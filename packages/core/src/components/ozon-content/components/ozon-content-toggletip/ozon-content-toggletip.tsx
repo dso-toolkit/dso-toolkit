@@ -1,8 +1,7 @@
 import { Component, ComponentInterface, Element, Fragment, Listen, Prop, State, h } from "@stencil/core";
 
-import { positionTooltip } from "../../../../functional-components/tooltip/position-tooltip.function";
+import { ToggletipController, isEventOutside } from "../../../../functional-components/tooltip/toggletip.controller";
 import { Tooltip } from "../../../../functional-components/tooltip/tooltip.functional-component";
-import { TooltipClean } from "../../../../functional-components/tooltip/tooltip.interfaces";
 import { IconAlias } from "../../../icon/icon.interfaces";
 
 @Component({
@@ -11,11 +10,18 @@ import { IconAlias } from "../../../icon/icon.interfaces";
   shadow: true,
 })
 export class OzonContentToggletip implements ComponentInterface {
-  private cleanUpFunction: TooltipClean | undefined;
   private container: HTMLSpanElement | undefined;
   private tooltipElRef: HTMLDivElement | undefined;
   private tooltipArrowElRef: HTMLSpanElement | undefined;
   private restrictContentElement: HTMLElement | undefined;
+
+  private toggletipController = new ToggletipController({
+    getReferenceElement: () => this.container,
+    getTipElement: () => this.tooltipElRef,
+    getTipArrowElement: () => this.tooltipArrowElRef,
+    getRestrictContentElement: () => this.restrictContentElement,
+    getPlacement: () => "top",
+  });
 
   @Element()
   host!: HTMLDsoOzonContentToggletipElement;
@@ -34,10 +40,9 @@ export class OzonContentToggletip implements ComponentInterface {
     if (!this.active) return;
 
     const path = event.composedPath();
-    const clickedInsideHost = path.includes(this.host);
     const clickedInsideTooltip = this.tooltipElRef && path.includes(this.tooltipElRef);
 
-    if (!clickedInsideHost && !clickedInsideTooltip) {
+    if (isEventOutside(this.host, event) && !clickedInsideTooltip) {
       this.toggle();
     }
 
@@ -68,33 +73,11 @@ export class OzonContentToggletip implements ComponentInterface {
   };
 
   componentDidRender() {
-    if (!this.cleanUpFunction && this.active && this.container && this.tooltipElRef && this.tooltipArrowElRef) {
-      this.cleanUpFunction = positionTooltip({
-        referenceElement: this.container,
-        tipRef: this.tooltipElRef,
-        tipArrowRef: this.tooltipArrowElRef,
-        placementTip: "top",
-        restrictContentElement: this.restrictContentElement,
-      });
-    }
-
-    if (this.cleanUpFunction && this.tooltipElRef) {
-      if (this.active) {
-        this.tooltipElRef?.showPopover();
-      } else {
-        this.tooltipElRef?.hidePopover();
-        this.cleanUpTooltip();
-      }
-    }
+    this.toggletipController.update(this.active);
   }
 
   disconnectedCallback() {
-    this.cleanUpTooltip();
-  }
-
-  private cleanUpTooltip() {
-    this.cleanUpFunction?.();
-    this.cleanUpFunction = undefined;
+    this.toggletipController.dispose();
   }
 
   render() {
