@@ -27,6 +27,13 @@
 | `dsoSelectedChange` | Emitted when the user activates the List Button itself.  Does not fire when the user activates the count controls. | `CustomEvent<ListButtonSelectedEvent>` |
 
 
+## Slots
+
+| Slot           | Description                                                                        |
+| -------------- | ---------------------------------------------------------------------------------- |
+| `"subcontent"` | An optional slot for additional content or details displayed below the main label. |
+
+
 ## Dependencies
 
 ### Depends on

@@ -19,6 +19,13 @@
 | `dsoContentSwitch` | Emitted when a tabItem is pressed.       | `CustomEvent<LegendContentSwitchEvent>` |
 
 
+## Slots
+
+| Slot | Description                                                        |
+| ---- | ------------------------------------------------------------------ |
+|      | Content to be displayed inside the active tab panel of the legend. |
+
+
 ## Dependencies
 
 ### Depends on

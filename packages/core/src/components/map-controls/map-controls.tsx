@@ -22,6 +22,9 @@ import { MapControlsToggleEvent } from "./map-controls.interfaces";
 const transitionDuration = 300;
 const transitionFallbackDuration = transitionDuration + 50;
 
+/**
+ * @slot - The content to be displayed inside the map controls panel.
+ */
 @Component({
   tag: "dso-map-controls",
   styleUrl: "./map-controls.scss",

@@ -341,9 +341,6 @@ export namespace Components {
          */
         "wijzigactie"?: AnnotationWijzigactie;
     }
-    /**
-     * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
-     */
     interface DsoAnnotationOmgevingsnormwaarde {
         /**
           * Een optionele boolean die aangeeft of de annotatie actief is.
@@ -1906,9 +1903,6 @@ declare global {
     interface HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap {
         "dsoActiveChange": AnnotationActiveChangeEvent;
     }
-    /**
-     * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
-     */
     interface HTMLDsoAnnotationOmgevingsnormwaardeElement extends Components.DsoAnnotationOmgevingsnormwaarde, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOmgevingsnormwaardeElement, ev: DsoAnnotationOmgevingsnormwaardeCustomEvent<HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2947,7 +2941,7 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K]?: never };
 
     interface DsoAccordion {
         /**
@@ -3211,9 +3205,6 @@ declare namespace LocalJSX {
          */
         "wijzigactie"?: AnnotationWijzigactie;
     }
-    /**
-     * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
-     */
     interface DsoAnnotationOmgevingsnormwaarde {
         /**
           * Een optionele boolean die aangeeft of de annotatie actief is.
@@ -5209,9 +5200,6 @@ declare module "@stencil/core" {
             "dso-annotation-gebiedsaanwijzing": LocalJSX.IntrinsicElements["dso-annotation-gebiedsaanwijzing"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationGebiedsaanwijzingElement>;
             "dso-annotation-kaart": LocalJSX.IntrinsicElements["dso-annotation-kaart"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationKaartElement>;
             "dso-annotation-locatie": LocalJSX.IntrinsicElements["dso-annotation-locatie"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationLocatieElement>;
-            /**
-             * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
-             */
             "dso-annotation-omgevingsnormwaarde": LocalJSX.IntrinsicElements["dso-annotation-omgevingsnormwaarde"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationOmgevingsnormwaardeElement>;
             "dso-attachments-counter": LocalJSX.IntrinsicElements["dso-attachments-counter"] & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-autosuggest": LocalJSX.IntrinsicElements["dso-autosuggest"] & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;

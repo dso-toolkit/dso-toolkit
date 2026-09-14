@@ -20,6 +20,13 @@
 | `dsoExpandableAnimationStart` | Fired before expanding. | `CustomEvent<ExpandableAnimationStartEvent>` |
 
 
+## Slots
+
+| Slot | Description                                                   |
+| ---- | ------------------------------------------------------------- |
+|      | Content to be shown or hidden when the expandable is toggled. |
+
+
 ## Dependencies
 
 ### Used by

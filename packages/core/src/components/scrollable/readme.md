@@ -10,6 +10,13 @@
 | `dsoScrollEnd` | Event emitted when the scrollbar has reached top or bottom. | `CustomEvent<DsoScrollEndEvent>` |
 
 
+## Slots
+
+| Slot | Description                                         |
+| ---- | --------------------------------------------------- |
+|      | Content to be made scrollable inside the container. |
+
+
 ## Dependencies
 
 ### Used by

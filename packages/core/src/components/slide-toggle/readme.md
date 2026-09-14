@@ -23,6 +23,13 @@
 | `dsoActiveChange` | Emitted when user checks or unchecks the Slide Toggle. | `CustomEvent<SlideToggleActiveEvent>` |
 
 
+## Slots
+
+| Slot | Description                                       |
+| ---- | ------------------------------------------------- |
+|      | Optional visible label text for the slide toggle. |
+
+
 ## Dependencies
 
 ### Used by

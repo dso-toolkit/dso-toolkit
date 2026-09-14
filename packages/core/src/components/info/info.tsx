@@ -1,5 +1,8 @@
 import { Component, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
 
+/**
+ * @slot - The content to be displayed inside the info box.
+ */
 @Component({
   tag: "dso-info",
   styleUrl: "./info.scss",

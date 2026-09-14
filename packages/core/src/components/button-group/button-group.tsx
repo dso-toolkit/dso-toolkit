@@ -3,6 +3,9 @@ import { clsx } from "clsx";
 
 import { ButtonGroupDirection } from "./button-group.interfaces";
 
+/**
+ * @slot - The buttons or elements to be grouped within the button group.
+ */
 @Component({
   tag: "dso-button-group",
   styleUrl: "button-group.scss",

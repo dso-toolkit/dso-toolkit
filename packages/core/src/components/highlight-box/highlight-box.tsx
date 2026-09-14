@@ -1,5 +1,9 @@
 import { Component, Element, Host, Prop, h } from "@stencil/core";
 
+/**
+ * @slot - A slot to place content inside the highlight box.
+ * @slot icon - A slot to display an icon inside the step counter instead of a step number.
+ */
 @Component({
   tag: "dso-highlight-box",
   styleUrl: "highlight-box.scss",

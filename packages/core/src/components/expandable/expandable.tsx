@@ -15,6 +15,9 @@ import { clsx } from "clsx";
 
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./expandable.interfaces";
 
+/**
+ * @slot - Content to be shown or hidden when the expandable is toggled.
+ */
 @Component({
   tag: "dso-expandable",
   styleUrl: "expandable.scss",

@@ -12,6 +12,13 @@
 | `direction` | `direction` | The direction in which the buttons are displayed.  Defaults to `row`. | `"column" \| "row"` | `"row"` |
 
 
+## Slots
+
+| Slot | Description                                                    |
+| ---- | -------------------------------------------------------------- |
+|      | The buttons or elements to be grouped within the button group. |
+
+
 ## Dependencies
 
 ### Used by

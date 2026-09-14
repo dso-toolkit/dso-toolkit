@@ -27,6 +27,13 @@
 | `dsoHeaderClick` | Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'` | `CustomEvent<HeaderClickEvent \| HeaderClickMenuItemEvent>` |
 
 
+## Slots
+
+| Slot     | Description                                            |
+| -------- | ------------------------------------------------------ |
+| `"logo"` | A slot to place the logo element (e.g. `dso-logo`) in. |
+
+
 ## Dependencies
 
 ### Depends on

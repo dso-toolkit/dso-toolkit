@@ -5,10 +5,6 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
-
 ## Properties
 
 | Property            | Attribute            | Description                                                                         | Type                                                                                                           | Default     |
@@ -27,13 +23,6 @@ Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
 | Event             | Description                                                                   | Type                                       |
 | ----------------- | ----------------------------------------------------------------------------- | ------------------------------------------ |
 | `dsoActiveChange` | Een optionele event listener voor wijzigingen aan de status van de annotatie. | `CustomEvent<AnnotationActiveChangeEvent>` |
-
-
-## Slots
-
-| Slot        | Description                                             |
-| ----------- | ------------------------------------------------------- |
-| `"symbool"` | Een optionele afbeelding die de annotatie symboliseert. |
 
 
 ## Dependencies

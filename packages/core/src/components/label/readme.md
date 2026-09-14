@@ -28,6 +28,14 @@ In beiden gevallen wordt de tekst uitgelezen door middel van `HTMLElement.textCo
 | `dsoRemoveClick` | Emitted when the user activates the remove button. | `CustomEvent<MouseEvent>` |
 
 
+## Slots
+
+| Slot       | Description                                                             |
+| ---------- | ----------------------------------------------------------------------- |
+|            | A slot for the label text or content.                                   |
+| `"symbol"` | An optional slot for an icon or symbol displayed before the label text. |
+
+
 ## Dependencies
 
 ### Used by

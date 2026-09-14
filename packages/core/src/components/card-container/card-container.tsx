@@ -2,6 +2,9 @@ import { Component, ComponentInterface, Fragment, Prop, h } from "@stencil/core"
 
 import { CardContainerMode } from "./card-container.interfaces";
 
+/**
+ * @slot - Cards to be displayed inside the container.
+ */
 @Component({
   tag: "dso-card-container",
   styleUrl: "card-container.scss",

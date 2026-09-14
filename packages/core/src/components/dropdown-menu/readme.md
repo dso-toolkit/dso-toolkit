@@ -15,6 +15,13 @@ Must contain at least one `<dso-dropdown-menu-group>`. A `<dso-dropdown-menu-gro
 | `variant`   | `variant`   | The variant of the Button to toggle the menu | `"primary" \| "secondary" \| "tertiary"` | `"secondary"` |
 
 
+## Slots
+
+| Slot | Description                                                             |
+| ---- | ----------------------------------------------------------------------- |
+|      | Menu items and content displayed inside the dropdown menu options list. |
+
+
 ## Dependencies
 
 ### Depends on
