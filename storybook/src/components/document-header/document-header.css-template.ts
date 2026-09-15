@@ -1,4 +1,4 @@
-import { DocumentHeader } from "dso-toolkit";
+﻿import { DocumentHeader } from "dso-toolkit";
 import { TemplateResult, html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 
@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateResult>> = {
   component: "documentHeader",
   implementation: "html-css",
-  template: ({ buttonTemplate, definitionListTemplate, advancedSelectTemplate, headingTemplate }) =>
+  template: ({ buttonTemplate, iconButtonTemplate, definitionListTemplate, advancedSelectTemplate, headingTemplate }) =>
     function documentHeaderTemplate({
       title,
       type,
@@ -51,14 +51,12 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
               - ${owner ? html`<p class="dso-document-header-owner">${owner}</p>` : nothing}
             </div>
 
-            ${buttonTemplate({
+            ${iconButtonTemplate({
               label: "Actie",
-              variant: null,
-              modifier: "dso-document-header-map-action",
-              icon: {
-                icon: "map-location",
-              },
-              iconMode: "only",
+              variant: "tertiary",
+
+              icon: "map-location",
+              tooltipPlacement: "top",
             })}
 
             <div class="dso-document-header-features-wrapper">
