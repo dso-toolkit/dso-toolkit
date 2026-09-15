@@ -23,7 +23,6 @@ export const iconButtonArgs: IconButtonArgs = {
   variant: "secondary",
   icon: "bars",
   label: "Navigation",
-  tooltipPlacement: "top",
   toggled: false,
   dsoClick: fn(),
   disabled: false,

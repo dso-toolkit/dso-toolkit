@@ -3,6 +3,7 @@ import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../storybook";
 import { Button } from "../button/button.models.js";
+import { IconButton } from "../icon-button";
 import { InfoButton } from "../info-button";
 import { Label } from "../label/label.models.js";
 import { LinkArgs } from "../link/link.args.js";
@@ -16,7 +17,7 @@ export interface CardArgs {
   active: boolean;
   mode?: LinkArgs["mode"];
   selectable: boolean;
-  interactions: Array<Button | InfoButton<never> | Label | SlideToggle>;
+  interactions: Array<Button | IconButton | InfoButton<never> | Label | SlideToggle>;
   dsoCardClick: HandlerFunction;
 }
 

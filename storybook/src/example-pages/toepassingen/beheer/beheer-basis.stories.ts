@@ -16,26 +16,22 @@ const Beheer = examplePageStories((templates) => {
   const {
     headerTemplate,
     breadcrumbsTemplate,
-    buttonTemplate,
+    iconButtonTemplate,
     paginationTemplate,
     definitionListTemplate,
     tableTemplate,
   } = templates;
 
   const rowActions = () =>
-    html`${buttonTemplate({
-      type: "button",
+    html`${iconButtonTemplate({
       variant: "tertiary",
       label: "Bewerk",
-      icon: { icon: "pencil" },
-      iconMode: "only",
+      icon: "pencil",
     })}
-    ${buttonTemplate({
-      type: "button",
+    ${iconButtonTemplate({
       variant: "tertiary",
       label: "Verwijder",
-      icon: { icon: "trash" },
-      iconMode: "only",
+      icon: "trash",
     })}`;
 
   return html`

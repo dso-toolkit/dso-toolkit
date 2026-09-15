@@ -10,11 +10,9 @@ export const cardContainer: CardContainer<TemplateResult> = {
       content: html`het Klooster is een industrieterrein in de Gemeente Nieuwegein.`,
       interactions: [
         {
-          type: "button",
           variant: "tertiary",
-          icon: { icon: "info-outline" },
+          icon: "info-outline",
           label: "Extra informatie",
-          iconMode: "only",
         },
       ],
     },
@@ -25,11 +23,9 @@ export const cardContainer: CardContainer<TemplateResult> = {
       gemeente Den Haag zet zich vanaf 2009 in om een deel van de bedrijven te vervangen door enkele duizenden woningen.`,
       interactions: [
         {
-          type: "button",
           variant: "tertiary",
-          icon: { icon: "info-outline" },
+          icon: "info-outline",
           label: "Extra informatie",
-          iconMode: "only",
         },
       ],
     },
@@ -40,11 +36,9 @@ export const cardContainer: CardContainer<TemplateResult> = {
       DGNVLG/19045629, houdende vaststelling van een geactualiseerde Rode Lijst Dagvlinders.`,
       interactions: [
         {
-          type: "button",
           variant: "tertiary",
-          icon: { icon: "info-outline" },
+          icon: "info-outline",
           label: "Extra informatie",
-          iconMode: "only",
         },
       ],
     },
@@ -55,11 +49,9 @@ export const cardContainer: CardContainer<TemplateResult> = {
       De wijk grenst aan de wijken Moerwijk, Morgenstond, Leyenburg en Rustenburg en Oostbroek.`,
       interactions: [
         {
-          type: "button",
           variant: "tertiary",
-          icon: { icon: "info-outline" },
+          icon: "info-outline",
           label: "Extra informatie",
-          iconMode: "only",
         },
       ],
     },
