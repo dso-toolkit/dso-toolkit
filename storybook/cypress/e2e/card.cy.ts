@@ -91,4 +91,19 @@ describe("Card", () => {
 
     cy.get("dso-card.hydrated").matchImageSnapshot();
   });
+
+  it("should not call dsoCardClick on click on icon button", () => {
+    cy.get("dso-card.hydrated")
+      .find("div[slot='interactions']")
+      .then(($cardInteractions) => {
+        $cardInteractions.append(
+          '<div class="dso-card-interaction"><dso-icon-button variant="tertiary" icon="info-outline" label="Extra informatie" class="hydrated"></dso-icon-button></div>',
+        );
+      })
+      .get("dso-card.hydrated")
+      .find(".dso-card-interaction > dso-icon-button")
+      .click()
+      .get("@dsoCardClickListener")
+      .should("not.have.been.called");
+  });
 });
