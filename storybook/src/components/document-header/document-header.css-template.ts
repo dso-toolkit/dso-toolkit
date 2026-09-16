@@ -56,7 +56,6 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
               variant: "tertiary",
 
               icon: "map-location",
-              tooltipPlacement: "top",
             })}
 
             <div class="dso-document-header-features-wrapper">
