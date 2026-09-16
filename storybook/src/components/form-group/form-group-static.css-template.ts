@@ -34,7 +34,6 @@ export const cssFormGroupStatic: ComponentImplementation<FormGroupStatic<Templat
                     variant: "tertiary",
                     label: "Edit",
                     icon: "pencil",
-                    tooltipPlacement: "top",
                   })}`
                 : nothing
             }
