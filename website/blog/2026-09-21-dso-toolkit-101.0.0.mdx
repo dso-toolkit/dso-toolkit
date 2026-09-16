@@ -4,9 +4,10 @@ authors: [xiangjuzou-prog]
 
 # DSO Toolkit v101.0.0 😾
 
-Deze release bevat een **BREAKING** change voor het volgende component:
+Deze release bevat een **BREAKING** change voor de volgende componenten:
 
 - Form Group
+- Document Header
 
 <!-- truncate -->
 
@@ -46,4 +47,36 @@ Gebruik het Web Component Icon Button.
     <dso-icon-button variant="tertiary" icon="pencil" label="Edit"></dso-icon-button>
   </div>
 </div>
+```
+
+## Document Header
+
+**Breaking**: In het HTML/CSS component Document Header schrijven wij nog het gebruik voor van een `icon-only` Button. Dit gaan we vervangen door een Icon Button (dso-icon-button).
+
+### Migratiepad
+
+Gebruik het Web Component Icon Button.
+
+```html
+❌
+<dso-responsive-element class="dso-document-header">
+  ...
+  <div class="dso-document-header-container">
+    ...
+    <button type="button" class="dso-document-header-map-action">
+      <span class="sr-only">Actie</span><dso-icon icon="map-location"></dso-icon>
+    </button>
+    ...
+  </div>
+</dso-responsive-element>
+
+✅
+<dso-responsive-element class="dso-document-header">
+  ...
+  <div class="dso-document-header-container">
+    ...
+    <dso-icon-button variant="tertiary" icon="map-location" label="Actie"></dso-icon-button>
+    ...
+  </div>
+</dso-responsive-element>
 ```
