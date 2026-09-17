@@ -26,12 +26,12 @@ Listener `dsoCardClicked` to enable the navigation to the set `href`
 
 ## Slots
 
-| Slot             | Description                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------- |
-| `"content"`      | An optional slot to place `Rich Content` in.                                          |
-| `"heading"`      | A  slot to place the title of the card in.                                            |
-| `"interactions"` | An optional slot for one or more `Button`s, `Label`s, `Toggletip`s or `SlideToggle`s. |
-| `"selectable"`   | An optional slot to place a `Selectable` in.                                          |
+| Slot             | Description                                                                                           |
+| ---------------- | ----------------------------------------------------------------------------------------------------- |
+| `"content"`      | An optional slot to place `Rich Content` in.                                                          |
+| `"heading"`      | A  slot to place the title of the card in.                                                            |
+| `"interactions"` | An optional slot for one or more `Button`s, `Icon Button`s, `Label`s, `Toggletip`s or `SlideToggle`s. |
+| `"selectable"`   | An optional slot to place a `Selectable` in.                                                          |
 
 
 ## Dependencies

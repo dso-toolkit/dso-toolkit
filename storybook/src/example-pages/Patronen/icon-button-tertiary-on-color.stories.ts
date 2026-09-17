@@ -63,7 +63,6 @@ const content = function (templates: Templates, toggled?: boolean) {
       label: "Navigatie",
       variant: "tertiary",
       icon: "bars",
-      tooltipPlacement: "top",
       toggled,
       dsoClick: () => {},
     })}

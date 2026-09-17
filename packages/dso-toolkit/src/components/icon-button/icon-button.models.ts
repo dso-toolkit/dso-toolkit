@@ -1,5 +1,6 @@
 import { HandlerFunction } from "storybook/actions";
 
+import { isObject } from "../../utils/is-object";
 import { IconAlias } from "../icon";
 
 export type IconButtonVariant = "secondary" | "tertiary" | "map";
@@ -15,4 +16,8 @@ export interface IconButton {
   disabled?: boolean;
   dsoClick?: HandlerFunction;
   toggled?: boolean;
+}
+
+export function isIconButtonInterface(object: unknown): object is IconButton {
+  return isObject(object) && "variant" in object && "icon" in object && typeof object.icon === "string";
 }

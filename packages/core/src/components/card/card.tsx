@@ -7,7 +7,7 @@ import { CardClickEvent } from "./card.interfaces";
 /**
  * @slot selectable - An optional slot to place a `Selectable` in.
  * @slot heading - A  slot to place the title of the card in.
- * @slot interactions - An optional slot for one or more `Button`s, `Label`s, `Toggletip`s or `SlideToggle`s.
+ * @slot interactions - An optional slot for one or more `Button`s, `Icon Button`s, `Label`s, `Toggletip`s or `SlideToggle`s.
  * @slot content - An optional slot to place `Rich Content` in.
  */
 @Component({

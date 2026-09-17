@@ -1,5 +1,6 @@
 import { isObject } from "../../utils/is-object";
 import { Button } from "../button";
+import { IconButton } from "../icon-button";
 import { InfoButton } from "../info-button";
 import { Label } from "../label";
 import { Link } from "../link";
@@ -13,7 +14,7 @@ export interface Card<TemplateFnReturnType> {
   mode?: Link["mode"];
   selectable?: Selectable<TemplateFnReturnType>;
   content?: TemplateFnReturnType;
-  interactions?: Array<Button | Label | InfoButton<TemplateFnReturnType> | SlideToggle>;
+  interactions?: Array<Button | IconButton | Label | InfoButton<TemplateFnReturnType> | SlideToggle>;
   dsoCardClick?: (e: CustomEvent<CardClickEvent>) => void;
 }
 
