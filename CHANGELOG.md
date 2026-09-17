@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Packages: Dependencies updates ([#3937](https://github.com/dso-toolkit/dso-toolkit/issues/3937))
+* Voorbeeldpagina's: Vervangen `icon-only` Button's ([#3383](https://github.com/dso-toolkit/dso-toolkit/issues/3383))
 
 ## 🧧 Release 100.3.1 - 2026-09-08
 
