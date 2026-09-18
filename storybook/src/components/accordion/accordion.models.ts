@@ -17,6 +17,7 @@ export interface Accordion {
   variant?: AccordionVariant;
   reverseAlign?: boolean;
   sections: AccordionSection[];
+  noStroke?: boolean;
 }
 
 export interface AccordionSection {

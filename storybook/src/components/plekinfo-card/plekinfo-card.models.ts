@@ -1,21 +1,29 @@
-import { TemplateResult } from "lit-html";
+import { isObject } from "../../shared/is-object";
+import { Label } from "../label/label.models";
+import { Renvooi } from "../renvooi/renvooi.models";
+import { SlideToggle } from "../slide-toggle/slide-toggle.models";
 
-import { isObject } from "../../shared/is-object.js";
-import { Label } from "../label/label.models.js";
-import { Renvooi } from "../renvooi/renvooi.models.js";
-import { SlideToggle } from "../slide-toggle/slide-toggle.models.js";
-
-export interface PlekinfoCard {
+export interface PlekinfoCard<TemplateFnReturnType> {
   label: Renvooi | string;
   href: string;
   targetBlank: boolean;
   active?: boolean;
   meta?: Label;
-  content?: TemplateResult | string;
-  symbool?: TemplateResult | string;
+  content?: TemplateFnReturnType;
+  items?: PlekinfoCardItem<TemplateFnReturnType>[];
+  showStroke?: boolean;
+  symbool?: TemplateFnReturnType;
   wijzigactie?: PlekinfoWijzigactie;
   interaction?: SlideToggle;
   dsoPlekinfoCardClick?: (e: CustomEvent<PlekinfoCardClickEvent>) => void;
+}
+
+export interface PlekinfoCardItem<TemplateFnReturnType> {
+  label: Renvooi | string;
+  sublabel?: Renvooi | string;
+  symbool: TemplateFnReturnType;
+  meta?: Label;
+  wijzigactie?: PlekinfoWijzigactie;
 }
 
 export interface PlekinfoCardClickEvent {
@@ -26,6 +34,8 @@ export interface PlekinfoCardClickEvent {
 
 export type PlekinfoWijzigactie = "voegtoe" | "verwijder";
 
-export function isPlekinfoCardInterface(object: unknown): object is PlekinfoCard {
+export function isPlekinfoCardInterface<TemplateFnReturnType>(
+  object: unknown,
+): object is PlekinfoCard<TemplateFnReturnType> {
   return isObject(object) && "targetBlank" in object;
 }

@@ -67,7 +67,7 @@ describe("Plekinfo Card", () => {
       .invoke("prop", "active", true)
       .shadow()
       .find("del.dso-plekinfo-card-container")
-      .should("have.css", "background-color", "rgb(221, 195, 198)");
+      .should("have.css", "background-color", "rgb(245, 216, 220)");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- active`);
   });
@@ -86,7 +86,7 @@ describe("Plekinfo Card", () => {
       .invoke("prop", "active", true)
       .shadow()
       .find("ins.dso-plekinfo-card-container")
-      .should("have.css", "background-color", "rgb(206, 217, 191)");
+      .should("have.css", "background-color", "rgb(228, 241, 212)");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- active`);
   });
@@ -108,5 +108,27 @@ describe("Plekinfo Card", () => {
       .should("exist");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+  });
+
+  describe("Plekinfo Card Item (Integration)", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--with-items");
+    });
+
+    it("should render card items inside the card", () => {
+      cy.get("dso-plekinfo-card.hydrated").find("dso-plekinfo-card-item.hydrated").should("have.length.gt", 0);
+    });
+
+    it("should emit hover event on a card item", () => {
+      cy.get("dso-plekinfo-card.hydrated")
+        .find("dso-plekinfo-card-item.hydrated")
+        .first()
+        .then(($item) => {
+          $item.on("dsoPlekinfoCardItemHover", cy.stub().as("itemHoverListener"));
+        })
+        .realHover();
+
+      cy.get("@itemHoverListener").should("have.been.calledOnce");
+    });
   });
 });
