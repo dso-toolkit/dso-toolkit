@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Plekinfo Card + Accordion: Verbeelding op een lager niveau kunnen weergeven ([#3833](https://github.com/dso-toolkit/dso-toolkit/issues/3833))
+
 ## 🥬 Release 100.4.0 - 2026-09-23
 
 ### Changed
