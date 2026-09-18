@@ -1,0 +1,106 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/plekinfo-card";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/global/mixins/symbol.mixins" as symbol-mixins;
+
+@use "~dso-toolkit/src/components/insert/insert";
+@use "~dso-toolkit/src/components/delete/delete";
+
+@use "plekinfo-card-item.variables" as plekinfo-card-item-variables;
+
+@include utilities.box-sizing();
+
+:host {
+  display: flex;
+  align-items: flex-start;
+  column-gap: units.$u1;
+}
+
+.dso-plekinfo-card-item-container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  inline-size: 100%;
+  padding-block: units.$u1;
+  padding-inline: units.$u1;
+
+  &:has(.label:is(:hover, :focus-visible)) {
+    background-color: plekinfo-card.$background-color-hover;
+  }
+
+  :host([active]:not([active="false"])) & {
+    background-color: plekinfo-card.$background-color-active;
+  }
+
+  ::slotted([slot="symbol"]) {
+    @include symbol-mixins.symbolContainer(
+      plekinfo-card-item-variables.$symbol-block-size,
+      plekinfo-card-item-variables.$symbol-inline-size
+    );
+  }
+}
+
+.content {
+  min-inline-size: 0;
+  display: flex;
+  align-items: baseline;
+  gap: units.$u1 * 0.5;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+
+  &.no-sublabel {
+    .sublabel {
+      flex: 0 0 auto;
+    }
+
+    .meta {
+      margin-inline-start: 0;
+    }
+  }
+}
+
+.label {
+  flex: 0 0 auto;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- label keeps its own width and never wraps to a second line.
+  font-weight: 700;
+}
+
+.sublabel {
+  flex: 1 1 0;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- sublabel can be viewed via tooltip when truncated.
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- sublabel can be viewed via tooltip when truncated.
+  font-size: 0.875em;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  gap: units.$u1 * 0.5;
+  margin-inline-start: auto;
+}
+
+ins.dso-plekinfo-card-item-container {
+  box-shadow: none;
+
+  &:has(.label:is(:hover, :focus-visible)) {
+    background-color: plekinfo-card.$background-color-hover-voegtoe;
+  }
+
+  :host([active]:not([active="false"])) & {
+    background-color: colors.$lime-20;
+  }
+}
+
+del.dso-plekinfo-card-item-container {
+  &:has(.label:is(:hover, :focus-visible)) {
+    background-color: plekinfo-card.$background-color-hover-verwijder;
+  }
+
+  :host([active]:not([active="false"])) & {
+    background-color: colors.$rood-20;
+  }
+}

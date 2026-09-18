@@ -14,6 +14,7 @@ export type AccordionSectionWijzigactie = "voegtoe" | "verwijder";
 export interface Accordion<TemplateFnReturnType> {
   variant?: AccordionVariant;
   reverseAlign?: boolean;
+  showStroke?: boolean;
   sections: AccordionSection<TemplateFnReturnType>[];
 }
 

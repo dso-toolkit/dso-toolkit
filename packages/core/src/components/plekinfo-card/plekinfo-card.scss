@@ -14,9 +14,10 @@
 }
 
 .dso-plekinfo-card-container {
+  inline-size: 100%;
   padding-block: units.$u2;
   padding-inline: units.$u2;
-  inline-size: 100%;
+  border-block-end: 1px solid plekinfo-card.$border-color;
 
   .dso-plekinfo-card-heading {
     display: flex;
@@ -34,7 +35,6 @@
 
   .dso-plekinfo-card-symbol {
     grid-row: span 2;
-
     margin-inline-end: units.$u1;
   }
 
@@ -43,7 +43,15 @@
   }
 }
 
+:host(.dso-plekinfo-card-no-stroke) {
+  .dso-plekinfo-card-container {
+    border-block-end: none;
+  }
+}
+
 ins.dso-plekinfo-card-container {
+  box-shadow: none;
+
   &:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
     background-color: plekinfo-card.$background-color-hover-voegtoe;
   }
@@ -61,11 +69,11 @@ del.dso-plekinfo-card-container {
   }
 
   ins.dso-plekinfo-card-container {
-    background-color: plekinfo-card.$background-color-active-voegtoe;
+    background-color: colors.$lime-20;
   }
 
   del.dso-plekinfo-card-container {
-    background-color: plekinfo-card.$background-color-active-verwijder;
+    background-color: colors.$rood-20;
   }
 }
 
@@ -76,7 +84,7 @@ del.dso-plekinfo-card-container {
 
     .dso-plekinfo-card-heading,
     .dso-plekinfo-card-content {
-      grid-column: 2 /-1;
+      grid-column: 2 / -1;
     }
   }
 }
@@ -95,14 +103,12 @@ del.dso-plekinfo-card-container {
 
 ::slotted([slot="heading"]) {
   display: inline !important;
+  margin-block: 0 !important;
 
   font-size: 1.125em !important;
   font-weight: 700 !important;
   color: colors.$bosgroen !important;
   line-height: 1.25 !important;
-
-  margin-block-end: 0 !important;
-  margin-block-start: 0 !important;
 }
 
 ::slotted([slot="content"]) {

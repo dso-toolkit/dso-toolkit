@@ -4,6 +4,13 @@ import { PlekinfoCardArgs, plekinfoCardMeta, plekinfoCardStories } from "dso-too
 
 import { templateContainer } from "../../templates";
 
+import {
+  addedItemContent,
+  defaultItemContent,
+  deletedItemContent,
+  labelChangeItemContent,
+  sublistContent,
+} from "./plekinfo-card-item.content";
 import { content, defaultSymbol } from "./plekinfo-card.content";
 import { decorator } from "./plekinfo-card.decorator";
 
@@ -14,19 +21,47 @@ const meta: Meta<PlekinfoCardArgs> = {
 
 export default meta;
 
-const { Default, Static, WithoutSymbol, WithLabel, WithSlideToggle, WithNameChange, WithNameChangeComplex } =
-  plekinfoCardStories({
-    templateContainer,
-    storyTemplates: (templates) => {
-      const { plekinfoCardTemplate } = templates;
+const {
+  Default,
+  Added,
+  Deleted,
+  LabelChange,
+  Sublist,
+  Static,
+  WithoutSymbol,
+  WithLabel,
+  WithSlideToggle,
+  WithNameChange,
+  WithNameChangeComplex,
+} = plekinfoCardStories({
+  templateContainer,
+  storyTemplates: (templates) => {
+    const { plekinfoCardTemplate } = templates;
 
-      return {
-        plekinfoCardTemplate,
-        defaultSymbol,
-        content,
-      };
-    },
-    decorator,
-  });
+    return {
+      plekinfoCardTemplate,
+      defaultSymbol,
+      content,
+      defaultItemContent,
+      addedItemContent,
+      deletedItemContent,
+      labelChangeItemContent,
+      sublistItemContent: sublistContent,
+    };
+  },
+  decorator,
+});
 
-export { Default, Static, WithLabel, WithNameChange, WithNameChangeComplex, WithSlideToggle, WithoutSymbol };
+export {
+  Added,
+  Default,
+  Deleted,
+  LabelChange,
+  Static,
+  Sublist,
+  WithLabel,
+  WithNameChange,
+  WithNameChangeComplex,
+  WithSlideToggle,
+  WithoutSymbol,
+};

@@ -10,11 +10,22 @@
 
 @include utilities.box-sizing();
 
-::slotted(dso-accordion-section:not(:first-child, .dso-accordion-compact, .dso-accordion-compact-black)) {
+::slotted(
+  dso-accordion-section:not(:first-child, .dso-accordion-compact, .dso-accordion-compact-black, .dso-accordion-renvooi)
+) {
   margin-block-start: units.$u1 * 0.5;
 }
 
 ::slotted(dso-accordion-section.dso-accordion-compact:last-child),
-::slotted(dso-accordion-section.dso-accordion-compact-black:last-child) {
+::slotted(dso-accordion-section.dso-accordion-compact-black:last-child),
+::slotted(dso-accordion-section.dso-accordion-renvooi:last-child) {
   border-block-end: 1px solid accordion-variables.$compact-border-color;
+}
+
+:host(.dso-accordion-no-stroke) {
+  ::slotted(dso-accordion-section.dso-accordion-compact:last-child),
+  ::slotted(dso-accordion-section.dso-accordion-compact-black:last-child),
+  ::slotted(dso-accordion-section.dso-accordion-renvooi:last-child) {
+    border-block-end: none;
+  }
 }

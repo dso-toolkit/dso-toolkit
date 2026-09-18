@@ -10,6 +10,7 @@ export interface PlekinfoCard<TemplateFnReturnType> {
   active?: boolean;
   meta?: Label;
   content?: TemplateFnReturnType;
+  showStroke?: boolean;
   symbool?: TemplateFnReturnType;
   wijzigactie?: PlekinfoWijzigactie;
   interaction?: SlideToggle;
