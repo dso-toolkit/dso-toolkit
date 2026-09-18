@@ -19,6 +19,10 @@ type PlekinfoCardStory = StoryObj<PlekinfoCardArgs, Renderer>;
 
 interface PlekinfoCardStories {
   Default: PlekinfoCardStory;
+  Added: PlekinfoCardStory;
+  Deleted: PlekinfoCardStory;
+  LabelChange: PlekinfoCardStory;
+  Sublist: PlekinfoCardStory;
   Static: PlekinfoCardStory;
   WithoutSymbol: PlekinfoCardStory;
   WithSlideToggle: PlekinfoCardStory;
@@ -40,6 +44,11 @@ interface PlekinfoCardTemplates<TemplateFnReturnType> {
   plekinfoCardTemplate: (plekinfoCardProperties: PlekinfoCard<TemplateFnReturnType>) => TemplateFnReturnType;
   defaultSymbol: TemplateFnReturnType;
   content: TemplateFnReturnType;
+  defaultItemContent: TemplateFnReturnType;
+  addedItemContent: TemplateFnReturnType;
+  deletedItemContent: TemplateFnReturnType;
+  labelChangeItemContent: TemplateFnReturnType;
+  sublistItemContent: TemplateFnReturnType;
 }
 
 export function plekinfoCardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -67,8 +76,50 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
   return {
     Default: {
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, defaultSymbol, content }) =>
-        plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, content)),
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { plekinfoCardTemplate, defaultSymbol, defaultItemContent }) =>
+          plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, defaultItemContent)),
+      ),
+    },
+    Added: {
+      args: {
+        ...plekinfoCardArgs,
+        wijzigactie: "voegtoe",
+      },
+      decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { plekinfoCardTemplate, defaultSymbol, addedItemContent }) =>
+          plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, addedItemContent)),
+      ),
+    },
+    Deleted: {
+      args: {
+        ...plekinfoCardArgs,
+        wijzigactie: "verwijder",
+      },
+      decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { plekinfoCardTemplate, defaultSymbol, deletedItemContent }) =>
+          plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, deletedItemContent)),
+      ),
+    },
+    LabelChange: {
+      decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { plekinfoCardTemplate, defaultSymbol, labelChangeItemContent }) =>
+          plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, labelChangeItemContent)),
+      ),
+    },
+    Sublist: {
+      decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { plekinfoCardTemplate, defaultSymbol, sublistItemContent }) =>
+          plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, sublistItemContent)),
       ),
     },
     Static: {

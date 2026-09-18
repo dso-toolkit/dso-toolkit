@@ -67,7 +67,7 @@ describe("Plekinfo Card", () => {
       .invoke("prop", "active", true)
       .shadow()
       .find("del.dso-plekinfo-card-container")
-      .should("have.css", "background-color", "rgb(221, 195, 198)");
+      .should("have.css", "background-color", "rgb(245, 216, 220)");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- active`);
   });
@@ -86,7 +86,7 @@ describe("Plekinfo Card", () => {
       .invoke("prop", "active", true)
       .shadow()
       .find("ins.dso-plekinfo-card-container")
-      .should("have.css", "background-color", "rgb(206, 217, 191)");
+      .should("have.css", "background-color", "rgb(228, 241, 212)");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- active`);
   });
@@ -108,5 +108,104 @@ describe("Plekinfo Card", () => {
       .should("exist");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+  });
+
+  it("should allow disabling stroke via showStroke property", () => {
+    cy.get("dso-plekinfo-card.hydrated").as("plekinfoCard").invoke("prop", "showStroke", false);
+
+    cy.get("@plekinfoCard")
+      .shadow()
+      .find(".dso-plekinfo-card-container")
+      .should("have.css", "border-bottom-width", "0px");
+
+    cy.get("@plekinfoCard").matchImageSnapshot(`${Cypress.currentTest.title} -- showStroke false`);
+  });
+
+  describe("Plekinfo Card Item", () => {
+    it("should be accessible", () => {
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-plekinfo-card-item.hydrated");
+    });
+
+    it("should emit dsoPlekinfoCardItemHover when the user hovers the item", () => {
+      cy.get("dso-plekinfo-card-item.hydrated")
+        .then(($item) => {
+          $item.on("dsoPlekinfoCardItemHover", cy.stub().as("hoverListener"));
+        })
+        .realHover()
+        .get("@hoverListener")
+        .should("have.been.calledOnce");
+    });
+
+    it("should emit dsoPlekinfoCardItemFocus when a slotted element receives focus", () => {
+      cy.get("dso-plekinfo-card-item.hydrated")
+        .then(($item) => {
+          $item.on("dsoPlekinfoCardItemFocus", cy.stub().as("focusListener"));
+        })
+        .find("[slot='label']")
+        .invoke("attr", "tabindex", "0")
+        .focus()
+        .get("@focusListener")
+        .should("have.been.calledOnce");
+    });
+
+    it("should show a persistent background color when active", () => {
+      cy.get("dso-plekinfo-card-item.hydrated")
+        .invoke("prop", "active", true)
+        .shadow()
+        .find(".dso-plekinfo-card-item-container")
+        .should("have.css", "background-color", "rgb(229, 229, 229)");
+    });
+
+    it("should be marked with wijzigactie='voegtoe' and show the active background color", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--added")
+        .get("dso-plekinfo-card-item.hydrated")
+        .shadow()
+        .find("ins.dso-plekinfo-card-item-container")
+        .should("exist")
+        .should("have.css", "background-color", "rgb(228, 241, 212)");
+    });
+
+    it("should be marked with wijzigactie='verwijder' and show the active background color", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--deleted")
+        .get("dso-plekinfo-card-item.hydrated")
+        .shadow()
+        .find("del.dso-plekinfo-card-item-container")
+        .should("exist")
+        .should("have.css", "background-color", "rgb(245, 216, 220)");
+    });
+
+    it("should render a dso-renvooi in the label when the name changed", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--label-change")
+        .get("dso-plekinfo-card-item.hydrated")
+        .find("dso-renvooi[slot='label']")
+        .should("exist");
+    });
+
+    it("should not render a meta container when no meta slot is provided", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--sublist")
+        .get("dso-plekinfo-card-item.hydrated")
+        .first()
+        .shadow()
+        .find(".meta")
+        .should("not.exist");
+    });
+
+    it("should render every item of a sublist", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--sublist")
+        .get("dso-plekinfo-card-item.hydrated")
+        .should("have.length", 3);
+    });
+
+    it("should keep the meta badge close to the label when there is no sublabel", () => {
+      cy.get("dso-plekinfo-card-item.hydrated").find("[slot='sublabel']").invoke("remove");
+
+      cy.get("dso-plekinfo-card-item.hydrated")
+        .shadow()
+        .find(".content")
+        .should("have.class", "no-sublabel")
+        .find(".meta")
+        .should("have.css", "margin-inline-start", "0px");
+    });
   });
 });

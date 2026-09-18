@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Functional Component Tooltip: Implementatie refactor ([#3667](https://github.com/dso-toolkit/dso-toolkit/issues/3667))
 * **BREAKING** Form Group: vervang `icon-only` button door Icon Button ([#3569](https://github.com/dso-toolkit/dso-toolkit/issues/3569))
 * **BREAKING** Document Header: vervang `icon-only` Button door Icon Button ([#3568](https://github.com/dso-toolkit/dso-toolkit/issues/3568))
+* Plekinfo Card + Accordion: Verbeelding op een lager niveau kunnen weergeven ([#3833](https://github.com/dso-toolkit/dso-toolkit/issues/3833))
 
 ### Task
 * Packages: Dependencies updates ([#3937](https://github.com/dso-toolkit/dso-toolkit/issues/3937))
