@@ -18,6 +18,7 @@ export interface PlekinfoCardArgs {
   interaction?: SlideToggle;
   active: boolean;
   meta: Label;
+  showStroke: boolean;
   wijzigactie: PlekinfoWijzigactie;
   dsoPlekinfoCardClick: HandlerFunction;
 }
@@ -28,6 +29,7 @@ export const plekinfoCardArgs: Omit<PlekinfoCardArgs, "meta" | "wijzigactie"> = 
   interaction: undefined,
   label: "Radarverstorende bouwwerken",
   active: false,
+  showStroke: true,
   dsoPlekinfoCardClick: fn(),
 };
 
@@ -53,6 +55,11 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
       type: "boolean",
     },
   },
+  showStroke: {
+    control: {
+      type: "boolean",
+    },
+  },
   wijzigactie: {
     options: [undefined, "voegtoe", "verwijder"],
     control: {
@@ -73,6 +80,7 @@ export function plekinfoCardArgsMapper(
     href: a.href,
     targetBlank: a.targetBlank,
     active: a.active,
+    showStroke: a.showStroke,
     wijzigactie: a.wijzigactie,
     interaction: a.interaction,
     meta: a.meta,
