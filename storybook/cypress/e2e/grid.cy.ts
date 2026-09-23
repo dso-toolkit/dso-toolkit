@@ -63,8 +63,7 @@ describe("Grid Column", () => {
         .should("exist");
     });
 
-    // TODO: Fix dsoClose being emitted twice in #3982
-    it.skip("emits dsoClose when the user presses Escape", () => {
+    it("emits dsoClose when the user presses Escape", () => {
       cy.get("dso-grid-column.hydrated").then(($gridColumn) => {
         $gridColumn.on("dsoClose", cy.stub().as("dsoCloseListener"));
       });
@@ -77,6 +76,22 @@ describe("Grid Column", () => {
         .invoke("at", -1)
         .its("args.0.detail.originalEvent")
         .should("exist");
+    });
+
+    it("does not emit dsoClose when the dialog is closed programmatically", () => {
+      cy.get("dso-grid-column.hydrated").then(($gridColumn) => {
+        $gridColumn.on("dsoClose", cy.stub().as("dsoCloseListener"));
+      });
+
+      cy.get("dso-grid-column.hydrated")
+        .shadow()
+        .find<HTMLDialogElement>("dialog")
+        .then(($dialog) => {
+          $dialog[0]!.close();
+        });
+
+      cy.get("dso-grid-column.hydrated").shadow().find("dialog").should("have.prop", "open", true);
+      cy.get("@dsoCloseListener").should("not.be.called");
     });
 
     it("closes the overlay when the viewport shrinks below the sm breakpoint", () => {
