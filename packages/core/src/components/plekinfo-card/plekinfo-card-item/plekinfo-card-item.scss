@@ -3,24 +3,26 @@
 @use "~dso-toolkit/src/components/plekinfo-card";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/global/mixins/symbol.mixins" as symbol-mixins;
+@use "../../../functional-components/tooltip";
 
 @use "~dso-toolkit/src/components/insert/insert";
 @use "~dso-toolkit/src/components/delete/delete";
 
 @use "plekinfo-card-item.variables" as plekinfo-card-item-variables;
 
+@include tooltip.include($max-inline-size: 640px);
 @include utilities.box-sizing();
 
 :host {
   display: flex;
   align-items: flex-start;
-  column-gap: units.$u1;
 }
 
 .dso-plekinfo-card-item-container {
   display: flex;
   align-items: flex-start;
   flex-wrap: nowrap;
+  column-gap: units.$u1;
   inline-size: 100%;
   padding-block: units.$u1;
   padding-inline: units.$u1;
@@ -85,9 +87,12 @@ del.dso-plekinfo-card-item-container {
 }
 
 .label {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  min-inline-size: 0;
+  overflow: hidden;
   font-weight: 700;
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- label keeps its own width and never wraps to a second line.
+  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- label can be viewed via tooltip when truncated.
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- label can be viewed via tooltip when truncated.
 }
 
 .sublabel {
