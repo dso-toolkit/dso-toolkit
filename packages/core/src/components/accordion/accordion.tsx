@@ -53,6 +53,7 @@ export class Accordion implements ComponentInterface {
 
   /**
    * Show or hide the bottom border (stroke) for compact and renvooi variants.
+   * @default true
    */
   @Prop()
   get showStroke(): boolean {

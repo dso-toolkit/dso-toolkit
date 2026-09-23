@@ -3,7 +3,7 @@ import { IconAlias } from "../icon";
 import { LabelStatus } from "../label";
 import { RenvooiValue } from "../renvooi";
 
-export type AccordionVariant = "default" | "compact" | "conclusion" | "neutral" | "compact-black";
+export type AccordionVariant = "default" | "compact" | "conclusion" | "neutral" | "compact-black" | "renvooi";
 
 export type AccordionSectionStatus = "success" | "info" | "warning" | "danger" | "error";
 

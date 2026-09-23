@@ -126,6 +126,7 @@ export namespace Components {
         "reverseAlign": boolean;
         /**
           * Show or hide the bottom border (stroke) for compact and renvooi variants.
+          * @default true
          */
         "showStroke": boolean;
         /**
@@ -2994,6 +2995,7 @@ declare namespace LocalJSX {
         "reverseAlign"?: boolean;
         /**
           * Show or hide the bottom border (stroke) for compact and renvooi variants.
+          * @default true
          */
         "showStroke"?: boolean;
         /**

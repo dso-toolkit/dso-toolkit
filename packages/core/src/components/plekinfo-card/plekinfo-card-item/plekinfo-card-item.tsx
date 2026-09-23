@@ -5,6 +5,7 @@ import {
   Event,
   EventEmitter,
   Host,
+  Listen,
   Method,
   Prop,
   State,
@@ -30,22 +31,55 @@ const resizeObserver = new ResizeObserver(
   }, 150),
 );
 
-const activeInstances = new Set<PlekinfoCardItem>();
-
-document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape") {
-    return;
-  }
-
-  activeInstances.forEach((instance) => instance._hideTooltips());
-});
-
 function isDsoPlekinfoCardItemComponent(element: Element): element is HTMLDsoPlekinfoCardItemElement {
   return element.tagName === "DSO-PLEKINFO-CARD-ITEM";
 }
 
 function hasEllipses(el: HTMLElement): boolean {
   return el.scrollWidth > el.clientWidth;
+}
+
+/**
+ * Haalt recursief de tekst op uit een DOM-node, inclusief eventuele Shadow DOM (zoals bij dso-renvooi).
+ */
+function getNodeTextContent(node: Node): string {
+  if (node.nodeType === Node.TEXT_NODE) {
+    return node.textContent ?? "";
+  }
+
+  if (node instanceof HTMLElement) {
+    const targetRoot = node.shadowRoot ?? node;
+
+    return Array.from(targetRoot.childNodes)
+      .map((child) => getNodeTextContent(child))
+      .join("");
+  }
+
+  return "";
+}
+
+/**
+ * Extraheert de volledige zichtbare tekst uit een container en zijn toegewezen slot-nodes.
+ */
+function getElementTextContent(container: HTMLElement | null | undefined): string {
+  if (!container) {
+    return "";
+  }
+
+  const slot = container.querySelector("slot");
+
+  if (slot) {
+    const assigned = slot.assignedNodes({ flatten: true });
+
+    if (assigned.length > 0) {
+      return assigned
+        .map((node) => getNodeTextContent(node))
+        .join("")
+        .trim();
+    }
+  }
+
+  return getNodeTextContent(container).trim();
 }
 
 /**
@@ -139,6 +173,13 @@ export class PlekinfoCardItem implements ComponentInterface {
     this.dsoPlekinfoCardItemFocus.emit();
   };
 
+  @Listen("keydown", { target: "document" })
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === "Escape") {
+      this._hideTooltips();
+    }
+  }
+
   /**
    * @internal
    */
@@ -151,27 +192,28 @@ export class PlekinfoCardItem implements ComponentInterface {
   }
 
   private syncLabelText() {
-    this.labelText = this.labelElRef?.textContent?.trim() ?? "";
-    this.sublabelText = this.sublabelElRef?.textContent?.trim() ?? "";
+    this.labelText = getElementTextContent(this.labelElRef);
+    this.sublabelText = getElementTextContent(this.sublabelElRef);
+  }
+
+  connectedCallback() {
+    resizeObserver.observe(this.host);
+    this.startMutationObserver();
   }
 
   componentDidLoad() {
-    resizeObserver.observe(this.host);
-    activeInstances.add(this);
-    this.startMutationObserver();
     this._checkTruncation();
   }
 
   disconnectedCallback() {
     resizeObserver.unobserve(this.host);
-    activeInstances.delete(this);
     this.mutationObserver?.disconnect();
     this.labelTooltipController.dispose();
     this.sublabelTooltipController.dispose();
   }
 
   /**
-   * @internal Called by the shared document keydown listener when Escape is pressed.
+   * @internal Called when Escape is pressed.
    */
   @Method()
   async _hideTooltips(): Promise<void> {
@@ -198,6 +240,7 @@ export class PlekinfoCardItem implements ComponentInterface {
   private startMutationObserver(): void {
     this.mutationObserver = new MutationObserver(() => {
       this.syncLabelText();
+      this._checkTruncation();
       forceUpdate(this.host);
     });
 
@@ -224,6 +267,7 @@ export class PlekinfoCardItem implements ComponentInterface {
               class="label"
               ref={(element) => (this.labelElRef = element)}
               tabindex={this.labelTruncated ? 0 : undefined}
+              aria-describedby={this.labelTruncated ? "label-tooltip" : undefined}
               onMouseEnter={this.handleShowLabelTooltip}
               onMouseLeave={this.handleHideLabelTooltip}
               onFocus={this.handleShowLabelTooltip}
@@ -236,6 +280,7 @@ export class PlekinfoCardItem implements ComponentInterface {
               class="sublabel"
               ref={(element) => (this.sublabelElRef = element)}
               tabindex={this.sublabelTruncated ? 0 : undefined}
+              aria-describedby={this.sublabelTruncated ? "sublabel-tooltip" : undefined}
               onMouseEnter={this.handleShowSublabelTooltip}
               onMouseLeave={this.handleHideSublabelTooltip}
               onFocus={this.handleShowSublabelTooltip}
@@ -257,7 +302,7 @@ export class PlekinfoCardItem implements ComponentInterface {
             tipElementRef={(element) => (this.labelTooltipElRef = element)}
             tipArrowElementRef={(element) => (this.labelTooltipArrowElRef = element)}
           >
-            <span>{this.labelText}</span>
+            <span id="label-tooltip">{this.labelText}</span>
           </Tooltip>
         )}
 
@@ -266,7 +311,7 @@ export class PlekinfoCardItem implements ComponentInterface {
             tipElementRef={(element) => (this.sublabelTooltipElRef = element)}
             tipArrowElementRef={(element) => (this.sublabelTooltipArrowElRef = element)}
           >
-            <span>{this.sublabelText}</span>
+            <span id="sublabel-tooltip">{this.sublabelText}</span>
           </Tooltip>
         )}
       </Host>

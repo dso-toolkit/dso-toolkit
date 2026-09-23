@@ -457,10 +457,9 @@ describe("Show Stroke / No Stroke", () => {
     cy.get("dso-accordion.hydrated")
       .as("dsoAccordion")
       .invoke("prop", "showStroke", false)
-      .should("eq", false)
+      .should("have.prop", "showStroke", false)
       .find("dso-accordion-section")
       .last()
-      .shadow()
       .then(($section) => {
         const element = $section.get(0);
         if (element) {
