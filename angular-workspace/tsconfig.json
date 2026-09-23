@@ -2,9 +2,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "rootDir": "./",
     "paths": {
-      "component-library": ["dist/component-library"]
+      "component-library": ["./component-library"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -20,14 +20,14 @@
     "noUncheckedIndexedAccess": true,
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "ES2020",
+    "target": "ES2022",
     "module": "ES2020",
     "lib": ["ES2020", "dom"],
-    "skipLibCheck": true // Skip type checking of declaration files (*.d.ts) for faster compilation
+    "skipLibCheck": true, // Skip type checking of declaration files (*.d.ts) for faster compilation
+    "types": ["vitest/globals"]
   },
   "exclude": [".angular"],
   "angularCompilerOptions": {
