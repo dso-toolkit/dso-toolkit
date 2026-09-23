@@ -10,6 +10,14 @@
       },
       "dependsOn": ["^build"],
       "outputs": ["{projectRoot}/dist/component-library"]
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["ng test component-library"],
+        "cwd": "angular-workspace"
+      },
+      "dependsOn": ["^build"]
     }
   }
 }
