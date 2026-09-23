@@ -10,7 +10,7 @@
       "prefix": "dso",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular/build:ng-packagr",
           "options": {
             "project": "projects/component-library/ng-package.json"
           },
@@ -23,6 +23,14 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/component-library/tsconfig.spec.json",
+            "buildTarget": "component-library:build",
+            "runnerConfig": "projects/component-library/vitest.config.mts"
+          }
         }
       }
     }

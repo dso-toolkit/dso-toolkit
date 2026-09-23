@@ -14,3 +14,30 @@ npm install @dso-toolkit/angular
 
 - https://stenciljs.com/docs/custom-elements
 - https://stenciljs.com/docs/angular#consumer-usage
+
+## Signal Forms
+
+Naast de klassieke `ControlValueAccessor`-integratie (`ngModel` en Reactive Forms, die volledig
+blijft werken) ondersteunt `@dso-toolkit/angular` ook Angular's (experimentele) Signal Forms via de
+`[formField]`-directive uit `@angular/forms/signals`. Dit is beschikbaar voor `dso-date-picker` en
+`dso-selectable[type=checkbox]`.
+
+```ts
+import { Component, signal } from "@angular/core";
+import { form } from "@angular/forms/signals";
+
+@Component({
+  template: `
+    <dso-date-picker [formField]="myForm.datum" />
+    <dso-selectable type="checkbox" value="akkoord" [formField]="myForm.akkoord" />
+  `,
+})
+export class ExampleComponent {
+  model = signal({ datum: "", akkoord: false });
+  myForm = form(this.model);
+}
+```
+
+`dso-selectable[type=radio]` wordt (nog) niet ondersteund: de component gebruikt `value` als vaste
+optiewaarde, terwijl Signal Forms' `FormValueControl.value` gereserveerd is voor de tweerichtings
+formulierwaarde.
