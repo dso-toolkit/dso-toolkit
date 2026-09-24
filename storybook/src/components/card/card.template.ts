@@ -13,9 +13,9 @@ import { labelTemplate } from "../label/label.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 import { selectableTemplate } from "../selectable/selectable.template.js";
 import { isSlideToggleInterface } from "../slide-toggle/slide-toggle.models.js";
+import { slideToggleTemplate } from "../slide-toggle/slide-toggle.template.js";
 
 import { Card, CardClickEvent } from "./card.models.js";
-import { slideToggleTemplate } from "../slide-toggle/slide-toggle.template.js";
 
 export function cardTemplate({ label, selectable, content, interactions, href, active, mode, dsoCardClick }: Card) {
   return html`

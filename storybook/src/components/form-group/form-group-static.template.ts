@@ -2,8 +2,8 @@ import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-import { infoTemplate } from "../info/info.template.js";
 import { iconButtonTemplate } from "../icon-button/icon-button.template.js";
+import { infoTemplate } from "../info/info.template.js";
 import { infoButtonTemplate } from "../info-button/info-button.template.js";
 
 import { FormGroupStatic } from "./form-group-static.models.js";

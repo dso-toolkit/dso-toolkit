@@ -5,9 +5,9 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 import { labelTemplate } from "../label/label.template.js";
 import { renvooiTemplate } from "../renvooi/renvooi.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
+import { slideToggleTemplate } from "../slide-toggle/slide-toggle.template.js";
 
 import { PlekinfoCard, PlekinfoCardClickEvent } from "./plekinfo-card.models.js";
-import { slideToggleTemplate } from "../slide-toggle/slide-toggle.template.js";
 
 export function plekinfoCardTemplate({
   label,

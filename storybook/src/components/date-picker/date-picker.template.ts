@@ -1,14 +1,14 @@
-import { DsoDatePickerCustomEvent } from "@dso-toolkit/core";
-import { html } from "lit-html";
-import { ifDefined } from "lit-html/directives/if-defined.js";
-
 import {
-  DatePicker,
   DatePickerBlurEvent,
   DatePickerChangeEvent,
   DatePickerFocusEvent,
   DatePickerKeyboardEvent,
-} from "./date-picker.models.js";
+  DsoDatePickerCustomEvent,
+} from "@dso-toolkit/core";
+import { html } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { DatePicker } from "./date-picker.models.js";
 
 export function datePickerTemplate({
   id,

@@ -1,8 +1,9 @@
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-import { Header } from "./header.models.js";
 import { logoTemplate } from "../logo/logo.template.js";
+
+import { Header } from "./header.models.js";
 
 export function headerTemplate({
   label,

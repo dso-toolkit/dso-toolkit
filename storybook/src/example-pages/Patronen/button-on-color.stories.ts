@@ -1,3 +1,4 @@
+import type { Meta } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
 
 import { Button } from "../../components/button/button.models.js";
@@ -9,8 +10,6 @@ import { infoButtonTemplate } from "../../components/info-button/info-button.tem
 import { examplePageStory } from "../../example-page-story.js";
 
 import "./button-on-color.scss";
-
-import type { Meta } from "@storybook/web-components-vite";
 
 const meta: Meta = {
   title: "Patronen/Button on color",
