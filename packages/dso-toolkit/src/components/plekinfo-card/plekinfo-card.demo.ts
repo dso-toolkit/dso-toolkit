@@ -4,7 +4,6 @@ export const plekinfoCardDemoCss = `
       display: block;
       float: left;
       height: 20px;
-      margin-block-start: 2px;
       width: 24px;
       overflow: hidden;
       position: relative;

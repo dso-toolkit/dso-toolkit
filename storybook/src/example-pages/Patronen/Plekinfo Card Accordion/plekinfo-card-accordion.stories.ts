@@ -1,21 +1,22 @@
 import { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
+import "./plekinfo-card-accordion.scss";
 
 import { examplePageStories } from "../../../example-page-stories";
 
-import { plekinfoCardAccordionDemoCss, plekinfoCardAccordionSections } from "./plekinfo-card-accordion.content";
+import { plekinfoCardInAccordionSections } from "./plekinfo-card-accordion.content";
 
 const meta: Meta = {
-  title: "Patronen/Plekinfo Card Accordion",
+  title: "Patronen/Plekinfo Card in Accordion",
 };
 
 export default meta;
 
-interface PlekinfoCardAccordionArgs {
+interface PlekinfoCardInAccordionArgs {
   showStroke: boolean;
 }
 
-const Default = examplePageStories<PlekinfoCardAccordionArgs>(
+const Default = examplePageStories<PlekinfoCardInAccordionArgs>(
   (templates, { showStroke }) => {
     const { accordionTemplate } = templates;
 
@@ -23,11 +24,8 @@ const Default = examplePageStories<PlekinfoCardAccordionArgs>(
       ${accordionTemplate({
         variant: "compact-black",
         showStroke,
-        sections: plekinfoCardAccordionSections,
+        sections: plekinfoCardInAccordionSections,
       })}
-      <style>
-        ${plekinfoCardAccordionDemoCss}
-      </style>
     `;
   },
   {

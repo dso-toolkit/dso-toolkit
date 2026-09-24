@@ -26,7 +26,7 @@
   .dso-plekinfo-card-heading {
     display: flex;
     align-items: start;
-    column-gap: units.$u1;
+    column-gap: units.$u2;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       flex-wrap: wrap;
@@ -39,7 +39,7 @@
 
   .dso-plekinfo-card-symbol {
     grid-row: span 2;
-    margin-inline-end: units.$u1;
+    margin-inline-end: units.$u2;
   }
 
   &:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
@@ -53,17 +53,7 @@
   }
 }
 
-ins.dso-plekinfo-card-container {
-  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
-    background-color: plekinfo-card.$background-color-hover-voegtoe;
-  }
-}
-
-del.dso-plekinfo-card-container {
-  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
-    background-color: plekinfo-card.$background-color-hover-verwijder;
-  }
-}
+@include plekinfo-card.wijzigactie-hover-states("dso-plekinfo-card-container", ".dso-plekinfo-card-heading a");
 
 :host([active]:not([active="false"])) {
   .dso-plekinfo-card-container {
@@ -150,9 +140,5 @@ del.dso-plekinfo-card-container {
 
   &:visited {
     color: plekinfo-card.$heading-anchor-color;
-  }
-
-  .sr-only {
-    @include utilities.sr-only();
   }
 }
