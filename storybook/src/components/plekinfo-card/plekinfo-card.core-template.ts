@@ -19,11 +19,13 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
       meta,
       wijzigactie,
       interaction,
+      showStroke,
       dsoPlekinfoCardClick,
     }: PlekinfoCard<TemplateResult>) {
       return html` <dso-plekinfo-card
         href=${href}
         target-blank=${targetBlank}
+        .showStroke=${showStroke}
         wijzigactie=${ifDefined(wijzigactie || undefined)}
         ?active=${active}
         @dsoPlekinfoCardClick=${(e: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => {

@@ -19,6 +19,7 @@ type PlekinfoCardStory = StoryObj<PlekinfoCardArgs, Renderer>;
 
 interface PlekinfoCardStories {
   Default: PlekinfoCardStory;
+  WithItems: PlekinfoCardStory;
   Static: PlekinfoCardStory;
   WithoutSymbol: PlekinfoCardStory;
   WithSlideToggle: PlekinfoCardStory;
@@ -40,6 +41,7 @@ interface PlekinfoCardTemplates<TemplateFnReturnType> {
   plekinfoCardTemplate: (plekinfoCardProperties: PlekinfoCard<TemplateFnReturnType>) => TemplateFnReturnType;
   defaultSymbol: TemplateFnReturnType;
   content: TemplateFnReturnType;
+  withItemsContent: TemplateFnReturnType;
 }
 
 export function plekinfoCardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -66,14 +68,35 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
 }: PlekinfoCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>): PlekinfoCardStories {
   return {
     Default: {
+      args: {
+        ...plekinfoCardArgs,
+        showStroke: false,
+      },
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, defaultSymbol, content }) =>
         plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, content)),
       ),
     },
+    WithItems: {
+      args: {
+        ...plekinfoCardArgs,
+        showStroke: false,
+        interaction: {
+          checked: false,
+          accessibleLabel: "sr-only label van het schuifje",
+        },
+      },
+      decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { plekinfoCardTemplate, defaultSymbol, withItemsContent }) =>
+          plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, withItemsContent)),
+      ),
+    },
     Static: {
       args: {
         ...plekinfoCardArgs,
+        showStroke: false,
         href: "",
       },
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
@@ -82,6 +105,10 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
       ),
     },
     WithoutSymbol: {
+      args: {
+        ...plekinfoCardArgs,
+        showStroke: false,
+      },
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, content }) =>
         plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content)),
@@ -90,6 +117,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithSlideToggle: {
       args: {
         ...plekinfoCardArgs,
+        showStroke: false,
         interaction: {
           checked: false,
           accessibleLabel: "sr-only label van het schuifje",
@@ -103,6 +131,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithLabel: {
       args: {
         ...plekinfoCardArgs,
+        showStroke: false,
         meta: {
           status: "warning",
           compact: true,
@@ -117,6 +146,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithNameChange: {
       args: {
         ...plekinfoCardArgs,
+        showStroke: false,
         label: {
           value: {
             was: "Radargebieden",
@@ -132,6 +162,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithNameChangeComplex: {
       args: {
         ...plekinfoCardArgs,
+        showStroke: false,
         label: {
           value: [
             "Waardes worden weergegeven op de kaart",

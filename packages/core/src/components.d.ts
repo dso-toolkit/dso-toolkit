@@ -125,6 +125,11 @@ export namespace Components {
          */
         "reverseAlign": boolean;
         /**
+          * Show or hide the bottom border (stroke) for compact and renvooi variants.
+          * @default true
+         */
+        "showStroke": boolean;
+        /**
           * The variant of the Accordion.
          */
         "variant": AccordionVariant;
@@ -1210,12 +1215,29 @@ export namespace Components {
          */
         "href": string | undefined;
         /**
+          * Show or hide the bottom border (stroke) of the card.
+          * @default true
+         */
+        "showStroke": boolean;
+        /**
           * Opens the urls in a new window or tab
           * @default false
          */
         "targetBlank": boolean;
         /**
           * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
+         */
+        "wijzigactie"?: Wijzigactie;
+    }
+    interface DsoPlekinfoCardItem {
+        "_checkTruncation": () => Promise<void>;
+        "_hideTooltips": () => Promise<void>;
+        /**
+          * Makes the PlekinfoCardItem active, giving it a persistent background color.
+         */
+        "active"?: boolean;
+        /**
+          * An optional 'wijzigactie' that signals if the plekinfo item is added or removed.
          */
         "wijzigactie"?: Wijzigactie;
     }
@@ -1701,6 +1723,10 @@ export interface DsoPanelCustomEvent<T> extends CustomEvent<T> {
 export interface DsoPlekinfoCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoPlekinfoCardElement;
+}
+export interface DsoPlekinfoCardItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoPlekinfoCardItemElement;
 }
 export interface DsoRenvooiCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2577,6 +2603,24 @@ declare global {
         prototype: HTMLDsoPlekinfoCardElement;
         new (): HTMLDsoPlekinfoCardElement;
     };
+    interface HTMLDsoPlekinfoCardItemElementEventMap {
+        "dsoPlekinfoCardItemHover": void;
+        "dsoPlekinfoCardItemFocus": void;
+    }
+    interface HTMLDsoPlekinfoCardItemElement extends Components.DsoPlekinfoCardItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoPlekinfoCardItemElementEventMap>(type: K, listener: (this: HTMLDsoPlekinfoCardItemElement, ev: DsoPlekinfoCardItemCustomEvent<HTMLDsoPlekinfoCardItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoPlekinfoCardItemElementEventMap>(type: K, listener: (this: HTMLDsoPlekinfoCardItemElement, ev: DsoPlekinfoCardItemCustomEvent<HTMLDsoPlekinfoCardItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoPlekinfoCardItemElement: {
+        prototype: HTMLDsoPlekinfoCardItemElement;
+        new (): HTMLDsoPlekinfoCardItemElement;
+    };
     interface HTMLDsoProgressIndicatorElement extends Components.DsoProgressIndicator, HTMLStencilElement {
     }
     var HTMLDsoProgressIndicatorElement: {
@@ -2919,6 +2963,7 @@ declare global {
         "dso-pagination": HTMLDsoPaginationElement;
         "dso-panel": HTMLDsoPanelElement;
         "dso-plekinfo-card": HTMLDsoPlekinfoCardElement;
+        "dso-plekinfo-card-item": HTMLDsoPlekinfoCardItemElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-project-item": HTMLDsoProjectItemElement;
         "dso-renvooi": HTMLDsoRenvooiElement;
@@ -2948,6 +2993,11 @@ declare namespace LocalJSX {
           * Places the chevron at the opposite side.  Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
          */
         "reverseAlign"?: boolean;
+        /**
+          * Show or hide the bottom border (stroke) for compact and renvooi variants.
+          * @default true
+         */
+        "showStroke"?: boolean;
         /**
           * The variant of the Accordion.
          */
@@ -4290,12 +4340,35 @@ declare namespace LocalJSX {
          */
         "onDsoPlekinfoCardClick"?: (event: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => void;
         /**
+          * Show or hide the bottom border (stroke) of the card.
+          * @default true
+         */
+        "showStroke"?: boolean;
+        /**
           * Opens the urls in a new window or tab
           * @default false
          */
         "targetBlank"?: boolean;
         /**
           * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
+         */
+        "wijzigactie"?: Wijzigactie;
+    }
+    interface DsoPlekinfoCardItem {
+        /**
+          * Makes the PlekinfoCardItem active, giving it a persistent background color.
+         */
+        "active"?: boolean;
+        /**
+          * Emitted when the item, or any of its slotted content, receives focus.
+         */
+        "onDsoPlekinfoCardItemFocus"?: (event: DsoPlekinfoCardItemCustomEvent<void>) => void;
+        /**
+          * Emitted when the user hovers the item, similar to `dso-map-layer-object`'s mouse events.
+         */
+        "onDsoPlekinfoCardItemHover"?: (event: DsoPlekinfoCardItemCustomEvent<void>) => void;
+        /**
+          * An optional 'wijzigactie' that signals if the plekinfo item is added or removed.
          */
         "wijzigactie"?: Wijzigactie;
     }
@@ -4711,6 +4784,7 @@ declare namespace LocalJSX {
     interface DsoAccordionAttributes {
         "variant": AccordionVariant;
         "reverseAlign": boolean;
+        "showStroke": boolean;
     }
     interface DsoAccordionSectionAttributes {
         "handleTitle": RenvooiValue | RenvooiValue[] | undefined;
@@ -5018,9 +5092,14 @@ declare namespace LocalJSX {
         "emphasized": boolean;
     }
     interface DsoPlekinfoCardAttributes {
+        "showStroke": boolean;
         "wijzigactie": Wijzigactie;
         "href": string | undefined;
         "targetBlank": boolean;
+        "active": boolean;
+    }
+    interface DsoPlekinfoCardItemAttributes {
+        "wijzigactie": Wijzigactie;
         "active": boolean;
     }
     interface DsoProgressIndicatorAttributes {
@@ -5165,6 +5244,7 @@ declare namespace LocalJSX {
         "dso-pagination": Omit<DsoPagination, keyof DsoPaginationAttributes> & { [K in keyof DsoPagination & keyof DsoPaginationAttributes]?: DsoPagination[K] } & { [K in keyof DsoPagination & keyof DsoPaginationAttributes as `attr:${K}`]?: DsoPaginationAttributes[K] } & { [K in keyof DsoPagination & keyof DsoPaginationAttributes as `prop:${K}`]?: DsoPagination[K] };
         "dso-panel": Omit<DsoPanel, keyof DsoPanelAttributes> & { [K in keyof DsoPanel & keyof DsoPanelAttributes]?: DsoPanel[K] } & { [K in keyof DsoPanel & keyof DsoPanelAttributes as `attr:${K}`]?: DsoPanelAttributes[K] } & { [K in keyof DsoPanel & keyof DsoPanelAttributes as `prop:${K}`]?: DsoPanel[K] };
         "dso-plekinfo-card": Omit<DsoPlekinfoCard, keyof DsoPlekinfoCardAttributes> & { [K in keyof DsoPlekinfoCard & keyof DsoPlekinfoCardAttributes]?: DsoPlekinfoCard[K] } & { [K in keyof DsoPlekinfoCard & keyof DsoPlekinfoCardAttributes as `attr:${K}`]?: DsoPlekinfoCardAttributes[K] } & { [K in keyof DsoPlekinfoCard & keyof DsoPlekinfoCardAttributes as `prop:${K}`]?: DsoPlekinfoCard[K] } & OneOf<"href", DsoPlekinfoCard["href"], DsoPlekinfoCardAttributes["href"]>;
+        "dso-plekinfo-card-item": Omit<DsoPlekinfoCardItem, keyof DsoPlekinfoCardItemAttributes> & { [K in keyof DsoPlekinfoCardItem & keyof DsoPlekinfoCardItemAttributes]?: DsoPlekinfoCardItem[K] } & { [K in keyof DsoPlekinfoCardItem & keyof DsoPlekinfoCardItemAttributes as `attr:${K}`]?: DsoPlekinfoCardItemAttributes[K] } & { [K in keyof DsoPlekinfoCardItem & keyof DsoPlekinfoCardItemAttributes as `prop:${K}`]?: DsoPlekinfoCardItem[K] };
         "dso-progress-indicator": Omit<DsoProgressIndicator, keyof DsoProgressIndicatorAttributes> & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes]?: DsoProgressIndicator[K] } & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes as `attr:${K}`]?: DsoProgressIndicatorAttributes[K] } & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes as `prop:${K}`]?: DsoProgressIndicator[K] };
         "dso-project-item": Omit<DsoProjectItem, keyof DsoProjectItemAttributes> & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes]?: DsoProjectItem[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `attr:${K}`]?: DsoProjectItemAttributes[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `prop:${K}`]?: DsoProjectItem[K] };
         "dso-renvooi": Omit<DsoRenvooi, keyof DsoRenvooiAttributes> & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes]?: DsoRenvooi[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `attr:${K}`]?: DsoRenvooiAttributes[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `prop:${K}`]?: DsoRenvooi[K] };
@@ -5248,6 +5328,7 @@ declare module "@stencil/core" {
             "dso-pagination": LocalJSX.IntrinsicElements["dso-pagination"] & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-panel": LocalJSX.IntrinsicElements["dso-panel"] & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
             "dso-plekinfo-card": LocalJSX.IntrinsicElements["dso-plekinfo-card"] & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
+            "dso-plekinfo-card-item": LocalJSX.IntrinsicElements["dso-plekinfo-card-item"] & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardItemElement>;
             "dso-progress-indicator": LocalJSX.IntrinsicElements["dso-progress-indicator"] & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-project-item": LocalJSX.IntrinsicElements["dso-project-item"] & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
             /**

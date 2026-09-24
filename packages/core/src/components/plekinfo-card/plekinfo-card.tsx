@@ -23,9 +23,8 @@ import { PlekinfoCardClickEvent } from "./plekinfo-card.interfaces";
  * @slot symbol - An optional slot to place a symbol, representing the plekinfo item, in.
  * @slot heading - A slot to place the title of the card in.
  * @slot meta - An optional slot to place a `Label` in.
- * @slot content - An optional slot to place `Rich Content` in.
- * @slot interaction - A slot for the `SlideToggle`s elments.
- *
+ * @slot content - An optional slot for `PlekinfoCardItem`s.
+ * @slot interaction - A slot for the `SlideToggle`s elements.
  */
 @Component({
   tag: "dso-plekinfo-card",
@@ -33,8 +32,21 @@ import { PlekinfoCardClickEvent } from "./plekinfo-card.interfaces";
   shadow: true,
 })
 export class PlekinfoCard implements ComponentInterface {
+  private _showStroke = true;
+
   @Element()
   host!: HTMLDsoPlekinfoCardElement;
+
+  /**
+   * Show or hide the bottom border (stroke) of the card.
+   */
+  @Prop()
+  get showStroke(): boolean {
+    return this._showStroke;
+  }
+  set showStroke(value: boolean) {
+    this._showStroke = value ?? true;
+  }
 
   /**
    * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
@@ -88,6 +100,10 @@ export class PlekinfoCard implements ComponentInterface {
     return this.dsoPlekinfoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
+  get isNested(): boolean {
+    return this.host.closest("dso-accordion-section") !== null;
+  }
+
   get symbolSlottedElement() {
     return this.host.querySelector("[slot='symbol']");
   }
@@ -102,9 +118,10 @@ export class PlekinfoCard implements ComponentInterface {
 
   render() {
     const hasSymbol = this.symbolSlottedElement !== null;
+    const hideStroke = !this.showStroke || this.isNested;
 
     return (
-      <Host has-symbol={hasSymbol}>
+      <Host has-symbol={hasSymbol} class={{ "dso-plekinfo-card-no-stroke": hideStroke }}>
         <WrapWijzigactie wijzigactie={this.wijzigactie} class="dso-plekinfo-card-container">
           <div class="dso-plekinfo-card-symbol" hidden={!hasSymbol}>
             <slot name="symbol" />
