@@ -45,7 +45,7 @@ export class PlekinfoCard implements ComponentInterface {
     return this._showStroke;
   }
   set showStroke(value: boolean) {
-    this._showStroke = Boolean(value);
+    this._showStroke = value ?? true;
   }
 
   /**

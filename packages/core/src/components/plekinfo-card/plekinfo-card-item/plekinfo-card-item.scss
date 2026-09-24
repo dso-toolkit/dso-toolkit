@@ -14,14 +14,12 @@
 @include utilities.box-sizing();
 
 :host {
-  display: flex;
-  align-items: flex-start;
+  display: block;
 }
 
 .dso-plekinfo-card-item-container {
   display: flex;
   align-items: flex-start;
-  flex-wrap: nowrap;
   column-gap: units.$u1;
   inline-size: 100%;
   padding-block: units.$u1;
@@ -36,22 +34,16 @@
       plekinfo-card-item-variables.$symbol-block-size,
       plekinfo-card-item-variables.$symbol-inline-size
     );
-  }
-}
 
-ins.dso-plekinfo-card-item-container {
-  &:has(.label:is(:hover, :focus-visible)) {
-    background-color: plekinfo-card.$background-color-hover-voegtoe;
+    margin-inline-end: 0;
   }
 }
 
 del.dso-plekinfo-card-item-container {
   text-decoration: none;
-
-  &:has(.label:is(:hover, :focus-visible)) {
-    background-color: plekinfo-card.$background-color-hover-verwijder;
-  }
 }
+
+@include plekinfo-card.wijzigactie-hover-states("dso-plekinfo-card-item-container", ".label");
 
 :host([active]:not([active="false"])) {
   .dso-plekinfo-card-item-container {
@@ -99,7 +91,6 @@ del.dso-plekinfo-card-item-container {
   flex: 1 1 0;
   min-inline-size: 0;
   overflow: hidden;
-  font-size: 0.875em;
   text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- sublabel can be viewed via tooltip when truncated.
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- sublabel can be viewed via tooltip when truncated.
 }

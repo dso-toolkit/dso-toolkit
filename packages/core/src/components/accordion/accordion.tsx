@@ -60,7 +60,7 @@ export class Accordion implements ComponentInterface {
     return this.accordionState.showStroke;
   }
   set showStroke(value: boolean) {
-    this.accordionState.showStroke = Boolean(value);
+    this.accordionState.showStroke = value ?? true;
   }
 
   /**
