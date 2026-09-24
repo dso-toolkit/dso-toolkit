@@ -1,0 +1,19 @@
+@use "dso-toolkit/src/variables/colors";
+
+.symboolcode {
+  background-color: colors.$wit;
+  display: block;
+  float: inline-start;
+  block-size: 20px;
+  inline-size: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.symboolcode[data-symboolcode="vgz023"] {
+  background-image: url(images/rectangle2.png);
+}
+
+.symboolcode[data-symboolcode="vszt030"] {
+  border: 1px solid colors.$zwart;
+}

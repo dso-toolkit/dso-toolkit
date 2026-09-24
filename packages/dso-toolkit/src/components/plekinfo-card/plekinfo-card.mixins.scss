@@ -1,0 +1,15 @@
+@use "./plekinfo-card.variables" as vars;
+
+@mixin wijzigactie-hover-states($container-class, $hover-selector) {
+  ins.#{$container-class} {
+    &:has(#{$hover-selector}:is(:hover, :focus-visible)) {
+      background-color: vars.$background-color-hover-voegtoe;
+    }
+  }
+
+  del.#{$container-class} {
+    &:has(#{$hover-selector}:is(:hover, :focus-visible)) {
+      background-color: vars.$background-color-hover-verwijder;
+    }
+  }
+}
