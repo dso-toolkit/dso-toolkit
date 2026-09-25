@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 
@@ -21,7 +21,7 @@ import { searchBarTemplate } from "../../../components/search-bar/search-bar.tem
 import { selectableTemplate } from "../../../components/selectable/selectable.template.js";
 import { ViewerGridTab } from "../../../components/viewer-grid/viewer-grid.models.js";
 import { viewerGridTemplate } from "../../../components/viewer-grid/viewer-grid.template.js";
-import { examplePageStory } from "../../../example-page-story.js";
+import { examplePageMeta } from "../../../example-page-meta.js";
 import { headerPartial } from "../../partials/header.js";
 
 import {
@@ -35,21 +35,62 @@ import {
 } from "./documenten.content.js";
 import { openLayersMapPartial } from "./open-layers-map.partial";
 
-const meta: Meta = {
-  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten",
-};
-
-export default meta;
-
-const Documenten = examplePageStory<{
+type DocumentenArgs = {
   print: boolean;
   filterPanelOpen: boolean;
   mainPanelOpen: boolean;
   legendOpen: boolean;
   sticky: boolean;
   activeTab: ViewerGridTab;
-}>(
-  ({ print, filterPanelOpen, mainPanelOpen, legendOpen, sticky, activeTab }) => {
+};
+
+const meta: Meta<DocumentenArgs> = {
+  ...examplePageMeta(),
+  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten",
+  tags: ["!autodocs"],
+  argTypes: {
+    print: {
+      control: { type: "boolean" },
+      table: { category: "Viewer Grid" },
+    },
+    filterPanelOpen: {
+      control: { type: "boolean" },
+      table: { category: "Viewer Grid" },
+    },
+    mainPanelOpen: {
+      control: { type: "boolean" },
+      table: { category: "Viewer Grid" },
+    },
+    legendOpen: {
+      control: { type: "boolean" },
+      table: { category: "Legend" },
+    },
+    sticky: {
+      control: { type: "boolean" },
+      table: { category: "Document Header" },
+    },
+    activeTab: {
+      options: [undefined, "search", "map", "document"],
+      control: {
+        type: "select",
+      },
+      table: { category: "Viewer Grid" },
+    },
+  },
+  args: {
+    print: false,
+    filterPanelOpen: true,
+    mainPanelOpen: true,
+    legendOpen: true,
+    sticky: false,
+    activeTab: "document",
+  },
+};
+
+export default meta;
+
+export const Documenten: StoryObj<DocumentenArgs> = {
+  render: ({ print, filterPanelOpen, mainPanelOpen, legendOpen, sticky, activeTab }) => {
     return html`
       <style>
         .demo-container {
@@ -267,45 +308,4 @@ const Documenten = examplePageStory<{
       </div>
     `;
   },
-  {
-    argTypes: {
-      print: {
-        control: { type: "boolean" },
-        table: { category: "Viewer Grid" },
-      },
-      filterPanelOpen: {
-        control: { type: "boolean" },
-        table: { category: "Viewer Grid" },
-      },
-      mainPanelOpen: {
-        control: { type: "boolean" },
-        table: { category: "Viewer Grid" },
-      },
-      legendOpen: {
-        control: { type: "boolean" },
-        table: { category: "Legend" },
-      },
-      sticky: {
-        control: { type: "boolean" },
-        table: { category: "Document Header" },
-      },
-      activeTab: {
-        options: [undefined, "search", "map", "document"],
-        control: {
-          type: "select",
-        },
-        table: { category: "Viewer Grid" },
-      },
-    },
-    args: {
-      print: false,
-      filterPanelOpen: true,
-      mainPanelOpen: true,
-      legendOpen: true,
-      sticky: false,
-      activeTab: "document",
-    },
-  },
-);
-
-export { Documenten };
+};

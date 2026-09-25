@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { fn } from "storybook/test";
@@ -6,10 +6,11 @@ import { fn } from "storybook/test";
 import { gridColumnTemplate } from "../../components/grid-column/grid-column.template.js";
 import { ShoppingCartItem } from "../../components/shopping-cart/shopping-cart.models.js";
 import { shoppingCartTemplate } from "../../components/shopping-cart/shopping-cart.template.js";
-import { examplePageStory } from "../../example-page-story.js";
+import { examplePageMeta } from "../../example-page-meta.js";
 import { argTypeAction } from "../../shared/arg-type-action.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Patronen/Shopping Cart",
   tags: ["!autodocs"],
 };
@@ -29,8 +30,20 @@ type ShoppingCartOverlayArgs = {
   shoppingCartDsoToggle: HandlerFunction;
 } & ShoppingCartBlockArgs;
 
-export const Block = examplePageStory<ShoppingCartBlockArgs>(
-  ({ shoppingCartItemDsoEdit, shoppingCartItemDsoDelete, shoppingCartItemDsoClose, formDsoSubmit }) => {
+export const Block: StoryObj<ShoppingCartBlockArgs> = {
+  argTypes: {
+    shoppingCartItemDsoEdit: argTypeAction(),
+    shoppingCartItemDsoDelete: argTypeAction(),
+    shoppingCartItemDsoClose: argTypeAction(),
+    formDsoSubmit: argTypeAction(),
+  },
+  args: {
+    shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
+    shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
+    shoppingCartItemDsoClose: fn().mockName("dsoClose"),
+    formDsoSubmit: fn().mockName("dsoSubmit"),
+  },
+  render: ({ shoppingCartItemDsoEdit, shoppingCartItemDsoDelete, shoppingCartItemDsoClose, formDsoSubmit }) => {
     const items: ShoppingCartItem[] = [
       {
         mode: "edit",
@@ -125,24 +138,33 @@ export const Block = examplePageStory<ShoppingCartBlockArgs>(
       </div>
     `;
   },
-  {
-    argTypes: {
-      shoppingCartItemDsoEdit: argTypeAction(),
-      shoppingCartItemDsoDelete: argTypeAction(),
-      shoppingCartItemDsoClose: argTypeAction(),
-      formDsoSubmit: argTypeAction(),
-    },
-    args: {
-      shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
-      shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
-      shoppingCartItemDsoClose: fn().mockName("dsoClose"),
-      formDsoSubmit: fn().mockName("dsoSubmit"),
-    },
-  },
-);
+};
 
-export const Overlay = examplePageStory<ShoppingCartOverlayArgs>(
-  ({
+export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
+  argTypes: {
+    mode: {
+      options: ["side", "main"],
+      control: {
+        type: "radio",
+      },
+    },
+    gridColumnDsoClose: argTypeAction(),
+    shoppingCartDsoToggle: argTypeAction(),
+    shoppingCartItemDsoEdit: argTypeAction(),
+    shoppingCartItemDsoDelete: argTypeAction(),
+    shoppingCartItemDsoClose: argTypeAction(),
+    formDsoSubmit: argTypeAction(),
+  },
+  args: {
+    mode: "main",
+    gridColumnDsoClose: fn().mockName("dsoClose"),
+    shoppingCartDsoToggle: fn().mockName("dsoToggle"),
+    shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
+    shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
+    shoppingCartItemDsoClose: fn().mockName("dsoClose"),
+    formDsoSubmit: fn().mockName("dsoSubmit"),
+  },
+  render: ({
     mode,
     gridColumnDsoClose,
     shoppingCartDsoToggle,
@@ -348,29 +370,4 @@ export const Overlay = examplePageStory<ShoppingCartOverlayArgs>(
       </div>
     `;
   },
-  {
-    argTypes: {
-      mode: {
-        options: ["side", "main"],
-        control: {
-          type: "radio",
-        },
-      },
-      gridColumnDsoClose: argTypeAction(),
-      shoppingCartDsoToggle: argTypeAction(),
-      shoppingCartItemDsoEdit: argTypeAction(),
-      shoppingCartItemDsoDelete: argTypeAction(),
-      shoppingCartItemDsoClose: argTypeAction(),
-      formDsoSubmit: argTypeAction(),
-    },
-    args: {
-      mode: "main",
-      gridColumnDsoClose: fn().mockName("dsoClose"),
-      shoppingCartDsoToggle: fn().mockName("dsoToggle"),
-      shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
-      shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
-      shoppingCartItemDsoClose: fn().mockName("dsoClose"),
-      formDsoSubmit: fn().mockName("dsoSubmit"),
-    },
-  },
-);
+};

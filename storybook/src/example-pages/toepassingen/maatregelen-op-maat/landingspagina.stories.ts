@@ -1,11 +1,11 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
 import { accordionTemplate } from "../../../components/accordion/accordion.template.js";
 import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
 import { linkTemplate } from "../../../components/link/link.template.js";
 import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
-import { examplePageStory } from "../../../example-page-story.js";
+import { examplePageMeta } from "../../../example-page-meta.js";
 import { header } from "../../content/header.content.js";
 import { mainMenu } from "../../content/main-menu.content.js";
 import { footerPartial } from "../../partials/footer.js";
@@ -14,140 +14,142 @@ import { headerPartial } from "../../partials/header.js";
 import { accordionSections } from "./landingspagina.content.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Maatregelen op maat/Landingspagina",
+  tags: ["!autodocs"],
 };
 
 export default meta;
 
-const Landingspagina = examplePageStory(() => {
-  return html`
-    <div class="container">
-      ${headerPartial({ ...header, mainMenu: mainMenu("Maatregelen op maat") })}
-      <main>
-        <style>
-          .my-beautiful-image {
-            background-image: url("images/hero4.jpeg");
-          }
-        </style>
-        <dso-hero-image>
-          <div slot="image" class="my-beautiful-image"></div>
-          ${highlightBoxTemplate({
-            white: true,
-            content: richContentTemplate({
-              children: html`
-                <h1>Maatregelen op maat</h1>
-                <p>
-                  De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
-                  zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
-                  bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
-                </p>
-                <p>${linkTemplate({ label: "Start maatregelen op maat", url: "#", modifier: "dso-primary" })}</p>
-              `,
-            }),
-          })}
-        </dso-hero-image>
-        <div class="row">
-          <div class="col-md-8">
-            <h2>Voldoen aan de regels</h2>
-            <p>
-              Met Maatregelen op maat weet u meteen welke regels voor u gelden en wat u kunt doen om zich aan die regels
-              te houden. U ziet in een handig overzicht onder andere welke maatregelen u moet nemen, hoe vaak en in
-              welke volgorde. Ook is het overzicht te printen, zodat u het kunt gebruiken als checklist.
-            </p>
-            <p>
-              Weet u nog niet of u eerst een vergunning nodig heeft of melding moet doen? Doe dan eerst
-              ${linkTemplate({ label: "de Vergunningscheck", url: "#" })}
-            </p>
-          </div>
-          <div class="col-lg-4">
+export const Landingspagina: StoryObj = {
+  render: () => {
+    return html`
+      <div class="container">
+        ${headerPartial({ ...header, mainMenu: mainMenu("Maatregelen op maat") })}
+        <main>
+          <style>
+            .my-beautiful-image {
+              background-image: url("images/hero4.jpeg");
+            }
+          </style>
+          <dso-hero-image>
+            <div slot="image" class="my-beautiful-image"></div>
             ${highlightBoxTemplate({
               white: true,
-              border: true,
               content: richContentTemplate({
                 children: html`
-                  <h2>Vragen?</h2>
+                  <h1>Maatregelen op maat</h1>
                   <p>
-                    Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
-                    Heeft u vragen over hoe de website werkt? Neem dan contact op met
-                    ${linkTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
+                    De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
+                    zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
+                    bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
                   </p>
+                  <p>${linkTemplate({ label: "Start maatregelen op maat", url: "#", modifier: "dso-primary" })}</p>
                 `,
               }),
             })}
+          </dso-hero-image>
+          <div class="row">
+            <div class="col-md-8">
+              <h2>Voldoen aan de regels</h2>
+              <p>
+                Met Maatregelen op maat weet u meteen welke regels voor u gelden en wat u kunt doen om zich aan die
+                regels te houden. U ziet in een handig overzicht onder andere welke maatregelen u moet nemen, hoe vaak
+                en in welke volgorde. Ook is het overzicht te printen, zodat u het kunt gebruiken als checklist.
+              </p>
+              <p>
+                Weet u nog niet of u eerst een vergunning nodig heeft of melding moet doen? Doe dan eerst
+                ${linkTemplate({ label: "de Vergunningscheck", url: "#" })}
+              </p>
+            </div>
+            <div class="col-lg-4">
+              ${highlightBoxTemplate({
+                white: true,
+                border: true,
+                content: richContentTemplate({
+                  children: html`
+                    <h2>Vragen?</h2>
+                    <p>
+                      Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
+                      Heeft u vragen over hoe de website werkt? Neem dan contact op met
+                      ${linkTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
+                    </p>
+                  `,
+                }),
+              })}
+            </div>
           </div>
-        </div>
-        <div class="row dso-featured">
-          <div class="col-xs-12">
-            <h2>De stappen</h2>
-            <div class="row dso-equal-heights">
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 1,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 1 van 4: </span>Locatie</h3>
-                      <p>Kies de plek waar u iets wilt doen.</p>
-                    `,
-                  }),
-                })}
-              </div>
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 2,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 2 van 4: </span>Werkzaamheden</h3>
-                      <p>Kies de werkzaamheden van uw project.</p>
-                    `,
-                  }),
-                })}
-              </div>
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 3,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 3 van 4: </span>Vragen beantwoorden</h3>
-                      <p>
-                        Doorloop de check en beantwoord alle benodigde vragen. Vragen die in uw situatie niet meer
-                        relevant zijn vallen vanzelf weg.
-                      </p>
-                    `,
-                  }),
-                })}
-              </div>
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 4,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 4 van 4: </span>Resultaat</h3>
-                      <p>Download het overzicht van de maatregelen.</p>
-                    `,
-                  }),
-                })}
+          <div class="row dso-featured">
+            <div class="col-xs-12">
+              <h2>De stappen</h2>
+              <div class="row dso-equal-heights">
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 1,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 1 van 4: </span>Locatie</h3>
+                        <p>Kies de plek waar u iets wilt doen.</p>
+                      `,
+                    }),
+                  })}
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 2,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 2 van 4: </span>Werkzaamheden</h3>
+                        <p>Kies de werkzaamheden van uw project.</p>
+                      `,
+                    }),
+                  })}
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 3,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 3 van 4: </span>Vragen beantwoorden</h3>
+                        <p>
+                          Doorloop de check en beantwoord alle benodigde vragen. Vragen die in uw situatie niet meer
+                          relevant zijn vallen vanzelf weg.
+                        </p>
+                      `,
+                    }),
+                  })}
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 4,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 4 van 4: </span>Resultaat</h3>
+                        <p>Download het overzicht van de maatregelen.</p>
+                      `,
+                    }),
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row dso-equal-heights">
-          <div class="col-md-8">
-            <h2>Veel gestelde vragen</h2>
-            ${accordionTemplate({ variant: "compact", sections: accordionSections })}
+          <div class="row dso-equal-heights">
+            <div class="col-md-8">
+              <h2>Veel gestelde vragen</h2>
+              ${accordionTemplate({ variant: "compact", sections: accordionSections })}
+            </div>
           </div>
-        </div>
-      </main>
-      ${footerPartial()}
-    </div>
-  `;
-});
-
-export { Landingspagina };
+        </main>
+        ${footerPartial()}
+      </div>
+    `;
+  },
+};

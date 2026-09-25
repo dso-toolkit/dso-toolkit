@@ -1,51 +1,56 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
 import { Alert } from "../../components/alert/alert.models.js";
 import { alertTemplate } from "../../components/alert/alert.template.js";
 import { highlightBoxTemplate } from "../../components/highlight-box/highlight-box.template.js";
-import { examplePageStory } from "../../example-page-story.js";
+import { examplePageMeta } from "../../example-page-meta.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Patronen/Alert on color",
+  tags: ["!autodocs"],
 };
 
 export default meta;
 
-export const AlertOnColor = examplePageStory(() => {
-  return html`
-    ${highlightBoxTemplate({
-      grey: true,
-      content: content(),
-    })}
-    ${highlightBoxTemplate({
-      yellow: true,
-      content: content(),
-    })}
-    ${highlightBoxTemplate({
-      white: true,
-      content: content(),
-    })}
-    ${highlightBoxTemplate({
-      grey: true,
-      content: html`
-        ${highlightBoxTemplate({
-          white: true,
-          content: content(),
-        })}
-      `,
-    })}
-    ${highlightBoxTemplate({
-      white: true,
-      content: html`
-        ${highlightBoxTemplate({
-          yellow: true,
-          content: content(),
-        })}
-      `,
-    })}
-  `;
-});
+export const AlertOnColor: StoryObj = {
+  name: "Alert on color",
+  render: () => {
+    return html`
+      ${highlightBoxTemplate({
+        grey: true,
+        content: content(),
+      })}
+      ${highlightBoxTemplate({
+        yellow: true,
+        content: content(),
+      })}
+      ${highlightBoxTemplate({
+        white: true,
+        content: content(),
+      })}
+      ${highlightBoxTemplate({
+        grey: true,
+        content: html`
+          ${highlightBoxTemplate({
+            white: true,
+            content: content(),
+          })}
+        `,
+      })}
+      ${highlightBoxTemplate({
+        white: true,
+        content: html`
+          ${highlightBoxTemplate({
+            yellow: true,
+            content: content(),
+          })}
+        `,
+      })}
+    `;
+  },
+};
 
 const content = function () {
   const alerts: Alert[] = [

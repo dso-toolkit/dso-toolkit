@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
 
 import { Button } from "../../components/button/button.models.js";
@@ -7,23 +7,28 @@ import { IconButton } from "../../components/icon-button/icon-button.models.js";
 import { iconButtonTemplate } from "../../components/icon-button/icon-button.template.js";
 import { InfoButton } from "../../components/info-button/info-button.models.js";
 import { infoButtonTemplate } from "../../components/info-button/info-button.template.js";
-import { examplePageStory } from "../../example-page-story.js";
+import { examplePageMeta } from "../../example-page-meta.js";
 
 import "./button-on-color.scss";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Patronen/Button on color",
+  tags: ["!autodocs"],
 };
 
 export default meta;
 
-export const ButtonOnColor = examplePageStory(() => {
-  return html`
-    <div class="button-container-demo">${allButtons()}</div>
-    <div class="button-container-demo background-dark-demo">${allButtons()}</div>
-    <div class="button-container-demo background-light-demo">${allButtons()}</div>
-  `;
-});
+export const ButtonOnColor: StoryObj = {
+  name: "Button on color",
+  render: () => {
+    return html`
+      <div class="button-container-demo">${allButtons()}</div>
+      <div class="button-container-demo background-dark-demo">${allButtons()}</div>
+      <div class="button-container-demo background-light-demo">${allButtons()}</div>
+    `;
+  },
+};
 
 const allButtons = () => {
   return html`

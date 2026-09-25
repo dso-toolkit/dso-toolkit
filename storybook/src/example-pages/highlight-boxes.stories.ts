@@ -1,10 +1,10 @@
-import { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
 import { buttonTemplate } from "../components/button/button.template.js";
 import { highlightBoxTemplate } from "../components/highlight-box/highlight-box.template.js";
 import { richContentTemplate } from "../components/rich-content/rich-content.template.js";
-import { examplePageStory } from "../example-page-story.js";
+import { examplePageMeta } from "../example-page-meta.js";
 
 import { header } from "./content/header.content.js";
 import { mainMenu } from "./content/main-menu.content.js";
@@ -12,13 +12,17 @@ import { footerPartial } from "./partials/footer.js";
 import { headerPartial } from "./partials/header.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Voorbeeldpagina's/Meerdere highlight boxes",
+  tags: ["!autodocs"],
 };
 
 export default meta;
 
-const MeerdereHighlightBoxes = examplePageStory(() => {
-  return html`
+export const MeerdereHighlightBoxes: StoryObj = {
+  name: "Meerdere highlight boxes",
+  render: () => {
+    return html`
     <div class="container">
       ${headerPartial({ ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
@@ -123,6 +127,5 @@ const MeerdereHighlightBoxes = examplePageStory(() => {
       ${footerPartial()}
     </div>
   `;
-});
-
-export { MeerdereHighlightBoxes };
+  },
+};

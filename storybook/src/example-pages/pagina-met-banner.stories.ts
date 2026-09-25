@@ -1,11 +1,11 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
 import { bannerTemplate } from "../components/banner/banner.template.js";
 import { highlightBoxTemplate } from "../components/highlight-box/highlight-box.template.js";
 import { linkTemplate } from "../components/link/link.template.js";
 import { richContentTemplate } from "../components/rich-content/rich-content.template.js";
-import { examplePageStory } from "../example-page-story.js";
+import { examplePageMeta } from "../example-page-meta.js";
 
 import { header } from "./content/header.content.js";
 import { mainMenu } from "./content/main-menu.content.js";
@@ -13,13 +13,17 @@ import { footerPartial } from "./partials/footer.js";
 import { headerPartial } from "./partials/header.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Voorbeeldpagina's/Pagina met banner",
+  tags: ["!autodocs"],
 };
 
 export default meta;
 
-const PaginaMetBanner = examplePageStory(() => {
-  return html`
+export const PaginaMetBanner: StoryObj = {
+  name: "Pagina met banner",
+  render: () => {
+    return html`
     ${bannerTemplate({
       status: "error",
       content: richContentTemplate({
@@ -90,6 +94,5 @@ const PaginaMetBanner = examplePageStory(() => {
       </div>
     </div>
   `;
-});
-
-export { PaginaMetBanner };
+  },
+};
