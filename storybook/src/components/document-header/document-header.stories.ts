@@ -23,6 +23,7 @@ const meta: Meta<DocumentHeaderArgs> = {
     featuresOpen: false,
     sticky: false,
   },
+  render: (args) => documentHeaderTemplate(documentHeaderArgsMapper(args, featuresContent())),
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -32,40 +33,33 @@ const meta: Meta<DocumentHeaderArgs> = {
 
 export default meta;
 
-const render = (args: DocumentHeaderArgs) => documentHeaderTemplate(documentHeaderArgsMapper(args, featuresContent()));
-
-export const Default: DocumentHeaderStory = { render };
+export const Default: DocumentHeaderStory = {};
 export const DefaultBesluitversie: DocumentHeaderStory = {
   args: {
     statusMessage: "Wijzigingen in regeling door wijzigingbesluit",
     variant: "besluitversie",
   },
-  render,
 };
 export const DefaultOntwerp: DocumentHeaderStory = {
   args: {
     statusMessage: "Wijzigingen door ontwerpbesluit",
     variant: "ontwerp",
   },
-  render,
 };
 export const Sticky: DocumentHeaderStory = {
   args: {
     sticky: true,
   },
-  render,
 };
 export const StickyBesluitversie: DocumentHeaderStory = {
   args: {
     sticky: true,
     variant: "besluitversie",
   },
-  render,
 };
 export const StickyOntwerp: DocumentHeaderStory = {
   args: {
     sticky: true,
     variant: "ontwerp",
   },
-  render,
 };

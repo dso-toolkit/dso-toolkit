@@ -12,6 +12,7 @@ type IconButtonStory = StoryObj<IconButtonArgs>;
 const meta: Meta<IconButtonArgs> = {
   title: "Core/Icon Button",
   args: iconButtonArgs,
+  render: (args) => iconButtonTemplate(args),
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -25,9 +26,8 @@ const argTypes = iconButtonArgTypes(icons);
 const parameters = {
   layout: "centered",
 };
-const render = (args: IconButtonArgs) => iconButtonTemplate(args);
 
-export const Secondary: IconButtonStory = { argTypes, parameters, render };
+export const Secondary: IconButtonStory = { argTypes, parameters };
 
 export const Tertiary: IconButtonStory = {
   argTypes,
@@ -35,7 +35,6 @@ export const Tertiary: IconButtonStory = {
   args: {
     variant: "tertiary",
   },
-  render,
 };
 
 export const Map: IconButtonStory = {
@@ -44,5 +43,4 @@ export const Map: IconButtonStory = {
   args: {
     variant: "map",
   },
-  render,
 };

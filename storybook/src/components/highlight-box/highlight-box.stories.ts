@@ -22,6 +22,7 @@ const meta: Meta<HighlightBoxArgs> = {
     dropShadow: false,
     bannerImage: false,
   },
+  render: (args) => highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -91,14 +92,13 @@ const content = createContent(html`<h3>Toelichting: Vergunningvrij onder voorbeh
 const stepContent = createContent(
   html`<h3><span class="sr-only">Stap x van y: </span>Toelichting: Vergunningvrij onder voorbehoud</h3>`,
 );
-const render = (args: HighlightBoxArgs) => highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent));
 
-export const Default: HighlightBoxStory = { render };
-export const Yellow: HighlightBoxStory = { args: { yellow: true }, render };
-export const Green: HighlightBoxStory = { args: { green: true }, render };
-export const Grey: HighlightBoxStory = { args: { grey: true }, render };
-export const GreyWithBorder: HighlightBoxStory = { args: { grey: true, border: true }, render };
-export const WhiteWithDropshadow: HighlightBoxStory = { args: { white: true, dropShadow: true }, render };
-export const WithBorder: HighlightBoxStory = { args: { border: true }, render };
-export const WithIcon: HighlightBoxStory = { args: { yellow: true, icon: "plus" }, render };
-export const WithBannerImage: HighlightBoxStory = { args: { bannerImage: true }, render };
+export const Default: HighlightBoxStory = {};
+export const Yellow: HighlightBoxStory = { args: { yellow: true } };
+export const Green: HighlightBoxStory = { args: { green: true } };
+export const Grey: HighlightBoxStory = { args: { grey: true } };
+export const GreyWithBorder: HighlightBoxStory = { args: { grey: true, border: true } };
+export const WhiteWithDropshadow: HighlightBoxStory = { args: { white: true, dropShadow: true } };
+export const WithBorder: HighlightBoxStory = { args: { border: true } };
+export const WithIcon: HighlightBoxStory = { args: { yellow: true, icon: "plus" } };
+export const WithBannerImage: HighlightBoxStory = { args: { bannerImage: true } };

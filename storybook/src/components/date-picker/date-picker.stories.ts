@@ -23,6 +23,7 @@ const meta: Meta<DatePickerArgs> = {
     dsoKeyDown: fn(),
     dsoKeyUp: fn(),
   },
+  render: (args) => datePickerTemplate(datePickerArgsMapper(args)),
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -35,24 +36,18 @@ const meta: Meta<DatePickerArgs> = {
 
 export default meta;
 
-const render = (args: DatePickerArgs) => datePickerTemplate(datePickerArgsMapper(args));
-
-export const Default: DatePickerStory = {
-  render,
-};
+export const Default: DatePickerStory = {};
 
 export const Disabled: DatePickerStory = {
   args: {
     disabled: true,
   },
-  render,
 };
 
 export const Invalid: DatePickerStory = {
   args: {
     invalid: true,
   },
-  render,
 };
 
 export const MonthRange: DatePickerStory = {
@@ -60,12 +55,10 @@ export const MonthRange: DatePickerStory = {
     min: "3-8-2020",
     max: "28-3-2022",
   },
-  render,
 };
 
 export const NarrowInput: DatePickerStory = {
   decorators: [(story) => html`<div style="width: 175px;">${story()}</div>`],
-  render,
 };
 
 export const WithLabel: DatePickerStory = {
@@ -81,12 +74,10 @@ export const WithMinAndMax: DatePickerStory = {
     min: "3-1-2020",
     max: "28-1-2020",
   },
-  render,
 };
 
 export const WithValue: DatePickerStory = {
   args: {
     value: "15-11-2020",
   },
-  render,
 };

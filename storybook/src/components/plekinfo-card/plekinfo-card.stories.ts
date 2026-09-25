@@ -19,6 +19,7 @@ const meta: Meta<PlekinfoCardArgs> = {
   title: "Core/Plekinfo Card",
   argTypes: plekinfoCardArgTypes,
   args: plekinfoCardArgs,
+  render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol(), content())),
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -28,15 +29,10 @@ const meta: Meta<PlekinfoCardArgs> = {
 
 export default meta;
 
-const render = (args: PlekinfoCardArgs) =>
-  plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol(), content()));
-const renderWithoutSymbol = (args: PlekinfoCardArgs) =>
-  plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content()));
 const decorators = [(story: Parameters<typeof decorator>[0]) => decorator(story, plekinfoCardDemoCss)];
 
 export const Default: PlekinfoCardStory = {
   decorators,
-  render,
 };
 
 export const Static: PlekinfoCardStory = {
@@ -45,12 +41,11 @@ export const Static: PlekinfoCardStory = {
     href: "",
   },
   decorators,
-  render,
 };
 
 export const WithoutSymbol: PlekinfoCardStory = {
   decorators,
-  render: renderWithoutSymbol,
+  render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content())),
 };
 
 export const WithSlideToggle: PlekinfoCardStory = {
@@ -62,7 +57,6 @@ export const WithSlideToggle: PlekinfoCardStory = {
     },
   },
   decorators,
-  render,
 };
 
 export const WithLabel: PlekinfoCardStory = {
@@ -75,7 +69,6 @@ export const WithLabel: PlekinfoCardStory = {
     },
   },
   decorators,
-  render,
 };
 
 export const WithNameChange: PlekinfoCardStory = {
@@ -89,7 +82,6 @@ export const WithNameChange: PlekinfoCardStory = {
     },
   },
   decorators,
-  render,
 };
 
 export const WithNameChangeComplex: PlekinfoCardStory = {
@@ -107,5 +99,4 @@ export const WithNameChangeComplex: PlekinfoCardStory = {
     },
   },
   decorators,
-  render,
 };

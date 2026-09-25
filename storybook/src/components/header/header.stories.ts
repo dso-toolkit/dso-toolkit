@@ -57,6 +57,7 @@ const meta: Meta<HeaderArgs> = {
     userHomeUrl: "#myhome",
     dsoHeaderClick: fn(),
   },
+  render: (args) => headerTemplate(headerArgsMapper(args)),
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -66,15 +67,12 @@ const meta: Meta<HeaderArgs> = {
 
 export default meta;
 
-const render = (args: HeaderArgs) => headerTemplate(headerArgsMapper(args));
-
-export const Default: HeaderStory = { render };
+export const Default: HeaderStory = {};
 
 export const WithLabel: HeaderStory = {
   args: {
     label: "Maatregelen op maat",
   },
-  render,
 };
 
 export const WithLabelAndLabelUrl: HeaderStory = {
@@ -82,7 +80,6 @@ export const WithLabelAndLabelUrl: HeaderStory = {
     label: "Maatregelen op maat",
     labelUrl: "maatregelen-op-maat",
   },
-  render,
 };
 
 export const WithLogoUrlAndLabelAndLabelUrl: HeaderStory = {
@@ -91,14 +88,12 @@ export const WithLogoUrlAndLabelAndLabelUrl: HeaderStory = {
     labelUrl: "maatregelen-op-maat",
     logoUrl: "/",
   },
-  render,
 };
 
 export const WithRibbon: HeaderStory = {
   args: {
     ribbon: "beta",
   },
-  render,
 };
 
 export const WithLabelAndRibbon: HeaderStory = {
@@ -106,7 +101,6 @@ export const WithLabelAndRibbon: HeaderStory = {
     label: "Maatregelen op maat",
     ribbon: "beta",
   },
-  render,
 };
 
 export const UserHomeActive: HeaderStory = {
@@ -139,7 +133,6 @@ export const UserHomeActive: HeaderStory = {
     ],
     userHomeActive: true,
   },
-  render,
 };
 
 export const WithLinkToHelp: HeaderStory = {
@@ -148,7 +141,6 @@ export const WithLinkToHelp: HeaderStory = {
     helpUrl: "#help",
     authStatus: "loggedOut",
   },
-  render,
 };
 
 export const WithButtonToHelp: HeaderStory = {
@@ -156,5 +148,4 @@ export const WithButtonToHelp: HeaderStory = {
     showHelp: true,
     authStatus: "loggedOut",
   },
-  render,
 };

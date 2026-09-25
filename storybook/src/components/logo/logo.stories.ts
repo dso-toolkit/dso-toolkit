@@ -15,6 +15,7 @@ const meta: Meta<LogoArgs> = {
     dsoLabelClick: fn(),
     dsoLogoClick: fn(),
   },
+  render: (args) => logoTemplate(logoArgsMapper(args)),
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -24,33 +25,27 @@ const meta: Meta<LogoArgs> = {
 
 export default meta;
 
-const render = (args: LogoArgs) => logoTemplate(logoArgsMapper(args));
-
-export const Default: LogoStory = { render };
+export const Default: LogoStory = {};
 export const WithName: LogoStory = {
   args: {
     name: "Environment & Planning| Portal",
   },
-  render,
 };
 export const WithLabel: LogoStory = {
   args: {
     label: "Regels op de kaart",
   },
-  render,
 };
 export const WithLabelAndLabelUrl: LogoStory = {
   args: {
     label: "Regels op de kaart",
     labelUrl: "regels-op-de-kaart",
   },
-  render,
 };
 export const WithLogoUrl: LogoStory = {
   args: {
     logoUrl: "/",
   },
-  render,
 };
 export const WithLogoUrlAndLabelAndLabelUrl: LogoStory = {
   args: {
@@ -58,18 +53,15 @@ export const WithLogoUrlAndLabelAndLabelUrl: LogoStory = {
     labelUrl: "regels-op-de-kaart",
     logoUrl: "/",
   },
-  render,
 };
 export const WithRibbon: LogoStory = {
   args: {
     ribbon: "beta",
   },
-  render,
 };
 export const WithLabelAndRibbon: LogoStory = {
   args: {
     ribbon: "beta",
     label: "Regels op de kaart",
   },
-  render,
 };

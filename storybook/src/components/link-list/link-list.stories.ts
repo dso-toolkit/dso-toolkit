@@ -18,6 +18,7 @@ const meta: Meta<LinkListArgs> = {
   args: {
     links: links(),
   },
+  render: (args) => linkListTemplate(linkListArgsMapper(args)),
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -27,20 +28,16 @@ const meta: Meta<LinkListArgs> = {
 
 export default meta;
 
-const render = (args: LinkListArgs) => linkListTemplate(linkListArgsMapper(args));
-
 export const Ul: LinkListStory = {
   args: {
     type: LinkListType.Ul,
   },
-  render,
 };
 
 export const Ol: LinkListStory = {
   args: {
     type: LinkListType.Ol,
   },
-  render,
 };
 
 export const InHighlightBox: LinkListStory = {
@@ -65,7 +62,6 @@ export const InNav: LinkListStory = {
     navLabel: "Projecttaken",
     type: LinkListType.Ul,
   },
-  render,
 };
 
 export const InFooter: LinkListStory = {

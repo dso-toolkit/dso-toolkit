@@ -14,6 +14,7 @@ const meta: Meta<NavbarArgs> = {
   title: "HTML|CSS/Navbar",
   argTypes: navbarArgTypes,
   args: navbarArgs,
+  render: (args) => navbarTemplate(navbarArgsMapper(args)),
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -23,7 +24,6 @@ const meta: Meta<NavbarArgs> = {
 
 export default meta;
 
-const render = (args: NavbarArgs) => navbarTemplate(navbarArgsMapper(args));
 const secondaryArgs: Pick<NavbarArgs, "modifier" | "items"> = {
   modifier: "sub",
   items: [
@@ -78,12 +78,10 @@ export const Primary: NavbarStory = {
       },
     ],
   },
-  render,
 };
 
 export const Secondary: NavbarStory = {
   args: secondaryArgs,
-  render,
 };
 
 export const WithExtension: NavbarStory = {
