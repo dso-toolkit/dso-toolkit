@@ -30,5 +30,5 @@ export const Default: IconStory = {
 };
 
 export const Overview: IconStory = {
-  decorators: [(story) => (decorator ? decorator(story, icons) : story)],
+  decorators: [(story) => decorator(story, icons)],
 };
