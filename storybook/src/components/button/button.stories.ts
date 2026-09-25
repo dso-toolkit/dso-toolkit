@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import readme from "dso-toolkit/src/components/button/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";

@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 import { HandlerFunction } from "storybook/actions";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";

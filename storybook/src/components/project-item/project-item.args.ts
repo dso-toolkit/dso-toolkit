@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { fn } from "storybook/test";

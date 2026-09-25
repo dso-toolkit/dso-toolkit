@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/web-components-vite";
+import { StorybookConfig } from "@storybook/web-components-vite";
 
 const config: StorybookConfig = {
   typescript: { check: true },

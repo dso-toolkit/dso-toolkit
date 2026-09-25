@@ -1,6 +1,6 @@
 import { DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
 import readme from "@dso-toolkit/core/src/components/document-component/readme.md?raw";
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { compiler } from "markdown-to-jsx/react";

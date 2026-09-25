@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 
 import { AccordionSection } from "../../../components/accordion/accordion.models.js";
-import { type LinkList, LinkListType } from "../../../components/link-list/link-list.models.js";
+import { LinkList, LinkListType } from "../../../components/link-list/link-list.models.js";
 
 export function accordionSections(): AccordionSection[] {
   return [

@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/panel/readme.md?raw";
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 

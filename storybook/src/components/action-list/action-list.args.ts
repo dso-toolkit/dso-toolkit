@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 
 import { ActionList, ActionListItem } from "./action-list.models.js";
 

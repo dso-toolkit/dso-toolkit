@@ -1,7 +1,7 @@
 import legendGroupReadme from "@dso-toolkit/core/src/components/legend/legend-group/readme.md?raw";
 import legendItemReadme from "@dso-toolkit/core/src/components/legend/legend-item/readme.md?raw";
 import legendReadme from "@dso-toolkit/core/src/components/legend/readme.md?raw";
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 
 import { decorator } from "./legend-item/legend-item.decorator";

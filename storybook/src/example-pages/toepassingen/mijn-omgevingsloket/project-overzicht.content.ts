@@ -1,4 +1,4 @@
-import { type LinkList, LinkListType } from "../../../components/link-list/link-list.models.js";
+import { LinkList, LinkListType } from "../../../components/link-list/link-list.models.js";
 
 export function linkList(): LinkList {
   return {

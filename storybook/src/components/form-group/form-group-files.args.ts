@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 
 import { FormGroupFiles, FormGroupFilesFile } from "./form-group-files.models.js";
 

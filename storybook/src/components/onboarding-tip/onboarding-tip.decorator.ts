@@ -1,4 +1,4 @@
-import type { Decorator } from "@storybook/web-components-vite";
+import { Decorator } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 

@@ -118,6 +118,7 @@ export default [
       "object-shorthand": ["error"],
 
       // typescript
+      "@typescript-eslint/consistent-type-imports": ["error", { prefer: "no-type-imports" }],
       "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",

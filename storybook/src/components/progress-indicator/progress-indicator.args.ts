@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 
 import { ProgressIndicator } from "./progress-indicator.models.js";
 

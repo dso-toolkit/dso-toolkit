@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 import { TemplateResult } from "lit-html";
 
 import { IconAlias } from "../icon/icon.models.js";

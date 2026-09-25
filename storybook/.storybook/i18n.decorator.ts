@@ -1,4 +1,4 @@
-import type { Decorator } from "@storybook/web-components-vite";
+import { Decorator } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { keyed } from "lit-html/directives/keyed.js";
 

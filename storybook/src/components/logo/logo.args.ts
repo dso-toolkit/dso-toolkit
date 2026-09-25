@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 import { HandlerFunction } from "storybook/actions";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";

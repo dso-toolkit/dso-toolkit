@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 import escapeStringRegexp from "escape-string-regexp";
 import { HandlerFunction } from "storybook/actions";
 

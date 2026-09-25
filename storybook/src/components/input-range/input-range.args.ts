@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";

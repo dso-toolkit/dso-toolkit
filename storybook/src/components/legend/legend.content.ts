@@ -1,8 +1,8 @@
 import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-import { type LegendArgs } from "./legend.args.js";
-import { type LegendGroup, type LegendItem } from "./legend.models.js";
+import { LegendArgs } from "./legend.args.js";
+import { LegendGroup, LegendItem } from "./legend.models.js";
 
 function defaultSymbol() {
   return html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;

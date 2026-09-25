@@ -1,4 +1,4 @@
-import type { Diagnostic } from "@stencil/core/internal/stencil-public-compiler";
+import { Diagnostic } from "@stencil/core/internal/stencil-public-compiler";
 import { PluginTransformer } from "stencil-inline-svg/dist/declarations";
 import { decodeBase64SourceText } from "stencil-inline-svg/dist/util";
 

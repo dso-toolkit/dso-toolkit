@@ -1,4 +1,4 @@
-import type { Decorator } from "@storybook/web-components-vite";
+import { Decorator } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
 
 // https://github.com/dso-toolkit/dso-toolkit/issues/1313#issue-1041224938

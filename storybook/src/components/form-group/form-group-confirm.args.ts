@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 import { v4 as uuidv4 } from "uuid";
 
 import { FormGroupConfirm } from "./form-group-confirm.models.js";

@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 
 import { noControl } from "../../shared/no-control.js";
 import { Button } from "../button/button.models.js";

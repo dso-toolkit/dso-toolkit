@@ -1,4 +1,4 @@
-import type { ArgTypes } from "@storybook/web-components-vite";
+import { ArgTypes } from "@storybook/web-components-vite";
 
 import { buttons } from "./button-group.content.js";
 import { ButtonGroup } from "./button-group.models.js";

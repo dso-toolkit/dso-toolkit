@@ -1,7 +1,7 @@
 import dropdownMenuGroupReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-group/readme.md?raw";
 import dropdownMenuItemReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-item/readme.md?raw";
 import readme from "@dso-toolkit/core/src/components/dropdown-menu/readme.md?raw";
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
