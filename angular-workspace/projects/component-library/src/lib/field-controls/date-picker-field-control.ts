@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, input, model, output } from "@angular/core";
+import { Directive, ElementRef, HostListener, effect, input, model } from "@angular/core";
 import type { FormValueControl } from "@angular/forms/signals";
 import type { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "@dso-toolkit/core/dist/components";
 
@@ -11,7 +11,7 @@ import { syncFieldControlProperties } from "./sync-field-control-properties";
  * `ControlValueAccessor`, `ngModel`, and Reactive Forms support unchanged.
  */
 @Directive({
-  selector: "dso-date-picker",
+  selector: "dso-date-picker[formField]",
   standalone: true,
 })
 export class DsoDatePickerFieldControl implements FormValueControl<string> {
@@ -19,7 +19,9 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
   readonly disabled = input(false);
   readonly required = input(false);
   readonly invalid = input(false);
-  readonly touched = output<boolean>();
+  readonly touched = model(false);
+  readonly minDate = input<string>();
+  readonly maxDate = input<string>();
 
   constructor(elementRef: ElementRef<HTMLDsoDatePickerElement>) {
     syncFieldControlProperties(elementRef.nativeElement, "value", {
@@ -27,6 +29,12 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
       disabled: this.disabled,
       required: this.required,
       invalid: this.invalid,
+    });
+    effect(() => {
+      elementRef.nativeElement.min = this.minDate();
+    });
+    effect(() => {
+      elementRef.nativeElement.max = this.maxDate();
     });
   }
 
@@ -37,6 +45,6 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
 
   @HostListener("dsoBlur")
   onDsoBlur() {
-    this.touched.emit(true);
+    this.touched.set(true);
   }
 }
