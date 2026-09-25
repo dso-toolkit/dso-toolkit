@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Voorbeeldpagina's: Vervangen `icon-only` Button's ([#3383](https://github.com/dso-toolkit/dso-toolkit/issues/3383))
+* Visueel Regressietesten: Nieuwe snapshot zonder baseline laat een branch-build niet meer falen ([#4001](https://github.com/dso-toolkit/dso-toolkit/issues/4001))
 
 ## 🥬 Release 100.4.0 - 2026-09-23
 
