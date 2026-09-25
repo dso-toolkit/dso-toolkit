@@ -1,6 +1,8 @@
-import { Directive, ElementRef, HostListener, effect, input, model, output } from "@angular/core";
+import { Directive, ElementRef, HostListener, input, model, output } from "@angular/core";
 import type { FormValueControl } from "@angular/forms/signals";
 import type { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "@dso-toolkit/core/dist/components";
+
+import { syncFieldControlProperties } from "./sync-field-control-properties";
 
 /**
  * Adapts `dso-date-picker` to Angular Signal Forms by implementing
@@ -19,18 +21,12 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
   readonly invalid = input(false);
   readonly touched = output<boolean>();
 
-  constructor(private elementRef: ElementRef<HTMLDsoDatePickerElement>) {
-    effect(() => {
-      this.elementRef.nativeElement.value = this.value();
-    });
-    effect(() => {
-      this.elementRef.nativeElement.disabled = this.disabled();
-    });
-    effect(() => {
-      this.elementRef.nativeElement.required = this.required();
-    });
-    effect(() => {
-      this.elementRef.nativeElement.invalid = this.invalid();
+  constructor(elementRef: ElementRef<HTMLDsoDatePickerElement>) {
+    syncFieldControlProperties(elementRef.nativeElement, "value", {
+      value: this.value,
+      disabled: this.disabled,
+      required: this.required,
+      invalid: this.invalid,
     });
   }
 
