@@ -1,6 +1,8 @@
-import { Directive, ElementRef, HostListener, effect, input, model, output } from "@angular/core";
+import { Directive, ElementRef, HostListener, input, model, output } from "@angular/core";
 import { FormCheckboxControl } from "@angular/forms/signals";
 import type { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
+
+import { syncFieldControlProperties } from "./sync-field-control-properties";
 
 /**
  * Adapts `dso-selectable[type=checkbox]` to Angular Signal Forms by implementing
@@ -19,18 +21,12 @@ export class DsoSelectableCheckboxFieldControl implements FormCheckboxControl {
   readonly invalid = input(false);
   readonly touched = output<boolean>();
 
-  constructor(private elementRef: ElementRef<HTMLDsoSelectableElement>) {
-    effect(() => {
-      this.elementRef.nativeElement.checked = this.checked();
-    });
-    effect(() => {
-      this.elementRef.nativeElement.disabled = this.disabled();
-    });
-    effect(() => {
-      this.elementRef.nativeElement.required = this.required();
-    });
-    effect(() => {
-      this.elementRef.nativeElement.invalid = this.invalid();
+  constructor(elementRef: ElementRef<HTMLDsoSelectableElement>) {
+    syncFieldControlProperties(elementRef.nativeElement, "checked", {
+      value: this.checked,
+      disabled: this.disabled,
+      required: this.required,
+      invalid: this.invalid,
     });
   }
 

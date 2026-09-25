@@ -17,6 +17,11 @@
         "commands": ["ng test component-library"],
         "cwd": "angular-workspace"
       },
+      "configurations": {
+        "ci": {
+          "commands": ["ng test component-library --watch=false"]
+        }
+      },
       "dependsOn": ["^build"]
     }
   }
