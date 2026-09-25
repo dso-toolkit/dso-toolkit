@@ -28,14 +28,26 @@ import { form } from "@angular/forms/signals";
 
 @Component({
   template: `
-    <dso-date-picker [formField]="myForm.datum" />
-    <dso-selectable type="checkbox" value="akkoord" [formField]="myForm.akkoord" />
+    <dso-date-picker [formField]="myForm.datum" minDate="01-01-2024" maxDate="31-12-2024" />
+    <dso-selectable type="checkbox" [formField]="myForm.akkoord" />
   `,
 })
 export class ExampleComponent {
   model = signal({ datum: "", akkoord: false });
   myForm = form(this.model);
 }
+```
+
+Gebruik bij een Date Picker met `[formField]` altijd `minDate` en `maxDate` voor datumgrenzen,
+niet `min` en `max`. Angular Signal Forms reserveert die laatste namen voor numerieke
+formuliergrenzen.
+
+```html
+<!-- Statische datumgrenzen -->
+<dso-date-picker [formField]="myForm.datum" minDate="01-01-2024" maxDate="31-12-2024" />
+
+<!-- Dynamische datumgrenzen -->
+<dso-date-picker [formField]="myForm.datum" [minDate]="minimumDate()" [maxDate]="maximumDate()" />
 ```
 
 `dso-selectable[type=radio]` wordt (nog) niet ondersteund: de component gebruikt `value` als vaste

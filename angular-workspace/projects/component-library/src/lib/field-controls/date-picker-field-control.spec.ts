@@ -1,40 +1,27 @@
 import { Component, signal } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import type { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "@dso-toolkit/core/dist/components";
+import { FormField, disabled, form, required } from "@angular/forms/signals";
+import type { DatePickerChangeEvent } from "@dso-toolkit/core/dist/components";
 
-import { DsoDatePicker } from "../stencil-generated/components";
-
-import { DsoDatePickerFieldControl } from "./date-picker-field-control";
+import { DsoToolkitModule } from "../component-library.module";
 
 @Component({
   selector: "dso-test-date-picker",
   standalone: true,
-  imports: [DsoDatePickerFieldControl, DsoDatePicker],
+  imports: [DsoToolkitModule, FormField],
   template: `
-    <dso-date-picker
-      [value]="dateValue()"
-      [disabled]="isDisabled()"
-      [required]="isRequired()"
-      [invalid]="isInvalid()"
-      (dsoDateChange)="onDateChange($event)"
-      (dsoBlur)="onBlur()"
-    ></dso-date-picker>
+    <dso-date-picker [formField]="myForm.datum" [minDate]="minimumDate()" [maxDate]="maximumDate()"></dso-date-picker>
   `,
 })
 class TestDatePickerComponent {
-  dateValue = signal("01-01-2024");
+  model = signal({ datum: "01-01-2024" });
   isDisabled = signal(false);
-  isRequired = signal(false);
-  isInvalid = signal(false);
-  touched = signal(false);
-
-  onDateChange(event: DsoDatePickerCustomEvent<DatePickerChangeEvent>) {
-    this.dateValue.set(event.detail.value);
-  }
-
-  onBlur() {
-    this.touched.set(true);
-  }
+  minimumDate = signal("01-01-2024");
+  maximumDate = signal("31-12-2024");
+  myForm = form(this.model, (path) => {
+    required(path.datum);
+    disabled(path.datum, () => this.isDisabled());
+  });
 }
 
 function createDateChangeEvent(value: string): CustomEvent<DatePickerChangeEvent> {
@@ -70,7 +57,7 @@ describe("DsoDatePickerFieldControl", () => {
   it("should sync model to control", () => {
     expect(element.value).toBe("01-01-2024");
 
-    component.dateValue.set("15-03-2024");
+    component.model.set({ datum: "15-03-2024" });
     fixture.detectChanges();
 
     expect(element.value).toBe("15-03-2024");
@@ -80,16 +67,16 @@ describe("DsoDatePickerFieldControl", () => {
     element.dispatchEvent(createDateChangeEvent("20-05-2024"));
     fixture.detectChanges();
 
-    expect(component.dateValue()).toBe("20-05-2024");
+    expect(component.model().datum).toBe("20-05-2024");
   });
 
   it("should update touched state on blur", () => {
-    expect(component.touched()).toBe(false);
+    expect(component.myForm.datum().touched()).toBe(false);
 
     element.dispatchEvent(new CustomEvent("dsoBlur"));
     fixture.detectChanges();
 
-    expect(component.touched()).toBe(true);
+    expect(component.myForm.datum().touched()).toBe(true);
   });
 
   it("should sync disabled state", () => {
@@ -107,16 +94,32 @@ describe("DsoDatePickerFieldControl", () => {
   });
 
   it("should sync required state", () => {
-    component.isRequired.set(true);
-    fixture.detectChanges();
-
     expect(element.required).toBe(true);
   });
 
+  it("should sync date boundaries", () => {
+    expect(element.min).toBe("01-01-2024");
+    expect(element.max).toBe("31-12-2024");
+
+    component.minimumDate.set("15-01-2024");
+    component.maximumDate.set("15-12-2024");
+    fixture.detectChanges();
+
+    expect(element.min).toBe("15-01-2024");
+    expect(element.max).toBe("15-12-2024");
+  });
+
   it("should sync invalid state", () => {
-    component.isInvalid.set(true);
+    expect(element.invalid).toBe(false);
+
+    component.model.set({ datum: "" });
     fixture.detectChanges();
 
     expect(element.invalid).toBe(true);
+
+    component.model.set({ datum: "01-01-2024" });
+    fixture.detectChanges();
+
+    expect(element.invalid).toBe(false);
   });
 });

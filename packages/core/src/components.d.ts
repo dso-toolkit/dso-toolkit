@@ -495,11 +495,11 @@ export namespace Components {
         /**
           * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
          */
-        "max": string | undefined;
+        "max": string | number | undefined;
         /**
           * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
          */
-        "min": string | undefined;
+        "min": string | number | undefined;
         /**
           * Name of the date picker input.
           * @default "dso-date"
@@ -3379,11 +3379,11 @@ declare namespace LocalJSX {
         /**
           * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
          */
-        "max"?: string | undefined;
+        "max"?: string | number | undefined;
         /**
           * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
          */
-        "min"?: string | undefined;
+        "min"?: string | number | undefined;
         /**
           * Name of the date picker input.
           * @default "dso-date"
@@ -4819,8 +4819,8 @@ declare namespace LocalJSX {
         "describedBy": string;
         "dsoAutofocus": boolean;
         "value": string;
-        "min": string | undefined;
-        "max": string | undefined;
+        "min": string;
+        "max": string;
     }
     interface DsoDocumentCardAttributes {
         "href": string | undefined;

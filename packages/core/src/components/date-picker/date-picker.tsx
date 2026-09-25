@@ -76,14 +76,14 @@ export class DsoDatePicker implements ComponentInterface {
    * This setting can be used alone or together with the max property.
    */
   @Prop()
-  min: string | undefined;
+  min: string | number | undefined;
 
   /**
    * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
    * This setting can be used alone or together with the min property.
    */
   @Prop()
-  max: string | undefined;
+  max: string | number | undefined;
 
   /**
    * Events section.
