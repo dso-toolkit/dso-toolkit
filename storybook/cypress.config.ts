@@ -2,6 +2,9 @@ import { addMatchImageSnapshotPlugin } from "@simonsmith/cypress-image-snapshot/
 import { defineConfig } from "cypress";
 
 export default defineConfig({
+  expose: {
+    requireSnapshots: process.env.CYPRESS_requireSnapshots === "true",
+  },
   e2e: {
     setupNodeEvents(on, _config) {
       addMatchImageSnapshotPlugin(on);
