@@ -3,12 +3,13 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormField, disabled, form, required } from "@angular/forms/signals";
 import type { DatePickerChangeEvent } from "@dso-toolkit/core/dist/components";
 
-import { DsoToolkitModule } from "../component-library.module";
+import { DsoDatePicker } from "../../../src/lib/stencil-generated/components";
+import { DsoDatePickerFieldControl } from "../public-api";
 
 @Component({
   selector: "dso-test-date-picker",
   standalone: true,
-  imports: [DsoToolkitModule, FormField],
+  imports: [DsoDatePicker, DsoDatePickerFieldControl, FormField],
   template: `
     <dso-date-picker [formField]="myForm.datum" [minDate]="minimumDate()" [maxDate]="maximumDate()"></dso-date-picker>
   `,
