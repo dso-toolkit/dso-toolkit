@@ -1,28 +1,35 @@
-import type { Meta } from "@storybook/web-components-vite";
-import { Button, IconButton, InfoButton } from "dso-toolkit";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
+
+import { Button } from "../../components/button/button.models.js";
+import { buttonTemplate } from "../../components/button/button.template.js";
+import { IconButton } from "../../components/icon-button/icon-button.models.js";
+import { iconButtonTemplate } from "../../components/icon-button/icon-button.template.js";
+import { InfoButton } from "../../components/info-button/info-button.models.js";
+import { infoButtonTemplate } from "../../components/info-button/info-button.template.js";
+import { examplePageMeta } from "../../example-page-meta.js";
+
 import "./button-on-color.scss";
 
-import { examplePageStories } from "../../example-page-stories";
-import { Templates } from "../../templates";
-
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Patronen/Button on color",
 };
 
 export default meta;
 
-export const ButtonOnColor = examplePageStories((templates) => {
-  return html`
-    <div class="button-container-demo">${allButtons(templates)}</div>
-    <div class="button-container-demo background-dark-demo">${allButtons(templates)}</div>
-    <div class="button-container-demo background-light-demo">${allButtons(templates)}</div>
-  `;
-});
+export const ButtonOnColor: StoryObj = {
+  name: "Button on color",
+  render: () => {
+    return html`
+      <div class="button-container-demo">${allButtons()}</div>
+      <div class="button-container-demo background-dark-demo">${allButtons()}</div>
+      <div class="button-container-demo background-light-demo">${allButtons()}</div>
+    `;
+  },
+};
 
-const allButtons = (templates: Templates) => {
-  const { buttonTemplate, iconButtonTemplate, infoButtonTemplate } = templates;
-
+const allButtons = () => {
   return html`
     ${renderSection("Primary buttons", primaryButtons, buttonTemplate)}
     ${renderSection("Secondary buttons", secondaryButtons, buttonTemplate)}
@@ -95,7 +102,7 @@ const mapIconButtons: IconButton[] = [
   { label: "Map Icon Button (Disabled)", variant: "map", icon: "chevron-right", disabled: true },
 ];
 
-const infoButtons: InfoButton<TemplateResult>[] = [
+const infoButtons: InfoButton[] = [
   { label: "Default active", active: true },
   { label: "Information", children: html`Dit is content in de tooltip` },
 ];

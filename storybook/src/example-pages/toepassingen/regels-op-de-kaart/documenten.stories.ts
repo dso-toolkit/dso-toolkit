@@ -1,12 +1,28 @@
-import type { Meta } from "@storybook/web-components-vite";
-import { ViewerGridTab, kaartlagenTabItem, legendArgs, legendaTabItem } from "dso-toolkit";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 
-import { featuresContent } from "../../../components/document-header/document-header.content";
-import { kaartlagenRichContent } from "../../../components/legend/legend.content";
-import { examplePageStories } from "../../../example-page-stories";
-import { headerPartial } from "../../partials/header";
+import { accordionTemplate } from "../../../components/accordion/accordion.template.js";
+import { bannerTemplate } from "../../../components/banner/banner.template.js";
+import { buttonTemplate } from "../../../components/button/button.template.js";
+import { cardContainerTemplate } from "../../../components/card-container/card-container.template.js";
+import { featuresContent } from "../../../components/document-header/document-header.content.js";
+import { documentHeaderTemplate } from "../../../components/document-header/document-header.template.js";
+import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
+import { iconTemplate } from "../../../components/icon/icon.template.js";
+import { kaartlagenTabItem, legendArgs, legendaTabItem } from "../../../components/legend/legend.args.js";
+import { kaartlagenRichContent } from "../../../components/legend/legend.content.js";
+import { legendTemplate } from "../../../components/legend/legend.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
+import { mapMessageTemplate } from "../../../components/map-message/map-message.template.js";
+import { navbarTemplate } from "../../../components/navbar/navbar.template.js";
+import { plekinfoCardTemplate } from "../../../components/plekinfo-card/plekinfo-card.template.js";
+import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
+import { selectableTemplate } from "../../../components/selectable/selectable.template.js";
+import { ViewerGridTab } from "../../../components/viewer-grid/viewer-grid.models.js";
+import { viewerGridTemplate } from "../../../components/viewer-grid/viewer-grid.template.js";
+import { examplePageMeta } from "../../../example-page-meta.js";
+import { headerPartial } from "../../partials/header.js";
 
 import {
   advancedSelect,
@@ -16,42 +32,64 @@ import {
   mainSubmenu,
   plekinfoCardsListActiviteiten,
   plekinfoCardsListLocaties,
-} from "./documenten.content";
+} from "./documenten.content.js";
 import { openLayersMapPartial } from "./open-layers-map.partial";
 
-const meta: Meta = {
-  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten",
-};
-
-export default meta;
-
-const Documenten = examplePageStories<{
+type DocumentenArgs = {
   print: boolean;
   filterPanelOpen: boolean;
   mainPanelOpen: boolean;
   legendOpen: boolean;
   sticky: boolean;
   activeTab: ViewerGridTab;
-}>(
-  (templates, { print, filterPanelOpen, mainPanelOpen, legendOpen, sticky, activeTab }) => {
-    const {
-      accordionTemplate,
-      linkTemplate,
-      bannerTemplate,
-      buttonTemplate,
-      cardContainerTemplate,
-      documentHeaderTemplate,
-      highlightBoxTemplate,
-      iconTemplate,
-      legendTemplate,
-      mapMessageTemplate,
-      navbarTemplate,
-      plekinfoCardTemplate,
-      searchBarTemplate,
-      selectableTemplate,
-      viewerGridTemplate,
-    } = templates;
+};
 
+const meta: Meta<DocumentenArgs> = {
+  ...examplePageMeta(),
+  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten",
+  argTypes: {
+    print: {
+      control: { type: "boolean" },
+      table: { category: "Viewer Grid" },
+    },
+    filterPanelOpen: {
+      control: { type: "boolean" },
+      table: { category: "Viewer Grid" },
+    },
+    mainPanelOpen: {
+      control: { type: "boolean" },
+      table: { category: "Viewer Grid" },
+    },
+    legendOpen: {
+      control: { type: "boolean" },
+      table: { category: "Legend" },
+    },
+    sticky: {
+      control: { type: "boolean" },
+      table: { category: "Document Header" },
+    },
+    activeTab: {
+      options: [undefined, "search", "map", "document"],
+      control: {
+        type: "select",
+      },
+      table: { category: "Viewer Grid" },
+    },
+  },
+  args: {
+    print: false,
+    filterPanelOpen: true,
+    mainPanelOpen: true,
+    legendOpen: true,
+    sticky: false,
+    activeTab: "document",
+  },
+};
+
+export default meta;
+
+export const Documenten: StoryObj<DocumentenArgs> = {
+  render: ({ print, filterPanelOpen, mainPanelOpen, legendOpen, sticky, activeTab }) => {
     return html`
       <style>
         .demo-container {
@@ -102,7 +140,7 @@ const Documenten = examplePageStories<{
             </style>`
       }
       <div class="demo-container ${classMap({ print })}">
-        ${headerPartial(templates, header)}
+        ${headerPartial(header())}
 
         <main class="demo-main ${classMap({ print })}">
           ${viewerGridTemplate({
@@ -171,7 +209,7 @@ const Documenten = examplePageStories<{
                 variant: "tertiary",
                 icon: { icon: "chevron-up" },
               })}
-              ${navbarTemplate(mainSubmenu)} ${cardContainerTemplate({ mode: "list", cards: documentCardList })}
+              ${navbarTemplate(mainSubmenu())} ${cardContainerTemplate({ mode: "list", cards: documentCardList() })}
             `,
             map: html`
               ${
@@ -215,11 +253,11 @@ const Documenten = examplePageStories<{
                 title: "Omgevingsplan gemeente Gouda",
                 type: "Omgevingsplan - Gemeente Gouda",
                 owner: "",
-                featuresContent: featuresContent(templates),
-                advancedSelect,
+                featuresContent: featuresContent(),
+                advancedSelect: advancedSelect(),
                 sticky,
               })}
-              ${navbarTemplate(documentPanelSubmenu)}
+              ${navbarTemplate(documentPanelSubmenu())}
               ${highlightBoxTemplate({
                 content: selectableTemplate({
                   type: "checkbox",
@@ -238,7 +276,7 @@ const Documenten = examplePageStories<{
                     heading: "h4",
                     open: true,
                     content: html`
-                      ${plekinfoCardsListActiviteiten.map((plekinfoCard) => {
+                      ${plekinfoCardsListActiviteiten().map((plekinfoCard) => {
                         return html`${plekinfoCardTemplate({
                             ...plekinfoCard,
                             symbool: iconTemplate({ icon: "home" }),
@@ -253,7 +291,7 @@ const Documenten = examplePageStories<{
                     heading: "h4",
                     open: true,
                     content: html`
-                      ${plekinfoCardsListLocaties.map((plekinfoCard) =>
+                      ${plekinfoCardsListLocaties().map((plekinfoCard) =>
                         plekinfoCardTemplate({
                           ...plekinfoCard,
                           symbool: iconTemplate({ icon: "home" }),
@@ -269,45 +307,4 @@ const Documenten = examplePageStories<{
       </div>
     `;
   },
-  {
-    argTypes: {
-      print: {
-        control: { type: "boolean" },
-        table: { category: "Viewer Grid" },
-      },
-      filterPanelOpen: {
-        control: { type: "boolean" },
-        table: { category: "Viewer Grid" },
-      },
-      mainPanelOpen: {
-        control: { type: "boolean" },
-        table: { category: "Viewer Grid" },
-      },
-      legendOpen: {
-        control: { type: "boolean" },
-        table: { category: "Legend" },
-      },
-      sticky: {
-        control: { type: "boolean" },
-        table: { category: "Document Header" },
-      },
-      activeTab: {
-        options: [undefined, "search", "map", "document"],
-        control: {
-          type: "select",
-        },
-        table: { category: "Viewer Grid" },
-      },
-    },
-    args: {
-      print: false,
-      filterPanelOpen: true,
-      mainPanelOpen: true,
-      legendOpen: true,
-      sticky: false,
-      activeTab: "document",
-    },
-  },
-);
-
-export { Documenten };
+};

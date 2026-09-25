@@ -1,0 +1,33 @@
+import { TemplateResult } from "lit-html";
+
+export type AutosuggestMarkItem = { mark: string } | string;
+
+export interface Autosuggest {
+  suggestions: AutosuggestSuggestion[] | AutosuggestSuggestionGroup[] | null;
+  loading: boolean;
+  loadingLabel?: string;
+  loadingDelayed?: number;
+  notFoundLabel?: string;
+  dsoChange: (value: CustomEvent<string>) => void;
+  dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
+  dsoSearch: (value: CustomEvent<string>) => void;
+  children: TemplateResult | string;
+  mark?: (
+    suggestion: AutosuggestSuggestion,
+    text: string,
+    type: "value" | "type" | "extra",
+    extraIndex?: number,
+  ) => AutosuggestMarkItem[];
+}
+
+export interface AutosuggestSuggestion {
+  extras?: string[];
+  value: string;
+  type?: string;
+  item?: unknown;
+}
+
+export interface AutosuggestSuggestionGroup {
+  groupLabel: string;
+  suggestions: AutosuggestSuggestion[];
+}

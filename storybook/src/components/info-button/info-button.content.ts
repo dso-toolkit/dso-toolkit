@@ -1,9 +1,10 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { linkTemplate } from "../link/link.template.js";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-export function children({ linkTemplate, richContentTemplate }: Templates) {
-  return richContentTemplate({
+export function children() {
+  return html`${richContentTemplate({
     children: html`
       <h2>Introductie DSO</h2>
       <p>
@@ -16,5 +17,5 @@ export function children({ linkTemplate, richContentTemplate }: Templates) {
         van de landelijke voorziening (DSO-LV), zoals het Omgevingsloket.
       </p>
     `,
-  });
+  })}`;
 }

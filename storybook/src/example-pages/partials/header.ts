@@ -1,15 +1,12 @@
-import { Header } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 
-import { Templates } from "../../templates";
-import { breadcrumbs } from "../content/header.content";
+import { breadcrumbsTemplate } from "../../components/breadcrumbs/breadcrumbs.template.js";
+import { Header } from "../../components/header/header.models.js";
+import { headerTemplate } from "../../components/header/header.template.js";
+import { breadcrumbs } from "../content/header.content.js";
 
-export function headerPartial(
-  { headerTemplate, breadcrumbsTemplate }: Templates,
-  header: Header,
-  showBreadcrumbs = false,
-) {
+export function headerPartial(header: Header, showBreadcrumbs = false) {
   return html`<header>
-    ${headerTemplate(header)} ${showBreadcrumbs ? breadcrumbsTemplate(breadcrumbs) : nothing}
+    ${headerTemplate(header)} ${showBreadcrumbs ? breadcrumbsTemplate(breadcrumbs()) : nothing}
   </header>`;
 }

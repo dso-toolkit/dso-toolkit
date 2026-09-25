@@ -1,9 +1,9 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-export function infoRichContent({ richContentTemplate }: Templates) {
-  return richContentTemplate({
+export function infoRichContent() {
+  return html`${richContentTemplate({
     children: html`
       <p>Rijke inhoud</p>
       <p>Ziet er zo uit</p>
@@ -13,5 +13,5 @@ export function infoRichContent({ richContentTemplate }: Templates) {
       <p>Kan allemaal</p>
     `,
     slot: "info",
-  });
+  })}`;
 }

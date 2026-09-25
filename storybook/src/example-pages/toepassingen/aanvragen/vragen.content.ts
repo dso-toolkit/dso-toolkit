@@ -1,9 +1,10 @@
-import { FormGroupCheckboxes, FormGroupRadios } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import { Templates } from "../../../templates";
+import { FormGroupCheckboxes } from "../../../components/form-group/form-group-checkboxes.models.js";
+import { FormGroupRadios } from "../../../components/form-group/form-group-radios.models.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
 
-export function radios({ richContentTemplate }: Templates): FormGroupRadios<TemplateResult> {
+export function radios(): FormGroupRadios {
   return {
     group: "radios",
     id: "radios",
@@ -33,22 +34,24 @@ export function radios({ richContentTemplate }: Templates): FormGroupRadios<Temp
   };
 }
 
-export const checkboxes: FormGroupCheckboxes<TemplateResult> = {
-  group: "checkboxes",
-  id: "checkboxes",
-  label: "Test Vraag 2",
-  selectables: [
-    {
-      id: "antwoord-checkbox-1",
-      label: "Antwoord 1",
-      value: "Antwoord 1",
-      type: "checkbox",
-    },
-    {
-      id: "antwoord-checkbox-2",
-      label: "Antwoord 2",
-      value: "Antwoord 2",
-      type: "checkbox",
-    },
-  ],
-};
+export function checkboxes(): FormGroupCheckboxes {
+  return {
+    group: "checkboxes",
+    id: "checkboxes",
+    label: "Test Vraag 2",
+    selectables: [
+      {
+        id: "antwoord-checkbox-1",
+        label: "Antwoord 1",
+        value: "Antwoord 1",
+        type: "checkbox",
+      },
+      {
+        id: "antwoord-checkbox-2",
+        label: "Antwoord 2",
+        value: "Antwoord 2",
+        type: "checkbox",
+      },
+    ],
+  };
+}

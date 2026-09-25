@@ -38,12 +38,15 @@ Componenten waarvan een web component aanwezig is hanteren de `dso` prefix voor 
 
 ### Storybook definities
 
-Per component wordt de Storybook definitie bijgehouden. In de basis is dit een `export function storiesOfComponent(storybookParameters, componentParameters)`:
+Per component staat de Storybook definitie in `storybook/src/components/<component>/`, geschreven in native CSF:
 
-- `storybookParameters` is een component-overstijgend model voor de basis functionaliteit van Storybook.
-- `componentParameters` is een component specifiek model. Over het algemeen zal dit alleen om de implementatie-specifieke template van het component gaan, maar voor complexe werkvormen kan dit uitgebreid worden om de documentatie te verbeteren.
+- `<component>.models.ts`: het component model.
+- `<component>.args.ts`: de args en argTypes, plus de mapper die args naar het model vertaalt.
+- `<component>.content.ts`: demo- en dummy content. Content is altijd een functie, ook zonder parameter, zodat elke story en elke render verse objecten krijgt. Id's in content zijn vaste, leesbare strings.
+- `<component>.template.ts`: de lit-html template. Heeft een template een ander component nodig, dan importeert die de template daarvan, zodat er per component één bron blijft.
+- `<component>.stories.ts`: de meta met titel, argTypes, args en render, en per story een named export met alleen wat afwijkt.
 
-Met deze opzet worden implementaties geforceerd identieke varianten op te leveren.
+Een nieuw component genereer je met `npx plop new-stencil-component`.
 
 ### Storybook args
 
@@ -51,7 +54,7 @@ Vanuit Storybook kan een component worden bediend en content worden aangeboden. 
 
 ## Storybook
 
-De diverse implementaties van de DSO Toolkit componenten worden ieder in een eigen Storybook getoond.
+De componenten staan in één Storybook (`storybook/`). De HTML/CSS-componenten en de Web Components staan daar naast elkaar. De React- en Angular-bindings hebben geen eigen Storybook.
 
 ### HTML/CSS components
 
@@ -67,7 +70,7 @@ React Components worden gegenereerd door Stencil. Voor elke Web Component wordt 
 
 ### Angular Components
 
-We leveren geen Angular componenten. Angular heeft first class support voor Web Componenten. Voor meer informatie, zie de [Stencil documentatie](https://github.com/ionic-team/stencil-site/blob/f9289b0d52b13576b2dfcbdf4166e5f1aebb33e2/src/docs/framework-integration/angular.md#angular). Het hoofdstuk "Bindings" is niet van toepassing.
+Angular Components worden, net als de React Components, gegenereerd door Stencil. Het package `@dso-toolkit/angular` bevat voor elke Web Component een proxy-component, zodat de Angular developer (afnemer) de Web Components met Angular-bindings kan gebruiken.
 
 ## Docusaurus
 

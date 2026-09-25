@@ -1,16 +1,19 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { iconButtonTemplate } from "../icon-button/icon-button.template.js";
+import { linkTemplate } from "../link/link.template.js";
 
-const imageOverlayHtml = `<dso-image-overlay>
+function imageOverlayHtml() {
+  return `<dso-image-overlay>
   <img
     src="images/canvas-home_iplo-min.png"
     alt="Een afbeelding"
     width="250"
   >
 </dso-image-overlay>`;
+}
 
-export function defaultTable({ linkTemplate }: Templates) {
+export function defaultTable() {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
@@ -58,7 +61,7 @@ export function defaultTable({ linkTemplate }: Templates) {
   };
 }
 
-export function imageOverlayTable({ linkTemplate }: Templates) {
+export function imageOverlayTable() {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
@@ -77,7 +80,7 @@ export function imageOverlayTable({ linkTemplate }: Templates) {
         "Nesbitt",
         "andrew",
         "<code>tr</code>",
-        imageOverlayHtml,
+        imageOverlayHtml(),
       ],
       ["3", linkTemplate({ label: "Taylor", url: "#taylor" }), "Otwell", "taylorotwell", "<code>tr</code>", ""],
       ["4", linkTemplate({ label: "Kitty", url: "#kitty" }), "Giraudel", "KittyGiraudel", "<code>tr</code>", ""],
@@ -85,7 +88,7 @@ export function imageOverlayTable({ linkTemplate }: Templates) {
   };
 }
 
-export function sortedAscendingTable({ linkTemplate }: Templates) {
+export function sortedAscendingTable() {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
@@ -133,7 +136,7 @@ export function sortedAscendingTable({ linkTemplate }: Templates) {
   };
 }
 
-export function sortedDescendingTable({ linkTemplate }: Templates) {
+export function sortedDescendingTable() {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
@@ -181,7 +184,7 @@ export function sortedDescendingTable({ linkTemplate }: Templates) {
   };
 }
 
-function actionsTemplate({ iconButtonTemplate }: Templates) {
+function actionsTemplate() {
   return html`${iconButtonTemplate({
     variant: "tertiary",
     label: "Bewerk",
@@ -194,9 +197,7 @@ function actionsTemplate({ iconButtonTemplate }: Templates) {
   })}`;
 }
 
-export function dataGridTable(templates: Templates, actions = false) {
-  const { linkTemplate } = templates;
-
+export function dataGridTable(actions = false) {
   return {
     caption: "Overzicht toegevoegde documenten",
     head: [{ label: "#" }, { label: "Documentnaam" }, { label: "Eigenaar" }, { label: "Upload datum" }].concat(
@@ -204,19 +205,19 @@ export function dataGridTable(templates: Templates, actions = false) {
     ),
     rows: [
       ["1", linkTemplate({ label: "Tekening.jpg", url: "#tekening" }), "P.K. Puk", "21-07-2019"].concat(
-        actions ? actionsTemplate(templates) : [],
+        actions ? actionsTemplate() : [],
       ),
       ["2", linkTemplate({ label: "Omgevingsplan.jpg", url: "#omgevingsplan" }), "H.G. Griff", "22-07-2019"].concat(
-        actions ? actionsTemplate(templates) : [],
+        actions ? actionsTemplate() : [],
       ),
       ["3", linkTemplate({ label: "Bodemonderzoek.jpg", url: "#bodemonderzoek" }), "P.K. Puk", "23-07-2019"].concat(
-        actions ? actionsTemplate(templates) : [],
+        actions ? actionsTemplate() : [],
       ),
       ["4", linkTemplate({ label: "Maatregelen.jpg", url: "#maatregelen" }), "P.K. Puk", "23-07-2019"].concat(
-        actions ? actionsTemplate(templates) : [],
+        actions ? actionsTemplate() : [],
       ),
       ["5", linkTemplate({ label: "Plattegrond.jpg", url: "#omgevingsplan" }), "P.K. Puk", "28-07-2019"].concat(
-        actions ? actionsTemplate(templates) : [],
+        actions ? actionsTemplate() : [],
       ),
     ],
   };

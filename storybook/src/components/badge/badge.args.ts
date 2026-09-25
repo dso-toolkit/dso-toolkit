@@ -1,0 +1,60 @@
+import { ArgTypes } from "@storybook/web-components-vite";
+import { TemplateResult } from "lit-html";
+
+import { noControl } from "../../shared/no-control.js";
+
+import { Badge, BadgeStatus, BadgeTooltipPlacement } from "./badge.models.js";
+
+const BADGE_STATUS_OPTIONS: (BadgeStatus | undefined)[] = [
+  undefined,
+  "primary",
+  "success",
+  "info",
+  "warning",
+  "error",
+  "outline",
+  "attention",
+];
+
+export interface BadgeArgs {
+  status?: BadgeStatus;
+  message: string;
+  label?: string;
+  toggletipPlacement: BadgeTooltipPlacement;
+  toggletip?: boolean;
+}
+
+export const badgeArgTypes: ArgTypes<BadgeArgs> = {
+  status: {
+    options: BADGE_STATUS_OPTIONS,
+    control: {
+      type: "select",
+    },
+  },
+  message: {
+    control: {
+      type: "text",
+    },
+  },
+  label: {
+    if: { arg: "toggletip", eq: true },
+    control: {
+      type: "text",
+    },
+  },
+  toggletipPlacement: {
+    if: { arg: "toggletip", eq: true },
+    options: ["top", "left", "bottom", "right"],
+    control: {
+      type: "select",
+    },
+  },
+  toggletip: noControl(),
+};
+
+export function badgeArgsMapper(a: BadgeArgs, children?: TemplateResult | string): Badge {
+  return {
+    ...a,
+    children,
+  };
+}

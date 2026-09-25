@@ -1,0 +1,63 @@
+import { html, nothing } from "lit-html";
+import { classMap } from "lit-html/directives/class-map.js";
+import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { SearchBar } from "./search-bar.models.js";
+
+export function searchBarTemplate({
+  label,
+  id,
+  icon,
+  hiddenLabel,
+  invalid,
+  placeholder,
+  value,
+  buttonLabel,
+  hideSearchButton,
+  ariaDescribedBy,
+  ariaErrorMessage,
+  resultsMessage,
+  resultsHidden,
+  clearButton,
+}: SearchBar) {
+  return html`
+    <div class="dso-search-bar ${classMap({ "dso-invalid": !!invalid })}">
+      <div class="dso-search-bar-input">
+        ${
+          label && icon && !hiddenLabel
+            ? html`
+                <label for=${id}>${label}</label>
+                <span class="dso-search-icon" aria-hidden="true"></span>
+              `
+            : label && !icon && !hiddenLabel
+              ? html`<label for=${id}>${label}</label>`
+              : label && hiddenLabel && icon
+                ? html`<label for=${id} class="dso-search-icon">${label}</label>`
+                : label && hiddenLabel && !icon
+                  ? html`<label for=${id} class="sr-only">${label}</label>`
+                  : !label && !hiddenLabel && icon
+                    ? html`<span class="dso-search-icon" aria-hidden="true"></span>`
+                    : nothing
+        }
+        <input
+          type="text"
+          id=${id}
+          placeholder=${ifDefined(placeholder || undefined)}
+          value=${ifDefined(value || undefined)}
+          aria-describedby=${ifDefined(ariaDescribedBy || undefined)}
+          aria-errormessage=${ifDefined(ariaErrorMessage || undefined)}
+          aria-invalid=${ifDefined(!!invalid || undefined)}
+        />
+        ${clearButton ? html`<button type="button">Zoekopdracht legen</button>` : nothing}
+      </div>
+      <button class="dso-secondary ${classMap({ "sr-only": !!hideSearchButton })}">${buttonLabel}</button>
+    </div>
+    ${
+      resultsMessage
+        ? html`<div class="dso-results ${classMap({ "sr-only": !!resultsHidden })}" aria-live="polite">
+            ${resultsMessage}
+          </div>`
+        : nothing
+    }
+  `;
+}

@@ -1,127 +1,134 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
+import { linkListTemplate } from "../../../components/link-list/link-list.template.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
+import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
+import { examplePageMeta } from "../../../example-page-meta.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
-import { linkList } from "./helpcentrum.content";
+import { linkList } from "./helpcentrum.content.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Loket/Helpcentrum",
 };
 
 export default meta;
 
-const Helpcentrum = examplePageStories((templates) => {
-  const { linkListTemplate, highlightBoxTemplate, richContentTemplate, searchBarTemplate } = templates;
-
-  return html`
-    <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
-      <main>
-        <style>
-          .my-beautiful-image {
-            background-image: url("images/hero2.jpeg");
-          }
-        </style>
-        <dso-hero-image>
-          <div slot="image" class="my-beautiful-image"></div>
-          ${highlightBoxTemplate({
-            white: true,
-            content: richContentTemplate({
-              children: html`
-                <h1>Helpcentrum</h1>
-                <p>
-                  Heeft u een vraag over de werking van de Vergunningcheck of over geldende regelgeving? Wij hebben de
-                  veelgestelde vragen per thema voor u op een rij gezet.
-                </p>
-              `,
-            }),
-          })}
-        </dso-hero-image>
-        <h2>Waarmee kunnen we u helpen?</h2>
-        <div class="row">
-          <div class="col-md-8">
-            ${searchBarTemplate({
-              label: "Zoeken",
-              hiddenLabel: true,
-              placeholder: "Helpartikelen zoeken",
-              buttonLabel: "Zoeken",
-              icon: true,
-              id: "helpcentrum-search-bar",
-            })}
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-md-4">
-            <h3>U wilt weten hoe het Omgevingsloket werkt</h3>
-            ${linkListTemplate(linkList)}
-          </div>
-          <div class="col-md-4">
-            <h3>U wilt weten of u werkzaamheden mag uitvoeren</h3>
-            ${linkListTemplate(linkList)}
-          </div>
-          <div class="col-md-4">
-            <h3>U wilt een aanvraag of melding indienen</h3>
-            ${linkListTemplate(linkList)}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <h3>U wilt weten welke regels er gelden en plannen bekijken</h3>
-            ${linkListTemplate(linkList)}
-          </div>
-          <div class="col-md-4">
-            <h3>U wilt weten welke algemene regels gelden voor uw bedrijf of project</h3>
-            ${linkListTemplate(linkList)}
-          </div>
-        </div>
-        <hr />
-        <h2>Overige Vragen</h2>
-        <div class="row dso-equal-heights">
-          <div class="col-md-6">
+export const Helpcentrum: StoryObj = {
+  render: () => {
+    return html`
+      <div class="container">
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Regels op de kaart") })}
+        <main>
+          <style>
+            .my-beautiful-image {
+              background-image: url("images/hero2.jpeg");
+            }
+          </style>
+          <dso-hero-image>
+            <div slot="image" class="my-beautiful-image"></div>
             ${highlightBoxTemplate({
               white: true,
-              dropShadow: true,
               content: richContentTemplate({
                 children: html`
-                  <div class="row">
-                    <div class="col-md-4"><img src="images/sneeuwpop.png" class="img-circle" aria-hidden="true" /></div>
-                    <div class="col-md-8">
-                      <h3>Vragen over uw vergunning of melding?</h3>
-                      <p>Neem dan contact op met uw gemeente of waterschap.</p>
-                    </div>
-                  </div>
+                  <h1>Helpcentrum</h1>
+                  <p>
+                    Heeft u een vraag over de werking van de Vergunningcheck of over geldende regelgeving? Wij hebben de
+                    veelgestelde vragen per thema voor u op een rij gezet.
+                  </p>
                 `,
               }),
             })}
+          </dso-hero-image>
+          <h2>Waarmee kunnen we u helpen?</h2>
+          <div class="row">
+            <div class="col-md-8">
+              ${searchBarTemplate({
+                label: "Zoeken",
+                hiddenLabel: true,
+                placeholder: "Helpartikelen zoeken",
+                buttonLabel: "Zoeken",
+                icon: true,
+                id: "helpcentrum-search-bar",
+              })}
+            </div>
           </div>
-          <div class="col-md-6">
-            ${highlightBoxTemplate({
-              white: true,
-              dropShadow: true,
-              content: richContentTemplate({
-                children: html`
-                  <div class="row">
-                    <div class="col-md-4"><img src="images/sneeuwpop.png" class="img-circle" aria-hidden="true" /></div>
-                    <div class="col-md-8">
-                      <h3>Vragen over de website?</h3>
-                      <p>Neem dan contact op met het informatiepunt Leefomgeving.</p>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <h3>U wilt weten hoe het Omgevingsloket werkt</h3>
+              ${linkListTemplate(linkList())}
+            </div>
+            <div class="col-md-4">
+              <h3>U wilt weten of u werkzaamheden mag uitvoeren</h3>
+              ${linkListTemplate(linkList())}
+            </div>
+            <div class="col-md-4">
+              <h3>U wilt een aanvraag of melding indienen</h3>
+              ${linkListTemplate(linkList())}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <h3>U wilt weten welke regels er gelden en plannen bekijken</h3>
+              ${linkListTemplate(linkList())}
+            </div>
+            <div class="col-md-4">
+              <h3>U wilt weten welke algemene regels gelden voor uw bedrijf of project</h3>
+              ${linkListTemplate(linkList())}
+            </div>
+          </div>
+          <hr />
+          <h2>Overige Vragen</h2>
+          <div class="row dso-equal-heights">
+            <div class="col-md-6">
+              ${highlightBoxTemplate({
+                white: true,
+                dropShadow: true,
+                content: richContentTemplate({
+                  children: html`
+                    <div class="row">
+                      <div class="col-md-4">
+                        <img src="images/sneeuwpop.png" class="img-circle" aria-hidden="true" />
+                      </div>
+                      <div class="col-md-8">
+                        <h3>Vragen over uw vergunning of melding?</h3>
+                        <p>Neem dan contact op met uw gemeente of waterschap.</p>
+                      </div>
                     </div>
-                  </div>
-                `,
-              }),
-            })}
+                  `,
+                }),
+              })}
+            </div>
+            <div class="col-md-6">
+              ${highlightBoxTemplate({
+                white: true,
+                dropShadow: true,
+                content: richContentTemplate({
+                  children: html`
+                    <div class="row">
+                      <div class="col-md-4">
+                        <img src="images/sneeuwpop.png" class="img-circle" aria-hidden="true" />
+                      </div>
+                      <div class="col-md-8">
+                        <h3>Vragen over de website?</h3>
+                        <p>Neem dan contact op met het informatiepunt Leefomgeving.</p>
+                      </div>
+                    </div>
+                  `,
+                }),
+              })}
+            </div>
           </div>
-        </div>
-      </main>
-      ${footerPartial(templates)}
-    </div>
-  `;
-});
-
-export { Helpcentrum };
+        </main>
+        ${footerPartial()}
+      </div>
+    `;
+  },
+};

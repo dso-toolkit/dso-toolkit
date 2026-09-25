@@ -1,6 +1,12 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { buttonTemplate } from "../button/button.template.js";
+import { datePickerTemplate } from "../date-picker/date-picker.template.js";
+import { infoButtonTemplate } from "../info-button/info-button.template.js";
+import { linkTemplate } from "../link/link.template.js";
+import { listTemplate } from "../list/list.template.js";
+import { progressIndicatorTemplate } from "../progress-indicator/progress-indicator.template.js";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
 export function activeBody() {
   return html`<p>
@@ -9,7 +15,7 @@ export function activeBody() {
   </p>`;
 }
 
-export function activeFooter({ buttonTemplate }: Templates) {
+export function activeFooter() {
   return html`
     ${buttonTemplate({ label: "Annuleren", type: "button", variant: "tertiary" })}
     ${buttonTemplate({ label: "Secundaire actie", type: "button", variant: "secondary" })}
@@ -17,7 +23,7 @@ export function activeFooter({ buttonTemplate }: Templates) {
   `;
 }
 
-export function passiveBody({ listTemplate }: Templates) {
+export function passiveBody() {
   return html`
     <p>Gebruik de volgende bestandsformaten voor een document:</p>
     ${listTemplate({
@@ -48,11 +54,11 @@ export function passiveBody({ listTemplate }: Templates) {
   `;
 }
 
-export function passiveFooter({ buttonTemplate }: Templates) {
+export function passiveFooter() {
   return buttonTemplate({ label: "Sluiten", variant: "tertiary", type: "button" });
 }
 
-export function confirmBody({ infoButtonTemplate, linkTemplate, richContentTemplate }: Templates) {
+export function confirmBody() {
   return html`
     <p>
       Welkom op het nieuwe Omgevingsloket. Deze website is nog in ontwikkeling. Dat betekent dat bepaalde onderdelen nog
@@ -71,20 +77,21 @@ export function confirmBody({ infoButtonTemplate, linkTemplate, richContentTempl
     </p>
   `;
 }
-export function confirmFooter({ buttonTemplate }: Templates) {
+
+export function confirmFooter() {
   return html`
     ${buttonTemplate({ label: "Secundaire actie", variant: "secondary", type: "button" })}
     ${buttonTemplate({ label: "Bevestigen", variant: "primary", type: "button" })}
   `;
 }
 
-export function loadingBody({ progressIndicatorTemplate }: Templates) {
+export function loadingBody() {
   return progressIndicatorTemplate({
     label: "Resultaten laden. Een moment geduld.",
     block: true,
   });
 }
 
-export function datePickerBody({ datePickerTemplate }: Templates) {
+export function datePickerBody() {
   return datePickerTemplate({ id: "modal-id", disabled: false });
 }

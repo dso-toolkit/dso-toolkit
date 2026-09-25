@@ -1,5 +1,5 @@
-import { RowEqualHeightsDecorator } from "dso-toolkit";
+import { Decorator } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
 
-export const decorator: RowEqualHeightsDecorator<TemplateResult> = (story) =>
+export const decorator = (story: Parameters<Decorator>[0]): TemplateResult =>
   html`<div class="container">${story()}</div>`;

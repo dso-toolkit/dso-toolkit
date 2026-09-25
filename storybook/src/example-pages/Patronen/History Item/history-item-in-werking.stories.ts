@@ -1,24 +1,26 @@
-import { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
+import { headingTemplate } from "../../../components/heading/heading.template.js";
+import { historyItemTemplate } from "../../../components/history-item/history-item.template.js";
+import { examplePageMeta } from "../../../example-page-meta.js";
 
-import { historyItemsInWerking } from "./history-item.content";
+import { historyItemsInWerking } from "./history-item.content.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Patronen/History Item/In Werking",
 };
 
 export default meta;
 
-const HistoryItemInWerking = examplePageStories((templates) => {
-  const { headingTemplate, historyItemTemplate } = templates;
-
-  return html`${headingTemplate({ level: 5, children: "Gebeurtenis" })}
-    <hr />
-    <ul class="dso-list-unstyled">
-      ${historyItemsInWerking.map((historyItem) => html`<li>${historyItemTemplate(historyItem)}</li>`)}
-    </ul>`;
-});
-
-export { HistoryItemInWerking };
+export const HistoryItemInWerking: StoryObj = {
+  name: "In Werking",
+  render: () => {
+    return html`${headingTemplate({ level: 5, children: "Gebeurtenis" })}
+      <hr />
+      <ul class="dso-list-unstyled">
+        ${historyItemsInWerking().map((historyItem) => html`<li>${historyItemTemplate(historyItem)}</li>`)}
+      </ul>`;
+  },
+};

@@ -1,0 +1,65 @@
+import { ArgTypes } from "@storybook/web-components-vite";
+import { TemplateResult } from "lit-html";
+import { HandlerFunction } from "storybook/actions";
+
+import { argTypeAction } from "../../shared/arg-type-action.js";
+
+import { Alert, AlertStatus } from "./alert.models.js";
+
+export interface AlertArgs {
+  status: AlertStatus;
+  compact: boolean;
+  withRoleAlert: boolean;
+  withButton: boolean;
+  closable: boolean;
+  dsoClose: HandlerFunction;
+}
+
+export const alertArgTypes: ArgTypes<AlertArgs> = {
+  status: {
+    options: ["success", "info", "warning", "error"],
+    control: {
+      type: "select",
+    },
+  },
+  compact: {
+    control: {
+      type: "boolean",
+    },
+  },
+  withRoleAlert: {
+    control: {
+      type: "boolean",
+    },
+  },
+  withButton: {
+    control: {
+      type: "boolean",
+    },
+  },
+  closable: {
+    control: {
+      type: "boolean",
+    },
+  },
+  dsoClose: argTypeAction(),
+};
+
+export function alertArgsMapper(a: AlertArgs, message: TemplateResult | string): Alert {
+  return {
+    message,
+    status: a.status,
+    compact: a.compact,
+    interaction: a.withButton
+      ? {
+          compact: true,
+          variant: "primary",
+          type: "button",
+          label: "Button",
+        }
+      : undefined,
+    withRoleAlert: a.withRoleAlert,
+    closable: a.closable,
+    dsoClose: (e) => a.dsoClose(e.detail),
+  };
+}

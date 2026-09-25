@@ -1,9 +1,11 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { buttonRowTemplate } from "../button-row/button-row.template.js";
+import { linkTemplate } from "../link/link.template.js";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-export function richContent({ linkTemplate, richContentTemplate, buttonRowTemplate }: Templates) {
-  return richContentTemplate({
+export function richContent() {
+  return html`${richContentTemplate({
     children: html`
       <h2>Heading 2</h2>
 
@@ -33,5 +35,5 @@ export function richContent({ linkTemplate, richContentTemplate, buttonRowTempla
         ],
       })}
     `,
-  });
+  })}`;
 }

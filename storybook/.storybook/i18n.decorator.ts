@@ -1,12 +1,10 @@
-import { TemplateResult, html } from "lit-html";
+import { Decorator } from "@storybook/web-components-vite";
+import { html } from "lit-html";
 import { keyed } from "lit-html/directives/keyed.js";
-import { PartialStoryFn, StoryContext } from "storybook/internal/types";
-
-type I18nDecorator<TemplateFnReturnType> = (story: PartialStoryFn, context: StoryContext) => TemplateFnReturnType;
 
 let count = 0;
 
-export const i18nDecorator: I18nDecorator<TemplateResult> = (story: PartialStoryFn, context: StoryContext) => {
+export const i18nDecorator: Decorator = (story, context) => {
   // We zetten het lang-attribuut op het root html-element op de waarde van de Storybook global Internationalization locale zoals gedefinieerd in preview.ts
   document.documentElement.lang = context.globals.locale || "nl";
 

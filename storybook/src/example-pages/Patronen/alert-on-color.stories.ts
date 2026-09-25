@@ -1,57 +1,58 @@
-import type { Meta } from "@storybook/web-components-vite";
-import { Alert } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
+import { html } from "lit-html";
 
-import { examplePageStories } from "../../example-page-stories";
-import { Templates } from "../../templates";
+import { Alert } from "../../components/alert/alert.models.js";
+import { alertTemplate } from "../../components/alert/alert.template.js";
+import { highlightBoxTemplate } from "../../components/highlight-box/highlight-box.template.js";
+import { examplePageMeta } from "../../example-page-meta.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Patronen/Alert on color",
 };
 
 export default meta;
 
-export const AlertOnColor = examplePageStories((templates) => {
-  const { highlightBoxTemplate } = templates;
+export const AlertOnColor: StoryObj = {
+  name: "Alert on color",
+  render: () => {
+    return html`
+      ${highlightBoxTemplate({
+        grey: true,
+        content: content(),
+      })}
+      ${highlightBoxTemplate({
+        yellow: true,
+        content: content(),
+      })}
+      ${highlightBoxTemplate({
+        white: true,
+        content: content(),
+      })}
+      ${highlightBoxTemplate({
+        grey: true,
+        content: html`
+          ${highlightBoxTemplate({
+            white: true,
+            content: content(),
+          })}
+        `,
+      })}
+      ${highlightBoxTemplate({
+        white: true,
+        content: html`
+          ${highlightBoxTemplate({
+            yellow: true,
+            content: content(),
+          })}
+        `,
+      })}
+    `;
+  },
+};
 
-  return html`
-    ${highlightBoxTemplate({
-      grey: true,
-      content: content(templates),
-    })}
-    ${highlightBoxTemplate({
-      yellow: true,
-      content: content(templates),
-    })}
-    ${highlightBoxTemplate({
-      white: true,
-      content: content(templates),
-    })}
-    ${highlightBoxTemplate({
-      grey: true,
-      content: html`
-        ${highlightBoxTemplate({
-          white: true,
-          content: content(templates),
-        })}
-      `,
-    })}
-    ${highlightBoxTemplate({
-      white: true,
-      content: html`
-        ${highlightBoxTemplate({
-          yellow: true,
-          content: content(templates),
-        })}
-      `,
-    })}
-  `;
-});
-
-const content = function (templates: Templates) {
-  const { alertTemplate } = templates;
-
-  const alerts: Alert<TemplateResult>[] = [
+const content = function () {
+  const alerts: Alert[] = [
     { status: "error", message: "Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan." },
     { status: "success", message: "Alles werkt prima!" },
     { status: "info", message: "Even een info-melding." },

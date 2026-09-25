@@ -1,46 +1,52 @@
-import { AccordionSection, LinkList, LinkListType } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-export const accordionSections: AccordionSection<TemplateResult>[] = [
-  {
-    handleTitle: "Wat is maatregelen op maat?",
-    heading: "h2",
-  },
-  {
-    handleTitle: "Voor wie is Maatregelen op maat bedoeld?",
-    heading: "h2",
-  },
-  {
-    handleTitle: "Wat staat er in mijn overzicht van maatregelen op maat?",
-    heading: "h2",
-    open: true,
-    content: html`
-      <p>
-        In uw overzicht staan alle maatregelen die u kunt nemen om u aan de regels te houden die gelden voor uw
-        werkzaamheden. Deze maatregelen zijn gebaseerd op de wetten en regels die gelden voor deze werkzaamheden.
-      </p>
-    `,
-  },
-  {
-    handleTitle: "Kan ik de rechten ontlenen aan de uitkomst van Maatregelen op maat?",
-    heading: "h2",
-  },
-];
+import { AccordionSection } from "../../../components/accordion/accordion.models.js";
+import { LinkList, LinkListType } from "../../../components/link-list/link-list.models.js";
 
-export const linkList: LinkList = {
-  type: LinkListType.Ul,
-  links: [
+export function accordionSections(): AccordionSection[] {
+  return [
     {
-      label: "Omgevingsloket.nl",
-      url: "#",
+      handleTitle: "Wat is maatregelen op maat?",
+      heading: "h2",
     },
     {
-      label: "AIMonline.nl",
-      url: "#",
+      handleTitle: "Voor wie is Maatregelen op maat bedoeld?",
+      heading: "h2",
     },
     {
-      label: "Ruimtelijkeplannen.nl",
-      url: "#",
+      handleTitle: "Wat staat er in mijn overzicht van maatregelen op maat?",
+      heading: "h2",
+      open: true,
+      content: html`
+        <p>
+          In uw overzicht staan alle maatregelen die u kunt nemen om u aan de regels te houden die gelden voor uw
+          werkzaamheden. Deze maatregelen zijn gebaseerd op de wetten en regels die gelden voor deze werkzaamheden.
+        </p>
+      `,
     },
-  ],
-};
+    {
+      handleTitle: "Kan ik de rechten ontlenen aan de uitkomst van Maatregelen op maat?",
+      heading: "h2",
+    },
+  ];
+}
+
+export function linkList(): LinkList {
+  return {
+    type: LinkListType.Ul,
+    links: [
+      {
+        label: "Omgevingsloket.nl",
+        url: "#",
+      },
+      {
+        label: "AIMonline.nl",
+        url: "#",
+      },
+      {
+        label: "Ruimtelijkeplannen.nl",
+        url: "#",
+      },
+    ],
+  };
+}

@@ -1,5 +1,5 @@
+import { Decorator } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
-import { PartialStoryFn } from "storybook/internal/types";
 
 // https://github.com/dso-toolkit/dso-toolkit/issues/1313#issue-1041224938
 const legendItemDemoCss = `
@@ -12,7 +12,7 @@ const legendItemDemoCss = `
   }
 `;
 
-export const decorator = (story: PartialStoryFn): TemplateResult => html`
+export const decorator = (story: Parameters<Decorator>[0]): TemplateResult => html`
   ${story()}
 
   <style>

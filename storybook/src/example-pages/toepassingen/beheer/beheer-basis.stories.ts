@@ -1,73 +1,71 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { footerPartial } from "../../partials/footer";
+import { breadcrumbsTemplate } from "../../../components/breadcrumbs/breadcrumbs.template.js";
+import { definitionListTemplate } from "../../../components/definition-list/definition-list.template.js";
+import { headerTemplate } from "../../../components/header/header.template.js";
+import { iconButtonTemplate } from "../../../components/icon-button/icon-button.template.js";
+import { paginationTemplate } from "../../../components/pagination/pagination.template.js";
+import { tableTemplate } from "../../../components/table/table.template.js";
+import { examplePageMeta } from "../../../example-page-meta.js";
+import { footerPartial } from "../../partials/footer.js";
 
-import { breadcrumbs, definitionList, header } from "./beheer-basis.content";
+import { breadcrumbs, definitionList, header } from "./beheer-basis.content.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Beheer",
 };
 
 export default meta;
 
-const Beheer = examplePageStories((templates) => {
-  const {
-    headerTemplate,
-    breadcrumbsTemplate,
-    iconButtonTemplate,
-    paginationTemplate,
-    definitionListTemplate,
-    tableTemplate,
-  } = templates;
+export const Beheer: StoryObj = {
+  render: () => {
+    const rowActions = () =>
+      html`${iconButtonTemplate({
+        variant: "tertiary",
+        label: "Bewerk",
+        icon: "pencil",
+      })}
+      ${iconButtonTemplate({
+        variant: "tertiary",
+        label: "Verwijder",
+        icon: "trash",
+      })}`;
 
-  const rowActions = () =>
-    html`${iconButtonTemplate({
-      variant: "tertiary",
-      label: "Bewerk",
-      icon: "pencil",
-    })}
-    ${iconButtonTemplate({
-      variant: "tertiary",
-      label: "Verwijder",
-      icon: "trash",
-    })}`;
-
-  return html`
-    <div class="container">
-      <header>${headerTemplate(header)} ${breadcrumbsTemplate(breadcrumbs)}</header>
-      <main>
-        <h1>Titel van beheer-applicatie</h1>
-        <h2>Subtitel voor de meta-data</h2>
-        <hr />
-        ${definitionListTemplate(definitionList)}
-        <hr />
-        <h2>Subtitel voor het tabeloverzicht</h2>
-        ${tableTemplate({
-          noModal: true,
-          content: {
-            caption: "Titel van de tabel voor screenreaders",
-            head: [{ label: "Ketenpartner" }, { label: "Toegang" }, { label: "Acties" }],
-            rows: [
-              ["Gemeente Den Haag", "Alle documenten", rowActions()],
-              ["Gemeente Rotterdam", "Alle documenten", rowActions()],
-              ["Gemeente IJsselstein", "Alleen niet vertrouwelijke documenten", rowActions()],
-              ["Gemeente Delft", "Alle documenten", rowActions()],
-              ["Gemeente Eindhoven", "Alleen niet vertrouwelijke documenten", rowActions()],
-              ["Gemeente Tilburg", "Alle documenten", rowActions()],
-              ["Gemeente Breda", "Alle documenten", rowActions()],
-              ["Gemeente Maastricht", "Alle documenten", rowActions()],
-              ["Gemeente Amsterdam", "Alleen niet vertrouwelijke documenten", rowActions()],
-              ["Gemeente Utrecht", "Alleen niet vertrouwelijke documenten", rowActions()],
-            ],
-          },
-        })}
-        ${paginationTemplate({ totalPages: 5, currentPage: 3 })}
-      </main>
-      ${footerPartial(templates)}
-    </div>
-  `;
-});
-
-export { Beheer };
+    return html`
+      <div class="container">
+        <header>${headerTemplate(header())} ${breadcrumbsTemplate(breadcrumbs())}</header>
+        <main>
+          <h1>Titel van beheer-applicatie</h1>
+          <h2>Subtitel voor de meta-data</h2>
+          <hr />
+          ${definitionListTemplate(definitionList())}
+          <hr />
+          <h2>Subtitel voor het tabeloverzicht</h2>
+          ${tableTemplate({
+            noModal: true,
+            content: {
+              caption: "Titel van de tabel voor screenreaders",
+              head: [{ label: "Ketenpartner" }, { label: "Toegang" }, { label: "Acties" }],
+              rows: [
+                ["Gemeente Den Haag", "Alle documenten", rowActions()],
+                ["Gemeente Rotterdam", "Alle documenten", rowActions()],
+                ["Gemeente IJsselstein", "Alleen niet vertrouwelijke documenten", rowActions()],
+                ["Gemeente Delft", "Alle documenten", rowActions()],
+                ["Gemeente Eindhoven", "Alleen niet vertrouwelijke documenten", rowActions()],
+                ["Gemeente Tilburg", "Alle documenten", rowActions()],
+                ["Gemeente Breda", "Alle documenten", rowActions()],
+                ["Gemeente Maastricht", "Alle documenten", rowActions()],
+                ["Gemeente Amsterdam", "Alleen niet vertrouwelijke documenten", rowActions()],
+                ["Gemeente Utrecht", "Alleen niet vertrouwelijke documenten", rowActions()],
+              ],
+            },
+          })}
+          ${paginationTemplate({ totalPages: 5, currentPage: 3 })}
+        </main>
+        ${footerPartial()}
+      </div>
+    `;
+  },
+};

@@ -1,0 +1,115 @@
+import { ArgTypes } from "@storybook/web-components-vite";
+import { TemplateResult } from "lit-html";
+import { HandlerFunction } from "storybook/actions";
+
+import { argTypeAction } from "../../shared/arg-type-action.js";
+import { noControl } from "../../shared/no-control.js";
+import { Button } from "../button/button.models.js";
+import { IconButton } from "../icon-button/icon-button.models.js";
+import { InfoButton } from "../info-button/info-button.models.js";
+import { Label } from "../label/label.models.js";
+import { Link } from "../link/link.models.js";
+import { SlideToggle } from "../slide-toggle/slide-toggle.models.js";
+
+import { Card } from "./card.models.js";
+
+export interface CardArgs {
+  label: string;
+  href: string;
+  active: boolean;
+  mode?: Link["mode"];
+  selectable: boolean;
+  interactions: Array<Button | IconButton | InfoButton | Label | SlideToggle>;
+  dsoCardClick: HandlerFunction;
+}
+
+export const cardArgTypes: ArgTypes<CardArgs> = {
+  label: {
+    control: {
+      type: "text",
+    },
+  },
+  href: {
+    control: {
+      type: "text",
+    },
+  },
+  active: {
+    control: {
+      type: "boolean",
+    },
+  },
+  mode: {
+    options: [undefined, "download", "extern"],
+    control: {
+      type: "select",
+    },
+  },
+  selectable: noControl(),
+  interactions: noControl(),
+  dsoCardClick: argTypeAction(),
+};
+
+export const cardContent: Omit<CardArgs, "dsoCardClick"> = {
+  interactions: [],
+  label: "Omgevingsplan Nieuwegein",
+  href: "#",
+  selectable: false,
+  active: false,
+};
+
+export const cardContentButton: Omit<CardArgs, "dsoCardClick"> = {
+  ...cardContent,
+  interactions: [
+    {
+      variant: "tertiary",
+      label: "Toon informatie",
+      icon: {
+        icon: "info-solid",
+      },
+      screenreaderSuffix: `over "${cardContent.label}"`,
+    },
+  ],
+};
+
+export const cardContentLabel: Omit<CardArgs, "dsoCardClick"> = {
+  ...cardContent,
+  interactions: [
+    {
+      status: "warning",
+      compact: true,
+      label: "Ontwerp",
+    },
+  ],
+};
+
+export const cardContentSlideToggle: Omit<CardArgs, "dsoCardClick"> = {
+  ...cardContent,
+  interactions: [
+    {
+      checked: false,
+      accessibleLabel: "sr-only label van het schuifje",
+    },
+  ],
+};
+
+export function cardArgsMapper(a: CardArgs, content: TemplateResult | string, infoButton?: InfoButton): Card {
+  return {
+    label: a.label,
+    href: a.href,
+    active: a.active,
+    mode: a.mode || undefined,
+    interactions: infoButton ? [infoButton] : a.interactions,
+    selectable: a.selectable
+      ? {
+          id: "1",
+          type: "checkbox",
+          value: "1",
+          labelledById: "card-title",
+          slot: "selectable",
+        }
+      : undefined,
+    content,
+    dsoCardClick: (e) => a.dsoCardClick(e.detail),
+  };
+}

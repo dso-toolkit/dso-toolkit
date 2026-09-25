@@ -1,271 +1,274 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { buttonTemplate } from "../../../components/button/button.template.js";
+import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
+import { examplePageMeta } from "../../../example-page-meta.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Landingspagina",
 };
 
 export default meta;
 
-const Landingspagina = examplePageStories((templates) => {
-  const { linkTemplate, buttonTemplate, highlightBoxTemplate, richContentTemplate } = templates;
-
-  return html`
-    <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
-      <main>
-        <dso-hero-image>
-          <div slot="image" style="background-image: url('images/hands-on-trackpad.jpg')"></div>
-          ${highlightBoxTemplate({
-            white: true,
-            content: richContentTemplate({
-              children: html`
-                <h1>Direct een aanvraag of melding indienen</h1>
-                <p>
-                  De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
-                  zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
-                  bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
-                </p>
-                <p>${linkTemplate({ label: "Start met aanvragen", url: "#", modifier: "dso-primary" })}</p>
-              `,
-            }),
-          })}
-        </dso-hero-image>
-        <div class="row">
-          <div class="col-lg-8">
+export const Landingspagina: StoryObj = {
+  render: () => {
+    return html`
+      <div class="container">
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
+        <main>
+          <dso-hero-image>
+            <div slot="image" style="background-image: url('images/hands-on-trackpad.jpg')"></div>
             ${highlightBoxTemplate({
-              yellow: true,
-              content: richContentTemplate({
-                children: html`
-                  <h2>Vul uw aanvraag zo compleet mogelijk in</h2>
-                  <p>
-                    Zo voorkomt u dat uw aanvraag vertraging oploopt. Er zijn weinig vragen verplicht. Om uw aanvraag in
-                    behandeling te kunnen nemen moeten wel voldoende gegevens toegevoegd zijn. Welke dat zijn is in elke
-                    situatie anders. Vul daarom zoveel mogelijk in.
-                  </p>
-                  <h3>Kosten</h3>
-                  <p>
-                    De kosten van een aanvraag zijn verschillend. Kijk op de website van uw gemeente, waterschap of
-                    provincie voor de precieze kosten.
-                  </p>
-                `,
-              }),
-            })}
-            ${richContentTemplate({
-              children: html`
-                <h2>Omgevingsoverleg</h2>
-                <p>
-                  Is uw plan erg ingewikkeld? Dan adviseren we u een aanvraag te doen voor een Omgevingsoverleg. Het
-                  Omgevingsoverleg is een zorgvuldig proces waarin u uw plan bespreekt samen met uw gemeente, waterschap
-                  of provincie en andere relevante betrokkenen. Het uitgangspunt van het Omgevingsoverleg is 'Hoe kunnen
-                  we dit plan mogelijk maken?'. Na het Omgevingsoverleg weet u of uw project haalbaar is. Ook weet u hoe
-                  u uw verzoek het beste kunt indienen.
-                </p>
-                <p class="dso-disclaimer">
-                  Let op, bekijk altijd eerst de website van uw gemeente, waterschap of provincie voor beschikbaarheid
-                  en mogelijke kosten van een Omgevingsoverleg
-                </p>
-                <h2>Eerst een vergunningcheck?</h2>
-                <p>
-                  Weet u niet goed uit welke activiteiten uw project bestaat? Doe dan eerst een Vergunningcheck. U kunt
-                  vanuit de Vergunningcheck een aanvraag klaar zetten. Dan worden uw locatie en activiteiten bewaard.
-                  Dat scheelt u veel werk in de toekomst. Start
-                  ${linkTemplate({ label: "de Vergunningscheck", url: "#" })}.
-                </p>
-              `,
-            })}
-          </div>
-          <div class="col-lg-4">
-            ${highlightBoxTemplate({
-              border: true,
               white: true,
               content: richContentTemplate({
                 children: html`
-                  <h2>Vragen?</h2>
+                  <h1>Direct een aanvraag of melding indienen</h1>
                   <p>
-                    Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
-                    Heeft u vragen over hoe de website werkt? Neem dan contact op met
-                    ${linkTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
+                    De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
+                    zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
+                    bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
                   </p>
+                  <p>${linkTemplate({ label: "Start met aanvragen", url: "#", modifier: "dso-primary" })}</p>
                 `,
               }),
             })}
+          </dso-hero-image>
+          <div class="row">
+            <div class="col-lg-8">
+              ${highlightBoxTemplate({
+                yellow: true,
+                content: richContentTemplate({
+                  children: html`
+                    <h2>Vul uw aanvraag zo compleet mogelijk in</h2>
+                    <p>
+                      Zo voorkomt u dat uw aanvraag vertraging oploopt. Er zijn weinig vragen verplicht. Om uw aanvraag
+                      in behandeling te kunnen nemen moeten wel voldoende gegevens toegevoegd zijn. Welke dat zijn is in
+                      elke situatie anders. Vul daarom zoveel mogelijk in.
+                    </p>
+                    <h3>Kosten</h3>
+                    <p>
+                      De kosten van een aanvraag zijn verschillend. Kijk op de website van uw gemeente, waterschap of
+                      provincie voor de precieze kosten.
+                    </p>
+                  `,
+                }),
+              })}
+              ${richContentTemplate({
+                children: html`
+                  <h2>Omgevingsoverleg</h2>
+                  <p>
+                    Is uw plan erg ingewikkeld? Dan adviseren we u een aanvraag te doen voor een Omgevingsoverleg. Het
+                    Omgevingsoverleg is een zorgvuldig proces waarin u uw plan bespreekt samen met uw gemeente,
+                    waterschap of provincie en andere relevante betrokkenen. Het uitgangspunt van het Omgevingsoverleg
+                    is 'Hoe kunnen we dit plan mogelijk maken?'. Na het Omgevingsoverleg weet u of uw project haalbaar
+                    is. Ook weet u hoe u uw verzoek het beste kunt indienen.
+                  </p>
+                  <p class="dso-disclaimer">
+                    Let op, bekijk altijd eerst de website van uw gemeente, waterschap of provincie voor beschikbaarheid
+                    en mogelijke kosten van een Omgevingsoverleg
+                  </p>
+                  <h2>Eerst een vergunningcheck?</h2>
+                  <p>
+                    Weet u niet goed uit welke activiteiten uw project bestaat? Doe dan eerst een Vergunningcheck. U
+                    kunt vanuit de Vergunningcheck een aanvraag klaar zetten. Dan worden uw locatie en activiteiten
+                    bewaard. Dat scheelt u veel werk in de toekomst. Start
+                    ${linkTemplate({ label: "de Vergunningscheck", url: "#" })}.
+                  </p>
+                `,
+              })}
+            </div>
+            <div class="col-lg-4">
+              ${highlightBoxTemplate({
+                border: true,
+                white: true,
+                content: richContentTemplate({
+                  children: html`
+                    <h2>Vragen?</h2>
+                    <p>
+                      Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
+                      Heeft u vragen over hoe de website werkt? Neem dan contact op met
+                      ${linkTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
+                    </p>
+                  `,
+                }),
+              })}
+            </div>
           </div>
-        </div>
-        <div class="row dso-featured">
-          <div class="col-xs-12">
-            <h2>De stappen</h2>
-            <div class="row dso-equal-heights">
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 1,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 1 van 7: </span>Project aanmaken</h3>
-                      <p>
-                        Maak eerst een project aan. Deze vindt u daarna terug in
-                        ${linkTemplate({ label: "Mijn omgevingsloket", url: "#" })}.
-                      </p>
-                    `,
-                  }),
-                })}
-              </div>
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 2,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 2 van 7: </span>Locatie</h3>
-                      <p>Kies de locatie voor uw bouwactiviteit(en).</p>
-                    `,
-                  }),
-                })}
-              </div>
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 3,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 3 van 7: </span>Activiteiten</h3>
-                      <p>Kies de activiteiten van uw project.</p>
-                    `,
-                  }),
-                })}
-              </div>
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 4,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 4 van 7: </span>Vragen beantwoorden</h3>
-                      <p>
-                        Beantwoord alle vragen die nodig zijn voor uw aanvraag. Vragen die in uw situatie niet meer
-                        relevant zijn vallen vanzelf weg.
-                      </p>
-                    `,
-                  }),
-                })}
-              </div>
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 5,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 5 van 7: </span>Documenten toevoegen</h3>
-                      <p>Voeg alle benodigde documenten toe.</p>
-                    `,
-                  }),
-                })}
-              </div>
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 6,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 6 van 7: </span>Uw gegevens</h3>
-                      <p>Controleer uw gegevens en vul aan waar nodig.</p>
-                    `,
-                  }),
-                })}
-              </div>
-              <div class="col-md-3 col-sm-6">
-                ${highlightBoxTemplate({
-                  white: true,
-                  dropShadow: true,
-                  step: 7,
-                  content: richContentTemplate({
-                    children: html`
-                      <h3><span class="sr-only">Stap 7 van 7: </span>Verzoek samenstellen</h3>
-                      <p>
-                        In de laatste stap bepaalt u voor welke activiteit(en) een Omgevingsoverleg of definitief
-                        verzoek wordt verstuurd.
-                      </p>
-                    `,
-                  }),
-                })}
+          <div class="row dso-featured">
+            <div class="col-xs-12">
+              <h2>De stappen</h2>
+              <div class="row dso-equal-heights">
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 1,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 1 van 7: </span>Project aanmaken</h3>
+                        <p>
+                          Maak eerst een project aan. Deze vindt u daarna terug in
+                          ${linkTemplate({ label: "Mijn omgevingsloket", url: "#" })}.
+                        </p>
+                      `,
+                    }),
+                  })}
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 2,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 2 van 7: </span>Locatie</h3>
+                        <p>Kies de locatie voor uw bouwactiviteit(en).</p>
+                      `,
+                    }),
+                  })}
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 3,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 3 van 7: </span>Activiteiten</h3>
+                        <p>Kies de activiteiten van uw project.</p>
+                      `,
+                    }),
+                  })}
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 4,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 4 van 7: </span>Vragen beantwoorden</h3>
+                        <p>
+                          Beantwoord alle vragen die nodig zijn voor uw aanvraag. Vragen die in uw situatie niet meer
+                          relevant zijn vallen vanzelf weg.
+                        </p>
+                      `,
+                    }),
+                  })}
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 5,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 5 van 7: </span>Documenten toevoegen</h3>
+                        <p>Voeg alle benodigde documenten toe.</p>
+                      `,
+                    }),
+                  })}
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 6,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 6 van 7: </span>Uw gegevens</h3>
+                        <p>Controleer uw gegevens en vul aan waar nodig.</p>
+                      `,
+                    }),
+                  })}
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  ${highlightBoxTemplate({
+                    white: true,
+                    dropShadow: true,
+                    step: 7,
+                    content: richContentTemplate({
+                      children: html`
+                        <h3><span class="sr-only">Stap 7 van 7: </span>Verzoek samenstellen</h3>
+                        <p>
+                          In de laatste stap bepaalt u voor welke activiteit(en) een Omgevingsoverleg of definitief
+                          verzoek wordt verstuurd.
+                        </p>
+                      `,
+                    }),
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row dso-equal-heights">
-          <div class="col-xs-12">
-            <h2>Wat gebeurt er nadat mijn verzoek is verstuurd?</h2>
+          <div class="row dso-equal-heights">
+            <div class="col-xs-12">
+              <h2>Wat gebeurt er nadat mijn verzoek is verstuurd?</h2>
+            </div>
+            <div class="col-sm-4">
+              ${highlightBoxTemplate({
+                white: true,
+                dropShadow: true,
+                content: richContentTemplate({
+                  children: html`
+                    <h3>Besluitperiode</h3>
+                    <p>
+                      U ontvangt een bericht van de organisatie die uw verzoek behandeld. Meestal ontvangt u binnen 8
+                      weken een besluit van de behandelende organisatie.
+                    </p>
+                  `,
+                }),
+              })}
+            </div>
+            <div class="col-sm-4">
+              ${highlightBoxTemplate({
+                white: true,
+                dropShadow: true,
+                content: richContentTemplate({
+                  children: html`
+                    <h3>Aanvullen verzoek</h3>
+                    <p>
+                      Als er iets mist of niet klopt wordt u gevraagd het verzoek aan te vullen. Dit kan in
+                      ${linkTemplate({ label: "Mijn Omgevingsloket", url: "#" })}. De periode waarin er een besluit
+                      genomen wordt kan worden verlengd.
+                    </p>
+                  `,
+                }),
+              })}
+            </div>
+            <div class="col-sm-4">
+              ${highlightBoxTemplate({
+                white: true,
+                dropShadow: true,
+                content: richContentTemplate({
+                  children: html`
+                    <h3>Bezwaar en beroep</h3>
+                    <p>
+                      Na het besluit hebben u én andere betrokkenen 6 weken de tijd om bezwaar te maken. Het is
+                      verstandig om deze tijd te wachten met het uitvoeren van de werkzaamheden.
+                    </p>
+                  `,
+                }),
+              })}
+            </div>
           </div>
-          <div class="col-sm-4">
-            ${highlightBoxTemplate({
-              white: true,
-              dropShadow: true,
-              content: richContentTemplate({
-                children: html`
-                  <h3>Besluitperiode</h3>
-                  <p>
-                    U ontvangt een bericht van de organisatie die uw verzoek behandeld. Meestal ontvangt u binnen 8
-                    weken een besluit van de behandelende organisatie.
-                  </p>
-                `,
-              }),
-            })}
+          <div class="row">
+            <div class="text-center">
+              <h2>Klaar om uw aanvraag te starten?</h2>
+              ${buttonTemplate({ label: "Start aanvraag", variant: "primary", type: "button" })}
+            </div>
           </div>
-          <div class="col-sm-4">
-            ${highlightBoxTemplate({
-              white: true,
-              dropShadow: true,
-              content: richContentTemplate({
-                children: html`
-                  <h3>Aanvullen verzoek</h3>
-                  <p>
-                    Als er iets mist of niet klopt wordt u gevraagd het verzoek aan te vullen. Dit kan in
-                    ${linkTemplate({ label: "Mijn Omgevingsloket", url: "#" })}. De periode waarin er een besluit
-                    genomen wordt kan worden verlengd.
-                  </p>
-                `,
-              }),
-            })}
-          </div>
-          <div class="col-sm-4">
-            ${highlightBoxTemplate({
-              white: true,
-              dropShadow: true,
-              content: richContentTemplate({
-                children: html`
-                  <h3>Bezwaar en beroep</h3>
-                  <p>
-                    Na het besluit hebben u én andere betrokkenen 6 weken de tijd om bezwaar te maken. Het is verstandig
-                    om deze tijd te wachten met het uitvoeren van de werkzaamheden.
-                  </p>
-                `,
-              }),
-            })}
-          </div>
-        </div>
-        <div class="row">
-          <div class="text-center">
-            <h2>Klaar om uw aanvraag te starten?</h2>
-            ${buttonTemplate({ label: "Start aanvraag", variant: "primary", type: "button" })}
-          </div>
-        </div>
-      </main>
-      ${footerPartial(templates)}
-    </div>
-  `;
-});
-
-export { Landingspagina };
+        </main>
+        ${footerPartial()}
+      </div>
+    `;
+  },
+};

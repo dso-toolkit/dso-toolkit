@@ -1,14 +1,17 @@
-import type { Meta } from "@storybook/web-components-vite";
-import { ShoppingCartItem, argTypeAction } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
+import { html } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { fn } from "storybook/test";
 
-import { examplePageStories } from "../../example-page-stories";
+import { gridColumnTemplate } from "../../components/grid-column/grid-column.template.js";
+import { ShoppingCartItem } from "../../components/shopping-cart/shopping-cart.models.js";
+import { shoppingCartTemplate } from "../../components/shopping-cart/shopping-cart.template.js";
+import { examplePageMeta } from "../../example-page-meta.js";
+import { argTypeAction } from "../../shared/arg-type-action.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Patronen/Shopping Cart",
-  tags: ["!autodocs"],
 };
 
 export default meta;
@@ -26,11 +29,21 @@ type ShoppingCartOverlayArgs = {
   shoppingCartDsoToggle: HandlerFunction;
 } & ShoppingCartBlockArgs;
 
-export const Block = examplePageStories<ShoppingCartBlockArgs>(
-  (templates, { shoppingCartItemDsoEdit, shoppingCartItemDsoDelete, shoppingCartItemDsoClose, formDsoSubmit }) => {
-    const { shoppingCartTemplate } = templates;
-
-    const items: ShoppingCartItem<TemplateResult>[] = [
+export const Block: StoryObj<ShoppingCartBlockArgs> = {
+  argTypes: {
+    shoppingCartItemDsoEdit: argTypeAction(),
+    shoppingCartItemDsoDelete: argTypeAction(),
+    shoppingCartItemDsoClose: argTypeAction(),
+    formDsoSubmit: argTypeAction(),
+  },
+  args: {
+    shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
+    shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
+    shoppingCartItemDsoClose: fn().mockName("dsoClose"),
+    formDsoSubmit: fn().mockName("dsoSubmit"),
+  },
+  render: ({ shoppingCartItemDsoEdit, shoppingCartItemDsoDelete, shoppingCartItemDsoClose, formDsoSubmit }) => {
+    const items: ShoppingCartItem[] = [
       {
         mode: "edit",
         label: "Toevoeging bij activiteitnaam veranderen",
@@ -124,38 +137,42 @@ export const Block = examplePageStories<ShoppingCartBlockArgs>(
       </div>
     `;
   },
-  {
-    argTypes: {
-      shoppingCartItemDsoEdit: argTypeAction(),
-      shoppingCartItemDsoDelete: argTypeAction(),
-      shoppingCartItemDsoClose: argTypeAction(),
-      formDsoSubmit: argTypeAction(),
+};
+
+export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
+  argTypes: {
+    mode: {
+      options: ["side", "main"],
+      control: {
+        type: "radio",
+      },
     },
-    args: {
-      shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
-      shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
-      shoppingCartItemDsoClose: fn().mockName("dsoClose"),
-      formDsoSubmit: fn().mockName("dsoSubmit"),
-    },
+    gridColumnDsoClose: argTypeAction(),
+    shoppingCartDsoToggle: argTypeAction(),
+    shoppingCartItemDsoEdit: argTypeAction(),
+    shoppingCartItemDsoDelete: argTypeAction(),
+    shoppingCartItemDsoClose: argTypeAction(),
+    formDsoSubmit: argTypeAction(),
   },
-);
-
-export const Overlay = examplePageStories<ShoppingCartOverlayArgs>(
-  (
-    templates,
-    {
-      mode,
-      gridColumnDsoClose,
-      shoppingCartDsoToggle,
-      shoppingCartItemDsoEdit,
-      shoppingCartItemDsoDelete,
-      shoppingCartItemDsoClose,
-      formDsoSubmit,
-    },
-  ) => {
-    const { gridColumnTemplate, shoppingCartTemplate } = templates;
-
-    const sideItems: ShoppingCartItem<TemplateResult>[] = [
+  args: {
+    mode: "main",
+    gridColumnDsoClose: fn().mockName("dsoClose"),
+    shoppingCartDsoToggle: fn().mockName("dsoToggle"),
+    shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
+    shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
+    shoppingCartItemDsoClose: fn().mockName("dsoClose"),
+    formDsoSubmit: fn().mockName("dsoSubmit"),
+  },
+  render: ({
+    mode,
+    gridColumnDsoClose,
+    shoppingCartDsoToggle,
+    shoppingCartItemDsoEdit,
+    shoppingCartItemDsoDelete,
+    shoppingCartItemDsoClose,
+    formDsoSubmit,
+  }) => {
+    const sideItems: ShoppingCartItem[] = [
       {
         label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
         info: "Aanvraag vergunning (Gemeente Utrecht)",
@@ -183,7 +200,7 @@ export const Overlay = examplePageStories<ShoppingCartOverlayArgs>(
       },
     ];
 
-    const mainItems: ShoppingCartItem<TemplateResult>[] = [
+    const mainItems: ShoppingCartItem[] = [
       {
         mode: "edit",
         label: "Toevoeging bij activiteitnaam veranderen",
@@ -352,29 +369,4 @@ export const Overlay = examplePageStories<ShoppingCartOverlayArgs>(
       </div>
     `;
   },
-  {
-    argTypes: {
-      mode: {
-        options: ["side", "main"],
-        control: {
-          type: "radio",
-        },
-      },
-      gridColumnDsoClose: argTypeAction(),
-      shoppingCartDsoToggle: argTypeAction(),
-      shoppingCartItemDsoEdit: argTypeAction(),
-      shoppingCartItemDsoDelete: argTypeAction(),
-      shoppingCartItemDsoClose: argTypeAction(),
-      formDsoSubmit: argTypeAction(),
-    },
-    args: {
-      mode: "main",
-      gridColumnDsoClose: fn().mockName("dsoClose"),
-      shoppingCartDsoToggle: fn().mockName("dsoToggle"),
-      shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
-      shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
-      shoppingCartItemDsoClose: fn().mockName("dsoClose"),
-      formDsoSubmit: fn().mockName("dsoSubmit"),
-    },
-  },
-);
+};

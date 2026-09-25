@@ -1,7 +1,9 @@
-import { IconOverviewDecorator } from "dso-toolkit";
+import { Decorator } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
 
-export const decorator: IconOverviewDecorator<TemplateResult> = (story, icons) => html`
+export type IconOverviewDecorator = (story: Parameters<Decorator>[0], icons: string[]) => TemplateResult;
+
+export const decorator: IconOverviewDecorator = (story, icons) => html`
   <ul id="icon-overview-list" class="icon-overview-list">
     ${icons.map((icon) => {
       return html`<li>
