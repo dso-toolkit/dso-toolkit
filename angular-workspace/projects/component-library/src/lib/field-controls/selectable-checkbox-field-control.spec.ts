@@ -1,6 +1,7 @@
 import { Component, signal } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import type { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
+import { FormField, disabled, form, required } from "@angular/forms/signals";
+import type { SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
 
 import { DsoSelectable } from "../stencil-generated/components";
 
@@ -9,34 +10,16 @@ import { DsoSelectableCheckboxFieldControl } from "./selectable-checkbox-field-c
 @Component({
   selector: "dso-test-checkbox",
   standalone: true,
-  imports: [DsoSelectableCheckboxFieldControl, DsoSelectable],
-  template: `
-    <dso-selectable
-      type="checkbox"
-      value="check"
-      [checked]="isChecked()"
-      [disabled]="isDisabled()"
-      [required]="isRequired()"
-      [invalid]="isInvalid()"
-      (dsoChange)="onChange($event)"
-      (focusout)="onBlur()"
-    ></dso-selectable>
-  `,
+  imports: [DsoSelectableCheckboxFieldControl, DsoSelectable, FormField],
+  template: `<dso-selectable type="checkbox" [formField]="myForm.akkoord"></dso-selectable>`,
 })
 class TestCheckboxComponent {
-  isChecked = signal(false);
+  model = signal({ akkoord: false });
   isDisabled = signal(false);
-  isRequired = signal(false);
-  isInvalid = signal(false);
-  touched = signal(false);
-
-  onChange(event: DsoSelectableCustomEvent<SelectableChangeEvent>) {
-    this.isChecked.set(event.detail.checked);
-  }
-
-  onBlur() {
-    this.touched.set(true);
-  }
+  myForm = form(this.model, (path) => {
+    required(path.akkoord);
+    disabled(path.akkoord, () => this.isDisabled());
+  });
 }
 
 function createSelectableChangeEvent(checked: boolean): CustomEvent<SelectableChangeEvent> {
@@ -70,7 +53,7 @@ describe("DsoSelectableCheckboxFieldControl", () => {
   it("should sync model to control", () => {
     expect(element.checked).toBe(false);
 
-    component.isChecked.set(true);
+    component.model.set({ akkoord: true });
     fixture.detectChanges();
 
     expect(element.checked).toBe(true);
@@ -80,16 +63,16 @@ describe("DsoSelectableCheckboxFieldControl", () => {
     element.dispatchEvent(createSelectableChangeEvent(true));
     fixture.detectChanges();
 
-    expect(component.isChecked()).toBe(true);
+    expect(component.model().akkoord).toBe(true);
   });
 
   it("should update touched state on focusout", () => {
-    expect(component.touched()).toBe(false);
+    expect(component.myForm.akkoord().touched()).toBe(false);
 
     element.dispatchEvent(new Event("focusout"));
     fixture.detectChanges();
 
-    expect(component.touched()).toBe(true);
+    expect(component.myForm.akkoord().touched()).toBe(true);
   });
 
   it("should sync disabled state", () => {
@@ -107,16 +90,15 @@ describe("DsoSelectableCheckboxFieldControl", () => {
   });
 
   it("should sync required state", () => {
-    component.isRequired.set(true);
-    fixture.detectChanges();
-
     expect(element.required).toBe(true);
   });
 
   it("should sync invalid state", () => {
-    component.isInvalid.set(true);
+    expect(element.invalid).toBe(true);
+
+    component.model.set({ akkoord: true });
     fixture.detectChanges();
 
-    expect(element.invalid).toBe(true);
+    expect(element.invalid).toBe(false);
   });
 });
