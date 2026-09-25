@@ -1,14 +1,12 @@
 import { Directive, ElementRef, HostListener, input, model } from "@angular/core";
-import { FormCheckboxControl } from "@angular/forms/signals";
+import type { FormCheckboxControl } from "@angular/forms/signals";
 import type { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
 
 import { syncFieldControlProperties } from "./sync-field-control-properties";
 
 /**
  * Adapts `dso-selectable[type=checkbox]` to Angular Signal Forms by implementing
- * the `FormCheckboxControl` contract. This enables the component to be used
- * as a Signal Forms field while keeping the existing `ControlValueAccessor`,
- * `ngModel`, and Reactive Forms support unchanged.
+ * the `FormCheckboxControl` contract.
  */
 @Directive({
   selector: "dso-selectable[type=checkbox][formField]",
