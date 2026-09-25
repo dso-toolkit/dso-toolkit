@@ -1,4 +1,4 @@
-import { TreeViewItem } from "@dso-toolkit/core/src";
+import { TreeViewItem } from "@dso-toolkit/core";
 
 describe("Tree View", () => {
   function firstChildItem(subject: JQuery<HTMLElement>, label: string) {
