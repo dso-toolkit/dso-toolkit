@@ -13,7 +13,6 @@ import { definitions1, definitions2, definitions3, definitions4, definitions5, m
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Stelselcatalogus/Begrippen",
-  tags: ["!autodocs"],
 };
 
 export default meta;

@@ -16,7 +16,6 @@ import { definitions } from "./verzoek-detail.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Mijn Omgevingsloket/Verzoek Detail",
-  tags: ["!autodocs"],
 };
 
 export default meta;

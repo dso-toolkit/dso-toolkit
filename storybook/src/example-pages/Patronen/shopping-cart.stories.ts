@@ -12,7 +12,6 @@ import { argTypeAction } from "../../shared/arg-type-action.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Patronen/Shopping Cart",
-  tags: ["!autodocs"],
 };
 
 export default meta;

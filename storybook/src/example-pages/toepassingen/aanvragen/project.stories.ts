@@ -17,7 +17,6 @@ import { form } from "./project.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Project",
-  tags: ["!autodocs"],
 };
 
 export default meta;

@@ -19,7 +19,6 @@ import { checkboxes, radios } from "./vragen.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Vragen",
-  tags: ["!autodocs"],
 };
 
 export default meta;

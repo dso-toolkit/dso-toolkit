@@ -47,7 +47,6 @@ type DocumentenArgs = {
 const meta: Meta<DocumentenArgs> = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten",
-  tags: ["!autodocs"],
   argTypes: {
     print: {
       control: { type: "boolean" },

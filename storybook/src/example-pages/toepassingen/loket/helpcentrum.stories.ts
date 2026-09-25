@@ -16,7 +16,6 @@ import { linkList } from "./helpcentrum.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Loket/Helpcentrum",
-  tags: ["!autodocs"],
 };
 
 export default meta;

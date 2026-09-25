@@ -14,7 +14,6 @@ import "./button-on-color.scss";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Patronen/Button on color",
-  tags: ["!autodocs"],
 };
 
 export default meta;

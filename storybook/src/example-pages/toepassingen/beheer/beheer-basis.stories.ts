@@ -15,7 +15,6 @@ import { breadcrumbs, definitionList, header } from "./beheer-basis.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Beheer",
-  tags: ["!autodocs"],
 };
 
 export default meta;

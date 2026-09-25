@@ -17,7 +17,6 @@ import { headerPartial } from "./partials/header.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Full Width",
-  tags: ["!autodocs"],
 };
 
 export default meta;

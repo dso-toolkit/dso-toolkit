@@ -10,7 +10,6 @@ import { historyItemsOntwerp } from "./history-item.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Patronen/History Item/Ontwerp",
-  tags: ["!autodocs"],
 };
 
 export default meta;

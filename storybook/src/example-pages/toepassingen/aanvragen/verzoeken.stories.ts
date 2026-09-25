@@ -15,7 +15,6 @@ import { alerts } from "./verzoeken.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Verzoeken",
-  tags: ["!autodocs"],
 };
 
 export default meta;

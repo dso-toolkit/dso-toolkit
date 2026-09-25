@@ -16,7 +16,6 @@ import { dropdownItems, formGroup } from "./locatie.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Locatie",
-  tags: ["!autodocs"],
 };
 
 export default meta;

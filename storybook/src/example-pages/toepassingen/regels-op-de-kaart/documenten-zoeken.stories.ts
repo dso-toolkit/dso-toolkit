@@ -18,7 +18,6 @@ import { header, tabItems } from "./documenten.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten zoeken",
-  tags: ["!autodocs"],
 };
 
 export default meta;

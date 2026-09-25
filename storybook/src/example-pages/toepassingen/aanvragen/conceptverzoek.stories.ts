@@ -16,7 +16,6 @@ import { definitionList1, definitionlist2, radios } from "./conceptverzoek.conte
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Conceptverzoek",
-  tags: ["!autodocs"],
 };
 
 export default meta;

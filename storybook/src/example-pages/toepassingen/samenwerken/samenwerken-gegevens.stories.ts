@@ -13,7 +13,6 @@ import { header, items } from "./samenwerken-gegevens.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Samenwerken/Samenwerken gegevens",
-  tags: ["!autodocs"],
 };
 
 export default meta;

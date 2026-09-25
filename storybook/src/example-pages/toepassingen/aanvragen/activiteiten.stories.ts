@@ -23,7 +23,6 @@ import { bestuurslaag, labels, listButtons, shoppingCart, toestemming } from "./
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Aanvragen/Activiteiten",
-  tags: ["!autodocs"],
 };
 
 export default meta;

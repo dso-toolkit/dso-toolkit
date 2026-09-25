@@ -15,7 +15,6 @@ import { headerPartial } from "../../partials/header.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Mijn Omgevingsloket/Mijn Projecten",
-  tags: ["!autodocs"],
 };
 
 export default meta;
