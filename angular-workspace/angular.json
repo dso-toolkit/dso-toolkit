@@ -29,7 +29,8 @@
           "options": {
             "tsConfig": "projects/component-library/tsconfig.spec.json",
             "buildTarget": "component-library:build",
-            "runnerConfig": "projects/component-library/vitest.config.mts"
+            "runnerConfig": "projects/component-library/vitest.config.mts",
+            "include": ["../signal-forms/src/**/*.spec.ts"]
           }
         }
       }

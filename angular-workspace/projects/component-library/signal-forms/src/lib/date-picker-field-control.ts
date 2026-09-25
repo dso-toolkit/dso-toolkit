@@ -6,9 +6,7 @@ import { syncFieldControlProperties } from "./sync-field-control-properties";
 
 /**
  * Adapts `dso-date-picker` to Angular Signal Forms by implementing
- * the `FormValueControl<string>` contract. This enables the component
- * to be used as a Signal Forms field while keeping the existing
- * `ControlValueAccessor`, `ngModel`, and Reactive Forms support unchanged.
+ * the `FormValueControl<string>` contract.
  */
 @Directive({
   selector: "dso-date-picker[formField]",
