@@ -4,17 +4,16 @@ import { HandlerFunction } from "storybook/actions";
 import { argTypeAction } from "../../shared/arg-type-action.js";
 import { noControl } from "../../shared/no-control.js";
 
-import { baseLayers, overlays } from "./map-controls.content.js";
-import { MapControls } from "./map-controls.models.js";
+import { BaseLayer, MapControls, Overlay } from "./map-controls.models.js";
 
 export interface MapControlsArgs {
   dsoZoomIn: HandlerFunction;
   dsoZoomOut: HandlerFunction;
   dsoToggle: HandlerFunction;
   open: boolean;
-  baseLayers: ReturnType<typeof baseLayers>;
+  baseLayers: BaseLayer[];
   dsoBaseLayerChange: HandlerFunction;
-  overlays: ReturnType<typeof overlays>;
+  overlays: Overlay[];
   dsoToggleOverlay: HandlerFunction;
   disableZoom: "both" | "in" | "out";
 }

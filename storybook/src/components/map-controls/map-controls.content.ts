@@ -1,4 +1,6 @@
-export function baseLayers() {
+import { BaseLayer, Overlay } from "./map-controls.models.js";
+
+export function baseLayers(): BaseLayer[] {
   return [
     {
       id: 0,
@@ -18,7 +20,7 @@ export function baseLayers() {
   ];
 }
 
-export function overlays() {
+export function overlays(): Overlay[] {
   return [
     {
       id: 0,

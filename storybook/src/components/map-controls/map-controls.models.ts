@@ -1,5 +1,3 @@
-import { baseLayers, overlays } from "./map-controls.content.js";
-
 export interface BaseLayer {
   id: number;
   name: string;
@@ -30,9 +28,9 @@ export interface MapControls {
   dsoZoomOut?: (e: CustomEvent<MouseEvent>) => void;
   dsoToggle?: (e: CustomEvent<MapControlsToggleEvent>) => void;
   open: boolean;
-  baseLayers: ReturnType<typeof baseLayers>;
+  baseLayers: BaseLayer[];
   dsoBaseLayerChange?: (e: CustomEvent<BaseLayerChangeEvent>) => void;
-  overlays: ReturnType<typeof overlays>;
+  overlays: Overlay[];
   dsoToggleOverlay?: (e: CustomEvent<OverlayChangeEvent>) => void;
   disableZoom?: "both" | "in" | "out" | undefined;
 }
