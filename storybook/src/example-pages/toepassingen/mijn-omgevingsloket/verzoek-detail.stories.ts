@@ -25,7 +25,7 @@ export const VerzoekDetail: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
         <main>
           <div class="row">
             <div class="col-md-12">
@@ -52,7 +52,7 @@ export const VerzoekDetail: StoryObj = {
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">${definitionListTemplate(definitions)}</div>
+            <div class="col-md-6">${definitionListTemplate(definitions())}</div>
           </div>
           <div class="row">
             <div class="col-md-6">

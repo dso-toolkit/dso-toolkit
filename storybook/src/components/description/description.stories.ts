@@ -31,7 +31,7 @@ const exampleTemplate = (exampleData: ReturnType<typeof descriptionExample>) =>
   html`${exampleData.map((d) => (typeof d === "string" ? d : descriptionTemplate(d)))}`;
 
 export const Term: DescriptionStory = {
-  args: termContent,
+  args: termContent(),
   argTypes: descriptionArgTypes,
   render: (args) => descriptionTemplate(descriptionArgsMapper(args)),
 };

@@ -27,7 +27,7 @@ const meta: Meta<DocumentCardArgs> = {
 export default meta;
 
 export const Default: DocumentCardStory = {
-  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems)),
+  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems())),
 };
 
 export const WithLabel: DocumentCardStory = {
@@ -39,12 +39,12 @@ export const WithLabel: DocumentCardStory = {
       label: "Ontwerp",
     },
   },
-  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems)),
+  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems())),
 };
 
 export const WithTypeToelichting: DocumentCardStory = {
   args: documentCardArgs,
-  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems, infoButton())),
+  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems(), infoButton())),
 };
 
 export const WithStatusToelichting: DocumentCardStory = {
@@ -59,10 +59,10 @@ export const WithStatusToelichting: DocumentCardStory = {
       message: "!",
     },
   },
-  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems)),
+  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems())),
 };
 
 export const WithLabels: DocumentCardStory = {
   args: documentCardArgs,
-  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems, undefined, labels)),
+  render: (args) => documentCardTemplate(documentCardArgsMapper(args, typeItems(), undefined, labels())),
 };

@@ -17,5 +17,5 @@ const meta: Meta = {
 export default meta;
 
 export const Default: StoryObj = {
-  render: () => heroImageTemplate({ image }),
+  render: () => heroImageTemplate({ image: image() }),
 };

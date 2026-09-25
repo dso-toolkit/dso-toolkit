@@ -28,7 +28,7 @@ export const Resultaat: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Vergunningscheck") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Vergunningscheck") })}
         <main>
           <form>
             ${applicationHeadingTemplate({ title: "Vergunningcheck", subtitle: "4. Resultaat", step: "Stap 4/4" })}

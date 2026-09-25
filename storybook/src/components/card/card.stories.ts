@@ -35,7 +35,7 @@ export default meta;
 
 export const Default: CardStory = {
   args: cardContent,
-  render: (args) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content())),
 };
 
 export const WithSelectableAndButton: CardStory = {
@@ -43,27 +43,27 @@ export const WithSelectableAndButton: CardStory = {
     ...cardContentButton,
     selectable: true,
   },
-  render: (args) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content())),
 };
 
 export const WithButton: CardStory = {
   args: cardContentButton,
-  render: (args) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content())),
 };
 
 export const WithLabel: CardStory = {
   args: {
     ...cardContentLabel,
   },
-  render: (args) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content())),
 };
 
 export const WithSlideToggle: CardStory = {
   args: cardContentSlideToggle,
-  render: (args) => cardTemplate(cardArgsMapper(args, content)),
+  render: (args) => cardTemplate(cardArgsMapper(args, content())),
 };
 
 export const WithInfoButtonWithToggletip: CardStory = {
   args: cardContent,
-  render: (args) => cardTemplate(cardArgsMapper(args, content, infoButton())),
+  render: (args) => cardTemplate(cardArgsMapper(args, content(), infoButton())),
 };

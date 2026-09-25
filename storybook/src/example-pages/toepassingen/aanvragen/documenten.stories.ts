@@ -25,7 +25,7 @@ export const Documenten: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
         <main>
           <form>
             ${applicationHeadingTemplate({

@@ -19,7 +19,7 @@ const meta: Meta<ContextArgs> = {
       page: () => compiler(readme),
     },
   },
-  render: (args) => contextTemplate(contextArgsMapper(args, content, children, label)),
+  render: (args) => contextTemplate(contextArgsMapper(args, content(), children(), label())),
 };
 
 export default meta;

@@ -28,7 +28,7 @@ export const ProjectOverzicht: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
         <main>
           <div class="row">
             <div class="col-md-12">
@@ -54,7 +54,7 @@ export const ProjectOverzicht: StoryObj = {
                     content: richContentTemplate({
                       children: html`
                         <h2>Mijn project</h2>
-                        ${linkListTemplate(linkList)}
+                        ${linkListTemplate(linkList())}
                       `,
                     }),
                   })}

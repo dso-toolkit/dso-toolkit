@@ -3,7 +3,9 @@ import { html } from "lit-html";
 import { InfoButton } from "../info-button/info-button.models.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-export const content = html`<p>Gemeente Nieuwegein informeert haar burgers graag over de Omgevingswet.</p>`;
+export function content() {
+  return html`<p>Gemeente Nieuwegein informeert haar burgers graag over de Omgevingswet.</p>`;
+}
 
 export function infoButton(): InfoButton {
   return {

@@ -22,7 +22,7 @@ const meta: Meta<CardContainerArgs> = {
       page: () => compiler(readme),
     },
   },
-  render: (args) => cardContainerTemplate(cardContainerArgsMapper(args, content)),
+  render: (args) => cardContainerTemplate(cardContainerArgsMapper(args, content())),
 };
 
 export default meta;

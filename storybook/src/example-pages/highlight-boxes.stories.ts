@@ -24,7 +24,7 @@ export const MeerdereHighlightBoxes: StoryObj = {
   render: () => {
     return html`
     <div class="container">
-      ${headerPartial({ ...header, mainMenu: mainMenu("Maatregelen op maat") })}
+      ${headerPartial({ ...header(), mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
         <h1>Highlight-box Banner aspect-ratio demo pagina</h1>
         <p>

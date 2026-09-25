@@ -41,7 +41,7 @@ export const Default: AccordionStory = {
     label: "Attentie",
     labelStatus: "attention",
   },
-  render: (args) => accordionTemplate(accordionArgsMapper(args, basicSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, basicSections(), badgeChildren)),
 };
 
 export const Activatable: AccordionStory = {
@@ -50,61 +50,61 @@ export const Activatable: AccordionStory = {
     activatable: true,
     active: true,
   },
-  render: (args) => accordionTemplate(accordionArgsMapper(args, activatableSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, activatableSections(), badgeChildren)),
 };
 
 export const Compact: AccordionStory = {
   args: {
     variant: "compact",
   },
-  render: (args) => accordionTemplate(accordionArgsMapper(args, compactSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, compactSections(), badgeChildren)),
 };
 
 export const CompactBlack: AccordionStory = {
   args: {
     variant: "compact-black",
   },
-  render: (args) => accordionTemplate(accordionArgsMapper(args, basicSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, basicSections(), badgeChildren)),
 };
 
 export const Neutral: AccordionStory = {
   args: {
     variant: "neutral",
   },
-  render: (args) => accordionTemplate(accordionArgsMapper(args, basicSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, basicSections(), badgeChildren)),
 };
 
 export const Conclusion: AccordionStory = {
   args: {
     variant: "conclusion",
   },
-  render: (args) => accordionTemplate(accordionArgsMapper(args, basicSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, basicSections(), badgeChildren)),
 };
 
 export const HandleAnchors: AccordionStory = {
-  render: (args) => accordionTemplate(accordionArgsMapper(args, anchorSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, anchorSections(), badgeChildren)),
 };
 
 export const Nested: AccordionStory = {
   args: {
     open: true,
   },
-  render: (args) => accordionTemplate(accordionArgsMapper(args, nestedSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, nestedSections(), badgeChildren)),
 };
 
 export const AddonsSections: AccordionStory = {
-  render: (args) => accordionTemplate(accordionArgsMapper(args, addonsSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, addonsSections(), badgeChildren)),
 };
 
 export const AlignmentSections: AccordionStory = {
-  render: (args) => accordionTemplate(accordionArgsMapper(args, alignmentSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, alignmentSections(), badgeChildren)),
 };
 
 export const RenvooiSections: AccordionStory = {
   args: {
     variant: "compact-black",
   },
-  render: (args) => accordionTemplate(accordionArgsMapper(args, renvooiSections, badgeChildren)),
+  render: (args) => accordionTemplate(accordionArgsMapper(args, renvooiSections(), badgeChildren)),
 };
 
 export const AnimatedFormGroupSections: AccordionStory = {

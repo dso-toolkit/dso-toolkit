@@ -43,7 +43,7 @@ export const DocumentenZoeken: StoryObj = {
         }
       </style>
       <div class="demo-container">
-        ${headerPartial(header)}
+        ${headerPartial(header())}
 
         <main class="demo-main">
           ${viewerGridTemplate({
@@ -59,7 +59,7 @@ export const DocumentenZoeken: StoryObj = {
               </div>
               <h1>Zoeken</h1>
               ${tabsTemplate({
-                items: tabItems,
+                items: tabItems(),
                 content: html`
                   <p>U kunt zoeken naar een adres, coördinaten of een gebied op de kaart.</p>
 
@@ -71,7 +71,7 @@ export const DocumentenZoeken: StoryObj = {
                       ${dropdownMenuTemplate({
                         variant: "tertiary",
                         label: "Meer zoekopties",
-                        groups: dropdownItems,
+                        groups: dropdownItems(),
                       })}
                     </div>
                   </div>

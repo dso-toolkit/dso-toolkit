@@ -32,7 +32,7 @@ export const Activiteiten: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
         <main>
           <form>
             ${applicationHeadingTemplate({
@@ -45,7 +45,7 @@ export const Activiteiten: StoryObj = {
               ${linkTemplate({ label: "Vergunningscheck", url: "#" })}.`,
               status: "info",
             })}
-            ${shoppingCartTemplate(shoppingCart)}
+            ${shoppingCartTemplate(shoppingCart())}
             ${highlightBoxTemplate({
               content: html`
                 ${searchBarTemplate({
@@ -65,13 +65,13 @@ export const Activiteiten: StoryObj = {
                   <legend><h4>Filters</h4></legend>
                   ${formGroupCheckboxesTemplate({
                     group: "checkboxes",
-                    selectables: bestuurslaag,
+                    selectables: bestuurslaag(),
                     id: "facets_1",
                     label: "Bestuurslaag",
                   })}
                   ${formGroupCheckboxesTemplate({
                     group: "checkboxes",
-                    selectables: toestemming,
+                    selectables: toestemming(),
                     id: "facets_2",
                     label: "Toestemming",
                   })}
@@ -97,8 +97,8 @@ export const Activiteiten: StoryObj = {
                     children: html`
                       <div class="row">
                         <div class="col-xs-12">
-                          ${labelGroupTemplate({ labels })}
-                          ${listButtons.map((listButton) => listButtonTemplate(listButton))}
+                          ${labelGroupTemplate({ labels: labels() })}
+                          ${listButtons().map((listButton) => listButtonTemplate(listButton))}
                         </div>
                       </div>
                     `,

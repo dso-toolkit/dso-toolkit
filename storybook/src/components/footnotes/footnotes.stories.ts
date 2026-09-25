@@ -48,9 +48,9 @@ const exampleRender = (args: FootnotesExampleArgs) => html`
 export const Example: FootnotesExampleStory = {
   argTypes: footnotesExampleArgTypes,
   args: {
-    footnote14: footnotes[0]!,
-    footnote15: footnotes[1]!,
-    footnotes,
+    footnote14: footnotes()[0]!,
+    footnote15: footnotes()[1]!,
+    footnotes: footnotes(),
   },
   render: exampleRender,
 };
@@ -58,8 +58,8 @@ export const Example: FootnotesExampleStory = {
 export const Reference: FootnotesReferenceStory = {
   argTypes: footnotesReferenceArgTypes,
   args: {
-    label: footnotes[0]!.label,
-    number: footnotes[0]!.number,
+    label: footnotes()[0]!.label,
+    number: footnotes()[0]!.number,
   },
   render: (args) => footnoteTemplate(footnotesReferenceArgsMapper(args)),
 };
@@ -67,7 +67,7 @@ export const Reference: FootnotesReferenceStory = {
 export const List: FootnotesListStory = {
   argTypes: footnotesListArgTypes,
   args: {
-    footnotes,
+    footnotes: footnotes(),
   },
   render: (args) => footnotesTemplate(footnotesListArgsMapper(args)),
 };

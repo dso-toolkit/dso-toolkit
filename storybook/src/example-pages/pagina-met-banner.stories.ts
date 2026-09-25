@@ -36,7 +36,7 @@ export const PaginaMetBanner: StoryObj = {
       }),
     })}
     <div class="container">
-      ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+      ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
       <main>
         <div class="row">
           <div class="col-lg-8">

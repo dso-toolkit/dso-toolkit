@@ -24,7 +24,7 @@ export const Verzoeken: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
         <main>
           <form class="form-horizontal">
             ${applicationHeadingTemplate({
@@ -32,7 +32,7 @@ export const Verzoeken: StoryObj = {
               subtitle: "7. Verzoeken indienen",
               step: "Stap 7/7",
             })}
-            ${alerts.map((alert) => alertTemplate(alert))}
+            ${alerts().map((alert) => alertTemplate(alert))}
             ${formTemplate({
               mode: "horizontal",
               content: [

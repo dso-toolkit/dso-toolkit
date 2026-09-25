@@ -20,7 +20,7 @@ export const Voortgang: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
         <main>
           <h1>Bezig met verzenden...</h1>
           <h2>Object Laan van Eik en Duinen 125, 's-Gravenhage</h2>

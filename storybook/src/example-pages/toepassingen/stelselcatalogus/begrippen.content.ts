@@ -4,37 +4,39 @@ import { Definition } from "../../../components/definition-list/definition-list.
 import { infoButtonTemplate } from "../../../components/info-button/info-button.template.js";
 import { linkTemplate } from "../../../components/link/link.template.js";
 
-export const mainMenu = [
-  {
-    label: "Home",
-    url: "#",
-  },
-  {
-    label: "Begrippen",
-    url: "#",
-    active: true,
-  },
-  {
-    label: "Activiteiten",
-    url: "#",
-  },
-  {
-    label: "Werkzaamheden",
-    url: "#",
-  },
-  {
-    label: "Waardelijsten",
-    url: "#",
-  },
-  {
-    label: "Informatieproducten",
-    url: "#",
-  },
-  {
-    label: "Over de catalogus",
-    url: "#",
-  },
-];
+export function mainMenu() {
+  return [
+    {
+      label: "Home",
+      url: "#",
+    },
+    {
+      label: "Begrippen",
+      url: "#",
+      active: true,
+    },
+    {
+      label: "Activiteiten",
+      url: "#",
+    },
+    {
+      label: "Werkzaamheden",
+      url: "#",
+    },
+    {
+      label: "Waardelijsten",
+      url: "#",
+    },
+    {
+      label: "Informatieproducten",
+      url: "#",
+    },
+    {
+      label: "Over de catalogus",
+      url: "#",
+    },
+  ];
+}
 
 export function definitions1(): Definition[] {
   return [

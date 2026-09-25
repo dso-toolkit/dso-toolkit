@@ -330,5 +330,5 @@ export const IMRO: DocumentComponentStory = {
     kop: undefined,
   },
   argTypes: documentComponentArgTypes,
-  render: (args) => documentComponentTemplate(documentComponentMapper(args, imroTemplate(imroContent))),
+  render: (args) => documentComponentTemplate(documentComponentMapper(args, imroTemplate(imroContent()))),
 };

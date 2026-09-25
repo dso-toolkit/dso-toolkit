@@ -35,14 +35,14 @@ const meta: Meta<ScrollableArgs> = {
 export default meta;
 
 export const Default: ScrollableStory = {
-  render: (args) => scrollableTemplate(scrollableArgsMapper(args, defaultContent)),
+  render: (args) => scrollableTemplate(scrollableArgsMapper(args, defaultContent())),
   parameters: {
     layout: "fullscreen",
   },
 };
 
 export const DynamicContent: ScrollableStory = {
-  render: (args) => scrollableTemplate(scrollableArgsMapper(args, dynamicContent)),
+  render: (args) => scrollableTemplate(scrollableArgsMapper(args, dynamicContent())),
   parameters: {
     layout: "fullscreen",
   },

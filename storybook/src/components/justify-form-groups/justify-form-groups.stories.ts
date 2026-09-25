@@ -17,5 +17,5 @@ const meta: Meta = {
 export default meta;
 
 export const JustifyFormGroups: StoryObj = {
-  render: () => justifyFormGroupsTemplate(content),
+  render: () => justifyFormGroupsTemplate(content()),
 };

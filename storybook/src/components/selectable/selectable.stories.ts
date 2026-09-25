@@ -31,7 +31,7 @@ const meta: Meta<SelectableArgs> = {
       page: () => compiler(readme),
     },
   },
-  render: (args) => selectableTemplate(selectableArgsMapper(args, infoRichContent)),
+  render: (args) => selectableTemplate(selectableArgsMapper(args, infoRichContent())),
 };
 
 export default meta;

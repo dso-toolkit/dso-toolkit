@@ -25,7 +25,7 @@ export const Conceptverzoek: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
         <main>
           <form>
             ${applicationHeadingTemplate({
@@ -33,8 +33,8 @@ export const Conceptverzoek: StoryObj = {
               subtitle: "7. Verzoeken indienen - doel van de verzoeken",
               step: "Stap 7/7",
             })}
-            ${formGroupRadiosTemplate(radios())} ${definitionListTemplate(definitionList1)}
-            ${definitionListTemplate(definitionlist2)}
+            ${formGroupRadiosTemplate(radios())} ${definitionListTemplate(definitionList1())}
+            ${definitionListTemplate(definitionlist2())}
             ${formButtonsTemplate({
               buttons: [
                 {

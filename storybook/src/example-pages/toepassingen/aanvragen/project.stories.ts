@@ -26,7 +26,7 @@ export const Project: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
         <main>
           ${applicationHeadingTemplate({ title: "Aanvragen", subtitle: "1. Project", step: "Stap 1/7" })}
           ${alertTemplate({
@@ -34,7 +34,7 @@ export const Project: StoryObj = {
             message: html`Hulp nodig bij kiezen? Doe dan eerst de
             ${linkTemplate({ label: "Vergunningscheck", url: "#" })}.`,
           })}
-          ${formTemplate(form)}
+          ${formTemplate(form())}
           ${formButtonsTemplate({
             buttons: [
               {

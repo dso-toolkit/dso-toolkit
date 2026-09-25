@@ -24,6 +24,6 @@ export const imageOverlayArgTypes: ArgTypes<ImageOverlayArgs> = {
 
 export function imageOverlayArgsMapper(a: ImageOverlayArgs): ImageOverlay {
   return {
-    image: images[a.image],
+    image: images()[a.image],
   };
 }

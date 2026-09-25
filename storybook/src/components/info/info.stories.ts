@@ -17,7 +17,7 @@ const meta: Meta<InfoArgs> = {
       page: () => compiler(readme),
     },
   },
-  render: (args) => infoTemplate(infoArgsMapper(args, richContent)),
+  render: (args) => infoTemplate(infoArgsMapper(args, richContent())),
 };
 
 export default meta;

@@ -119,7 +119,7 @@ export const DatePicker: FormGroupDatePickerStory = {
 export const Files: FormGroupFilesStory = {
   args: formGroupFilesArgs,
   argTypes: formGroupFilesArgTypes,
-  render: (args) => formGroupFilesTemplate(formGroupFilesArgsMapper(args, files)),
+  render: (args) => formGroupFilesTemplate(formGroupFilesArgsMapper(args, files())),
   name: "Files (files uploaded)",
 };
 

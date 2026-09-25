@@ -22,12 +22,12 @@ export const SubtitelVoorEenDefinitieLijst: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Home") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Home") })}
 
         <main>
           <h1>Stelselcatalogus Omgevingswet</h1>
           <p role="doc-subtitle">Subtitel</p>
-          ${definitionListTemplate(definitionList)}
+          ${definitionListTemplate(definitionList())}
         </main>
       </div>
     `;

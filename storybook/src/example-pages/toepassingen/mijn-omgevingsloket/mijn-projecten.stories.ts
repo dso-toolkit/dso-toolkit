@@ -25,7 +25,7 @@ export const MijnProjecten: StoryObj = {
     return html`
       <div class="container">
         ${headerPartial({
-          ...header,
+          ...header(),
           mainMenu: mainMenu(),
           userHomeActive: true,
           authStatus: "loggedIn",

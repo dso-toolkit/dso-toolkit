@@ -1,13 +1,15 @@
 import { Alert } from "../../../components/alert/alert.models.js";
 
-export const alerts: Alert[] = [
-  {
-    status: "warning",
-    message:
-      "Verander de instantie alleen als u zeker weet dat die niet klopt. Als u iets verandert, duurt het afhandelen van uw aanvraag mogelijk langer.",
-  },
-  {
-    status: "info",
-    message: "We hebben van uw aanvraag meerdere verzoeken gemaakt. Hier ziet u waar u de verzoeken indient.",
-  },
-];
+export function alerts(): Alert[] {
+  return [
+    {
+      status: "warning",
+      message:
+        "Verander de instantie alleen als u zeker weet dat die niet klopt. Als u iets verandert, duurt het afhandelen van uw aanvraag mogelijk langer.",
+    },
+    {
+      status: "info",
+      message: "We hebben van uw aanvraag meerdere verzoeken gemaakt. Hier ziet u waar u de verzoeken indient.",
+    },
+  ];
+}

@@ -18,7 +18,7 @@ export const SubtitelVoorEenHeading: StoryObj = {
   name: "Subtitel voor een Heading",
   render: () => html`
     <div class="container">
-      ${headerPartial({ ...header, mainMenu: mainMenu("Home") })}
+      ${headerPartial({ ...header(), mainMenu: mainMenu("Home") })}
 
       <main>
         <h1>Stelselcatalogus Omgevingswet</h1>

@@ -25,7 +25,7 @@ export const HighlightBoxes: StoryObj = {
   decorators: [(story) => decorator(story)],
   render: () =>
     rowEqualHeightsTemplate({
-      children: html`${highlightBoxes.map(
+      children: html`${highlightBoxes().map(
         (highlightbox) => html`<div class="col-md-6 col-lg-3">${highlightBoxTemplate(highlightbox)}</div>`,
       )}`,
     }),
@@ -35,6 +35,6 @@ export const Tiles: StoryObj = {
   decorators: [(story) => decorator(story)],
   render: () =>
     rowEqualHeightsTemplate({
-      children: html`${tiles.map((tile) => html`<div class="col-lg-2 col-md-4 col-xs-6">${tileTemplate(tile)}</div>`)}`,
+      children: html`${tiles().map((tile) => html`<div class="col-lg-2 col-md-4 col-xs-6">${tileTemplate(tile)}</div>`)}`,
     }),
 };

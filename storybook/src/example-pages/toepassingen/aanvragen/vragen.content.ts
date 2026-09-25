@@ -34,22 +34,24 @@ export function radios(): FormGroupRadios {
   };
 }
 
-export const checkboxes: FormGroupCheckboxes = {
-  group: "checkboxes",
-  id: "checkboxes",
-  label: "Test Vraag 2",
-  selectables: [
-    {
-      id: "antwoord-checkbox-1",
-      label: "Antwoord 1",
-      value: "Antwoord 1",
-      type: "checkbox",
-    },
-    {
-      id: "antwoord-checkbox-2",
-      label: "Antwoord 2",
-      value: "Antwoord 2",
-      type: "checkbox",
-    },
-  ],
-};
+export function checkboxes(): FormGroupCheckboxes {
+  return {
+    group: "checkboxes",
+    id: "checkboxes",
+    label: "Test Vraag 2",
+    selectables: [
+      {
+        id: "antwoord-checkbox-1",
+        label: "Antwoord 1",
+        value: "Antwoord 1",
+        type: "checkbox",
+      },
+      {
+        id: "antwoord-checkbox-2",
+        label: "Antwoord 2",
+        value: "Antwoord 2",
+        type: "checkbox",
+      },
+    ],
+  };
+}

@@ -25,7 +25,7 @@ export const Helpcentrum: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Regels op de kaart") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Regels op de kaart") })}
         <main>
           <style>
             .my-beautiful-image {
@@ -64,25 +64,25 @@ export const Helpcentrum: StoryObj = {
           <div class="row">
             <div class="col-md-4">
               <h3>U wilt weten hoe het Omgevingsloket werkt</h3>
-              ${linkListTemplate(linkList)}
+              ${linkListTemplate(linkList())}
             </div>
             <div class="col-md-4">
               <h3>U wilt weten of u werkzaamheden mag uitvoeren</h3>
-              ${linkListTemplate(linkList)}
+              ${linkListTemplate(linkList())}
             </div>
             <div class="col-md-4">
               <h3>U wilt een aanvraag of melding indienen</h3>
-              ${linkListTemplate(linkList)}
+              ${linkListTemplate(linkList())}
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
               <h3>U wilt weten welke regels er gelden en plannen bekijken</h3>
-              ${linkListTemplate(linkList)}
+              ${linkListTemplate(linkList())}
             </div>
             <div class="col-md-4">
               <h3>U wilt weten welke algemene regels gelden voor uw bedrijf of project</h3>
-              ${linkListTemplate(linkList)}
+              ${linkListTemplate(linkList())}
             </div>
           </div>
           <hr />

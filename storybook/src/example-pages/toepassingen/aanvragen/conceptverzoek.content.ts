@@ -4,95 +4,99 @@ import { DefinitionList } from "../../../components/definition-list/definition-l
 import { FormGroupRadios } from "../../../components/form-group/form-group-radios.models.js";
 import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
 
-export const definitionList1: DefinitionList = {
-  definitions: [
-    {
-      term: html`Verzoek 1:`,
-      descriptions: [
-        {
-          content: "Object Laan van Eik en Duinen 125, 's-Gravenhage 1",
-        },
-      ],
-    },
-    {
-      term: html`Indienen bij:`,
-      descriptions: [
-        {
-          content: "Hoogheemraadschap van Delfland",
-        },
-      ],
-    },
-    {
-      term: html`Soort:`,
-      descriptions: [
-        {
-          content: "Aanvraag vergunning",
-        },
-      ],
-    },
-    {
-      term: html`Bevat:`,
-      descriptions: [
-        {
-          content: "Milieubelastende activiteit - Vergunning (Gemeente)",
-        },
-      ],
-    },
-    {
-      term: html`Conceptverzoek mogelijk:`,
-      descriptions: [
-        {
-          content: "Nee",
-        },
-      ],
-    },
-  ],
-};
+export function definitionList1(): DefinitionList {
+  return {
+    definitions: [
+      {
+        term: html`Verzoek 1:`,
+        descriptions: [
+          {
+            content: "Object Laan van Eik en Duinen 125, 's-Gravenhage 1",
+          },
+        ],
+      },
+      {
+        term: html`Indienen bij:`,
+        descriptions: [
+          {
+            content: "Hoogheemraadschap van Delfland",
+          },
+        ],
+      },
+      {
+        term: html`Soort:`,
+        descriptions: [
+          {
+            content: "Aanvraag vergunning",
+          },
+        ],
+      },
+      {
+        term: html`Bevat:`,
+        descriptions: [
+          {
+            content: "Milieubelastende activiteit - Vergunning (Gemeente)",
+          },
+        ],
+      },
+      {
+        term: html`Conceptverzoek mogelijk:`,
+        descriptions: [
+          {
+            content: "Nee",
+          },
+        ],
+      },
+    ],
+  };
+}
 
-export const definitionlist2: DefinitionList = {
-  definitions: [
-    {
-      term: html`Verzoek 2:`,
-      descriptions: [
-        {
-          content: "Object Laan van Eik en Duinen 125, 's-Gravenhage 2",
-        },
-      ],
-    },
-    {
-      term: html`Indienen bij:`,
-      descriptions: [
-        {
-          content: "Gemeente Den Haag",
-        },
-      ],
-    },
-    {
-      term: html`Soort:`,
-      descriptions: [
-        {
-          content: "Melding",
-        },
-      ],
-    },
-    {
-      term: html`Bevat:`,
-      descriptions: [
-        {
-          content: "Milieubelastende activiteit - Vergunning (Gemeente)",
-        },
-      ],
-    },
-    {
-      term: html`Conceptverzoek mogelijk:`,
-      descriptions: [
-        {
-          content: "Ja",
-        },
-      ],
-    },
-  ],
-};
+export function definitionlist2(): DefinitionList {
+  return {
+    definitions: [
+      {
+        term: html`Verzoek 2:`,
+        descriptions: [
+          {
+            content: "Object Laan van Eik en Duinen 125, 's-Gravenhage 2",
+          },
+        ],
+      },
+      {
+        term: html`Indienen bij:`,
+        descriptions: [
+          {
+            content: "Gemeente Den Haag",
+          },
+        ],
+      },
+      {
+        term: html`Soort:`,
+        descriptions: [
+          {
+            content: "Melding",
+          },
+        ],
+      },
+      {
+        term: html`Bevat:`,
+        descriptions: [
+          {
+            content: "Milieubelastende activiteit - Vergunning (Gemeente)",
+          },
+        ],
+      },
+      {
+        term: html`Conceptverzoek mogelijk:`,
+        descriptions: [
+          {
+            content: "Ja",
+          },
+        ],
+      },
+    ],
+  };
+}
 
 export function radios(): FormGroupRadios {
   return {

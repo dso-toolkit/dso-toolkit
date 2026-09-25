@@ -16,7 +16,7 @@ const meta: Meta<LinkListArgs> = {
   title: "HTML|CSS/Link List",
   argTypes: linkListArgTypes,
   args: {
-    links,
+    links: links(),
   },
   parameters: {
     docs: {
@@ -61,7 +61,7 @@ export const InHighlightBox: LinkListStory = {
 
 export const InNav: LinkListStory = {
   args: {
-    links: navLinks,
+    links: navLinks(),
     navLabel: "Projecttaken",
     type: LinkListType.Ul,
   },

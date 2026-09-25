@@ -23,7 +23,7 @@ export default meta;
 
 const render = (args: OzonContentArgs) => ozonContentTemplate(ozonContentArgsMapper(args));
 const storyArgs = (title: string): OzonContentArgs => {
-  const story = content.find((item) => item.title === title);
+  const story = content().find((item) => item.title === title);
 
   if (!story) {
     throw new Error(`Unknown Ozon Content story: ${title}`);

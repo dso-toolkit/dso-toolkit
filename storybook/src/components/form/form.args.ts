@@ -30,6 +30,6 @@ export function formArgsMapper(a: FormArgs, content: FormContent): Form {
     mode: a.mode,
     content,
     formModifier: a.formModifier,
-    formButtons: buttons,
+    formButtons: buttons(),
   };
 }

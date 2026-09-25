@@ -21,12 +21,12 @@ const meta: Meta<ParagraphArgs> = {
 export default meta;
 
 export const Default: ParagraphStory = {
-  render: (args) => paragraphTemplate(paragraphArgsMapper(args, defaultContent)),
+  render: (args) => paragraphTemplate(paragraphArgsMapper(args, defaultContent())),
 };
 
 export const Disclaimer: ParagraphStory = {
   args: {
     variant: "disclaimer",
   },
-  render: (args) => paragraphTemplate(paragraphArgsMapper(args, disclaimerContent)),
+  render: (args) => paragraphTemplate(paragraphArgsMapper(args, disclaimerContent())),
 };

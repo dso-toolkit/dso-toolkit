@@ -21,7 +21,7 @@ export const HistoryItemInWerking: StoryObj = {
     return html`${headingTemplate({ level: 5, children: "Gebeurtenis" })}
       <hr />
       <ul class="dso-list-unstyled">
-        ${historyItemsInWerking.map((historyItem) => html`<li>${historyItemTemplate(historyItem)}</li>`)}
+        ${historyItemsInWerking().map((historyItem) => html`<li>${historyItemTemplate(historyItem)}</li>`)}
       </ul>`;
   },
 };

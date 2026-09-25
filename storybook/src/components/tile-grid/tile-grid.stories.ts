@@ -17,5 +17,5 @@ const meta: Meta = {
 export default meta;
 
 export const TileGrid: StoryObj = {
-  render: () => tileGridTemplate({ tiles }),
+  render: () => tileGridTemplate({ tiles: tiles() }),
 };

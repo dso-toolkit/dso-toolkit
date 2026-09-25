@@ -7,33 +7,37 @@ import { definitionListTemplate } from "../../../components/definition-list/defi
 import { Header } from "../../../components/header/header.models.js";
 import { Tabs } from "../../../components/tabs/tabs.models.js";
 
-export const header: Header = {
-  label: "Regels op de kaart",
-  ribbon: "beta",
-  mainMenu: [
-    {
-      label: "Behandelen",
-      url: "#",
-    },
-  ],
-  compact: "auto",
-  authStatus: "loggedIn",
-  loginUrl: "#login",
-  logoutUrl: "#logout",
-  showHelp: true,
-  helpUrl: "#help",
-  userProfileName: "J.A. Jansen",
-  userProfileUrl: "#profiel",
-};
+export function header(): Header {
+  return {
+    label: "Regels op de kaart",
+    ribbon: "beta",
+    mainMenu: [
+      {
+        label: "Behandelen",
+        url: "#",
+      },
+    ],
+    compact: "auto",
+    authStatus: "loggedIn",
+    loginUrl: "#login",
+    logoutUrl: "#logout",
+    showHelp: true,
+    helpUrl: "#help",
+    userProfileName: "J.A. Jansen",
+    userProfileUrl: "#profiel",
+  };
+}
 
-export const breadcrumbs: Breadcrumbs = {
-  breadcrumbs: [
-    {
-      label: "Test",
-      url: "#",
-    },
-  ],
-};
+export function breadcrumbs(): Breadcrumbs {
+  return {
+    breadcrumbs: [
+      {
+        label: "Test",
+        url: "#",
+      },
+    ],
+  };
+}
 
 export function items(): Tabs {
   return {
@@ -58,7 +62,7 @@ export function items(): Tabs {
         buttons: [{ label: "Samenwerking aanpassen", type: "button", variant: "secondary" }],
       })}
       <div class="row">
-        <div class="col-md-4">${definitionListTemplate(definitions)}</div>
+        <div class="col-md-4">${definitionListTemplate(definitions())}</div>
         <div class="col-md-4">
           <p><strong>Beschrijving</strong></p>
           <p>Een korte paragraaf over deze samenwerkingspartner in het algemeen.</p>
@@ -68,71 +72,73 @@ export function items(): Tabs {
   };
 }
 
-export const definitions: DefinitionList = {
-  definitions: [
-    {
-      term: html`Initiator:`,
-      descriptions: [
-        {
-          content: html`Gemeente Den Haag`,
-        },
-      ],
-    },
-    {
-      term: html`Verzoeknummer:`,
-      descriptions: [
-        {
-          content: html`12123497987`,
-        },
-      ],
-    },
-    {
-      term: html`Status:`,
-      descriptions: [
-        {
-          content: html`Open`,
-        },
-      ],
-    },
-    {
-      term: html`Status:`,
-      descriptions: [
-        {
-          content: html`Open`,
-        },
-      ],
-    },
-    {
-      term: html`Creatie datum:`,
-      descriptions: [
-        {
-          content: html`23-09-2019`,
-        },
-      ],
-    },
-    {
-      term: html`Contactpersoon:`,
-      descriptions: [
-        {
-          content: html`Jan van Veen`,
-        },
-      ],
-    },
-    {
-      term: html`Emailadres:`,
-      descriptions: [
-        {
-          content: html`Janvanveen@testmail.nl`,
-        },
-      ],
-    },
-    {
-      term: html`Telefoonnummer:`,
-      descriptions: [
-        {
-          content: html`0639722566`,
-        },
-      ],
-    },
-  ],
-};
+export function definitions(): DefinitionList {
+  return {
+    definitions: [
+      {
+        term: html`Initiator:`,
+        descriptions: [
+          {
+            content: html`Gemeente Den Haag`,
+          },
+        ],
+      },
+      {
+        term: html`Verzoeknummer:`,
+        descriptions: [
+          {
+            content: html`12123497987`,
+          },
+        ],
+      },
+      {
+        term: html`Status:`,
+        descriptions: [
+          {
+            content: html`Open`,
+          },
+        ],
+      },
+      {
+        term: html`Status:`,
+        descriptions: [
+          {
+            content: html`Open`,
+          },
+        ],
+      },
+      {
+        term: html`Creatie datum:`,
+        descriptions: [
+          {
+            content: html`23-09-2019`,
+          },
+        ],
+      },
+      {
+        term: html`Contactpersoon:`,
+        descriptions: [
+          {
+            content: html`Jan van Veen`,
+          },
+        ],
+      },
+      {
+        term: html`Emailadres:`,
+        descriptions: [
+          {
+            content: html`Janvanveen@testmail.nl`,
+          },
+        ],
+      },
+      {
+        term: html`Telefoonnummer:`,
+        descriptions: [
+          {
+            content: html`0639722566`,
+          },
+        ],
+      },
+    ],
+  };
+}

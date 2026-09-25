@@ -9,213 +9,235 @@ import { PlekinfoCard } from "../../../components/plekinfo-card/plekinfo-card.mo
 import { TabsItem } from "../../../components/tabs/tabs.models.js";
 import { mainMenu } from "../../content/main-menu.content.js";
 
-export const header: Header = {
-  label: "Regels op de kaart",
-  ribbon: "beta",
-  mainMenu: mainMenu("Regels op de kaart"),
-  compact: "always",
-  authStatus: "loggedIn",
-  loginUrl: "#login",
-  logoutUrl: "#logout",
-  showHelp: true,
-  helpUrl: "#help",
-  userProfileName: "J.A. Jansen",
-  userProfileUrl: "#profiel",
-};
+export function header(): Header {
+  return {
+    label: "Regels op de kaart",
+    ribbon: "beta",
+    mainMenu: mainMenu("Regels op de kaart"),
+    compact: "always",
+    authStatus: "loggedIn",
+    loginUrl: "#login",
+    logoutUrl: "#logout",
+    showHelp: true,
+    helpUrl: "#help",
+    userProfileName: "J.A. Jansen",
+    userProfileUrl: "#profiel",
+  };
+}
 
-export const breadcrumbs: Breadcrumbs = {
-  breadcrumbs: [
-    {
-      label: "Test",
-      url: "#",
-    },
-  ],
-};
-
-export const advancedSelect: AdvancedSelect = {
-  options: [
-    {
-      label: "Geldende versie",
-      variant: "success",
-      redirect: {
-        href: "#",
-        label: "Bekijk eerder vastgestelde versies",
+export function breadcrumbs(): Breadcrumbs {
+  return {
+    breadcrumbs: [
+      {
+        label: "Test",
+        url: "#",
       },
-      options: [
-        {
-          label: "In werking (laatst gewijzigd: 01-01-2024)",
+    ],
+  };
+}
+
+export function advancedSelect(): AdvancedSelect {
+  return {
+    options: [
+      {
+        label: "Geldende versie",
+        variant: "success",
+        redirect: {
+          href: "#",
+          label: "Bekijk eerder vastgestelde versies",
         },
-      ],
-    },
-    {
-      label: "Toekomstige versies",
-      activeLabel: "Toekomstig",
-      summaryCounter: true,
-      options: [
-        {
-          label: "Citeertitel van het besluit (In werking per 01-03-2024)",
-        },
-        {
-          label: "Citeertitel van het besluit (In werking per 01-04-2024)",
-        },
-      ],
-    },
-    {
-      label: "Ontwerp versies ter inzage",
-      activeLabel: "Ontwerp",
-      variant: "warning",
-      redirect: {
-        href: "#",
-        label: "Bekijk ontwerpen met afgeronde inzage termijn",
+        options: [
+          {
+            label: "In werking (laatst gewijzigd: 01-01-2024)",
+          },
+        ],
       },
-      summaryCounter: true,
-      options: [
-        {
-          label: "Verandering in annotaties (Einde inzage: 01-02-2024)",
-        },
-        {
-          label: "Herziening Achterwillense-weg 12-34 (Einde inzage: 08-02-2024)",
-        },
-        {
-          label:
-            "Algemene regels voor het beheer en onderhoud van waterstaatswerken en het gebruik van watersystemen (Keur waterschap Vechtstromen 2020) (Einde inzage: 09-02-2024)",
-        },
-      ],
-    },
-    {
-      label: "Groep met placeholder",
-      placeholder: "Er zijn alleen ontwerpen met een afgeronde inzage termijn voor dit document.",
-      redirect: {
-        href: "#",
-        label: "Bekijk ontwerpen met afgeronde inzage termijn",
+      {
+        label: "Toekomstige versies",
+        activeLabel: "Toekomstig",
+        summaryCounter: true,
+        options: [
+          {
+            label: "Citeertitel van het besluit (In werking per 01-03-2024)",
+          },
+          {
+            label: "Citeertitel van het besluit (In werking per 01-04-2024)",
+          },
+        ],
       },
-    },
-  ],
-};
+      {
+        label: "Ontwerp versies ter inzage",
+        activeLabel: "Ontwerp",
+        variant: "warning",
+        redirect: {
+          href: "#",
+          label: "Bekijk ontwerpen met afgeronde inzage termijn",
+        },
+        summaryCounter: true,
+        options: [
+          {
+            label: "Verandering in annotaties (Einde inzage: 01-02-2024)",
+          },
+          {
+            label: "Herziening Achterwillense-weg 12-34 (Einde inzage: 08-02-2024)",
+          },
+          {
+            label:
+              "Algemene regels voor het beheer en onderhoud van waterstaatswerken en het gebruik van watersystemen (Keur waterschap Vechtstromen 2020) (Einde inzage: 09-02-2024)",
+          },
+        ],
+      },
+      {
+        label: "Groep met placeholder",
+        placeholder: "Er zijn alleen ontwerpen met een afgeronde inzage termijn voor dit document.",
+        redirect: {
+          href: "#",
+          label: "Bekijk ontwerpen met afgeronde inzage termijn",
+        },
+      },
+    ],
+  };
+}
 
-const documentCardDefault: DocumentCard = {
-  href: "#",
-  label: "Omgevingsplan gemeente Apeldoorn",
-  status: "In werking vanaf 03-03-2023",
-  typeItems: [
-    html`<span class="dso-document-card-type-item">Omgevingsplan</span>`,
-    html`<span class="dso-document-card-type-item">Gemeente Apeldoorn</span>`,
-  ],
-  typeToelichting: {
-    children: html`<div class="dso-rich-content"><p>Extra informatie</p></div>`,
-    label: "Toon informatie over type",
-    toggletipPlacement: "right",
-  },
-};
-
-export const documentCardList: DocumentCard[] = [
-  documentCardDefault,
-  { ...documentCardDefault, label: "Chw bestemmingsplan Algemene regels Apeldoorn" },
-  { ...documentCardDefault, label: "TAM-voorbereidingsbesluit voorbeschermingsregels" },
-];
-
-export const mainSubmenu: Navbar = {
-  open: false,
-  modifier: "sub",
-  items: [
-    {
-      label: "Gemeente",
-      active: true,
-      href: "#",
-    },
-    {
-      label: "Provincie",
-      href: "#",
-    },
-    {
-      label: "Waterschap",
-      href: "#",
-    },
-    {
-      label: "Rijk",
-      href: "#",
-    },
-  ],
-};
-
-export const documentPanelSubmenu: Navbar = {
-  open: false,
-  modifier: "sub",
-  items: [
-    {
-      label: "Plekinfo",
-      active: true,
-      href: "#",
-    },
-    {
-      label: "Overzicht",
-      href: "#",
-    },
-    {
-      label: "Regels",
-      href: "#",
-    },
-    {
-      label: "Bijlagen",
-      href: "#",
-    },
-    {
-      label: "Kaarten",
-      href: "#",
-    },
-    {
-      label: "Toelichting",
-      href: "#",
-    },
-  ],
-};
-
-const plekInfoCardDefault: PlekinfoCard = {
-  href: "#",
-  targetBlank: false,
-  interaction: {
-    checked: false,
-    accessibleLabel: "sr-only label van het schuifje",
-  },
-  label: "Aanvraagvereisten binnenplanse omgevingsvergunning omgevingsplanactiviteit bouwwerken",
-  active: false,
-};
-
-export const plekinfoCardsListActiviteiten: PlekinfoCard[] = [
-  { ...plekInfoCardDefault },
-  {
-    ...plekInfoCardDefault,
-    label: "Acculader in werking hebben",
-  },
-  {
-    ...plekInfoCardDefault,
-    label: "Activiteit gereguleerd in omgevingsplanregels van rijkswege",
-  },
-  {
-    ...plekInfoCardDefault,
-    label: "Activiteit die betrekking heeft op een gemeentelijk monument",
-  },
-];
-
-export const plekinfoCardsListLocaties: PlekinfoCard[] = [
-  {
-    ...plekInfoCardDefault,
-    label: "ambtsgebied",
-  },
-  {
-    ...plekInfoCardDefault,
-    label: "Ambtsgebied Gemeente Midden-Groningen",
-  },
-];
-
-export const tabItems: TabsItem[] = [
-  {
-    label: "Locatie zoeken",
-    modifier: "active",
+function documentCardDefault(): DocumentCard {
+  return {
     href: "#",
-  },
-  {
-    label: "Documenten zoeken",
+    label: "Omgevingsplan gemeente Apeldoorn",
+    status: "In werking vanaf 03-03-2023",
+    typeItems: [
+      html`<span class="dso-document-card-type-item">Omgevingsplan</span>`,
+      html`<span class="dso-document-card-type-item">Gemeente Apeldoorn</span>`,
+    ],
+    typeToelichting: {
+      children: html`<div class="dso-rich-content"><p>Extra informatie</p></div>`,
+      label: "Toon informatie over type",
+      toggletipPlacement: "right",
+    },
+  };
+}
+
+export function documentCardList(): DocumentCard[] {
+  return [
+    documentCardDefault(),
+    { ...documentCardDefault(), label: "Chw bestemmingsplan Algemene regels Apeldoorn" },
+    { ...documentCardDefault(), label: "TAM-voorbereidingsbesluit voorbeschermingsregels" },
+  ];
+}
+
+export function mainSubmenu(): Navbar {
+  return {
+    open: false,
+    modifier: "sub",
+    items: [
+      {
+        label: "Gemeente",
+        active: true,
+        href: "#",
+      },
+      {
+        label: "Provincie",
+        href: "#",
+      },
+      {
+        label: "Waterschap",
+        href: "#",
+      },
+      {
+        label: "Rijk",
+        href: "#",
+      },
+    ],
+  };
+}
+
+export function documentPanelSubmenu(): Navbar {
+  return {
+    open: false,
+    modifier: "sub",
+    items: [
+      {
+        label: "Plekinfo",
+        active: true,
+        href: "#",
+      },
+      {
+        label: "Overzicht",
+        href: "#",
+      },
+      {
+        label: "Regels",
+        href: "#",
+      },
+      {
+        label: "Bijlagen",
+        href: "#",
+      },
+      {
+        label: "Kaarten",
+        href: "#",
+      },
+      {
+        label: "Toelichting",
+        href: "#",
+      },
+    ],
+  };
+}
+
+function plekInfoCardDefault(): PlekinfoCard {
+  return {
     href: "#",
-  },
-];
+    targetBlank: false,
+    interaction: {
+      checked: false,
+      accessibleLabel: "sr-only label van het schuifje",
+    },
+    label: "Aanvraagvereisten binnenplanse omgevingsvergunning omgevingsplanactiviteit bouwwerken",
+    active: false,
+  };
+}
+
+export function plekinfoCardsListActiviteiten(): PlekinfoCard[] {
+  return [
+    { ...plekInfoCardDefault() },
+    {
+      ...plekInfoCardDefault(),
+      label: "Acculader in werking hebben",
+    },
+    {
+      ...plekInfoCardDefault(),
+      label: "Activiteit gereguleerd in omgevingsplanregels van rijkswege",
+    },
+    {
+      ...plekInfoCardDefault(),
+      label: "Activiteit die betrekking heeft op een gemeentelijk monument",
+    },
+  ];
+}
+
+export function plekinfoCardsListLocaties(): PlekinfoCard[] {
+  return [
+    {
+      ...plekInfoCardDefault(),
+      label: "ambtsgebied",
+    },
+    {
+      ...plekInfoCardDefault(),
+      label: "Ambtsgebied Gemeente Midden-Groningen",
+    },
+  ];
+}
+
+export function tabItems(): TabsItem[] {
+  return [
+    {
+      label: "Locatie zoeken",
+      modifier: "active",
+      href: "#",
+    },
+    {
+      label: "Documenten zoeken",
+      href: "#",
+    },
+  ];
+}

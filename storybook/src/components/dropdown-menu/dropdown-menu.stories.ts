@@ -35,7 +35,7 @@ export const Anchors: DropdownMenuStory = {
   args: {
     buttonLabel: "Versies",
     checkable: true,
-    groups: content.versions,
+    groups: content.versions(),
   },
 };
 
@@ -43,6 +43,6 @@ export const Buttons: DropdownMenuStory = {
   args: {
     buttonLabel: "Opties",
     checkable: false,
-    groups: content.settings,
+    groups: content.settings(),
   },
 };

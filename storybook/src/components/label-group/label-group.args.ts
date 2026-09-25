@@ -3,6 +3,6 @@ import { LabelGroup } from "./label-group.models.js";
 
 export function labelGroupArgsMapper(): LabelGroup {
   return {
-    labels: activeFilters,
+    labels: activeFilters(),
   };
 }

@@ -12,9 +12,9 @@ export interface MapControlsArgs {
   dsoZoomOut: HandlerFunction;
   dsoToggle: HandlerFunction;
   open: boolean;
-  baseLayers: typeof baseLayers;
+  baseLayers: ReturnType<typeof baseLayers>;
   dsoBaseLayerChange: HandlerFunction;
-  overlays: typeof overlays;
+  overlays: ReturnType<typeof overlays>;
   dsoToggleOverlay: HandlerFunction;
   disableZoom: "both" | "in" | "out";
 }

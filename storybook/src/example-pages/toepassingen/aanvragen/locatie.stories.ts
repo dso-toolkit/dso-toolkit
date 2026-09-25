@@ -35,7 +35,7 @@ export const Locatie: StoryObj = {
       </style>
 
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
         <main>
           ${applicationHeadingTemplate({
             title: "Aanvraag Laan van Eik en Duinen 125, Den Haag",
@@ -51,11 +51,11 @@ export const Locatie: StoryObj = {
                 ${dropdownMenuTemplate({
                   variant: "tertiary",
                   label: "Meer zoekopties",
-                  groups: dropdownItems,
+                  groups: dropdownItems(),
                 })}
               </div>
             </div>
-            ${justifyFormGroupsTemplate(formGroup)}
+            ${justifyFormGroupsTemplate(formGroup())}
             <div class="dso-map-example"></div>
             ${formButtonsTemplate({
               asideButtons: [

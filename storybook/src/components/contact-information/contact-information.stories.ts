@@ -19,7 +19,7 @@ export default meta;
 export const Default: StoryObj = {
   render: () =>
     contactInformationTemplate({
-      ...contactInformationContent,
+      ...contactInformationContent(),
       heading: {
         level: 4,
         children: "Gemeente Utrecht",

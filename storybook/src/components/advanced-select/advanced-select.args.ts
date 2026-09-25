@@ -21,7 +21,7 @@ export interface AdvancedSelectArgs {
 }
 
 export const advancedSelectArgs: AdvancedSelectArgs = {
-  optionsOrGroup: options,
+  optionsOrGroup: options(),
   dsoChange: fn(),
   dsoRedirect: fn(),
 };

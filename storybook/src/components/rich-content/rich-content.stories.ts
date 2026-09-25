@@ -21,5 +21,5 @@ const meta: Meta<RichContentArgs> = {
 export default meta;
 
 export const RichContent: RichContentStory = {
-  render: (args) => richContentTemplate(richContentArgsMapper(args, children)),
+  render: (args) => richContentTemplate(richContentArgsMapper(args, children())),
 };

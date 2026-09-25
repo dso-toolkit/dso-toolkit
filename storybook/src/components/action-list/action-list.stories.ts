@@ -23,9 +23,9 @@ const meta: Meta<ActionListArgs> = {
 export default meta;
 
 export const Default: ActionListStory = {
-  render: (args) => actionListTemplate(actionListArgsMapper(args, actionListItems)),
+  render: (args) => actionListTemplate(actionListArgsMapper(args, actionListItems())),
 };
 
 export const WithWarning: ActionListStory = {
-  render: (args) => actionListTemplate(actionListArgsMapper(args, actionListWithWarningItems)),
+  render: (args) => actionListTemplate(actionListArgsMapper(args, actionListWithWarningItems())),
 };

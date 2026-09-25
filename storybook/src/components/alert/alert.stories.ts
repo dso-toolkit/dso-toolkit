@@ -36,33 +36,33 @@ export const Success: AlertStory = {
   args: {
     status: "success",
   },
-  render: (args) => alertTemplate(alertArgsMapper(args, successMessage)),
+  render: (args) => alertTemplate(alertArgsMapper(args, successMessage())),
 };
 
 export const Info: AlertStory = {
   args: {
     status: "info",
   },
-  render: (args) => alertTemplate(alertArgsMapper(args, infoMessage)),
+  render: (args) => alertTemplate(alertArgsMapper(args, infoMessage())),
 };
 
 export const Warning: AlertStory = {
   args: {
     status: "warning",
   },
-  render: (args) => alertTemplate(alertArgsMapper(args, warningMessage)),
+  render: (args) => alertTemplate(alertArgsMapper(args, warningMessage())),
 };
 
 export const Error: AlertStory = {
   args: {
     status: "error",
   },
-  render: (args) => alertTemplate(alertArgsMapper(args, errorMessage)),
+  render: (args) => alertTemplate(alertArgsMapper(args, errorMessage())),
 };
 
 export const WithHeadings: AlertStory = {
   args: {
     status: "info",
   },
-  render: (args) => alertTemplate(alertArgsMapper(args, alertWithHeadingsContent)),
+  render: (args) => alertTemplate(alertArgsMapper(args, alertWithHeadingsContent())),
 };

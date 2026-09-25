@@ -29,7 +29,7 @@ export const ZoekenInLijstCards: StoryObj = {
     return html`
       <div class="container">
         ${headerPartial({
-          ...header,
+          ...header(),
           mainMenu: [
             { label: "Regels op de kaart", url: "#" },
             { label: "Zoeken in wetgeving", url: "#", active: true },
@@ -66,7 +66,7 @@ export const ZoekenInLijstCards: StoryObj = {
                     status: "warning",
                   })}
                 </h5>
-                ${cardContainerTemplate(cardContainer)}
+                ${cardContainerTemplate(cardContainer())}
               </div>
               <div class="col-md-4">
                 <h2 class="dso-steps-indicator">Filters</h2>

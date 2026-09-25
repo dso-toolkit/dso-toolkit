@@ -141,7 +141,7 @@ export const Documenten: StoryObj<DocumentenArgs> = {
             </style>`
       }
       <div class="demo-container ${classMap({ print })}">
-        ${headerPartial(header)}
+        ${headerPartial(header())}
 
         <main class="demo-main ${classMap({ print })}">
           ${viewerGridTemplate({
@@ -210,7 +210,7 @@ export const Documenten: StoryObj<DocumentenArgs> = {
                 variant: "tertiary",
                 icon: { icon: "chevron-up" },
               })}
-              ${navbarTemplate(mainSubmenu)} ${cardContainerTemplate({ mode: "list", cards: documentCardList })}
+              ${navbarTemplate(mainSubmenu())} ${cardContainerTemplate({ mode: "list", cards: documentCardList() })}
             `,
             map: html`
               ${
@@ -254,11 +254,11 @@ export const Documenten: StoryObj<DocumentenArgs> = {
                 title: "Omgevingsplan gemeente Gouda",
                 type: "Omgevingsplan - Gemeente Gouda",
                 owner: "",
-                featuresContent,
-                advancedSelect,
+                featuresContent: featuresContent(),
+                advancedSelect: advancedSelect(),
                 sticky,
               })}
-              ${navbarTemplate(documentPanelSubmenu)}
+              ${navbarTemplate(documentPanelSubmenu())}
               ${highlightBoxTemplate({
                 content: selectableTemplate({
                   type: "checkbox",
@@ -277,7 +277,7 @@ export const Documenten: StoryObj<DocumentenArgs> = {
                     heading: "h4",
                     open: true,
                     content: html`
-                      ${plekinfoCardsListActiviteiten.map((plekinfoCard) => {
+                      ${plekinfoCardsListActiviteiten().map((plekinfoCard) => {
                         return html`${plekinfoCardTemplate({
                             ...plekinfoCard,
                             symbool: iconTemplate({ icon: "home" }),
@@ -292,7 +292,7 @@ export const Documenten: StoryObj<DocumentenArgs> = {
                     heading: "h4",
                     open: true,
                     content: html`
-                      ${plekinfoCardsListLocaties.map((plekinfoCard) =>
+                      ${plekinfoCardsListLocaties().map((plekinfoCard) =>
                         plekinfoCardTemplate({
                           ...plekinfoCard,
                           symbool: iconTemplate({ icon: "home" }),

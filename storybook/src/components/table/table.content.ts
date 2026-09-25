@@ -3,13 +3,15 @@ import { html } from "lit-html";
 import { iconButtonTemplate } from "../icon-button/icon-button.template.js";
 import { linkTemplate } from "../link/link.template.js";
 
-const imageOverlayHtml = `<dso-image-overlay>
+function imageOverlayHtml() {
+  return `<dso-image-overlay>
   <img
     src="images/canvas-home_iplo-min.png"
     alt="Een afbeelding"
     width="250"
   >
 </dso-image-overlay>`;
+}
 
 export function defaultTable() {
   return {
@@ -78,7 +80,7 @@ export function imageOverlayTable() {
         "Nesbitt",
         "andrew",
         "<code>tr</code>",
-        imageOverlayHtml,
+        imageOverlayHtml(),
       ],
       ["3", linkTemplate({ label: "Taylor", url: "#taylor" }), "Otwell", "taylorotwell", "<code>tr</code>", ""],
       ["4", linkTemplate({ label: "Kitty", url: "#kitty" }), "Giraudel", "KittyGiraudel", "<code>tr</code>", ""],

@@ -23,7 +23,7 @@ export const Landingspagina: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
         <main>
           <dso-hero-image>
             <div slot="image" style="background-image: url('images/hands-on-trackpad.jpg')"></div>

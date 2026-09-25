@@ -36,12 +36,12 @@ export const Beheer: StoryObj = {
 
     return html`
       <div class="container">
-        <header>${headerTemplate(header)} ${breadcrumbsTemplate(breadcrumbs)}</header>
+        <header>${headerTemplate(header())} ${breadcrumbsTemplate(breadcrumbs())}</header>
         <main>
           <h1>Titel van beheer-applicatie</h1>
           <h2>Subtitel voor de meta-data</h2>
           <hr />
-          ${definitionListTemplate(definitionList)}
+          ${definitionListTemplate(definitionList())}
           <hr />
           <h2>Subtitel voor het tabeloverzicht</h2>
           ${tableTemplate({

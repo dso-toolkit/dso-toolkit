@@ -23,7 +23,7 @@ const meta: Meta<ExpandableArgs> = {
       root: "#expandable-mock",
     },
   },
-  render: (args) => expandableTemplate(expandableArgsMapper(args, expandableContent)),
+  render: (args) => expandableTemplate(expandableArgsMapper(args, expandableContent())),
 };
 
 export default meta;

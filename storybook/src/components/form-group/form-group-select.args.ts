@@ -116,7 +116,7 @@ export function formGroupSelectArgsMapper(a: FormGroupSelectArgs): FormGroupSele
     group: "select",
     id: a.id,
     label: a.label,
-    items: a.metOptGroup ? selectOptionGroupContent : selectOptionsContent,
+    items: a.metOptGroup ? selectOptionGroupContent() : selectOptionsContent(),
     required: a.required,
     disabled: a.disabled,
     multiple: a.multiple,

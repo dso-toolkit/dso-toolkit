@@ -1,4 +1,5 @@
-export const imroContent = `<p
+export function imroContent() {
+  return `<p
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:imropt="http://www.geonovum.nl/imro/pt/2012/1.0"
   xmlns:xl="http://www.w3.org/1999/xlink"
@@ -69,3 +70,4 @@ export const imroContent = `<p
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 ></p>
 `;
+}

@@ -15,7 +15,7 @@ const meta: Meta<DocumentHeaderArgs> = {
   argTypes: documentHeaderArgTypes,
   args: {
     advancedSelect: {
-      options,
+      options: options(),
     },
     title: "Omgevingsplan gemeente Gouda",
     type: "Een omgevingsplan waar de omgeving mooier van wordt",
@@ -32,7 +32,7 @@ const meta: Meta<DocumentHeaderArgs> = {
 
 export default meta;
 
-const render = (args: DocumentHeaderArgs) => documentHeaderTemplate(documentHeaderArgsMapper(args, featuresContent));
+const render = (args: DocumentHeaderArgs) => documentHeaderTemplate(documentHeaderArgsMapper(args, featuresContent()));
 
 export const Default: DocumentHeaderStory = { render };
 export const DefaultBesluitversie: DocumentHeaderStory = {

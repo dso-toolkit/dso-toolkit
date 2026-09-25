@@ -1,7 +1,7 @@
 import { items, subItems } from "./tree-view.content.js";
 import { TreeViewItem } from "./tree-view.models.js";
 
-export let collection = items;
+export let collection = items();
 
 export function onOpenItem(path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void): void {
   const actionItem = path[path.length - 1];
@@ -24,7 +24,7 @@ export function onOpenItem(path: TreeViewItem[], callback: (collection: TreeView
     callback(collection);
 
     window.setTimeout(() => {
-      const newItems = subItems[actionItem.id];
+      const newItems = subItems()[actionItem.id];
       collection = updateDeepTree(collection, path, (item) => ({
         ...item,
         open: true,

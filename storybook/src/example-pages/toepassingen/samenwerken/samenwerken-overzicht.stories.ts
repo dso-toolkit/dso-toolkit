@@ -24,7 +24,7 @@ export const SamenwerkenOverzicht: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial(header)}
+        ${headerPartial(header())}
         <main>
           ${applicationHeadingTemplate({
             title: "Samenwerken aan behandelen",

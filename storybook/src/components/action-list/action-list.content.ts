@@ -46,7 +46,7 @@ function item2(): ActionListItem {
                   vervangen".
                 </p>
                 ${contactInformationTemplate({
-                  ...contactInformationContent,
+                  ...contactInformationContent(),
                   heading: {
                     level: 4,
                     children: "Gemeente Utrecht",
@@ -177,13 +177,13 @@ function item6(flowLine = true): ActionListItem {
               open: true,
               content: html`
                 ${contactInformationTemplate({
-                  ...contactInformationContent,
+                  ...contactInformationContent(),
                   heading: {
                     level: 4,
                     children: "Gemeente Utrecht",
                   },
                 })}
-                ${contactInformationTemplate({ ...contactInformationContent })}
+                ${contactInformationTemplate({ ...contactInformationContent() })}
               `,
             },
             {
@@ -210,13 +210,10 @@ function warning(): ActionListItem {
   };
 }
 
-export const actionListItems: ActionListItem[] = [item1(), item2(), item3(), item4(), item5(), item6(false)];
+export function actionListItems(): ActionListItem[] {
+  return [item1(), item2(), item3(), item4(), item5(), item6(false)];
+}
 
-export const actionListWithWarningItems: ActionListItem[] = [
-  item1(),
-  item2(),
-  item3(),
-  item4(),
-  item5(false),
-  warning(),
-];
+export function actionListWithWarningItems(): ActionListItem[] {
+  return [item1(), item2(), item3(), item4(), item5(false), warning()];
+}

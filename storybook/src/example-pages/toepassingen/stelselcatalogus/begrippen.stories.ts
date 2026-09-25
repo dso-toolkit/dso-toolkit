@@ -22,7 +22,7 @@ export const Begrippen: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu() })}
 
         <main>
           <h1>Aanlegplaats</h1>

@@ -16,8 +16,8 @@ const meta: Meta<MapControlsArgs> = {
   argTypes: mapControlsArgTypes,
   args: {
     open: false,
-    baseLayers,
-    overlays,
+    baseLayers: baseLayers(),
+    overlays: overlays(),
     dsoToggleOverlay: fn(),
     dsoToggle: fn(),
     dsoZoomOut: fn(),

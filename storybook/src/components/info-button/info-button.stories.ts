@@ -22,7 +22,7 @@ const meta: Meta<InfoButtonArgs> = {
     },
     layout: "centered",
   },
-  render: (args) => infoButtonTemplate(infoButtonArgsMapper(args, children)),
+  render: (args) => infoButtonTemplate(infoButtonArgsMapper(args, children())),
 };
 
 export default meta;

@@ -23,7 +23,7 @@ export const SamenwerkenGegevens: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial(header)}
+        ${headerPartial(header())}
         <main>
           ${buttonRowTemplate({
             buttons: [

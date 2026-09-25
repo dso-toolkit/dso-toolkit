@@ -80,7 +80,7 @@ export function documentHeaderArgsMapper(a: DocumentHeaderArgs, featuresContent:
     featuresOpen: a.featuresOpen,
     advancedSelect: {
       ...a.advancedSelect,
-      active: selectExampleOption(a.activeIndex, options),
+      active: selectExampleOption(a.activeIndex, options()),
     },
     sticky: a.sticky,
     variant: a.variant,

@@ -4,41 +4,49 @@ import { RenvooiValue } from "../renvooi/renvooi.models.js";
 
 import { MapLayerObject } from "./map-layer.models.js";
 
-const object1: MapLayerObject = {
-  name: html`<span
-    >Dit is een lange voorbeeldtekst om te testen hoe de kaartlaag omgaat met een langere naam die over meerdere regels
-    loopt</span
-  >`,
-  symboolCode: "vszt030",
-};
+function object1(): MapLayerObject {
+  return {
+    name: html`<span
+      >Dit is een lange voorbeeldtekst om te testen hoe de kaartlaag omgaat met een langere naam die over meerdere
+      regels loopt</span
+    >`,
+    symboolCode: "vszt030",
+  };
+}
 
-const object2: MapLayerObject = {
-  active: true,
-  name: html`<span>Map layer object 2 (Gebiedsoverschrijdingszone)</span>`,
-  labelSlot: html`<dso-label slot="label" status="warning">Nieuw</dso-label>`,
-  symboolCode: "vag000",
-};
+function object2(): MapLayerObject {
+  return {
+    active: true,
+    name: html`<span>Map layer object 2 (Gebiedsoverschrijdingszone)</span>`,
+    labelSlot: html`<dso-label slot="label" status="warning">Nieuw</dso-label>`,
+    symboolCode: "vag000",
+  };
+}
 
-const renvooiLabel: RenvooiValue[] = [
-  {
-    was: "Droog",
-    wordt: "Nat",
-  },
-  " gebied",
-];
+function renvooiLabel(): RenvooiValue[] {
+  return [
+    {
+      was: "Droog",
+      wordt: "Nat",
+    },
+    " gebied",
+  ];
+}
 
-const object3: MapLayerObject = {
-  active: true,
-  name: html`<dso-renvooi .value=${renvooiLabel}></dso-renvooi>`,
-  symboolCode: "vszt030",
-};
+function object3(): MapLayerObject {
+  return {
+    active: true,
+    name: html`<dso-renvooi .value=${renvooiLabel()}></dso-renvooi>`,
+    symboolCode: "vszt030",
+  };
+}
 
 export function multipleMapLayerObjects(): MapLayerObject[] {
-  return [object1, object2, object3];
+  return [object1(), object2(), object3()];
 }
 
 export function singleMapLayerObject(): MapLayerObject[] {
-  return [object1];
+  return [object1()];
 }
 
 export function nameSlotContent(wijzigactie?: boolean): TemplateResult {

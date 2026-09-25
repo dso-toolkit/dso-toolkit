@@ -28,9 +28,10 @@ const meta: Meta<PlekinfoCardArgs> = {
 
 export default meta;
 
-const render = (args: PlekinfoCardArgs) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, content));
+const render = (args: PlekinfoCardArgs) =>
+  plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol(), content()));
 const renderWithoutSymbol = (args: PlekinfoCardArgs) =>
-  plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content));
+  plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content()));
 const decorators = [(story: Parameters<typeof decorator>[0]) => decorator(story, plekinfoCardDemoCss)];
 
 export const Default: PlekinfoCardStory = {

@@ -28,7 +28,7 @@ export const Vragen: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Aanvragen") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Aanvragen") })}
         <main>
           <form class="form-horizontal">
             ${applicationHeadingTemplate({
@@ -49,7 +49,7 @@ export const Vragen: StoryObj = {
                   content: html`
                     <fieldset>
                       <legend class="sr-only">Vragenlijst</legend>
-                      ${formGroupRadiosTemplate(radios())} ${formGroupCheckboxesTemplate(checkboxes)}
+                      ${formGroupRadiosTemplate(radios())} ${formGroupCheckboxesTemplate(checkboxes())}
                       ${formGroupInputTemplate({
                         group: "input",
                         id: "vraag 3",

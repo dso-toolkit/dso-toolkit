@@ -26,7 +26,7 @@ export const FullWidth: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Maatregelen op maat") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Maatregelen op maat") })}
         <main>
           <div class="row dso-featured">
             <div class="col-md-6">
@@ -46,11 +46,11 @@ export const FullWidth: StoryObj = {
                 `,
               })}
             </div>
-            <div class="col-md-6">${definitionListTemplate(definitionList)}</div>
+            <div class="col-md-6">${definitionListTemplate(definitionList())}</div>
           </div>
 
           <div class="row">
-            <div class="col-md-6">${richContentTemplate({ children: listTemplate(listGroup) })}</div>
+            <div class="col-md-6">${richContentTemplate({ children: listTemplate(listGroup()) })}</div>
             <div class="col-md-6">
               ${tableTemplate({
                 noModal: true,

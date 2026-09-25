@@ -15,7 +15,8 @@ export function begripResolver(ref: string, element: Element): XMLDocument | str
   return undefined;
 }
 
-export const intIoRefContent = `
+export function intIoRefContent() {
+  return `
       <Inhoud>
         <Al>
           Ter plaatse van het werkingsgebied van de functie '<IntIoRef eId="subchp_2.2__art_2.4__ref_o_1"
@@ -35,29 +36,31 @@ export const intIoRefContent = `
             </Lijst>
       </Inhoud>
     `;
+}
 
-export const content: OzonContentStory[] = [
-  {
-    title: "Abbr",
-    content: "<abbr title='Natuur Netwerk Nederland'>NNN</abbr>",
-  },
-  {
-    title: "Al",
-    content: `<Inhoud><Al>De wijze van begrenzing van Vogelrichtlijngebieden is toegelicht in de Nota van Antwoord Vogelrichtlijn (2000).</Al>
+export function content(): OzonContentStory[] {
+  return [
+    {
+      title: "Abbr",
+      content: "<abbr title='Natuur Netwerk Nederland'>NNN</abbr>",
+    },
+    {
+      title: "Al",
+      content: `<Inhoud><Al>De wijze van begrenzing van Vogelrichtlijngebieden is toegelicht in de Nota van Antwoord Vogelrichtlijn (2000).</Al>
       <Al wijzigactie='verwijder'><ExtIoRef xmlns='' wId='gm1979_1__cmp_II__content_o_1__list_o_1__item_o_16__ref_o_1' href='https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-01-25;1'>/join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-01-25;1</ExtIoRef></Al><Al wijzigactie='voegtoe'><ExtIoRef xmlns='' wId='gm1979_2__cmp_II__content_o_1__list_o_1__item_o_16__ref_o_1' href='https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-06-16;ontwerp4'>/join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-06-16;ontwerp4</ExtIoRef></Al></Inhoud>`,
-  },
-  {
-    title: "Inhoud",
-    content: `
+    },
+    {
+      title: "Inhoud",
+      content: `
       <Inhoud>
         <Al>Alde Feanen behoort tot het Natura 2000-landschap 'Meren en Moerassen'.</Al>
         <Al>De begrenzingsmethodiek is verder uitgewerkt in het Gebiedendocument (2004).</Al>
       </Inhoud>
     `,
-  },
-  {
-    title: "Kop",
-    content: `<Kop>
+    },
+    {
+      title: "Kop",
+      content: `<Kop>
   <Label>Afdeling</Label>
   <Nummer>2.1</Nummer>
   <Opschrift>
@@ -67,13 +70,13 @@ export const content: OzonContentStory[] = [
   </Opschrift>
   <Subtitel>Ik ben een subtitel</Subtitel>
 </Kop>`,
-    args: {
-      inline: true,
+      args: {
+        inline: true,
+      },
     },
-  },
-  {
-    title: "KopMetRenvooi",
-    content: `<Kop>
+    {
+      title: "KopMetRenvooi",
+      content: `<Kop>
   <Label><NieuweTekst>Afdeling</NieuweTekst><VerwijderdeTekst>Avdeling</VerwijderdeTekst></Label>
   <Nummer><NieuweTekst>2.1</NieuweTekst><VerwijderdeTekst>2.0</VerwijderdeTekst></Nummer>
   <Opschrift>
@@ -85,13 +88,13 @@ export const content: OzonContentStory[] = [
   <Subtitel wijzigactie='verwijder'>Verwijderde subtitel</Subtitel>
   <Subtitel>Derde subtitel</Subtitel>
 </Kop>`,
-    args: {
-      inline: true,
+      args: {
+        inline: true,
+      },
     },
-  },
-  {
-    title: "Lijst",
-    content: `
+    {
+      title: "Lijst",
+      content: `
       <Inhoud>
         <Lijst
           eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
@@ -369,18 +372,18 @@ export const content: OzonContentStory[] = [
         </Lijst>
       </Inhoud>
     `,
-  },
-  {
-    title: "IntRef",
-    content: `
+    },
+    {
+      title: "IntRef",
+      content: `
       <Al>
         Dit is een <IntRef scope="Artikel" ref="longTitle_inst2">aanwijzingsbesluit Natura2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021.
       </Al>
     `,
-  },
-  {
-    title: "IntRefBegrip",
-    content: `<Inhoud>
+    },
+    {
+      title: "IntRefBegrip",
+      content: `<Inhoud>
   <Al>
     Het volgende besluit is een <IntRef scope="Begrip" ref="eId_van_begrip">aanwijzingsbesluit Natura 2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021. 
   </Al>
@@ -389,22 +392,22 @@ export const content: OzonContentStory[] = [
   </Al>
 </Inhoud>
     `,
-  },
-  {
-    title: "ExtRef",
-    content: `<ExtRef ref="jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef>`,
-  },
-  {
-    title: "IntIoRef",
-    content: intIoRefContent,
-  },
-  {
-    title: "IntIoRefNotAnnotated",
-    content: intIoRefContent,
-  },
-  {
-    title: "ExtIoRef",
-    content: `
+    },
+    {
+      title: "ExtRef",
+      content: `<ExtRef ref="jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef>`,
+    },
+    {
+      title: "IntIoRef",
+      content: intIoRefContent(),
+    },
+    {
+      title: "IntIoRefNotAnnotated",
+      content: intIoRefContent(),
+    },
+    {
+      title: "ExtIoRef",
+      content: `
     <Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12' xmlns:data='https://standaarden.overheid.nl/stop/imop/data/' xmlns:ns10='http://www.w3.org/2001/SMIL20/Language' xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/' xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/' xmlns:ns5='http://www.opengis.net/se' xmlns:ns6='http://www.w3.org/1999/xlink' xmlns:ns7='http://www.opengis.net/ogc' xmlns:ns8='http://www.opengis.net/gml' xmlns:ns9='http://www.w3.org/2001/SMIL20/'>
       <Begrippenlijst eId='cmp_2__content_o_1__list_o_1' wId='pv31_1__cmp_2__content_o_1__list_o_1'>
         <Begrip eId='cmp_I__content_o_1__list_o_1__item_o_1' wId='pv25_1__cmp_I__content_o_1__list_o_1__item_o_1'>
@@ -418,10 +421,10 @@ export const content: OzonContentStory[] = [
       </Begrippenlijst>
     </Inhoud>
     `,
-  },
-  {
-    title: "Begrippenlijst",
-    content: `
+    },
+    {
+      title: "Begrippenlijst",
+      content: `
     <Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12' xmlns:data='https://standaarden.overheid.nl/stop/imop/data/' xmlns:ns10='http://www.w3.org/2001/SMIL20/Language' xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/' xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/' xmlns:ns5='http://www.opengis.net/se' xmlns:ns6='http://www.w3.org/1999/xlink' xmlns:ns7='http://www.opengis.net/ogc' xmlns:ns8='http://www.opengis.net/gml' xmlns:ns9='http://www.w3.org/2001/SMIL20/'>
       <Al>Begrippenlijst met gerenvooieerde Begrippen, Termen en Definities</Al>
       <Begrippenlijst wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1' eId='chp_21__art_1__list_o_1'>
@@ -472,10 +475,10 @@ export const content: OzonContentStory[] = [
       </Begrippenlijst>
     </Inhoud>
     `,
-  },
-  {
-    title: "InhoudAlNoot",
-    content: `
+    },
+    {
+      title: "InhoudAlNoot",
+      content: `
       <Inhoud>
         <Al>
           De ligging van de habitattypen en van de leefgebieden van de soorten
@@ -528,10 +531,10 @@ export const content: OzonContentStory[] = [
         </Al>
       </Inhoud>
     `,
-  },
-  {
-    title: "Figuur",
-    content: `
+    },
+    {
+      title: "Figuur",
+      content: `
       <Inhoud>
         <Al>Alde Feanen behoort tot het Natura 2000-landschap 'Meren en Moerassen'.</Al>
         <Figuur
@@ -552,10 +555,10 @@ export const content: OzonContentStory[] = [
         </Figuur>
       </Inhoud>
     `,
-  },
-  {
-    title: "Table",
-    content: `
+    },
+    {
+      title: "Table",
+      content: `
       <table
         colsep="1"
         class="standaard"
@@ -697,10 +700,10 @@ export const content: OzonContentStory[] = [
         </tgroup>
       </table>
     `,
-  },
-  {
-    title: "TableMetNoot",
-    content: `
+    },
+    {
+      title: "TableMetNoot",
+      content: `
       <Inhoud>
         <Al>
           In afwijking van het derde lid, aanhef en onder e, is de aanwezigheid van
@@ -865,10 +868,10 @@ export const content: OzonContentStory[] = [
         </table>
       </Inhoud>
     `,
-  },
-  {
-    title: "TableMetThead",
-    content: `
+    },
+    {
+      title: "TableMetThead",
+      content: `
       <table
         colsep="0"
         eId="chp_4__subsec_4.11__art_4.189__para_2__table_o_1"
@@ -1173,10 +1176,10 @@ export const content: OzonContentStory[] = [
         </tgroup>
       </table>
     `,
-  },
-  {
-    title: "TableMetBron",
-    content: `
+    },
+    {
+      title: "TableMetBron",
+      content: `
       <Inhoud
         xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
         xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12'
@@ -1330,10 +1333,10 @@ export const content: OzonContentStory[] = [
           <Bron>bron: <ExtRef ref="http://wetten.overheid.nl/jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef></Bron>
         </table>
       </Inhoud>`,
-  },
-  {
-    title: "TableZonderColsepEnMetRowsep",
-    content: `
+    },
+    {
+      title: "TableZonderColsepEnMetRowsep",
+      content: `
       <table
         colsep='0'
         eId='chp_3__subchp_3.5__subsec_3.5.4__subsec_3.5.4.2__art_3.34__para_1__list_o_1__item_b__table_o_1'
@@ -1416,10 +1419,10 @@ export const content: OzonContentStory[] = [
         </tgroup>
       </table>
     `,
-  },
-  {
-    title: "ComplexeTableZonderColsepEnMetRowsep",
-    content: `
+    },
+    {
+      title: "ComplexeTableZonderColsepEnMetRowsep",
+      content: `
       <table
         colsep='0'
         eId='chp_3__subchp_3.5__subsec_3.5.5__art_3.53__para_1__table_o_1'
@@ -1516,10 +1519,10 @@ export const content: OzonContentStory[] = [
         </tgroup>
       </table>
     `,
-  },
-  {
-    title: "RenvooiWeergave",
-    content: `
+    },
+    {
+      title: "RenvooiWeergave",
+      content: `
       <Artikel eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60">
         <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1">
           <LidNummer>1.</LidNummer>
@@ -1819,5 +1822,6 @@ export const content: OzonContentStory[] = [
         </Lid>
       </Artikel>
     `,
-  },
-];
+    },
+  ];
+}

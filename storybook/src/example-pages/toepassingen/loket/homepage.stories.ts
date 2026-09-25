@@ -33,7 +33,7 @@ export const Homepage: StoryObj = {
       ${skiplinkTemplate({ label: "Ga naar website-informatie", to: "footer" })}
       <div class="container">
         <div id="navigation"><!-- for skiplink --></div>
-        ${headerPartial({ ...header, mainMenu: mainMenu("Regels op de kaart") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Regels op de kaart") })}
         <main id="main">
           <style>
             .my-beautiful-image {
@@ -172,7 +172,7 @@ export const Homepage: StoryObj = {
                 content: richContentTemplate({
                   children: html`
                     <h2>Huidige dienstverlening</h2>
-                    ${linkListTemplate(linkList)}
+                    ${linkListTemplate(linkList())}
                   `,
                 }),
               })}

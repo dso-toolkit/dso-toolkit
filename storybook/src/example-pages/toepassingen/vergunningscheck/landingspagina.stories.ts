@@ -25,7 +25,7 @@ export const Landingspagina: StoryObj = {
   render: () => {
     return html`
       <div class="container">
-        ${headerPartial({ ...header, mainMenu: mainMenu("Vergunningscheck") })}
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Vergunningscheck") })}
         <main>
           <dso-hero-image>
             <div slot="image" style="background-image: url('images/hero2.jpeg')"></div>
@@ -160,7 +160,7 @@ export const Landingspagina: StoryObj = {
           <div class="row dso-equal-heights">
             <div class="col-md-8">
               <h2>Veel gestelde vragen</h2>
-              ${accordionTemplate({ variant: "compact", sections: accordionSections })}
+              ${accordionTemplate({ variant: "compact", sections: accordionSections() })}
             </div>
           </div>
         </main>

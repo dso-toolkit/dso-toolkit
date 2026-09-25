@@ -24,33 +24,33 @@ export const Horizontal: FormStory = {
   args: {
     mode: "horizontal",
   },
-  render: (args) => formTemplate(formArgsMapper(args, formGroupContent)),
+  render: (args) => formTemplate(formArgsMapper(args, formGroupContent())),
 };
 
 export const HorizontalCollections: FormStory = {
   args: {
     mode: "horizontal",
   },
-  render: (args) => formTemplate(formArgsMapper(args, formGroupCollectionContent)),
+  render: (args) => formTemplate(formArgsMapper(args, formGroupCollectionContent())),
 };
 
 export const Vertical: FormStory = {
   args: {
     mode: "vertical",
   },
-  render: (args) => formTemplate(formArgsMapper(args, formGroupContent)),
+  render: (args) => formTemplate(formArgsMapper(args, formGroupContent())),
 };
 
 export const VerticalCollections: FormStory = {
   args: {
     mode: "vertical",
   },
-  render: (args) => formTemplate(formArgsMapper(args, formGroupCollectionContent)),
+  render: (args) => formTemplate(formArgsMapper(args, formGroupCollectionContent())),
 };
 
 export const SinglePage: FormStory = {
   args: {
     formModifier: "dso-single-page",
   },
-  render: (args) => formTemplate(formArgsMapper(args, formGroupCollectionContent)),
+  render: (args) => formTemplate(formArgsMapper(args, formGroupCollectionContent())),
 };

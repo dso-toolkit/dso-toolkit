@@ -2,80 +2,82 @@ import { html } from "lit-html";
 
 import { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
 
-export const definitions: DefinitionList = {
-  definitions: [
-    {
-      term: html`Ingediend bij:`,
-      descriptions: [
-        {
-          content: html`<strong>Gemeente Den Haag</strong>`,
-        },
-      ],
-    },
-    {
-      term: html`Behandeld door:`,
-      descriptions: [
-        {
-          content: html`<strong>Omgevingsdienst Haaglanden</strong>`,
-        },
-      ],
-    },
-    {
-      term: html`Soort:`,
-      descriptions: [
-        {
-          content: html`Aanvraag vergunning`,
-        },
-      ],
-    },
-    {
-      term: html`Locatie:`,
-      descriptions: [
-        {
-          content: html`Laan van Eik en Duinen 125, 2564GX 's-Gravenhage`,
-        },
-      ],
-    },
-    {
-      term: html`Activiteit(en):`,
-      descriptions: [
-        {
-          content: html`Milieubelastende activiteit - vergunning`,
-        },
-        {
-          content: html`Kappen van een boom - vergunning`,
-        },
-      ],
-    },
-    {
-      term: html`Doel:`,
-      descriptions: [
-        {
-          content: html`Definitief`,
-        },
-      ],
-    },
-    {
-      term: html`Status:`,
-      descriptions: [
-        {
-          content: html`Aangevuld`,
-        },
-      ],
-    },
-    {
-      term: html`Verzoek hulpnummer(s):`,
-      descriptions: [
-        {
-          content: html`20220101 00201 002 - 02-01-2022`,
-        },
-        {
-          content: html`20220101 00201 002 - 02-01-2022`,
-        },
-        {
-          content: html`20220101 00201 002 - 02-01-2022`,
-        },
-      ],
-    },
-  ],
-};
+export function definitions(): DefinitionList {
+  return {
+    definitions: [
+      {
+        term: html`Ingediend bij:`,
+        descriptions: [
+          {
+            content: html`<strong>Gemeente Den Haag</strong>`,
+          },
+        ],
+      },
+      {
+        term: html`Behandeld door:`,
+        descriptions: [
+          {
+            content: html`<strong>Omgevingsdienst Haaglanden</strong>`,
+          },
+        ],
+      },
+      {
+        term: html`Soort:`,
+        descriptions: [
+          {
+            content: html`Aanvraag vergunning`,
+          },
+        ],
+      },
+      {
+        term: html`Locatie:`,
+        descriptions: [
+          {
+            content: html`Laan van Eik en Duinen 125, 2564GX 's-Gravenhage`,
+          },
+        ],
+      },
+      {
+        term: html`Activiteit(en):`,
+        descriptions: [
+          {
+            content: html`Milieubelastende activiteit - vergunning`,
+          },
+          {
+            content: html`Kappen van een boom - vergunning`,
+          },
+        ],
+      },
+      {
+        term: html`Doel:`,
+        descriptions: [
+          {
+            content: html`Definitief`,
+          },
+        ],
+      },
+      {
+        term: html`Status:`,
+        descriptions: [
+          {
+            content: html`Aangevuld`,
+          },
+        ],
+      },
+      {
+        term: html`Verzoek hulpnummer(s):`,
+        descriptions: [
+          {
+            content: html`20220101 00201 002 - 02-01-2022`,
+          },
+          {
+            content: html`20220101 00201 002 - 02-01-2022`,
+          },
+          {
+            content: html`20220101 00201 002 - 02-01-2022`,
+          },
+        ],
+      },
+    ],
+  };
+}

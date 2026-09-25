@@ -54,7 +54,7 @@ export const AnimatedForm: StoryObj = {
     return html`
       <div class="container">
         ${headerPartial({
-          ...header,
+          ...header(),
           mainMenu: mainMenu("Aanvragen"),
         })}
         <main>${template()}</main>
