@@ -45,7 +45,7 @@ declare global {
       /**
        * Executes cypress-axe checkA11y only after hydrated web-components exist in the Dom
        */
-      dsoCheckA11y(context?: string, options?: Options): Chainable<void>;
+      dsoCheckA11y(context?: string, options?: Options): Chainable<Element>;
     }
   }
 }
@@ -100,7 +100,7 @@ Cypress.Commands.add("dsoCheckA11y", (context, options) => {
       throw new Error("Axe is not loaded");
     }
 
-    while ("_running" in win.axe && win.axe._running) {
+    while (win.axe._running) {
       await new Promise((resolve) => setTimeout(resolve, 50));
     }
 

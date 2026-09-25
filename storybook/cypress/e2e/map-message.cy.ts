@@ -45,7 +45,7 @@ describe("dso-map-message - Storybook slot rendering", () => {
 
         const origAttachShadow = win.Element.prototype.attachShadow;
         win.Element.prototype.attachShadow = function (init: ShadowRootInit): ShadowRoot {
-          const shadowRoot: ShadowRoot = origAttachShadow.call(this, init);
+          const shadowRoot = origAttachShadow.call(this, init);
 
           if (this.tagName === "DSO-MAP-MESSAGE") {
             win.Element.prototype.attachShadow = origAttachShadow;
