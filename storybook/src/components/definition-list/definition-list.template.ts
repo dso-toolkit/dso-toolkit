@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
-import { SlottableTemplate } from "../../shared/slottable-template";
+import { SlottableTemplate } from "../../shared/slottable-template.js";
 import { listTemplate } from "../list/list.template.js";
 
 import {

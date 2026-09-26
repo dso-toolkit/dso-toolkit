@@ -4,7 +4,7 @@ import "@iframe-resizer/child";
 
 import "dso-toolkit/dist/dso.css";
 
-import { i18nDecorator } from "./i18n.decorator";
+import { i18nDecorator } from "./i18n.decorator.js";
 
 const preview: Preview = {
   globalTypes: {

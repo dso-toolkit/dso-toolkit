@@ -33,7 +33,7 @@ import {
   plekinfoCardsListActiviteiten,
   plekinfoCardsListLocaties,
 } from "./documenten.content.js";
-import { openLayersMapPartial } from "./open-layers-map.partial";
+import { openLayersMapPartial } from "./open-layers-map.partial.js";
 
 type DocumentenArgs = {
   print: boolean;

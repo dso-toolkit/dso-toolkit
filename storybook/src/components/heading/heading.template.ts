@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-import { SlottableTemplate } from "../../shared/slottable-template";
+import { SlottableTemplate } from "../../shared/slottable-template.js";
 
 import { Heading } from "./heading.models.js";
 

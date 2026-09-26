@@ -5,7 +5,7 @@ import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { TreeViewArgs, treeViewArgTypes } from "./tree-view.args.js";
-import * as TreeViewDemo from "./tree-view.demo";
+import * as TreeViewDemo from "./tree-view.demo.js";
 import { TreeViewItem } from "./tree-view.models.js";
 import { treeViewTemplate } from "./tree-view.template.js";
 
