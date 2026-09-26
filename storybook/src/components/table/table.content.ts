@@ -5,12 +5,12 @@ import { linkTemplate } from "../link/link.template.js";
 
 function imageOverlayHtml() {
   return `<dso-image-overlay>
-  <img
-    src="images/canvas-home_iplo-min.png"
-    alt="Een afbeelding"
-    width="250"
-  >
-</dso-image-overlay>`;
+    <img
+      src="images/canvas-home_iplo-min.png"
+      alt="Een afbeelding"
+      width="250"
+    >
+  </dso-image-overlay>`;
 }
 
 export function defaultTable() {
