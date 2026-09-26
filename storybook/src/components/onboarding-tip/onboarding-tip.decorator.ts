@@ -1,10 +1,10 @@
 import { Decorator } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { OnboardingTipArgs } from "./onboarding-tip.args.js";
 
-export const decorator = (story: Parameters<Decorator>[0], args: OnboardingTipArgs): TemplateResult => html`
+export const decorator: Decorator<OnboardingTipArgs> = (story, { args }) => html`
   <div class="decorator-wrapper">
     <p>
       Toggle de Storybook control <code>box</code> om de Onboarding Tip te tonen/verbergen en om de Onboarding Tip te

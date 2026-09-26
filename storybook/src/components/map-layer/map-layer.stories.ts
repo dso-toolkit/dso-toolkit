@@ -10,7 +10,7 @@ import {
   nameSlotContent,
   singleMapLayerObject,
 } from "./map-layer.content.js";
-import { decorator } from "./map-layer.decorator";
+import { decorator } from "./map-layer.decorator.js";
 import { mapLayerTemplate } from "./map-layer.template.js";
 
 type MapLayerStory = StoryObj<MapLayerArgs>;
@@ -19,6 +19,7 @@ const meta: Meta<MapLayerArgs> = {
   title: "Core/Map Layer",
   argTypes: mapLayerArgTypes,
   args: mapLayerArgs,
+  decorators: [decorator],
   parameters: {
     docs: {
       page: () => compiler(`${readme}\n${componentsReadme}`),
@@ -29,24 +30,20 @@ const meta: Meta<MapLayerArgs> = {
 export default meta;
 
 export const Multiple: MapLayerStory = {
-  decorators: [(story) => decorator(story)],
   render: (args) => mapLayerTemplate(mapLayerArgsMapper(args, multipleMapLayerObjects(), nameSlotContent())),
 };
 
 export const Single: MapLayerStory = {
   args: { ...mapLayerArgs, activatable: false },
-  decorators: [(story) => decorator(story)],
   render: (args) => mapLayerTemplate(mapLayerArgsMapper(args, singleMapLayerObject(), nameSlotContent())),
 };
 
 export const WithWijzigactie: MapLayerStory = {
   args: { ...mapLayerArgs, wijzigactie: "voegtoe" },
-  decorators: [(story) => decorator(story)],
   render: (args) => mapLayerTemplate(mapLayerArgsMapper(args, singleMapLayerObject(), nameSlotContent(true))),
 };
 
 export const WithLabel: MapLayerStory = {
-  decorators: [(story) => decorator(story)],
   render: (args) =>
     mapLayerTemplate(mapLayerArgsMapper(args, singleMapLayerObject(), nameSlotContent(), labelSlotContent())),
 };

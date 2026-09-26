@@ -4,7 +4,7 @@ import legendReadme from "@dso-toolkit/core/src/components/legend/readme.md?raw"
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 
-import { decorator } from "./legend-item/legend-item.decorator";
+import { decorator } from "./legend-item/legend-item.decorator.js";
 import {
   LegendArgs,
   kaartlagenTabItem,
@@ -22,6 +22,7 @@ const meta: Meta<LegendArgs> = {
   title: "Core/Legend",
   argTypes: legendArgTypes,
   args: legendArgs,
+  decorators: [decorator],
   parameters: {
     docs: {
       page: () => compiler(`${legendReadme}\n${legendGroupReadme}\n${legendItemReadme}`),
@@ -32,7 +33,6 @@ const meta: Meta<LegendArgs> = {
 export default meta;
 
 export const Legenda: LegendStory = {
-  decorators: [(story) => decorator(story)],
   render: (args) => legendTemplate(legendArgsMapper(args, legendaRichContent(args))),
 };
 
@@ -40,6 +40,5 @@ export const Kaartlagen: LegendStory = {
   args: {
     tabItems: [legendaTabItem, { ...kaartlagenTabItem, active: true }],
   },
-  decorators: [(story) => decorator(story)],
   render: (args) => legendTemplate(legendArgsMapper(args, kaartlagenRichContent(args))),
 };

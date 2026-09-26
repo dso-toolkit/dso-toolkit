@@ -19,7 +19,7 @@ import {
   documentComponentMapper,
 } from "./document-component.args.js";
 import { imroContent } from "./document-component.content.js";
-import { decorator } from "./document-component.decorator";
+import { decorator } from "./document-component.decorator.js";
 import {
   DocumentComponentMode,
   DocumentComponentOzonContentClickEvent,
@@ -125,14 +125,14 @@ const meta: Meta = {
 export default meta;
 
 export const Default: DocumentComponentStory = {
-  decorators: [(story) => decorator(story)],
+  decorators: [decorator],
   args: documentComponentArgs,
   argTypes: documentComponentArgTypes,
   render: (args) => documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
 };
 
 export const Contents: DocumentComponentDemoStory = {
-  decorators: [(story) => decorator(story)],
+  decorators: [decorator],
   args: {
     jsonFile: "ozon-response.json",
     openDefault: true,
@@ -249,7 +249,7 @@ export const Contents: DocumentComponentDemoStory = {
 };
 
 export const Inhoudsopgave: DocumentComponentDemoStory = {
-  decorators: [(story) => decorator(story)],
+  decorators: [decorator],
   args: {
     jsonFile: "ozon-response.json",
     openDefault: true,

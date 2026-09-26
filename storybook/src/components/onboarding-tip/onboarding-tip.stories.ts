@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { OnboardingTipArgs, onboardingTipArgTypes, onboardingTipArgsMapper } from "./onboarding-tip.args.js";
 import { headingContent, richContent } from "./onboarding-tip.content.js";
-import { decorator } from "./onboarding-tip.decorator";
+import { decorator } from "./onboarding-tip.decorator.js";
 import { onboardingTipTemplate } from "./onboarding-tip.template.js";
 
 type OnboardingTipStory = StoryObj<OnboardingTipArgs>;
@@ -14,6 +14,7 @@ type OnboardingTipStory = StoryObj<OnboardingTipArgs>;
 const meta: Meta<OnboardingTipArgs> = {
   title: "Core/Onboarding Tip",
   argTypes: onboardingTipArgTypes,
+  decorators: [decorator],
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -30,6 +31,5 @@ export const Default: OnboardingTipStory = {
     box: 2,
     dsoClose: fn(),
   },
-  decorators: [(story, context) => decorator(story, context.args)],
   render: (args) => onboardingTipTemplate(onboardingTipArgsMapper(args, headingContent(), richContent())),
 };

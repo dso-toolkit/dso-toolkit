@@ -1,5 +1,5 @@
 import { Decorator } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
 // https://github.com/dso-toolkit/dso-toolkit/issues/1313#issue-1041224938
 const legendItemDemoCss = `
@@ -12,7 +12,7 @@ const legendItemDemoCss = `
   }
 `;
 
-export const decorator = (story: Parameters<Decorator>[0]): TemplateResult => html`
+export const decorator: Decorator = (story) => html`
   ${story()}
 
   <style>

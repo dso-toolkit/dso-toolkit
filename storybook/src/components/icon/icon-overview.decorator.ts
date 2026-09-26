@@ -1,9 +1,9 @@
 import { Decorator } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-export type IconOverviewDecorator = (story: Parameters<Decorator>[0], icons: string[]) => TemplateResult;
+import icons from "../../../assets/icons.json";
 
-export const decorator: IconOverviewDecorator = (story, icons) => html`
+export const decorator: Decorator = (story) => html`
   <ul id="icon-overview-list" class="icon-overview-list">
     ${icons.map((icon) => {
       return html`<li>

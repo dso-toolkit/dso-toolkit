@@ -4,7 +4,7 @@ import { compiler } from "markdown-to-jsx/react";
 
 import icons from "../../../assets/icons.json";
 
-import { decorator } from "./icon-overview.decorator";
+import { decorator } from "./icon-overview.decorator.js";
 import { IconArgs, iconArgTypes, iconArgsMapper } from "./icon.args.js";
 import { iconTemplate } from "./icon.template.js";
 
@@ -30,5 +30,5 @@ export const Default: IconStory = {
 };
 
 export const Overview: IconStory = {
-  decorators: [(story) => decorator(story, icons)],
+  decorators: [decorator],
 };

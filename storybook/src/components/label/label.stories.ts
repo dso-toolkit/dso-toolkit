@@ -4,8 +4,7 @@ import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { LabelArgs, labelArgTypes, labelArgsMapper } from "./label.args.js";
-import { decorator } from "./label.decorator";
-import { css } from "./label.demo";
+import { decorator } from "./label.decorator.js";
 import { labelTemplate } from "./label.template.js";
 
 type LabelStory = StoryObj<LabelArgs>;
@@ -52,7 +51,7 @@ export const WithSymbolImage: LabelStory = {
     status: "bright",
     symbol: '<span class="symboolcode" data-symboolcode="vag000"></span>',
   },
-  decorators: [(story) => decorator(story, css)],
+  decorators: [decorator],
 };
 
 export const WithSymbolColor: LabelStory = {
@@ -61,5 +60,5 @@ export const WithSymbolColor: LabelStory = {
     status: "bright",
     symbol: '<span class="symboolcode" data-symboolcode="vszt030"></span>',
   },
-  decorators: [(story) => decorator(story, css)],
+  decorators: [decorator],
 };

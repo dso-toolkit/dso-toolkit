@@ -5,8 +5,7 @@ import { fn } from "storybook/test";
 
 import { MapControlsArgs, mapControlsArgTypes, mapControlsArgsMapper } from "./map-controls.args.js";
 import { baseLayers, overlays } from "./map-controls.content.js";
-import { decorator } from "./map-controls.decorator";
-import { mapControlsDemoCss } from "./map-controls.demo";
+import { decorator } from "./map-controls.decorator.js";
 import { mapControlsTemplate } from "./map-controls.template.js";
 
 type MapControlsStory = StoryObj<MapControlsArgs>;
@@ -24,6 +23,7 @@ const meta: Meta<MapControlsArgs> = {
     dsoZoomIn: fn(),
     dsoBaseLayerChange: fn(),
   },
+  decorators: [decorator],
   parameters: {
     html: {
       root: "#map-container-mock",
@@ -38,7 +38,6 @@ const meta: Meta<MapControlsArgs> = {
 export default meta;
 
 export const MapControls: MapControlsStory = {
-  decorators: [(story) => decorator(story, mapControlsDemoCss)],
   parameters: {
     layout: "fullscreen",
   },

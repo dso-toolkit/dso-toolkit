@@ -9,8 +9,7 @@ import {
   plekinfoCardArgsMapper,
 } from "./plekinfo-card.args.js";
 import { content, defaultSymbol } from "./plekinfo-card.content.js";
-import { decorator } from "./plekinfo-card.decorator";
-import { plekinfoCardDemoCss } from "./plekinfo-card.demo";
+import { decorator } from "./plekinfo-card.decorator.js";
 import { plekinfoCardTemplate } from "./plekinfo-card.template.js";
 
 type PlekinfoCardStory = StoryObj<PlekinfoCardArgs>;
@@ -20,6 +19,7 @@ const meta: Meta<PlekinfoCardArgs> = {
   argTypes: plekinfoCardArgTypes,
   args: plekinfoCardArgs,
   render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol(), content())),
+  decorators: [decorator],
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -29,22 +29,16 @@ const meta: Meta<PlekinfoCardArgs> = {
 
 export default meta;
 
-const decorators = [(story: Parameters<typeof decorator>[0]) => decorator(story, plekinfoCardDemoCss)];
-
-export const Default: PlekinfoCardStory = {
-  decorators,
-};
+export const Default: PlekinfoCardStory = {};
 
 export const Static: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
     href: "",
   },
-  decorators,
 };
 
 export const WithoutSymbol: PlekinfoCardStory = {
-  decorators,
   render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content())),
 };
 
@@ -56,7 +50,6 @@ export const WithSlideToggle: PlekinfoCardStory = {
       accessibleLabel: "sr-only label van het schuifje",
     },
   },
-  decorators,
 };
 
 export const WithLabel: PlekinfoCardStory = {
@@ -68,7 +61,6 @@ export const WithLabel: PlekinfoCardStory = {
       label: "Gewijzigde locatie",
     },
   },
-  decorators,
 };
 
 export const WithNameChange: PlekinfoCardStory = {
@@ -81,7 +73,6 @@ export const WithNameChange: PlekinfoCardStory = {
       },
     },
   },
-  decorators,
 };
 
 export const WithNameChangeComplex: PlekinfoCardStory = {
@@ -98,5 +89,4 @@ export const WithNameChangeComplex: PlekinfoCardStory = {
       ],
     },
   },
-  decorators,
 };

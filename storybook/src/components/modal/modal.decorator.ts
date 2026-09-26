@@ -1,7 +1,7 @@
 import { Decorator } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-export const decorator = (story: Parameters<Decorator>[0]): TemplateResult => {
+export const decorator: Decorator = (story) => {
   setTimeout(() => {
     const storybookRoot = document.getElementById("storybook-root");
 

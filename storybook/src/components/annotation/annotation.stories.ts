@@ -29,7 +29,7 @@ import {
   annotationOmgevingsnormwaardeArgs,
   annotationOmgevingsnormwaardeArgsMapper,
 } from "./annotation.args.js";
-import { decorator } from "./annotation.decorator";
+import { decorator } from "./annotation.decorator.js";
 import { annotationTemplate } from "./annotation.template.js";
 
 const readme = [
@@ -49,6 +49,7 @@ type AnnotationKaartStory = StoryObj<AnnotationKaartArgs>;
 
 const meta: Meta = {
   title: "Core/Annotation",
+  decorators: [decorator],
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -59,35 +60,30 @@ const meta: Meta = {
 export default meta;
 
 export const Activiteit: AnnotationActiviteitStory = {
-  decorators: [(story) => decorator(story)],
   args: annotationActiviteitArgs,
   argTypes: annotationActiviteitArgTypes,
   render: (args) => annotationTemplate(annotationActiviteitArgsMapper(args)),
 };
 
 export const Gebiedsaanwijzing: AnnotationGebiedsaanwijzingStory = {
-  decorators: [(story) => decorator(story)],
   args: annotationGebiedsaanwijzingArgs,
   argTypes: annotationGebiedsaanwijzingArgTypes,
   render: (args) => annotationTemplate(annotationGebiedsaanwijzingArgsMapper(args)),
 };
 
 export const Omgevingsnormwaarde: AnnotationOmgevingsnormwaardeStory = {
-  decorators: [(story) => decorator(story)],
   args: annotationOmgevingsnormwaardeArgs,
   argTypes: annotationOmgevingsnormwaardeArgTypes,
   render: (args) => annotationTemplate(annotationOmgevingsnormwaardeArgsMapper(args)),
 };
 
 export const Locatie: AnnotationLocatieStory = {
-  decorators: [(story) => decorator(story)],
   args: annotationLocatieArgs,
   argTypes: annotationLocatieArgTypes,
   render: (args) => annotationTemplate(annotationLocatieArgsMapper(args)),
 };
 
 export const Kaart: AnnotationKaartStory = {
-  decorators: [(story) => decorator(story)],
   args: annotationKaartArgs,
   argTypes: annotationKaartArgTypes,
   render: (args) => annotationTemplate(annotationKaartArgsMapper(args)),

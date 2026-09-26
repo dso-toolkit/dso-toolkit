@@ -1,10 +1,12 @@
 import { Decorator } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-export const decorator = (story: Parameters<Decorator>[0], css: string): TemplateResult => html`
+import { plekinfoCardDemoCss } from "./plekinfo-card.demo.js";
+
+export const decorator: Decorator = (story) => html`
   ${story()}
 
   <style>
-    ${css}
+    ${plekinfoCardDemoCss}
   </style>
 `;

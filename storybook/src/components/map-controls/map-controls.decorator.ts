@@ -1,11 +1,13 @@
 import { Decorator } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-export const decorator = (story: Parameters<Decorator>[0], css: string): TemplateResult => html`
+import { mapControlsDemoCss } from "./map-controls.demo.js";
+
+export const decorator: Decorator = (story) => html`
   <div id="map-container-mock" style="background-color: #efefef; height: 600px; position: relative; overflow: hidden;">
     ${story()}
     <style>
-      ${css}
+      ${mapControlsDemoCss}
     </style>
   </div>
 `;

@@ -4,7 +4,7 @@ import { compiler } from "markdown-to-jsx/react";
 
 import { ExpandableArgs, expandableArgTypes, expandableArgsMapper } from "./expandable.args.js";
 import { expandableContent } from "./expandable.content.js";
-import { decorator } from "./expandable.decorator";
+import { decorator } from "./expandable.decorator.js";
 import { expandableTemplate } from "./expandable.template.js";
 
 type ExpandableStory = StoryObj<ExpandableArgs>;
@@ -15,6 +15,7 @@ const meta: Meta<ExpandableArgs> = {
   args: {
     open: false,
   },
+  decorators: [decorator],
   parameters: {
     docs: {
       page: () => compiler(readme),
@@ -32,7 +33,6 @@ export const Default: ExpandableStory = {
   args: {
     enableAnimation: false,
   },
-  decorators: [(story) => decorator(story)],
   parameters: {
     layout: "fullscreen",
   },
@@ -42,7 +42,6 @@ export const WithAnimation: ExpandableStory = {
   args: {
     enableAnimation: true,
   },
-  decorators: [(story) => decorator(story)],
   parameters: {
     layout: "fullscreen",
   },
