@@ -5,7 +5,7 @@ import { linkTemplate } from "../link/link.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
 export function richContent() {
-  return html`${richContentTemplate({
+  return richContentTemplate({
     children: html`
       <h2>Heading 2</h2>
 
@@ -35,5 +35,5 @@ export function richContent() {
         ],
       })}
     `,
-  })}`;
+  });
 }

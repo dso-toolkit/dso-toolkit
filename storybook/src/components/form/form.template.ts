@@ -40,7 +40,7 @@ export function formTemplate({ asteriskExplanation, mode, formModifier, content,
       return html`<h6>${title}</h6>`;
     }
 
-    return html`${title}`;
+    return title;
   }
 
   function formGroupCollection({ title, headingLevel, formGroups }: FormGroupCollection) {

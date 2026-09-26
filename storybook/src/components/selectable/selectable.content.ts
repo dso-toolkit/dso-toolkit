@@ -3,7 +3,7 @@ import { html } from "lit-html";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
 export function infoRichContent() {
-  return html`${richContentTemplate({
+  return richContentTemplate({
     children: html`
       <p>Rijke inhoud</p>
       <p>Ziet er zo uit</p>
@@ -13,5 +13,5 @@ export function infoRichContent() {
       <p>Kan allemaal</p>
     `,
     slot: "info",
-  })}`;
+  });
 }

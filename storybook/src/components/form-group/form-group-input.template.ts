@@ -26,15 +26,13 @@ export function formGroupInputTemplate(formGroup: FormGroupInput | FormGroupInpu
     <div class="dso-field-container">
       ${
         formGroup.type === "date"
-          ? html`
-              ${datePickerTemplate({
-                id: formGroup.id,
-                disabled: !!formGroup.disabled,
-                min: formGroup.min,
-                max: formGroup.max,
-                value: formGroup.value,
-              })}
-            `
+          ? datePickerTemplate({
+              id: formGroup.id,
+              disabled: !!formGroup.disabled,
+              min: formGroup.min,
+              max: formGroup.max,
+              value: formGroup.value,
+            })
           : html`
               <input
                 type=${formGroup.type}

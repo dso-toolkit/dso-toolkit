@@ -91,16 +91,10 @@ export function shoppingCartTemplate({
                             (item) => html`
                               <li>
                                 ${
-                                  item.subitems
+                                  item.subitems && hasWarning(item.subitems)
                                     ? html`
-                                        ${
-                                          hasWarning(item.subitems)
-                                            ? html`
-                                                ${iconTemplate({ icon: "status-warning" })}
-                                                <span class="sr-only">waarschuwing</span>
-                                              `
-                                            : nothing
-                                        }
+                                        ${iconTemplate({ icon: "status-warning" })}
+                                        <span class="sr-only">waarschuwing</span>
                                       `
                                     : nothing
                                 }

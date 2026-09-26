@@ -46,17 +46,15 @@ export const Activiteiten: StoryObj = {
             })}
             ${shoppingCartTemplate(shoppingCart())}
             ${highlightBoxTemplate({
-              content: html`
-                ${searchBarTemplate({
-                  label: "Zoek uw activiteiten",
-                  buttonLabel: "Zoeken",
-                  id: "filter_activiteiten",
-                  hideSearchButton: true,
-                  placeholder: "Bijvoorbeeld bouwactiviteiten",
-                  icon: true,
-                  clearButton: true,
-                })}
-              `,
+              content: searchBarTemplate({
+                label: "Zoek uw activiteiten",
+                buttonLabel: "Zoeken",
+                id: "filter_activiteiten",
+                hideSearchButton: true,
+                placeholder: "Bijvoorbeeld bouwactiviteiten",
+                icon: true,
+                clearButton: true,
+              }),
             })}
             <div class="row">
               <div class="col-sm-3">

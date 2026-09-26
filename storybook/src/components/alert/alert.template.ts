@@ -18,7 +18,7 @@ export function alertTemplate({ status, message, compact, interaction, withRoleA
     >
       ${richContentTemplate({
         children: html` ${typeof message === "string" ? unsafeHTML(message) : message}
-        ${interaction ? html`${buttonTemplate(interaction)}` : nothing}`,
+        ${interaction ? buttonTemplate(interaction) : nothing}`,
       })}
     </dso-alert>
   `;

@@ -7,7 +7,7 @@ import { linkTemplate } from "../link/link.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
 export function richContent() {
-  return html`${richContentTemplate({
+  return richContentTemplate({
     children: html`<p>
         Uitleg over wat u hier kunt doen en lezen. Met een link naar
         ${linkTemplate({ label: "Meer informatie", url: "#", iconMode: "after", icon: { icon: "external-link" } })}.
@@ -36,13 +36,13 @@ export function richContent() {
           },
         ],
       })}`,
-  })}`;
+  });
 }
 
 export function headingContent() {
-  return html`${headingTemplate({
+  return headingTemplate({
     level: 5,
     children: "Tip: Onboarding",
     slotName: "heading",
-  })}`;
+  });
 }

@@ -7,7 +7,7 @@ import { linkTemplate } from "../link/link.template.js";
 import { richContentTemplate } from "./rich-content.template.js";
 
 export function children() {
-  return html`${richContentTemplate({
+  return richContentTemplate({
     children: html`
       <h1>Kop 1</h1>
       <h2>Kop 2</h2>
@@ -118,5 +118,5 @@ export function children() {
       <p>Aansprakelijkheidswaardevaststellingsveranderingen is het langste woord in de Nederlandse taal.</p>
       <p>Een afsluitende paragraaf.</p>
     `,
-  })}`;
+  });
 }

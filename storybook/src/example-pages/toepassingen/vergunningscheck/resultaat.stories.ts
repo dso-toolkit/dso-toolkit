@@ -58,88 +58,84 @@ export const Resultaat: StoryObj = {
                 {
                   title: "Neem contact op met het waterschap en de gemeente",
                   flowLine: true,
-                  content: html`
-                    ${accordionTemplate({
-                      variant: "neutral",
-                      sections: [
-                        {
-                          handleTitle:
-                            'Waterschap: Wat u moet regelen voor "Wegen en bijbehorende constructies plaatsen of verwijderen waterkering"',
-                          heading: "h4",
-                          content: richContentTemplate({
-                            children: html`
-                              <h5>Algemene toelichting</h5>
-                              <p>
-                                Het waterschap heeft aanvullende informatie nodig om met zekerheid te kunnen zeggen wat
-                                u moet regelen. Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning
-                                aanvragen, melding doen of informatie geven.
-                              </p>
-                              <h5>Voorbereiding</h5>
-                              <p>
-                                Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding
-                                aanbrengen of vervangen".
-                              </p>
-                              <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
-                              <span>${iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
-                              <span
-                                >${iconTemplate({ icon: "weather" })}
-                                ${linkTemplate({ url: "#", label: "www.agv.nl", mode: "extern" })}</span
-                              >
-                              <span
-                                >${iconTemplate({ icon: "buildings" })} Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC
-                                Amsterdam</span
-                              >
-                            `,
-                          }),
-                        },
-                        {
-                          handleTitle:
-                            'Waterschap: Wat u moet regelen voor "Verharding aanbrengen of verwijderen bij oppervlaktewater"',
-                          heading: "h4",
-                        },
-                        {
-                          handleTitle:
-                            'Gemeente: Wat u moet regelen voor "Verhard oppervlak en stedelijke uitbreiding"',
-                          heading: "h4",
-                        },
-                      ],
-                    })}
-                  `,
+                  content: accordionTemplate({
+                    variant: "neutral",
+                    sections: [
+                      {
+                        handleTitle:
+                          'Waterschap: Wat u moet regelen voor "Wegen en bijbehorende constructies plaatsen of verwijderen waterkering"',
+                        heading: "h4",
+                        content: richContentTemplate({
+                          children: html`
+                            <h5>Algemene toelichting</h5>
+                            <p>
+                              Het waterschap heeft aanvullende informatie nodig om met zekerheid te kunnen zeggen wat u
+                              moet regelen. Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen,
+                              melding doen of informatie geven.
+                            </p>
+                            <h5>Voorbereiding</h5>
+                            <p>
+                              Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding
+                              aanbrengen of vervangen".
+                            </p>
+                            <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
+                            <span>${iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
+                            <span
+                              >${iconTemplate({ icon: "weather" })}
+                              ${linkTemplate({ url: "#", label: "www.agv.nl", mode: "extern" })}</span
+                            >
+                            <span
+                              >${iconTemplate({ icon: "buildings" })} Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC
+                              Amsterdam</span
+                            >
+                          `,
+                        }),
+                      },
+                      {
+                        handleTitle:
+                          'Waterschap: Wat u moet regelen voor "Verharding aanbrengen of verwijderen bij oppervlaktewater"',
+                        heading: "h4",
+                      },
+                      {
+                        handleTitle: 'Gemeente: Wat u moet regelen voor "Verhard oppervlak en stedelijke uitbreiding"',
+                        heading: "h4",
+                      },
+                    ],
+                  }),
                 },
                 {
                   title: "Vergunning aanvragen",
                   flowLine: true,
-                  content: html`
-                    ${accordionTemplate({
-                      variant: "neutral",
-                      sections: [
-                        {
-                          handleTitle:
-                            'Vraag een vergunning aan voor "Afvalwater, afkomstig van een zuiveringsvoorziening voor ingezameld of afgegeven afvalwater, lozen op een oppervlaktelichaam"',
-                          heading: "h4",
-                          open: true,
-                          content: richContentTemplate({
-                            children: html`
-                              <h5>Algemene informatie</h5>
-                              <p>
-                                U heeft de vergunning nodig voordat u mag beginnen met hieronder genoemde werkzaamheden.
-                                Houd rekening met een doorlooptijd voor de behandeling van uw aanvraag.
-                              </p>
-                              <h5>Toelichting</h5>
-                              <p>
-                                U moet zich naast de regels uit de vergunning ook houden aan de algemene regels voor
-                                deze activiteit. In
-                                <span>
-                                  <a href="#">Maatregelen op Maat<dso-icon icon="external-link"></dso-icon></a
-                                ></span>
-                                vindt u de maatregelen waarmee u aan deze regels kunt voldoen.
-                              </p>
-                              <h5>Voorbereiding op uw aanvraag</h5>
-                              <p>
-                                Houd de informatie bij de hand die te maken heeft met de werkzaamheden 'Bedrijf dat
-                                afvalwater zuivert'.
-                              </p>
-                              ${formButtonsTemplate({
+                  content: accordionTemplate({
+                    variant: "neutral",
+                    sections: [
+                      {
+                        handleTitle:
+                          'Vraag een vergunning aan voor "Afvalwater, afkomstig van een zuiveringsvoorziening voor ingezameld of afgegeven afvalwater, lozen op een oppervlaktelichaam"',
+                        heading: "h4",
+                        open: true,
+                        content: richContentTemplate({
+                          children: html`
+                            <h5>Algemene informatie</h5>
+                            <p>
+                              U heeft de vergunning nodig voordat u mag beginnen met hieronder genoemde werkzaamheden.
+                              Houd rekening met een doorlooptijd voor de behandeling van uw aanvraag.
+                            </p>
+                            <h5>Toelichting</h5>
+                            <p>
+                              U moet zich naast de regels uit de vergunning ook houden aan de algemene regels voor deze
+                              activiteit. In
+                              <span>
+                                <a href="#">Maatregelen op Maat<dso-icon icon="external-link"></dso-icon></a
+                              ></span>
+                              vindt u de maatregelen waarmee u aan deze regels kunt voldoen.
+                            </p>
+                            <h5>Voorbereiding op uw aanvraag</h5>
+                            <p>
+                              Houd de informatie bij de hand die te maken heeft met de werkzaamheden 'Bedrijf dat
+                              afvalwater zuivert'.
+                            </p>
+                            ${formButtonsTemplate({
                                 buttons: [
                                   {
                                     label: "Aanvraag voorbereiden",
@@ -150,56 +146,51 @@ export const Resultaat: StoryObj = {
                                   },
                                 ],
                               })}
-                            `,
-                          }),
-                        },
-                        {
-                          handleTitle:
-                            'Vraag een vergunning aan voor "Zuiveringsvoorziening voor ingezameld of afgegeven afvalwater"',
-                          heading: "h4",
-                        },
-                        {
-                          handleTitle: 'Vraag een vergunning aan voor "Bouwactiviteit (technisch)"',
-                          heading: "h4",
-                        },
-                      ],
-                    })}
-                  `,
+                          `,
+                        }),
+                      },
+                      {
+                        handleTitle:
+                          'Vraag een vergunning aan voor "Zuiveringsvoorziening voor ingezameld of afgegeven afvalwater"',
+                        heading: "h4",
+                      },
+                      {
+                        handleTitle: 'Vraag een vergunning aan voor "Bouwactiviteit (technisch)"',
+                        heading: "h4",
+                      },
+                    ],
+                  }),
                 },
                 {
                   title: "Melden en informatie geven",
                   flowLine: true,
-                  content: html`
-                    ${accordionTemplate({
-                      variant: "neutral",
-                      sections: [
-                        {
-                          handleTitle: 'Geef informatie over "Geluid veroorzaakt door activiteiten"',
-                          heading: "h4",
-                        },
-                        {
-                          handleTitle: 'Geef informatie over "Bouwactiviteit (technisch)"',
-                          heading: "h4",
-                        },
-                      ],
-                    })}
-                  `,
+                  content: accordionTemplate({
+                    variant: "neutral",
+                    sections: [
+                      {
+                        handleTitle: 'Geef informatie over "Geluid veroorzaakt door activiteiten"',
+                        heading: "h4",
+                      },
+                      {
+                        handleTitle: 'Geef informatie over "Bouwactiviteit (technisch)"',
+                        heading: "h4",
+                      },
+                    ],
+                  }),
                 },
                 {
                   title: "Om rekening mee te houden",
                   flowLine: true,
                   divider: true,
-                  content: html`
-                    ${accordionTemplate({
-                      variant: "neutral",
-                      sections: [
-                        {
-                          handleTitle: "Bedrijf dat afvalwater zuivert",
-                          heading: "h4",
-                        },
-                      ],
-                    })}
-                  `,
+                  content: accordionTemplate({
+                    variant: "neutral",
+                    sections: [
+                      {
+                        handleTitle: "Bedrijf dat afvalwater zuivert",
+                        heading: "h4",
+                      },
+                    ],
+                  }),
                 },
                 {
                   title: "Start de werkzaamheden",

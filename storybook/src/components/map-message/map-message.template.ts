@@ -6,7 +6,7 @@ import { MapMessage } from "./map-message.models.js";
 
 export function mapMessageTemplate({ variant, message, buttons }: MapMessage) {
   const actionSlot = buttons?.length
-    ? html`${buttons.map((button) => buttonTemplate({ ...button, slot: "actions" }))}`
+    ? buttons.map((button) => buttonTemplate({ ...button, slot: "actions" }))
     : nothing;
 
   const messageSlot = message ? html`<span slot="message">${message}</span>` : nothing;

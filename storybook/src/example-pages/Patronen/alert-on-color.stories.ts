@@ -31,21 +31,17 @@ export const AlertOnColor: StoryObj = {
       })}
       ${highlightBoxTemplate({
         grey: true,
-        content: html`
-          ${highlightBoxTemplate({
-            white: true,
-            content: content(),
-          })}
-        `,
+        content: highlightBoxTemplate({
+          white: true,
+          content: content(),
+        }),
       })}
       ${highlightBoxTemplate({
         white: true,
-        content: html`
-          ${highlightBoxTemplate({
-            yellow: true,
-            content: content(),
-          })}
-        `,
+        content: highlightBoxTemplate({
+          yellow: true,
+          content: content(),
+        }),
       })}
     `;
   },
@@ -63,5 +59,5 @@ const content = function () {
     { compact: true, status: "warning", message: "Pas op, dit moet je weten!" },
   ];
 
-  return html` ${alerts.map((alert) => html`${alertTemplate(alert)}`)} `;
+  return html` ${alerts.map((alert) => alertTemplate(alert))} `;
 };

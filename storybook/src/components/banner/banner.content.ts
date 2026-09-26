@@ -97,9 +97,9 @@ export function richInfoRichContent() {
         ${infoButtonTemplate({
           label: "Toelichting",
           toggletipPlacement: "right",
-          children: html`${richContentTemplate({
+          children: richContentTemplate({
             children: html` <p>Een Info Button met toggletip in de banner</p> `,
-          })}`,
+          }),
         })}
       </p>
       <p>Maar kan ook rich content bevatten, bijvoorbeeld een extra paragraaf om meer uit te kunnen leggen</p>

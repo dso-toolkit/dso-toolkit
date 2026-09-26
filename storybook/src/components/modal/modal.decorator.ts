@@ -1,5 +1,4 @@
 import { Decorator } from "@storybook/web-components-vite";
-import { html } from "lit-html";
 
 export const decorator: Decorator = (story) => {
   setTimeout(() => {
@@ -10,5 +9,5 @@ export const decorator: Decorator = (story) => {
     dialog?.showModal();
   }, 0);
 
-  return html`${story()}`;
+  return story();
 };

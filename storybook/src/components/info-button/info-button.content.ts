@@ -4,7 +4,7 @@ import { linkTemplate } from "../link/link.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
 export function children() {
-  return html`${richContentTemplate({
+  return richContentTemplate({
     children: html`
       <h2>Introductie DSO</h2>
       <p>
@@ -17,5 +17,5 @@ export function children() {
         van de landelijke voorziening (DSO-LV), zoals het Omgevingsloket.
       </p>
     `,
-  })}`;
+  });
 }
