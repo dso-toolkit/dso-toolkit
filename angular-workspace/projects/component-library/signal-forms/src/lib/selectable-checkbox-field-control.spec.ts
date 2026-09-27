@@ -1,7 +1,7 @@
 import { Component, signal } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormField, disabled, form, required } from "@angular/forms/signals";
-import type { SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
+import { SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
 
 import { DsoSelectable } from "../../../src/lib/stencil-generated/components";
 import { DsoSelectableCheckboxFieldControl } from "../public-api";
