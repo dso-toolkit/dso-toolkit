@@ -1,4 +1,4 @@
-import { type Signal, effect } from "@angular/core";
+import { Signal, effect } from "@angular/core";
 
 export function syncFieldControlProperties<
   Element extends { disabled?: boolean; required?: boolean; invalid?: boolean },

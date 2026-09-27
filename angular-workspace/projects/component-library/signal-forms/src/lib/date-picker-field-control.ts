@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, effect, input, model } from "@angular/core";
-import type { FormValueControl } from "@angular/forms/signals";
-import type { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "@dso-toolkit/core/dist/components";
+import { FormValueControl } from "@angular/forms/signals";
+import { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "@dso-toolkit/core/dist/components";
 
 import { syncFieldControlProperties } from "./sync-field-control-properties";
 

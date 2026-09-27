@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, input, model } from "@angular/core";
-import type { FormCheckboxControl } from "@angular/forms/signals";
-import type { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
+import { FormCheckboxControl } from "@angular/forms/signals";
+import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
 
 import { syncFieldControlProperties } from "./sync-field-control-properties";
 
