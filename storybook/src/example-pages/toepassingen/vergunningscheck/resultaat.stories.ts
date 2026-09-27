@@ -1,66 +1,65 @@
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
-import { header } from "../../content/header.content";
-import { mainMenu } from "../../content/main-menu.content";
-import { footerPartial } from "../../partials/footer";
-import { headerPartial } from "../../partials/header";
+import { accordionTemplate } from "../../../components/accordion/accordion.template.js";
+import { actionListTemplate } from "../../../components/action-list/action-list.template.js";
+import { alertTemplate } from "../../../components/alert/alert.template.js";
+import { applicationHeadingTemplate } from "../../../components/application-heading/application-heading.template.js";
+import { buttonTemplate } from "../../../components/button/button.template.js";
+import { formButtonsTemplate } from "../../../components/form-buttons/form-buttons.template.js";
+import { iconTemplate } from "../../../components/icon/icon.template.js";
+import { linkTemplate } from "../../../components/link/link.template.js";
+import { richContentTemplate } from "../../../components/rich-content/rich-content.template.js";
+import { examplePageMeta } from "../../../example-page-meta.js";
+import { header } from "../../content/header.content.js";
+import { mainMenu } from "../../content/main-menu.content.js";
+import { footerPartial } from "../../partials/footer.js";
+import { headerPartial } from "../../partials/header.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Vergunningscheck/Resultaat",
+  tags: ["!autodocs"],
 };
 
 export default meta;
 
-const Resultaat = examplePageStories((templates) => {
-  const {
-    accordionTemplate,
-    actionListTemplate,
-    alertTemplate,
-    linkTemplate,
-    applicationHeadingTemplate,
-    formButtonsTemplate,
-    buttonTemplate,
-    iconTemplate,
-    richContentTemplate,
-  } = templates;
+export const Resultaat: StoryObj = {
+  render: () => {
+    return html`
+      <div class="container">
+        ${headerPartial({ ...header(), mainMenu: mainMenu("Vergunningscheck") })}
+        <main>
+          <form>
+            ${applicationHeadingTemplate({ title: "Vergunningcheck", subtitle: "4. Resultaat", step: "Stap 4/4" })}
 
-  return html`
-    <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Vergunningscheck") })}
-      <main>
-        <form>
-          ${applicationHeadingTemplate({ title: "Vergunningcheck", subtitle: "4. Resultaat", step: "Stap 4/4" })}
+            <h2>Wat gaat u doen?</h2>
 
-          <h2>Wat gaat u doen?</h2>
-
-          ${richContentTemplate({
-            children: html`
-              <p>U heeft een vergunningscheck gedaan voor de volgende werkzaamheden:</p>
-              <ul>
-                <li>Bedrijf dat afvalwater zuivert</li>
-                <li>Antenne plaatsen, verplaatsen of vervangen</li>
-              </ul>
-              <p>Hieronder staat uitgelegd wat u moet regelen en waar u rekening mee moet houden.</p>
-            `,
-          })}
-          ${actionListTemplate({
-            title: "Actielijst Omgevingsloket",
-            actionListItems: [
-              {
-                flowLine: true,
-                content: buttonTemplate({
-                  variant: "secondary",
-                  icon: { icon: "download" },
-                  label: "Download de actielijst als PDF",
-                }),
-              },
-              {
-                title: "Neem contact op met het waterschap en de gemeente",
-                flowLine: true,
-                content: html`
-                  ${accordionTemplate({
+            ${richContentTemplate({
+              children: html`
+                <p>U heeft een vergunningscheck gedaan voor de volgende werkzaamheden:</p>
+                <ul>
+                  <li>Bedrijf dat afvalwater zuivert</li>
+                  <li>Antenne plaatsen, verplaatsen of vervangen</li>
+                </ul>
+                <p>Hieronder staat uitgelegd wat u moet regelen en waar u rekening mee moet houden.</p>
+              `,
+            })}
+            ${actionListTemplate({
+              title: "Actielijst Omgevingsloket",
+              actionListItems: [
+                {
+                  flowLine: true,
+                  content: buttonTemplate({
+                    variant: "secondary",
+                    icon: { icon: "download" },
+                    label: "Download de actielijst als PDF",
+                  }),
+                },
+                {
+                  title: "Neem contact op met het waterschap en de gemeente",
+                  flowLine: true,
+                  content: accordionTemplate({
                     variant: "neutral",
                     sections: [
                       {
@@ -103,14 +102,12 @@ const Resultaat = examplePageStories((templates) => {
                         heading: "h4",
                       },
                     ],
-                  })}
-                `,
-              },
-              {
-                title: "Vergunning aanvragen",
-                flowLine: true,
-                content: html`
-                  ${accordionTemplate({
+                  }),
+                },
+                {
+                  title: "Vergunning aanvragen",
+                  flowLine: true,
+                  content: accordionTemplate({
                     variant: "neutral",
                     sections: [
                       {
@@ -163,14 +160,12 @@ const Resultaat = examplePageStories((templates) => {
                         heading: "h4",
                       },
                     ],
-                  })}
-                `,
-              },
-              {
-                title: "Melden en informatie geven",
-                flowLine: true,
-                content: html`
-                  ${accordionTemplate({
+                  }),
+                },
+                {
+                  title: "Melden en informatie geven",
+                  flowLine: true,
+                  content: accordionTemplate({
                     variant: "neutral",
                     sections: [
                       {
@@ -182,15 +177,13 @@ const Resultaat = examplePageStories((templates) => {
                         heading: "h4",
                       },
                     ],
-                  })}
-                `,
-              },
-              {
-                title: "Om rekening mee te houden",
-                flowLine: true,
-                divider: true,
-                content: html`
-                  ${accordionTemplate({
+                  }),
+                },
+                {
+                  title: "Om rekening mee te houden",
+                  flowLine: true,
+                  divider: true,
+                  content: accordionTemplate({
                     variant: "neutral",
                     sections: [
                       {
@@ -198,68 +191,66 @@ const Resultaat = examplePageStories((templates) => {
                         heading: "h4",
                       },
                     ],
-                  })}
-                `,
+                  }),
+                },
+                {
+                  title: "Start de werkzaamheden",
+                },
+              ],
+            })}
+          </form>
+
+          ${alertTemplate({
+            message: html`<h2>Let op!</h2>
+              <p>
+                De actielijst wordt niet bewaard. Download daarom de actielijst. Ga daarna door naar "Aanvragen en
+                voorbereiden", dan wordt de informatie uit de actielijst meegenomen in uw aanvraag.
+              </p>`,
+            status: "warning",
+          })}
+          ${formButtonsTemplate({
+            asideButtons: [
+              {
+                label: "Antwoorden aanpassen",
+                variant: "secondary",
+                type: "button",
+                icon: { icon: "chevron-left" },
+              },
+            ],
+            buttons: [
+              {
+                label: "Actielijst downloaden",
+                variant: "secondary",
+                type: "button",
+                icon: { icon: "download" },
               },
               {
-                title: "Start de werkzaamheden",
+                label: "Aanvragen en voorbereiden",
+                type: "button",
+                variant: "primary",
               },
             ],
           })}
-        </form>
 
-        ${alertTemplate({
-          message: html`<h2>Let op!</h2>
-            <p>
-              De actielijst wordt niet bewaard. Download daarom de actielijst. Ga daarna door naar "Aanvragen en
-              voorbereiden", dan wordt de informatie uit de actielijst meegenomen in uw aanvraag.
-            </p>`,
-          status: "warning",
-        })}
-        ${formButtonsTemplate({
-          asideButtons: [
-            {
-              label: "Antwoorden aanpassen",
-              variant: "secondary",
-              type: "button",
-              icon: { icon: "chevron-left" },
-            },
-          ],
-          buttons: [
-            {
-              label: "Actielijst downloaden",
-              variant: "secondary",
-              type: "button",
-              icon: { icon: "download" },
-            },
-            {
-              label: "Aanvragen en voorbereiden",
-              type: "button",
-              variant: "primary",
-            },
-          ],
-        })}
+          <hr />
 
-        <hr />
-
-        ${richContentTemplate({
-          children: html`
-            <p class="dso-disclaimer">
-              De Vergunningcheck is een serviceproduct van de Nederlandse overheid. Het geeft u een algemene indruk of
-              er voor uw activiteit een vergunning of melding nodig is. De makers van de Vergunningcheck hebben met veel
-              aandacht gewerkt aan de vragen en antwoorden. Toch geeft het resultaat van de Vergunningcheck u geen
-              absolute zekerheid. Bijvoorbeeld doordat sommige activiteiten of combinaties van activiteiten (nog) niet
-              in de Vergunningcheck staan. Of doordat er nog andere regels zijn waardoor u nog andere vergunningen moet
-              aanvragen of andere meldingen moet doen. U kunt daarom geen rechten ontlenen aan deze Vergunningcheck.
-              Wilt u zeker weten of en hoe u uw activiteit kunt uitvoeren? Dan raden wij u aan contact op te nemen met
-              uw gemeente en/of waterschap.
-            </p>
-          `,
-        })}
-      </main>
-      ${footerPartial(templates)}
-    </div>
-  `;
-});
-
-export { Resultaat };
+          ${richContentTemplate({
+            children: html`
+              <p class="dso-disclaimer">
+                De Vergunningcheck is een serviceproduct van de Nederlandse overheid. Het geeft u een algemene indruk of
+                er voor uw activiteit een vergunning of melding nodig is. De makers van de Vergunningcheck hebben met
+                veel aandacht gewerkt aan de vragen en antwoorden. Toch geeft het resultaat van de Vergunningcheck u
+                geen absolute zekerheid. Bijvoorbeeld doordat sommige activiteiten of combinaties van activiteiten (nog)
+                niet in de Vergunningcheck staan. Of doordat er nog andere regels zijn waardoor u nog andere
+                vergunningen moet aanvragen of andere meldingen moet doen. U kunt daarom geen rechten ontlenen aan deze
+                Vergunningcheck. Wilt u zeker weten of en hoe u uw activiteit kunt uitvoeren? Dan raden wij u aan
+                contact op te nemen met uw gemeente en/of waterschap.
+              </p>
+            `,
+          })}
+        </main>
+        ${footerPartial()}
+      </div>
+    `;
+  },
+};

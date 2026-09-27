@@ -1,16 +1,20 @@
-import { type LegendArgs, type LegendGroup, type LegendItem } from "dso-toolkit";
-import { TemplateResult, html, nothing } from "lit-html";
+import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-const defaultSymbol = html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
+import { LegendArgs } from "./legend.args.js";
+import { LegendGroup, LegendItem } from "./legend.models.js";
 
-const legendGroupTemplate = (p: LegendGroup<TemplateResult>) =>
+function defaultSymbol() {
+  return html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
+}
+
+const legendGroupTemplate = (p: LegendGroup) =>
   html`<dso-legend-group .mode=${ifDefined(p.mode)} @dsoLegendGroupModeChange=${ifDefined(p.dsoLegendGroupModeChange)}>
     ${p.heading || nothing} ${p.options ? html`<div slot="options">${p.options}</div>` : nothing}
     ${p.children || nothing}
   </dso-legend-group>`;
 
-const legendItemTemplate = (p: LegendItem<TemplateResult>) =>
+const legendItemTemplate = (p: LegendItem) =>
   html`<dso-legend-item
     .disabled=${p.disabled}
     .disabledMessage=${ifDefined(p.disabledMessage)}
@@ -25,22 +29,25 @@ const legendItemTemplate = (p: LegendItem<TemplateResult>) =>
     ${p.options ? html`<div slot="options">${p.options}</div>` : nothing}
   </dso-legend-item>`;
 
-const zichtbaarheidOption = html`<label>Zichtbaarheid</label
-  ><dso-input-range label="Transparantie" unit="%"></dso-input-range>`;
+function zichtbaarheidOption() {
+  return html`<label>Zichtbaarheid</label><dso-input-range label="Transparantie" unit="%"></dso-input-range>`;
+}
 
-const wijzigKaartLaagOption = html`<fieldset class="form-group dso-radios" aria-errormessage="mijn-id-error-text">
-  <legend class="sr-only">Wijzig kaartlaag kleur</legend>
-  <div class="dso-label-container">
-    <span class="control-label" aria-hidden="true">Wijzig kaartlaag kleur</span>
-  </div>
-  <div class="dso-field-container">
-    <dso-selectable type="radio" name="kaartlaag-kleur" checked identifier="1" value="kleur"> Kleur </dso-selectable>
-    <dso-selectable type="radio" name="kaartlaag-kleur" identifier="2" value="grijstinten">
-      Grijstinten
-    </dso-selectable>
-    <dso-selectable type="radio" name="kaartlaag-kleur" identifier="3" value="opties-3">Pastel</dso-selectable>
-  </div>
-</fieldset>`;
+function wijzigKaartLaagOption() {
+  return html`<fieldset class="form-group dso-radios" aria-errormessage="mijn-id-error-text">
+    <legend class="sr-only">Wijzig kaartlaag kleur</legend>
+    <div class="dso-label-container">
+      <span class="control-label" aria-hidden="true">Wijzig kaartlaag kleur</span>
+    </div>
+    <div class="dso-field-container">
+      <dso-selectable type="radio" name="kaartlaag-kleur" checked identifier="1" value="kleur"> Kleur </dso-selectable>
+      <dso-selectable type="radio" name="kaartlaag-kleur" identifier="2" value="grijstinten">
+        Grijstinten
+      </dso-selectable>
+      <dso-selectable type="radio" name="kaartlaag-kleur" identifier="3" value="opties-3">Pastel</dso-selectable>
+    </div>
+  </fieldset>`;
+}
 
 export function legendaRichContent(args: LegendArgs) {
   const modeChangeHandler = (e: CustomEvent) => args.dsoLegendGroupModeChange(e.detail);
@@ -50,11 +57,11 @@ export function legendaRichContent(args: LegendArgs) {
       heading: html`<h3 slot="heading">Legenda</h3>`,
       children: html`${legendItemTemplate({
         content: html`<span slot="label">Document</span>`,
-        symbol: defaultSymbol,
+        symbol: defaultSymbol(),
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Gekozen locatie</span>`,
-        symbol: defaultSymbol,
+        symbol: defaultSymbol(),
       })}`,
     })}
     <hr />
@@ -62,18 +69,18 @@ export function legendaRichContent(args: LegendArgs) {
       mode: args.mode,
       dsoLegendGroupModeChange: modeChangeHandler,
       heading: html`<h3 slot="heading">Geselecteerde kenmerken</h3>`,
-      options: zichtbaarheidOption,
+      options: zichtbaarheidOption(),
       children: html` ${legendItemTemplate({
         content: html`<span slot="label">Acculader in werking</span>`,
         activatable: true,
-        symbol: defaultSymbol,
+        symbol: defaultSymbol(),
         dsoDelete: deleteHandler,
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Bomen kappen</span>`,
         activatable: true,
         active: true,
-        symbol: defaultSymbol,
+        symbol: defaultSymbol(),
         dsoDelete: deleteHandler,
       })}`,
     })}`;
@@ -85,33 +92,33 @@ export function kaartlagenRichContent(args: LegendArgs) {
       children: html`${legendItemTemplate({
         content: html`<span slot="label">BAG panden</span>`,
         activatable: true,
-        options: wijzigKaartLaagOption,
+        options: wijzigKaartLaagOption(),
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Kadastrale kaart</span>`,
         activatable: true,
-        options: wijzigKaartLaagOption,
+        options: wijzigKaartLaagOption(),
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Gemeentegrenzen</span>`,
         activatable: true,
-        options: wijzigKaartLaagOption,
+        options: wijzigKaartLaagOption(),
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Waterschapsgrenzen</span>`,
         activatable: true,
-        options: wijzigKaartLaagOption,
+        options: wijzigKaartLaagOption(),
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Provinciegrenzen</span>`,
         activatable: true,
         disabled: true,
-        options: wijzigKaartLaagOption,
+        options: wijzigKaartLaagOption(),
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Landgrenzen</span>`,
         activatable: true,
-        options: wijzigKaartLaagOption,
+        options: wijzigKaartLaagOption(),
       })}`,
     })}
     <hr />
@@ -123,18 +130,18 @@ export function kaartlagenRichContent(args: LegendArgs) {
         active: args.active,
         disabled: args.disabled,
         disabledMessage: args.disabledMessage || undefined,
-        options: wijzigKaartLaagOption,
+        options: wijzigKaartLaagOption(),
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Grootschalige topografie (BGT)</span>`,
         activatable: true,
         active: true,
-        options: wijzigKaartLaagOption,
+        options: wijzigKaartLaagOption(),
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Luchtfoto</span>`,
         activatable: true,
-        options: wijzigKaartLaagOption,
+        options: wijzigKaartLaagOption(),
       })}`,
     })}`;
 }

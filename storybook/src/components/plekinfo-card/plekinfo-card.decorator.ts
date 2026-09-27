@@ -1,10 +1,12 @@
-import { PlekinfoCardDecorator } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { Decorator } from "@storybook/web-components-vite";
+import { html } from "lit-html";
 
-export const decorator: PlekinfoCardDecorator<TemplateResult> = (story, css) => html`
+import { plekinfoCardDemoCss } from "./plekinfo-card.demo.js";
+
+export const decorator: Decorator = (story) => html`
   ${story()}
 
   <style>
-    ${css}
+    ${plekinfoCardDemoCss}
   </style>
 `;

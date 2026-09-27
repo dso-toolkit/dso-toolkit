@@ -1,4 +1,4 @@
-import { IconAlias } from "dso-toolkit";
+import { IconAlias } from "../../src/components/icon/icon.models.js";
 
 describe("Accordion", () => {
   beforeEach(() => {

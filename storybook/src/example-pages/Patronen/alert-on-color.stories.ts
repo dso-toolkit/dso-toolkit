@@ -1,57 +1,55 @@
-import type { Meta } from "@storybook/web-components-vite";
-import { Alert } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
+import { html } from "lit-html";
 
-import { examplePageStories } from "../../example-page-stories";
-import { Templates } from "../../templates";
+import { Alert } from "../../components/alert/alert.models.js";
+import { alertTemplate } from "../../components/alert/alert.template.js";
+import { highlightBoxTemplate } from "../../components/highlight-box/highlight-box.template.js";
+import { examplePageMeta } from "../../example-page-meta.js";
 
 const meta: Meta = {
+  ...examplePageMeta(),
   title: "Patronen/Alert on color",
+  tags: ["!autodocs"],
 };
 
 export default meta;
 
-export const AlertOnColor = examplePageStories((templates) => {
-  const { highlightBoxTemplate } = templates;
-
-  return html`
-    ${highlightBoxTemplate({
-      grey: true,
-      content: content(templates),
-    })}
-    ${highlightBoxTemplate({
-      yellow: true,
-      content: content(templates),
-    })}
-    ${highlightBoxTemplate({
-      white: true,
-      content: content(templates),
-    })}
-    ${highlightBoxTemplate({
-      grey: true,
-      content: html`
-        ${highlightBoxTemplate({
+export const AlertOnColor: StoryObj = {
+  name: "Alert on color",
+  render: () => {
+    return html`
+      ${highlightBoxTemplate({
+        grey: true,
+        content: content(),
+      })}
+      ${highlightBoxTemplate({
+        yellow: true,
+        content: content(),
+      })}
+      ${highlightBoxTemplate({
+        white: true,
+        content: content(),
+      })}
+      ${highlightBoxTemplate({
+        grey: true,
+        content: highlightBoxTemplate({
           white: true,
-          content: content(templates),
-        })}
-      `,
-    })}
-    ${highlightBoxTemplate({
-      white: true,
-      content: html`
-        ${highlightBoxTemplate({
+          content: content(),
+        }),
+      })}
+      ${highlightBoxTemplate({
+        white: true,
+        content: highlightBoxTemplate({
           yellow: true,
-          content: content(templates),
-        })}
-      `,
-    })}
-  `;
-});
+          content: content(),
+        }),
+      })}
+    `;
+  },
+};
 
-const content = function (templates: Templates) {
-  const { alertTemplate } = templates;
-
-  const alerts: Alert<TemplateResult>[] = [
+const content = function () {
+  const alerts: Alert[] = [
     { status: "error", message: "Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan." },
     { status: "success", message: "Alles werkt prima!" },
     { status: "info", message: "Even een info-melding." },
@@ -62,5 +60,5 @@ const content = function (templates: Templates) {
     { compact: true, status: "warning", message: "Pas op, dit moet je weten!" },
   ];
 
-  return html` ${alerts.map((alert) => html`${alertTemplate(alert)}`)} `;
+  return html` ${alerts.map((alert) => alertTemplate(alert))} `;
 };

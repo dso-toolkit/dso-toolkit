@@ -1,8 +1,8 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-export function infoRichContent({ richContentTemplate }: Templates) {
+export function infoRichContent() {
   return richContentTemplate({
     children: html`
       <p>Rijke inhoud</p>

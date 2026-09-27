@@ -118,6 +118,7 @@ export default [
       "object-shorthand": ["error"],
 
       // typescript
+      "@typescript-eslint/consistent-type-imports": ["error", { prefer: "no-type-imports" }],
       "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",
@@ -196,4 +197,10 @@ export default [
     },
   },
   ...storybook.configs["flat/recommended"],
+  {
+    files: ["storybook/**/*.stories.@(ts|tsx)"],
+    rules: {
+      "storybook/hierarchy-separator": "off",
+    },
+  },
 ];

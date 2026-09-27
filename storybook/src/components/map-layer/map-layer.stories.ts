@@ -1,0 +1,49 @@
+import componentsReadme from "@dso-toolkit/core/src/components/map-layer/components/readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/map-layer/readme.md?raw";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
+import { compiler } from "markdown-to-jsx/react";
+
+import { MapLayerArgs, mapLayerArgTypes, mapLayerArgs, mapLayerArgsMapper } from "./map-layer.args.js";
+import {
+  labelSlotContent,
+  multipleMapLayerObjects,
+  nameSlotContent,
+  singleMapLayerObject,
+} from "./map-layer.content.js";
+import { decorator } from "./map-layer.decorator.js";
+import { mapLayerTemplate } from "./map-layer.template.js";
+
+type MapLayerStory = StoryObj<MapLayerArgs>;
+
+const meta: Meta<MapLayerArgs> = {
+  title: "Core/Map Layer",
+  argTypes: mapLayerArgTypes,
+  args: mapLayerArgs,
+  decorators: [decorator],
+  parameters: {
+    docs: {
+      page: () => compiler(`${readme}\n${componentsReadme}`),
+    },
+  },
+};
+
+export default meta;
+
+export const Multiple: MapLayerStory = {
+  render: (args) => mapLayerTemplate(mapLayerArgsMapper(args, multipleMapLayerObjects(), nameSlotContent())),
+};
+
+export const Single: MapLayerStory = {
+  args: { ...mapLayerArgs, activatable: false },
+  render: (args) => mapLayerTemplate(mapLayerArgsMapper(args, singleMapLayerObject(), nameSlotContent())),
+};
+
+export const WithWijzigactie: MapLayerStory = {
+  args: { ...mapLayerArgs, wijzigactie: "voegtoe" },
+  render: (args) => mapLayerTemplate(mapLayerArgsMapper(args, singleMapLayerObject(), nameSlotContent(true))),
+};
+
+export const WithLabel: MapLayerStory = {
+  render: (args) =>
+    mapLayerTemplate(mapLayerArgsMapper(args, singleMapLayerObject(), nameSlotContent(), labelSlotContent())),
+};

@@ -1,1 +1,3 @@
-export const image = "images/banner-image.webp";
+export function image() {
+  return "images/banner-image.webp";
+}

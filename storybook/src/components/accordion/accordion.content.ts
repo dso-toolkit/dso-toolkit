@@ -1,60 +1,68 @@
-import { AccordionSection } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-import { getAnimatedFormContent } from "../../example-pages/Patronen/animated-form.content";
-import { Templates } from "../../templates";
+import { getAnimatedFormContent } from "../../example-pages/Patronen/animated-form.content.js";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-const section1: AccordionSection<TemplateResult> = {
-  handleTitle: "Is het verplicht om de Vergunningcheck te doen?",
-  heading: "h2",
-  content: html`<p>
-      Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig
-      heeft of melding moet doen.
-    </p>
-    <p>
-      Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt
-      dan meegenomen in de aanvraag of melding.
-    </p>`,
-};
+import { AccordionSection } from "./accordion.models.js";
+import { accordionTemplate } from "./accordion.template.js";
 
-const section2: AccordionSection<TemplateResult> = {
-  handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
-  heading: "h2",
-  content: html`<div class="dso-rich-content">
-    <h5>Toelichting</h5>
-    <p>
-      Er is aanvullende informatie nodig om te kunnen bepalen wat u moet doen volgens de regels van de gemeente, het
-      waterschap, de provincie en het Rijk. Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen,
-      melding doen of informatie geven.
-    </p>
-    <h5>Voorbereiding</h5>
-    <p>
-      Neem contact op met de gemeente en het waterschap. Zij helpen u verder. Houd de informatie bij de hand die te
-      maken heeft met 'Bouwwerk of deel van een bouwwerk slopen, of asbest verwijderen'.
-    </p>
-    <h5>Sanerings- en verplaatsingslocatie agrarisch bedrijf</h5>
-    <p>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://identifier.overheid.nl/join/id/regdata/pv30/2023/locatiegroep_6b52b6b882854b0d989513c22c96b19f/nld@2023-12-07;1"
-        class="ext-io-ref"
-        title="Opent andere website in nieuw tabblad"
-        ><span>/join/id/regdata/pv30/2023/locatiegroep_6b52b6b882854b0d989513c22c96b19f/nld@2023-12-07;1</span
-        ><dso-icon class="hydrated"></dso-icon
-      ></a>
-    </p>
-  </div>`,
-};
+function section1(): AccordionSection {
+  return {
+    handleTitle: "Is het verplicht om de Vergunningcheck te doen?",
+    heading: "h2",
+    content: html`<p>
+        Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig
+        heeft of melding moet doen.
+      </p>
+      <p>
+        Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt
+        dan meegenomen in de aanvraag of melding.
+      </p>`,
+  };
+}
 
-const section3: AccordionSection<TemplateResult> = {
-  handleTitle: "Hoe lang duurt de Vergunningcheck?",
-  heading: "h2",
-  content: html`De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u
-  alle benodigde informatie bij de hand heeft.`,
-};
+function section2(): AccordionSection {
+  return {
+    handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+    heading: "h2",
+    content: html`<div class="dso-rich-content">
+      <h5>Toelichting</h5>
+      <p>
+        Er is aanvullende informatie nodig om te kunnen bepalen wat u moet doen volgens de regels van de gemeente, het
+        waterschap, de provincie en het Rijk. Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen,
+        melding doen of informatie geven.
+      </p>
+      <h5>Voorbereiding</h5>
+      <p>
+        Neem contact op met de gemeente en het waterschap. Zij helpen u verder. Houd de informatie bij de hand die te
+        maken heeft met 'Bouwwerk of deel van een bouwwerk slopen, of asbest verwijderen'.
+      </p>
+      <h5>Sanerings- en verplaatsingslocatie agrarisch bedrijf</h5>
+      <p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://identifier.overheid.nl/join/id/regdata/pv30/2023/locatiegroep_6b52b6b882854b0d989513c22c96b19f/nld@2023-12-07;1"
+          class="ext-io-ref"
+          title="Opent andere website in nieuw tabblad"
+          ><span>/join/id/regdata/pv30/2023/locatiegroep_6b52b6b882854b0d989513c22c96b19f/nld@2023-12-07;1</span
+          ><dso-icon class="hydrated"></dso-icon
+        ></a>
+      </p>
+    </div>`,
+  };
+}
 
-function section4({ richContentTemplate }: Templates): AccordionSection<TemplateResult> {
+function section3(): AccordionSection {
+  return {
+    handleTitle: "Hoe lang duurt de Vergunningcheck?",
+    heading: "h2",
+    content: html`De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u
+    alle benodigde informatie bij de hand heeft.`,
+  };
+}
+
+function section4(): AccordionSection {
   return {
     handleTitle: "Wat kan ik met de uitkomst van de Vergunningcheck?",
     heading: "h2",
@@ -83,60 +91,60 @@ function section4({ richContentTemplate }: Templates): AccordionSection<Template
   };
 }
 
-const sectionWithHeadings: AccordionSection<TemplateResult> = {
-  handleTitle: "Inhoudsopgave",
-  heading: "h2",
-  open: true,
-  content: html`<h2>Aanvullende regels</h2>
-    <h3>Uit andere besluiten</h3>
-    <h4>Uit hoofdregeling omgevingsplan</h4>`,
-};
+function sectionWithHeadings(): AccordionSection {
+  return {
+    handleTitle: "Inhoudsopgave",
+    heading: "h2",
+    open: true,
+    content: html`<h2>Aanvullende regels</h2>
+      <h3>Uit andere besluiten</h3>
+      <h4>Uit hoofdregeling omgevingsplan</h4>`,
+  };
+}
 
-export function basicSections(templates: Templates): AccordionSection<TemplateResult>[] {
+export function basicSections(): AccordionSection[] {
   return [
-    section1,
-    section2,
+    section1(),
+    section2(),
     {
-      ...section3,
+      ...section3(),
       open: true,
     },
-    section4(templates),
+    section4(),
   ];
 }
 
-export function compactSections(templates: Templates): AccordionSection<TemplateResult>[] {
-  return [...basicSections(templates), sectionWithHeadings];
+export function compactSections(): AccordionSection[] {
+  return [...basicSections(), sectionWithHeadings()];
 }
 
-export function anchorSections(templates: Templates): AccordionSection<TemplateResult>[] {
+export function anchorSections(): AccordionSection[] {
   return [
     {
-      ...section1,
+      ...section1(),
       handleUrl: "#",
     },
     {
-      ...section2,
+      ...section2(),
       handleUrl: "#",
     },
     {
-      ...section3,
+      ...section3(),
       handleUrl: "#",
       open: true,
     },
     {
-      ...section4(templates),
+      ...section4(),
       handleUrl: "#",
     },
   ];
 }
 
-export function nestedSections(templates: Templates): AccordionSection<TemplateResult>[] {
-  const { accordionTemplate, richContentTemplate } = templates;
-
+export function nestedSections(): AccordionSection[] {
   return [
-    section1,
+    section1(),
     {
-      ...section2,
+      ...section2(),
       content: html`${richContentTemplate({ children: html`<p><strong>hallo</strong> dit is content</p>` })}
       ${accordionTemplate({
         sections: [
@@ -162,141 +170,149 @@ export function nestedSections(templates: Templates): AccordionSection<TemplateR
       })}
       ${richContentTemplate({ children: html` <p><strong>hallo</strong> dit is content na de nested section</p> ` })}`,
     },
-    section3,
-    section4(templates),
+    section3(),
+    section4(),
   ];
 }
 
-export const addonsSections: AccordionSection<TemplateResult>[] = [
-  {
-    ...section1,
-    icon: "user-outline",
-  },
-  {
-    ...section1,
-    status: "danger",
-    icon: "user-outline",
-    open: true,
-  },
-  {
-    ...section1,
-    status: "danger",
-    statusDescription: "5 van 8 beantwoord",
-  },
-  {
-    ...section1,
-    status: "danger",
-    statusDescription: "5 van 8 beantwoord",
-  },
-  {
-    ...section1,
-    attachmentCount: 2,
-  },
-  {
-    ...section1,
-    attachmentCount: 2,
-  },
-];
-
-export const alignmentSections: AccordionSection<TemplateResult>[] = [
-  {
-    ...section1,
-    icon: "user-outline",
-    open: true,
-  },
-  {
-    ...section2,
-    icon: "user-outline",
-  },
-  {
-    ...section3,
-    icon: "user-outline",
-  },
-];
-
-export const renvooiSections: AccordionSection<TemplateResult>[] = [
-  {
-    ...section1,
-  },
-  {
-    ...section1,
-    wijzigactie: "verwijder",
-  },
-  {
-    ...section1,
-    wijzigactie: "voegtoe",
-    open: true,
-  },
-  {
-    ...section1,
-    handleTitle: {
-      was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
-      wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+export function addonsSections(): AccordionSection[] {
+  return [
+    {
+      ...section1(),
+      icon: "user-outline",
     },
-  },
-  {
-    ...section1,
-    handleTitle: [
-      {
+    {
+      ...section1(),
+      status: "danger",
+      icon: "user-outline",
+      open: true,
+    },
+    {
+      ...section1(),
+      status: "danger",
+      statusDescription: "5 van 8 beantwoord",
+    },
+    {
+      ...section1(),
+      status: "danger",
+      statusDescription: "5 van 8 beantwoord",
+    },
+    {
+      ...section1(),
+      attachmentCount: 2,
+    },
+    {
+      ...section1(),
+      attachmentCount: 2,
+    },
+  ];
+}
+
+export function alignmentSections(): AccordionSection[] {
+  return [
+    {
+      ...section1(),
+      icon: "user-outline",
+      open: true,
+    },
+    {
+      ...section2(),
+      icon: "user-outline",
+    },
+    {
+      ...section3(),
+      icon: "user-outline",
+    },
+  ];
+}
+
+export function renvooiSections(): AccordionSection[] {
+  return [
+    {
+      ...section1(),
+    },
+    {
+      ...section1(),
+      wijzigactie: "verwijder",
+    },
+    {
+      ...section1(),
+      wijzigactie: "voegtoe",
+      open: true,
+    },
+    {
+      ...section1(),
+      handleTitle: {
         was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
         wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
       },
-      " - ",
-      { toegevoegd: "Zit er een limiet aan Vergunningchecks?" },
-    ],
-  },
-];
-
-export const activatableSections: AccordionSection<TemplateResult>[] = [
-  {
-    ...section1,
-    activatable: true,
-  },
-  {
-    ...section1,
-    wijzigactie: "verwijder",
-    activatable: true,
-    active: true,
-  },
-  {
-    ...section1,
-    wijzigactie: "voegtoe",
-    open: true,
-    activatable: true,
-  },
-  {
-    ...section1,
-    handleTitle: {
-      was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
-      wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
     },
-    activatable: true,
-  },
-  {
-    ...section1,
-    handleTitle: [
-      {
+    {
+      ...section1(),
+      handleTitle: [
+        {
+          was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+          wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+        },
+        " - ",
+        { toegevoegd: "Zit er een limiet aan Vergunningchecks?" },
+      ],
+    },
+  ];
+}
+
+export function activatableSections(): AccordionSection[] {
+  return [
+    {
+      ...section1(),
+      activatable: true,
+    },
+    {
+      ...section1(),
+      wijzigactie: "verwijder",
+      activatable: true,
+      active: true,
+    },
+    {
+      ...section1(),
+      wijzigactie: "voegtoe",
+      open: true,
+      activatable: true,
+    },
+    {
+      ...section1(),
+      handleTitle: {
         was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
         wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
       },
-      " - ",
-      { toegevoegd: "Zit er een limiet aan Vergunningchecks?" },
-    ],
-    activatable: true,
-  },
-];
+      activatable: true,
+    },
+    {
+      ...section1(),
+      handleTitle: [
+        {
+          was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+          wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+        },
+        " - ",
+        { toegevoegd: "Zit er een limiet aan Vergunningchecks?" },
+      ],
+      activatable: true,
+    },
+  ];
+}
 
-export function animatedFormGroupSections(templates: Templates): AccordionSection<TemplateResult>[] {
-  const content = getAnimatedFormContent(templates);
+export function animatedFormGroupSections(): AccordionSection[] {
+  const content = getAnimatedFormContent();
 
   return [
-    section1,
+    section1(),
     {
       handleTitle: "Wie zijn er bij dit project betrokken?",
       heading: "h2",
       content,
     },
-    section3,
-    section4(templates),
+    section3(),
+    section4(),
   ];
 }

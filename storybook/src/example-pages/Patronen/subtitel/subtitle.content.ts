@@ -1,27 +1,30 @@
-import { DefinitionList } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-export const definitionList: DefinitionList<TemplateResult> = {
-  modifier: "dso-bordered",
-  definitions: [
-    {
-      term: html`Thema`,
-      descriptions: [
-        {
-          content: "Wonen",
-        },
-        {
-          content: "Werken",
-        },
-      ],
-    },
-    {
-      term: html`Regelkwalificatie`,
-      descriptions: [
-        {
-          content: "Instructieregels",
-        },
-      ],
-    },
-  ],
-};
+import { DefinitionList } from "../../../components/definition-list/definition-list.models.js";
+
+export function definitionList(): DefinitionList {
+  return {
+    modifier: "dso-bordered",
+    definitions: [
+      {
+        term: html`Thema`,
+        descriptions: [
+          {
+            content: "Wonen",
+          },
+          {
+            content: "Werken",
+          },
+        ],
+      },
+      {
+        term: html`Regelkwalificatie`,
+        descriptions: [
+          {
+            content: "Instructieregels",
+          },
+        ],
+      },
+    ],
+  };
+}

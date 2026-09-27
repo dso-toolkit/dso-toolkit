@@ -1,0 +1,29 @@
+import readme from "@dso-toolkit/core/src/components/{{ kebabCase name }}/readme.md?raw";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
+import { compiler } from "markdown-to-jsx/react";
+
+import {
+  {{ pascalCase name }}Args,
+  {{ camelCase name }}ArgTypes,
+  {{ camelCase name }}Args,
+  {{ camelCase name }}ArgsMapper,
+} from "./{{ kebabCase name }}.args.js";
+import { {{ camelCase name }}Template } from "./{{ kebabCase name }}.template.js";
+
+type {{ pascalCase name }}Story = StoryObj<{{ pascalCase name }}Args>;
+
+const meta: Meta<{{ pascalCase name }}Args> = {
+  title: "Core/{{ titleCase name }}",
+  argTypes: {{ camelCase name }}ArgTypes,
+  args: {{ camelCase name }}Args,
+  parameters: {
+    docs: {
+      page: () => compiler(readme),
+    },
+  },
+  render: (args) => {{ camelCase name }}Template({{ camelCase name }}ArgsMapper(args)),
+};
+
+export default meta;
+
+export const Default: {{ pascalCase name }}Story = {};

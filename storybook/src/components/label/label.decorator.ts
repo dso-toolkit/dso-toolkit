@@ -1,7 +1,9 @@
-import { LabelDecorator } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { Decorator } from "@storybook/web-components-vite";
+import { html } from "lit-html";
 
-export const decorator: LabelDecorator<TemplateResult> = (story, css) => html`
+import { css } from "./label.demo.js";
+
+export const decorator: Decorator = (story) => html`
   ${story()}
 
   <style>

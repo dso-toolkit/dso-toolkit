@@ -1,9 +1,10 @@
-import { DocumentComponent, DocumentComponentMarkFunction } from "dso-toolkit";
-import { TemplateResult } from "lit-html";
-
+import {
+  DocumentComponent,
+  DocumentComponentMarkFunction,
+} from "../../src/components/document-component/document-component.models.js";
 import { isOdd } from "../support/is-odd";
 
-function setProps(props: Partial<DocumentComponent<TemplateResult>>) {
+function setProps(props: Partial<DocumentComponent>) {
   return cy.get("@document-component").then(($el) => {
     const element = $el[0];
     if (!element) {

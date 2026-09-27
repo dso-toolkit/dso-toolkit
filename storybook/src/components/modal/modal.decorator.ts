@@ -1,7 +1,6 @@
-import { ModalDecorator } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { Decorator } from "@storybook/web-components-vite";
 
-export const decorator: ModalDecorator<TemplateResult> = (story) => {
+export const decorator: Decorator = (story) => {
   setTimeout(() => {
     const storybookRoot = document.getElementById("storybook-root");
 
@@ -10,5 +9,5 @@ export const decorator: ModalDecorator<TemplateResult> = (story) => {
     dialog?.showModal();
   }, 0);
 
-  return html`${story()}`;
+  return story();
 };

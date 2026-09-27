@@ -6,7 +6,7 @@
  */
 
 import VersionSelector from "@site/src/components/VersionSelector";
-import type { ComponentTypesObject } from "@theme/NavbarItem/ComponentTypes";
+import { ComponentTypesObject } from "@theme/NavbarItem/ComponentTypes";
 import DefaultNavbarItem from "@theme/NavbarItem/DefaultNavbarItem";
 import DocNavbarItem from "@theme/NavbarItem/DocNavbarItem";
 import DocSidebarNavbarItem from "@theme/NavbarItem/DocSidebarNavbarItem";

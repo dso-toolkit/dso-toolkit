@@ -1,0 +1,7 @@
+import { html } from "lit-html";
+
+import { {{ pascalCase name }} } from "./{{ kebabCase name }}.models.js";
+
+export function {{ camelCase name }}Template({}: {{ pascalCase name }}) {
+  return html`<dso-{{ kebabCase name }}></dso-{{ kebabCase name }}>`;
+}

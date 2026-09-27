@@ -1,6 +1,5 @@
 import gulp from "gulp";
 
-import { buildScripting } from "./build-scripting.js";
 import { buildStyling } from "./build-styling.js";
 import { buildDiSvgSpritesheet } from "./build-svg-spritesheets.js";
 
@@ -19,13 +18,5 @@ export function watcher() {
       cwd: "src",
     },
     buildDiSvgSpritesheet,
-  );
-
-  gulp.watch(
-    "**/*.ts",
-    {
-      cwd: "src",
-    },
-    buildScripting,
   );
 }

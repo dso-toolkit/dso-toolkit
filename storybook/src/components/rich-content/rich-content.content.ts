@@ -1,8 +1,12 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { buttonRowTemplate } from "../button-row/button-row.template.js";
+import { imageTemplate } from "../image/image.template.js";
+import { linkTemplate } from "../link/link.template.js";
 
-export function children({ linkTemplate, imageTemplate, richContentTemplate, buttonRowTemplate }: Templates) {
+import { richContentTemplate } from "./rich-content.template.js";
+
+export function children() {
   return richContentTemplate({
     children: html`
       <h1>Kop 1</h1>
@@ -84,7 +88,7 @@ export function children({ linkTemplate, imageTemplate, richContentTemplate, but
               buttons: [
                 { label: "Primaire button", variant: "primary", url: "#" },
                 { label: "Secundaire button", variant: "secondary", url: "#" },
-                { label: "Tertiare button", variant: "tertiary", icon: { icon: "chevron-down" }, iconMode: "after" },
+                { label: "Tertiaire button", variant: "tertiary", icon: { icon: "chevron-down" }, iconMode: "after" },
               ],
             })}
           `,

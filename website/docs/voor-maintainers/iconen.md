@@ -27,9 +27,8 @@ De DSO Toolkit biedt een iconenset aan. Deze set is op een aantal manieren te ge
     van alle svg-bestanden worden vervangen en dat de const `icons` opnieuw gevuld wordt met de nieuwe alias-objecten.
   - genereert het type IconAlias in 2 bestanden:
     - packages/core/src/components/icon/icon.interfaces.ts
-    - packages/dso-toolkit/src/components/icon/icon.models.ts
-  - genereert een json-file `packages/dso-toolkit/storybook-assets/icons.json`: dit bestand wordt gebruikt tbv van icon-selectie
-    in Storybook
+    - storybook/src/components/icon/icon.models.ts
+  - genereert een json-file `storybook/assets/icons.json`: dit bestand wordt gebruikt tbv van icon-selectie in Storybook
 - Daarna is het nog wel zaak om de ontstane diff te beoordelen en eventueel handmatig bij te werken.
 
 ## Spritesheet

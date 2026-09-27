@@ -114,8 +114,8 @@ async function generateTypeIconAlias(icons: string[]) {
   await writeFile(filepath, await format(contents, filepath));
   // End: Core icon.interfaces.ts
 
-  // Start: DSO-Toolkit icon.models.ts
-  filepath = "packages/dso-toolkit/src/components/icon/icon.models.ts";
+  // Start: Storybook icon.models.ts
+  filepath = "storybook/src/components/icon/icon.models.ts";
 
   const iconModels = await readFile(filepath, "utf-8");
 
@@ -125,7 +125,7 @@ async function generateTypeIconAlias(icons: string[]) {
   iconModelsLines.splice(start, deleteCount, contents);
 
   await writeFile(filepath, await format(iconModelsLines.join("\r\n"), filepath));
-  // End: DSO-Toolkit icon.models.ts
+  // End: Storybook icon.models.ts
 }
 
 async function updateIconTsx(icons: string[]) {
@@ -164,7 +164,7 @@ async function updateIconTsx(icons: string[]) {
 async function generateIconsJson(icons: string[]) {
   const aliases = getAliases(icons);
 
-  const filepath = "packages/dso-toolkit/storybook-assets/icons.json";
+  const filepath = "storybook/assets/icons.json";
 
   await writeFile(filepath, await format(JSON.stringify(aliases), filepath));
 }

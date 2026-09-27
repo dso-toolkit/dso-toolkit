@@ -1,8 +1,9 @@
 import { html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { linkTemplate } from "../link/link.template.js";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-export function children({ linkTemplate, richContentTemplate }: Templates) {
+export function children() {
   return richContentTemplate({
     children: html`
       <h2>Introductie DSO</h2>

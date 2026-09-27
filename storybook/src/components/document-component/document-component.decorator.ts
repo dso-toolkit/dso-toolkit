@@ -1,7 +1,7 @@
-import { DocumentComponentDecorator } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { Decorator } from "@storybook/web-components-vite";
+import { html } from "lit-html";
 
-export const decorator: DocumentComponentDecorator<TemplateResult> = (story) => html`
+export const decorator: Decorator = (story) => html`
   ${story()}
 
   <style>

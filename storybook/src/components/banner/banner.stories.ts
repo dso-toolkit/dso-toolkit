@@ -1,0 +1,93 @@
+import readme from "@dso-toolkit/core/src/components/banner/readme.md?raw";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
+import { compiler } from "markdown-to-jsx/react";
+
+import { BannerArgs, bannerArgTypes, bannerArgsMapper } from "./banner.args.js";
+import {
+  errorRichContent,
+  infoCompactNonRemovableRichContent,
+  infoRichContent,
+  richInfoRichContent,
+  richWarningRichContent,
+  successRichContent,
+  warningNonRemovableRichContent,
+  warningRichContent,
+} from "./banner.content.js";
+import { bannerTemplate } from "./banner.template.js";
+
+type BannerStory = StoryObj<BannerArgs>;
+
+const meta: Meta<BannerArgs> = {
+  title: "Core/Banner",
+  argTypes: bannerArgTypes,
+  args: {
+    icon: true,
+  },
+  parameters: {
+    docs: {
+      page: () => compiler(readme),
+    },
+  },
+};
+
+export default meta;
+
+export const Success: BannerStory = {
+  args: {
+    status: "success",
+  },
+  render: (args) => bannerTemplate(bannerArgsMapper(args, successRichContent())),
+};
+
+export const Error: BannerStory = {
+  args: {
+    status: "error",
+  },
+  render: (args) => bannerTemplate(bannerArgsMapper(args, errorRichContent())),
+};
+
+export const Info: BannerStory = {
+  args: {
+    status: "info",
+  },
+  render: (args) => bannerTemplate(bannerArgsMapper(args, infoRichContent())),
+};
+
+export const InfoCompactNonRemovable: BannerStory = {
+  args: {
+    status: "info",
+    compact: true,
+    icon: false,
+  },
+  render: (args) => bannerTemplate(bannerArgsMapper(args, infoCompactNonRemovableRichContent())),
+};
+
+export const Warning: BannerStory = {
+  args: {
+    status: "warning",
+  },
+  render: (args) => bannerTemplate(bannerArgsMapper(args, warningRichContent())),
+};
+
+export const InfoNonRemovable: BannerStory = {
+  args: {
+    status: "info",
+  },
+  render: (args) => bannerTemplate(bannerArgsMapper(args, warningNonRemovableRichContent())),
+};
+
+export const RichWarning: BannerStory = {
+  args: {
+    status: "warning",
+  },
+  render: (args) => bannerTemplate(bannerArgsMapper(args, richWarningRichContent())),
+};
+
+export const RichInfo: BannerStory = {
+  args: {
+    status: "info",
+    compact: true,
+    icon: false,
+  },
+  render: (args) => bannerTemplate(bannerArgsMapper(args, richInfoRichContent())),
+};

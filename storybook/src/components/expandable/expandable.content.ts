@@ -1,8 +1,8 @@
 import { TemplateResult, html } from "lit-html";
 
-import { Templates } from "../../templates";
+import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-export function expandableContent({ richContentTemplate }: Templates): TemplateResult {
+export function expandableContent(): TemplateResult {
   return richContentTemplate({
     children: html`<h3>Expandable</h3>
       <span>Dit is een expandable</span>`,
