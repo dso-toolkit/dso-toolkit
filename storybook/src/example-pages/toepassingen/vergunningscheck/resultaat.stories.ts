@@ -136,16 +136,16 @@ export const Resultaat: StoryObj = {
                               afvalwater zuivert'.
                             </p>
                             ${formButtonsTemplate({
-                                buttons: [
-                                  {
-                                    label: "Aanvraag voorbereiden",
-                                    icon: { icon: "chevron-right" },
-                                    iconMode: "after",
-                                    type: "button",
-                                    variant: "secondary",
-                                  },
-                                ],
-                              })}
+                              buttons: [
+                                {
+                                  label: "Aanvraag voorbereiden",
+                                  icon: { icon: "chevron-right" },
+                                  iconMode: "after",
+                                  type: "button",
+                                  variant: "secondary",
+                                },
+                              ],
+                            })}
                           `,
                         }),
                       },
