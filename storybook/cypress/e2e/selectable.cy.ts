@@ -56,7 +56,9 @@ describe("Selectable", () => {
 
     cy.get("dso-selectable.hydrated").find("input").should("have.attr", "aria-describedby", "123 abc");
 
-    cy.get("dso-selectable.hydrated").then(($selectable) => ($selectable[0].errormessage = undefined));
+    cy.get<HTMLDsoSelectableElement>("dso-selectable.hydrated").then(
+      ($selectable) => ($selectable[0]!.errormessage = undefined),
+    );
 
     cy.get("dso-selectable.hydrated").find("input").should("have.attr", "aria-describedby", "123");
   });

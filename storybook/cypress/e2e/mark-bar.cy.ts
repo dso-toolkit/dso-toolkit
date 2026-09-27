@@ -139,7 +139,7 @@ describe("Mark Bar", () => {
       .type("test")
       .get("@markBarElement")
       .invoke("dsoFocus", { select: true })
-      .get<HTMLInputElement>("@markBarInput")
+      .get<JQuery<HTMLInputElement>>("@markBarInput")
       .then(([input]) => (input ? [input.selectionStart, input.selectionEnd] : [null, null]))
       .should("deep.equal", [0, 4]);
   });
