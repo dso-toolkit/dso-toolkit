@@ -169,12 +169,6 @@ div[popover] {
       margin-inline-start: units.$u1;
       padding-block-start: units.$u1 * 0.25;
     }
-
-    &[aria-expanded="true"] {
-      dso-icon {
-        transform: rotate(180deg);
-      }
-    }
   }
 
   .dropdown-menu-options {
