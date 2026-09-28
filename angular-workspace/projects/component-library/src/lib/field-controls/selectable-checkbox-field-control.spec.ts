@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormField, disabled, form, required } from "@angular/forms/signals";
 import { SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
 
-import { DsoSelectable } from "../../../src/lib/stencil-generated/components";
-import { DsoSelectableCheckboxFieldControl } from "../public-api";
+import { DsoSelectableCheckboxFieldControl } from "../../public-api";
+import { DsoSelectable } from "../stencil-generated/components";
 
 @Component({
   selector: "dso-test-checkbox",

@@ -5,5 +5,5 @@
     "types": ["vitest/globals"]
   },
   "exclude": [],
-  "include": ["signal-forms/src/**/*.spec.ts"]
+  "include": ["src/**/*.spec.ts"]
 }

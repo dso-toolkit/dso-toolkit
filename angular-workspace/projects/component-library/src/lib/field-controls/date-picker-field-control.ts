@@ -20,6 +20,7 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
   readonly touched = model(false);
   readonly minDate = input<string>();
   readonly maxDate = input<string>();
+  readonly inputError = model<DatePickerChangeEvent["error"]>();
 
   constructor(elementRef: ElementRef<HTMLDsoDatePickerElement>) {
     syncFieldControlProperties(elementRef.nativeElement, "value", {
@@ -38,11 +39,14 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
 
   @HostListener("dsoDateChange", ["$event"])
   onDsoDateChange(event: DsoDatePickerCustomEvent<DatePickerChangeEvent>) {
+    this.inputError.set(event.detail.error);
     this.value.set(event.detail.value);
   }
 
-  @HostListener("dsoBlur")
-  onDsoBlur() {
+  @HostListener("dsoBlur", ["$event"])
+  onDsoBlur(event: DsoDatePickerCustomEvent<DatePickerChangeEvent>) {
+    this.inputError.set(event.detail.error);
+    this.value.set(event.detail.value);
     this.touched.set(true);
   }
 }
