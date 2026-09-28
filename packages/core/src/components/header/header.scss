@@ -8,7 +8,7 @@
 
 @use "~dso-toolkit/src/components/link";
 
-@use "header.variables" as core-header-variables;
+@use "header.variables" as header-variables;
 
 @include utilities.box-sizing();
 
@@ -39,6 +39,10 @@
   .dropdown-menu {
     .dropdown-menu-options {
       inline-size: 100%;
+
+      @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1px}) {
+        inline-size: 265px;
+      }
     }
   }
 }
@@ -58,10 +62,40 @@ div[popover] {
   background-color: transparent;
   overflow: unset;
   inline-size: max-content;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    // Floating UI positions the popover inline; on mobile it should span the full viewport width.
+    inset-inline: 0 !important;
+    inline-size: 100%;
+
+    .dropdown-menu-options {
+      inline-size: 100%;
+      max-inline-size: none !important;
+    }
+
+    // Extends the border-block-end of .dso-header (directly above the popover) to the full viewport width.
+    &::before {
+      content: "";
+      position: absolute;
+      inset-block-start: -1px;
+      inset-inline: 0;
+      border-block-end: 1px solid header-variables.$dropdown-menu-border-color;
+    }
+
+    // Backdrop below the menu, covering the remaining viewport.
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline: 0;
+      block-size: 100vh;
+      background-color: rgba(header-variables.$dropdown-menu-background-color, 0.8);
+    }
+  }
 }
 
 .dso-header {
-  border-block-end: 1px solid colors.$grijs-20;
+  border-block-end: 1px solid colors.$grijs-10;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -112,7 +146,7 @@ div[popover] {
   .login + .help,
   &:has(*) + .dropdown {
     @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1px}) {
-      border-inline-start: 3px solid colors.$grijs-20;
+      border-inline-start: 3px solid header-variables.$dropdown-menu-border-color;
       block-size: 20px;
       margin-inline-start: units.$u1;
       padding-inline-start: units.$u1;
@@ -169,18 +203,12 @@ div[popover] {
       margin-inline-start: units.$u1;
       padding-block-start: units.$u1 * 0.25;
     }
-
-    &[aria-expanded="true"] {
-      dso-icon {
-        transform: rotate(180deg);
-      }
-    }
   }
 
   .dropdown-menu-options {
     box-sizing: border-box;
     background-clip: padding-box;
-    background-color: core-header-variables.$dropdown-menu-background-color;
+    background-color: header-variables.$dropdown-menu-background-color;
     border: 0;
     border-radius: 0;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
@@ -197,7 +225,7 @@ div[popover] {
       list-style: none;
 
       &:not(:last-child) {
-        border-block-end: 1px solid colors.$grijs-10;
+        border-block-end: 1px solid header-variables.$dropdown-menu-border-color;
         margin-block-end: 11px;
         padding-block-end: 11px;
       }
@@ -219,41 +247,16 @@ div[popover] {
           text-decoration: none;
           white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
 
-          &:hover,
           &:focus {
-            background-color: colors.$grasgroen;
-            border-color: colors.$grasgroen;
-            color: colors.$wit;
-            text-decoration: none;
-          }
-
-          &:focus-visible {
-            background-color: colors.$grasgroen;
-            color: colors.$wit;
-          }
-
-          &:hover {
-            &,
-            &:visited {
-              color: colors.$bosgroen;
-            }
-
-            background-color: colors.$wit;
             text-decoration: underline;
-          }
-
-          &:visited {
-            color: colors.$wit;
-
-            &:not(:hover):not(:focus):not(:focus-visible) {
-              color: colors.$bosgroen;
-            }
           }
         }
 
         &.dso-active {
-          a {
-            font-weight: 600;
+          a,
+          button {
+            background-color: colors.$bosgroen;
+            color: colors.$wit;
           }
         }
 
@@ -331,7 +334,7 @@ div[popover] {
       margin-block-end: 0;
 
       > a {
-        @include nav-item-border(core-header-variables.$navigation-selected-color);
+        @include nav-item-border(header-variables.$navigation-selected-color);
 
         font-weight: bold;
       }
