@@ -1,17 +1,22 @@
 import { Component, signal } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { FormField, disabled, form, required } from "@angular/forms/signals";
+import { FormField, disabled, form, required, validate } from "@angular/forms/signals";
 import { DatePickerChangeEvent } from "@dso-toolkit/core/dist/components";
 
-import { DsoDatePicker } from "../../../src/lib/stencil-generated/components";
-import { DsoDatePickerFieldControl } from "../public-api";
+import { DsoDatePickerFieldControl } from "../../public-api";
+import { DsoDatePicker } from "../stencil-generated/components";
 
 @Component({
   selector: "dso-test-date-picker",
   standalone: true,
   imports: [DsoDatePicker, DsoDatePickerFieldControl, FormField],
   template: `
-    <dso-date-picker [formField]="myForm.datum" [minDate]="minimumDate()" [maxDate]="maximumDate()"></dso-date-picker>
+    <dso-date-picker
+      [formField]="myForm.datum"
+      [minDate]="minimumDate()"
+      [maxDate]="maximumDate()"
+      [(inputError)]="dateInputError"
+    ></dso-date-picker>
   `,
 })
 class TestDatePickerComponent {
@@ -19,20 +24,29 @@ class TestDatePickerComponent {
   isDisabled = signal(false);
   minimumDate = signal("01-01-2024");
   maximumDate = signal("31-12-2024");
+  dateInputError = signal<DatePickerChangeEvent["error"]>(undefined);
   myForm = form(this.model, (path) => {
-    required(path.datum);
+    required(path.datum, { when: () => this.dateInputError() !== "invalid" });
     disabled(path.datum, () => this.isDisabled());
+    validate(path.datum, ({ value }) =>
+      !value() && this.dateInputError() === "invalid" ? { kind: "invalid" } : undefined,
+    );
   });
 }
 
-function createDateChangeEvent(value: string): CustomEvent<DatePickerChangeEvent> {
-  return new CustomEvent("dsoDateChange", {
+function createDateEvent(
+  type: "dsoDateChange" | "dsoBlur",
+  value: string,
+  error?: DatePickerChangeEvent["error"],
+): CustomEvent<DatePickerChangeEvent> {
+  return new CustomEvent(type, {
     detail: {
       component: "dso-date-picker",
       originalEvent: new Event("change"),
       value,
       valueAsDate: undefined,
       validity: document.createElement("input").validity,
+      error,
     },
   });
 }
@@ -65,7 +79,7 @@ describe("DsoDatePickerFieldControl", () => {
   });
 
   it("should sync control to model", () => {
-    element.dispatchEvent(createDateChangeEvent("20-05-2024"));
+    element.dispatchEvent(createDateEvent("dsoDateChange", "20-05-2024"));
     fixture.detectChanges();
 
     expect(component.model().datum).toBe("20-05-2024");
@@ -74,7 +88,7 @@ describe("DsoDatePickerFieldControl", () => {
   it("should update touched state on blur", () => {
     expect(component.myForm.datum().touched()).toBe(false);
 
-    element.dispatchEvent(new CustomEvent("dsoBlur"));
+    element.dispatchEvent(createDateEvent("dsoBlur", "01-01-2024"));
     fixture.detectChanges();
 
     expect(component.myForm.datum().touched()).toBe(true);
@@ -108,6 +122,73 @@ describe("DsoDatePickerFieldControl", () => {
 
     expect(element.min).toBe("15-01-2024");
     expect(element.max).toBe("15-12-2024");
+  });
+
+  it("should retain out-of-range dates and expose their input errors", () => {
+    element.dispatchEvent(createDateEvent("dsoDateChange", "31-12-2023", "min-range"));
+    fixture.detectChanges();
+
+    expect(component.model().datum).toBe("31-12-2023");
+    expect(component.dateInputError()).toBe("min-range");
+
+    element.dispatchEvent(createDateEvent("dsoDateChange", "01-01-2025", "max-range"));
+    fixture.detectChanges();
+
+    expect(component.model().datum).toBe("01-01-2025");
+    expect(component.dateInputError()).toBe("max-range");
+  });
+
+  it("should distinguish invalid input from an empty field", () => {
+    element.dispatchEvent(createDateEvent("dsoDateChange", "", "invalid"));
+    fixture.detectChanges();
+
+    expect(component.dateInputError()).toBe("invalid");
+    expect(
+      component.myForm
+        .datum()
+        .errors()
+        .map((error) => error.kind),
+    ).toContain("invalid");
+    expect(
+      component.myForm
+        .datum()
+        .errors()
+        .map((error) => error.kind),
+    ).not.toContain("required");
+
+    element.dispatchEvent(createDateEvent("dsoDateChange", ""));
+    fixture.detectChanges();
+
+    expect(component.dateInputError()).toBeUndefined();
+    expect(
+      component.myForm
+        .datum()
+        .errors()
+        .map((error) => error.kind),
+    ).toContain("required");
+    expect(
+      component.myForm
+        .datum()
+        .errors()
+        .map((error) => error.kind),
+    ).not.toContain("invalid");
+  });
+
+  it("should update input errors on blur and clear them after a valid date", () => {
+    element.dispatchEvent(createDateEvent("dsoBlur", "", "invalid"));
+    fixture.detectChanges();
+
+    expect(
+      component.myForm
+        .datum()
+        .errors()
+        .map((error) => error.kind),
+    ).toContain("invalid");
+
+    element.dispatchEvent(createDateEvent("dsoDateChange", "29-02-2024"));
+    fixture.detectChanges();
+
+    expect(component.myForm.datum().errors()).toEqual([]);
   });
 
   it("should sync invalid state", () => {

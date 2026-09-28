@@ -24,23 +24,47 @@ blijft werken) ondersteunt `@dso-toolkit/angular` ook Angular's (experimentele) 
 
 ```ts
 import { Component, signal } from "@angular/core";
-import { FormField, form } from "@angular/forms/signals";
-import { DsoDatePicker, DsoSelectable } from "@dso-toolkit/angular";
-import { DsoDatePickerFieldControl, DsoSelectableCheckboxFieldControl } from "@dso-toolkit/angular/signal-forms";
+import { FormField, form, required, validate } from "@angular/forms/signals";
+import {
+  DsoDatePicker,
+  DsoDatePickerFieldControl,
+  DsoSelectable,
+  DsoSelectableCheckboxFieldControl,
+} from "@dso-toolkit/angular";
 
 @Component({
   standalone: true,
   imports: [DsoDatePicker, DsoSelectable, DsoDatePickerFieldControl, DsoSelectableCheckboxFieldControl, FormField],
   template: `
-    <dso-date-picker [formField]="myForm.datum" minDate="01-01-2024" maxDate="31-12-2024" />
+    <dso-date-picker
+      [formField]="myForm.datum"
+      [minDate]="minimumDate()"
+      [maxDate]="maximumDate()"
+      [(inputError)]="dateInputError"
+    />
     <dso-selectable type="checkbox" [formField]="myForm.akkoord" />
   `,
 })
 export class ExampleComponent {
   model = signal({ datum: "", akkoord: false });
-  myForm = form(this.model);
+  minimumDate = signal("01-01-2024");
+  maximumDate = signal("31-12-2024");
+  dateInputError = signal<"required" | "min-range" | "max-range" | "invalid" | undefined>(undefined);
+  myForm = form(this.model, (path) => {
+    required(path.datum, { when: () => this.dateInputError() !== "invalid" });
+    validate(path.datum, ({ value }) =>
+      !value() && this.dateInputError() === "invalid" ? { kind: "invalid" } : undefined,
+    );
+  });
 }
 ```
+
+De adapter geeft de invoerfout uit `dsoDateChange` of `dsoBlur` door via `inputError`. Het
+voorbeeld gebruikt dit signal om ongeldige invoer van een leeg verplicht veld te onderscheiden.
+De `when`-voorwaarde voorkomt dat ongeldige invoer daarnaast ook een `required`-fout krijgt.
+Valideer datumgrenzen zelf in het Signal Form met dezelfde `minimumDate`- en
+`maximumDate`-signals; de adapter zet `minDate` en `maxDate` alleen door naar de Date Picker.
+Wis `dateInputError` zelf bij programmatische resets van het formulier.
 
 Gebruik bij een Date Picker met `[formField]` altijd `minDate` en `maxDate` voor datumgrenzen,
 niet `min` en `max`. Angular Signal Forms reserveert die laatste namen voor numerieke

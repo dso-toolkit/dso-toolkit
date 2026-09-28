@@ -1,15 +1,56 @@
 ---
-authors: [xiangjuzou-prog]
+authors: [xiangjuzou-prog, cvanderleij]
 ---
 
 # DSO Toolkit v101.0.0 😾
 
-Deze release bevat een **BREAKING** change voor de volgende componenten:
+Deze release bevat **BREAKING** changes voor Angular-gebruikers en de volgende componenten:
 
 - Form Group
 - Document Header
 
 <!-- truncate -->
+
+## Angular 21 of 22 vereist
+
+De ondersteuning voor Angular 20 is verwijderd. `@dso-toolkit/angular` vereist nu Angular 21 of 22.
+
+## Signal Forms
+
+Voor Angular Signal Forms zijn de adapters beschikbaar via `@dso-toolkit/angular`. Importeer de gewone DSO-componenten
+en de Signal Forms-adapters uit hetzelfde package:
+
+```ts
+import {
+  DsoDatePicker,
+  DsoDatePickerFieldControl,
+  DsoSelectable,
+  DsoSelectableCheckboxFieldControl,
+} from "@dso-toolkit/angular";
+```
+
+Gebruik de adapters samen met Angulars `FormField`-directive:
+
+```ts
+import { Component, signal } from "@angular/core";
+import { FormField, form } from "@angular/forms/signals";
+
+@Component({
+  standalone: true,
+  imports: [DsoDatePicker, DsoSelectable, DsoDatePickerFieldControl, DsoSelectableCheckboxFieldControl, FormField],
+  template: `
+    <dso-date-picker [formField]="myForm.datum" minDate="01-01-2024" maxDate="31-12-2024" />
+    <dso-selectable type="checkbox" [formField]="myForm.akkoord" />
+  `,
+})
+export class ExampleComponent {
+  model = signal({ datum: "", akkoord: false });
+  myForm = form(this.model);
+}
+```
+
+Bij een Date Picker met `[formField]` gebruik je `minDate` en `maxDate` voor datumgrenzen. De namen `min` en
+`max` zijn binnen Angular Signal Forms gereserveerd voor numerieke formuliergrenzen.
 
 ## Form Group
 
