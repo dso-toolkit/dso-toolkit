@@ -10,22 +10,16 @@
 
 @include utilities.box-sizing();
 
-::slotted(
-  dso-accordion-section:not(:first-child, .dso-accordion-compact, .dso-accordion-compact-black, .dso-accordion-renvooi)
-) {
+::slotted(dso-accordion-section:not(:first-child, .dso-accordion-compact, .dso-accordion-compact-black)) {
   margin-block-start: units.$u1 * 0.5;
 }
 
-::slotted(
-  dso-accordion-section:is(.dso-accordion-compact, .dso-accordion-compact-black, .dso-accordion-renvooi):last-child
-) {
+::slotted(dso-accordion-section:is(.dso-accordion-compact, .dso-accordion-compact-black):last-child) {
   border-block-end: 1px solid accordion-variables.$compact-border-color;
 }
 
-:host(.dso-accordion-no-stroke) {
-  ::slotted(
-    dso-accordion-section:is(.dso-accordion-compact, .dso-accordion-compact-black, .dso-accordion-renvooi):last-child
-  ) {
+:host([no-stroke]) {
+  ::slotted(dso-accordion-section:is(.dso-accordion-compact, .dso-accordion-compact-black):last-child) {
     border-block-end: none;
   }
 }

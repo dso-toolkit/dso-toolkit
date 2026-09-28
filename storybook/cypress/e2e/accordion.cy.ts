@@ -451,23 +451,24 @@ describe("Accordion", () => {
 });
 
 describe("Show Stroke / No Stroke", () => {
-  it("should allow disabling stroke via showStroke property", () => {
+  it("should allow disabling stroke via noStroke property", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-accordion--compact");
 
     cy.get("dso-accordion.hydrated")
       .as("dsoAccordion")
-      .invoke("prop", "showStroke", false)
-      .should("have.prop", "showStroke", false)
+      .invoke("prop", "noStroke", false)
+      .should("have.prop", "noStroke", false)
       .find("dso-accordion-section")
       .last()
-      .then(($section) => {
-        const element = $section.get(0);
-        if (element) {
-          const borderBottom = window.getComputedStyle(element).borderBottomWidth;
-          expect(borderBottom).to.equal("0px");
-        }
-      });
+      .should("not.have.css", "border-bottom-width", "0px");
 
-    cy.get("@dsoAccordion").matchImageSnapshot(`${Cypress.currentTest.title} -- showStroke false`);
+    cy.get("@dsoAccordion")
+      .invoke("prop", "noStroke", true)
+      .should("have.prop", "noStroke", true)
+      .find("dso-accordion-section")
+      .last()
+      .should("have.css", "border-bottom-width", "0px");
+
+    cy.get("@dsoAccordion").matchImageSnapshot(`${Cypress.currentTest.title} -- noStroke true`);
   });
 });

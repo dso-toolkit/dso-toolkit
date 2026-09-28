@@ -8,9 +8,9 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
   component: "accordion",
   implementation: "core",
   template: ({ badgeTemplate }) =>
-    function accordionTemplate({ variant, reverseAlign, showStroke, sections }) {
+    function accordionTemplate({ variant, reverseAlign, noStroke, sections }) {
       return html`
-        <dso-accordion .variant=${variant} ?reverse-align=${reverseAlign} .showStroke=${showStroke}>
+        <dso-accordion .variant=${variant} ?reverse-align=${reverseAlign} .noStroke=${noStroke}>
           ${sections.map(
             ({
               handleTitle,

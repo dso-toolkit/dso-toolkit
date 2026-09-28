@@ -74,6 +74,7 @@ graph TD;
   dso-accordion-section --> dso-expandable
   dso-accordion-section --> dso-slide-toggle
   dso-accordion-section --> dso-attachments-counter
+  dso-label --> dso-truncate
   dso-label --> dso-icon-button
   dso-icon-button --> dso-icon
   dso-attachments-counter --> dso-icon
