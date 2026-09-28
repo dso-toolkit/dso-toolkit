@@ -7,8 +7,8 @@
 
 | Property       | Attribute       | Description                                                                                                                                   | Type                                                                     | Default     |
 | -------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
+| `noStroke`     | `no-stroke`     | Hide the bottom border (stroke) for compact and renvooi variants.                                                                             | `boolean`                                                                | `false`     |
 | `reverseAlign` | `reverse-align` | Places the chevron at the opposite side.  Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections | `boolean`                                                                | `undefined` |
-| `showStroke`   | `show-stroke`   | Show or hide the bottom border (stroke) for compact and renvooi variants.                                                                     | `boolean`                                                                | `undefined` |
 | `variant`      | `variant`       | The variant of the Accordion.                                                                                                                 | `"compact" \| "compact-black" \| "conclusion" \| "default" \| "neutral"` | `undefined` |
 
 

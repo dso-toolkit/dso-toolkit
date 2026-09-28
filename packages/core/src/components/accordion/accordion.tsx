@@ -21,7 +21,6 @@ export class Accordion implements ComponentInterface {
     const { state } = createStore<AccordionInternalState>({
       variant: "default",
       reverseAlign: false,
-      showStroke: true,
     });
 
     this.accordionState = state;
@@ -52,23 +51,11 @@ export class Accordion implements ComponentInterface {
   }
 
   /**
-   * Show or hide the bottom border (stroke) for compact and renvooi variants.
-   * @default true
+   * Hide the bottom border (stroke) for compact and renvooi variants.
+   * @default false
    */
-  @Prop()
-  get showStroke(): boolean {
-    return this.accordionState.showStroke;
-  }
-  set showStroke(value: boolean) {
-    this.accordionState.showStroke = value ?? true;
-  }
-
-  /**
-   * Automatische detectie of deze accordion genest zit binnen een accordion-section.
-   */
-  get isNested(): boolean {
-    return this.host.closest("dso-accordion-section") !== null;
-  }
+  @Prop({ reflect: true })
+  noStroke = false;
 
   /**
    * @internal
@@ -79,10 +66,8 @@ export class Accordion implements ComponentInterface {
   }
 
   render() {
-    const hideStroke = !this.showStroke || this.isNested;
-
     return (
-      <Host class={{ "dso-accordion-no-stroke": hideStroke }}>
+      <Host no-stroke={this.noStroke ? true : undefined}>
         <slot></slot>
       </Host>
     );

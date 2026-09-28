@@ -5,7 +5,7 @@ import { IconAlias } from "../icon/icon.models.js";
 import { LabelStatus } from "../label/label.models.js";
 import { RenvooiValue } from "../renvooi/renvooi.models.js";
 
-export type AccordionVariant = "default" | "compact" | "conclusion" | "neutral" | "compact-black" | "renvooi";
+export type AccordionVariant = "default" | "compact" | "conclusion" | "neutral" | "compact-black";
 
 export type AccordionSectionStatus = "success" | "info" | "warning" | "danger" | "error";
 
