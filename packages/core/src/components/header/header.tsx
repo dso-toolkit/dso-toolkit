@@ -585,8 +585,7 @@ export class Header implements ComponentInterface {
               aria-haspopup="menu"
               aria-expanded={this.open ? "true" : "false"}
             >
-              <span>{this.text("menu")}</span>
-              <dso-icon icon="chevron-down"></dso-icon>
+              {this.renderMenuToggleContent(this.isMobileViewport, this.open)}
             </button>
             <div popover="manual" ref={(element) => (this.popoverElement = element)}>
               <dso-scrollable
@@ -633,6 +632,19 @@ export class Header implements ComponentInterface {
           </div>
         </div>
       )
+    );
+  }
+
+  private renderMenuToggleContent(isMobileViewport: boolean, open: boolean): JSX.Element {
+    return (
+      <Fragment>
+        <span>{open && isMobileViewport ? this.text("menuOpen") : this.text("menu")}</span>
+        {isMobileViewport ? (
+          <dso-icon icon={open ? "cross" : "bars"}></dso-icon>
+        ) : (
+          <dso-icon icon={open ? "chevron-up" : "chevron-down"}></dso-icon>
+        )}
+      </Fragment>
     );
   }
 

@@ -39,10 +39,6 @@ const meta: Meta<HeaderArgs> = {
         url: "#hulpcentrum",
       },
       {
-        label: "Omgevingswet ondersteuning",
-        url: "#omgevingswet-ondersteuning",
-      },
-      {
         label: "Een willekeurig menu item",
         url: "#een-willekeurig-menu-item",
       },
