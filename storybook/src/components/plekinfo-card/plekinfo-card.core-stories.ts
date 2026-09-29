@@ -1,10 +1,10 @@
 import readme from "@dso-toolkit/core/src/components/plekinfo-card/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import { Meta } from "@storybook/web-components-vite";
 import { PlekinfoCardArgs, plekinfoCardMeta, plekinfoCardStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import { WithItemsContent } from "./plekinfo-card-item.content";
+import { withItemsContent } from "./plekinfo-card-item.content";
 import { content, defaultSymbol } from "./plekinfo-card.content";
 import { decorator } from "./plekinfo-card.decorator";
 
@@ -25,7 +25,7 @@ const { Default, WithItems, Static, WithoutSymbol, WithLabel, WithSlideToggle, W
         plekinfoCardTemplate,
         defaultSymbol,
         content,
-        withItemsContent: WithItemsContent,
+        withItemsContent,
       };
     },
     decorator,

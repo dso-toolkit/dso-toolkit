@@ -11,7 +11,7 @@ import {
   plekinfoCardArgsMapper,
 } from "./plekinfo-card.args.js";
 import { plekinfoCardDemoCss } from "./plekinfo-card.demo";
-import { PlekinfoCard } from "./plekinfo-card.models.js";
+import { PlekinfoCard, PlekinfoCardItem } from "./plekinfo-card.models.js";
 
 export type PlekinfoCardDecorator<TemplateFnReturnType> = (story: PartialStoryFn, css: string) => TemplateFnReturnType;
 
@@ -41,7 +41,7 @@ interface PlekinfoCardTemplates<TemplateFnReturnType> {
   plekinfoCardTemplate: (plekinfoCardProperties: PlekinfoCard<TemplateFnReturnType>) => TemplateFnReturnType;
   defaultSymbol: TemplateFnReturnType;
   content: TemplateFnReturnType;
-  withItemsContent: TemplateFnReturnType;
+  withItemsContent: PlekinfoCardItem<TemplateFnReturnType>[];
 }
 
 export function plekinfoCardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -70,7 +70,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     Default: {
       args: {
         ...plekinfoCardArgs,
-        showStroke: false,
+        noStroke: true,
       },
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, defaultSymbol, content }) =>
@@ -80,7 +80,6 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithItems: {
       args: {
         ...plekinfoCardArgs,
-        showStroke: false,
         interaction: {
           checked: false,
           accessibleLabel: "sr-only label van het schuifje",
@@ -89,14 +88,14 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
       render: templateContainer.render(
         storyTemplates,
-        (args, { plekinfoCardTemplate, defaultSymbol, withItemsContent }) =>
-          plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, withItemsContent)),
+        (args, { plekinfoCardTemplate, defaultSymbol, withItemsContent: withItems }) =>
+          plekinfoCardTemplate({ ...plekinfoCardArgsMapper(args, defaultSymbol), items: withItems }),
       ),
     },
     Static: {
       args: {
         ...plekinfoCardArgs,
-        showStroke: false,
+        noStroke: true,
         href: "",
       },
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
@@ -107,7 +106,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithoutSymbol: {
       args: {
         ...plekinfoCardArgs,
-        showStroke: false,
+        noStroke: true,
       },
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, content }) =>
@@ -117,7 +116,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithSlideToggle: {
       args: {
         ...plekinfoCardArgs,
-        showStroke: false,
+        noStroke: true,
         interaction: {
           checked: false,
           accessibleLabel: "sr-only label van het schuifje",
@@ -131,7 +130,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithLabel: {
       args: {
         ...plekinfoCardArgs,
-        showStroke: false,
+        noStroke: true,
         meta: {
           status: "warning",
           compact: true,
@@ -146,7 +145,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithNameChange: {
       args: {
         ...plekinfoCardArgs,
-        showStroke: false,
+        noStroke: true,
         label: {
           value: {
             was: "Radargebieden",
@@ -162,7 +161,7 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithNameChangeComplex: {
       args: {
         ...plekinfoCardArgs,
-        showStroke: false,
+        noStroke: true,
         label: {
           value: [
             "Waardes worden weergegeven op de kaart",

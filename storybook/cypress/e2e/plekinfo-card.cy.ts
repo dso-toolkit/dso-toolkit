@@ -67,7 +67,7 @@ describe("Plekinfo Card", () => {
       .invoke("prop", "active", true)
       .shadow()
       .find("del.dso-plekinfo-card-container")
-      .should("have.css", "background-color", "rgb(245, 216, 220)");
+      .should("have.css", "background-color", "rgb(221, 195, 198)");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- active`);
   });
@@ -86,7 +86,7 @@ describe("Plekinfo Card", () => {
       .invoke("prop", "active", true)
       .shadow()
       .find("ins.dso-plekinfo-card-container")
-      .should("have.css", "background-color", "rgb(228, 241, 212)");
+      .should("have.css", "background-color", "rgb(206, 217, 191)");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- active`);
   });
@@ -115,20 +115,34 @@ describe("Plekinfo Card", () => {
       cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--with-items");
     });
 
-    it("should render card items inside the card", () => {
-      cy.get("dso-plekinfo-card.hydrated").find("dso-plekinfo-card-item.hydrated").should("have.length.gt", 0);
-    });
-
-    it("should emit hover event on a card item", () => {
+    it("should render label and sublabel wrapped in dso-truncate", () => {
       cy.get("dso-plekinfo-card.hydrated")
         .find("dso-plekinfo-card-item.hydrated")
         .first()
-        .then(($item) => {
-          $item.on("dsoPlekinfoCardItemHover", cy.stub().as("itemHoverListener"));
-        })
-        .realHover();
+        .shadow()
+        .find(".label dso-truncate, .sublabel dso-truncate")
+        .should("have.length", 2);
 
-      cy.get("@itemHoverListener").should("have.been.calledOnce");
+      cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    });
+
+    it("should render changed item labels as renvooi inside dso-truncate", () => {
+      const changedLabelItem = () => cy.get("dso-plekinfo-card.hydrated").find("dso-plekinfo-card-item").eq(3);
+
+      changedLabelItem().shadow().find(".label dso-truncate").should("exist");
+
+      changedLabelItem()
+        .find("span[slot='label'] > dso-renvooi")
+        .should("exist")
+        .shadow()
+        .find("del")
+        .should("contain.text", "vergunningplicht");
+
+      changedLabelItem()
+        .find("span[slot='label'] > dso-renvooi")
+        .shadow()
+        .find("ins")
+        .should("contain.text", "Toegestaan");
     });
   });
 });

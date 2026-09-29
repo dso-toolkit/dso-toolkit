@@ -5,7 +5,7 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
 
-export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
+export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<TemplateResult>> = {
   component: "plekinfoCard",
   implementation: "core",
   template: ({ labelTemplate, renvooiTemplate, richContentTemplate, slideToggleTemplate }) =>
@@ -16,16 +16,37 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
       active,
       symbool,
       content,
+      items,
       meta,
       wijzigactie,
       interaction,
-      showStroke,
+      noStroke,
       dsoPlekinfoCardClick,
-    }: PlekinfoCard<TemplateResult>) {
+    }) {
+      const renderedItems =
+        items && items.length > 0
+          ? html`${items.map(
+              (item) => html`
+                <dso-plekinfo-card-item wijzigactie=${ifDefined(item.wijzigactie || undefined)}>
+                  <span slot="symbol">${item.symbool}</span>
+                  <span slot="label">${typeof item.label === "string" ? item.label : renvooiTemplate(item.label)}</span>
+                  ${
+                    item.sublabel
+                      ? html`<span slot="sublabel">
+                          ${typeof item.sublabel === "string" ? item.sublabel : renvooiTemplate(item.sublabel)}
+                        </span>`
+                      : nothing
+                  }
+                  ${item.meta ? html`<div slot="meta">${labelTemplate(item.meta)}</div>` : nothing}
+                </dso-plekinfo-card-item>
+              `,
+            )}`
+          : undefined;
+
       return html` <dso-plekinfo-card
         href=${href}
         target-blank=${targetBlank}
-        .showStroke=${showStroke}
+        .noStroke=${noStroke}
         wijzigactie=${ifDefined(wijzigactie || undefined)}
         ?active=${active}
         @dsoPlekinfoCardClick=${(e: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => {
@@ -46,7 +67,16 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
               </div>`
             : nothing
         }
-        ${content && richContentTemplate({ children: content, slot: "content" })}
+        ${
+          renderedItems
+            ? richContentTemplate({
+                children: renderedItems,
+                slot: "content",
+              })
+            : content
+              ? richContentTemplate({ children: content, slot: "content" })
+              : nothing
+        }
       </dso-plekinfo-card>`;
     },
 };
