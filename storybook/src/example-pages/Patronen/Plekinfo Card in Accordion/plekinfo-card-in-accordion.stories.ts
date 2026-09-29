@@ -1,13 +1,15 @@
-import { Meta } from "@storybook/web-components-vite";
-import { plekinfoCardDemoCss } from "dso-toolkit/src/components/plekinfo-card/plekinfo-card.demo";
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { examplePageStories } from "../../../example-page-stories";
+import { accordionTemplate } from "../../../components/accordion/accordion.template";
+import { plekinfoCardDemoCss } from "../../../components/plekinfo-card/plekinfo-card.demo";
+import { plekinfoCardTemplate } from "../../../components/plekinfo-card/plekinfo-card.template";
 
 import { plekinfoCardInAccordionSections } from "./plekinfo-card-in-accordion.content";
 
 const meta: Meta = {
   title: "Patronen/Plekinfo Card in Accordion",
+  tags: ["!autodocs"],
 };
 
 export default meta;
@@ -16,10 +18,16 @@ interface PlekinfoCardInAccordionArgs {
   noStroke?: boolean;
 }
 
-const Default = examplePageStories<PlekinfoCardInAccordionArgs>(
-  (templates, { noStroke }) => {
-    const { accordionTemplate, plekinfoCardTemplate } = templates;
-
+export const Default: StoryObj<PlekinfoCardInAccordionArgs> = {
+  argTypes: {
+    noStroke: {
+      control: { type: "boolean" },
+    },
+  },
+  args: {
+    noStroke: true,
+  },
+  render: ({ noStroke }) => {
     return html`
       <style>
         ${plekinfoCardDemoCss}
@@ -31,16 +39,4 @@ const Default = examplePageStories<PlekinfoCardInAccordionArgs>(
       })}
     `;
   },
-  {
-    argTypes: {
-      noStroke: {
-        control: { type: "boolean" },
-      },
-    },
-    args: {
-      noStroke: true,
-    },
-  },
-);
-
-export { Default };
+};

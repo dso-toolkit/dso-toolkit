@@ -1,22 +1,9 @@
-import { isObject } from "../../utils/is-object";
-import { Label } from "../label";
-import { Renvooi } from "../renvooi";
-import { SlideToggle } from "../slide-toggle";
+import { TemplateResult } from "lit-html";
 
-export interface PlekinfoCard<TemplateFnReturnType> {
-  label: Renvooi | string;
-  href: string;
-  targetBlank: boolean;
-  active?: boolean;
-  meta?: Label;
-  content?: TemplateFnReturnType;
-  items?: PlekinfoCardItem<TemplateFnReturnType>[];
-  noStroke?: boolean;
-  symbool?: TemplateFnReturnType;
-  wijzigactie?: PlekinfoWijzigactie;
-  interaction?: SlideToggle;
-  dsoPlekinfoCardClick?: (e: CustomEvent<PlekinfoCardClickEvent>) => void;
-}
+import { isObject } from "../../shared/is-object";
+import { Label } from "../label/label.models";
+import { Renvooi } from "../renvooi/renvooi.models";
+import { SlideToggle } from "../slide-toggle/slide-toggle.models";
 
 export interface PlekinfoCardItem<TemplateFnReturnType> {
   label: Renvooi | string;
@@ -24,6 +11,21 @@ export interface PlekinfoCardItem<TemplateFnReturnType> {
   symbool: TemplateFnReturnType;
   meta?: Label;
   wijzigactie?: PlekinfoWijzigactie;
+}
+
+export interface PlekinfoCard {
+  label: Renvooi | string;
+  href: string;
+  targetBlank: boolean;
+  active?: boolean;
+  meta?: Label;
+  noStroke?: boolean;
+  content?: TemplateResult | string;
+  symbool?: TemplateResult | string;
+  wijzigactie?: PlekinfoWijzigactie;
+  interaction?: SlideToggle;
+  items?: PlekinfoCardItem<TemplateResult | string>[];
+  dsoPlekinfoCardClick?: (e: CustomEvent<PlekinfoCardClickEvent>) => void;
 }
 
 export interface PlekinfoCardClickEvent {
@@ -34,7 +36,6 @@ export interface PlekinfoCardClickEvent {
 
 export type PlekinfoWijzigactie = "voegtoe" | "verwijder";
 
-export function isPlekinfoCardInterface<TemplateFnReturnType>(
-  object: unknown,
-): object is PlekinfoCard<TemplateFnReturnType> {
+export function isPlekinfoCardInterface(object: unknown): object is PlekinfoCard {
   return isObject(object) && "targetBlank" in object;
+}
