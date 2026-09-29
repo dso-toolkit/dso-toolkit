@@ -2,6 +2,7 @@ import readme from "@dso-toolkit/core/src/components/plekinfo-card/readme.md?raw
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 
+import { withItemsContent } from "./plekinfo-card-item.content.js";
 import {
   PlekinfoCardArgs,
   plekinfoCardArgTypes,
@@ -29,22 +30,31 @@ const meta: Meta<PlekinfoCardArgs> = {
 
 export default meta;
 
-export const Default: PlekinfoCardStory = {};
+export const Default: PlekinfoCardStory = {
+  args: {
+    noStroke: true,
+  },
+};
 
 export const Static: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
+    noStroke: true,
     href: "",
   },
 };
 
 export const WithoutSymbol: PlekinfoCardStory = {
+  args: {
+    noStroke: true,
+  },
   render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content())),
 };
 
 export const WithSlideToggle: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
+    noStroke: true,
     interaction: {
       checked: false,
       accessibleLabel: "sr-only label van het schuifje",
@@ -55,6 +65,7 @@ export const WithSlideToggle: PlekinfoCardStory = {
 export const WithLabel: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
+    noStroke: true,
     meta: {
       status: "warning",
       compact: true,
@@ -66,6 +77,7 @@ export const WithLabel: PlekinfoCardStory = {
 export const WithNameChange: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
+    noStroke: true,
     label: {
       value: {
         was: "Radargebieden",
@@ -78,6 +90,7 @@ export const WithNameChange: PlekinfoCardStory = {
 export const WithNameChangeComplex: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
+    noStroke: true,
     label: {
       value: [
         "Waardes worden weergegeven op de kaart",
@@ -89,4 +102,22 @@ export const WithNameChangeComplex: PlekinfoCardStory = {
       ],
     },
   },
+};
+
+export const WithItems: PlekinfoCardStory = {
+  args: {
+    ...plekinfoCardArgs,
+    label: {
+      value: "Item label",
+    },
+    interaction: {
+      checked: false,
+      accessibleLabel: "sr-only label van het schuifje",
+    },
+  },
+  render: (args) =>
+    plekinfoCardTemplate({
+      ...plekinfoCardArgsMapper(args, defaultSymbol()),
+      items: withItemsContent,
+    }),
 };
