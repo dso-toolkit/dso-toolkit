@@ -39,6 +39,7 @@ graph TD;
   dso-annotation-omgevingsnormwaarde --> dso-renvooi
   dso-annotation-omgevingsnormwaarde --> dso-slide-toggle
   dso-annotation-omgevingsnormwaarde --> dso-label
+  dso-label --> dso-truncate
   dso-label --> dso-icon-button
   dso-icon-button --> dso-icon
   style dso-annotation-omgevingsnormwaarde fill:#f9f,stroke:#333,stroke-width:4px

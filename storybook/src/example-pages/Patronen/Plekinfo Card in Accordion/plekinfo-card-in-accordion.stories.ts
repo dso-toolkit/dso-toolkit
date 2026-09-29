@@ -1,10 +1,10 @@
 import { Meta } from "@storybook/web-components-vite";
+import { plekinfoCardDemoCss } from "dso-toolkit/src/components/plekinfo-card/plekinfo-card.demo";
 import { html } from "lit-html";
-import "./plekinfo-card-accordion.scss";
 
 import { examplePageStories } from "../../../example-page-stories";
 
-import { plekinfoCardInAccordionSections } from "./plekinfo-card-accordion.content";
+import { plekinfoCardInAccordionSections } from "./plekinfo-card-in-accordion.content";
 
 const meta: Meta = {
   title: "Patronen/Plekinfo Card in Accordion",
@@ -13,29 +13,32 @@ const meta: Meta = {
 export default meta;
 
 interface PlekinfoCardInAccordionArgs {
-  showStroke: boolean;
+  noStroke?: boolean;
 }
 
 const Default = examplePageStories<PlekinfoCardInAccordionArgs>(
-  (templates, { showStroke }) => {
-    const { accordionTemplate } = templates;
+  (templates, { noStroke }) => {
+    const { accordionTemplate, plekinfoCardTemplate } = templates;
 
     return html`
+      <style>
+        ${plekinfoCardDemoCss}
+      </style>
       ${accordionTemplate({
-        variant: "compact-black",
-        showStroke,
-        sections: plekinfoCardInAccordionSections,
+        variant: "compact",
+        noStroke,
+        sections: plekinfoCardInAccordionSections(plekinfoCardTemplate),
       })}
     `;
   },
   {
     argTypes: {
-      showStroke: {
+      noStroke: {
         control: { type: "boolean" },
       },
     },
     args: {
-      showStroke: true,
+      noStroke: true,
     },
   },
 );
