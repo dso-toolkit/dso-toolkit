@@ -31,7 +31,7 @@
       z-index: zindex.$searchbar-icon;
 
       &::before {
-        @include di.base("search");
+        @include di.base("search", "grasgroen");
 
         content: "";
         display: inline-block;
@@ -89,7 +89,7 @@
       inline-size: css-search-bar-variables.$block-size;
 
       &::before {
-        @include di.base("cross");
+        @include di.base("cross", "grasgroen");
 
         content: "";
         display: inline-block;

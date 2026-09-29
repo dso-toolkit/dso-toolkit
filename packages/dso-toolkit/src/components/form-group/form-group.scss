@@ -135,7 +135,7 @@
       position: relative;
 
       &::before {
-        @include di.base("status-error", form-group-variables.$field-invalid-icon-size);
+        @include di.base("status-error", $size: form-group-variables.$field-invalid-icon-size);
 
         content: "";
         display: block;

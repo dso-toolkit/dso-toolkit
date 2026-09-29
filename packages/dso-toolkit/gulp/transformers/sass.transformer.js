@@ -25,9 +25,13 @@ function encodeSvg(svg) {
 
 function inlineIcon(args) {
   const name = args[0].assertString("name").text;
-  const color = args[1].assertString("color").text;
+  const color = args[1].realNull?.assertString("color").text;
 
-  const svg = readFileSync(join(iconsDir, `${name}.svg`), "utf8").replaceAll("currentColor", color);
+  let svg = readFileSync(join(iconsDir, `${name}.svg`), "utf8");
+
+  if (color) {
+    svg = svg.replaceAll("currentColor", color);
+  }
 
   return new SassString(`url("data:image/svg+xml,${encodeSvg(svg)}")`, { quotes: false });
 }
@@ -41,7 +45,7 @@ export function sassTransformer() {
         style: "expanded",
         verbose: true,
         functions: {
-          "inline-icon-DI-ONLY($name, $color)": inlineIcon,
+          "inline-icon-DI-ONLY($name, $color: null)": inlineIcon,
         },
       });
 
