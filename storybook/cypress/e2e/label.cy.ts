@@ -5,6 +5,7 @@ describe("Label", () => {
   });
 
   const defaultLabelText = "Bouwwerken, werken en objecten bouwen";
+
   function prepareComponent() {
     // Set the min-height so that there is room for the tooltip.
     cy.get("#storybook-root").invoke("attr", "style", "min-height: 360px;");
@@ -17,65 +18,50 @@ describe("Label", () => {
       .invoke("text", defaultLabelText);
   }
 
-  // Onderstaande test fixen via #3522
-  it.skip("must truncate label", () => {
-    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- before truncation`);
-
-    cy.get("@dsoLabel")
-      .should("have.text", defaultLabelText)
-      .invoke("prop", "truncate", true)
-      .get("@dsoLabelShadow")
-      .find(".dso-label")
-      .should("not.have.attr", "aria-describedby")
-      .get("@dsoLabel")
-      .then(($element) => $element.wrap('<div style="max-width: 100px">'))
-      .get("@dsoLabel")
-      .shadow()
-      .find(".dso-label")
-      .should("have.attr", "aria-describedby", "toggle-anchor")
-      .get("@dsoLabelShadow")
-      .find(".dso-label-content.dso-truncate")
-      .should("exist");
-
-    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- after truncation`);
-  });
-
   it("should show tooltip on focus", () => {
     cy.get("@dsoLabel")
-      .then(($element) => $element.wrap('<div style="max-width: 100px">'))
       .invoke("prop", "truncate", true)
       .invoke("prop", "removable", true)
       .get("@dsoLabelShadow")
-      .find(".dso-label-content")
+      .find("dso-truncate")
+      .invoke("css", "width", "100px")
+      .shadow()
+      .find(".dso-truncate-content")
       .should("have.attr", "tabindex", "0")
       .focus()
       .get("@dsoLabelShadow")
+      .find("dso-truncate")
+      .shadow()
       .find(".dso-tooltip")
       .should("be.visible")
-      .should("have.text", defaultLabelText)
+      .and("have.text", defaultLabelText)
       .realPress("Tab")
       .get("@dsoLabelShadow")
+      .find("dso-truncate")
+      .shadow()
       .find(".dso-tooltip")
       .should("not.be.visible");
   });
 
   it("should close tooltip when escape is pressed", () => {
     cy.get("@dsoLabel")
-      .then(($element) => $element.wrap('<div style="max-width: 100px">'))
-      .get("@dsoLabel")
       .invoke("prop", "truncate", true)
       .get("@dsoLabelShadow")
-      .find(".dso-label-content")
+      .find("dso-truncate")
+      .invoke("css", "width", "100px")
+      .shadow()
+      .find(".dso-truncate-content")
       .should("have.attr", "tabindex", "0")
       .focus()
       .get("@dsoLabelShadow")
+      .find("dso-truncate")
+      .shadow()
       .find(".dso-tooltip")
-      .should("be.visible")
-      .get("body")
-      .trigger("keydown", { key: "Escape" })
-      .get("@dsoLabelShadow")
-      .find(".dso-tooltip")
-      .should("not.be.visible");
+      .should("be.visible");
+
+    cy.get("body").trigger("keydown", { key: "Escape" });
+
+    cy.get("@dsoLabelShadow").find("dso-truncate").shadow().find(".dso-tooltip").should("not.be.visible");
   });
 
   it("should emit removeClick event", () => {
