@@ -20,11 +20,11 @@ import { isModifiedEvent } from "../../utils/is-modified-event";
 import { PlekinfoCardClickEvent } from "./plekinfo-card.interfaces";
 
 /**
- * @slot symbol - An optional slot to place a symbol, representing the plekinfo item, in.
+ * @slot symbol - A symbol for the card. Mutually exclusive with items.
  * @slot heading - A slot to place the title of the card in.
  * @slot meta - An optional slot to place a `Label` in.
- * @slot content - An optional slot for `PlekinfoCardItem`s.
- * @slot interaction - A slot for the `SlideToggle`s elements.
+ * @slot content - A slot for rich content or `PlekinfoCardItem`s. These content types are mutually exclusive.
+ * @slot interaction - A slot for the `SlideToggle` element.
  */
 @Component({
   tag: "dso-plekinfo-card",
@@ -32,27 +32,20 @@ import { PlekinfoCardClickEvent } from "./plekinfo-card.interfaces";
   shadow: true,
 })
 export class PlekinfoCard implements ComponentInterface {
-  private _showStroke = true;
-
   @Element()
   host!: HTMLDsoPlekinfoCardElement;
-
-  /**
-   * Show or hide the bottom border (stroke) of the card.
-   */
-  @Prop()
-  get showStroke(): boolean {
-    return this._showStroke;
-  }
-  set showStroke(value: boolean) {
-    this._showStroke = value ?? true;
-  }
 
   /**
    * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
    */
   @Prop({ reflect: true })
   wijzigactie?: Wijzigactie;
+
+  /**
+   * Hides the bottom border (stroke) of the card.
+   */
+  @Prop({ reflect: true })
+  noStroke = false;
 
   /**
    * The URL to which the PlekinfoCard heading links.
@@ -92,36 +85,32 @@ export class PlekinfoCard implements ComponentInterface {
     delete this.mutationObserver;
   }
 
-  private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement) || !this.href) {
-      return;
+  private clickEventHandler(event: MouseEvent): void {
+    if (event.target instanceof HTMLElement && this.href) {
+      this.dsoPlekinfoCardClick.emit({
+        originalEvent: event,
+        isModifiedEvent: isModifiedEvent(event),
+      });
     }
-
-    return this.dsoPlekinfoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
-  get isNested(): boolean {
-    return this.host.closest("dso-accordion-section") !== null;
-  }
-
-  get symbolSlottedElement() {
+  get symbolSlottedElement(): Element | null {
     return this.host.querySelector("[slot='symbol']");
   }
 
-  get metaSlottedElement() {
+  get metaSlottedElement(): Element | null {
     return this.host.querySelector("[slot='meta']");
   }
 
-  get interaction() {
+  get interaction(): Element | null {
     return this.host.querySelector("[slot='interaction']");
   }
 
   render() {
     const hasSymbol = this.symbolSlottedElement !== null;
-    const hideStroke = !this.showStroke || this.isNested;
 
     return (
-      <Host has-symbol={hasSymbol} class={{ "dso-plekinfo-card-no-stroke": hideStroke }}>
+      <Host has-symbol={hasSymbol} no-stroke={this.noStroke ? true : undefined}>
         <WrapWijzigactie wijzigactie={this.wijzigactie} class="dso-plekinfo-card-container">
           <div class="dso-plekinfo-card-symbol" hidden={!hasSymbol}>
             <slot name="symbol" />
@@ -133,7 +122,7 @@ export class PlekinfoCard implements ComponentInterface {
                 target={this.targetBlank ? "_blank" : undefined}
                 rel={this.targetBlank ? "noopener noreferrer" : undefined}
                 class="heading-anchor"
-                onClick={(e) => this.clickEventHandler(e)}
+                onClick={(event) => this.clickEventHandler(event)}
               >
                 <span class="heading-content">
                   <slot name="heading" />

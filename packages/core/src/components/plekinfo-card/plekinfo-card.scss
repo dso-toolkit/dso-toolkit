@@ -47,13 +47,9 @@
   }
 }
 
-:host(.dso-plekinfo-card-no-stroke) {
-  .dso-plekinfo-card-container {
-    border-block-end: none;
-  }
+:host([no-stroke]) .dso-plekinfo-card-container {
+  border-block-end: none;
 }
-
-@include plekinfo-card.wijzigactie-hover-states("dso-plekinfo-card-container", ".dso-plekinfo-card-heading a");
 
 :host([active]:not([active="false"])) {
   .dso-plekinfo-card-container {
