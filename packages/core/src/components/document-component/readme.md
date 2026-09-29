@@ -103,6 +103,7 @@ graph TD;
   dso-modal --> dso-scrollable
   dso-modal --> dso-icon-button
   dso-badge --> dso-scrollable
+  dso-label --> dso-truncate
   dso-label --> dso-icon-button
   dso-panel --> dso-icon-button
   dso-alert --> dso-icon
