@@ -46,7 +46,7 @@
 
     select {
       @include form-control.root();
-      @include di.variant("caret-down");
+      @include di.variant("caret-down", "bosgroen");
 
       -moz-appearance: none;
       -webkit-appearance: none;

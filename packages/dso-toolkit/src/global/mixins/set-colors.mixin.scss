@@ -3,7 +3,7 @@
 
 @use "../../variables/colors";
 @use "../../variables/states";
-@use "../../di-inline";
+@use "../../di";
 @use "../../components/link/link.variables" as link-variables;
 
 @use "../functions/contrast-color.functions" as contrast-color-functions;
@@ -56,12 +56,12 @@
     --_dso-link-visited-color: currentColor;
 
     @each $mode, $cfg in link-variables.$linkIcons {
-      --_dso-link-#{$mode}-icon: var(#{di-inline.custom-property(map.get($cfg, "icon"), $icon-color)});
+      --_dso-link-#{$mode}-icon: var(#{di.custom-property(map.get($cfg, "icon"), $icon-color)});
     }
   }
 
   @if $self != "link-list" and not $is-white-bg {
-    --_dso-link-list-chevron-icon: var(#{di-inline.custom-property("chevron-right", $icon-color)});
+    --_dso-link-list-chevron-icon: var(#{di.custom-property("chevron-right", $icon-color)});
   }
 
   @if $self != "icon-button" and not $is-white-bg {
@@ -93,8 +93,8 @@
   }
 
   @if $self != "button" and not $is-white-bg {
-    --_dso-button-tertiary-download-icon: var(#{di-inline.custom-property("download", $icon-color)});
-    --_dso-button-tertiary-external-link-icon: var(#{di-inline.custom-property("external-link", $icon-color)});
+    --_dso-button-tertiary-download-icon: var(#{di.custom-property("download", $icon-color)});
+    --_dso-button-tertiary-external-link-icon: var(#{di.custom-property("external-link", $icon-color)});
 
     @if $is-dark-contrast {
       --_dso-button-tertiary-color: #{colors.$grijs-90};

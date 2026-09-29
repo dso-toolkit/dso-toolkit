@@ -14,12 +14,12 @@
 
   &.dso-invalid {
     select:not([multiple]) {
-      @include di.variant("caret-down-invalid");
+      @include di.variant("caret-down", "rood");
     }
   }
 
   select:not([multiple]) {
-    @include di.variant("caret-down");
+    @include di.variant("caret-down", "bosgroen");
 
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -29,7 +29,7 @@
     padding-inline-end: units.$u4;
 
     &:disabled {
-      @include di.variant("caret-down-disabled");
+      @include di.variant("caret-down", "grijs-40");
     }
 
     &::-ms-expand {

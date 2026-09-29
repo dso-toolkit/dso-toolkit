@@ -25,13 +25,6 @@ const config: StorybookConfig = {
         crossorigin
         data-dt-postbuild-href
       >
-      <link
-        rel="preload"
-        href="/assets/di.svg"
-        as="image"
-        type="image/svg+xml"
-        data-dt-postbuild-href
-      >
     `
       : head,
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302

@@ -1,22 +1,13 @@
 import gulp from "gulp";
 
 import { buildStyling } from "./build-styling.js";
-import { buildDiSvgSpritesheet } from "./build-svg-spritesheets.js";
 
 export function watcher() {
   gulp.watch(
-    ["components/**/*.scss", "global/**/*.scss", "legacy/**/*.scss", "variables/**/*.scss", "*.scss"],
+    ["components/**/*.scss", "global/**/*.scss", "legacy/**/*.scss", "variables/**/*.scss", "*.scss", "icons/**/*.svg"],
     {
       cwd: "src",
     },
     buildStyling,
-  );
-
-  gulp.watch(
-    ["icons/**/*.(scss|svg)", "variables/**/*.scss"],
-    {
-      cwd: "src",
-    },
-    buildDiSvgSpritesheet,
   );
 }

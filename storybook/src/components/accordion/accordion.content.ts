@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 
 import { getAnimatedFormContent } from "../../example-pages/Patronen/animated-form.content.js";
+import { iconTemplate } from "../icon/icon.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
 import { AccordionSection, AccordionVariant } from "./accordion.models.js";
@@ -46,8 +47,8 @@ function section2(): AccordionSection {
           class="ext-io-ref"
           title="Opent andere website in nieuw tabblad"
           ><span>/join/id/regdata/pv30/2023/locatiegroep_6b52b6b882854b0d989513c22c96b19f/nld@2023-12-07;1</span
-          ><dso-icon class="hydrated"></dso-icon
-        ></a>
+          >${iconTemplate({ icon: "external-link" })}</a
+        >
       </p>
     </div>`,
   };

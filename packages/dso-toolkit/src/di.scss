@@ -1,15 +1,139 @@
-@use "variables/icon";
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
 
-@use "config";
+@use "variables/colors";
+@use "variables/icon" as icon-variables;
 
-@mixin base($icon, $size: icon.$size, $vertical-align: icon.$vertical-align) {
-  background: url("#{config.$icons-path}di.svg##{$icon}") no-repeat center;
-  background-size: cover;
-  block-size: $size;
-  vertical-align: $vertical-align;
-  inline-size: $size;
+@forward "variables/icon";
+
+$colors: (
+  "bosgroen": colors.$bosgroen,
+  "grasgroen": colors.$grasgroen,
+  "grasgroen-40": colors.$grasgroen-40,
+  "grijs-40": colors.$grijs-40,
+  "grijs-50": colors.$grijs-50,
+  "rood": colors.$rood,
+  "scampi": colors.$scampi,
+  "wit": colors.$wit,
+  "zwart": colors.$zwart,
+);
+
+// Lege lijst = icoon met vaste kleuren (geen currentColor): één property zonder kleur-suffix.
+$icons: (
+  "asterisk": ("grijs-50"),
+  "call": (
+    "grasgroen",
+    "scampi",
+    "wit",
+    "zwart",
+  ),
+  "caret-down": (
+    "bosgroen",
+    "grijs-40",
+    "rood",
+  ),
+  "chevron-right": (
+    "grasgroen",
+    "scampi",
+    "wit",
+    "zwart",
+  ),
+  "chevron-up": ("bosgroen"),
+  "cross": (
+    "grasgroen",
+    "zwart",
+  ),
+  "download": (
+    "bosgroen",
+    "grasgroen",
+    "grasgroen-40",
+    "scampi",
+    "wit",
+    "zwart",
+  ),
+  "external-link": (
+    "bosgroen",
+    "grasgroen",
+    "grasgroen-40",
+    "scampi",
+    "wit",
+    "zwart",
+  ),
+  "forbidden": ("rood"),
+  "mail-outline": (
+    "grasgroen",
+    "scampi",
+    "wit",
+    "zwart",
+  ),
+  "search": ("grasgroen"),
+  "status-error": (),
+  "status-warning": (),
+  "trash": ("bosgroen"),
+);
+
+@function custom-property($icon, $color: null) {
+  @if not map.has-key($icons, $icon) {
+    @error "di: icoon '#{$icon}' ontbreekt in $icons.";
+  }
+
+  $color-names: map.get($icons, $icon);
+
+  @if not $color {
+    @if list.length($color-names) > 0 {
+      @error "di: icoon '#{$icon}' vereist een kleur (#{$color-names}).";
+    }
+
+    @return string.unquote("--_dso-di-#{$icon}");
+  }
+
+  @if not list.index($color-names, $color) {
+    @error "di: kleur '#{$color}' is niet beschikbaar voor icoon '#{$icon}' in $icons.";
+  }
+
+  @return string.unquote("--_dso-di-#{$icon}-#{$color}");
 }
 
-@mixin variant($icon) {
-  background-image: var(--_dso-di-background-image, url("#{config.$icons-path}di.svg##{$icon}"));
+@mixin variant($icon, $color: null, $override-property: null) {
+  @if $override-property {
+    background-image: var(#{$override-property}, var(#{custom-property($icon, $color)}));
+  } @else {
+    background-image: var(#{custom-property($icon, $color)});
+  }
+}
+
+@mixin base(
+  $icon,
+  $color: null,
+  $override-property: null,
+  $size: icon-variables.$size,
+  $vertical-align: icon-variables.$vertical-align
+) {
+  @include variant($icon, $color, $override-property);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  block-size: $size;
+  inline-size: $size;
+  vertical-align: $vertical-align;
+}
+
+@mixin inline-icons() {
+  :root {
+    @each $icon, $color-names in $icons {
+      @if list.length($color-names) == 0 {
+        #{custom-property($icon)}: #{inline-icon-DI-ONLY($icon)};
+      }
+
+      @each $color-name in $color-names {
+        @if not map.has-key($colors, $color-name) {
+          @error "di: kleur '#{$color-name}' voor icoon '#{$icon}' ontbreekt in $colors.";
+        }
+
+        #{custom-property($icon, $color-name)}: #{inline-icon-DI-ONLY($icon, "#{map.get($colors, $color-name)}")};
+      }
+    }
+  }
 }
