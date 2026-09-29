@@ -247,41 +247,16 @@ div[popover] {
           text-decoration: none;
           white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
 
-          &:hover,
           &:focus {
-            background-color: colors.$grasgroen;
-            border-color: colors.$grasgroen;
-            color: colors.$wit;
-            text-decoration: none;
-          }
-
-          &:focus-visible {
-            background-color: colors.$grasgroen;
-            color: colors.$wit;
-          }
-
-          &:hover {
-            &,
-            &:visited {
-              color: colors.$bosgroen;
-            }
-
-            background-color: colors.$wit;
             text-decoration: underline;
-          }
-
-          &:visited {
-            color: colors.$wit;
-
-            &:not(:hover):not(:focus):not(:focus-visible) {
-              color: colors.$bosgroen;
-            }
           }
         }
 
         &.dso-active {
-          a {
-            font-weight: 600;
+          a,
+          button {
+            background-color: colors.$bosgroen;
+            color: colors.$wit;
           }
         }
 
