@@ -1,7 +1,7 @@
-import { isObject } from "../../shared/is-object";
-import { Label } from "../label/label.models";
-import { Renvooi } from "../renvooi/renvooi.models";
-import { SlideToggle } from "../slide-toggle/slide-toggle.models";
+import { isObject } from "../../utils/is-object";
+import { Label } from "../label";
+import { Renvooi } from "../renvooi";
+import { SlideToggle } from "../slide-toggle";
 
 export interface PlekinfoCard<TemplateFnReturnType> {
   label: Renvooi | string;
@@ -38,4 +38,3 @@ export function isPlekinfoCardInterface<TemplateFnReturnType>(
   object: unknown,
 ): object is PlekinfoCard<TemplateFnReturnType> {
   return isObject(object) && "targetBlank" in object;
-}
