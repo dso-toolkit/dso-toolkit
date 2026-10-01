@@ -252,6 +252,29 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@options").should("not.be.visible");
   });
 
+  it("click on focusable element outside menu should close menu", { browser: "!firefox" }, () => {
+    cy.document().then((document) => {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = "outside-input";
+      input.style.position = "fixed";
+      input.style.bottom = "0";
+      input.style.right = "0";
+      input.style.zIndex = "99999";
+      document.body.appendChild(input);
+    });
+
+    cy.get("@button").should("be.visible").focus().click();
+
+    cy.get("@menuitems").eq(0).should("have.focus");
+
+    cy.get("#outside-input").click();
+
+    cy.get("@options").should("not.be.visible");
+
+    cy.get("#outside-input").should("have.focus");
+  });
+
   it("keeps the focused menu item visible when the dropdown becomes scrollable", { browser: "!firefox" }, () => {
     cy.viewport(320, 180);
 
@@ -466,5 +489,28 @@ describe("Dropdown menu - buttons", () => {
     cy.get("dso-dropdown-menu.hydrated").get("body").click();
 
     cy.get("@options").should("not.be.visible");
+  });
+
+  it("click on focusable element outside menu should close menu", { browser: "!firefox" }, () => {
+    cy.document().then((document) => {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = "outside-input";
+      input.style.position = "fixed";
+      input.style.bottom = "0";
+      input.style.right = "0";
+      input.style.zIndex = "99999";
+      document.body.appendChild(input);
+    });
+
+    cy.get("@button").should("be.visible").focus().click();
+
+    cy.get("@menuitems").eq(0).should("have.focus");
+
+    cy.get("#outside-input").click();
+
+    cy.get("@options").should("not.be.visible");
+
+    cy.get("#outside-input").should("have.focus");
   });
 });
