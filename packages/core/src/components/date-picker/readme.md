@@ -5,18 +5,18 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                                               | Type                   | Default      |
-| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------ |
-| `describedBy`  | `described-by`  | ID of element that describes the input element                                                                                                                            | `string \| undefined`  | `undefined`  |
-| `disabled`     | `disabled`      | Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies. | `boolean`              | `false`      |
-| `dsoAutofocus` | `dso-autofocus` | Should the input be focused on load?                                                                                                                                      | `boolean`              | `false`      |
-| `identifier`   | `identifier`    | Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.                                                                              | `string \| undefined`  | `undefined`  |
-| `invalid`      | `invalid`       | Is input invalid?                                                                                                                                                         | `boolean \| undefined` | `undefined`  |
-| `max`          | `max`           | Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.                            | `string \| undefined`  | `undefined`  |
-| `min`          | `min`           | Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.                            | `string \| undefined`  | `undefined`  |
-| `name`         | `name`          | Name of the date picker input.                                                                                                                                            | `string`               | `"dso-date"` |
-| `required`     | `required`      | Should the input be marked as required?                                                                                                                                   | `boolean`              | `false`      |
-| `value`        | `value`         | Date value. Must be in Dutch date format: DD-MM-YYYY.                                                                                                                     | `string`               | `""`         |
+| Property       | Attribute       | Description                                                                                                                                                               | Type                            | Default      |
+| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------ |
+| `describedBy`  | `described-by`  | ID of element that describes the input element                                                                                                                            | `string \| undefined`           | `undefined`  |
+| `disabled`     | `disabled`      | Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies. | `boolean`                       | `false`      |
+| `dsoAutofocus` | `dso-autofocus` | Should the input be focused on load?                                                                                                                                      | `boolean`                       | `false`      |
+| `identifier`   | `identifier`    | Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.                                                                              | `string \| undefined`           | `undefined`  |
+| `invalid`      | `invalid`       | Is input invalid?                                                                                                                                                         | `boolean \| undefined`          | `undefined`  |
+| `max`          | `max`           | Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.                            | `number \| string \| undefined` | `undefined`  |
+| `min`          | `min`           | Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.                            | `number \| string \| undefined` | `undefined`  |
+| `name`         | `name`          | Name of the date picker input.                                                                                                                                            | `string`                        | `"dso-date"` |
+| `required`     | `required`      | Should the input be marked as required?                                                                                                                                   | `boolean`                       | `false`      |
+| `value`        | `value`         | Date value. Must be in Dutch date format: DD-MM-YYYY.                                                                                                                     | `string`                        | `""`         |
 
 
 ## Events
