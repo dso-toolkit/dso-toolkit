@@ -1,14 +1,16 @@
-import { PlekinfoCardItem } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
+
+import { defaultSymbol } from "./plekinfo-card.content.js";
+import { PlekinfoCardItem } from "./plekinfo-card.models.js";
 
 const symbol = (symbolCode: string) => html`<span class="symboolcode" data-symboolcode=${symbolCode}></span>`;
 const meta = { status: "warning" as const, compact: true, label: "Ontwerp" };
 
-export const withItemsContent: PlekinfoCardItem<TemplateResult>[] = [
+export const withItemsContent: PlekinfoCardItem[] = [
   {
-    symbool: symbol("vgz023"),
+    symbool: defaultSymbol(),
     label: "vergunningplicht",
-    sublabel: "in: bebouwde kom, industrie zone, dijkgebied",
+    sublabel: "in: bebouwde kom, industriezone, dijkgebied",
     meta,
   },
   {
@@ -21,19 +23,33 @@ export const withItemsContent: PlekinfoCardItem<TemplateResult>[] = [
   {
     symbool: symbol("vszt030"),
     label: "toegestaan",
-    sublabel: "in: bebouwde kom, industrie zone, dijkgebied",
+    sublabel: "in: bebouwde kom, industriezone, dijkgebied",
     meta,
     wijzigactie: "voegtoe",
   },
   {
-    symbool: symbol("vgz023"),
-    label: { value: { was: "vergunningplicht", wordt: "Toegestaan" } },
+    symbool: defaultSymbol(),
+    label: { value: { was: "vergunningplicht", wordt: "toegestaan" } },
+    sublabel: "in: ontwikkelzone",
+    meta,
+  },
+];
+
+export const omgevingsnormContent: PlekinfoCardItem[] = [
+  {
+    symbool: defaultSymbol(),
+    label: "vergunningplicht",
+    sublabel: "in: bebouwde kom, industriezone, dijkgebied",
+  },
+  {
+    symbool: defaultSymbol(),
+    label: "toegestaan",
     sublabel: "in: ontwikkelzone",
     meta,
   },
   {
-    symbool: symbol("vgz023"),
-    label: "12 meter",
+    symbool: defaultSymbol(),
+    label: "verbod",
+    sublabel: "in: buitengebied",
   },
-  { symbool: symbol("vgz023"), label: "10 meter", meta },
 ];

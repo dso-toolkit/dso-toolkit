@@ -51,7 +51,7 @@ export class Accordion implements ComponentInterface {
   }
 
   /**
-   * Hide the bottom border (stroke) for compact and renvooi variants.
+   * Hides the bottom border (stroke) for compact and compact-black variants.
    * @default false
    */
   @Prop({ reflect: true })
@@ -67,7 +67,7 @@ export class Accordion implements ComponentInterface {
 
   render() {
     return (
-      <Host no-stroke={this.noStroke ? true : undefined}>
+      <Host>
         <slot></slot>
       </Host>
     );

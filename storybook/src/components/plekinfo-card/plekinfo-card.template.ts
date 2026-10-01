@@ -26,8 +26,8 @@ export function plekinfoCardTemplate({
   const renderedItems: TemplateResult | undefined =
     items && items.length > 0
       ? html`${items.map(
-          (item: PlekinfoCardItem<TemplateResult | string>) => html`
-            <dso-plekinfo-card-item wijzigactie=${ifDefined(item.wijzigactie || undefined)}>
+          (item: PlekinfoCardItem) => html`
+            <dso-plekinfo-card-item slot="content" wijzigactie=${ifDefined(item.wijzigactie)}>
               <span slot="symbol">${item.symbool}</span>
               <span slot="label">${typeof item.label === "string" ? item.label : renvooiTemplate(item.label)}</span>
               ${
@@ -67,15 +67,6 @@ export function plekinfoCardTemplate({
           </div>`
         : nothing
     }
-    ${
-      renderedItems
-        ? richContentTemplate({
-            children: renderedItems,
-            slot: "content",
-          })
-        : content
-          ? richContentTemplate({ children: content, slot: "content" })
-          : nothing
-    }
+    ${renderedItems ? renderedItems : content ? richContentTemplate({ children: content, slot: "content" }) : nothing}
   </dso-plekinfo-card>`;
 }

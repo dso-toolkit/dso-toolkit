@@ -41,7 +41,6 @@ del.dso-plekinfo-card-item-container {
   align-items: baseline;
   gap: units.$u1 * 0.5;
   flex: 1 1 auto;
-  flex-wrap: wrap;
 
   &.no-sublabel {
     .sublabel {

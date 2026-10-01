@@ -11,6 +11,11 @@
 
 :host {
   display: inline-block;
+  max-inline-size: 100%;
+}
+
+:host([truncate][removable]) {
+  max-inline-size: calc(100% - (units.$u3 + 4px));
 }
 
 ::slotted([slot="symbol"]) {
@@ -31,6 +36,7 @@
   padding-block: #{units.$u1 * 0.5};
   padding-inline: units.$u1;
   max-inline-size: 100%;
+  min-inline-size: 0;
   font-weight: normal;
   border-radius: 4px;
   line-height: 1.5;

@@ -121,7 +121,7 @@ export namespace Components {
     interface DsoAccordion {
         "_getState": () => Promise<AccordionInternalState>;
         /**
-          * Hide the bottom border (stroke) for compact and renvooi variants.
+          * Hides the bottom border (stroke) for compact and compact-black variants.
           * @default false
          */
         "noStroke": boolean;
@@ -2976,7 +2976,7 @@ declare namespace LocalJSX {
 
     interface DsoAccordion {
         /**
-          * Hide the bottom border (stroke) for compact and renvooi variants.
+          * Hides the bottom border (stroke) for compact and compact-black variants.
           * @default false
          */
         "noStroke"?: boolean;

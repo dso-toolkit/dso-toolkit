@@ -467,7 +467,7 @@ describe("Show Stroke / No Stroke", () => {
       .should("have.prop", "noStroke", true)
       .find("dso-accordion-section")
       .last()
-      .should("have.css", "border-bottom-width", "0px");
+      .should("have.css", "border-bottom-style", "none");
 
     cy.get("@dsoAccordion").matchImageSnapshot(`${Cypress.currentTest.title} -- noStroke true`);
   });

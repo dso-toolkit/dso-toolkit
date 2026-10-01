@@ -2,41 +2,42 @@ import readme from "@dso-toolkit/core/src/components/truncate/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 
-import {
-  ingekortContent,
-  ingekortMetRenvooiContent,
-  passendContent,
-  renvooiWijzigingNaLadenContent,
-} from "./truncate.content.js";
+import { TruncateArgs } from "./truncate.args.js";
+import { ingekortContent, ingekortMetRenvooiContent, passendContent } from "./truncate.content.js";
 import { decorator } from "./truncate.decorator.js";
 import { truncateTemplate } from "./truncate.template.js";
 
-type TruncateStory = StoryObj;
+type TruncateStory = StoryObj<TruncateArgs>;
 
-const meta: Meta = {
+const meta: Meta<TruncateArgs> = {
   title: "Core/Truncate",
-  decorators: [decorator],
   parameters: {
     docs: {
       page: () => compiler(readme),
     },
   },
+  render: ({ content }) => truncateTemplate({ children: content }),
 };
 
 export default meta;
 
 export const Passend: TruncateStory = {
-  render: () => truncateTemplate(passendContent),
+  args: {
+    content: passendContent,
+  },
+  decorators: [decorator],
 };
 
 export const Ingekort: TruncateStory = {
-  render: () => truncateTemplate(ingekortContent),
+  args: {
+    content: ingekortContent,
+  },
+  decorators: [decorator],
 };
 
 export const IngekortMetRenvooi: TruncateStory = {
-  render: () => truncateTemplate(ingekortMetRenvooiContent),
-};
-
-export const RenvooiWijzigingNaLaden: TruncateStory = {
-  render: () => truncateTemplate(renvooiWijzigingNaLadenContent),
+  args: {
+    content: ingekortMetRenvooiContent,
+  },
+  decorators: [decorator],
 };

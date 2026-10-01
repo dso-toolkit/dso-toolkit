@@ -18,7 +18,7 @@
   border-block-end: 1px solid accordion-variables.$compact-border-color;
 }
 
-:host([no-stroke]) {
+:host([no-stroke]:not([no-stroke="false"])) {
   ::slotted(dso-accordion-section:is(.dso-accordion-compact, .dso-accordion-compact-black):last-child) {
     border-block-end: none;
   }

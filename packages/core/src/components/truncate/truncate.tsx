@@ -24,7 +24,6 @@ export class Truncate implements ComponentInterface {
       const root = target.getRootNode();
 
       if (root instanceof ShadowRoot && root.host instanceof HTMLElement && root.host.localName === "dso-truncate") {
-        // The shared ResizeObserver resolves the Truncate instance from the shadow host.
         Reflect.get(root.host, "checkTruncation")?.call(root.host);
       }
     }
@@ -75,16 +74,21 @@ export class Truncate implements ComponentInterface {
     }
   };
 
-  private stopTooltipEvents = (event: Event) => {
-    event.stopPropagation();
+  private setTooltipContentElement = (element?: HTMLElement) => {
+    this.tooltipContentElement = element;
   };
 
-  private setTooltipContentElement = (element?: HTMLElement) => {
-    this.tooltipContentElement?.removeEventListener("dsoRenvooiMarkItemHighlight", this.stopTooltipEvents);
+  private setContentElement = (element?: HTMLElement) => {
+    if (this.contentElement) {
+      Truncate.resizeObserver.unobserve(this.contentElement);
+    }
 
-    this.tooltipContentElement = element;
+    this.contentElement = element;
 
-    this.tooltipContentElement?.addEventListener("dsoRenvooiMarkItemHighlight", this.stopTooltipEvents);
+    if (this.contentElement) {
+      Truncate.resizeObserver.observe(this.contentElement);
+      this.checkTruncation();
+    }
   };
 
   private hasEllipses(element: HTMLElement): boolean {
@@ -96,7 +100,7 @@ export class Truncate implements ComponentInterface {
       const prototype = Object.getPrototypeOf(source);
 
       for (const property of Object.getOwnPropertyNames(prototype)) {
-        if (property === "constructor") {
+        if (property === "constructor" || property === "text") {
           continue;
         }
 
@@ -113,14 +117,6 @@ export class Truncate implements ComponentInterface {
         }
       }
     }
-
-    source.childNodes.forEach((sourceChild, index) => {
-      const targetChild = target.childNodes[index];
-
-      if (targetChild) {
-        this.copyCustomElementProperties(sourceChild, targetChild);
-      }
-    });
   }
 
   private cloneNodeRecursive(node: Node): Node {
@@ -143,7 +139,7 @@ export class Truncate implements ComponentInterface {
     return clone;
   }
 
-  componentDidLoad(): void {
+  connectedCallback(): void {
     if (this.contentElement) {
       Truncate.resizeObserver.observe(this.contentElement);
       this.checkTruncation();
@@ -156,7 +152,6 @@ export class Truncate implements ComponentInterface {
     }
 
     document.removeEventListener("keydown", this.handleKeyDown);
-    this.tooltipContentElement?.removeEventListener("dsoRenvooiMarkItemHighlight", this.stopTooltipEvents);
     this.tooltipController.dispose();
   }
 
@@ -165,14 +160,14 @@ export class Truncate implements ComponentInterface {
       <Host>
         <span
           class="dso-truncate-content"
-          ref={(elment) => (this.contentElement = elment)}
+          ref={this.setContentElement}
           tabindex={this.truncated ? 0 : undefined}
           onMouseEnter={this.showTooltip}
           onMouseLeave={this.hideTooltip}
           onFocus={this.showTooltip}
           onBlur={this.hideTooltip}
         >
-          <slot ref={(elment) => (this.slotElement = elment)}></slot>
+          <slot ref={(element) => (this.slotElement = element)}></slot>
         </span>
 
         <Tooltip

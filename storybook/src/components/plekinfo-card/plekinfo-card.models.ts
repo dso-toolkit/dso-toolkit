@@ -1,32 +1,43 @@
 import { TemplateResult } from "lit-html";
 
-import { isObject } from "../../shared/is-object";
-import { Label } from "../label/label.models";
-import { Renvooi } from "../renvooi/renvooi.models";
-import { SlideToggle } from "../slide-toggle/slide-toggle.models";
+import { isObject } from "../../shared/is-object.js";
+import { Label } from "../label/label.models.js";
+import { Renvooi } from "../renvooi/renvooi.models.js";
+import { SlideToggle } from "../slide-toggle/slide-toggle.models.js";
 
-export interface PlekinfoCardItem<TemplateFnReturnType> {
+export interface PlekinfoCardItem {
   label: Renvooi | string;
   sublabel?: Renvooi | string;
-  symbool: TemplateFnReturnType;
+  symbool: TemplateResult | string;
   meta?: Label;
   wijzigactie?: PlekinfoWijzigactie;
 }
 
-export interface PlekinfoCard {
+export interface PlekinfoCardBase {
   label: Renvooi | string;
   href: string;
   targetBlank: boolean;
   active?: boolean;
   meta?: Label;
   noStroke?: boolean;
-  content?: TemplateResult | string;
-  symbool?: TemplateResult | string;
   wijzigactie?: PlekinfoWijzigactie;
   interaction?: SlideToggle;
-  items?: PlekinfoCardItem<TemplateResult | string>[];
   dsoPlekinfoCardClick?: (e: CustomEvent<PlekinfoCardClickEvent>) => void;
 }
+
+export type PlekinfoCard = PlekinfoCardBase &
+  (
+    | {
+        content?: TemplateResult | string;
+        symbool: TemplateResult | string;
+        items?: never;
+      }
+    | {
+        content?: never;
+        symbool?: never;
+        items: PlekinfoCardItem[];
+      }
+  );
 
 export interface PlekinfoCardClickEvent {
   originalEvent: MouseEvent;

@@ -20,10 +20,10 @@ import { isModifiedEvent } from "../../utils/is-modified-event";
 import { PlekinfoCardClickEvent } from "./plekinfo-card.interfaces";
 
 /**
- * @slot symbol - A symbol for the card. Mutually exclusive with items.
+ * @slot symbol - The card symbol, required when the card has no items. Do not provide it when the card contains items.
  * @slot heading - A slot to place the title of the card in.
  * @slot meta - An optional slot to place a `Label` in.
- * @slot content - A slot for rich content or `PlekinfoCardItem`s. These content types are mutually exclusive.
+ * @slot content - A slot for rich content or `PlekinfoCardItem`s.
  * @slot interaction - A slot for the `SlideToggle` element.
  */
 @Component({
@@ -110,7 +110,7 @@ export class PlekinfoCard implements ComponentInterface {
     const hasSymbol = this.symbolSlottedElement !== null;
 
     return (
-      <Host has-symbol={hasSymbol} no-stroke={this.noStroke ? true : undefined}>
+      <Host has-symbol={hasSymbol}>
         <WrapWijzigactie wijzigactie={this.wijzigactie} class="dso-plekinfo-card-container">
           <div class="dso-plekinfo-card-symbol" hidden={!hasSymbol}>
             <slot name="symbol" />
