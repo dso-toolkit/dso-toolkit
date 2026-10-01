@@ -127,13 +127,13 @@
 
       .dso-remove {
         &::before {
-          @include di.base("trash-bosgroen");
+          @include di.base("trash", "bosgroen");
         }
       }
 
       .dso-download {
         &::before {
-          @include di.base("download-bosgroen");
+          @include di.base("download", "bosgroen");
         }
       }
 

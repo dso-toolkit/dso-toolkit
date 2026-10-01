@@ -29,7 +29,7 @@ footer {
       &:focus,
       &:hover {
         &::before {
-          @include di.base("chevron-right-zwart");
+          @include di.base("chevron-right", "zwart");
         }
       }
     }

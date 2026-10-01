@@ -68,7 +68,6 @@ overrides:
   fast-uri: "^3.1.5"
   form-data: ">=4.0.6"
   gray-matter>js-yaml: "^3.15.0"
-  gulp-cheerio>cheerio: "^1.1.2"
   hono: "^4.12.34"
   js-yaml: "^3.15.0"
   joi: ">=17.13.4"
