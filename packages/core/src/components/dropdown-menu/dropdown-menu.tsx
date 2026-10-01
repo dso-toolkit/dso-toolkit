@@ -210,10 +210,14 @@ export class DropdownMenu implements ComponentInterface {
   }
 
   private focusOutListener = (event: FocusEvent) => {
-    if (this.open && !(event.relatedTarget instanceof HTMLElement)) {
+    if (this.open && !this.isInsideDropdownMenu(event.relatedTarget)) {
       this.toggleOptions(false);
     }
   };
+
+  private isInsideDropdownMenu(element: EventTarget | null): boolean {
+    return element instanceof Node && (this.host.contains(element) || !!this.host.shadowRoot?.contains(element));
+  }
 
   private get lastItem() {
     return this.dropdownMenuTabbables(true).at(-1);
