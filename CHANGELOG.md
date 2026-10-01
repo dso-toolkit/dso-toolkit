@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Form Group: vervang `icon-only` button door Icon Button ([#3569](https://github.com/dso-toolkit/dso-toolkit/issues/3569))
 * **BREAKING** Document Header: vervang `icon-only` Button door Icon Button ([#3568](https://github.com/dso-toolkit/dso-toolkit/issues/3568))
 
+### Fixed
+* Dropdown Menu: Menu sluit niet bij click op interactief element buiten Dropdown Menu ([#4003](https://github.com/dso-toolkit/dso-toolkit/issues/4003))
+
 ### Task
 * Voorbeeldpagina's: Vervangen `icon-only` Button's ([#3383](https://github.com/dso-toolkit/dso-toolkit/issues/3383))
 * Visueel Regressietesten: Nieuwe snapshot zonder baseline laat een branch-build niet meer falen ([#4001](https://github.com/dso-toolkit/dso-toolkit/issues/4001))
