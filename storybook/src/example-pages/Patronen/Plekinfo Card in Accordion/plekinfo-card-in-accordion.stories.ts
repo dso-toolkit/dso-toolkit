@@ -1,11 +1,10 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
-import { accordionTemplate } from "../../../components/accordion/accordion.template";
-import { plekinfoCardDemoCss } from "../../../components/plekinfo-card/plekinfo-card.demo";
-import { plekinfoCardTemplate } from "../../../components/plekinfo-card/plekinfo-card.template";
+import { accordionTemplate } from "../../../components/accordion/accordion.template.js";
+import { plekinfoCardDemoCss } from "../../../components/plekinfo-card/plekinfo-card.demo.js";
 
-import { plekinfoCardInAccordionSections } from "./plekinfo-card-in-accordion.content";
+import { plekinfoCardInAccordionSections } from "./plekinfo-card-in-accordion.content.js";
 
 const meta: Meta = {
   title: "Patronen/Plekinfo Card in Accordion",
@@ -25,7 +24,7 @@ export const Default: StoryObj<PlekinfoCardInAccordionArgs> = {
     },
   },
   args: {
-    noStroke: true,
+    noStroke: false,
   },
   render: ({ noStroke }) => {
     return html`
@@ -35,7 +34,7 @@ export const Default: StoryObj<PlekinfoCardInAccordionArgs> = {
       ${accordionTemplate({
         variant: "compact",
         noStroke,
-        sections: plekinfoCardInAccordionSections(plekinfoCardTemplate),
+        sections: plekinfoCardInAccordionSections(),
       })}
     `;
   },

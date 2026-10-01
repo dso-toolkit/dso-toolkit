@@ -16,6 +16,49 @@ describe("Plekinfo Card", () => {
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
   });
 
+  it("should allow disabling the bottom border via noStroke property", () => {
+    cy.get("dso-plekinfo-card.hydrated")
+      .as("dsoPlekinfoCard")
+      .invoke("prop", "noStroke", false)
+      .should("have.prop", "noStroke", false)
+      .shadow()
+      .find(".dso-plekinfo-card-container")
+      .should("have.css", "border-bottom-style", "solid");
+
+    cy.get("@dsoPlekinfoCard")
+      .invoke("prop", "noStroke", true)
+      .should("have.prop", "noStroke", true)
+      .shadow()
+      .find(".dso-plekinfo-card-container")
+      .should("have.css", "border-bottom-style", "none");
+  });
+
+  it("should show hover background-color for wijzigactie='verwijder'", () => {
+    cy.get("dso-plekinfo-card.hydrated")
+      .invoke("prop", "wijzigactie", "verwijder")
+      .shadow()
+      .find(".dso-plekinfo-card-heading > a")
+      .realHover();
+
+    cy.get("dso-plekinfo-card.hydrated")
+      .shadow()
+      .find("del.dso-plekinfo-card-container")
+      .should("have.css", "background-color", "rgb(233, 205, 209)");
+  });
+
+  it("should show hover background-color for wijzigactie='voegtoe'", () => {
+    cy.get("dso-plekinfo-card.hydrated")
+      .invoke("prop", "wijzigactie", "voegtoe")
+      .shadow()
+      .find(".dso-plekinfo-card-heading > a")
+      .realHover();
+
+    cy.get("dso-plekinfo-card.hydrated")
+      .shadow()
+      .find("ins.dso-plekinfo-card-container")
+      .should("have.css", "background-color", "rgb(216, 229, 201)");
+  });
+
   it("should call dsoPlekinfoCardClick event when user clicks the title in the heading", () => {
     cy.get("dso-plekinfo-card.hydrated")
       .shadow()
@@ -126,23 +169,18 @@ describe("Plekinfo Card", () => {
       cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
     });
 
-    it("should render changed item labels as renvooi inside dso-truncate", () => {
-      const changedLabelItem = () => cy.get("dso-plekinfo-card.hydrated").find("dso-plekinfo-card-item").eq(3);
+    it("should render items directly in the content slot without a card symbol", () => {
+      cy.get("dso-plekinfo-card.hydrated").children("[slot='symbol']").should("not.exist");
 
-      changedLabelItem().shadow().find(".label dso-truncate").should("exist");
+      cy.get("dso-plekinfo-card.hydrated")
+        .find("dso-plekinfo-card-item[slot='content']")
+        .should("have.length.greaterThan", 0);
 
-      changedLabelItem()
-        .find("span[slot='label'] > dso-renvooi")
-        .should("exist")
-        .shadow()
-        .find("del")
-        .should("contain.text", "vergunningplicht");
-
-      changedLabelItem()
-        .find("span[slot='label'] > dso-renvooi")
-        .shadow()
-        .find("ins")
-        .should("contain.text", "Toegestaan");
+      cy.get("dso-plekinfo-card.hydrated")
+        .find("dso-plekinfo-card-item[slot='content']")
+        .each(($item) => {
+          cy.wrap($item).children("[slot='symbol']").should("exist");
+        });
     });
   });
 });

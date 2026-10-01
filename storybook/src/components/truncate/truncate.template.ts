@@ -1,5 +1,7 @@
-import { TemplateResult, html } from "lit-html";
+import { html } from "lit-html";
 
-export function truncateTemplate(children: TemplateResult) {
+import { Truncate } from "./truncate.models.js";
+
+export function truncateTemplate({ children }: Truncate) {
   return html`<dso-truncate>${children}</dso-truncate>`;
 }

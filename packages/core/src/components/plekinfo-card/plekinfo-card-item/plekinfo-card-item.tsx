@@ -6,7 +6,7 @@ import {
 } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
 
 /**
- * @slot symbol - A mandatory slot to place a symbol in, representing the plekinfo item.
+ * @slot symbol - A required slot for the symbol representing this plekinfo item.
  * @slot label - The label of the plekinfo item.
  * @slot sublabel - An optional sublabel of the plekinfo item.
  * @slot meta - An optional label badge displayed after the label and sublabel.

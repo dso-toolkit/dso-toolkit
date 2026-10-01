@@ -1,11 +1,10 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/plekinfo-card";
 @use "~dso-toolkit/src/variables/colors";
-
-@use "~dso-toolkit/src/components/insert/insert";
-@use "~dso-toolkit/src/components/delete/delete";
+@use "~dso-toolkit/src/components/plekinfo-card";
+@use "~dso-toolkit/src/components/insert";
+@use "~dso-toolkit/src/components/delete";
 
 @include utilities.box-sizing();
 
@@ -47,7 +46,23 @@
   }
 }
 
-:host([no-stroke]) .dso-plekinfo-card-container {
+ins.dso-plekinfo-card-container {
+  @include insert.root();
+}
+
+del.dso-plekinfo-card-container {
+  @include delete.root($strikethrough: false);
+}
+
+ins.dso-plekinfo-card-container:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
+  background-color: plekinfo-card.$background-color-hover-voegtoe;
+}
+
+del.dso-plekinfo-card-container:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
+  background-color: plekinfo-card.$background-color-hover-verwijder;
+}
+
+:host([no-stroke]:not([no-stroke="false"])) .dso-plekinfo-card-container {
   border-block-end: none;
 }
 
@@ -92,7 +107,6 @@
 ::slotted([slot="heading"]) {
   display: inline !important;
   margin-block: 0 !important;
-
   font-size: 1.125em !important;
   font-weight: 700 !important;
   color: colors.$bosgroen !important;
@@ -136,5 +150,9 @@
 
   &:visited {
     color: plekinfo-card.$heading-anchor-color;
+  }
+
+  .sr-only {
+    @include utilities.sr-only();
   }
 }

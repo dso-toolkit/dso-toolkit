@@ -14,12 +14,12 @@
 
 ## Slots
 
-| Slot         | Description                                                            |
-| ------------ | ---------------------------------------------------------------------- |
-| `"label"`    | The label of the plekinfo item.                                        |
-| `"meta"`     | An optional label badge displayed after the label and sublabel.        |
-| `"sublabel"` | An optional sublabel of the plekinfo item.                             |
-| `"symbol"`   | A mandatory slot to place a symbol in, representing the plekinfo item. |
+| Slot         | Description                                                     |
+| ------------ | --------------------------------------------------------------- |
+| `"label"`    | The label of the plekinfo item.                                 |
+| `"meta"`     | An optional label badge displayed after the label and sublabel. |
+| `"sublabel"` | An optional sublabel of the plekinfo item.                      |
+| `"symbol"`   | A required slot for the symbol representing this plekinfo item. |
 
 
 ## Dependencies

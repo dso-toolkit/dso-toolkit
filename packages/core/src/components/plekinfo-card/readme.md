@@ -25,13 +25,13 @@
 
 ## Slots
 
-| Slot            | Description                                                                                 |
-| --------------- | ------------------------------------------------------------------------------------------- |
-| `"content"`     | A slot for rich content or `PlekinfoCardItem`s. These content types are mutually exclusive. |
-| `"heading"`     | A slot to place the title of the card in.                                                   |
-| `"interaction"` | A slot for the `SlideToggle` element.                                                       |
-| `"meta"`        | An optional slot to place a `Label` in.                                                     |
-| `"symbol"`      | A symbol for the card. Mutually exclusive with items.                                       |
+| Slot            | Description                                                                                           |
+| --------------- | ----------------------------------------------------------------------------------------------------- |
+| `"content"`     | A slot for rich content or `PlekinfoCardItem`s.                                                       |
+| `"heading"`     | A slot to place the title of the card in.                                                             |
+| `"interaction"` | A slot for the `SlideToggle` element.                                                                 |
+| `"meta"`        | An optional slot to place a `Label` in.                                                               |
+| `"symbol"`      | The card symbol, required when the card has no items. Do not provide it when the card contains items. |
 
 
 ## Dependencies

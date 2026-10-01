@@ -9,7 +9,7 @@ import { Label } from "../label/label.models.js";
 import { Renvooi } from "../renvooi/renvooi.models.js";
 import { SlideToggle } from "../slide-toggle/slide-toggle.models.js";
 
-import { PlekinfoCard, PlekinfoWijzigactie } from "./plekinfo-card.models.js";
+import { PlekinfoCard, PlekinfoCardBase, PlekinfoWijzigactie } from "./plekinfo-card.models.js";
 
 export interface PlekinfoCardArgs {
   label: Renvooi | string;
@@ -72,9 +72,17 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
 
 export function plekinfoCardArgsMapper(
   a: PlekinfoCardArgs,
-  symbool?: TemplateResult | string,
+  symbool: TemplateResult | string,
   content?: TemplateResult | string,
 ): PlekinfoCard {
+  return {
+    ...plekinfoCardBaseArgsMapper(a),
+    content,
+    symbool,
+  };
+}
+
+export function plekinfoCardBaseArgsMapper(a: PlekinfoCardArgs): PlekinfoCardBase {
   return {
     label: a.label,
     href: a.href,
@@ -84,8 +92,6 @@ export function plekinfoCardArgsMapper(
     interaction: a.interaction,
     meta: a.meta,
     noStroke: a.noStroke,
-    content,
-    symbool,
     dsoPlekinfoCardClick: (e) => a.dsoPlekinfoCardClick(e.detail),
   };
 }

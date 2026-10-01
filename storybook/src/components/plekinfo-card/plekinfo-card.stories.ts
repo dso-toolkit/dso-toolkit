@@ -2,12 +2,13 @@ import readme from "@dso-toolkit/core/src/components/plekinfo-card/readme.md?raw
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 
-import { withItemsContent } from "./plekinfo-card-item.content.js";
+import { omgevingsnormContent, withItemsContent } from "./plekinfo-card-item.content.js";
 import {
   PlekinfoCardArgs,
   plekinfoCardArgTypes,
   plekinfoCardArgs,
   plekinfoCardArgsMapper,
+  plekinfoCardBaseArgsMapper,
 } from "./plekinfo-card.args.js";
 import { content, defaultSymbol } from "./plekinfo-card.content.js";
 import { decorator } from "./plekinfo-card.decorator.js";
@@ -30,31 +31,18 @@ const meta: Meta<PlekinfoCardArgs> = {
 
 export default meta;
 
-export const Default: PlekinfoCardStory = {
-  args: {
-    noStroke: true,
-  },
-};
+export const Default: PlekinfoCardStory = {};
 
 export const Static: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
-    noStroke: true,
     href: "",
   },
-};
-
-export const WithoutSymbol: PlekinfoCardStory = {
-  args: {
-    noStroke: true,
-  },
-  render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content())),
 };
 
 export const WithSlideToggle: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
-    noStroke: true,
     interaction: {
       checked: false,
       accessibleLabel: "sr-only label van het schuifje",
@@ -65,7 +53,6 @@ export const WithSlideToggle: PlekinfoCardStory = {
 export const WithLabel: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
-    noStroke: true,
     meta: {
       status: "warning",
       compact: true,
@@ -77,7 +64,6 @@ export const WithLabel: PlekinfoCardStory = {
 export const WithNameChange: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
-    noStroke: true,
     label: {
       value: {
         was: "Radargebieden",
@@ -90,7 +76,6 @@ export const WithNameChange: PlekinfoCardStory = {
 export const WithNameChangeComplex: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
-    noStroke: true,
     label: {
       value: [
         "Waardes worden weergegeven op de kaart",
@@ -108,16 +93,34 @@ export const WithItems: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
     label: {
-      value: "Item label",
+      value: "Bijbehorend bouwwerk bouwen",
     },
     interaction: {
       checked: false,
-      accessibleLabel: "sr-only label van het schuifje",
+      accessibleLabel: "Schakel activiteit in of uit",
     },
   },
   render: (args) =>
     plekinfoCardTemplate({
-      ...plekinfoCardArgsMapper(args, defaultSymbol()),
+      ...plekinfoCardBaseArgsMapper(args),
       items: withItemsContent,
+    }),
+};
+
+export const WithEnvironmentalNormItems: PlekinfoCardStory = {
+  args: {
+    ...plekinfoCardArgs,
+    label: {
+      value: "Environmental norms",
+    },
+    interaction: {
+      checked: false,
+      accessibleLabel: "Schakel omgevingsnorm in of uit",
+    },
+  },
+  render: (args) =>
+    plekinfoCardTemplate({
+      ...plekinfoCardBaseArgsMapper(args),
+      items: omgevingsnormContent,
     }),
 };

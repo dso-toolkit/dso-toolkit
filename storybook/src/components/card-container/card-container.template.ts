@@ -4,7 +4,6 @@ import { Card, isCardInterface } from "../card/card.models.js";
 import { cardTemplate } from "../card/card.template.js";
 import { DocumentCard, isDocumentCardInterface } from "../document-card/document-card.models.js";
 import { documentCardTemplate } from "../document-card/document-card.template.js";
-import { PlekinfoCard } from "../plekinfo-card/plekinfo-card.models.js";
 
 import { CardContainer } from "./card-container.models.js";
 

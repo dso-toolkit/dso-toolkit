@@ -4,15 +4,15 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 <StorybookComponent implementations={["core"]} variant="ingekort" />
 
-Truncate toont zijn inhoud op één regel. Past de inhoud niet, dan eindigt deze op een ellipsis en wordt de inhoud focusbaar gemaakt. Bij hover of focus verschijnt een tooltip met de volledige inhoud, en Escape sluit die tooltip weer. Het component weet niets van zijn omgeving en kan willekeurige inline inhoud bevatten, ook `dso-renvooi`.
+Truncate toont zijn inhoud op één regel. Past de inhoud niet, dan eindigt deze op een ellipsis en wordt de inhoud focusbaar gemaakt. Bij hover of focus verschijnt een tooltip met de volledige inhoud, en Escape sluit die tooltip weer.
 
-Andere componenten, zoals [Label](./label.mdx) en Plekinfo Card Item, gebruiken Truncate om hun eigen inkort- en tooltipgedrag te bieden.
+Andere componenten, zoals Label en Plekinfo Card Item, gebruiken Truncate om hun eigen inkort- en tooltipgedrag te bieden.
 
 ## Gedrag en toegankelijkheid
 
-Gelet op [WCAG succescriterium 1.4.4](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html) zijn afbrekingen met ellipsis acceptabel als de volledige content beschikbaar is op focus of na activatie van de gebruiker.
+Gelet op [WCAG succescriterium 1.4.4](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html) zijn afbrekingen met ellipsis acceptabel als de volledige content beschikbaar is wanneer de gebruiker de tekst focus geeft of na activatie van de gebruiker.
 
-De tooltip is `aria-hidden`, want de volledige inhoud staat al in de toegankelijkheidsboom van de inkorte tekst zelf: de ellipsis is alleen visueel. Er wordt daarom geen `aria-describedby` gebruikt.
+Screenreaders lezen de volledige ingekorte tekst voor. De tooltip is bedoeld voor gebruikers die de tekst visueel bekijken en toont bij hover of focus de volledige inhoud.
 
 <StorybookComponent implementations={["core"]} variant="ingekort-met-renvooi" />
 

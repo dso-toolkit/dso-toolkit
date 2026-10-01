@@ -82,7 +82,7 @@ describe("Truncate", () => {
   });
 
   it("should update the tooltip when the renvooi value changes", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-truncate--renvooi-wijziging-na-laden&viewMode=story");
+    cy.visit("http://localhost:45000/iframe.html?id=core-truncate--ingekort-met-renvooi&viewMode=story");
 
     cy.get("dso-truncate").should("be.visible").and("have.class", "hydrated");
 
@@ -110,6 +110,35 @@ describe("Truncate", () => {
       .find("ins")
       .should("contain.text", "verbodmeldingsplicht");
   });
+
+  it("should update truncation state after being moved in the DOM and resized", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-truncate--ingekort&viewMode=story");
+
+    cy.get("dso-truncate")
+      .should("have.class", "hydrated")
+      .shadow()
+      .find(".dso-truncate-content")
+      .should("have.attr", "tabindex", "0");
+
+    cy.get("#storybook-root").then(($root) => {
+      const root = $root[0];
+      const truncate = $root.find("dso-truncate")[0];
+
+      if (!root || !truncate) {
+        throw new Error("dso-truncate or storybook-root not found");
+      }
+
+      const container = document.createElement("div");
+
+      root.appendChild(container);
+      container.appendChild(truncate);
+
+      cy.wrap(truncate).invoke("css", "width", "80px");
+    });
+
+    cy.get("dso-truncate").shadow().find(".dso-truncate-content").should("have.attr", "tabindex", "0");
+  });
+
   it("should update truncation state when the container is resized", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-truncate--ingekort&viewMode=story");
 
