@@ -51,6 +51,13 @@ export class Accordion implements ComponentInterface {
   }
 
   /**
+   * Hides the bottom border (stroke) for compact and compact-black variants.
+   * @default false
+   */
+  @Prop({ reflect: true })
+  noStroke = false;
+
+  /**
    * @internal
    */
   @Method()

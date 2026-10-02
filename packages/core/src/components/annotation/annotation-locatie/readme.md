@@ -40,6 +40,7 @@ graph TD;
   dso-annotation-locatie --> dso-renvooi
   dso-annotation-locatie --> dso-slide-toggle
   dso-annotation-locatie --> dso-label
+  dso-label --> dso-truncate
   dso-label --> dso-icon-button
   dso-icon-button --> dso-icon
   dsot-document-component-demo --> dso-annotation-locatie

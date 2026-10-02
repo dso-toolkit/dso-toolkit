@@ -194,6 +194,7 @@ function plekInfoCardDefault(): PlekinfoCard {
     },
     label: "Aanvraagvereisten binnenplanse omgevingsvergunning omgevingsplanactiviteit bouwwerken",
     active: false,
+    noStroke: true,
   };
 }
 

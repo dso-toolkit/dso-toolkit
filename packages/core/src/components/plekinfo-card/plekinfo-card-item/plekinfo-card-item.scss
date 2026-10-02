@@ -1,0 +1,74 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/global/mixins/symbol.mixins" as symbol-mixins;
+
+@use "~dso-toolkit/src/components/insert/insert";
+@use "~dso-toolkit/src/components/delete/delete";
+
+@use "plekinfo-card-item.variables" as plekinfo-card-item-variables;
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+}
+
+.dso-plekinfo-card-item-container {
+  display: flex;
+  align-items: flex-start;
+  column-gap: units.$u1;
+  inline-size: 100%;
+  padding-block: units.$u1;
+  padding-inline: units.$u1;
+
+  ::slotted([slot="symbol"]) {
+    @include symbol-mixins.symbolContainer(
+      plekinfo-card-item-variables.$symbol-block-size,
+      plekinfo-card-item-variables.$symbol-inline-size
+    );
+
+    margin-inline-end: 0;
+    background-color: transparent;
+  }
+}
+
+del.dso-plekinfo-card-item-container {
+  text-decoration: none;
+}
+
+.content {
+  min-inline-size: 0;
+  display: flex;
+  align-items: baseline;
+  gap: units.$u1 * 0.5;
+  flex: 1 1 auto;
+
+  &.no-sublabel {
+    .sublabel {
+      flex: 0 0 auto;
+    }
+
+    .meta {
+      margin-inline-start: 0;
+    }
+  }
+}
+
+.label {
+  min-inline-size: 0;
+  flex: 0 1 auto;
+  font-weight: 700;
+}
+
+.sublabel {
+  min-inline-size: 0;
+  flex: 1 1 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  gap: units.$u1 * 0.5;
+  margin-inline-start: auto;
+}

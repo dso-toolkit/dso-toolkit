@@ -2,11 +2,13 @@ import readme from "@dso-toolkit/core/src/components/plekinfo-card/readme.md?raw
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 
+import { omgevingsnormContent, withItemsContent } from "./plekinfo-card-item.content.js";
 import {
   PlekinfoCardArgs,
   plekinfoCardArgTypes,
   plekinfoCardArgs,
   plekinfoCardArgsMapper,
+  plekinfoCardBaseArgsMapper,
 } from "./plekinfo-card.args.js";
 import { content, defaultSymbol } from "./plekinfo-card.content.js";
 import { decorator } from "./plekinfo-card.decorator.js";
@@ -36,10 +38,6 @@ export const Static: PlekinfoCardStory = {
     ...plekinfoCardArgs,
     href: "",
   },
-};
-
-export const WithoutSymbol: PlekinfoCardStory = {
-  render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content())),
 };
 
 export const WithSlideToggle: PlekinfoCardStory = {
@@ -89,4 +87,40 @@ export const WithNameChangeComplex: PlekinfoCardStory = {
       ],
     },
   },
+};
+
+export const WithItems: PlekinfoCardStory = {
+  args: {
+    ...plekinfoCardArgs,
+    label: {
+      value: "Bijbehorend bouwwerk bouwen",
+    },
+    interaction: {
+      checked: false,
+      accessibleLabel: "Schakel activiteit in of uit",
+    },
+  },
+  render: (args) =>
+    plekinfoCardTemplate({
+      ...plekinfoCardBaseArgsMapper(args),
+      items: withItemsContent,
+    }),
+};
+
+export const WithOmgevingsnormItems: PlekinfoCardStory = {
+  args: {
+    ...plekinfoCardArgs,
+    label: {
+      value: "Maximale bouwhoogte",
+    },
+    interaction: {
+      checked: false,
+      accessibleLabel: "Schakel omgevingsnorm in of uit",
+    },
+  },
+  render: (args) =>
+    plekinfoCardTemplate({
+      ...plekinfoCardBaseArgsMapper(args),
+      items: omgevingsnormContent,
+    }),
 };

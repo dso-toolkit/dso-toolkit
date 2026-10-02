@@ -51,11 +51,13 @@ In beiden gevallen wordt de tekst uitgelezen door middel van `HTMLElement.textCo
 
 ### Depends on
 
+- [dso-truncate](../truncate)
 - [dso-icon-button](../icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-label --> dso-truncate
   dso-label --> dso-icon-button
   dso-icon-button --> dso-icon
   dso-accordion-section --> dso-label

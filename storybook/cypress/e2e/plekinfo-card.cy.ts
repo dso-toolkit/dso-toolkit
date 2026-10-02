@@ -16,6 +16,49 @@ describe("Plekinfo Card", () => {
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
   });
 
+  it("should allow disabling the bottom border via noStroke property", () => {
+    cy.get("dso-plekinfo-card.hydrated")
+      .as("dsoPlekinfoCard")
+      .invoke("prop", "noStroke", false)
+      .should("have.prop", "noStroke", false)
+      .shadow()
+      .find(".dso-plekinfo-card-container")
+      .should("have.css", "border-bottom-style", "solid");
+
+    cy.get("@dsoPlekinfoCard")
+      .invoke("prop", "noStroke", true)
+      .should("have.prop", "noStroke", true)
+      .shadow()
+      .find(".dso-plekinfo-card-container")
+      .should("have.css", "border-bottom-style", "none");
+  });
+
+  it("should show hover background-color for wijzigactie='verwijder'", () => {
+    cy.get("dso-plekinfo-card.hydrated")
+      .invoke("prop", "wijzigactie", "verwijder")
+      .shadow()
+      .find(".dso-plekinfo-card-heading > a")
+      .realHover();
+
+    cy.get("dso-plekinfo-card.hydrated")
+      .shadow()
+      .find("del.dso-plekinfo-card-container")
+      .should("have.css", "background-color", "rgb(233, 205, 209)");
+  });
+
+  it("should show hover background-color for wijzigactie='voegtoe'", () => {
+    cy.get("dso-plekinfo-card.hydrated")
+      .invoke("prop", "wijzigactie", "voegtoe")
+      .shadow()
+      .find(".dso-plekinfo-card-heading > a")
+      .realHover();
+
+    cy.get("dso-plekinfo-card.hydrated")
+      .shadow()
+      .find("ins.dso-plekinfo-card-container")
+      .should("have.css", "background-color", "rgb(216, 229, 201)");
+  });
+
   it("should call dsoPlekinfoCardClick event when user clicks the title in the heading", () => {
     cy.get("dso-plekinfo-card.hydrated")
       .shadow()
@@ -108,5 +151,22 @@ describe("Plekinfo Card", () => {
       .should("exist");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+  });
+
+  describe("Plekinfo Card Item (Integration)", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--with-items");
+    });
+
+    it("should render label and sublabel wrapped in dso-truncate", () => {
+      cy.get("dso-plekinfo-card.hydrated")
+        .find("dso-plekinfo-card-item.hydrated")
+        .first()
+        .shadow()
+        .find(".label dso-truncate, .sublabel dso-truncate")
+        .should("have.length", 2);
+
+      cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    });
   });
 });
