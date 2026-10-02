@@ -1,6 +1,5 @@
 import { html } from "lit-html";
 
-import { defaultSymbol } from "./plekinfo-card.content.js";
 import { PlekinfoCardItem } from "./plekinfo-card.models.js";
 
 const symbol = (symbolCode: string) => html`<span class="symboolcode" data-symboolcode=${symbolCode}></span>`;
@@ -8,7 +7,7 @@ const meta = { status: "warning" as const, compact: true, label: "Ontwerp" };
 
 export const withItemsContent: PlekinfoCardItem[] = [
   {
-    symbool: defaultSymbol(),
+    symbool: symbol("vgz023"),
     label: "vergunningplicht",
     sublabel: "in: bebouwde kom, industriezone, dijkgebied",
     meta,
@@ -28,7 +27,7 @@ export const withItemsContent: PlekinfoCardItem[] = [
     wijzigactie: "voegtoe",
   },
   {
-    symbool: defaultSymbol(),
+    symbool: symbol("vgz023"),
     label: { value: { was: "vergunningplicht", wordt: "toegestaan" } },
     sublabel: "in: ontwikkelzone",
     meta,
@@ -37,19 +36,20 @@ export const withItemsContent: PlekinfoCardItem[] = [
 
 export const omgevingsnormContent: PlekinfoCardItem[] = [
   {
-    symbool: defaultSymbol(),
-    label: "vergunningplicht",
-    sublabel: "in: bebouwde kom, industriezone, dijkgebied",
+    symbool: symbol("vgz023"),
+    label: "10 meter",
   },
   {
-    symbool: defaultSymbol(),
-    label: "toegestaan",
-    sublabel: "in: ontwikkelzone",
+    symbool: symbol("vgz023"),
+    label: "12 meter",
     meta,
   },
   {
-    symbool: defaultSymbol(),
-    label: "verbod",
-    sublabel: "in: buitengebied",
+    symbool: symbol("vgz023"),
+    label: "14 meter",
+  },
+  {
+    symbool: symbol("vgz023"),
+    label: "18 meter",
   },
 ];

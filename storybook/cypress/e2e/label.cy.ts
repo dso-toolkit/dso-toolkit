@@ -1,31 +1,37 @@
 describe("Label", () => {
-  const defaultLabelText = "Bouwwerken, werken en objecten bouwen";
-
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-label--default");
+    prepareComponent();
+  });
 
+  const defaultLabelText = "Bouwwerken, werken en objecten bouwen";
+  function prepareComponent() {
+    // Set the min-height so that there is room for the tooltip.
     cy.get("#storybook-root").invoke("attr", "style", "min-height: 360px;");
 
-    cy.get("dso-label.hydrated").as("dsoLabel").invoke("text", defaultLabelText).shadow().as("dsoLabelShadow");
-  });
+    cy.get("dso-label.hydrated")
+      .as("dsoLabel")
+      .shadow()
+      .as("dsoLabelShadow")
+      .get("@dsoLabel")
+      .invoke("text", defaultLabelText);
+  }
 
   it("should show tooltip on focus", () => {
     cy.get("@dsoLabel")
       .then(($element) => $element.wrap('<div style="max-width: 100px">'))
       .invoke("prop", "truncate", true)
-      .invoke("prop", "removable", true)
-      .get("@dsoLabelShadow")
-      .find(".dso-label-content")
-      .should("have.attr", "tabindex", "0")
-      .focus()
-      .get("@dsoLabelShadow")
-      .find(".dso-tooltip")
-      .should("be.visible")
-      .should("have.text", defaultLabelText)
-      .realPress("Tab")
-      .get("@dsoLabelShadow")
-      .find(".dso-tooltip")
-      .should("not.be.visible");
+      .invoke("prop", "removable", true);
+
+    cy.get("@dsoLabelShadow").find("dso-truncate").shadow().as("dsoTruncateShadow");
+
+    cy.get("@dsoTruncateShadow").find(".dso-truncate-content").should("have.attr", "tabindex", "0").focus();
+
+    cy.get("@dsoTruncateShadow").find(".dso-tooltip").should("be.visible").and("have.text", defaultLabelText);
+
+    cy.get("@dsoTruncateShadow").find(".dso-truncate-content").realPress("Tab");
+
+    cy.get("@dsoTruncateShadow").find(".dso-tooltip").should("not.be.visible");
   });
 
   it("should close tooltip when escape is pressed", () => {
@@ -62,21 +68,21 @@ describe("Label", () => {
   it("should update label and remove-button text when changed", () => {
     const updatedText = "andere tekst";
 
-    cy.get("@dsoLabel").should("have.text", defaultLabelText).invoke("prop", "removable", true);
-
-    cy.get("@dsoLabelShadow")
+    cy.get("@dsoLabel")
+      .should("have.text", defaultLabelText)
+      .invoke("prop", "removable", true)
+      .get("@dsoLabelShadow")
       .find("dso-icon-button")
       .shadow()
       .find(`button[aria-label='Verwijder: ${defaultLabelText}']`)
-      .should("exist");
-
-    cy.get("@dsoLabel").invoke("text", updatedText).should("have.text", updatedText);
-
-    cy.get("@dsoLabelShadow")
+      .get("@dsoLabel")
+      .invoke("text", updatedText)
+      .get("@dsoLabel")
+      .should("have.text", updatedText)
+      .get("@dsoLabelShadow")
       .find("dso-icon-button")
       .shadow()
-      .find(`button[aria-label='Verwijder: ${updatedText}']`)
-      .should("exist");
+      .find(`button[aria-label='Verwijder: ${updatedText}']`);
   });
 
   const statuses = [

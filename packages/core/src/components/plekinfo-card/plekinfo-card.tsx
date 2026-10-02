@@ -23,7 +23,7 @@ import { PlekinfoCardClickEvent } from "./plekinfo-card.interfaces";
  * @slot symbol - The card symbol, required when the card has no items. Do not provide it when the card contains items.
  * @slot heading - A slot to place the title of the card in.
  * @slot meta - An optional slot to place a `Label` in.
- * @slot content - A slot for rich content or `PlekinfoCardItem`s.
+ * @slot content - A slot for rich content or `PlekinfoCardItem`s. These content types are mutually exclusive.
  * @slot interaction - A slot for the `SlideToggle` element.
  */
 @Component({
