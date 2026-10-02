@@ -27,7 +27,7 @@
 
 | Slot            | Description                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------- |
-| `"content"`     | A slot for rich content or `PlekinfoCardItem`s.                                                       |
+| `"content"`     | A slot for rich content or `PlekinfoCardItem`s. These content types are mutually exclusive.           |
 | `"heading"`     | A slot to place the title of the card in.                                                             |
 | `"interaction"` | A slot for the `SlideToggle` element.                                                                 |
 | `"meta"`        | An optional slot to place a `Label` in.                                                               |

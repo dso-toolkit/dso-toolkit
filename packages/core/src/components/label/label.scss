@@ -14,7 +14,7 @@
   max-inline-size: 100%;
 }
 
-:host([truncate][removable]) {
+:host([removable]) .dso-label-content {
   max-inline-size: calc(100% - (units.$u3 + 4px));
 }
 

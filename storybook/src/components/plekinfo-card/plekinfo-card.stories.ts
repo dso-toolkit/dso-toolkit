@@ -107,11 +107,11 @@ export const WithItems: PlekinfoCardStory = {
     }),
 };
 
-export const WithEnvironmentalNormItems: PlekinfoCardStory = {
+export const WithOmgevingsnormItems: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
     label: {
-      value: "Environmental norms",
+      value: "Maximale bouwhoogte",
     },
     interaction: {
       checked: false,

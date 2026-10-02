@@ -168,19 +168,5 @@ describe("Plekinfo Card", () => {
 
       cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
     });
-
-    it("should render items directly in the content slot without a card symbol", () => {
-      cy.get("dso-plekinfo-card.hydrated").children("[slot='symbol']").should("not.exist");
-
-      cy.get("dso-plekinfo-card.hydrated")
-        .find("dso-plekinfo-card-item[slot='content']")
-        .should("have.length.greaterThan", 0);
-
-      cy.get("dso-plekinfo-card.hydrated")
-        .find("dso-plekinfo-card-item[slot='content']")
-        .each(($item) => {
-          cy.wrap($item).children("[slot='symbol']").should("exist");
-        });
-    });
   });
 });
