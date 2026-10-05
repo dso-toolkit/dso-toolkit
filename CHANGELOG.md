@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Document Component: `dsoOzonContentClick` ook afvuren voor externe links ([#3913](https://github.com/dso-toolkit/dso-toolkit/issues/3913))
 
+### Deprecated
+* Button: Deprecate "icon-only" werkvorm ([#3950](https://github.com/dso-toolkit/dso-toolkit/issues/3950))
+
 ## 😺 Release 101.0.0 - 2026-10-07
 
 ### Changed

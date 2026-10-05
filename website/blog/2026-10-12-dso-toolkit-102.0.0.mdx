@@ -1,0 +1,33 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v102.0.0 🚨
+
+Deze release bevat een **deprecation** voor het volgende component:
+
+- Button (icon-only werkvorm)
+
+<!-- truncate -->
+
+## Button
+
+We keuren het gebruik van de icon-only werkvorm van Button in deze release af. Het betere alternatief is een `Icon Button`, dat we in 🌯 Release 79.1.0 hebben geïntroduceerd. Dit beter toegankelijke component is speciaal ontworpen voor icon-only knoppen.
+
+## Migratiepad
+
+```html
+❌
+<button type="button" class="dso-primary dso-small | dso-secondary | dso-tertiary | dso-map">
+  <span class="sr-only">Button label</span>
+  <dso-icon icon="..."></dso-icon>
+</button>
+
+✅
+<dso-icon-button
+  variant="secondary | tertiary | map"
+  icon="..."
+  label="Button label"
+  tooltip-placement="top"
+></dso-icon-button>
+```
