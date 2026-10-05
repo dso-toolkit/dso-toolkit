@@ -11,7 +11,7 @@ import { plekinfoCardTemplate } from "../../../components/plekinfo-card/plekinfo
 const symbol = (symbolCode: string) => html`<span class="symboolcode" data-symboolcode=${symbolCode}></span>`;
 
 function isAccordionSection(target: EventTarget | null): target is HTMLDsoAccordionSectionElement {
-  return target instanceof HTMLElement && target.tagName === "DSO-ACCORDION-SECTION";
+  return target instanceof HTMLElement && target.localName === "dso-accordion-section";
 }
 
 function dsoToggleClick(event: CustomEvent<AccordionSectionToggleClickEvent>) {
