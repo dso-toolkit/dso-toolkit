@@ -9,14 +9,12 @@ import { cardContainerTemplate } from "../../../components/card-container/card-c
 import { featuresContent } from "../../../components/document-header/document-header.content.js";
 import { documentHeaderTemplate } from "../../../components/document-header/document-header.template.js";
 import { highlightBoxTemplate } from "../../../components/highlight-box/highlight-box.template.js";
-import { iconTemplate } from "../../../components/icon/icon.template.js";
 import { kaartlagenTabItem, legendArgs, legendaTabItem } from "../../../components/legend/legend.args.js";
 import { kaartlagenRichContent } from "../../../components/legend/legend.content.js";
 import { legendTemplate } from "../../../components/legend/legend.template.js";
 import { linkTemplate } from "../../../components/link/link.template.js";
 import { mapMessageTemplate } from "../../../components/map-message/map-message.template.js";
 import { navbarTemplate } from "../../../components/navbar/navbar.template.js";
-import { plekinfoCardTemplate } from "../../../components/plekinfo-card/plekinfo-card.template.js";
 import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
 import { selectableTemplate } from "../../../components/selectable/selectable.template.js";
 import { ViewerGridTab } from "../../../components/viewer-grid/viewer-grid.models.js";
@@ -270,35 +268,18 @@ export const Documenten: StoryObj<DocumentenArgs> = {
               })}
               ${accordionTemplate({
                 variant: "compact-black",
-                reverseAlign: true,
                 sections: [
                   {
                     handleTitle: "Activiteiten(90)",
                     heading: "h4",
                     open: true,
-                    content: html`
-                      ${plekinfoCardsListActiviteiten().map((plekinfoCard) => {
-                        return html`${plekinfoCardTemplate({
-                            ...plekinfoCard,
-                            symbool: iconTemplate({ icon: "home" }),
-                          })}
-                          <hr />`;
-                      })}
-                      ${linkTemplate({ url: "#", label: "Toon alle activiteiten" })}
-                    `,
+                    content: cardContainerTemplate({ mode: "list", cards: plekinfoCardsListActiviteiten() }),
                   },
                   {
                     handleTitle: "Locaties (3)",
                     heading: "h4",
                     open: true,
-                    content: html`
-                      ${plekinfoCardsListLocaties().map((plekinfoCard) =>
-                        plekinfoCardTemplate({
-                          ...plekinfoCard,
-                          symbool: iconTemplate({ icon: "home" }),
-                        }),
-                      )}
-                    `,
+                    content: cardContainerTemplate({ mode: "list", cards: plekinfoCardsListLocaties() }),
                   },
                 ],
               })}

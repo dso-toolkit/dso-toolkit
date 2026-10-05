@@ -45,7 +45,6 @@ export function plekinfoCardInAccordionSections(): AccordionSection[] {
           href: "#",
           targetBlank: false,
           interaction,
-          noStroke: true,
           items: [
             {
               symbool: symbol("vgz023"),
@@ -81,7 +80,6 @@ export function plekinfoCardInAccordionSections(): AccordionSection[] {
           href: "#",
           targetBlank: false,
           interaction,
-          noStroke: true,
           items: [
             {
               symbool: symbol("vgz023"),

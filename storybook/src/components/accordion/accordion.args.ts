@@ -20,7 +20,6 @@ import {
 export interface AccordionArgs {
   variant: undefined | "default" | "compact" | "conclusion" | "neutral" | "compact-black";
   reverseAlign: boolean;
-  noStroke?: boolean;
   dsoToggleClick: HandlerFunction;
   dsoAnimationStart: HandlerFunction;
   dsoAnimationEnd: HandlerFunction;
@@ -52,7 +51,6 @@ export const accordionArgs: Pick<
   | "dsoAnimationStart"
   | "dsoAnimationEnd"
   | "dsoActiveChange"
-  | "noStroke"
 > = {
   badge: false,
   open: false,
@@ -72,11 +70,6 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     },
   },
   reverseAlign: {
-    control: {
-      type: "boolean",
-    },
-  },
-  noStroke: {
     control: {
       type: "boolean",
     },
@@ -165,7 +158,6 @@ export function accordionArgsMapper(
   return {
     variant: a.variant,
     reverseAlign: a.reverseAlign,
-    noStroke: a.noStroke,
     sections: sections.map((s, i) => {
       const section: AccordionSection = {
         ...s,

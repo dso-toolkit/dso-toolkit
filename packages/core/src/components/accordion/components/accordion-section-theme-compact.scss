@@ -85,9 +85,5 @@
 @mixin dso-web-component-accordion-compact-open-nested() {
   > .dso-section-body {
     padding-block-end: 0;
-
-    dso-accordion-section:last-child {
-      border-block-end: 0;
-    }
   }
 }

@@ -39,3 +39,10 @@
     }
   }
 }
+
+:host(:last-child) .dso-card-list {
+  border-block-end: var(
+    --_dso-card-container-list-border-block-end,
+    card-container.$border-width solid card-container.$border-color
+  );
+}

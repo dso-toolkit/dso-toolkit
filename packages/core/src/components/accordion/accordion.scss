@@ -19,8 +19,12 @@
   border-block-end: 1px solid accordion-variables.$compact-border-color;
 }
 
-:host([no-stroke]:not([no-stroke="false"])) {
-  ::slotted(dso-accordion-section:is(.dso-accordion-compact, .dso-accordion-compact-black):last-child) {
-    border-block-end: none;
+:host(:last-child) {
+  ::slotted(dso-accordion-section.dso-accordion-compact:last-child),
+  ::slotted(dso-accordion-section.dso-accordion-compact-black:last-child) {
+    border-block-end: var(
+      --_dso-accordion-compact-border-block-end,
+      1px solid #{accordion-variables.$compact-border-color}
+    );
   }
 }

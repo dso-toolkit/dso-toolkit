@@ -121,11 +121,6 @@ export namespace Components {
     interface DsoAccordion {
         "_getState": () => Promise<AccordionInternalState>;
         /**
-          * Hides the bottom border (stroke) for compact and compact-black variants.
-          * @default false
-         */
-        "noStroke": boolean;
-        /**
           * Places the chevron at the opposite side.  Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
          */
         "reverseAlign": boolean;
@@ -1213,11 +1208,6 @@ export namespace Components {
           * The URL to which the PlekinfoCard heading links.
          */
         "href": string | undefined;
-        /**
-          * Hides the bottom border (stroke) of the card.
-          * @default false
-         */
-        "noStroke": boolean;
         /**
           * Opens the urls in a new window or tab
           * @default false
@@ -2976,11 +2966,6 @@ declare namespace LocalJSX {
 
     interface DsoAccordion {
         /**
-          * Hides the bottom border (stroke) for compact and compact-black variants.
-          * @default false
-         */
-        "noStroke"?: boolean;
-        /**
           * Places the chevron at the opposite side.  Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
          */
         "reverseAlign"?: boolean;
@@ -4322,11 +4307,6 @@ declare namespace LocalJSX {
          */
         "href": string | undefined;
         /**
-          * Hides the bottom border (stroke) of the card.
-          * @default false
-         */
-        "noStroke"?: boolean;
-        /**
           * Emitted when the PlekinfoCard heading is clicked.
          */
         "onDsoPlekinfoCardClick"?: (event: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => void;
@@ -4760,7 +4740,6 @@ declare namespace LocalJSX {
     interface DsoAccordionAttributes {
         "variant": AccordionVariant;
         "reverseAlign": boolean;
-        "noStroke": boolean;
     }
     interface DsoAccordionSectionAttributes {
         "handleTitle": RenvooiValue | RenvooiValue[] | undefined;
@@ -5069,7 +5048,6 @@ declare namespace LocalJSX {
     }
     interface DsoPlekinfoCardAttributes {
         "wijzigactie": Wijzigactie;
-        "noStroke": boolean;
         "href": string | undefined;
         "targetBlank": boolean;
         "active": boolean;

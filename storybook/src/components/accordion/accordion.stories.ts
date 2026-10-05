@@ -14,6 +14,7 @@ import {
   animatedFormGroupSections,
   basicSections,
   compactSections,
+  nestedCompactSections,
   nestedSections,
   renvooiSections,
 } from "./accordion.content.js";
@@ -90,6 +91,15 @@ export const Nested: AccordionStory = {
     open: true,
   },
   render: (args) => accordionTemplate(accordionArgsMapper(args, nestedSections(), badgeChildren)),
+};
+
+export const NestedCompactBlack: AccordionStory = {
+  args: {
+    variant: "compact-black",
+    open: true,
+    heading: "h3",
+  },
+  render: (args) => accordionTemplate(accordionArgsMapper(args, nestedCompactSections(args.variant), badgeChildren)),
 };
 
 export const AddonsSections: AccordionStory = {

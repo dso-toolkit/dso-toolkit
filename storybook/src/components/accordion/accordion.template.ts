@@ -5,9 +5,9 @@ import { badgeTemplate } from "../badge/badge.template.js";
 
 import { Accordion } from "./accordion.models.js";
 
-export function accordionTemplate({ variant, reverseAlign, noStroke, sections }: Accordion) {
+export function accordionTemplate({ variant, reverseAlign, sections }: Accordion) {
   return html`
-    <dso-accordion .variant=${variant} ?reverse-align=${reverseAlign} .noStroke=${noStroke}>
+    <dso-accordion .variant=${variant} ?reverse-align=${reverseAlign}>
       ${sections.map(
         ({
           handleTitle,

@@ -3,7 +3,7 @@ import { html } from "lit-html";
 import { getAnimatedFormContent } from "../../example-pages/Patronen/animated-form.content.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 
-import { AccordionSection } from "./accordion.models.js";
+import { AccordionSection, AccordionVariant } from "./accordion.models.js";
 import { accordionTemplate } from "./accordion.template.js";
 
 function section1(): AccordionSection {
@@ -172,6 +172,46 @@ export function nestedSections(): AccordionSection[] {
     },
     section3(),
     section4(),
+  ];
+}
+
+function nestedCompactAccordion(variant: AccordionVariant | undefined) {
+  return accordionTemplate({
+    variant,
+    sections: [
+      {
+        handleTitle: "(Genest) Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+        heading: "h4",
+        content: richContentTemplate({
+          children: html`<p><strong>hallo</strong> dit is content</p>`,
+        }),
+      },
+      {
+        handleTitle: "(Genest) Hoe lang duurt de Vergunningcheck?",
+        heading: "h4",
+        content: richContentTemplate({
+          children: html`<p><strong>hallo</strong> dit is content</p>`,
+        }),
+      },
+    ],
+  });
+}
+
+export function nestedCompactSections(variant: AccordionVariant | undefined): AccordionSection[] {
+  return [
+    {
+      handleTitle: "Geneste Accordion als laatste element",
+      heading: "h3",
+      open: true,
+      content: nestedCompactAccordion(variant),
+    },
+    {
+      handleTitle: "Geneste Accordion met rich content erna",
+      heading: "h3",
+      open: true,
+      content: html`${nestedCompactAccordion(variant)}
+      ${richContentTemplate({ children: html`<p><strong>hallo</strong> dit is content na de nested section</p>` })}`,
+    },
   ];
 }
 

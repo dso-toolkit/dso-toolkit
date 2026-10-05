@@ -42,12 +42,6 @@ export class PlekinfoCard implements ComponentInterface {
   wijzigactie?: Wijzigactie;
 
   /**
-   * Hides the bottom border (stroke) of the card.
-   */
-  @Prop({ reflect: true })
-  noStroke = false;
-
-  /**
    * The URL to which the PlekinfoCard heading links.
    */
   @Prop({ reflect: true })

@@ -448,27 +448,66 @@ describe("Accordion", () => {
       cy.get("dso-accordion.hydrated").matchImageSnapshot({ failureThreshold: 0 });
     });
   });
-});
 
-describe("Show Stroke / No Stroke", () => {
-  it("should allow disabling stroke via noStroke property", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-accordion--compact");
+  ["compact", "compact-black"].forEach((variant) => {
+    describe(`Nested ${variant}`, () => {
+      beforeEach(() => {
+        cy.visit(`http://localhost:45000/iframe.html?id=core-accordion--nested-compact-black&args=variant:${variant}`);
+      });
 
-    cy.get("dso-accordion.hydrated")
-      .as("dsoAccordion")
-      .invoke("prop", "noStroke", false)
-      .should("have.prop", "noStroke", false)
-      .find("dso-accordion-section")
-      .last()
-      .should("not.have.css", "border-bottom-width", "0px");
+      it("hides the bottom border of the last nested section only when the nested accordion is the last element", () => {
+        cy.get("dso-accordion.hydrated").first().children("dso-accordion-section").as("sections");
 
-    cy.get("@dsoAccordion")
-      .invoke("prop", "noStroke", true)
-      .should("have.prop", "noStroke", true)
-      .find("dso-accordion-section")
-      .last()
-      .should("have.css", "border-bottom-style", "none");
+        cy.get("@sections")
+          .eq(0)
+          .children("dso-accordion")
+          .children("dso-accordion-section")
+          .last()
+          .should("have.class", `dso-accordion-${variant}`)
+          .and("have.css", "border-bottom-style", "none");
 
-    cy.get("@dsoAccordion").matchImageSnapshot(`${Cypress.currentTest.title} -- noStroke true`);
+        cy.get("@sections")
+          .eq(1)
+          .children("dso-accordion")
+          .children("dso-accordion-section")
+          .last()
+          .should("have.class", `dso-accordion-${variant}`)
+          .and("have.css", "border-bottom-style", "solid");
+
+        cy.get("dso-accordion.hydrated").first().matchImageSnapshot();
+      });
+
+      it("hides the bottom border of the last nested section when the nested accordion is the last element in a wrapper", () => {
+        cy.get("dso-accordion.hydrated").first().children("dso-accordion-section").as("sections");
+
+        cy.get("@sections")
+          .eq(0)
+          .children("dso-accordion")
+          .then(($accordion) => $accordion.wrap("<div>"));
+
+        cy.get("@sections")
+          .eq(1)
+          .children(":not([slot])")
+          .then(($children) => $children.wrapAll("<div>"));
+
+        cy.get("@sections")
+          .eq(0)
+          .children("div")
+          .children("dso-accordion")
+          .children("dso-accordion-section")
+          .last()
+          .should("have.class", `dso-accordion-${variant}`)
+          .and("have.css", "border-bottom-style", "none");
+
+        cy.get("@sections")
+          .eq(1)
+          .children("div")
+          .children("dso-accordion")
+          .children("dso-accordion-section")
+          .last()
+          .should("have.class", `dso-accordion-${variant}`)
+          .and("have.css", "border-bottom-style", "solid");
+      });
+    });
   });
 });

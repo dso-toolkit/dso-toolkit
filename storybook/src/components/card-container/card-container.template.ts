@@ -4,6 +4,8 @@ import { Card, isCardInterface } from "../card/card.models.js";
 import { cardTemplate } from "../card/card.template.js";
 import { DocumentCard, isDocumentCardInterface } from "../document-card/document-card.models.js";
 import { documentCardTemplate } from "../document-card/document-card.template.js";
+import { PlekinfoCard, isPlekinfoCardInterface } from "../plekinfo-card/plekinfo-card.models.js";
+import { plekinfoCardTemplate } from "../plekinfo-card/plekinfo-card.template.js";
 
 import { CardContainer } from "./card-container.models.js";
 
@@ -21,6 +23,9 @@ function template(card: Card | DocumentCard | PlekinfoCard) {
   }
   if (isDocumentCardInterface(card)) {
     return documentCardTemplate(card);
+  }
+  if (isPlekinfoCardInterface(card)) {
+    return plekinfoCardTemplate(card);
   }
   return nothing;
 }

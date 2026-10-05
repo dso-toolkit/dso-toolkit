@@ -136,6 +136,16 @@
   margin-inline: units.$u1 !important;
 }
 
+::slotted(*) {
+  --_dso-accordion-compact-border-block-end: initial !important;
+  --_dso-card-container-list-border-block-end: initial !important;
+}
+
+:host(:is(.dso-accordion-compact, .dso-accordion-compact-black)) ::slotted(:not([slot]):last-child) {
+  --_dso-accordion-compact-border-block-end: 0 !important;
+  --_dso-card-container-list-border-block-end: 0 !important;
+}
+
 // Default
 :host(.dso-accordion-default) {
   @include accordion-section-theme-default.dso-web-component-accordion-default();

@@ -19,7 +19,6 @@ export interface PlekinfoCardBase {
   targetBlank: boolean;
   active?: boolean;
   meta?: Label;
-  noStroke?: boolean;
   wijzigactie?: PlekinfoWijzigactie;
   interaction?: SlideToggle;
   dsoPlekinfoCardClick?: (e: CustomEvent<PlekinfoCardClickEvent>) => void;

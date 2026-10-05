@@ -16,23 +16,6 @@ describe("Plekinfo Card", () => {
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
   });
 
-  it("should allow disabling the bottom border via noStroke property", () => {
-    cy.get("dso-plekinfo-card.hydrated")
-      .as("dsoPlekinfoCard")
-      .invoke("prop", "noStroke", false)
-      .should("have.prop", "noStroke", false)
-      .shadow()
-      .find(".dso-plekinfo-card-container")
-      .should("have.css", "border-bottom-style", "solid");
-
-    cy.get("@dsoPlekinfoCard")
-      .invoke("prop", "noStroke", true)
-      .should("have.prop", "noStroke", true)
-      .shadow()
-      .find(".dso-plekinfo-card-container")
-      .should("have.css", "border-bottom-style", "none");
-  });
-
   it("should show hover background-color for wijzigactie='verwijder'", () => {
     cy.get("dso-plekinfo-card.hydrated")
       .invoke("prop", "wijzigactie", "verwijder")

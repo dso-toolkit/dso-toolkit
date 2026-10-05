@@ -15,27 +15,14 @@ const meta: Meta = {
 
 export default meta;
 
-interface PlekinfoCardInAccordionArgs {
-  noStroke?: boolean;
-}
-
-export const Default: StoryObj<PlekinfoCardInAccordionArgs> = {
-  argTypes: {
-    noStroke: {
-      control: { type: "boolean" },
-    },
-  },
-  args: {
-    noStroke: false,
-  },
-  render: ({ noStroke }) => {
+export const Default: StoryObj = {
+  render: () => {
     return html`
       <style>
         ${plekinfoCardDemoCss}
       </style>
       ${accordionTemplate({
         variant: "compact",
-        noStroke,
         sections: plekinfoCardInAccordionSections(),
       })}
     `;

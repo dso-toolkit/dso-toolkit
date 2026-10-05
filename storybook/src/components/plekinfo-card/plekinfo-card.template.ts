@@ -17,7 +17,6 @@ export function plekinfoCardTemplate({
   symbool,
   content,
   meta,
-  noStroke,
   wijzigactie,
   interaction,
   items,
@@ -46,7 +45,6 @@ export function plekinfoCardTemplate({
   return html` <dso-plekinfo-card
     href=${href}
     target-blank=${targetBlank}
-    .noStroke=${noStroke}
     wijzigactie=${ifDefined(wijzigactie || undefined)}
     ?active=${active}
     @dsoPlekinfoCardClick=${(event: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => {
