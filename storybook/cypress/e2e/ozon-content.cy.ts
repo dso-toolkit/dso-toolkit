@@ -25,6 +25,68 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
+  it("emits click with type='ExtRef' on click of ExtRef Link", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--ext-ref");
+
+    cy.get("dso-ozon-content.hydrated").then((c) => {
+      c.get(0).addEventListener("dsoClick", cy.stub().as("click"));
+    });
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("a.ext-ref")
+      .then((a) => {
+        // Prevent the link from actually navigating/opening a new tab while keeping the click event
+        // (and therefore the dsoClick handler in core) firing.
+        a.removeAttr("target");
+        a.get(0).addEventListener("click", (event) => event.preventDefault(), { capture: true });
+      });
+
+    cy.get("dso-ozon-content.hydrated").shadow().find("a.ext-ref").realClick();
+
+    cy.get("@click").should("have.been.calledOnce");
+
+    cy.get("@click")
+      .invoke("getCall", 0)
+      .then((call) => {
+        expect(call.args[0].detail.type).to.equal("ExtRef");
+        expect(call.args[0].detail.node.nodeName).to.equal("ExtRef");
+        expect(call.args[0].detail.href).to.equal("https://wetten.overheid.nl/jci1.3:c:BWBR0037885&artikel=4.7");
+      });
+  });
+
+  it("emits click with type='ExtIoRef' on click of ExtIoRef Link", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--ext-io-ref");
+
+    cy.get("dso-ozon-content.hydrated").then((c) => {
+      c.get(0).addEventListener("dsoClick", cy.stub().as("click"));
+    });
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("a.ext-io-ref")
+      .then((a) => {
+        // Prevent the link from actually navigating/opening a new tab while keeping the click event
+        // (and therefore the dsoClick handler in core) firing.
+        a.removeAttr("target");
+        a.get(0).addEventListener("click", (event) => event.preventDefault(), { capture: true });
+      });
+
+    cy.get("dso-ozon-content.hydrated").shadow().find("a.ext-io-ref").realClick();
+
+    cy.get("@click").should("have.been.calledOnce");
+
+    cy.get("@click")
+      .invoke("getCall", 0)
+      .then((call) => {
+        expect(call.args[0].detail.type).to.equal("ExtIoRef");
+        expect(call.args[0].detail.node.nodeName).to.equal("ExtIoRef");
+        expect(call.args[0].detail.href).to.equal(
+          "https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1",
+        );
+      });
+  });
+
   it('shows a toggletip on IntRef[@scope="begrip"]', () => {
     cy.viewport(650, 650).visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-ref-begrip");
 

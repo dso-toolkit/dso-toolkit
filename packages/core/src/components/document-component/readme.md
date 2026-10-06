@@ -43,7 +43,7 @@
 | `dsoAnnotationToggle`     | Emitted when the user clicks the annotation button, the close button of the annotation panel and the Kenmerken en Kaart button of IntIoRef in Ozon Content. | `CustomEvent<DocumentComponentToggleAnnotationEvent>`     |
 | `dsoMarkItemHighlight`    | Emitted each time a marked item gets highlighted.                                                                                                           | `CustomEvent<DocumentComponentMarkItemHighlightEvent>`    |
 | `dsoOpenToggle`           | Emitted when the user activates the toggle.                                                                                                                 | `CustomEvent<DocumentComponentOpenToggleEvent>`           |
-| `dsoOzonContentClick`     | Emitted when the user interacts with IntRef in Ozon Content                                                                                                 | `CustomEvent<DocumentComponentOzonContentClickEvent>`     |
+| `dsoOzonContentClick`     | Emitted when the user interacts with IntRef, ExtRef or ExtIoRef in Ozon Content                                                                             | `CustomEvent<DocumentComponentOzonContentClickEvent>`     |
 | `dsoRecursiveToggle`      | Emitted when the user activates the recursive toggle.                                                                                                       | `CustomEvent<DocumentComponentRecursiveToggleEvent>`      |
 | `dsoTableOfContentsClick` | Emitted when the user clicks the heading in mode="table-of-contents".                                                                                       | `CustomEvent<DocumentComponentTableOfContentsClickEvent>` |
 

@@ -3542,7 +3542,7 @@ declare namespace LocalJSX {
          */
         "onDsoOpenToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOpenToggleEvent>) => void;
         /**
-          * Emitted when the user interacts with IntRef in Ozon Content
+          * Emitted when the user interacts with IntRef, ExtRef or ExtIoRef in Ozon Content
          */
         "onDsoOzonContentClick"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentClickEvent>) => void;
         /**
@@ -4704,7 +4704,7 @@ declare namespace LocalJSX {
          */
         "mode"?: DocumentComponentMode;
         /**
-          * To demo the user interacting with Kop, IntRef or the Kenmerken en kaart button of IntIoRef in Ozon Content
+          * To demo the user interacting with Kop, IntRef, ExtRef, ExtIoRef or the Kenmerken en kaart button of IntIoRef in Ozon Content
          */
         "onDsotOzonContentClick"?: (event: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentClickEvent>) => void;
         /**

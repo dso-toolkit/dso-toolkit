@@ -18,9 +18,21 @@ interface OzonContentClickBaseEvent<T extends string> {
 export type OzonContentClickKopEvent = OzonContentClickBaseEvent<"Kop">;
 export type OzonContentClickIntIoRefEvent = OzonContentClickBaseEvent<"IntIoRef">;
 export type OzonContentClickIntRefEvent = OzonContentClickBaseEvent<"IntRef"> & { isModifiedEvent: boolean };
+export type OzonContentClickExtRefEvent = OzonContentClickBaseEvent<"ExtRef"> & {
+  isModifiedEvent: boolean;
+  href: string | undefined;
+};
+export type OzonContentClickExtIoRefEvent = OzonContentClickBaseEvent<"ExtIoRef"> & {
+  isModifiedEvent: boolean;
+  href: string | undefined;
+};
 
 export type OzonContentClickEvent =
-  OzonContentClickKopEvent | OzonContentClickIntRefEvent | OzonContentClickIntIoRefEvent;
+  | OzonContentClickKopEvent
+  | OzonContentClickIntRefEvent
+  | OzonContentClickIntIoRefEvent
+  | OzonContentClickExtRefEvent
+  | OzonContentClickExtIoRefEvent;
 
 export type OzonContentMarkFunction = (text: string) => OzonContentText[] | undefined;
 

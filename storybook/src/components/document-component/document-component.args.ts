@@ -292,7 +292,7 @@ export function documentComponentMapper(
       a.dsoTableOfContentsClick(e.detail);
     },
     dsoOzonContentClick: (e) => {
-      if (!e.detail.isModifiedEvent) {
+      if (e.detail.ozonContentClick.type === "IntRef" && !e.detail.isModifiedEvent) {
         e.detail.originalEvent.preventDefault();
       }
 
