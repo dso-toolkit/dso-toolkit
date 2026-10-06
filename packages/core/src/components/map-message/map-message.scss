@@ -23,8 +23,12 @@
     flex-wrap: wrap;
     align-items: center;
     gap: units.$u2;
-    padding-inline-start: calc(#{$icon-size} + #{units.$u1} + #{units.$u2});
+    padding-inline: units.$u2;
+  }
+
+  &.has-icon {
     padding-inline-end: units.$u2;
+    padding-inline-start: calc(#{$icon-size} + #{units.$u3});
   }
 
   .map-message-body {

@@ -9,7 +9,7 @@ const iconMap: Record<string, IconAlias> = {
 
 /**
  * @slot message - The message content announced as status/alert text.
- * @slot actions - Optional action controls shown for success and error variants.
+ * @slot actions - Optional action controls.
  */
 @Component({
   tag: "dso-map-message",

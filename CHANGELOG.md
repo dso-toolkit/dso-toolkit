@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Dropdown Menu: Menu sluit niet bij click op interactief element buiten Dropdown Menu ([#4003](https://github.com/dso-toolkit/dso-toolkit/issues/4003))
+* Map Message: Onterechte inline padding bij instruction variant ([#3857](https://github.com/dso-toolkit/dso-toolkit/issues/3857))
 
 ### Task
 * Voorbeeldpagina's: Vervangen `icon-only` Button's ([#3383](https://github.com/dso-toolkit/dso-toolkit/issues/3383))

@@ -14,10 +14,10 @@
 
 ## Slots
 
-| Slot        | Description                                                    |
-| ----------- | -------------------------------------------------------------- |
-| `"actions"` | Optional action controls shown for success and error variants. |
-| `"message"` | The message content announced as status/alert text.            |
+| Slot        | Description                                         |
+| ----------- | --------------------------------------------------- |
+| `"actions"` | Optional action controls.                           |
+| `"message"` | The message content announced as status/alert text. |
 
 
 ## Dependencies
