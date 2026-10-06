@@ -53,7 +53,10 @@ export class ExampleComponent {
 ```
 
 Bij een Date Picker met `[formField]` gebruik je `minDate` en `maxDate` voor datumgrenzen. De namen `min` en
-`max` zijn binnen Angular Signal Forms gereserveerd voor numerieke formuliergrenzen.
+`max` zijn binnen Angular Signal Forms gereserveerd voor numerieke formuliergrenzen. Angular geeft die getallen
+ook door aan de gegenereerde Date Picker-proxy. Daarom accepteren `min` en `max` in Core naast datumstrings ook
+getallen; getallen stellen geen datumgrens in. De FormField-adapter geeft de datumstrings via `minDate` en
+`maxDate` door aan de Date Picker.
 
 Voor radio-Selectables komt `[formField]` op een `fieldset` met `dsoSelectableRadioGroup`. Zo behouden
 de radio's hun vaste `value` en beheert de groep de formulierwaarde:

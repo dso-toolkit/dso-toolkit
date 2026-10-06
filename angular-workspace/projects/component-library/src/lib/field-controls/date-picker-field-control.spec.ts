@@ -1,6 +1,6 @@
 import { Component, signal } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { FormField, disabled, form, required, validate } from "@angular/forms/signals";
+import { FormField, disabled, form, max, min, required, validate } from "@angular/forms/signals";
 import { DatePickerChangeEvent } from "@dso-toolkit/core/dist/components";
 
 import { DsoDatePickerFieldControl } from "../../public-api";
@@ -22,12 +22,16 @@ import { DsoDatePicker } from "../stencil-generated/components";
 class TestDatePickerComponent {
   model = signal({ datum: "01-01-2024" });
   isDisabled = signal(false);
-  minimumDate = signal("01-01-2024");
-  maximumDate = signal("31-12-2024");
+  minimumDate = signal<string | undefined>("01-01-2024");
+  maximumDate = signal<string | undefined>("31-12-2024");
+  numericMinimum = signal(1);
+  numericMaximum = signal(100);
   dateInputError = signal<DatePickerChangeEvent["error"]>(undefined);
   myForm = form(this.model, (path) => {
     required(path.datum, { when: () => this.dateInputError() !== "invalid" });
     disabled(path.datum, () => this.isDisabled());
+    min(path.datum, () => this.numericMinimum());
+    max(path.datum, () => this.numericMaximum());
     validate(path.datum, ({ value }) =>
       !value() && this.dateInputError() === "invalid" ? { kind: "invalid" } : undefined,
     );
@@ -122,6 +126,27 @@ describe("DsoDatePickerFieldControl", () => {
 
     expect(element.min).toBe("15-01-2024");
     expect(element.max).toBe("15-12-2024");
+
+    component.numericMinimum.set(2);
+    component.numericMaximum.set(200);
+    fixture.detectChanges();
+
+    expect(element.min).toBe("15-01-2024");
+    expect(element.max).toBe("15-12-2024");
+
+    component.minimumDate.set(undefined);
+    component.maximumDate.set(undefined);
+    fixture.detectChanges();
+
+    expect(element.min).toBeUndefined();
+    expect(element.max).toBeUndefined();
+
+    component.numericMinimum.set(3);
+    component.numericMaximum.set(300);
+    fixture.detectChanges();
+
+    expect(element.min).toBeUndefined();
+    expect(element.max).toBeUndefined();
   });
 
   it("should retain out-of-range dates and expose their input errors", () => {

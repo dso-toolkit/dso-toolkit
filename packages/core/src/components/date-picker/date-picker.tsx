@@ -74,6 +74,7 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
    * This setting can be used alone or together with the max property.
+   * Numeric values from Angular Signal Forms do not set a date limit.
    */
   @Prop()
   min: string | number | undefined;
@@ -81,6 +82,7 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
    * This setting can be used alone or together with the min property.
+   * Numeric values from Angular Signal Forms do not set a date limit.
    */
   @Prop()
   max: string | number | undefined;

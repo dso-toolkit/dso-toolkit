@@ -68,7 +68,8 @@ Wis `dateInputError` zelf bij programmatische resets van het formulier.
 
 Gebruik bij een Date Picker met `[formField]` altijd `minDate` en `maxDate` voor datumgrenzen,
 niet `min` en `max`. Angular Signal Forms reserveert die laatste namen voor numerieke
-formuliergrenzen.
+formuliergrenzen. Numerieke waarden uit het formulier stellen geen datumgrens in;
+`minDate` en `maxDate` geven datumstrings door aan de Date Picker.
 
 ```html
 <!-- Statische datumgrenzen -->

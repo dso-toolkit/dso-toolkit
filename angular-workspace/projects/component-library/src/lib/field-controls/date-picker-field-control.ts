@@ -18,6 +18,8 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
   readonly required = input(false);
   readonly invalid = input(false);
   readonly touched = model(false);
+  readonly min = input<number>();
+  readonly max = input<number>();
   readonly minDate = input<string>();
   readonly maxDate = input<string>();
   readonly inputError = model<DatePickerChangeEvent["error"]>();
@@ -29,10 +31,13 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
       required: this.required,
       invalid: this.invalid,
     });
+    // FormField also writes numeric bounds to the generated proxy; reapply date bounds after those updates.
     effect(() => {
+      this.min();
       elementRef.nativeElement.min = this.minDate();
     });
     effect(() => {
+      this.max();
       elementRef.nativeElement.max = this.maxDate();
     });
   }
