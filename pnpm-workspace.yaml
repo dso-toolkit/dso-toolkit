@@ -37,7 +37,6 @@ catalog:
 
 catalogs:
   angular:
-    "@angular-devkit/build-angular": "^21.2.23"
     "@angular/platform-browser": "^21.2.22"
     "@angular-devkit/core": "^21.2.23"
     "@angular/build": "^21.2.23"
@@ -59,8 +58,6 @@ catalogs:
     vite: "^8.2.2"
 
 overrides:
-  "@angular-devkit/build-angular>http-proxy-middleware": "^3.0.7"
-  "@angular-devkit/build-angular>webpack-dev-server": "^5.2.6"
   "@angular-devkit/core>ajv": ">=8.18.0"
   "@babel/core": "^7.29.6"
   "@hono/node-server": "^2.0.5"

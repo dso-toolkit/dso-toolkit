@@ -151,6 +151,8 @@ describe("DsoSelectableRadioGroupFieldControl", () => {
     component.isDisabled.set(true);
     fixture.detectChanges();
     expect(group.disabled).toBe(true);
+    expect(options().map((option) => option.querySelector("input")?.matches(":disabled"))).toEqual([true, true]);
+    expect(options().map((option) => option.querySelector("input")?.hasAttribute("disabled"))).toEqual([false, false]);
 
     options()[1]?.dispatchEvent(createRadioChangeEvent("nee"));
     fixture.detectChanges();
@@ -160,6 +162,7 @@ describe("DsoSelectableRadioGroupFieldControl", () => {
     component.model.set({ keuze: "nee" });
     fixture.detectChanges();
     expect(group.disabled).toBe(false);
+    expect(options().map((option) => option.querySelector("input")?.matches(":disabled"))).toEqual([false, false]);
     expect(group.getAttribute("aria-invalid")).toBe("false");
     expect(options().map((option) => option.invalid)).toEqual([false, false]);
   });
