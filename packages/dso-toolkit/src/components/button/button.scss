@@ -18,6 +18,14 @@
     }
   }
 
+  @if map.has-key($colors, "active") {
+    &:active {
+      &::after {
+        @include di-inline.variant($icon, map.get($colors, "active"));
+      }
+    }
+  }
+
   @if map.has-key($colors, "disabled") {
     &[disabled] {
       &::after {
@@ -85,11 +93,13 @@ label {
       (
         "default": "grasgroen",
         "hover": "bosgroen",
+        "active": "wit",
         "disabled": "grasgroen-40",
       ),
       (
         "default": "grasgroen",
         "hover": "bosgroen",
+        "active": "wit",
         "disabled": "grasgroen-40",
       )
     );
