@@ -367,7 +367,7 @@ export class DocumentComponent implements ComponentInterface {
       case "IntRef":
       case "ExtRef":
       case "ExtIoRef":
-        this.dsoOzonContentClick.emit({ originalEvent: event, ozonContentClick: event.detail });
+        this.dsoOzonContentClick.emit({ originalEvent: event, ozonContentClick: detail });
         break;
 
       default:
