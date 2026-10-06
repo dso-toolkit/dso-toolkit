@@ -28,6 +28,7 @@ import {
   DsoDatePickerFieldControl,
   DsoSelectable,
   DsoSelectableCheckboxFieldControl,
+  DsoSelectableRadioGroupFieldControl,
 } from "@dso-toolkit/angular";
 ```
 
@@ -53,6 +54,19 @@ export class ExampleComponent {
 
 Bij een Date Picker met `[formField]` gebruik je `minDate` en `maxDate` voor datumgrenzen. De namen `min` en
 `max` zijn binnen Angular Signal Forms gereserveerd voor numerieke formuliergrenzen.
+
+Voor radio-Selectables komt `[formField]` op een `fieldset` met `dsoSelectableRadioGroup`. Zo behouden
+de radio's hun vaste `value` en beheert de groep de formulierwaarde:
+
+```html
+<fieldset dsoSelectableRadioGroup [formField]="myForm.keuze">
+  <legend>Maak een keuze</legend>
+  <dso-selectable type="radio" name="keuze" value="ja">Ja</dso-selectable>
+  <dso-selectable type="radio" name="keuze" value="nee">Nee</dso-selectable>
+</fieldset>
+```
+
+Importeer hiervoor ook `DsoSelectableRadioGroupFieldControl` en voeg `keuze` toe aan je formuliermodel.
 
 ## Form Group
 

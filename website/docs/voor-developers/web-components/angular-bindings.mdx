@@ -19,8 +19,8 @@ npm install @dso-toolkit/angular
 
 Naast de klassieke `ControlValueAccessor`-integratie (`ngModel` en Reactive Forms, die volledig
 blijft werken) ondersteunt `@dso-toolkit/angular` ook Angular's (experimentele) Signal Forms via de
-`[formField]`-directive uit `@angular/forms/signals`. Dit is beschikbaar voor `dso-date-picker` en
-`dso-selectable[type=checkbox]`.
+`[formField]`-directive uit `@angular/forms/signals`. Dit is beschikbaar voor `dso-date-picker`,
+`dso-selectable[type=checkbox]` en groepen `dso-selectable[type=radio]`.
 
 ```ts
 import { Component, signal } from "@angular/core";
@@ -78,6 +78,36 @@ formuliergrenzen.
 <dso-date-picker [formField]="myForm.datum" [minDate]="minimumDate()" [maxDate]="maximumDate()" />
 ```
 
-`dso-selectable[type=radio]` wordt (nog) niet ondersteund: de component gebruikt `value` als vaste
-optiewaarde, terwijl Signal Forms' `FormValueControl.value` gereserveerd is voor de tweerichtings
-formulierwaarde.
+### Radio-Selectables
+
+Plaats `[formField]` op een `fieldset` met `dsoSelectableRadioGroup`, niet op de afzonderlijke
+radio's. De `value` van iedere `dso-selectable` is een vaste optiewaarde; de groepsdirective
+beheert de veranderlijke formulierwaarde.
+
+```ts
+import { Component, signal } from "@angular/core";
+import { FormField, form, required } from "@angular/forms/signals";
+import { DsoSelectable, DsoSelectableRadioGroupFieldControl } from "@dso-toolkit/angular";
+
+@Component({
+  standalone: true,
+  imports: [DsoSelectable, DsoSelectableRadioGroupFieldControl, FormField],
+  template: `
+    <fieldset dsoSelectableRadioGroup [formField]="myForm.keuze">
+      <legend>Maak een keuze</legend>
+      <dso-selectable type="radio" name="keuze" value="ja">Ja</dso-selectable>
+      <dso-selectable type="radio" name="keuze" value="nee">Nee</dso-selectable>
+    </fieldset>
+  `,
+})
+export class RadioGroupExampleComponent {
+  model = signal({ keuze: "ja" });
+  myForm = form(this.model, (path) => required(path.keuze));
+}
+```
+
+Gebruik voor alle opties binnen de groep dezelfde `name` en geef iedere optie een unieke,
+niet-lege `value`. Eén radio-optie is ook mogelijk. De groepsdirective synchroniseert de
+geselecteerde optie met het formulier en zet `disabled`, `required` en `invalid` door; het
+`fieldset` groepeert en labelt de opties. De browser blijft de toetsenbordbediening van de
+radio's verzorgen.

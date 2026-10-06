@@ -7,4 +7,8 @@ export { DIRECTIVES } from "./lib/stencil-generated";
 export * from "./lib/component-library.module";
 export * from "./lib/stencil-generated/components";
 export { BooleanValueAccessor, RadioValueAccessor } from "./lib/value-accessors";
-export { DsoDatePickerFieldControl, DsoSelectableCheckboxFieldControl } from "./lib/field-controls";
+export {
+  DsoDatePickerFieldControl,
+  DsoSelectableCheckboxFieldControl,
+  DsoSelectableRadioGroupFieldControl,
+} from "./lib/field-controls";
