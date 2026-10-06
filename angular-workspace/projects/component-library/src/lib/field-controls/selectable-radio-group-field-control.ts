@@ -1,8 +1,22 @@
 import { Directive, ElementRef, HostListener, afterRenderEffect, contentChildren, input, model } from "@angular/core";
 import { FormValueControl } from "@angular/forms/signals";
-import { SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
+import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
 
 import { DsoSelectable } from "../stencil-generated/components";
+
+function isDsoSelectableElement(element: unknown): element is HTMLDsoSelectableElement {
+  return element instanceof HTMLElement && element.tagName === "DSO-SELECTABLE";
+}
+
+function isSelectableChangeEvent(event: Event): event is DsoSelectableCustomEvent<SelectableChangeEvent> {
+  return (
+    event instanceof CustomEvent &&
+    typeof event.detail === "object" &&
+    event.detail !== null &&
+    "checked" in event.detail &&
+    typeof event.detail.checked === "boolean"
+  );
+}
 
 @Directive({
   selector: "fieldset[dsoSelectableRadioGroup][formField]",
@@ -32,8 +46,9 @@ export class DsoSelectableRadioGroupFieldControl implements FormValueControl<str
         const values = new Set<string>();
         let name: string | undefined;
         for (const option of options) {
-          const element = option.nativeElement as HTMLDsoSelectableElement;
+          const element: unknown = option.nativeElement;
           if (
+            isDsoSelectableElement(element) &&
             element.type === "radio" &&
             element.closest("fieldset[dsoSelectableRadioGroup]") === this.elementRef.nativeElement
           ) {
@@ -56,26 +71,20 @@ export class DsoSelectableRadioGroupFieldControl implements FormValueControl<str
 
   @HostListener("dsoChange", ["$event"])
   onDsoChange(event: Event) {
-    if (!(event instanceof CustomEvent)) {
-      throw new TypeError("Expected a Selectable change event");
-    }
-
-    const detail = event.detail as SelectableChangeEvent;
-    if (!detail.checked || this.disabled()) {
-      return;
-    }
-
-    const option = event.target;
+    const radio = event.target;
     if (
-      !(option instanceof HTMLElement) ||
-      option.tagName !== "DSO-SELECTABLE" ||
-      option.closest("fieldset[dsoSelectableRadioGroup]") !== this.elementRef.nativeElement
+      !isDsoSelectableElement(radio) ||
+      radio.type !== "radio" ||
+      radio.closest("fieldset[dsoSelectableRadioGroup]") !== this.elementRef.nativeElement
     ) {
       return;
     }
 
-    const radio = option as HTMLDsoSelectableElement;
-    if (radio.type !== "radio") {
+    if (!isSelectableChangeEvent(event)) {
+      throw new TypeError("Expected a Selectable change event");
+    }
+
+    if (!event.detail.checked || this.disabled()) {
       return;
     }
 
@@ -88,7 +97,8 @@ export class DsoSelectableRadioGroupFieldControl implements FormValueControl<str
 
   @HostListener("focusout", ["$event"])
   onFocusOut(event: FocusEvent) {
-    if (!this.elementRef.nativeElement.contains(event.relatedTarget as Node | null)) {
+    const relatedTarget = event.relatedTarget;
+    if (!(relatedTarget instanceof Node) || !this.elementRef.nativeElement.contains(relatedTarget)) {
       this.touched.set(true);
     }
   }
