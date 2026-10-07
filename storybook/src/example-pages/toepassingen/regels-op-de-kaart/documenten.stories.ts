@@ -271,6 +271,7 @@ export const Documenten: StoryObj<DocumentenArgs> = {
               })}
               ${accordionTemplate({
                 variant: "compact-black",
+                reverseAlign: true,
                 sections: [
                   {
                     handleTitle: "Activiteiten(90)",
