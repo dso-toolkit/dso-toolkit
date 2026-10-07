@@ -36,3 +36,9 @@ h2 {
     padding-inline-start: action-list-variables.$content-indent;
   }
 }
+
+::slotted(dso-action-list-item) {
+  margin-inline-start: calc(
+    (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) * -1
+  );
+}
