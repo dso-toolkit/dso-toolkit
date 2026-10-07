@@ -1,8 +1,8 @@
 /**
  * dd-mm-yyyy to yyyy-mm-dd
  */
-export function parseToValueFormat(value: string | undefined): string | undefined {
-  if (!value) {
+export function parseToValueFormat(value: string | number | undefined): string | undefined {
+  if (!value || typeof value !== "string") {
     return;
   }
 

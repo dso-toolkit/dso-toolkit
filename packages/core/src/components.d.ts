@@ -493,13 +493,13 @@ export namespace Components {
          */
         "invalid"?: boolean;
         /**
-          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
+          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property. Numeric values from Angular Signal Forms do not set a date limit.
          */
-        "max": string | undefined;
+        "max": string | number | undefined;
         /**
-          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
+          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property. Numeric values from Angular Signal Forms do not set a date limit.
          */
-        "min": string | undefined;
+        "min": string | number | undefined;
         /**
           * Name of the date picker input.
           * @default "dso-date"
@@ -3377,13 +3377,13 @@ declare namespace LocalJSX {
          */
         "invalid"?: boolean;
         /**
-          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
+          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property. Numeric values from Angular Signal Forms do not set a date limit.
          */
-        "max"?: string | undefined;
+        "max"?: string | number | undefined;
         /**
-          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
+          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property. Numeric values from Angular Signal Forms do not set a date limit.
          */
-        "min"?: string | undefined;
+        "min"?: string | number | undefined;
         /**
           * Name of the date picker input.
           * @default "dso-date"
@@ -4819,8 +4819,8 @@ declare namespace LocalJSX {
         "describedBy": string;
         "dsoAutofocus": boolean;
         "value": string;
-        "min": string | undefined;
-        "max": string | undefined;
+        "min": string;
+        "max": string;
     }
     interface DsoDocumentCardAttributes {
         "href": string | undefined;

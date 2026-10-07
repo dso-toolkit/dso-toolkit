@@ -14,3 +14,101 @@ npm install @dso-toolkit/angular
 
 - https://stenciljs.com/docs/custom-elements
 - https://stenciljs.com/docs/angular#consumer-usage
+
+## Signal Forms
+
+Naast de klassieke `ControlValueAccessor`-integratie (`ngModel` en Reactive Forms, die volledig
+blijft werken) ondersteunt `@dso-toolkit/angular` ook Angular's (experimentele) Signal Forms via de
+`[formField]`-directive uit `@angular/forms/signals`. Dit is beschikbaar voor `dso-date-picker`,
+`dso-selectable[type=checkbox]` en groepen `dso-selectable[type=radio]`.
+
+```ts
+import { Component, signal } from "@angular/core";
+import { FormField, form, required, validate } from "@angular/forms/signals";
+import {
+  DsoDatePicker,
+  DsoDatePickerFieldControl,
+  DsoSelectable,
+  DsoSelectableCheckboxFieldControl,
+} from "@dso-toolkit/angular";
+
+@Component({
+  standalone: true,
+  imports: [DsoDatePicker, DsoSelectable, DsoDatePickerFieldControl, DsoSelectableCheckboxFieldControl, FormField],
+  template: `
+    <dso-date-picker
+      [formField]="myForm.datum"
+      [minDate]="minimumDate()"
+      [maxDate]="maximumDate()"
+      [(inputError)]="dateInputError"
+    />
+    <dso-selectable type="checkbox" [formField]="myForm.akkoord" />
+  `,
+})
+export class ExampleComponent {
+  model = signal({ datum: "", akkoord: false });
+  minimumDate = signal("01-01-2024");
+  maximumDate = signal("31-12-2024");
+  dateInputError = signal<"required" | "min-range" | "max-range" | "invalid" | undefined>(undefined);
+  myForm = form(this.model, (path) => {
+    required(path.datum, { when: () => this.dateInputError() !== "invalid" });
+    validate(path.datum, ({ value }) =>
+      !value() && this.dateInputError() === "invalid" ? { kind: "invalid" } : undefined,
+    );
+  });
+}
+```
+
+De adapter geeft de invoerfout uit `dsoDateChange` of `dsoBlur` door via `inputError`. Het
+voorbeeld gebruikt dit signal om ongeldige invoer van een leeg verplicht veld te onderscheiden.
+De `when`-voorwaarde voorkomt dat ongeldige invoer daarnaast ook een `required`-fout krijgt.
+Valideer datumgrenzen zelf in het Signal Form met dezelfde `minimumDate`- en
+`maximumDate`-signals; de adapter zet `minDate` en `maxDate` alleen door naar de Date Picker.
+Wis `dateInputError` zelf bij programmatische resets van het formulier.
+
+Gebruik bij een Date Picker met `[formField]` altijd `minDate` en `maxDate` voor datumgrenzen,
+niet `min` en `max`. Angular Signal Forms reserveert die laatste namen voor numerieke
+formuliergrenzen. Numerieke waarden uit het formulier stellen geen datumgrens in;
+`minDate` en `maxDate` geven datumstrings door aan de Date Picker.
+
+```html
+<!-- Statische datumgrenzen -->
+<dso-date-picker [formField]="myForm.datum" minDate="01-01-2024" maxDate="31-12-2024" />
+
+<!-- Dynamische datumgrenzen -->
+<dso-date-picker [formField]="myForm.datum" [minDate]="minimumDate()" [maxDate]="maximumDate()" />
+```
+
+### Radio-Selectables
+
+Plaats `[formField]` op een `fieldset` met `dsoSelectableRadioGroup`, niet op de afzonderlijke
+radio's. De `value` van iedere `dso-selectable` is een vaste optiewaarde; de groepsdirective
+beheert de veranderlijke formulierwaarde.
+
+```ts
+import { Component, signal } from "@angular/core";
+import { FormField, form, required } from "@angular/forms/signals";
+import { DsoSelectable, DsoSelectableRadioGroupFieldControl } from "@dso-toolkit/angular";
+
+@Component({
+  standalone: true,
+  imports: [DsoSelectable, DsoSelectableRadioGroupFieldControl, FormField],
+  template: `
+    <fieldset dsoSelectableRadioGroup [formField]="myForm.keuze">
+      <legend>Maak een keuze</legend>
+      <dso-selectable type="radio" name="keuze" value="ja">Ja</dso-selectable>
+      <dso-selectable type="radio" name="keuze" value="nee">Nee</dso-selectable>
+    </fieldset>
+  `,
+})
+export class RadioGroupExampleComponent {
+  model = signal({ keuze: "ja" });
+  myForm = form(this.model, (path) => required(path.keuze));
+}
+```
+
+Gebruik voor alle opties binnen de groep dezelfde `name` en geef iedere optie een unieke,
+niet-lege `value`. Eén radio-optie is ook mogelijk. De groepsdirective synchroniseert de
+geselecteerde optie met het formulier en zet `disabled`, `required` en `invalid` door; het
+`fieldset` groepeert en labelt de opties. De browser blijft de toetsenbordbediening van de
+radio's verzorgen.

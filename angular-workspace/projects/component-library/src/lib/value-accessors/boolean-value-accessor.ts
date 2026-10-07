@@ -2,7 +2,7 @@ import { Directive, ElementRef, HostListener, forwardRef } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Directive({
-  selector: "dso-selectable[type=checkbox]",
+  selector: "dso-selectable[type=checkbox]:not([formField])",
   standalone: true,
   providers: [
     {

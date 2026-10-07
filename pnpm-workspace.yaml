@@ -32,17 +32,19 @@ catalog:
   tsx: "^4.23.13"
   typescript: "~5.9.3"
   uuid: "^14.0.2"
+  vitest: "^4.0.8"
   wait-on: "^9.1.0"
 
 catalogs:
   angular:
-    "@angular-devkit/build-angular": "^21.2.23"
     "@angular-devkit/core": "^21.2.23"
+    "@angular/build": "^21.2.23"
     "@angular/cdk": "^21.2.14"
     "@angular/cli": "~21.2.23"
     "@angular/common": "^21.2.22"
     "@angular/core": "^21.2.22"
     "@angular/forms": "^21.2.22"
+    "@angular/platform-browser": "^21.2.22"
     ng-packagr: "^21.2.7"
     rxjs: "~7.8.2"
 
@@ -56,8 +58,6 @@ catalogs:
     vite: "^8.2.2"
 
 overrides:
-  "@angular-devkit/build-angular>http-proxy-middleware": "^3.0.7"
-  "@angular-devkit/build-angular>webpack-dev-server": "^5.2.6"
   "@angular-devkit/core>ajv": ">=8.18.0"
   "@babel/core": "^7.29.6"
   "@hono/node-server": "^2.0.5"

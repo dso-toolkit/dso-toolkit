@@ -15,8 +15,8 @@
     margin: 0;
   }
 
-  input[type="checkbox"][disabled],
-  input[type="radio"][disabled] {
+  input[type="checkbox"]:disabled,
+  input[type="radio"]:disabled {
     &,
     &:active,
     &:focus {
@@ -45,7 +45,7 @@
       opacity: 1;
     }
 
-    &:not([disabled]) {
+    &:not(:disabled) {
       cursor: pointer;
     }
 
