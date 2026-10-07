@@ -28,7 +28,7 @@ Dit is de release procedure:
 
 4. Controleer of de filenaam van de blogpost de juiste datum en naam bevat (datum/versie). Bijv.:
    2024-11-14-dso-toolkit-67.0.0.mdx. Controleer ook in de blogpost of de versie en emoji correct zijn.
-5. De 5 of 6 resulterende gewijzigde bestanden (4x `package.json` en `CHANGELOG.md`, eventueel aangevuld met de gecorrigeerde naam van de blogpost) moeten gecommit worden op de `master`-branch met de volgende commit-message: `😍 Release 67.0.0`.
+5. De 4 of 5 resulterende gewijzigde bestanden (3x `package.json` en `CHANGELOG.md`, eventueel aangevuld met de gecorrigeerde naam van de blogpost) moeten gecommit worden op de `master`-branch met de volgende commit-message: `😍 Release 67.0.0`.
    Vervolgens pushen we deze release-commit naar origin. Dit triggert een build van de `master`-branch.
 6. Wanneer de build van de `master`-branch gereed is, voorzien we de release-commit van de tag `v67.0.0`. Dit
    triggert de release-build, die resulteert in het publiceren van versie `67.0.0` van de 3 npm-packages:
