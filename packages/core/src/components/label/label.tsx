@@ -39,13 +39,13 @@ export class Label implements ComponentInterface {
   dsoRemoveClick!: EventEmitter<MouseEvent>;
 
   @State()
-  private removeHover = false;
+  removeHover = false;
 
   @State()
-  private removeFocus = false;
+  removeFocus = false;
 
   @State()
-  private labelText = "";
+  labelText = "";
 
   @Watch("removable")
   watchRemovable(removable: boolean) {

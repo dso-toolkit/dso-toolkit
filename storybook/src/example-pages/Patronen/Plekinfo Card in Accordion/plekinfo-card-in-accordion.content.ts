@@ -5,10 +5,10 @@ import {
   AccordionSectionActiveChangeEvent,
   AccordionSectionToggleClickEvent,
 } from "../../../components/accordion/accordion.models.js";
+import { Label } from "../../../components/label/label.models.js";
+import { symbol } from "../../../components/plekinfo-card/plekinfo-card.content.js";
 import { PlekinfoCard } from "../../../components/plekinfo-card/plekinfo-card.models.js";
 import { plekinfoCardTemplate } from "../../../components/plekinfo-card/plekinfo-card.template.js";
-
-const symbol = (symbolCode: string) => html`<span class="symboolcode" data-symboolcode=${symbolCode}></span>`;
 
 function isAccordionSection(target: EventTarget | null): target is HTMLDsoAccordionSectionElement {
   return target instanceof HTMLElement && target.localName === "dso-accordion-section";
@@ -27,7 +27,7 @@ function dsoActiveChange(event: CustomEvent<AccordionSectionActiveChangeEvent>) 
 }
 
 export function plekinfoCardInAccordionSections(): AccordionSection[] {
-  const meta = { status: "warning" as const, compact: true, label: "Ontwerp" };
+  const meta: Label = { status: "warning", compact: true, label: "Ontwerp" };
   const interaction = { checked: false, accessibleLabel: "Schakel activiteit in of uit" };
 
   return [

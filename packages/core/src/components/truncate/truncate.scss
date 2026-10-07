@@ -17,6 +17,7 @@
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- Truncated content must remain on one line
   text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- Full content can be viewed in the tooltip
   vertical-align: bottom;
+  text-decoration: inherit;
 
   &:focus-visible {
     @include utilities.focus-outline();

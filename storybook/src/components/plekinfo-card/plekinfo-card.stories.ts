@@ -103,7 +103,7 @@ export const WithItems: PlekinfoCardStory = {
   render: (args) =>
     plekinfoCardTemplate({
       ...plekinfoCardBaseArgsMapper(args),
-      items: withItemsContent,
+      items: withItemsContent(),
     }),
 };
 
@@ -121,6 +121,6 @@ export const WithOmgevingsnormItems: PlekinfoCardStory = {
   render: (args) =>
     plekinfoCardTemplate({
       ...plekinfoCardBaseArgsMapper(args),
-      items: omgevingsnormContent,
+      items: omgevingsnormContent(),
     }),
 };

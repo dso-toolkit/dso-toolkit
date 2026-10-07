@@ -3,17 +3,13 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/components/plekinfo-card";
-@use "~dso-toolkit/src/components/insert";
-@use "~dso-toolkit/src/components/delete";
+@use "~dso-toolkit/src/components/insert/insert";
+@use "~dso-toolkit/src/components/delete/delete";
 
 @include utilities.box-sizing();
 
 :host {
   display: block;
-}
-
-.sr-only {
-  @include utilities.sr-only();
 }
 
 .dso-plekinfo-card-container {
@@ -43,14 +39,6 @@
   &:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
     background-color: plekinfo-card.$background-color-hover;
   }
-}
-
-ins.dso-plekinfo-card-container {
-  @include insert.root();
-}
-
-del.dso-plekinfo-card-container {
-  @include delete.root($strikethrough: false);
 }
 
 ins.dso-plekinfo-card-container:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {

@@ -24,10 +24,10 @@ export class PlekinfoCardItem implements ComponentInterface {
   wijzigactie?: Wijzigactie;
 
   @State()
-  private hasSublabel = false;
+  hasSublabel = false;
 
   @State()
-  private hasMeta = false;
+  hasMeta = false;
 
   private sublabelSlot?: HTMLSlotElement;
   private metaSlot?: HTMLSlotElement;
@@ -68,17 +68,11 @@ export class PlekinfoCardItem implements ComponentInterface {
               "no-sublabel": !this.hasSublabel,
             }}
           >
-            <div class="label">
-              <dso-truncate>
-                <slot name="label" />
-              </dso-truncate>
-            </div>
-
-            <div class="sublabel" hidden={!this.hasSublabel}>
-              <dso-truncate>
-                <slot name="sublabel" ref={this.setSublabelSlot} onSlotchange={this.updateSublabel} />
-              </dso-truncate>
-            </div>
+            <dso-truncate class="text">
+              <slot name="label" />
+              {this.hasSublabel && " "}
+              <slot name="sublabel" ref={this.setSublabelSlot} onSlotchange={this.updateSublabel} />
+            </dso-truncate>
 
             <div class="meta" hidden={!this.hasMeta}>
               <slot name="meta" ref={this.setMetaSlot} onSlotchange={this.updateMeta} />

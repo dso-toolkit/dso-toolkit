@@ -4,8 +4,8 @@ import { AdvancedSelect } from "../../../components/advanced-select/advanced-sel
 import { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
 import { DocumentCard } from "../../../components/document-card/document-card.models.js";
 import { Header } from "../../../components/header/header.models.js";
-import { iconTemplate } from "../../../components/icon/icon.template.js";
 import { Navbar } from "../../../components/navbar/navbar.models.js";
+import { defaultSymbol } from "../../../components/plekinfo-card/plekinfo-card.content.js";
 import { PlekinfoCard } from "../../../components/plekinfo-card/plekinfo-card.models.js";
 import { TabsItem } from "../../../components/tabs/tabs.models.js";
 import { mainMenu } from "../../content/main-menu.content.js";
@@ -195,7 +195,7 @@ function plekInfoCardDefault(): PlekinfoCard {
     },
     label: "Aanvraagvereisten binnenplanse omgevingsvergunning omgevingsplanactiviteit bouwwerken",
     active: false,
-    symbool: iconTemplate({ icon: "home" }),
+    symbool: defaultSymbol(),
   };
 }
 

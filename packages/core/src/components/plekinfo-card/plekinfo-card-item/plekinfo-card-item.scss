@@ -4,6 +4,7 @@
 
 @use "~dso-toolkit/src/components/insert/insert";
 @use "~dso-toolkit/src/components/delete/delete";
+@use "~dso-toolkit/src/components/delete" as delete-mixins;
 
 @use "plekinfo-card-item.variables" as plekinfo-card-item-variables;
 
@@ -32,37 +33,29 @@
   }
 }
 
-del.dso-plekinfo-card-item-container {
-  text-decoration: none;
-}
-
 .content {
   min-inline-size: 0;
   display: flex;
   align-items: baseline;
   gap: units.$u1 * 0.5;
   flex: 1 1 auto;
-
-  &.no-sublabel {
-    .sublabel {
-      flex: 0 0 auto;
-    }
-
-    .meta {
-      margin-inline-start: 0;
-    }
-  }
 }
 
-.label {
+.text {
   min-inline-size: 0;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
+}
+
+.no-sublabel .text {
+  flex-grow: 0;
+}
+
+del .text {
+  @include delete-mixins.strikethrough();
+}
+
+slot[name="label"] {
   font-weight: 700;
-}
-
-.sublabel {
-  min-inline-size: 0;
-  flex: 1 1 0;
 }
 
 .meta {
@@ -70,5 +63,4 @@ del.dso-plekinfo-card-item-container {
   flex-wrap: wrap;
   flex: 0 0 auto;
   gap: units.$u1 * 0.5;
-  margin-inline-start: auto;
 }

@@ -15,6 +15,7 @@ import { legendTemplate } from "../../../components/legend/legend.template.js";
 import { linkTemplate } from "../../../components/link/link.template.js";
 import { mapMessageTemplate } from "../../../components/map-message/map-message.template.js";
 import { navbarTemplate } from "../../../components/navbar/navbar.template.js";
+import { plekinfoCardDemoCss } from "../../../components/plekinfo-card/plekinfo-card.demo.js";
 import { searchBarTemplate } from "../../../components/search-bar/search-bar.template.js";
 import { selectableTemplate } from "../../../components/selectable/selectable.template.js";
 import { ViewerGridTab } from "../../../components/viewer-grid/viewer-grid.models.js";
@@ -122,6 +123,8 @@ export const Documenten: StoryObj<DocumentenArgs> = {
         dso-viewer-grid[print] [slot="map"] .demo-mc {
           display: none;
         }
+
+        ${plekinfoCardDemoCss}
       </style>
       ${
         print

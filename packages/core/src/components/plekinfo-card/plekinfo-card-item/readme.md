@@ -1,6 +1,10 @@
-# dso-plekinfo-card-item
+# `<dso-plekinfo-card-item>`
 
+Eén regel in een Plekinfo Card: een symbool, een label, een optioneel sublabel en optioneel een Label als meta. Gebruik
+Plekinfo Card Item alleen in het slot `content` van een Plekinfo Card.
 
+Label en sublabel staan samen in één Truncate. Past de tekst niet, dan eindigt de regel op een ellipsis en toont de
+tooltip label en sublabel volledig.
 
 <!-- Auto Generated Below -->
 

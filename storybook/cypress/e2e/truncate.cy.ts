@@ -1,4 +1,12 @@
 describe("Truncate", () => {
+  ["passend", "ingekort", "ingekort-met-renvooi"].forEach((story) => {
+    it(`should be accessible (${story})`, () => {
+      cy.visit(`http://localhost:45000/iframe.html?id=core-truncate--${story}&viewMode=story`);
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-truncate.hydrated");
+    });
+  });
+
   it("should not become focusable or show a tooltip when it fits", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-truncate--passend&viewMode=story");
 
@@ -130,11 +138,14 @@ describe("Truncate", () => {
 
       const container = document.createElement("div");
 
+      container.style.width = "2000px";
       root.appendChild(container);
       container.appendChild(truncate);
-
-      cy.wrap(truncate).invoke("css", "width", "80px");
     });
+
+    cy.get("dso-truncate").shadow().find(".dso-truncate-content").should("not.have.attr", "tabindex");
+
+    cy.get("dso-truncate").invoke("css", "width", "80px");
 
     cy.get("dso-truncate").shadow().find(".dso-truncate-content").should("have.attr", "tabindex", "0");
   });

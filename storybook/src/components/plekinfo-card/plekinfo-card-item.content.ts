@@ -1,55 +1,61 @@
-import { html } from "lit-html";
+import { Label } from "../label/label.models.js";
 
+import { symbol } from "./plekinfo-card.content.js";
 import { PlekinfoCardItem } from "./plekinfo-card.models.js";
 
-const symbol = (symbolCode: string) => html`<span class="symboolcode" data-symboolcode=${symbolCode}></span>`;
-const meta = { status: "warning" as const, compact: true, label: "Ontwerp" };
+function ontwerpLabel(): Label {
+  return { status: "warning", compact: true, label: "Ontwerp" };
+}
 
-export const withItemsContent: PlekinfoCardItem[] = [
-  {
-    symbool: symbol("vgz023"),
-    label: "vergunningplicht",
-    sublabel: "in: bebouwde kom, industriezone, dijkgebied",
-    meta,
-  },
-  {
-    symbool: symbol("vszt030"),
-    label: "verbod",
-    sublabel: "in: buitengebied",
-    meta,
-    wijzigactie: "verwijder",
-  },
-  {
-    symbool: symbol("vszt030"),
-    label: "toegestaan",
-    sublabel: "in: bebouwde kom, industriezone, dijkgebied",
-    meta,
-    wijzigactie: "voegtoe",
-  },
-  {
-    symbool: symbol("vgz023"),
-    label: { value: { was: "vergunningplicht", wordt: "toegestaan" } },
-    sublabel: "in: ontwikkelzone",
-    meta,
-  },
-];
+export function withItemsContent(): PlekinfoCardItem[] {
+  return [
+    {
+      symbool: symbol("vgz023"),
+      label: "vergunningplicht",
+      sublabel: "in: bebouwde kom, industriezone, dijkgebied",
+      meta: ontwerpLabel(),
+    },
+    {
+      symbool: symbol("vszt030"),
+      label: "verbod",
+      sublabel: "in: buitengebied",
+      meta: ontwerpLabel(),
+      wijzigactie: "verwijder",
+    },
+    {
+      symbool: symbol("vszt030"),
+      label: "toegestaan",
+      sublabel: "in: bebouwde kom, industriezone, dijkgebied",
+      meta: ontwerpLabel(),
+      wijzigactie: "voegtoe",
+    },
+    {
+      symbool: symbol("vgz023"),
+      label: { value: { was: "vergunningplicht", wordt: "toegestaan" } },
+      sublabel: "in: ontwikkelzone",
+      meta: ontwerpLabel(),
+    },
+  ];
+}
 
-export const omgevingsnormContent: PlekinfoCardItem[] = [
-  {
-    symbool: symbol("vgz023"),
-    label: "10 meter",
-  },
-  {
-    symbool: symbol("vgz023"),
-    label: "12 meter",
-    meta,
-  },
-  {
-    symbool: symbol("vgz023"),
-    label: "14 meter",
-  },
-  {
-    symbool: symbol("vgz023"),
-    label: "18 meter",
-  },
-];
+export function omgevingsnormContent(): PlekinfoCardItem[] {
+  return [
+    {
+      symbool: symbol("vgz023"),
+      label: "10 meter",
+    },
+    {
+      symbool: symbol("vgz023"),
+      label: "12 meter",
+      meta: ontwerpLabel(),
+    },
+    {
+      symbool: symbol("vgz023"),
+      label: "14 meter",
+    },
+    {
+      symbool: symbol("vgz023"),
+      label: "18 meter",
+    },
+  ];
+}

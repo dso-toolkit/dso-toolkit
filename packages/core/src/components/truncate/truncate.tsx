@@ -1,7 +1,15 @@
-import { Component, ComponentInterface, Host, State, h } from "@stencil/core";
+import { Component, ComponentInterface, Host, Listen, State, h } from "@stencil/core";
 
 import { TooltipController } from "../../functional-components/tooltip/tooltip.controller";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
+
+const truncationChecks = new WeakMap<Element, () => void>();
+
+const resizeObserver = new ResizeObserver((entries) => {
+  for (const { target } of entries) {
+    truncationChecks.get(target)?.();
+  }
+});
 
 /** @slot - Content to truncate. */
 @Component({
@@ -19,22 +27,19 @@ export class Truncate implements ComponentInterface {
   private tooltipArrowElement?: HTMLElement;
   private tooltipContentElement?: HTMLElement;
 
-  private static resizeObserver = new ResizeObserver((entries) => {
-    for (const { target } of entries) {
-      const root = target.getRootNode();
-
-      if (root instanceof ShadowRoot && root.host instanceof HTMLElement && root.host.localName === "dso-truncate") {
-        Reflect.get(root.host, "checkTruncation")?.call(root.host);
-      }
-    }
-  });
-
   private tooltipController = new TooltipController({
     getReferenceElement: () => this.contentElement,
     getTipElement: () => this.tooltipElement,
     getTipArrowElement: () => this.tooltipArrowElement,
     getPlacement: () => "top",
   });
+
+  @Listen("keydown", { target: "document" })
+  keyDownListener(event: KeyboardEvent) {
+    if (this.truncated && event.key === "Escape") {
+      this.hideTooltip();
+    }
+  }
 
   private checkTruncation = () => {
     if (this.contentElement) {
@@ -57,36 +62,36 @@ export class Truncate implements ComponentInterface {
       this.updateTooltipContent();
 
       this.tooltipController.show();
-
-      document.addEventListener("keydown", this.handleKeyDown);
     }
   };
 
   private hideTooltip = () => {
     this.tooltipController.hide();
-
-    document.removeEventListener("keydown", this.handleKeyDown);
-  };
-
-  private handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      this.hideTooltip();
-    }
   };
 
   private setTooltipContentElement = (element?: HTMLElement) => {
     this.tooltipContentElement = element;
   };
 
+  private observe(element: HTMLElement) {
+    truncationChecks.set(element, this.checkTruncation);
+    resizeObserver.observe(element);
+  }
+
+  private unobserve(element: HTMLElement) {
+    resizeObserver.unobserve(element);
+    truncationChecks.delete(element);
+  }
+
   private setContentElement = (element?: HTMLElement) => {
     if (this.contentElement) {
-      Truncate.resizeObserver.unobserve(this.contentElement);
+      this.unobserve(this.contentElement);
     }
 
     this.contentElement = element;
 
     if (this.contentElement) {
-      Truncate.resizeObserver.observe(this.contentElement);
+      this.observe(this.contentElement);
       this.checkTruncation();
     }
   };
@@ -141,17 +146,16 @@ export class Truncate implements ComponentInterface {
 
   connectedCallback(): void {
     if (this.contentElement) {
-      Truncate.resizeObserver.observe(this.contentElement);
+      this.observe(this.contentElement);
       this.checkTruncation();
     }
   }
 
   disconnectedCallback(): void {
     if (this.contentElement) {
-      Truncate.resizeObserver.unobserve(this.contentElement);
+      this.unobserve(this.contentElement);
     }
 
-    document.removeEventListener("keydown", this.handleKeyDown);
     this.tooltipController.dispose();
   }
 

@@ -477,6 +477,31 @@ describe("Accordion", () => {
         cy.get("dso-accordion.hydrated").first().matchImageSnapshot();
       });
 
+      it("places the last nested section directly on the bottom border when the nested accordion is the last element", () => {
+        cy.get("dso-accordion.hydrated").first().children("dso-accordion-section").as("sections");
+
+        [0, 1].forEach((index) => {
+          cy.get("@sections")
+            .eq(index)
+            .then(($section) => {
+              const section = $section[0];
+              const nestedAccordion = section.querySelector(":scope > dso-accordion");
+
+              if (!nestedAccordion) {
+                throw new Error("nested dso-accordion not found");
+              }
+
+              const gap = section.getBoundingClientRect().bottom - nestedAccordion.getBoundingClientRect().bottom;
+
+              if (index === 0) {
+                expect(gap, "gap below nested accordion as last element").to.be.closeTo(0, 0.5);
+              } else {
+                expect(gap, "gap below nested accordion followed by rich content").to.be.greaterThan(8);
+              }
+            });
+        });
+      });
+
       it("hides the bottom border of the last nested section when the nested accordion is the last element in a wrapper", () => {
         cy.get("dso-accordion.hydrated").first().children("dso-accordion-section").as("sections");
 
@@ -507,6 +532,21 @@ describe("Accordion", () => {
           .last()
           .should("have.class", `dso-accordion-${variant}`)
           .and("have.css", "border-bottom-style", "solid");
+
+        cy.get("@sections")
+          .eq(0)
+          .then(($section) => {
+            const section = $section[0];
+            const wrapper = section.querySelector(":scope > div");
+
+            if (!wrapper) {
+              throw new Error("wrapper not found");
+            }
+
+            const gap = section.getBoundingClientRect().bottom - wrapper.getBoundingClientRect().bottom;
+
+            expect(gap, "gap below wrapped nested accordion as last element").to.be.closeTo(0, 0.5);
+          });
       });
     });
   });

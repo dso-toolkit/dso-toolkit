@@ -38,6 +38,19 @@ describe("Card Container", () => {
 
       cy.get("@cardContainer").shadow().find(".dso-card-list").should("have.css", "border-bottom-style", "none");
 
+      cy.get("dso-accordion-section.hydrated").then(($section) => {
+        const list = $section.find("dso-card-container")[0].shadowRoot?.querySelector(".dso-card-list");
+
+        if (!list) {
+          throw new Error(".dso-card-list not found");
+        }
+
+        const sectionBorder = parseFloat(getComputedStyle($section[0]).borderBottomWidth);
+        const gap = $section[0].getBoundingClientRect().bottom - sectionBorder - list.getBoundingClientRect().bottom;
+
+        expect(gap, "gap below the list as last element").to.be.closeTo(0, 0.5);
+      });
+
       cy.get("dso-accordion-section.hydrated").then(($section) =>
         $section.append('<div class="dso-rich-content"><p>Tekst na de lijst</p></div>'),
       );

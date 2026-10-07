@@ -141,15 +141,47 @@ describe("Plekinfo Card", () => {
       cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--with-items");
     });
 
-    it("should render label and sublabel wrapped in dso-truncate", () => {
+    it("should be accessible", () => {
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-plekinfo-card.hydrated");
+    });
+
+    it("should render label and sublabel together in one dso-truncate", () => {
       cy.get("dso-plekinfo-card.hydrated")
         .find("dso-plekinfo-card-item.hydrated")
         .first()
         .shadow()
-        .find(".label dso-truncate, .sublabel dso-truncate")
-        .should("have.length", 2);
+        .find("dso-truncate")
+        .should("have.length", 1)
+        .find('slot[name="label"] ~ slot[name="sublabel"]')
+        .should("exist");
 
       cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+    });
+
+    it("should show label and sublabel in the tooltip when the text is truncated", () => {
+      cy.get("dso-plekinfo-card.hydrated").invoke("css", "inline-size", "280px");
+
+      cy.get("dso-plekinfo-card.hydrated")
+        .find("dso-plekinfo-card-item.hydrated")
+        .eq(2)
+        .shadow()
+        .find("dso-truncate")
+        .shadow()
+        .find(".dso-truncate-content")
+        .should("have.attr", "tabindex", "0")
+        .focus();
+
+      cy.get("dso-plekinfo-card.hydrated")
+        .find("dso-plekinfo-card-item.hydrated")
+        .eq(2)
+        .shadow()
+        .find("dso-truncate")
+        .shadow()
+        .find(".dso-tooltip")
+        .should("be.visible")
+        .and("contain.text", "toegestaan")
+        .and("contain.text", "in: bebouwde kom, industriezone, dijkgebied");
     });
   });
 });
