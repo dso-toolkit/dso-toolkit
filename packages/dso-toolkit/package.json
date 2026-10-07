@@ -3,13 +3,12 @@
   "description": "DSO Toolkit",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
   "version": "101.0.0",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/dso-toolkit/dso-toolkit.git"
   },
   "homepage": "https://www.dso-toolkit.nl/",
-  "main": "dist/index.cjs",
+  "main": "dist/index.cjs.js",
   "module": "dist/components/index.js",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
@@ -21,12 +20,12 @@
     ".": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/components/index.js",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs.js"
     },
     "./loader": {
       "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
-      "require": "./loader/index.cjs"
+      "require": "./loader/index.cjs.js"
     },
     "./dist/components": {
       "types": "./dist/components/custom-elements.d.ts",
@@ -64,7 +63,7 @@
   ],
   "scripts": {
     "clear": "rimraf dist && rimraf loader",
-    "watch": "pnpm clear && node scripts/watch.js"
+    "watch": "pnpm clear && node scripts/watch.mjs"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.8.0",
