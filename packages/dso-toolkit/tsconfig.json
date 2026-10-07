@@ -20,6 +20,6 @@
     "jsxFactory": "h",
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "scripts/readme.ts", "scripts/sass-functions.ts"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
