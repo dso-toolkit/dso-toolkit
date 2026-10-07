@@ -1,41 +1,11 @@
-@use "../../variables/colors";
 @use "../../variables/units";
 @use "../../variables/media-query-breakpoints";
 @use "../heading";
 
-@use "action-list.variables" as action-list-variables;
-@use "components/action-list-item.variables" as action-list-item-variables;
-
 dso-action-list {
-  dso-action-list-item {
-    margin-inline-start: calc(
-      (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) * -1
-    );
-
-    + .dso-rich-content {
-      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        margin-inline-start: units.$u1;
-      }
-    }
-  }
-
-  .flow-line {
-    &::after {
-      content: "";
-      background-color: colors.$bosgroen;
-      block-size: calc(100% - units.$u6);
-      position: absolute;
-      inset-block-start: calc(action-list-item-variables.$padding-block + action-list-variables.$step-counter-size);
-      inline-size: action-list-variables.$flow-line-inline-size;
-      inset-inline-start: calc(
-        (action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-inline-size * 0.5)
-      );
-
-      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        inset-inline-start: calc(
-          (action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-inline-size * 0.5)
-        );
-      }
+  dso-action-list-item + .dso-rich-content {
+    @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+      margin-inline-start: units.$u1;
     }
   }
 

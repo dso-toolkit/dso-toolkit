@@ -72,6 +72,10 @@ header,
   padding: units.$u2;
 }
 
+::slotted(:not(:first-child)) {
+  margin-block-start: units.$u4;
+}
+
 header {
   border-block-end: 1px solid colors.$grijs-20;
   flex-grow: 0;

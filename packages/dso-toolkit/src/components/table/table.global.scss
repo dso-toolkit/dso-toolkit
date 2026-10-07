@@ -314,24 +314,6 @@ dso-table table.table {
   margin-block-end: 0;
 }
 
-dso-table.dso-is-responsive {
-  margin-block-end: 0;
-
-  > .table {
-    // Ensure the content doesn't wrap
-    > thead,
-    > tbody,
-    > tfoot {
-      > tr {
-        > th,
-        > td {
-          white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- Can't have responsive tables without
-        }
-      }
-    }
-  }
-}
-
 dso-icon-button + dso-icon-button {
   margin-inline-start: units.$u2;
 }
