@@ -12,26 +12,22 @@ Voor de volgende NPM packages is het koppelvlak gedocumenteerd:
 
 ## `dso-toolkit`
 
-- Package layout: `package.json`, `/assets` en `/dist`.
+- Package layout: `package.json` (inclusief het `exports` veld), `/assets`, `/dist` en `/loader`.
+- De paden die in `exports` zijn opgenomen: `.`, `./loader`, `./dist/components`, `./dist/components/*.js`, `./dist/bundle`, `./dist/bundle/*.js`, `./dist/dso.css`, `./src/variables/*`, `./variables/*` (via de sass `pkg:`-importer, bijvoorbeeld `@use "pkg:dso-toolkit/variables/colors"`), `./assets/*` en `./package.json`.
 - HTML voorschriften voor de HTML/CSS componenten.
 - SCSS stylesheets en variables in `dso-toolkit/src/variables/*.scss`.
 - Iconen.
-- Subresource Integrity: `hashes.json` bevat base64-encoded cryptographic `sha384` en `sha512` hashes voor build artifacts.
-
-Onder andere vallen de volgende punten niet onder het koppelvlak:
-
-- De overige SCSS stylesheets.
-- CSS changes die geen gewijzigde HTML voorschriften betekenen.
-
-## `@dso-toolkit/core`
-
-- Package layout: `/package.json`, `/dist` en `/loader`.
 - Markup en events van Web Components.
 - Event objects (naam en vorm).
 - Subresource Integrity: `hashes.json` bevat base64-encoded cryptographic `sha384` en `sha512` hashes voor build artifacts.
 
-De markup **in** een Web Component valt niet onder het koppelvlak.
+Onder andere vallen de volgende punten niet onder het koppelvlak:
 
-## `@dso-toolkit/react` en `@dso-toolkit/angular`.
+- De overige SCSS stylesheets (alles buiten `src/variables/*.scss`).
+- CSS changes die geen gewijzigde HTML voorschriften betekenen.
+- De markup **in** een Web Component.
+- Paden die niet zijn opgenomen in het `exports` veld van `package.json` (zogenaamde "deep imports" werken niet meer).
 
-Deze packages worden gegenereerd aan de hand van `@dso-toolkit/core` en volgen (in principe) `@dso-toolkit/core`.
+## `@dso-toolkit/react` en `@dso-toolkit/angular`
+
+Deze packages worden gegenereerd aan de hand van `dso-toolkit` en volgen (in principe) `dso-toolkit`.
