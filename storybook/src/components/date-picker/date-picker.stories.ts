@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import readme from "dso-toolkit/src/components/date-picker/readme.md?raw";
 import { html } from "lit-html";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";

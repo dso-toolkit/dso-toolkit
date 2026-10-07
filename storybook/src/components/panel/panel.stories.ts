@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import readme from "dso-toolkit/src/components/panel/readme.md?raw";
 import { html } from "lit-html";
 
 import { infoTemplate } from "../info/info.template.js";
