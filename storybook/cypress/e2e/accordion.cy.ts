@@ -483,7 +483,7 @@ describe("Accordion", () => {
         [0, 1].forEach((index) => {
           cy.get("@sections")
             .eq(index)
-            .then(($section) => {
+            .should(($section) => {
               const section = $section[0];
               const nestedAccordion = section.querySelector(":scope > dso-accordion");
 
