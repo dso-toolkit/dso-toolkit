@@ -9,7 +9,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Form Group: vervang `icon-only` button door Icon Button ([#3569](https://github.com/dso-toolkit/dso-toolkit/issues/3569))
 * **BREAKING** Document Header: vervang `icon-only` Button door Icon Button ([#3568](https://github.com/dso-toolkit/dso-toolkit/issues/3568))
 * **BREAKING** Angular: Signal Forms-ondersteuning voor Date Picker en Selectable ([#3993](https://github.com/dso-toolkit/dso-toolkit/issues/3993))
-* Date Picker (Core): `min` en `max` accepteren ook getallen voor compatibiliteit met Angular Signal Forms. 
 * Header: Weergave ingeklapt menu aanpassen ([#3800](https://github.com/dso-toolkit/dso-toolkit/issues/3800))
 
 ### Fixed

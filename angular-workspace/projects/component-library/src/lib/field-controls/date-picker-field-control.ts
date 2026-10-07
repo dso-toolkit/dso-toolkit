@@ -7,6 +7,13 @@ import { syncFieldControlProperties } from "./sync-field-control-properties";
 /**
  * Adapts `dso-date-picker` to Angular Signal Forms by implementing
  * the `FormValueControl<string>` contract.
+ *
+ * @example
+ * <dso-date-picker
+ *   [formField]="myForm.datum"
+ *   minDate="01-01-2024"
+ *   maxDate="31-12-2024"
+ * />
  */
 @Directive({
   selector: "dso-date-picker[formField]",

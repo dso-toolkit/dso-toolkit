@@ -7,6 +7,11 @@ import { syncFieldControlProperties } from "./sync-field-control-properties";
 /**
  * Adapts `dso-selectable[type=checkbox]` to Angular Signal Forms by implementing
  * the `FormCheckboxControl` contract.
+ *
+ * @example
+ * <dso-selectable type="checkbox" [formField]="myForm.akkoord">
+ *   Akkoord
+ * </dso-selectable>
  */
 @Directive({
   selector: "dso-selectable[type=checkbox][formField]",

@@ -18,6 +18,23 @@ function isSelectableChangeEvent(event: Event): event is DsoSelectableCustomEven
   );
 }
 
+/**
+ * Connects a group of radio Selectables to one Angular Signal Forms field.
+ *
+ * Apply `[formField]` and `dsoSelectableRadioGroup` to their enclosing `fieldset`,
+ * not to the individual `dso-selectable` elements. Each radio must have the same
+ * `name` and a unique, non-empty `value`. This directive implements
+ * `FormValueControl<string>`: it synchronizes the selected option and the group's
+ * disabled, required, and invalid states, updates the form on `dsoChange`, and
+ * marks the field as touched when focus leaves the fieldset.
+ *
+ * @example
+ * <fieldset dsoSelectableRadioGroup [formField]="myForm.keuze">
+ *   <legend>Maak een keuze</legend>
+ *   <dso-selectable type="radio" name="keuze" value="ja">Ja</dso-selectable>
+ *   <dso-selectable type="radio" name="keuze" value="nee">Nee</dso-selectable>
+ * </fieldset>
+ */
 @Directive({
   selector: "fieldset[dsoSelectableRadioGroup][formField]",
   standalone: true,
