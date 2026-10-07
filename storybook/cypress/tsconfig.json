@@ -12,8 +12,12 @@
       "cypress-axe",
       "cypress-real-events",
       "@simonsmith/cypress-image-snapshot/types",
-      "@dso-toolkit/core"
+      "dso-toolkit"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "dso-toolkit/src/*": ["../../packages/dso-toolkit/src/*"]
+    },
     "forceConsistentCasingInFileNames": true
   },
   "include": ["**/*.ts"]

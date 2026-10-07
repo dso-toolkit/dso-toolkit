@@ -1,5 +1,5 @@
-import { HeaderMenuItem } from "@dso-toolkit/core";
-import { HeaderClickEvent, HeaderClickMenuItemEvent } from "@dso-toolkit/core/src/components/header/header.interfaces";
+import { HeaderMenuItem } from "dso-toolkit";
+import { HeaderClickEvent, HeaderClickMenuItemEvent } from "dso-toolkit/src/components/header/header.interfaces";
 
 type TestHeaderClickMenuItemEvent = Omit<HeaderClickMenuItemEvent, "originalEvent">;
 type TestHeaderClickEvent = Omit<HeaderClickEvent, "originalEvent">;

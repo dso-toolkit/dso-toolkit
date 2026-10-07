@@ -1,4 +1,4 @@
-import { DsoPlekinfoCardCustomEvent } from "@dso-toolkit/core";
+import { DsoPlekinfoCardCustomEvent } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 

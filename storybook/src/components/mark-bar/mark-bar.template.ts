@@ -1,4 +1,4 @@
-import { DsoMarkBarCustomEvent } from "@dso-toolkit/core";
+import { DsoMarkBarCustomEvent } from "dso-toolkit";
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 

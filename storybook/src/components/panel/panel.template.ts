@@ -1,4 +1,4 @@
-import { DsoPanelCustomEvent } from "@dso-toolkit/core";
+import { DsoPanelCustomEvent } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { Panel, PanelCloseEvent } from "./panel.models.js";

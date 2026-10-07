@@ -12,27 +12,27 @@ export default function (/** @type {import('plop').NodePlopAPI} */ plop) {
       {
         type: "add",
         templateFile: "plop-templates/new-stencil-component/stencil-component.tsx.hbs",
-        path: "packages/core/src/components/{{ kebabCase name }}/{{ kebabCase name }}.tsx",
+        path: "packages/dso-toolkit/src/components/{{ kebabCase name }}/{{ kebabCase name }}.tsx",
       },
       {
         type: "add",
         templateFile: "plop-templates/new-stencil-component/stencil-component.interfaces.ts.hbs",
-        path: "packages/core/src/components/{{ kebabCase name }}/{{ kebabCase name }}.interfaces.ts",
+        path: "packages/dso-toolkit/src/components/{{ kebabCase name }}/{{ kebabCase name }}.interfaces.ts",
       },
       {
         type: "add",
         templateFile: "plop-templates/new-stencil-component/stencil-component.i18n.ts.hbs",
-        path: "packages/core/src/components/{{ kebabCase name }}/{{ kebabCase name }}.i18n.ts",
+        path: "packages/dso-toolkit/src/components/{{ kebabCase name }}/{{ kebabCase name }}.i18n.ts",
       },
       {
         type: "add",
         templateFile: "plop-templates/new-stencil-component/stencil-component.scss.hbs",
-        path: "packages/core/src/components/{{ kebabCase name }}/{{ kebabCase name }}.scss",
+        path: "packages/dso-toolkit/src/components/{{ kebabCase name }}/{{ kebabCase name }}.scss",
       },
       {
         type: "add",
         templateFile: "plop-templates/new-stencil-component/readme.md.hbs",
-        path: "packages/core/src/components/{{ kebabCase name }}/readme.md",
+        path: "packages/dso-toolkit/src/components/{{ kebabCase name }}/readme.md",
       },
       {
         type: "add",

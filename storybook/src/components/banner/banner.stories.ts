@@ -1,4 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/banner/readme.md?raw";
+import readme from "dso-toolkit/src/components/banner/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 
