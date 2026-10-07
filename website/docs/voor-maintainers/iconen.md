@@ -23,10 +23,10 @@ De DSO Toolkit biedt een iconenset aan. Deze set is op een aantal manieren te ge
     hebben een vaste kleurstelling. Daarnaast wordt het icon `spinner` niet door het script geprocessed, omdat dit een
     speciaal icon is met een animatie erin.
   - schrijft de geoptimaliseerde svg-bestanden weg naar `/packages/dso-toolkit/src/icons`
-  - werkt het Web Component `/packages/core/src/components/icon/icon.tsx` bij. Dit betekent dat de import-statements
+  - werkt het Web Component `/packages/dso-toolkit/src/components/icon/icon.tsx` bij. Dit betekent dat de import-statements
     van alle svg-bestanden worden vervangen en dat de const `icons` opnieuw gevuld wordt met de nieuwe alias-objecten.
   - genereert het type IconAlias in 2 bestanden:
-    - packages/core/src/components/icon/icon.interfaces.ts
+    - packages/dso-toolkit/src/components/icon/icon.interfaces.ts
     - storybook/src/components/icon/icon.models.ts
   - genereert een json-file `storybook/assets/icons.json`: dit bestand wordt gebruikt tbv van icon-selectie in Storybook
 - Daarna is het nog wel zaak om de ontstane diff te beoordelen en eventueel handmatig bij te werken.
@@ -89,7 +89,9 @@ zelf een `var()` wilt samenstellen (zoals in `global/mixins/set-colors.mixin.scs
 De `di.base()` en `di.variant()` mixins worden nooit in een Web Component gebruikt. Gebruik dan `<dso-icon>`.
 `di.custom-property()` mag wel in Web Components gebruikt worden (bijvoorbeeld via `set-colors.mixin.scss`): de custom
 properties worden op `:root` gedefinieerd en erven door in de shadow DOM. Roep `di.inline-icons()` nooit aan vanuit
-`packages/core`; dit gebeurt alleen in `dso.scss` en vereist de sass-functie uit de gulp-build van `dso-toolkit`.
+de Web Components; dit gebeurt alleen in `dso.scss` en vereist de sass-functie `inline-icon-DI-ONLY` die via het
+`@stencil/sass`-plugin in `packages/dso-toolkit/stencil.config.ts` is geregistreerd (geïmplementeerd in
+`packages/dso-toolkit/scripts/sass-functions`).
 
 ## Icon component
 
