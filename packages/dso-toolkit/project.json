@@ -9,7 +9,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "stencil build && tsx scripts/readme.ts",
+        "command": "stencil build && tsx scripts/fix-cjs-output.ts && tsx scripts/readme.ts",
         "cwd": "packages/dso-toolkit"
       },
       "outputs": [
