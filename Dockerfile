@@ -72,6 +72,8 @@ ARG DT_REF
 
 RUN pnpm build
 
+RUN pnpm consumer-check
+
 RUN pnpm exec nx test angular-workspace --configuration=ci
 
 RUN pnpm build-www

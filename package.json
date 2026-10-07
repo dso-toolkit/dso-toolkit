@@ -16,7 +16,8 @@
     "icons": "tsx scripts/icons/index.mts",
     "clear-node-modules": "rimraf node_modules angular-workspace/node_modules angular-workspace/projects/component-library/node_modules packages/dso-toolkit/node_modules packages/react/node_modules storybook/node_modules",
     "website": "pnpm --filter website start",
-    "start": "tsx scripts/start.mts"
+    "start": "tsx scripts/start.mts",
+    "consumer-check": "tsx scripts/consumer-check/index.mts"
   },
   "dependencies": {
     "@azure/storage-file-datalake": "^12.31.0",
@@ -47,6 +48,7 @@
     "plop": "^4.0.5",
     "prettier": "catalog:",
     "rimraf": "catalog:",
+    "sass-embedded": "catalog:",
     "semver": "^7.8.5",
     "stylelint": "catalog:",
     "stylelint-config-recommended-scss": "^16.0.2",
