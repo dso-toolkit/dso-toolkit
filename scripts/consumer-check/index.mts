@@ -69,6 +69,7 @@ async function main(): Promise<void> {
     const packageDir = packAndExtract(workDir);
     const consumerDir = setUpFixture(workDir, packageDir);
 
+    checkPackagedMiscFiles(packageDir);
     checkCssOutput(packageDir);
     checkSassPkgImporter(consumerDir);
     checkSassLoadPaths(consumerDir);
@@ -168,6 +169,16 @@ function setUpFixture(workDir: string, packageDir: string): string {
   }
 
   return consumerDir;
+}
+
+/** README.md, CHANGELOG.md and DISCLAIMER.txt used to be dropped silently; see #3931. */
+function checkPackagedMiscFiles(packageDir: string): void {
+  for (const file of ["README.md", "CHANGELOG.md", "DISCLAIMER.txt"]) {
+    const filePath = join(packageDir, file);
+    const exists = existsSync(filePath);
+    const nonEmpty = exists && readFileSync(filePath, "utf-8").trim().length > 0;
+    record(`tarball bevat ${file}`, nonEmpty, exists ? (nonEmpty ? "" : "bestand is leeg") : "bestand ontbreekt");
+  }
 }
 
 function checkCssOutput(packageDir: string): void {

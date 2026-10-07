@@ -45,6 +45,16 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
+      // Copies the root README.md and CHANGELOG.md into the package (replacing the former
+      // gulp `copyMiscellaneous` task). A top-level `{ type: "copy", ... }` output target is
+      // silently dropped by Stencil's `validateOutputTargets`, so this must live on the `dist`
+      // output target instead. `src` is relative to `srcDir` ("src"). Stencil resolves this
+      // `copy` config relative to "dist/dso-toolkit" (buildDir + namespace), so `../../` is
+      // needed to land in packages/dso-toolkit/README.md instead of dist/README.md.
+      copy: [
+        { src: "../../../README.md", dest: "../../README.md" },
+        { src: "../../../CHANGELOG.md", dest: "../../CHANGELOG.md" },
+      ],
     },
     {
       type: "dist-custom-elements",
@@ -71,13 +81,6 @@ export const config: Config = {
     {
       type: "dist-global-styles",
       file: "dist/dso.css",
-    },
-    {
-      type: "copy",
-      copy: [
-        { src: "../../../README.md", dest: "../README.md" },
-        { src: "../../../CHANGELOG.md", dest: "../CHANGELOG.md" },
-      ],
     },
     {
       type: "docs-readme",
