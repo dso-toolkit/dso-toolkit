@@ -17,6 +17,42 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/dso-toolkit/dso-toolkit.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/components/index.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs.js"
+    },
+    "./dist/components": {
+      "types": "./dist/components/custom-elements.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./dist/components/*.js": {
+      "types": "./dist/components/*.d.ts",
+      "import": "./dist/components/*.js"
+    },
+    "./dist/bundle": {
+      "types": "./dist/bundle/index.d.ts",
+      "import": "./dist/bundle/index.js"
+    },
+    "./dist/bundle/*.js": {
+      "types": "./dist/bundle/*.d.ts",
+      "import": "./dist/bundle/*.js"
+    },
+    "./dist/dso.css": "./dist/dso.css",
+    "./src/variables/*": "./src/variables/*",
+    "./variables/*": {
+      "sass": "./src/variables/*.scss",
+      "default": "./src/variables/*.scss"
+    },
+    "./assets/*": "./assets/*",
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist/",
     "loader/",
