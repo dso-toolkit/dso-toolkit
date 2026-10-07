@@ -4,10 +4,10 @@ import readme from "@dso-toolkit/core/src/components/dropdown-menu/readme.md?raw
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
-import { v4 as uuidv4 } from "uuid";
 
 import { DropdownMenuArgs, dropdownMenuArgTypes, dropdownMenuArgsMapper } from "./dropdown-menu.args.js";
 import * as content from "./dropdown-menu.content.js";
+import { decorator } from "./dropdown-menu.decorator.js";
 import { dropdownMenuTemplate } from "./dropdown-menu.template.js";
 
 type DropdownMenuStory = StoryObj<DropdownMenuArgs>;
@@ -15,11 +15,11 @@ type DropdownMenuStory = StoryObj<DropdownMenuArgs>;
 const meta: Meta<DropdownMenuArgs> = {
   title: "Core/Dropdown Menu",
   argTypes: dropdownMenuArgTypes,
+  decorators: [decorator],
   args: {
     buttonVariant: "secondary",
-    dropdownAlign: "left",
+    dropdownMenuPosition: "left",
     dsoClick: fn(),
-    id: uuidv4(),
   },
   parameters: {
     docs: {

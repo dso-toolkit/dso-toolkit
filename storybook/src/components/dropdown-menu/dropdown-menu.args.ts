@@ -7,21 +7,15 @@ import { noControl } from "../../shared/no-control.js";
 import { DropdownMenu, DropdownMenuGroup } from "./dropdown-menu.models.js";
 
 export interface DropdownMenuArgs {
-  id: string;
   buttonLabel: string;
   buttonVariant: "primary" | "secondary" | "tertiary";
-  dropdownAlign: "left" | "right";
   checkable: boolean;
+  dropdownMenuPosition: "left" | "right";
   groups: DropdownMenuGroup[];
   dsoClick: HandlerFunction;
 }
 
 export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
-  id: {
-    control: {
-      type: "text",
-    },
-  },
   buttonLabel: {
     control: {
       type: "text",
@@ -33,15 +27,15 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
       type: "select",
     },
   },
-  dropdownAlign: {
-    options: ["left", "right"],
-    control: {
-      type: "select",
-    },
-  },
   checkable: {
     control: {
       type: "boolean",
+    },
+  },
+  dropdownMenuPosition: {
+    options: ["left", "right"],
+    control: {
+      type: "radio",
     },
   },
   groups: noControl(),
@@ -52,7 +46,6 @@ export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
   return {
     variant: a.buttonVariant,
     label: a.buttonLabel,
-    dropdownAlign: a.dropdownAlign,
     groups: a.groups,
     checkable: a.checkable,
   };
