@@ -24,13 +24,13 @@
 
 ## Slots
 
-| Slot            | Description                                                             |
-| --------------- | ----------------------------------------------------------------------- |
-| `"content"`     | An optional slot to place `Rich Content` in.                            |
-| `"heading"`     | A slot to place the title of the card in.                               |
-| `"interaction"` | A slot for the `SlideToggle`s elments.                                  |
-| `"meta"`        | An optional slot to place a `Label` in.                                 |
-| `"symbol"`      | An optional slot to place a symbol, representing the plekinfo item, in. |
+| Slot            | Description                                                                                           |
+| --------------- | ----------------------------------------------------------------------------------------------------- |
+| `"content"`     | A slot for rich content or `PlekinfoCardItem`s. These content types are mutually exclusive.           |
+| `"heading"`     | A slot to place the title of the card in.                                                             |
+| `"interaction"` | A slot for the `SlideToggle` element.                                                                 |
+| `"meta"`        | An optional slot to place a `Label` in.                                                               |
+| `"symbol"`      | The card symbol, required when the card has no items. Do not provide it when the card contains items. |
 
 
 ## Dependencies

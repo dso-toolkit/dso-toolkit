@@ -17,80 +17,55 @@ describe("Label", () => {
       .invoke("text", defaultLabelText);
   }
 
-  // Onderstaande test fixen via #3522
-  it.skip("must truncate label", () => {
-    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- before truncation`);
-
-    cy.get("@dsoLabel")
-      .should("have.text", defaultLabelText)
-      .invoke("prop", "truncate", true)
-      .get("@dsoLabelShadow")
-      .find(".dso-label")
-      .should("not.have.attr", "aria-describedby")
-      .get("@dsoLabel")
-      .then(($element) => $element.wrap('<div style="max-width: 100px">'))
-      .get("@dsoLabel")
-      .shadow()
-      .find(".dso-label")
-      .should("have.attr", "aria-describedby", "toggle-anchor")
-      .get("@dsoLabelShadow")
-      .find(".dso-label-content.dso-truncate")
-      .should("exist");
-
-    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- after truncation`);
-  });
-
   it("should show tooltip on focus", () => {
     cy.get("@dsoLabel")
       .then(($element) => $element.wrap('<div style="max-width: 100px">'))
       .invoke("prop", "truncate", true)
-      .invoke("prop", "removable", true)
-      .get("@dsoLabelShadow")
-      .find(".dso-label-content")
-      .should("have.attr", "tabindex", "0")
-      .focus()
-      .get("@dsoLabelShadow")
-      .find(".dso-tooltip")
-      .should("be.visible")
-      .should("have.text", defaultLabelText)
-      .realPress("Tab")
-      .get("@dsoLabelShadow")
-      .find(".dso-tooltip")
-      .should("not.be.visible");
+      .invoke("prop", "removable", true);
+
+    cy.get("@dsoLabelShadow").find("dso-truncate").shadow().as("dsoTruncateShadow");
+
+    cy.get("@dsoTruncateShadow").find(".dso-truncate-content").should("have.attr", "tabindex", "0").focus();
+
+    cy.get("@dsoTruncateShadow").find(".dso-tooltip").should("be.visible").and("have.text", defaultLabelText);
+
+    cy.get("@dsoTruncateShadow").find(".dso-truncate-content").realPress("Tab");
+
+    cy.get("@dsoTruncateShadow").find(".dso-tooltip").should("not.be.visible");
   });
 
   it("should close tooltip when escape is pressed", () => {
     cy.get("@dsoLabel")
       .then(($element) => $element.wrap('<div style="max-width: 100px">'))
-      .get("@dsoLabel")
-      .invoke("prop", "truncate", true)
-      .get("@dsoLabelShadow")
-      .find(".dso-label-content")
+      .invoke("prop", "truncate", true);
+
+    cy.get("@dsoLabelShadow")
+      .find("dso-truncate")
+      .shadow()
+      .find(".dso-truncate-content")
       .should("have.attr", "tabindex", "0")
-      .focus()
-      .get("@dsoLabelShadow")
-      .find(".dso-tooltip")
-      .should("be.visible")
-      .get("body")
-      .trigger("keydown", { key: "Escape" })
-      .get("@dsoLabelShadow")
-      .find(".dso-tooltip")
-      .should("not.be.visible");
+      .focus();
+
+    cy.get("@dsoLabelShadow").find("dso-truncate").shadow().find(".dso-tooltip").should("be.visible");
+
+    cy.get("body").trigger("keydown", { key: "Escape" });
+
+    cy.get("@dsoLabelShadow").find("dso-truncate").shadow().find(".dso-tooltip").should("not.be.visible");
   });
 
   it("should emit removeClick event", () => {
-    cy.get("@dsoLabel")
-      .then(($element) => $element.on("dsoRemoveClick", cy.stub().as("removeClickListener")))
-      .should("have.text", defaultLabelText)
-      .invoke("prop", "removable", true)
-      .get("@dsoLabelShadow")
-      .find("dso-icon-button")
-      .click()
-      .get("@removeClickListener")
-      .should("have.been.calledOnce");
+    cy.get("@dsoLabel").then(($element) => {
+      $element.on("dsoRemoveClick", cy.stub().as("removeClickListener"));
+    });
+
+    cy.get("@dsoLabel").should("have.text", defaultLabelText).invoke("prop", "removable", true);
+
+    cy.get("@dsoLabelShadow").find("dso-icon-button").click();
+
+    cy.get("@removeClickListener").should("have.been.calledOnce");
   });
 
-  it("Should update label and remove-button text when changed", () => {
+  it("should update label and remove-button text when changed", () => {
     const updatedText = "andere tekst";
 
     cy.get("@dsoLabel")
@@ -110,7 +85,7 @@ describe("Label", () => {
       .find(`button[aria-label='Verwijder: ${updatedText}']`);
   });
 
-  const statusses = [
+  const statuses = [
     undefined,
     "primary",
     "success",
@@ -124,7 +99,7 @@ describe("Label", () => {
     "verwijderd",
   ];
 
-  statusses.map((status) => {
+  statuses.forEach((status) => {
     it(`Label with status "${status}" is accessible`, () => {
       cy.injectAxe();
       cy.dsoCheckA11y("dso-label.hydrated");
@@ -132,7 +107,6 @@ describe("Label", () => {
 
     it(`matches snapshots for status "${status}"`, () => {
       cy.get("@dsoLabel").invoke("attr", "status", status);
-
       cy.get("@dsoLabel").matchImageSnapshot();
     });
   });

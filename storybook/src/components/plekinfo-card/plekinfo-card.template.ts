@@ -3,11 +3,27 @@ import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { labelTemplate } from "../label/label.template.js";
+import { Renvooi } from "../renvooi/renvooi.models.js";
 import { renvooiTemplate } from "../renvooi/renvooi.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
 import { slideToggleTemplate } from "../slide-toggle/slide-toggle.template.js";
 
-import { PlekinfoCard, PlekinfoCardClickEvent } from "./plekinfo-card.models.js";
+import { PlekinfoCard, PlekinfoCardClickEvent, PlekinfoCardItem } from "./plekinfo-card.models.js";
+
+function textTemplate(text: Renvooi | string) {
+  return typeof text === "string" ? text : renvooiTemplate(text);
+}
+
+function plekinfoCardItemTemplate({ symbool, label, sublabel, meta, wijzigactie }: PlekinfoCardItem) {
+  return html`
+    <dso-plekinfo-card-item slot="content" wijzigactie=${ifDefined(wijzigactie)}>
+      <span slot="symbol">${symbool}</span>
+      <span slot="label">${textTemplate(label)}</span>
+      ${sublabel ? html`<span slot="sublabel">${textTemplate(sublabel)}</span>` : nothing}
+      ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}
+    </dso-plekinfo-card-item>
+  `;
+}
 
 export function plekinfoCardTemplate({
   label,
@@ -19,6 +35,7 @@ export function plekinfoCardTemplate({
   meta,
   wijzigactie,
   interaction,
+  items,
   dsoPlekinfoCardClick,
 }: PlekinfoCard) {
   return html` <dso-plekinfo-card
@@ -26,16 +43,16 @@ export function plekinfoCardTemplate({
     target-blank=${targetBlank}
     wijzigactie=${ifDefined(wijzigactie || undefined)}
     ?active=${active}
-    @dsoPlekinfoCardClick=${(e: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => {
-      if (!e.detail.isModifiedEvent) {
-        e.detail.originalEvent.preventDefault();
+    @dsoPlekinfoCardClick=${(event: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => {
+      if (!event.detail.isModifiedEvent) {
+        event.detail.originalEvent.preventDefault();
       }
 
-      dsoPlekinfoCardClick?.(e);
+      dsoPlekinfoCardClick?.(event);
     }}
   >
     ${symbool ? html`<span slot="symbol">${symbool}</span>` : nothing}
-    ${html`<h2 slot="heading">${typeof label === "string" ? label : renvooiTemplate(label)}</h2>`}
+    ${html`<h2 slot="heading">${textTemplate(label)}</h2>`}
     ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}
     ${
       interaction
@@ -44,6 +61,7 @@ export function plekinfoCardTemplate({
           </div>`
         : nothing
     }
-    ${content && richContentTemplate({ children: content, slot: "content" })}
+    ${items ? items.map(plekinfoCardItemTemplate) : nothing}
+    ${content ? richContentTemplate({ children: content, slot: "content" }) : nothing}
   </dso-plekinfo-card>`;
 }

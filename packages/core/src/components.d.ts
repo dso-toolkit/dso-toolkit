@@ -903,7 +903,6 @@ export namespace Components {
         "value"?: number;
     }
     interface DsoLabel {
-        "_truncateLabel": () => Promise<void>;
         /**
           * For compact Label
          */
@@ -1219,6 +1218,12 @@ export namespace Components {
          */
         "wijzigactie"?: Wijzigactie;
     }
+    interface DsoPlekinfoCardItem {
+        /**
+          * An optional 'wijzigactie' that signals if the plekinfo item is added or removed.
+         */
+        "wijzigactie"?: Wijzigactie;
+    }
     interface DsoProgressIndicator {
         /**
           * Set for bloatier Progress Indicator.
@@ -1454,6 +1459,8 @@ export namespace Components {
           * @returns Whether the item was found.
          */
         "focusItem": (path: TreeViewItem[]) => Promise<boolean>;
+    }
+    interface DsoTruncate {
     }
     interface DsoViewerGrid {
         "_checkMainPanelVisibility": () => Promise<void>;
@@ -2577,6 +2584,12 @@ declare global {
         prototype: HTMLDsoPlekinfoCardElement;
         new (): HTMLDsoPlekinfoCardElement;
     };
+    interface HTMLDsoPlekinfoCardItemElement extends Components.DsoPlekinfoCardItem, HTMLStencilElement {
+    }
+    var HTMLDsoPlekinfoCardItemElement: {
+        prototype: HTMLDsoPlekinfoCardItemElement;
+        new (): HTMLDsoPlekinfoCardItemElement;
+    };
     interface HTMLDsoProgressIndicatorElement extends Components.DsoProgressIndicator, HTMLStencilElement {
     }
     var HTMLDsoProgressIndicatorElement: {
@@ -2819,6 +2832,12 @@ declare global {
         prototype: HTMLDsoTreeViewElement;
         new (): HTMLDsoTreeViewElement;
     };
+    interface HTMLDsoTruncateElement extends Components.DsoTruncate, HTMLStencilElement {
+    }
+    var HTMLDsoTruncateElement: {
+        prototype: HTMLDsoTruncateElement;
+        new (): HTMLDsoTruncateElement;
+    };
     interface HTMLDsoViewerGridElementEventMap {
         "dsoCloseOverlay": ViewerGridCloseOverlayEvent;
         "dsoCloseFilterPanel": ViewerGridCloseFilterPanelEvent;
@@ -2919,6 +2938,7 @@ declare global {
         "dso-pagination": HTMLDsoPaginationElement;
         "dso-panel": HTMLDsoPanelElement;
         "dso-plekinfo-card": HTMLDsoPlekinfoCardElement;
+        "dso-plekinfo-card-item": HTMLDsoPlekinfoCardItemElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-project-item": HTMLDsoProjectItemElement;
         "dso-renvooi": HTMLDsoRenvooiElement;
@@ -2936,6 +2956,7 @@ declare global {
         "dso-tabs": HTMLDsoTabsElement;
         "dso-tijdreis-banner": HTMLDsoTijdreisBannerElement;
         "dso-tree-view": HTMLDsoTreeViewElement;
+        "dso-truncate": HTMLDsoTruncateElement;
         "dso-viewer-grid": HTMLDsoViewerGridElement;
         "dsot-document-component-demo": HTMLDsotDocumentComponentDemoElement;
     }
@@ -4299,6 +4320,12 @@ declare namespace LocalJSX {
          */
         "wijzigactie"?: Wijzigactie;
     }
+    interface DsoPlekinfoCardItem {
+        /**
+          * An optional 'wijzigactie' that signals if the plekinfo item is added or removed.
+         */
+        "wijzigactie"?: Wijzigactie;
+    }
     interface DsoProgressIndicator {
         /**
           * Set for bloatier Progress Indicator.
@@ -4585,6 +4612,8 @@ declare namespace LocalJSX {
           * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
          */
         "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
+    }
+    interface DsoTruncate {
     }
     interface DsoViewerGrid {
         /**
@@ -5023,6 +5052,9 @@ declare namespace LocalJSX {
         "targetBlank": boolean;
         "active": boolean;
     }
+    interface DsoPlekinfoCardItemAttributes {
+        "wijzigactie": Wijzigactie;
+    }
     interface DsoProgressIndicatorAttributes {
         "label": string;
         "size": "small" | "medium" | "large";
@@ -5165,6 +5197,7 @@ declare namespace LocalJSX {
         "dso-pagination": Omit<DsoPagination, keyof DsoPaginationAttributes> & { [K in keyof DsoPagination & keyof DsoPaginationAttributes]?: DsoPagination[K] } & { [K in keyof DsoPagination & keyof DsoPaginationAttributes as `attr:${K}`]?: DsoPaginationAttributes[K] } & { [K in keyof DsoPagination & keyof DsoPaginationAttributes as `prop:${K}`]?: DsoPagination[K] };
         "dso-panel": Omit<DsoPanel, keyof DsoPanelAttributes> & { [K in keyof DsoPanel & keyof DsoPanelAttributes]?: DsoPanel[K] } & { [K in keyof DsoPanel & keyof DsoPanelAttributes as `attr:${K}`]?: DsoPanelAttributes[K] } & { [K in keyof DsoPanel & keyof DsoPanelAttributes as `prop:${K}`]?: DsoPanel[K] };
         "dso-plekinfo-card": Omit<DsoPlekinfoCard, keyof DsoPlekinfoCardAttributes> & { [K in keyof DsoPlekinfoCard & keyof DsoPlekinfoCardAttributes]?: DsoPlekinfoCard[K] } & { [K in keyof DsoPlekinfoCard & keyof DsoPlekinfoCardAttributes as `attr:${K}`]?: DsoPlekinfoCardAttributes[K] } & { [K in keyof DsoPlekinfoCard & keyof DsoPlekinfoCardAttributes as `prop:${K}`]?: DsoPlekinfoCard[K] } & OneOf<"href", DsoPlekinfoCard["href"], DsoPlekinfoCardAttributes["href"]>;
+        "dso-plekinfo-card-item": Omit<DsoPlekinfoCardItem, keyof DsoPlekinfoCardItemAttributes> & { [K in keyof DsoPlekinfoCardItem & keyof DsoPlekinfoCardItemAttributes]?: DsoPlekinfoCardItem[K] } & { [K in keyof DsoPlekinfoCardItem & keyof DsoPlekinfoCardItemAttributes as `attr:${K}`]?: DsoPlekinfoCardItemAttributes[K] } & { [K in keyof DsoPlekinfoCardItem & keyof DsoPlekinfoCardItemAttributes as `prop:${K}`]?: DsoPlekinfoCardItem[K] };
         "dso-progress-indicator": Omit<DsoProgressIndicator, keyof DsoProgressIndicatorAttributes> & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes]?: DsoProgressIndicator[K] } & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes as `attr:${K}`]?: DsoProgressIndicatorAttributes[K] } & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes as `prop:${K}`]?: DsoProgressIndicator[K] };
         "dso-project-item": Omit<DsoProjectItem, keyof DsoProjectItemAttributes> & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes]?: DsoProjectItem[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `attr:${K}`]?: DsoProjectItemAttributes[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `prop:${K}`]?: DsoProjectItem[K] };
         "dso-renvooi": Omit<DsoRenvooi, keyof DsoRenvooiAttributes> & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes]?: DsoRenvooi[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `attr:${K}`]?: DsoRenvooiAttributes[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `prop:${K}`]?: DsoRenvooi[K] };
@@ -5182,6 +5215,7 @@ declare namespace LocalJSX {
         "dso-tabs": DsoTabs;
         "dso-tijdreis-banner": DsoTijdreisBanner;
         "dso-tree-view": DsoTreeView;
+        "dso-truncate": DsoTruncate;
         "dso-viewer-grid": Omit<DsoViewerGrid, keyof DsoViewerGridAttributes> & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes]?: DsoViewerGrid[K] } & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes as `attr:${K}`]?: DsoViewerGridAttributes[K] } & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes as `prop:${K}`]?: DsoViewerGrid[K] };
         "dsot-document-component-demo": Omit<DsotDocumentComponentDemo, keyof DsotDocumentComponentDemoAttributes> & { [K in keyof DsotDocumentComponentDemo & keyof DsotDocumentComponentDemoAttributes]?: DsotDocumentComponentDemo[K] } & { [K in keyof DsotDocumentComponentDemo & keyof DsotDocumentComponentDemoAttributes as `attr:${K}`]?: DsotDocumentComponentDemoAttributes[K] } & { [K in keyof DsotDocumentComponentDemo & keyof DsotDocumentComponentDemoAttributes as `prop:${K}`]?: DsotDocumentComponentDemo[K] };
     }
@@ -5248,6 +5282,7 @@ declare module "@stencil/core" {
             "dso-pagination": LocalJSX.IntrinsicElements["dso-pagination"] & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-panel": LocalJSX.IntrinsicElements["dso-panel"] & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
             "dso-plekinfo-card": LocalJSX.IntrinsicElements["dso-plekinfo-card"] & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
+            "dso-plekinfo-card-item": LocalJSX.IntrinsicElements["dso-plekinfo-card-item"] & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardItemElement>;
             "dso-progress-indicator": LocalJSX.IntrinsicElements["dso-progress-indicator"] & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-project-item": LocalJSX.IntrinsicElements["dso-project-item"] & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
             /**
@@ -5268,6 +5303,7 @@ declare module "@stencil/core" {
             "dso-tabs": LocalJSX.IntrinsicElements["dso-tabs"] & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;
             "dso-tijdreis-banner": LocalJSX.IntrinsicElements["dso-tijdreis-banner"] & JSXBase.HTMLAttributes<HTMLDsoTijdreisBannerElement>;
             "dso-tree-view": LocalJSX.IntrinsicElements["dso-tree-view"] & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
+            "dso-truncate": LocalJSX.IntrinsicElements["dso-truncate"] & JSXBase.HTMLAttributes<HTMLDsoTruncateElement>;
             "dso-viewer-grid": LocalJSX.IntrinsicElements["dso-viewer-grid"] & JSXBase.HTMLAttributes<HTMLDsoViewerGridElement>;
             "dsot-document-component-demo": LocalJSX.IntrinsicElements["dsot-document-component-demo"] & JSXBase.HTMLAttributes<HTMLDsotDocumentComponentDemoElement>;
         }

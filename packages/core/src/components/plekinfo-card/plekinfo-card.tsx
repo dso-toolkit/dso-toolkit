@@ -20,12 +20,11 @@ import { isModifiedEvent } from "../../utils/is-modified-event";
 import { PlekinfoCardClickEvent } from "./plekinfo-card.interfaces";
 
 /**
- * @slot symbol - An optional slot to place a symbol, representing the plekinfo item, in.
+ * @slot symbol - The card symbol, required when the card has no items. Do not provide it when the card contains items.
  * @slot heading - A slot to place the title of the card in.
  * @slot meta - An optional slot to place a `Label` in.
- * @slot content - An optional slot to place `Rich Content` in.
- * @slot interaction - A slot for the `SlideToggle`s elments.
- *
+ * @slot content - A slot for rich content or `PlekinfoCardItem`s. These content types are mutually exclusive.
+ * @slot interaction - A slot for the `SlideToggle` element.
  */
 @Component({
   tag: "dso-plekinfo-card",
@@ -80,23 +79,24 @@ export class PlekinfoCard implements ComponentInterface {
     delete this.mutationObserver;
   }
 
-  private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement) || !this.href) {
-      return;
+  private clickEventHandler(event: MouseEvent): void {
+    if (event.target instanceof HTMLElement && this.href) {
+      this.dsoPlekinfoCardClick.emit({
+        originalEvent: event,
+        isModifiedEvent: isModifiedEvent(event),
+      });
     }
-
-    return this.dsoPlekinfoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
-  get symbolSlottedElement() {
+  get symbolSlottedElement(): Element | null {
     return this.host.querySelector("[slot='symbol']");
   }
 
-  get metaSlottedElement() {
+  get metaSlottedElement(): Element | null {
     return this.host.querySelector("[slot='meta']");
   }
 
-  get interaction() {
+  get interaction(): Element | null {
     return this.host.querySelector("[slot='interaction']");
   }
 
@@ -116,7 +116,7 @@ export class PlekinfoCard implements ComponentInterface {
                 target={this.targetBlank ? "_blank" : undefined}
                 rel={this.targetBlank ? "noopener noreferrer" : undefined}
                 class="heading-anchor"
-                onClick={(e) => this.clickEventHandler(e)}
+                onClick={(event) => this.clickEventHandler(event)}
               >
                 <span class="heading-content">
                   <slot name="heading" />

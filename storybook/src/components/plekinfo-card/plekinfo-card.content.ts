@@ -1,7 +1,11 @@
 import { html } from "lit-html";
 
+export function symbol(symboolcode: string) {
+  return html`<span class="symboolcode" data-symboolcode=${symboolcode}></span>`;
+}
+
 export function defaultSymbol() {
-  return html`<span class="symboolcode" data-symboolcode="vgz023"></span>`;
+  return symbol("vgz023");
 }
 
 export function content() {

@@ -18,3 +18,14 @@
 ::slotted(dso-accordion-section.dso-accordion-compact-black:last-child) {
   border-block-end: 1px solid accordion-variables.$compact-border-color;
 }
+
+:host(:last-child) {
+  ::slotted(dso-accordion-section.dso-accordion-compact:last-child),
+  ::slotted(dso-accordion-section.dso-accordion-compact-black:last-child) {
+    border-block-end: var(
+      --_dso-accordion-compact-border-block-end,
+      1px solid #{accordion-variables.$compact-border-color}
+    );
+    margin-block-end: var(--_dso-accordion-compact-margin-block-end, 0) !important;
+  }
+}

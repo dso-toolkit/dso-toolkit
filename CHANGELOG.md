@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Document Header: vervang `icon-only` Button door Icon Button ([#3568](https://github.com/dso-toolkit/dso-toolkit/issues/3568))
 * **BREAKING** Angular: Signal Forms-ondersteuning voor Date Picker en Selectable ([#3993](https://github.com/dso-toolkit/dso-toolkit/issues/3993))
 * Header: Weergave ingeklapt menu aanpassen ([#3800](https://github.com/dso-toolkit/dso-toolkit/issues/3800))
+* Plekinfo Card + Accordion: Verbeelding op een lager niveau kunnen weergeven ([#3833](https://github.com/dso-toolkit/dso-toolkit/issues/3833))
 
 ### Fixed
 * Dropdown Menu: Menu sluit niet bij click op interactief element buiten Dropdown Menu ([#4003](https://github.com/dso-toolkit/dso-toolkit/issues/4003))
