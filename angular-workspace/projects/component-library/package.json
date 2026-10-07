@@ -1,7 +1,7 @@
 {
   "name": "@dso-toolkit/angular",
   "description": "DSO Toolkit Angular bindings for Web Components",
-  "version": "100.4.0",
+  "version": "101.0.0",
   "homepage": "https://www.dso-toolkit.nl/",
   "publishConfig": {
     "access": "public"
@@ -15,7 +15,7 @@
     "@angular/core": "^21.0.0 || ^22.0.0",
     "@angular/cdk": "^21.0.0 || ^22.0.0",
     "@angular/forms": "^21.0.0 || ^22.0.0",
-    "@dso-toolkit/core": "100.4.0"
+    "@dso-toolkit/core": "101.0.0"
   },
   "dependencies": {
     "tslib": "catalog:"
