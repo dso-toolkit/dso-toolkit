@@ -46,7 +46,10 @@ The same goes for the component library:
 For Web Components:
 
 ```html
-<script type="module" src="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+<script
+  type="module"
+  src="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso-toolkit/dso-toolkit.esm.js"
+></script>
 ```
 
 The referenced scripts are very small: Only the actually used Web Components are lazy loaded. For more information: https://stenciljs.com/docs/distribution
