@@ -1,4 +1,4 @@
-import { InfoCloseEvent } from "@dso-toolkit/core";
+import { InfoCloseEvent } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
 
 export interface Info {

@@ -1,4 +1,4 @@
-import { DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
+import { DsotDocumentComponentDemoCustomEvent } from "dso-toolkit";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";

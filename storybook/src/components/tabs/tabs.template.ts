@@ -1,4 +1,4 @@
-import { DsoTabCustomEvent } from "@dso-toolkit/core";
+import { DsoTabCustomEvent } from "dso-toolkit";
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
