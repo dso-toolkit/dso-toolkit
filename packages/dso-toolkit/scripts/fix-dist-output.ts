@@ -1,4 +1,4 @@
-import { existsSync, renameSync, writeFileSync } from "fs";
+import { existsSync, readFileSync, renameSync, writeFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -35,7 +35,7 @@ function renameCjsJsToCjs(dir: string, base: string): void {
   if (existsSync(from)) {
     renameSync(from, to);
   } else if (!existsSync(to)) {
-    throw new Error(`fix-cjs-output: expected ${from} to exist after the Stencil build.`);
+    throw new Error(`fix-dist-output: expected ${from} to exist after the Stencil build.`);
   }
 }
 
@@ -47,5 +47,25 @@ const cjsChunksDir = join(distDir, "cjs");
 if (existsSync(cjsChunksDir)) {
   writeFileSync(join(cjsChunksDir, "package.json"), JSON.stringify({ type: "commonjs" }, undefined, 2) + "\n");
 } else {
-  throw new Error(`fix-cjs-output: expected ${cjsChunksDir} to exist after the Stencil build.`);
+  throw new Error(`fix-dist-output: expected ${cjsChunksDir} to exist after the Stencil build.`);
+}
+
+/*
+ * Stencil's `dist-custom-elements` output target writes `dist/components/package.json`
+ * without a `type` field. Node then has to fall back to its "detect module" source-text
+ * heuristic to figure out that these `.js` files are actually ESM (they are, since the root
+ * package is `"type": "module"`), which prints a `MODULE_TYPELESS_PACKAGE_JSON` perf warning
+ * on every import. Making the type explicit removes the warning and the reparse overhead.
+ */
+const componentsPackageJsonPath = join(distDir, "components", "package.json");
+
+if (existsSync(componentsPackageJsonPath)) {
+  const componentsPackageJson = JSON.parse(readFileSync(componentsPackageJsonPath, "utf-8"));
+
+  if (componentsPackageJson.type !== "module") {
+    componentsPackageJson.type = "module";
+    writeFileSync(componentsPackageJsonPath, JSON.stringify(componentsPackageJson, undefined, 2) + "\n");
+  }
+} else {
+  throw new Error(`fix-dist-output: expected ${componentsPackageJsonPath} to exist after the Stencil build.`);
 }
