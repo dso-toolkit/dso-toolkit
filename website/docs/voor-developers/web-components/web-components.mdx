@@ -4,13 +4,15 @@ sidebar_position: 1
 
 # Web Components
 
-De toolkit levert Web Components in twee verschillende distributies: Lazy loading en tree shakeable. Beide distributies zitten in de NPM package `@dso-toolkit/core`.
+De toolkit levert Web Components in twee verschillende distributies: Lazy loading en tree shakeable. Beide distributies zitten in de NPM package `dso-toolkit`.
 
 Wij raden aan om voor productie applicaties de tree shakeable distributie te gebruiken. De lazy loading distributie komt beter tot z'n recht in Codepens of prototyping.
 
 Daarnaast raden wij aan om ook gebruik te maken van framework bindings als een React of Angular applicatie Web Componenten gaat gebruiken.
 
-**De Web Components hebben een peerDependency op de basis package `dso-toolkit`. De afnemer moet deze package volgens de bijbehorende instructies installeren.**
+**De framework bindings `@dso-toolkit/react` en `@dso-toolkit/angular` hebben een peerDependency op de basis package `dso-toolkit`. De afnemer moet deze package volgens de bijbehorende instructies installeren.**
+
+Naast de Web Components zelf is ook de globale stylesheet `dso-toolkit/dist/dso.css` nodig; zonder deze stylesheet zien de componenten er niet correct uit. Zie [HTML/CSS componenten](../html-css-componenten.mdx) voor meer informatie over het inladen van deze stylesheet.
 
 ## Tree shakeable
 
@@ -23,11 +25,11 @@ Zonder framework bindings moet de afnemer elk Web Component afzonderlijk registr
 Onderstaand voorbeeld laat zien hoe Web Components handmatig worden geregistreerd. Als je gebruik maakt van framework bindings (`@dso-toolkit/angular` of `@dso-toolkit/react`) hoeft niet dit.
 
 ```
-npm install @dso-toolkit/core
+npm install dso-toolkit
 ```
 
 ```typescript
-import { defineCustomElementDsoBadge, defineCustomElementDsoToggletip } from "@dso-toolkit/core";
+import { defineCustomElementDsoBadge, defineCustomElementDsoToggletip } from "dso-toolkit";
 
 defineCustomElementDsoBadge();
 defineCustomElementDsoToggletip();
@@ -55,11 +57,11 @@ Bij deze distributie worden alle Web Components door de loader geregistreerd maa
 #### NPM
 
 ```
-npm install @dso-toolkit/core
+npm install dso-toolkit
 ```
 
 ```typescript
-import { defineCustomElements } from "@dso-toolkit/core/loader";
+import { defineCustomElements } from "dso-toolkit/loader";
 
 defineCustomElements();
 
@@ -69,11 +71,9 @@ document.getElementById("#root").innerHTML = "<dso-badge>Deze badge werkt</dso-b
 
 #### CDN
 
-🚧 Nog niet beschikbaar 🚧
-
 ```html
-<script type="module" src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.esm.js"></script>
-<script nomodule src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.js"></script>
+<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso.css" />
+<script type="module" src="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso-toolkit/dso-toolkit.esm.js"></script>
 
 <!-- <dso-badge> element is nu overal beschikbaar --->
 <dso-badge>Deze badge werkt</dso-badge>
