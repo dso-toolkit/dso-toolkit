@@ -33,15 +33,11 @@ export class PlekinfoCardItem implements ComponentInterface {
   private metaSlot?: HTMLSlotElement;
 
   private updateSublabel = () => {
-    if (this.sublabelSlot) {
-      this.hasSublabel = this.sublabelSlot.assignedNodes({ flatten: true }).length > 0;
-    }
+    this.hasSublabel = (this.sublabelSlot?.assignedNodes({ flatten: true }).length ?? 0) > 0;
   };
 
   private updateMeta = () => {
-    if (this.metaSlot) {
-      this.hasMeta = this.metaSlot.assignedNodes({ flatten: true }).length > 0;
-    }
+    this.hasMeta = (this.metaSlot?.assignedNodes({ flatten: true }).length ?? 0) > 0;
   };
 
   private setSublabelSlot = (element: HTMLSlotElement | undefined) => {
