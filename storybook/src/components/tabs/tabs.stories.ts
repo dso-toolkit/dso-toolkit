@@ -1,6 +1,6 @@
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import componentsReadme from "dso-toolkit/src/components/tabs/components/readme.md?raw";
 import readme from "dso-toolkit/src/components/tabs/readme.md?raw";
-import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
