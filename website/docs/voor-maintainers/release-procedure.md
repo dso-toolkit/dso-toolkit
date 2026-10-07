@@ -23,17 +23,16 @@ Dit is de release procedure:
 
      `## 😍 Release 67.0.0 - 2024-11-14`.
 
-   - In de `package.json` van `angular-workspace/projects/component-library`, `packages/react`, `packages/core` en `packages/dso-toolkit` wordt het versienummer bijgewerkt.
-   - In de `package.json` van `@dso-toolkit/core` wordt het versienummer van de peerDependency `dso-toolkit` bijgewerkt.
-   - In de `package.json` van `angular-workspace/projects/component-library` en `packages/react` wordt het versienummer van de peerDependency `@dso-toolkit/core` bijgewerkt.
+   - In de `package.json` van `angular-workspace/projects/component-library`, `packages/react` en `packages/dso-toolkit` wordt het versienummer bijgewerkt.
+   - In de `package.json` van `angular-workspace/projects/component-library` en `packages/react` wordt het versienummer van de peerDependency `dso-toolkit` bijgewerkt.
 
 4. Controleer of de filenaam van de blogpost de juiste datum en naam bevat (datum/versie). Bijv.:
    2024-11-14-dso-toolkit-67.0.0.mdx. Controleer ook in de blogpost of de versie en emoji correct zijn.
 5. De 5 of 6 resulterende gewijzigde bestanden (4x `package.json` en `CHANGELOG.md`, eventueel aangevuld met de gecorrigeerde naam van de blogpost) moeten gecommit worden op de `master`-branch met de volgende commit-message: `😍 Release 67.0.0`.
    Vervolgens pushen we deze release-commit naar origin. Dit triggert een build van de `master`-branch.
 6. Wanneer de build van de `master`-branch gereed is, voorzien we de release-commit van de tag `v67.0.0`. Dit
-   triggert de release-build, die resulteert in het publiceren van versie `67.0.0` van de 4 npm-packages:
-   `@dso-toolkit/core`, `dso-toolkit`, `@dso-toolkit/angular` en `@dso-toolkit/react`.
+   triggert de release-build, die resulteert in het publiceren van versie `67.0.0` van de 3 npm-packages:
+   `dso-toolkit`, `@dso-toolkit/angular` en `@dso-toolkit/react`.
 7. Als de release-build gereed is versturen we in Slack in 3 workspaces/channels een aankondiging. Dat doen we in
    #general van DSO Toolkit, #dso-obo-release van Kadaster-IT en #release_toolkit van DSO-LV. Dit is een voorbeeld
    van de aankondiging:
@@ -78,7 +77,7 @@ wijziging in een component veilig gereleased kan worden.
 
 ### Branch release uitvoeren
 
-- Voordat je begint aan de onderstaande stappen is het zaak dat je een npm-account hebt met toegang tot alle DSO packages: dso-toolkit, @dso-toolkit/core, @dso-toolkit/angular, @dso-toolkit/react.
+- Voordat je begint aan de onderstaande stappen is het zaak dat je een npm-account hebt met toegang tot alle DSO packages: dso-toolkit, @dso-toolkit/angular, @dso-toolkit/react.
 - Tak de branch af van de laatste release
 - Kies een emoji.
 - Voer `pnpm release --version 67.0.0-ghi-2345.0 --emoji <emoji>` uit, of voor een pre-release:
@@ -102,7 +101,6 @@ automatisch publiceren wanneer het geen `latest` tag heeft.
   pre-release expliciet als pre-release wordt gemarkeerd.
 - Voor npm moeten de dist-tags worden gecorrigeerd voor de volgende packages:
   - `dso-toolkit`
-  - `@dso-toolkit/core`
   - `@dso-toolkit/angular`
   - `@dso-toolkit/react`
 - Zet `latest` terug op de laatste reguliere release, bijvoorbeeld `67.0.0`:
@@ -110,7 +108,6 @@ automatisch publiceren wanneer het geen `latest` tag heeft.
 ```bash
   npm login
   npm dist-tag add dso-toolkit@67.0.0 latest
-  npm dist-tag add @dso-toolkit/core@67.0.0 latest
   npm dist-tag add @dso-toolkit/angular@67.0.0 latest
   npm dist-tag add @dso-toolkit/react@67.0.0 latest
 ```
@@ -119,7 +116,6 @@ automatisch publiceren wanneer het geen `latest` tag heeft.
 
   ```bash
   npm dist-tag add dso-toolkit@67.0.0-ghi-2345.0 ghi-2345
-  npm dist-tag add @dso-toolkit/core@67.0.0-ghi-2345.0 ghi-2345
   npm dist-tag add @dso-toolkit/angular@67.0.0-ghi-2345.0 ghi-2345
   npm dist-tag add @dso-toolkit/react@67.0.0-ghi-2345.0 ghi-2345
   ```
