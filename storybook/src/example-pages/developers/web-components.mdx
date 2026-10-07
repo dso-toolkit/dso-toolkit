@@ -4,10 +4,10 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Web Components
 
-De Web Components zitten in de package `@dso-toolkit/core`. Gebruik je React of Angular, kies dan de [React bindings](?path=/docs/voor-developers-react-bindings--docs) of de [Angular bindings](?path=/docs/voor-developers-angular-bindings--docs). Die registreren de componenten voor je. Zonder bindings registreer je de componenten zelf, op een van de manieren hieronder.
+De Web Components zitten in de package `dso-toolkit`. Gebruik je React of Angular, kies dan de [React bindings](?path=/docs/voor-developers-react-bindings--docs) of de [Angular bindings](?path=/docs/voor-developers-angular-bindings--docs). Die registreren de componenten voor je. Zonder bindings registreer je de componenten zelf, op een van de manieren hieronder.
 
 ```sh
-npm install @dso-toolkit/core dso-toolkit
+npm install dso-toolkit
 ```
 
 Laad in alle gevallen ook de stylesheet `dso-toolkit/dist/dso.css`.
@@ -18,7 +18,7 @@ Je registreert alleen de componenten die je gebruikt. Je bundle bevat dan alleen
 
 ```ts
 import "dso-toolkit/dist/dso.css";
-import { defineCustomElementDsoBadge, defineCustomElementDsoToggletip } from "@dso-toolkit/core";
+import { defineCustomElementDsoBadge, defineCustomElementDsoToggletip } from "dso-toolkit";
 
 defineCustomElementDsoBadge();
 defineCustomElementDsoToggletip();
@@ -32,7 +32,7 @@ De loader registreert alle componenten in één keer. De code van een component 
 
 ```ts
 import "dso-toolkit/dist/dso.css";
-import { defineCustomElements } from "@dso-toolkit/core/loader";
+import { defineCustomElements } from "dso-toolkit/loader";
 
 defineCustomElements();
 ```
@@ -45,7 +45,7 @@ Zonder bundler laad je de stylesheet en de loader van `cdn.dso-toolkit.nl`.
 <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/<versie>/dist/dso.css" />
 <script
   type="module"
-  src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/<versie>/dist/dso-toolkit/dso-toolkit.esm.js"
+  src="https://cdn.dso-toolkit.nl/dso-toolkit/<versie>/dist/dso-toolkit/dso-toolkit.esm.js"
 ></script>
 ```
 
