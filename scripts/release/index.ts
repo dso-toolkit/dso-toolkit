@@ -28,7 +28,6 @@ async function main(version: string | undefined, emoji: string | undefined) {
 async function updatePackageJsons(version: string) {
   const packagePaths = [
     "packages/dso-toolkit",
-    "packages/core",
     "packages/react",
     "angular-workspace/projects/component-library",
   ];
@@ -38,9 +37,6 @@ async function updatePackageJsons(version: string) {
 
     packageJson.version = version;
 
-    if (packageJson.peerDependencies?.["@dso-toolkit/core"]) {
-      packageJson.peerDependencies["@dso-toolkit/core"] = version;
-    }
     if (packageJson.peerDependencies?.["dso-toolkit"]) {
       packageJson.peerDependencies["dso-toolkit"] = version;
     }
