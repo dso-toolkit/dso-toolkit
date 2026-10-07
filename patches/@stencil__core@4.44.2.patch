@@ -1,5 +1,5 @@
 diff --git a/compiler/stencil.js b/compiler/stencil.js
-index 150235399fa92e6892ec4b79bae73167c816d5f8..88520e6b0060d609b634d5843b03e4bf23362bf9 100644
+index 150235399fa92e6892ec4b79bae73167c816d5f8..7fe4c65402f9067b2d8a03378abddd98d32cfe94 100644
 --- a/compiler/stencil.js
 +++ b/compiler/stencil.js
 @@ -247828,6 +247828,7 @@ var VALID_CONFIG_OUTPUT_TARGETS = [
@@ -10,3 +10,24 @@ index 150235399fa92e6892ec4b79bae73167c816d5f8..88520e6b0060d609b634d5843b03e4bf
    DIST_HYDRATE_SCRIPT,
    // DOCS
    DOCS_JSON,
+@@ -274516,6 +274517,12 @@ var validateWwwOutputTarget = (config, outputTarget, diagnostics) => {
+ };
+ 
+ // src/compiler/config/outputs/index.ts
++var validateDistGlobalStyles = (config, userOutputs) => {
++  return userOutputs.filter(isOutputTargetDistGlobalStyles).map((o) => ({
++    ...o,
++    file: getAbsolutePath(config, o.file)
++  }));
++};
+ var validateOutputTargets = (config, diagnostics) => {
+   const userOutputs = (config.outputTargets || []).slice();
+   userOutputs.forEach((outputTarget) => {
+@@ -274531,6 +274538,7 @@ var validateOutputTargets = (config, diagnostics) => {
+     ...validateLazy(config, userOutputs),
+     ...validateWww(config, diagnostics, userOutputs),
+     ...validateDist(config, userOutputs),
++    ...validateDistGlobalStyles(config, userOutputs),
+     ...validateDocs(config, diagnostics, userOutputs),
+     ...validateStats(config, userOutputs)
+   ];

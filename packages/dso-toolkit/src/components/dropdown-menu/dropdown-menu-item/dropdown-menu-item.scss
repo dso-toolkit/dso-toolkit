@@ -1,0 +1,89 @@
+@use "../../../variables/colors";
+@use "../../../variables/units";
+
+@use "../../button";
+@use "../../link";
+
+@use "../dropdown-menu.variables" as dropdown-menu-variables;
+
+:host {
+  display: block;
+}
+
+a {
+  &:visited {
+    color: dropdown-menu-variables.$link-color;
+  }
+}
+
+button {
+  @include button.element();
+
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: inherit;
+  inline-size: 100%;
+}
+
+a,
+button {
+  @include link.reverse();
+
+  clear: both;
+  color: dropdown-menu-variables.$link-color;
+  display: block;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-block: 3px;
+  padding-inline: dropdown-menu-variables.$inline-padding;
+  text-decoration: none;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
+
+  &:hover {
+    background-color: colors.$grasgroen-20;
+    color: colors.$grijs-90;
+    text-decoration: none;
+  }
+
+  &:focus {
+    background-color: colors.$grasgroen-20;
+    color: colors.$grijs-90;
+    text-decoration: none;
+  }
+
+  &:focus-visible,
+  :host(:focus-visible) & {
+    background-color: colors.$grasgroen-20;
+    color: colors.$grijs-90;
+    text-decoration: none;
+    // Keep the browser focus ring inside the item, dso-scrollable clips anything outside.
+    outline-offset: -2px;
+  }
+
+  &:active {
+    background-color: colors.$bosgroen-120;
+    color: colors.$wit;
+  }
+
+  dso-icon {
+    margin-inline: units.$u1 * -1.5 units.$u1 * 0.5;
+  }
+}
+
+.checkable:not(.checked) {
+  a,
+  button {
+    padding-inline-start: units.$u5;
+  }
+}
+
+.checked {
+  a,
+  button {
+    &:not(:focus):not(:hover):not(:active) {
+      background-color: colors.$bosgroen;
+      color: colors.$wit;
+    }
+  }
+}

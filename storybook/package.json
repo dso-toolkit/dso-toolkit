@@ -11,7 +11,6 @@
     "prepare": "cypress install"
   },
   "dependencies": {
-    "@dso-toolkit/core": "workspace:*",
     "@simonsmith/cypress-image-snapshot": "^11.0.0",
     "@storybook/addon-a11y": "catalog:storybook",
     "@storybook/addon-docs": "catalog:storybook",

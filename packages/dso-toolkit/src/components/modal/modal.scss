@@ -1,0 +1,194 @@
+@use "sass:color";
+
+@use "../../utilities";
+@use "../button";
+@use "../rich-content";
+@use "../../variables/colors";
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/units";
+
+@use "modal.variables" as modal-variables;
+@use "modal.mixins" as modal-mixins;
+
+@keyframes ModalFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+}
+
+:host dialog {
+  // fullscreen option
+  &.fullscreen {
+    @include modal-mixins.fullscreen-size();
+    @include modal-mixins.fullscreen-layout();
+  }
+
+  // Go to fullscreen on <= 480px viewport
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    @include modal-mixins.fullscreen-size();
+    @include modal-mixins.fullscreen-layout();
+  }
+}
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+button {
+  @include button.element();
+}
+
+.dso-modal {
+  --_dso-button-float-tertiary: inline-start;
+  --_dso-button-padding-block-tertiary: 14px;
+
+  // overwrite UA styles:
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  inline-size: var(--_dso-modal-inline-size, fit-content);
+  max-inline-size: min(calc(100% - (units.$u2 * 2)), var(--_dso-modal-inline-size, modal-variables.$max-inline-size));
+  margin: var(--_dso-modal-margin, auto);
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    --_dso-button-inline-size: 100%;
+    --_dso-button-after-button-margin-inline-start: 0;
+    --_dso-button-after-button-margin-block-start: #{units.$u1};
+    --_dso-button-text-align: center;
+
+    .dso-dialog {
+      display: flex;
+      flex-direction: column;
+    }
+
+    > .dso-dialog > dso-scrollable {
+      flex: 1 1 auto;
+    }
+
+    .modal-scrollable {
+      display: flex;
+      flex-direction: column;
+      min-block-size: 100%;
+    }
+
+    .dso-header,
+    .dso-footer {
+      flex: 0 0 auto;
+    }
+
+    .dso-body {
+      flex: 1 1 auto;
+    }
+  }
+
+  &::backdrop {
+    background-color: color.scale(modal-variables.$backdrop-bg, $alpha: modal-variables.$backdrop-opacity);
+  }
+
+  .dso-dialog {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    inline-size: var(--_dso-modal-dialog-inline-size, modal-variables.$max-inline-size);
+    max-inline-size: 100%;
+    max-block-size: calc(100dvb - (units.$u2 * 2));
+    margin-block-start: var(--_dso-modal-dialog-margin-block-start, 0);
+    margin-inline-start: var(--_dso-modal-dialog-margin-inline-start, auto);
+    margin-inline-end: var(--_dso-modal-dialog-margin-inline-end, auto);
+
+    background-color: modal-variables.$content-bg;
+
+    opacity: 1;
+    box-shadow: 0 #{units.$u1} #{units.$u3} 0 rgba(25, 25, 25, 0.4);
+    animation: 200ms ease-out 0s 1 ModalFadeIn;
+
+    @media screen and (max-height: modal-variables.$small-modal-vh) {
+      min-block-size: modal-variables.$min-modal-block-size;
+    }
+  }
+
+  .dso-header {
+    position: relative;
+    padding: modal-variables.$header-padding;
+    border-block-end: 1px solid modal-variables.$border-color;
+
+    h2 {
+      max-inline-size: calc(100% - #{units.$u3});
+      margin: 0;
+      color: colors.$bosgroen;
+    }
+
+    dso-icon-button {
+      position: absolute;
+      inset-block-start: 22px;
+      inset-inline-end: units.$u2;
+    }
+
+    @media screen and (max-height: modal-variables.$small-modal-vh) {
+      padding-block: units.$u1;
+      padding-inline: units.$u2;
+
+      dso-icon-button {
+        inset-block-start: 14px;
+      }
+    }
+  }
+
+  > .dso-dialog > dso-scrollable {
+    min-block-size: modal-variables.$body-min-block-size;
+
+    &.narrow {
+      max-block-size: calc(100dvb - #{2 * units.$u2});
+    }
+  }
+
+  > .dso-dialog > dso-scrollable .dso-body {
+    @include rich-content.children();
+
+    padding: modal-variables.$body-padding;
+  }
+
+  .dso-body {
+    @media screen and (max-height: modal-variables.$small-modal-vh) {
+      padding-block: units.$u2;
+      padding-inline: units.$u3;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .dso-footer {
+    min-block-size: modal-variables.$footer-button-block-size + modal-variables.$footer-padding;
+    padding-block: modal-variables.$footer-padding * 0.5;
+    padding-inline: modal-variables.$footer-padding;
+    text-align: end;
+
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+      #{button.$button-adjacent-secondary} {
+        margin-inline-start: units.$u2;
+      }
+
+      #{button.$button-adjacent-tertiary} {
+        margin-inline-start: 0;
+      }
+    }
+
+    @media screen and (max-height: modal-variables.$small-modal-vh) {
+      min-block-size: auto;
+      overflow: auto;
+      padding-block: modal-variables.$footer-padding-small-modal-vh;
+      padding-inline: modal-variables.$footer-padding;
+    }
+  }
+}

@@ -1,48 +1,38 @@
+@use "../../utilities";
 @use "../../variables/colors";
 @use "../../variables/units";
 @use "../../variables/media-query-breakpoints";
 @use "../heading";
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
-@use "action-list.variables" as action-list-variables;
-@use "components/action-list-item.variables" as action-list-item-variables;
+@use "./action-list.variables" as action-list-variables;
+@use "./components/action-list-item.variables" as action-list-item-variables;
 
-dso-action-list {
-  dso-action-list-item {
-    margin-inline-start: calc(
-      (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) * -1
-    );
+:host {
+  display: block;
+  padding-block: action-list-variables.$padding-block;
+  padding-inline: units.$u2;
 
-    + .dso-rich-content {
-      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        margin-inline-start: units.$u1;
-      }
-    }
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    padding-inline-end: units.$u12;
   }
 
-  .flow-line {
-    &::after {
-      content: "";
-      background-color: colors.$bosgroen;
-      block-size: calc(100% - units.$u6);
-      position: absolute;
-      inset-block-start: calc(action-list-item-variables.$padding-block + action-list-variables.$step-counter-size);
-      inline-size: action-list-variables.$flow-line-inline-size;
-      inset-inline-start: calc(
-        (action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-inline-size * 0.5)
-      );
+  @include set-colors.apply(colors.$lichtblauw-20, "action-list");
+}
 
-      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        inset-inline-start: calc(
-          (action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-inline-size * 0.5)
-        );
-      }
-    }
-  }
+@include utilities.box-sizing();
 
-  .dso-rich-content {
-    h5,
-    .h5 {
-      @include heading.no-margin();
-    }
+h2 {
+  margin-block: 0 units.$u2;
+
+  @include heading.base();
+  @include heading.h2();
+}
+
+.dso-action-list-content {
+  padding-inline-start: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin);
+
+  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+    padding-inline-start: action-list-variables.$content-indent;
   }
 }

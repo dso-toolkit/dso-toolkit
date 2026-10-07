@@ -17,7 +17,7 @@
     "@stencil/react-output-target": "catalog:"
   },
   "devDependencies": {
-    "@dso-toolkit/core": "workspace:*",
+    "dso-toolkit": "workspace:*",
     "@stencil/core": "catalog:",
     "@types/react": "catalog:",
     "react": "catalog:",
