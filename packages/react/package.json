@@ -2,7 +2,7 @@
   "name": "@dso-toolkit/react",
   "type": "module",
   "version": "101.0.0",
-  "description": "React specific wrapper for @dso-toolkit/core web components",
+  "description": "React specific wrapper for dso-toolkit web components",
   "homepage": "https://www.dso-toolkit.nl/",
   "repository": {
     "type": "git",
