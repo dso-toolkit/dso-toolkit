@@ -1,0 +1,40 @@
+@use "../../../variables/colors";
+
+@use "../accordion.variables" as accordion-variables;
+
+@mixin dso-web-component-accordion-conclusion() {
+  .dso-section-handle {
+    background-color: accordion-variables.$conclusion-bgcolor;
+    border: 1px solid accordion-variables.$conclusion-border-color;
+
+    a,
+    button {
+      color: accordion-variables.$conclusion-color;
+
+      &:hover,
+      &:active,
+      &.active {
+        background-color: accordion-variables.$conclusion-hover-bgcolor;
+      }
+
+      dso-attachments-counter {
+        --dso-attachments-counter-color: #{colors.$zwart};
+        --dso-icon: var(--di-paperclip-zwart);
+      }
+    }
+  }
+
+  .dso-section-body {
+    border: 2px solid accordion-variables.$conclusion-border-color;
+  }
+}
+
+@mixin dso-web-component-accordion-conclusion-open() {
+  > .dso-section-handle {
+    background-color: accordion-variables.$conclusion-nested-handle-bgcolor;
+  }
+}
+
+@mixin dso-web-component-accordion-conclusion-open-nested() {
+  background-color: accordion-variables.$conclusion-nested-body-bgcolor;
+}

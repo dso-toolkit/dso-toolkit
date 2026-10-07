@@ -1,0 +1,7 @@
+@use "../../variables/colors";
+@use "../../variables/units";
+
+$background-color-emphasized: colors.$geel;
+
+$panel-heading-padding-inline-start: units.$u2;
+$panel-body-padding-inline: units.$u2;

@@ -10,8 +10,8 @@ Dockerfile
 
 angular-workspace/.angular
 
-packages/core/loader
-packages/core/CHANGELOG.md
-packages/core/README.md
+packages/dso-toolkit/loader
+packages/dso-toolkit/CHANGELOG.md
+packages/dso-toolkit/README.md
 
 website/.docusaurus

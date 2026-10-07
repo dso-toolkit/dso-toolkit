@@ -1,7 +1,103 @@
+@use "../../utilities";
+@use "../../variables/colors";
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/typography";
 @use "../../variables/units";
 
-dso-map-controls {
-  & > * + * {
-    margin-block-start: units.$u4;
+@use "../button/button";
+@use "../button/button.variables" as button-variables;
+
+@use "map-controls.variables" as core-map-controls-variables;
+
+:host {
+  background-color: colors.$wit;
+  border: 1px solid colors.$grijs-20;
+  inset-block-end: 0;
+  display: block;
+  font-family: typography.$font-family-base;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 100%;
+  transition: transform core-map-controls-variables.$transition-duration ease;
+  inline-size: 300px;
+}
+
+@include utilities.box-sizing();
+
+:host([open]) {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+  transform: translateX(-100%);
+
+  .toggle-visibility-button,
+  .toggle-visibility-icon-button {
+    display: none;
+  }
+
+  .zoom-buttons {
+    inset-block-start: units.$u2;
+  }
+}
+
+.toggle-visibility-icon-button {
+  display: none;
+}
+
+.toggle-visibility-button {
+  position: absolute;
+  inset-inline-end: calc(100% + #{core-map-controls-variables.$controls-inset + button-variables.$map-size});
+  inset-block-start: core-map-controls-variables.$controls-inset;
+}
+
+.zoom-buttons {
+  position: absolute;
+  inset-inline-end: calc(100% + core-map-controls-variables.$controls-inset);
+  inset-block-start: core-map-controls-variables.$controls-inset;
+}
+
+.close-button {
+  padding: 0;
+  position: absolute;
+  inset-inline-end: core-map-controls-variables.$controls-inset;
+  inset-block-start: core-map-controls-variables.$controls-inset;
+}
+
+section:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+}
+
+header,
+.content {
+  padding: units.$u2;
+}
+
+header {
+  border-block-end: 1px solid colors.$grijs-20;
+  flex-grow: 0;
+  position: relative;
+
+  h2 {
+    color: colors.$bosgroen;
+    font-family: typography.$headings-font-family;
+    line-height: 1;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+  button.toggle-visibility-button {
+    display: none;
+  }
+
+  .toggle-visibility-icon-button {
+    display: inline-block;
+    position: absolute;
+    inset-block-start: units.$u2;
+    inset-inline-end: calc(100% + core-map-controls-variables.$controls-inset);
+  }
+
+  .zoom-buttons {
+    inset-block-start: units.$u9;
   }
 }
