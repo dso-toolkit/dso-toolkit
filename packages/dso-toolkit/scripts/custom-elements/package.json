@@ -1,6 +1,7 @@
 {
   "name": "dso-toolkit/dist/components",
   "version": "0.0.0",
+  "type": "module",
   "description": "DSO Toolkit Components exported as custom elements, extending HTMLElement.",
   "main": "./index.js",
   "types": "./custom-elements.d.ts",
