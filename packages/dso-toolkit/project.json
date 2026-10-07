@@ -9,10 +9,18 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "gulp build",
+        "command": "stencil build && tsx scripts/readme.ts",
         "cwd": "packages/dso-toolkit"
       },
-      "outputs": ["{projectRoot}/CHANGELOG.md", "{projectRoot}/README.md", "{projectRoot}/dist"]
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/loader",
+        "{projectRoot}/../react/src/components.ts",
+        "{projectRoot}/../react/src/react-component-lib",
+        "{projectRoot}/../../angular-workspace/projects/component-library/src/lib/stencil-generated",
+        "{projectRoot}/README.md",
+        "{projectRoot}/CHANGELOG.md"
+      ]
     }
   }
 }

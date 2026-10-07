@@ -1,0 +1,108 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/scaffolding";
+@use "../../variables/typography";
+@use "../../variables/zindex";
+
+@use "autosuggest.variables" as core-autosuggest-variables;
+
+:host {
+  display: block;
+  position: relative;
+}
+
+.listbox-container {
+  inset-inline: 0;
+  inset-block-start: 100%;
+  block-size: auto;
+  max-block-size: var(--_dso-autosuggest-max-block-size);
+  min-block-size: core-autosuggest-variables.$listbox-min-block-size;
+  overflow-y: auto;
+  position: absolute;
+  z-index: zindex.$autosuggest;
+}
+
+.listbox,
+.autosuggest-progress-box {
+  background-clip: padding-box;
+  background-color: core-autosuggest-variables.$background-color;
+  border: core-autosuggest-variables.$listbox-border-width solid core-autosuggest-variables.$border-color;
+  border-radius: scaffolding.$border-radius-base;
+  box-shadow: core-autosuggest-variables.$box-shadow;
+  list-style-type: none;
+  margin-block: 0;
+}
+
+.autosuggest-progress-box {
+  padding-block: units.$u1 * 1.5;
+  padding-inline: units.$u1;
+}
+
+.listbox {
+  padding-block: core-autosuggest-variables.$listbox-padding-block;
+  padding-inline: 0;
+
+  .group:not(:first-child) {
+    .group-label {
+      border-block-start: 1px solid colors.$grijs-30;
+      padding-block-start: units.$padding-base-inline;
+    }
+  }
+
+  .group-label {
+    color: colors.$bosgroen;
+    font-weight: 700;
+    padding-block: core-autosuggest-variables.$list-item-padding-block;
+    margin-inline: units.$u2;
+  }
+
+  .option {
+    padding-block: core-autosuggest-variables.$list-item-padding-block;
+    padding-inline: units.$u2;
+
+    .suggestion-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &:active {
+      background-color: colors.$bosgroen;
+
+      &,
+      .type,
+      .extra {
+        color: colors.$wit;
+      }
+    }
+  }
+}
+
+.option[aria-selected="true"] {
+  cursor: pointer;
+  background-color: colors.$grasgroen-20;
+}
+
+mark {
+  font-weight: 700;
+  background-color: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.type,
+.extra {
+  color: colors.$grijs-60;
+}
+
+.type {
+  text-align: end;
+}
+
+.extra {
+  font-size: typography.$font-size-small;
+  line-height: typography.$font-size-small * typography.$line-height-base;
+
+  &:not(:first-child) {
+    text-align: end;
+  }
+}
