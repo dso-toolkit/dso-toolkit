@@ -1,6 +1,6 @@
+import { Meta, StoryObj } from "@storybook/web-components-vite";
 import componentsReadme from "dso-toolkit/src/components/accordion/components/readme.md?raw";
 import readme from "dso-toolkit/src/components/accordion/readme.md?raw";
-import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 
 import { children } from "../badge/badge.content.js";

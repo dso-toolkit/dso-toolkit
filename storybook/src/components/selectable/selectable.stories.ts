@@ -1,5 +1,5 @@
-import readme from "dso-toolkit/src/components/selectable/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import readme from "dso-toolkit/src/components/selectable/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
 import { v4 as uuidv4 } from "uuid";
 
