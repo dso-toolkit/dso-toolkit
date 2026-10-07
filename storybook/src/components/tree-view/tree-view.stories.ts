@@ -1,4 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/tree-view/readme.md?raw";
+import readme from "dso-toolkit/src/components/tree-view/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";

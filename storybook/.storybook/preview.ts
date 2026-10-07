@@ -1,4 +1,4 @@
-import { defineCustomElements } from "@dso-toolkit/core/dist/bundle/index.js";
+import { defineCustomElements } from "dso-toolkit/dist/bundle/index.js";
 import { Preview } from "@storybook/web-components-vite";
 import "@iframe-resizer/child";
 

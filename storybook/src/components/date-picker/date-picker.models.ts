@@ -3,7 +3,7 @@ import {
   DatePickerChangeEvent,
   DatePickerFocusEvent,
   DatePickerKeyboardEvent,
-} from "@dso-toolkit/core";
+} from "dso-toolkit";
 
 export interface DatePicker {
   id?: string;

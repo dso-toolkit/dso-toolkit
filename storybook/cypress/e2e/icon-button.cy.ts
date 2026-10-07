@@ -1,4 +1,4 @@
-import { TooltipPlacement } from "@dso-toolkit/core";
+import { TooltipPlacement } from "dso-toolkit";
 
 describe("Icon Button", () => {
   beforeEach(() => {

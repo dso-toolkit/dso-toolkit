@@ -1,6 +1,6 @@
-import dropdownMenuGroupReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-group/readme.md?raw";
-import dropdownMenuItemReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-item/readme.md?raw";
-import readme from "@dso-toolkit/core/src/components/dropdown-menu/readme.md?raw";
+import dropdownMenuGroupReadme from "dso-toolkit/src/components/dropdown-menu/dropdown-menu-group/readme.md?raw";
+import dropdownMenuItemReadme from "dso-toolkit/src/components/dropdown-menu/dropdown-menu-item/readme.md?raw";
+import readme from "dso-toolkit/src/components/dropdown-menu/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
