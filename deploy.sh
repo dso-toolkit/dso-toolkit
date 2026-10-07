@@ -6,16 +6,20 @@ SAS_TOKEN=$(az storage container generate-sas --name "$DT_AZURE_STORAGE_CONTAINE
 # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-a-log
 echo "::add-mask::$SAS_TOKEN"
 
-pnpm exec tsx scripts/create-hashes dso-toolkit
-
 azcopy sync --from-to=LocalBlob --delete-destination=true ./storybook/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/storybook.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
 azcopy sync --from-to=LocalBlob --delete-destination=true ./website/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
-# packages/dso-toolkit now also contains the former @dso-toolkit/core sources (node_modules, .stencil,
-# scripts, tsconfig*, stencil.config.ts, docs.json/.d.ts, vscode-data.json, project.json). Only the
-# published/consumable artifacts (dist/, loader/, assets/, package.json, hashes.json, README/CHANGELOG/
-# DISCLAIMER) and the sass source variables belong on the CDN, so exclude everything else explicitly.
-azcopy sync --from-to=LocalBlob --delete-destination=true --exclude-path="node_modules;.stencil;scripts;src;project.json;stencil.config.ts;tsconfig.json;tsconfig.local.json;docs.json;docs.d.ts;vscode-data.json;.gitignore" ./packages/dso-toolkit/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/cdn.dso-toolkit.nl/www/dso-toolkit/${DT_REF}/?${SAS_TOKEN}"
-azcopy sync --from-to=LocalBlob --delete-destination=true ./packages/dso-toolkit/src/variables/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/cdn.dso-toolkit.nl/www/dso-toolkit/${DT_REF}/src/variables/?${SAS_TOKEN}"
+
+# The CDN must serve exactly the contents of the published dso-toolkit npm package (as defined by its
+# "files" field), plus the SRI hashes.json. Instead of maintaining a brittle exclude-path blocklist on
+# packages/dso-toolkit (which also contains sources/scripts/tooling that must never end up on the CDN),
+# pack the package the same way npm would, extract that tarball into a scratch directory and sync that.
+DT_PACK_DIR=$(mktemp -d)
+pnpm --filter dso-toolkit pack --pack-destination "$DT_PACK_DIR"
+tar -xzf "$DT_PACK_DIR"/dso-toolkit-*.tgz -C "$DT_PACK_DIR"
+pnpm exec tsx scripts/create-hashes dso-toolkit "$DT_PACK_DIR/package"
+
+azcopy sync --from-to=LocalBlob --delete-destination=true "$DT_PACK_DIR/package/" "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/cdn.dso-toolkit.nl/www/dso-toolkit/${DT_REF}/?${SAS_TOKEN}"
+rm -rf "$DT_PACK_DIR"
 
 if [[ -n ${DT_DIST_TAG+x} && $DT_DIST_TAG == "latest" ]]
 then
