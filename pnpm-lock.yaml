@@ -171,6 +171,9 @@ overrides:
   webpack: 5.105.2
   webpack-dev-server>http-proxy-middleware: ^2.0.10
 
+patchedDependencies:
+  '@stencil/core@4.44.2': ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840
+
 importers:
 
   .:
@@ -192,7 +195,7 @@ importers:
         version: 22.0.1
       '@stencil/eslint-plugin':
         specifier: ^1.4.0
-        version: 1.4.0(@stencil/core@4.44.2)(@typescript-eslint/eslint-plugin@8.69.0(@typescript-eslint/parser@8.69.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(@typescript-eslint/parser@8.69.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0)))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+        version: 1.4.0(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))(@typescript-eslint/eslint-plugin@8.69.0(@typescript-eslint/parser@8.69.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(@typescript-eslint/parser@8.69.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0)))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@types/minimist':
         specifier: ^1.2.5
         version: 1.2.5
@@ -345,10 +348,10 @@ importers:
         version: 1.8.0
       '@stencil/core':
         specifier: 'catalog:'
-        version: 4.44.2
+        version: 4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840)
       '@stencil/store':
         specifier: ^2.2.4
-        version: 2.2.4(@stencil/core@4.44.2)
+        version: 2.2.4(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))
       clsx:
         specifier: 'catalog:'
         version: 2.1.1
@@ -373,13 +376,13 @@ importers:
     devDependencies:
       '@stencil/angular-output-target':
         specifier: ^1.4.1
-        version: 1.4.1(@stencil/core@4.44.2)
+        version: 1.4.1(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))
       '@stencil/react-output-target':
         specifier: 'catalog:'
-        version: 1.6.2(@stencil/core@4.44.2)(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 1.6.2(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@stencil/sass':
         specifier: ^3.3.3
-        version: 3.3.3(@stencil/core@4.44.2)
+        version: 3.3.3(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))
       '@types/debounce':
         specifier: ^1.2.4
         version: 1.2.4
@@ -499,7 +502,7 @@ importers:
     dependencies:
       '@stencil/react-output-target':
         specifier: 'catalog:'
-        version: 1.6.2(@stencil/core@4.44.2)(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 1.6.2(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react-dom:
         specifier: ^18.3.0 || ^19.0.0
         version: 19.2.8(react@19.2.8)
@@ -509,7 +512,7 @@ importers:
         version: link:../core
       '@stencil/core':
         specifier: 'catalog:'
-        version: 4.44.2
+        version: 4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840)
       '@types/react':
         specifier: 'catalog:'
         version: 19.2.18
@@ -16729,11 +16732,11 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@stencil/angular-output-target@1.4.1(@stencil/core@4.44.2)':
+  '@stencil/angular-output-target@1.4.1(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))':
     dependencies:
-      '@stencil/core': 4.44.2
+      '@stencil/core': 4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840)
 
-  '@stencil/core@4.44.2':
+  '@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840)':
     optionalDependencies:
       '@rollup/rollup-darwin-arm64': 4.44.0
       '@rollup/rollup-darwin-x64': 4.44.0
@@ -16744,9 +16747,9 @@ snapshots:
       '@rollup/rollup-win32-arm64-msvc': 4.44.0
       '@rollup/rollup-win32-x64-msvc': 4.44.0
 
-  '@stencil/eslint-plugin@1.4.0(@stencil/core@4.44.2)(@typescript-eslint/eslint-plugin@8.69.0(@typescript-eslint/parser@8.69.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(@typescript-eslint/parser@8.69.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0)))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
+  '@stencil/eslint-plugin@1.4.0(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))(@typescript-eslint/eslint-plugin@8.69.0(@typescript-eslint/parser@8.69.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(@typescript-eslint/parser@8.69.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint-plugin-react@7.37.5(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0)))(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
-      '@stencil/core': 4.44.2
+      '@stencil/core': 4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840)
       eslint-utils: 3.0.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))
       jsdom: 25.0.1(supports-color@7.2.0)
       tsutils: 3.21.0(typescript@5.9.3)
@@ -16762,10 +16765,10 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@stencil/react-output-target@1.6.2(@stencil/core@4.44.2)(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@stencil/react-output-target@1.6.2(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@lit/react': 1.0.8(@types/react@19.2.18)
-      '@stencil/core': 4.44.2
+      '@stencil/core': 4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840)
       html-react-parser: 5.2.17(@types/react@19.2.18)(react@19.2.8)
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
@@ -16774,14 +16777,14 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@stencil/sass@3.3.3(@stencil/core@4.44.2)':
+  '@stencil/sass@3.3.3(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))':
     dependencies:
-      '@stencil/core': 4.44.2
+      '@stencil/core': 4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840)
       sass-embedded: 1.104.0
 
-  '@stencil/store@2.2.4(@stencil/core@4.44.2)':
+  '@stencil/store@2.2.4(@stencil/core@4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840))':
     dependencies:
-      '@stencil/core': 4.44.2
+      '@stencil/core': 4.44.2(patch_hash=ac4886fb72430ec1702a30df4946201a28f46365ca4661e406e0ca9ee7ecb840)
 
   '@storybook/addon-a11y@10.6.0(storybook@10.6.0(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))':
     dependencies:
