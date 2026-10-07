@@ -1,0 +1,78 @@
+---
+authors: [iterox]
+date: 2026-10-19
+---
+
+# DSO Toolkit 102.0.0
+
+Deze release bevat een **BREAKING** change: `@dso-toolkit/core` is samengevoegd in `dso-toolkit`.
+
+<!-- truncate -->
+
+## Waarom
+
+In het epic "Platform versimpelen" (#3928) maken we het platform eenvoudiger te installeren en te onderhouden. Sinds Stencil ook de globale stylesheet (`dso.css`) kan bouwen is er geen technische reden meer om de HTML/CSS componenten (`dso-toolkit`) en de Web Components (`@dso-toolkit/core`) als twee aparte NPM packages aan te bieden. Afnemers moesten voorheen twee packages installeren en op elkaar afstemmen, terwijl ze in de praktijk altijd samen worden gebruikt. Vanaf 102.0.0 is er dus nog maar één basis package: `dso-toolkit`. Stencil is daarmee het fundament van zowel de HTML/CSS componenten als de Web Components.
+
+`@dso-toolkit/react` en `@dso-toolkit/angular` blijven bestaan als optionele framework bindings, met een peerDependency op `dso-toolkit` in plaats van op `@dso-toolkit/core`.
+
+## Migratiepad
+
+### 1. Installeer `dso-toolkit`
+
+```sh
+npm uninstall @dso-toolkit/core
+npm install dso-toolkit@102
+```
+
+Gebruik je `@dso-toolkit/react` of `@dso-toolkit/angular`? Zet ook deze bindings op 102; hun peerDependency wijst nu naar `dso-toolkit` in plaats van naar `@dso-toolkit/core`.
+
+### 2. Vervang imports
+
+| Oud                                     | Nieuw                             |
+| --------------------------------------- | --------------------------------- |
+| `@dso-toolkit/core`                     | `dso-toolkit`                     |
+| `@dso-toolkit/core/loader`              | `dso-toolkit/loader`              |
+| `@dso-toolkit/core/dist/components/...` | `dso-toolkit/dist/components/...` |
+| `@dso-toolkit/core/dist/bundle/...`     | `dso-toolkit/dist/bundle/...`     |
+
+Types die je eerder uit `@dso-toolkit/core` importeerde, importeer je nu op dezelfde manier uit `dso-toolkit`.
+
+### 3. CSS
+
+`dso-toolkit/dist/dso.css` blijft ongewijzigd beschikbaar. `dso.min.css` en de bijbehorende sourcemaps (`*.map`) vervallen; minify je stylesheets zelf als je dat nodig hebt.
+
+### 4. SCSS
+
+Alleen `dso-toolkit/src/variables/*.scss` wordt nog gepubliceerd (of via de sass `pkg:`-importer: `@use "pkg:dso-toolkit/variables/colors"`). De overige SCSS-bronbestanden zaten al niet in het koppelvlak en worden nu ook niet meer gepubliceerd.
+
+### 5. `exports`
+
+`package.json` van `dso-toolkit` heeft een `exports` veld. Deep imports buiten de volgende paden werken niet meer:
+
+- `.`
+- `./loader`
+- `./dist/components` en `./dist/components/*.js`
+- `./dist/bundle` en `./dist/bundle/*.js`
+- `./dist/dso.css`
+- `./src/variables/*` en `./variables/*`
+- `./assets/*`
+- `./package.json`
+
+### 6. CDN
+
+Nieuwe versies worden vanaf 102.0.0 alleen nog gepubliceerd onder `https://cdn.dso-toolkit.nl/dso-toolkit/<versie>/`, zowel voor de stylesheet als voor de Web Components, bijvoorbeeld:
+
+```html
+<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/102.0.0/dist/dso.css" />
+<script type="module" src="https://cdn.dso-toolkit.nl/dso-toolkit/102.0.0/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+```
+
+Onder `https://cdn.dso-toolkit.nl/@dso-toolkit/core/<versie>/` komen geen nieuwe versies meer bij; bestaande versies (`<102.0.0`) blijven daar wel beschikbaar. Per versie is er één `hashes.json` met de SRI-hashes (`sha384`/`sha512`) voor alle build artifacts.
+
+### 7. CommonJS
+
+Alleen `require` op de root (`dso-toolkit`) en op de loader (`dso-toolkit/loader`) wordt nog ondersteund. We raden aan om ESM te gebruiken.
+
+## Vragen?
+
+Loop je tegen problemen aan bij het migreren, meld je dan via [#3931](https://github.com/dso-toolkit/dso-toolkit/issues/3931) of in onze Slack.
