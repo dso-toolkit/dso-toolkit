@@ -1,7 +1,0 @@
-@use "../../variables/units";
-
-dso-map-controls {
-  & > * + * {
-    margin-block-start: units.$u4;
-  }
-}

@@ -39,6 +39,26 @@
   }
 }
 
+:host(.flow-line) {
+  &::after {
+    content: "";
+    background-color: colors.$bosgroen;
+    block-size: calc(100% - units.$u6);
+    position: absolute;
+    inset-block-start: calc(action-list-item-variables.$padding-block + action-list-variables.$step-counter-size);
+    inline-size: action-list-variables.$flow-line-inline-size;
+    inset-inline-start: calc(
+      (action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-inline-size * 0.5)
+    );
+
+    @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+      inset-inline-start: calc(
+        (action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-inline-size * 0.5)
+      );
+    }
+  }
+}
+
 .sr-only {
   @include utilities.sr-only();
 }
