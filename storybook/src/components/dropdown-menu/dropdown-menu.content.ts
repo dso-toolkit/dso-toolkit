@@ -5,7 +5,6 @@ import { DropdownMenuGroup } from "./dropdown-menu.models.js";
 export function versions(): DropdownMenuGroup[] {
   return [
     {
-      id: "versies",
       label: "Versies",
       items: [
         { type: "link", href: "#", label: "10.6.0", dsoClick: fn() },
@@ -17,7 +16,6 @@ export function versions(): DropdownMenuGroup[] {
       items: [{ type: "link", href: "#", label: "master", dsoClick: fn() }],
     },
     {
-      id: "branch-releases",
       label: "Branch releases",
       items: [
         { type: "link", href: "#", label: "#500-Margins-Testbuilds", dsoClick: fn() },

@@ -42,10 +42,14 @@ button {
 
   &:hover,
   &:focus {
-    background-color: colors.$grasgroen;
-    border-color: colors.$grasgroen;
-    color: colors.$wit;
+    background-color: colors.$grasgroen-20;
+    color: colors.$grijs-90;
     text-decoration: none;
+  }
+
+  &:active {
+    background-color: colors.$bosgroen-120;
+    color: colors.$wit;
   }
 
   dso-icon {
@@ -63,8 +67,8 @@ button {
 .checked {
   a,
   button {
-    &:not(:focus) {
-      background-color: colors.$grasgroen;
+    &:not(:focus):not(:hover):not(:active) {
+      background-color: colors.$bosgroen;
       color: colors.$wit;
     }
   }

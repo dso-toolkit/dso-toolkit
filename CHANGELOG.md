@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Autosuggest: Reflow ([#3980](https://github.com/dso-toolkit/dso-toolkit/issues/3980))
+* Dropdown Menu: States zijn niet te onderscheiden ([#3918](https://github.com/dso-toolkit/dso-toolkit/issues/3918))
 
 ### Task
 * Icons: Vervang de di.svg-sprite door di-inline ([#3939](https://github.com/dso-toolkit/dso-toolkit/issues/3939))
