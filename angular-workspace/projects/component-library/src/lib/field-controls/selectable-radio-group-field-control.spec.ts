@@ -168,6 +168,8 @@ describe("DsoSelectableRadioGroupFieldControl", () => {
   });
 
   it("marks the group touched only when focus leaves it", () => {
+    const onTouch = vi.fn();
+    control.touch.subscribe(onTouch);
     expect(component.myForm.keuze().touched()).toBe(false);
     const inputs = group.querySelectorAll<HTMLInputElement>('input[type="radio"]');
     const first = inputs[0];
@@ -180,12 +182,14 @@ describe("DsoSelectableRadioGroupFieldControl", () => {
     second.focus();
     fixture.detectChanges();
     expect(component.myForm.keuze().touched()).toBe(false);
+    expect(onTouch).not.toHaveBeenCalled();
 
     const outside = document.createElement("button");
     group.after(outside);
     outside.focus();
     fixture.detectChanges();
     expect(component.myForm.keuze().touched()).toBe(true);
+    expect(onTouch).toHaveBeenCalledOnce();
   });
 
   it("ignores unchecking a radio", () => {

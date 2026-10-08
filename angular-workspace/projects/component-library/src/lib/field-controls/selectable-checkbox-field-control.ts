@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, input, model } from "@angular/core";
+import { Directive, ElementRef, HostListener, input, model, output } from "@angular/core";
 import { FormCheckboxControl } from "@angular/forms/signals";
 import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
 
@@ -23,6 +23,7 @@ export class DsoSelectableCheckboxFieldControl implements FormCheckboxControl {
   readonly required = input(false);
   readonly invalid = input(false);
   readonly touched = model(false);
+  readonly touch = output<void>();
 
   constructor(elementRef: ElementRef<HTMLDsoSelectableElement>) {
     syncFieldControlProperties(elementRef.nativeElement, "checked", {
@@ -41,5 +42,6 @@ export class DsoSelectableCheckboxFieldControl implements FormCheckboxControl {
   @HostListener("focusout")
   onFocusOut() {
     this.touched.set(true);
+    this.touch.emit();
   }
 }
