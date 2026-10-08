@@ -1,10 +1,10 @@
-@use "~dso-toolkit/src/utilities";
-@use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/global/mixins/symbol.mixins" as symbol-mixins;
+@use "../../../utilities";
+@use "../../../variables/units";
+@use "../../../global/mixins/symbol.mixins" as symbol-mixins;
 
-@use "~dso-toolkit/src/components/insert/insert";
-@use "~dso-toolkit/src/components/delete/delete";
-@use "~dso-toolkit/src/components/delete" as delete-mixins;
+@use "../../insert/insert";
+@use "../../delete/delete";
+@use "../../delete" as delete-mixins;
 
 @use "plekinfo-card-item.variables" as plekinfo-card-item-variables;
 
