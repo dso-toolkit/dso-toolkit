@@ -89,12 +89,18 @@ describe("DsoSelectableCheckboxFieldControl", () => {
   });
 
   it("should update touched state on focusout", () => {
+    const control = fixture.debugElement
+      .query(By.directive(DsoSelectableCheckboxFieldControl))
+      .injector.get(DsoSelectableCheckboxFieldControl);
+    const onTouch = vi.fn();
+    control.touch.subscribe(onTouch);
     expect(component.myForm.akkoord().touched()).toBe(false);
 
     element.dispatchEvent(new Event("focusout"));
     fixture.detectChanges();
 
     expect(component.myForm.akkoord().touched()).toBe(true);
+    expect(onTouch).toHaveBeenCalledOnce();
   });
 
   it("should sync disabled state", () => {

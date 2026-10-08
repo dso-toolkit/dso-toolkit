@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, effect, input, model } from "@angular/core";
+import { Directive, ElementRef, HostListener, afterEveryRender, input, model, output } from "@angular/core";
 import { FormValueControl } from "@angular/forms/signals";
 import { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "@dso-toolkit/core/dist/components";
 
@@ -25,8 +25,7 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
   readonly required = input(false);
   readonly invalid = input(false);
   readonly touched = model(false);
-  readonly min = input<number>();
-  readonly max = input<number>();
+  readonly touch = output<void>();
   readonly minDate = input<string>();
   readonly maxDate = input<string>();
   readonly inputError = model<DatePickerChangeEvent["error"]>();
@@ -38,14 +37,13 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
       required: this.required,
       invalid: this.invalid,
     });
-    // FormField also writes numeric bounds to the generated proxy; reapply date bounds after those updates.
-    effect(() => {
-      this.min();
-      elementRef.nativeElement.min = this.minDate();
-    });
-    effect(() => {
-      this.max();
-      elementRef.nativeElement.max = this.maxDate();
+    // FormField may overwrite the element's min/max through the generated Angular component.
+    // Reapply minDate/maxDate after rendering so form constraints cannot replace the date limits.
+    afterEveryRender({
+      write: () => {
+        elementRef.nativeElement.min = this.minDate();
+        elementRef.nativeElement.max = this.maxDate();
+      },
     });
   }
 
@@ -60,5 +58,6 @@ export class DsoDatePickerFieldControl implements FormValueControl<string> {
     this.inputError.set(event.detail.error);
     this.value.set(event.detail.value);
     this.touched.set(true);
+    this.touch.emit();
   }
 }

@@ -1,4 +1,13 @@
-import { Directive, ElementRef, HostListener, afterRenderEffect, contentChildren, input, model } from "@angular/core";
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  afterRenderEffect,
+  contentChildren,
+  input,
+  model,
+  output,
+} from "@angular/core";
 import { FormValueControl } from "@angular/forms/signals";
 import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
 
@@ -45,6 +54,7 @@ export class DsoSelectableRadioGroupFieldControl implements FormValueControl<str
   readonly required = input(false);
   readonly invalid = input(false);
   readonly touched = model(false);
+  readonly touch = output<void>();
 
   private readonly options = contentChildren(DsoSelectable, { descendants: true, read: ElementRef });
 
@@ -117,6 +127,7 @@ export class DsoSelectableRadioGroupFieldControl implements FormValueControl<str
     const relatedTarget = event.relatedTarget;
     if (!(relatedTarget instanceof Node) || !this.elementRef.nativeElement.contains(relatedTarget)) {
       this.touched.set(true);
+      this.touch.emit();
     }
   }
 
