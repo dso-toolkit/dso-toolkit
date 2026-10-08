@@ -1,7 +1,7 @@
 import { Component, signal } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormField, disabled, form, max, min, required, validate } from "@angular/forms/signals";
-import { DatePickerChangeEvent } from "@dso-toolkit/core/dist/components";
+import { DatePickerChangeEvent } from "dso-toolkit/dist/components";
 
 import { DsoDatePickerFieldControl } from "../../public-api";
 import { DsoDatePicker } from "../stencil-generated/components";

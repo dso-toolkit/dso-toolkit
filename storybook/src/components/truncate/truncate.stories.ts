@@ -1,5 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/truncate/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import readme from "dso-toolkit/src/components/truncate/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
 
 import { TruncateArgs, truncateArgTypes } from "./truncate.args.js";
