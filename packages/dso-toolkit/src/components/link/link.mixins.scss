@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "../../di-inline";
+@use "../../di";
 @use "../../variables/units";
 @use "link.variables" as link-variables;
 
@@ -106,7 +106,7 @@
 
   background-image: var(
     --_dso-link-icon-visibility,
-    var(--_dso-link-#{$mode}-icon, var(#{di-inline.custom-property($key, $icon-color)}))
+    var(--_dso-link-#{$mode}-icon, var(#{di.custom-property($key, $icon-color)}))
   );
 
   @if map.has-key($link-map, "icon-hover-color") {
@@ -116,7 +116,7 @@
     &:focus-visible {
       background-image: var(
         --_dso-link-icon-visibility,
-        var(--_dso-link-#{$mode}-icon, var(#{di-inline.custom-property($key, $icon-hover-color)}))
+        var(--_dso-link-#{$mode}-icon, var(#{di.custom-property($key, $icon-hover-color)}))
       );
     }
   }

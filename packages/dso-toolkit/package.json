@@ -3,54 +3,103 @@
   "description": "DSO Toolkit",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
   "version": "101.0.0",
-  "scripts": {
-    "watch": "gulp"
-  },
-  "files": [
-    "assets",
-    "dist/di.svg",
-    "dist/*.css",
-    "dist/*.map",
-    "src/**/*.scss",
-    "CHANGELOG.md",
-    "DISCLAIMER.txt",
-    "README.md",
-    "!src/icons/**"
-  ],
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/dso-toolkit/dso-toolkit.git"
   },
   "homepage": "https://www.dso-toolkit.nl/",
+  "main": "dist/index.cjs.js",
+  "module": "dist/components/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/dso-toolkit/dso-toolkit.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/components/index.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs.js"
+    },
+    "./dist/components": {
+      "types": "./dist/components/custom-elements.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./dist/components/*.js": {
+      "types": "./dist/components/*.d.ts",
+      "import": "./dist/components/*.js"
+    },
+    "./dist/bundle": {
+      "types": "./dist/bundle/index.d.ts",
+      "import": "./dist/bundle/index.js"
+    },
+    "./dist/bundle/*.js": {
+      "types": "./dist/bundle/*.d.ts",
+      "import": "./dist/bundle/*.js"
+    },
+    "./dist/dso.css": "./dist/dso.css",
+    "./src/variables/*": "./src/variables/*",
+    "./variables/*": {
+      "sass": "./src/variables/*.scss",
+      "default": "./src/variables/*.scss"
+    },
+    "./assets/*": "./assets/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/",
+    "loader/",
+    "assets/",
+    "src/variables/*.scss",
+    "README.md",
+    "CHANGELOG.md",
+    "DISCLAIMER.txt"
+  ],
+  "scripts": {
+    "clear": "rimraf dist && rimraf loader",
+    "watch": "pnpm clear && node scripts/watch.mjs"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "^1.8.0",
+    "@stencil/core": "catalog:",
+    "@stencil/store": "^2.2.4",
+    "clsx": "catalog:",
+    "escape-string-regexp": "catalog:",
+    "focus-trap": "^8.2.2",
+    "i18next": "^26.4.2",
+    "tabbable": "^6.5.0",
+    "uuid": "catalog:"
+  },
   "devDependencies": {
-    "@prettier/plugin-xml": "^3.4.2",
-    "@types/css": "^0.0.38",
-    "@types/gulp": "^4.0.18",
-    "@types/gulp-cheerio": "^0.0.39",
-    "@types/gulp-filter": "^3.0.41",
-    "@types/gulp-postcss": "^8.0.6",
-    "@types/gulp-rename": "^2.0.7",
-    "@types/list-stream": "^1.0.3",
-    "css": "^3.0.0",
-    "cssnano": "^9.0.3",
-    "del": "^8.0.1",
-    "gulp": "^5.0.1",
-    "gulp-cheerio": "^1.0.0",
-    "gulp-filter": "^10.0.0",
-    "gulp-postcss": "^10.0.0",
-    "gulp-prettier": "^7.0.0",
-    "gulp-rename": "^2.1.0",
-    "gulp-replace": "^1.1.4",
-    "gulp-stylelint-esm": "^4.0.0",
-    "gulp-svgstore": "^9.0.0",
-    "list-stream": "^2.1.0",
-    "plugin-error": "^2.0.1",
-    "postcss": "catalog:",
-    "sass": "catalog:",
-    "stylelint": "catalog:",
-    "through2": "^5.0.11",
-    "vinyl-sourcemaps-apply": "^0.2.1"
+    "@stencil/angular-output-target": "^1.4.1",
+    "@stencil/react-output-target": "catalog:",
+    "@stencil/sass": "^3.3.3",
+    "@types/debounce": "^1.2.4",
+    "@types/lodash.kebabcase": "^4.1.9",
+    "@types/lodash.random": "^3.2.9",
+    "@types/lodash.samplesize": "^4.2.9",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "concurrently": "catalog:",
+    "debounce": "^3.0.0",
+    "lodash.kebabcase": "^4.1.1",
+    "lodash.random": "^3.2.0",
+    "lodash.samplesize": "^4.2.0",
+    "prettier": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "rimraf": "catalog:",
+    "sass-embedded": "catalog:",
+    "stencil-inline-svg": "^1.1.0",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
   },
   "nx": {
     "includedScripts": []

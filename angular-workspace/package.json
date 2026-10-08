@@ -16,7 +16,7 @@
     "@angular/build": "catalog:angular",
     "@angular/cdk": "catalog:angular",
     "@angular/cli": "catalog:angular",
-    "@dso-toolkit/core": "workspace:*",
+    "dso-toolkit": "workspace:*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "ng-packagr": "catalog:angular",

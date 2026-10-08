@@ -1,0 +1,167 @@
+@use "../../utilities";
+@use "../../variables/colors";
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/typography";
+@use "../../variables/units";
+
+@use "../../global/mixins/set-colors.mixin" as set-colors;
+
+@use "alert.variables" as alert-variables;
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+:host {
+  display: block;
+}
+
+:host(:not(:first-child)) {
+  margin-block-start: units.$u3;
+}
+
+.alert {
+  line-height: typography.$line-height-base;
+  margin-block-end: var(--_dso-alert-margin-block-end, typography.$line-height-computed);
+  min-block-size: 2 * alert-variables.$inline-padding + alert-variables.$icon-size;
+  position: relative;
+  border: 1px solid transparent;
+
+  @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
+    padding-block: (alert-variables.$block-padding - alert-variables.$border-size);
+    padding-inline: (alert-variables.$inline-start-padding - alert-variables.$border-size)
+      (units.$u5 - alert-variables.$border-size);
+
+    &.dso-compact {
+      padding-block: alert-variables.$block-padding * 0.5 - alert-variables.$border-size;
+      padding-inline: (alert-variables.$inline-padding - alert-variables.$border-size)
+        (units.$u5 - alert-variables.$border-size);
+    }
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    padding-block: (alert-variables.$small-padding-block-start - alert-variables.$border-size)
+      (alert-variables.$small-padding - alert-variables.$border-size);
+    padding-inline: alert-variables.$small-padding - alert-variables.$border-size;
+
+    &.dso-compact {
+      padding-block: alert-variables.$block-padding * 0.5 - alert-variables.$border-size;
+      padding-inline: alert-variables.$inline-padding - alert-variables.$border-size;
+    }
+  }
+
+  dso-icon-button {
+    position: absolute;
+    inset-block-start: units.$u1 - alert-variables.$border-size;
+    inset-inline-end: units.$u1 - alert-variables.$border-size;
+  }
+
+  &.dso-compact {
+    border-end-end-radius: units.$u1;
+    border-start-end-radius: units.$u1;
+    margin-inline-start: units.$u1;
+    min-block-size: alert-variables.$inline-padding;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset-block-start: alert-variables.$border-size * -1;
+      inset-block-end: alert-variables.$border-size * -1;
+      inset-inline-start: (units.$u1 + alert-variables.$border-size) * -1;
+      border-start-start-radius: units.$u1;
+      border-end-start-radius: units.$u1;
+      inline-size: units.$u1;
+    }
+  }
+
+  &.alert-error {
+    @include set-colors.apply(alert-variables.$danger-bg, "alert");
+
+    border-color: var(--_dso-alert-error-border-color, alert-variables.$danger-bg);
+
+    &.dso-compact::before {
+      background-color: alert-variables.$danger-compact-accent-bg;
+    }
+  }
+
+  &.alert-info {
+    @include set-colors.apply(alert-variables.$info-bg, "alert");
+
+    border-color: var(--_dso-alert-info-border-color, alert-variables.$info-bg);
+
+    &.dso-compact::before {
+      background-color: alert-variables.$info-compact-accent-bg;
+    }
+  }
+
+  &.alert-success {
+    @include set-colors.apply(alert-variables.$success-bg, "alert");
+
+    border-color: var(--_dso-alert-success-border-color, alert-variables.$success-bg);
+
+    &.dso-compact::before {
+      background-color: alert-variables.$success-compact-accent-bg;
+    }
+  }
+
+  &.alert-warning {
+    @include set-colors.apply(alert-variables.$warning-bg, "alert");
+
+    border-color: var(--_dso-alert-warning-border-color, alert-variables.$warning-bg);
+
+    &.dso-compact::before {
+      background-color: alert-variables.$warning-compact-accent-bg;
+    }
+  }
+}
+
+.icon-status {
+  inset-block-start: alert-variables.$inline-padding - alert-variables.$border-size;
+  inset-inline-start: alert-variables.$inline-padding - alert-variables.$border-size;
+  position: absolute;
+}
+
+::slotted(.dso-rich-content) {
+  --_dso-rich-content-margin-block-end: 0;
+  --_dso-rich-content-margin-block-start: 0;
+
+  --_dso-button-primary-color: #{colors.$zwart};
+  --_dso-button-primary-background-color: rgba(25, 25, 25, 0.05);
+  --_dso-button-primary-border-color: rgba(25, 25, 25, 0.05);
+  --_dso-button-primary-hover-color: #{colors.$zwart};
+  --_dso-button-primary-hover-background-color: rgba(25, 25, 25, 0.2);
+  --_dso-button-primary-hover-border-color: rgba(25, 25, 25, 0.2);
+  --_dso-button-primary-active-color: #{colors.$zwart};
+  --_dso-button-primary-active-background-color: rgba(25, 25, 25, 0.2);
+  --_dso-button-primary-active-border-color: rgba(25, 25, 25, 0.2);
+
+  --_dso-heading-base-color: #{colors.$zwart};
+  --_dso-heading-h2-color: #{colors.$zwart};
+  --_dso-heading-h3-color: #{colors.$zwart};
+  --_dso-heading-h4-color: #{colors.$zwart};
+  --_dso-heading-h5-color: #{colors.$zwart};
+
+  --_dso-heading-h1-font-size-xs: 1em;
+  --_dso-heading-h1-font-size: 1em;
+  --_dso-heading-h2-font-size-xs: 1em;
+  --_dso-heading-h2-font-size: 1em;
+  --_dso-heading-h3-font-size-xs: 1em;
+  --_dso-heading-h3-font-size: 1em;
+  --_dso-heading-h4-font-size: 1em;
+  --_dso-heading-h5-font-size: 1em;
+  --_dso-heading-h6-font-size: 1em;
+
+  --_dso-heading-h1-line-height: #{typography.$line-height-base};
+  --_dso-heading-h2-line-height: #{typography.$line-height-base};
+  --_dso-heading-h3-line-height: #{typography.$line-height-base};
+  --_dso-heading-h4-line-height: #{typography.$line-height-base};
+  --_dso-heading-h5-line-height: #{typography.$line-height-base};
+  --_dso-heading-h6-line-height: #{typography.$line-height-base};
+
+  --_dso-heading-margin-large-margin-block-end: #{units.$u1};
+  --_dso-heading-margin-large-margin-block-start: #{units.$u1};
+  --_dso-heading-margin-small-margin-block-end: #{units.$u1};
+  --_dso-heading-margin-small-margin-block-start: #{units.$u1};
+}

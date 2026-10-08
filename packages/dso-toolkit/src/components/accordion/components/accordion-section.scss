@@ -1,0 +1,235 @@
+@use "../../../utilities";
+@use "../../../variables/units";
+@use "../../../variables/colors";
+@use "../../../variables/typography";
+
+@use "../../link";
+
+@use "../accordion.variables" as accordion-variables;
+
+@use "accordion-section-theme-compact";
+@use "accordion-section-theme-compact-black";
+@use "accordion-section-theme-conclusion";
+@use "accordion-section-theme-default";
+@use "accordion-section-theme-neutral";
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+:host {
+  display: block;
+  --_dso-accordion-margin-block-end: 0;
+
+  .dso-section-handle {
+    font-size: 1em;
+    font-weight: 600;
+    line-height: accordion-variables.$handle-line-height;
+    margin: 0;
+    position: relative;
+
+    > a:active {
+      text-decoration: none;
+    }
+
+    a {
+      @include link.clean();
+    }
+
+    .dso-status {
+      color: colors.$zwart;
+      font-size: typography.$font-size-small;
+      font-weight: 400;
+    }
+  }
+
+  .dso-section-handle > button,
+  .dso-section-handle > a {
+    align-items: flex-start;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    font-family: typography.$font-family-base;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: inherit;
+    line-height: accordion-variables.$handle-line-height;
+    margin: 0;
+    padding-block: accordion-variables.$block-padding;
+    padding-inline: accordion-variables.$inline-padding;
+    text-align: start;
+    inline-size: 100%;
+    overflow-wrap: anywhere;
+
+    dso-icon {
+      flex-shrink: 0;
+
+      &.dso-section-handle-chevron {
+        @include utilities.transition(transform);
+
+        transform: rotate(0);
+      }
+    }
+
+    > .dso-section-handle-addons:first-child,
+    > dso-icon:first-child {
+      margin-inline-end: units.$u1;
+    }
+
+    > dso-icon:last-child {
+      margin-inline-start: auto;
+    }
+
+    > .dso-section-handle-addons:last-child {
+      margin-inline-start: auto;
+
+      dso-attachments-counter,
+      dso-icon {
+        margin-inline-start: units.$u1;
+      }
+    }
+
+    > dso-label {
+      margin-inline-start: auto;
+      padding-inline-start: units.$u1;
+      word-break: normal;
+
+      & + dso-icon:last-child,
+      & + .dso-section-handle-addons:last-child {
+        margin-inline-start: units.$u1;
+      }
+    }
+  }
+}
+
+:host([open]:not([open="false"])) {
+  .dso-section-handle {
+    > button,
+    > a {
+      .dso-section-handle-chevron {
+        &:first-child {
+          transform: rotate(90deg);
+        }
+
+        &:last-child {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+}
+
+.dso-section-body {
+  background-color: colors.$wit;
+  border-block-start: 0;
+
+  .dso-section-body-content {
+    --_dso-accordion-compact-border-block-end: initial;
+    --_dso-accordion-compact-margin-block-end: initial;
+    --_dso-card-container-list-border-block-end: initial;
+    --_dso-card-container-list-margin-block-end: initial;
+
+    padding-block: units.$u2 + accordion-variables.$border-radius units.$u2;
+    padding-inline: units.$u2;
+  }
+}
+
+::slotted([slot="badge"]) {
+  margin-inline: units.$u1 !important;
+}
+
+:host(:is(.dso-accordion-compact, .dso-accordion-compact-black)) ::slotted(:not([slot]):last-child) {
+  --_dso-accordion-compact-border-block-end: 0 !important;
+  --_dso-accordion-compact-margin-block-end: #{-1 * units.$u2} !important;
+  --_dso-card-container-list-border-block-end: 0 !important;
+  --_dso-card-container-list-margin-block-end: #{-1 * units.$u2} !important;
+}
+
+// Default
+:host(.dso-accordion-default) {
+  @include accordion-section-theme-default.dso-web-component-accordion-default();
+}
+
+:host(.dso-accordion-default[open]:not([open="false"])) {
+  @include accordion-section-theme-default.dso-web-component-accordion-default-open();
+}
+
+:host(.dso-accordion-default.dso-nested-accordion[open]:not([open="false"])) {
+  @include accordion-section-theme-default.dso-web-component-accordion-default-open-nested();
+}
+
+// Compact
+:host(.dso-accordion-compact) {
+  @include accordion-section-theme-compact.dso-web-component-accordion-compact();
+}
+
+:host(.dso-accordion-compact.dso-accordion-reverse-align) {
+  @include accordion-section-theme-compact.dso-web-component-accordion-compact-reverse();
+}
+
+:host(.dso-accordion-compact[open]:not([open="false"]):not(.dso-nested-accordion)) {
+  @include accordion-section-theme-compact.dso-web-component-accordion-compact-open();
+}
+
+:host(.dso-accordion-compact.dso-nested-accordion[open]:not([open="false"])) {
+  @include accordion-section-theme-compact.dso-web-component-accordion-compact-open-nested();
+}
+
+// Compact black
+:host(.dso-accordion-compact-black) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black();
+}
+
+:host(.dso-accordion-compact-black.dso-accordion-section-activate) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black();
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-activate();
+}
+
+:host(.dso-accordion-compact-black.dso-accordion-wijzigactie-voegtoe) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-voegtoe();
+}
+
+:host(.dso-accordion-compact-black.dso-accordion-wijzigactie-verwijder) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-verwijder();
+}
+
+:host(.dso-accordion-compact-black.dso-accordion-reverse-align) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-reverse();
+}
+
+:host(.dso-accordion-compact-black[open]:not([open="false"])) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-open();
+}
+
+:host(.dso-accordion-compact-black.dso-nested-accordion[open]:not([open="false"])) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-open-nested();
+}
+
+// Conclusion
+:host(.dso-accordion-conclusion) {
+  @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion();
+}
+
+:host(.dso-accordion-conclusion[open]:not([open="false"]):not(.dso-nested-accordion)) {
+  @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion-open();
+}
+
+:host(.dso-accordion-conclusion.dso-nested-accordion[open]:not([open="false"])) {
+  @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion-open-nested();
+}
+
+// Neutral
+:host(.dso-accordion-neutral) {
+  @include accordion-section-theme-neutral.dso-web-component-accordion-neutral();
+}
+
+:host(.dso-accordion-neutral[open]:not([open="false"])) {
+  @include accordion-section-theme-neutral.dso-web-component-accordion-neutral-open();
+}
+
+:host(.dso-accordion-neutral.dso-nested-accordion[open]:not([open="false"])) {
+  @include accordion-section-theme-neutral.dso-web-component-accordion-neutral-open-nested();
+}

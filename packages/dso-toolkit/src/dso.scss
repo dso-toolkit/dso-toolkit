@@ -1,5 +1,5 @@
 @use "toolkit-version";
-@use "di-inline";
+@use "di";
 
 // Global
 @use "global/font-faces";
@@ -11,7 +11,7 @@
 @use "components/html/html";
 @use "components/body/body";
 
-@use "components/action-list/action-list";
+@use "components/action-list/action-list.global";
 @use "components/application-heading/application-heading";
 @use "components/blockquote/blockquote";
 @use "components/breadcrumbs/breadcrumbs";
@@ -23,7 +23,7 @@
 @use "components/delete/delete";
 @use "components/description/description";
 @use "components/document-component-list/document-component-list";
-@use "components/document-component/document-component";
+@use "components/document-component/document-component.global";
 @use "components/document-header/document-header";
 @use "components/field-label/field-label";
 @use "components/fieldset/fieldset";
@@ -44,7 +44,6 @@
 @use "components/link/link";
 @use "components/link-list/link-list";
 @use "components/list/list";
-@use "components/map-controls/map-controls";
 @use "components/mark/mark";
 @use "components/nav/nav";
 @use "components/navbar/navbar";
@@ -53,21 +52,21 @@
 @use "components/rich-content/rich-content";
 @use "components/search-bar/search-bar";
 @use "components/select/select";
-@use "components/shopping-cart/shopping-cart";
+@use "components/shopping-cart/shopping-cart.global";
 @use "components/small/small";
 @use "components/subscript/subscript";
 @use "components/subtitle/subtitle";
 @use "components/superscript/superscript";
 @use "components/svg/svg";
-@use "components/table/table";
+@use "components/table/table.global";
 @use "components/textarea/textarea";
 @use "components/tile/tile";
 @use "components/tile-grid/tile-grid";
-@use "components/viewer-grid/viewer-grid";
+@use "components/viewer-grid/viewer-grid.global";
 
 // Very global and generic styling
 @use "utilities" as utilities-mixins;
 
-@include di-inline.inline-icons();
+@include di.inline-icons();
 
 @include utilities-mixins.box-sizing();

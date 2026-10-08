@@ -1,6 +1,11 @@
 /dist
+/loader
 /README.md
 /CHANGELOG.md
 /*.tgz
 
 /src/icons-new
+
+vscode-data.json
+docs.d.ts
+docs.json

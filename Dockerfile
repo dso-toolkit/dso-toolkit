@@ -47,9 +47,9 @@ RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.
 WORKDIR /usr/src/app
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+COPY patches ./patches
 
 COPY angular-workspace/package.json ./angular-workspace/package.json
-COPY packages/core/package.json ./packages/core/package.json
 COPY packages/dso-toolkit/package.json ./packages/dso-toolkit/package.json
 COPY packages/react/package.json ./packages/react/package.json
 COPY storybook/package.json ./storybook/package.json
@@ -71,6 +71,8 @@ RUN pnpm knip
 ARG DT_REF
 
 RUN pnpm build
+
+RUN pnpm consumer-check
 
 RUN pnpm exec nx test angular-workspace --configuration=ci
 

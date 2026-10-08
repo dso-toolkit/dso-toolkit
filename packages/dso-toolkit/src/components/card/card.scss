@@ -1,0 +1,121 @@
+@use "../../utilities";
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../link/link";
+@use "../../variables/media-query-breakpoints";
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+}
+
+:host([is-selectable]:not([is-selectable="false"])) {
+  .dso-card-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 100%);
+
+    .dso-card-heading,
+    .dso-card-content {
+      grid-column: 2 /-1;
+    }
+
+    .dso-card-selectable {
+      grid-row: span 2;
+
+      margin-inline-end: units.$u1;
+    }
+  }
+}
+
+:host([active]:not([active="false"])) {
+  .dso-card-container {
+    background-color: colors.$grijs-10;
+  }
+}
+
+.dso-card-container {
+  padding-block: units.$u2;
+  padding-inline: units.$u2;
+  inline-size: 100%;
+  block-size: 100%;
+
+  &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
+    background-color: colors.$grijs-5;
+  }
+
+  .dso-card-heading {
+    align-items: center;
+    display: flex;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      flex-wrap: wrap;
+    }
+
+    + .dso-card-content {
+      margin-block-start: units.$u1;
+    }
+  }
+}
+
+.heading-anchor {
+  display: flex;
+  gap: units.$u1 * 0.5;
+
+  color: colors.$bosgroen;
+  text-decoration: none;
+
+  &:hover {
+    color: colors.$bosgroen;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: colors.$bosgroen;
+  }
+
+  dso-icon {
+    flex-shrink: 0;
+  }
+
+  .sr-only {
+    @include utilities.sr-only();
+  }
+}
+
+::slotted([slot="selectable"]) {
+  font-size: 0 !important;
+  --_dso-selectable-padding-inline-start: #{units.$u3};
+  --_dso-selectable-input-wrapper-margin-inline-start: #{-(units.$u3)};
+  --_dso-selectable-input-wrapper-padding-inline-start: #{units.$u3};
+}
+
+::slotted([slot="heading"]) {
+  display: flex !important;
+  align-items: center !important;
+
+  margin-block-end: 0 !important;
+  margin-block-start: 0 !important;
+
+  font-size: 1.125em !important;
+  font-weight: 700 !important;
+  color: colors.$bosgroen !important;
+  line-height: 1.25 !important;
+}
+
+::slotted([slot="content"]) {
+  --_dso-rich-content-margin-block: #{units.$u1};
+  --_dso-rich-content-margin-block-end: 0;
+  --_dso-rich-content-margin-block-start: 0;
+}
+
+::slotted([slot="interactions"]) {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-inline-start: auto !important;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-basis: 100% !important;
+    margin-block-start: units.$u2 !important;
+  }
+}

@@ -1,4 +1,12 @@
+import { fileURLToPath } from "node:url";
+
 import { StorybookConfig } from "@storybook/web-components-vite";
+
+// `dso-toolkit`'s package.json "exports" only exposes the build output (dist/, loader/,
+// src/variables/*) as koppelvlak; `src/**/readme.md?raw` imports used by stories fall
+// outside that map. Resolve them directly against the workspace source so Vite/TS can
+// still load the readme's without widening the public package exports.
+const dsoToolkitSrc = fileURLToPath(new URL("../../packages/dso-toolkit/src", import.meta.url));
 
 const config: StorybookConfig = {
   typescript: { check: true },
@@ -25,13 +33,6 @@ const config: StorybookConfig = {
         crossorigin
         data-dt-postbuild-href
       >
-      <link
-        rel="preload"
-        href="/assets/di.svg"
-        as="image"
-        type="image/svg+xml"
-        data-dt-postbuild-href
-      >
     `
       : head,
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
@@ -47,7 +48,13 @@ const config: StorybookConfig = {
     const { mergeConfig } = await import("vite");
 
     return mergeConfig(config, {
-      // Add dependencies to pre-optimization
+      resolve: {
+        alias: [
+          // Keep this before any "dso-toolkit" catch-all alias so "dso-toolkit/dist/..."
+          // and "dso-toolkit/loader/..." keep resolving via the package's own exports map.
+          { find: /^dso-toolkit\/src\//, replacement: `${dsoToolkitSrc}/` },
+        ],
+      },
     });
   },
   core: {

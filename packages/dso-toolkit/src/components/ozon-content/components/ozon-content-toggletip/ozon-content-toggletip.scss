@@ -1,0 +1,57 @@
+@use "../../../button";
+@use "../../../../utilities";
+@use "../../../../variables/colors";
+@use "../../../../variables/units";
+
+@use "../../../../functional-components/tooltip";
+
+@include utilities.box-sizing();
+@include tooltip.include($padding-block-inner: 0, $padding-inline-inner: 0, $max-inline-size: 60 * units.$u1);
+
+$icon-margin-inline-start: units.$u1 * 0.5;
+
+:host {
+  --_dso-rich-content-margin-block: #{units.$u1};
+  --_dso-scrollable-border-radius: #{units.$u1 * 0.5};
+  --_dso-scrollable-container-padding-inline: #{tooltip.$padding-inline};
+  --_dso-scrollable-container-padding-block: #{tooltip.$padding-block};
+
+  display: inline;
+}
+
+::slotted(:not([slot="label"])) {
+  cursor: default !important;
+}
+
+.toggletip-button {
+  @include button.base($modifiers: false);
+
+  border: 0;
+  color: var(--_dso-ozon-content-toggletip-color, colors.$donkerblauw);
+  line-height: 1;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  vertical-align: baseline;
+  display: inline;
+  overflow-wrap: break-word;
+  user-select: text;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap after icon
+
+  &,
+  &:hover,
+  &:focus-visible,
+  &:active {
+    text-decoration-line: var(--_dso-ozon-content-toggletip-text-decoration, underline);
+    text-decoration-style: dotted;
+    text-underline-offset: 15%;
+  }
+
+  .toggletip-label {
+    white-space: normal;
+  }
+
+  dso-icon {
+    margin-inline-start: $icon-margin-inline-start;
+  }
+}

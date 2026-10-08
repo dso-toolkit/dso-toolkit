@@ -1,0 +1,16 @@
+@use "../../utilities";
+
+@use "../insert/insert";
+@use "../delete/delete";
+@use "../mark/mark";
+@use "../../variables/units";
+
+:host {
+  display: inline;
+}
+
+@include utilities.box-sizing();
+
+.text {
+  text-decoration: var(--_dso-renvooi-text-decoration);
+}

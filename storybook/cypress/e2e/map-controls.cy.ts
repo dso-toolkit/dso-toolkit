@@ -1,4 +1,4 @@
-import { BaseLayer, Overlay } from "@dso-toolkit/core";
+import { BaseLayer, Overlay } from "dso-toolkit";
 
 // Sync with $transition-duration in map-controls.scss and map-controls.tsx
 const transitionDuration = 300;

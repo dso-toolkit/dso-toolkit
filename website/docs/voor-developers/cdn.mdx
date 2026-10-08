@@ -15,8 +15,17 @@ We raden aan om applicaties te fixeren op een versie. `master` is een slepende v
 
 Vanaf versie 50.0.0 moet het volgende template gebruikt worden: `https://cdn.dso-toolkit.nl/<package>/<versie>`.
 
-- `<package>`: Package name, inclusief scope. Bijvorbeeld `dso-toolkit` of `@dso-toolkit/core`.
+- `<package>`: Package name, inclusief scope. Bijvoorbeeld `dso-toolkit` of `@dso-toolkit/core`.
 - `<versie>`: Een versie vanaf 50.0.0.
+
+### `>=102.0.0`
+
+Vanaf versie 102.0.0 is `@dso-toolkit/core` samengevoegd in `dso-toolkit` (zie [de blogpost](/blog/2026/10/19/dso-toolkit-102.0.0)). Voor deze en latere versies gebruik je dus altijd `dso-toolkit` als `<package>`, bijvoorbeeld:
+
+- `https://cdn.dso-toolkit.nl/dso-toolkit/102.0.0/dist/dso.css`
+- `https://cdn.dso-toolkit.nl/dso-toolkit/102.0.0/dist/dso-toolkit/dso-toolkit.esm.js`
+
+Onder `https://cdn.dso-toolkit.nl/@dso-toolkit/core/<versie>/` komen vanaf 102.0.0 geen nieuwe versies meer bij; bestaande versies (`<102.0.0`) blijven daar wel beschikbaar.
 
 ## `<50.0.0`
 

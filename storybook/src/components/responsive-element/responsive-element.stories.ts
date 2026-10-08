@@ -1,5 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/responsive-element/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import readme from "dso-toolkit/src/components/responsive-element/readme.md?raw";
 import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";

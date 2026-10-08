@@ -1,0 +1,28 @@
+@use "../../utilities";
+@use "../../variables/colors";
+@use "../../variables/units";
+
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/scaffolding";
+@use "../../variables/typography";
+@use "../link";
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+}
+
+.tabs {
+  border-block-end: 1px solid colors.$grasgroen;
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  margin-block-end: units.$block-spacing-large;
+  padding-inline-start: 0;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    border: 0;
+    display: block;
+  }
+}

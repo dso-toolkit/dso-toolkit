@@ -1,0 +1,18 @@
+@use "../../variables/units";
+@use "../../variables/media-query-breakpoints";
+@use "../heading";
+
+dso-action-list {
+  dso-action-list-item + .dso-rich-content {
+    @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+      margin-inline-start: units.$u1;
+    }
+  }
+
+  .dso-rich-content {
+    h5,
+    .h5 {
+      @include heading.no-margin();
+    }
+  }
+}

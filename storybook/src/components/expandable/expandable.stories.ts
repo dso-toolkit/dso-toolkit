@@ -1,5 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/expandable/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import readme from "dso-toolkit/src/components/expandable/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
 
 import { ExpandableArgs, expandableArgTypes, expandableArgsMapper } from "./expandable.args.js";

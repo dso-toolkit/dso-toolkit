@@ -1,4 +1,4 @@
-import { DsoDocumentCardCustomEvent } from "@dso-toolkit/core";
+import { DsoDocumentCardCustomEvent } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 
 import { badgeTemplate } from "../badge/badge.template.js";
