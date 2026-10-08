@@ -352,7 +352,7 @@
   text-decoration: none;
 
   &,
-  &:visited {
+  &:visited:not(:hover):not(:active) {
     color: button-variables.$secondary-color;
   }
 
