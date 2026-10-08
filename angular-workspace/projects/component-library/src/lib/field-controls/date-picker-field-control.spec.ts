@@ -16,6 +16,7 @@ import { DsoDatePicker } from "../stencil-generated/components";
       [minDate]="minimumDate()"
       [maxDate]="maximumDate()"
       [(inputError)]="dateInputError"
+      (touch)="touchCount = touchCount + 1"
     ></dso-date-picker>
   `,
 })
@@ -27,6 +28,7 @@ class TestDatePickerComponent {
   numericMinimum = signal(1);
   numericMaximum = signal(100);
   dateInputError = signal<DatePickerChangeEvent["error"]>(undefined);
+  touchCount = 0;
   myForm = form(this.model, (path) => {
     required(path.datum, { when: () => this.dateInputError() !== "invalid" });
     disabled(path.datum, () => this.isDisabled());
@@ -36,6 +38,17 @@ class TestDatePickerComponent {
       !value() && this.dateInputError() === "invalid" ? { kind: "invalid" } : undefined,
     );
   });
+}
+
+@Component({
+  selector: "dso-test-plain-date-picker",
+  standalone: true,
+  imports: [DsoDatePicker],
+  template: `<dso-date-picker [min]="minimumDate()" [max]="maximumDate()" />`,
+})
+class TestPlainDatePickerComponent {
+  minimumDate = signal("01-01-2024");
+  maximumDate = signal("31-12-2024");
 }
 
 function createDateEvent(
@@ -96,6 +109,7 @@ describe("DsoDatePickerFieldControl", () => {
     fixture.detectChanges();
 
     expect(component.myForm.datum().touched()).toBe(true);
+    expect(component.touchCount).toBe(1);
   });
 
   it("should sync disabled state", () => {
@@ -147,6 +161,16 @@ describe("DsoDatePickerFieldControl", () => {
 
     expect(element.min).toBeUndefined();
     expect(element.max).toBeUndefined();
+  });
+
+  it("should restore explicit date boundaries on the next render after proxy writes", () => {
+    element.min = 1;
+    element.max = 100;
+    component.model.set({ datum: "02-01-2024" });
+    fixture.detectChanges();
+
+    expect(element.min).toBe("01-01-2024");
+    expect(element.max).toBe("31-12-2024");
   });
 
   it("should retain out-of-range dates and expose their input errors", () => {
@@ -229,4 +253,25 @@ describe("DsoDatePickerFieldControl", () => {
 
     expect(element.invalid).toBe(false);
   });
+});
+
+it("keeps min and max date strings available without Signal Forms", async () => {
+  await TestBed.configureTestingModule({
+    imports: [TestPlainDatePickerComponent],
+  }).compileComponents();
+
+  const fixture = TestBed.createComponent(TestPlainDatePickerComponent);
+  fixture.detectChanges();
+  const component = fixture.componentInstance;
+  const element: HTMLDsoDatePickerElement = fixture.nativeElement.querySelector("dso-date-picker");
+
+  expect(element.min).toBe("01-01-2024");
+  expect(element.max).toBe("31-12-2024");
+
+  component.minimumDate.set("15-01-2024");
+  component.maximumDate.set("15-12-2024");
+  fixture.detectChanges();
+
+  expect(element.min).toBe("15-01-2024");
+  expect(element.max).toBe("15-12-2024");
 });

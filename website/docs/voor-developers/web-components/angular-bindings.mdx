@@ -17,8 +17,8 @@ npm install @dso-toolkit/angular
 
 ## Signal Forms
 
-Naast de klassieke `ControlValueAccessor`-integratie (`ngModel` en Reactive Forms, die volledig
-blijft werken) ondersteunt `@dso-toolkit/angular` ook Angular's (experimentele) Signal Forms via de
+Naast de klassieke `ControlValueAccessor`-integraties voor Selectable (`ngModel` en Reactive Forms)
+ondersteunt `@dso-toolkit/angular` ook Angular's Signal Forms via de
 `[formField]`-directive uit `@angular/forms/signals`. Dit is beschikbaar voor `dso-date-picker`,
 `dso-selectable[type=checkbox]` en groepen `dso-selectable[type=radio]`.
 
@@ -66,10 +66,13 @@ Valideer datumgrenzen zelf in het Signal Form met dezelfde `minimumDate`- en
 `maximumDate`-signals; de adapter zet `minDate` en `maxDate` alleen door naar de Date Picker.
 Wis `dateInputError` zelf bij programmatische resets van het formulier.
 
-Gebruik bij een Date Picker met `[formField]` altijd `minDate` en `maxDate` voor datumgrenzen,
-niet `min` en `max`. Angular Signal Forms reserveert die laatste namen voor numerieke
-formuliergrenzen. Numerieke waarden uit het formulier stellen geen datumgrens in;
-`minDate` en `maxDate` geven datumstrings door aan de Date Picker.
+Zonder `[formField]` stel je datumgrenzen zoals voorheen in met `min` en `max` op de Date
+Picker. Gebruik alleen bij een Date Picker met `[formField]` `minDate` en `maxDate` voor
+datumgrenzen, niet `min` en `max`.
+Angular Signal Forms gebruikt `min` en `max` zelf voor formuliergrenzen. Het type daarvan
+verschilt tussen Angular 21 en 22; de adapter biedt daarom geen eigen `min`- of
+`max`-input. Formuliergrenzen stellen geen datumgrens in; `minDate` en `maxDate` geven
+datumstrings door aan de Date Picker.
 
 ```html
 <!-- Statische datumgrenzen -->

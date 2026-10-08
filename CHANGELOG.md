@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Button: Deprecate "icon-only" werkvorm ([#3950](https://github.com/dso-toolkit/dso-toolkit/issues/3950))
 
+### Fixed
+* Angular Package: Typering signal Forms adapter Date Picker geeft build error ([#4016](https://github.com/dso-toolkit/dso-toolkit/issues/4016))
+
 ## 😺 Release 101.0.0 - 2026-10-07
 
 ### Changed
