@@ -1,5 +1,6 @@
 import readme from "@dso-toolkit/core/src/components/header/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
@@ -68,6 +69,41 @@ export const Default: HeaderStory = {};
 export const WithLabel: HeaderStory = {
   args: {
     label: "Maatregelen op maat",
+  },
+};
+
+export const ScrollablePageReproduction: HeaderStory = {
+  args: {
+    label: "Beheerportaal",
+    mainMenu: [
+      { label: "Inloggen", url: "#inloggen" },
+      ...Array.from({ length: 20 }, (_, index) => ({
+        label: `Menu item ${index + 1}`,
+        url: `#menu-item-${index + 1}`,
+      })),
+    ],
+    authStatus: "none",
+    userHomeUrl: "",
+    userProfileName: "",
+    userProfileUrl: "",
+  },
+  render: (args) => html`
+    <div style="min-block-size: 1800px">
+      <header style="position: sticky; inset-block-start: 0; z-index: 1; background-color: white">
+        ${headerTemplate(headerArgsMapper(args))}
+      </header>
+      <main style="padding: 2rem">
+        <h1>Beheerportaal</h1>
+        <p>Welkom op het Beheerportaal. Dit is een lange pagina om de mobiele menubediening te testen.</p>
+        <section style="min-block-size: 1000px; padding-block-start: 48rem">
+          <h2 id="inloggen">Inloggen</h2>
+          <p>Dit item staat verderop op de pagina.</p>
+        </section>
+      </main>
+    </div>
+  `,
+  parameters: {
+    layout: "fullscreen",
   },
 };
 
