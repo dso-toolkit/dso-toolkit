@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Form Group: Static legt geen relatie tussen label en waarde ([#4022](https://github.com/dso-toolkit/dso-toolkit/issues/4022))
+
 ## 🚨 Release 101.1.0 - 2026-10-08
 
 ### Changed
