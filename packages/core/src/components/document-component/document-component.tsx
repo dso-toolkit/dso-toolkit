@@ -317,7 +317,7 @@ export class DocumentComponent implements ComponentInterface {
   dsoTableOfContentsClick!: EventEmitter<DocumentComponentTableOfContentsClickEvent>;
 
   /**
-   * Emitted when the user interacts with IntRef in Ozon Content
+   * Emitted when the user interacts with IntRef, ExtRef or ExtIoRef in Ozon Content
    */
   @Event({ bubbles: false })
   dsoOzonContentClick!: EventEmitter<DocumentComponentOzonContentClickEvent>;
@@ -365,7 +365,9 @@ export class DocumentComponent implements ComponentInterface {
         break;
 
       case "IntRef":
-        this.dsoOzonContentClick.emit({ originalEvent: event, ozonContentClick: event.detail });
+      case "ExtRef":
+      case "ExtIoRef":
+        this.dsoOzonContentClick.emit({ originalEvent: event, ozonContentClick: detail });
         break;
 
       default:

@@ -89,7 +89,8 @@ export class DocumentComponentDemo implements ComponentInterface {
   ozonContentBegripResolver?: OzonContentBegripResolver;
 
   /**
-   * To demo the user interacting with Kop, IntRef or the Kenmerken en kaart button of IntIoRef in Ozon Content
+   * To demo the user interacting with Kop, IntRef, ExtRef, ExtIoRef or the Kenmerken en kaart button of IntIoRef in
+   * Ozon Content
    */
   @Event()
   dsotOzonContentClick!: EventEmitter<DocumentComponentOzonContentClickEvent>;

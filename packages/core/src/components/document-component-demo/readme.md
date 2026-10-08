@@ -20,10 +20,10 @@
 
 ## Events
 
-| Event                      | Description                                                                                                | Type                                                      |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| `dsotOzonContentClick`     | To demo the user interacting with Kop, IntRef or the Kenmerken en kaart button of IntIoRef in Ozon Content | `CustomEvent<DocumentComponentOzonContentClickEvent>`     |
-| `dsotTableOfContentsClick` | To demo user interacting the heading in mode="table-of-contents".                                          | `CustomEvent<DocumentComponentTableOfContentsClickEvent>` |
+| Event                      | Description                                                                                                                  | Type                                                      |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `dsotOzonContentClick`     | To demo the user interacting with Kop, IntRef, ExtRef, ExtIoRef or the Kenmerken en kaart button of IntIoRef in Ozon Content | `CustomEvent<DocumentComponentOzonContentClickEvent>`     |
+| `dsotTableOfContentsClick` | To demo user interacting the heading in mode="table-of-contents".                                                            | `CustomEvent<DocumentComponentTableOfContentsClickEvent>` |
 
 
 ## Dependencies

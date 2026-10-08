@@ -42,10 +42,10 @@ Zie ook de documentatie van het component Image Overlay
 
 ## Events
 
-| Event                             | Description                                     | Type                                                                                                                                                            |
-| --------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `dsoClick`                        | Emitted when an interactive element is clicked. | `CustomEvent<OzonContentClickBaseEvent<"IntIoRef"> \| OzonContentClickBaseEvent<"IntRef"> & { isModifiedEvent: boolean; } \| OzonContentClickBaseEvent<"Kop">>` |
-| `dsoOzonContentMarkItemHighlight` | Emitted when a marked item is highlighted.      | `CustomEvent<OzonContentMarkItemHighlightEvent>`                                                                                                                |
+| Event                             | Description                                     | Type                                                                                                                                                                                                                                                                                                                                                                  |
+| --------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dsoClick`                        | Emitted when an interactive element is clicked. | `CustomEvent<OzonContentClickBaseEvent<"ExtIoRef"> & { isModifiedEvent: boolean; href: string \| undefined; } \| OzonContentClickBaseEvent<"ExtRef"> & { isModifiedEvent: boolean; href: string \| undefined; } \| OzonContentClickBaseEvent<"IntIoRef"> \| OzonContentClickBaseEvent<"IntRef"> & { isModifiedEvent: boolean; } \| OzonContentClickBaseEvent<"Kop">>` |
+| `dsoOzonContentMarkItemHighlight` | Emitted when a marked item is highlighted.      | `CustomEvent<OzonContentMarkItemHighlightEvent>`                                                                                                                                                                                                                                                                                                                      |
 
 
 ## Dependencies
