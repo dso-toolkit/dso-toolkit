@@ -15,7 +15,7 @@
     "@angular/core": "^21.0.0 || ^22.0.0",
     "@angular/cdk": "^21.0.0 || ^22.0.0",
     "@angular/forms": "^21.0.0 || ^22.0.0",
-    "@dso-toolkit/core": "101.0.0"
+    "dso-toolkit": "101.0.0"
   },
   "dependencies": {
     "tslib": "catalog:"

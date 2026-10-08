@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, afterRenderEffect, contentChildren, input, model } from "@angular/core";
 import { FormValueControl } from "@angular/forms/signals";
-import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
+import { DsoSelectableCustomEvent, SelectableChangeEvent } from "dso-toolkit/dist/components";
 
 import { DsoSelectable } from "../stencil-generated/components";
 
