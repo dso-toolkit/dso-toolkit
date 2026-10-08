@@ -38,12 +38,12 @@ function anchorElement({ variant, url, label, modifier, mode, id, icon, iconMode
       slot=${ifDefined(slot)}
       ?autofocus=${autofocus}
     >
-      ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
+      ${icon && !iconMode ? iconTemplate(icon) : nothing}${iconMode === "only" ? html`<!-- START DEPRECATION: use <dso-icon-button> -->` : nothing}<span
         class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
         >${label}</span
       >${
         mode === "extern" ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>` : nothing
-      }${icon && iconMode ? iconTemplate(icon) : nothing}
+      }${icon && iconMode ? iconTemplate(icon) : nothing}${iconMode === "only" ? html`<!-- END DEPRECATION -->` : nothing}
     </a>
   `;
 }
@@ -95,12 +95,12 @@ function buttonElement({
       slot=${ifDefined(slot)}
       ?autofocus=${autofocus}
     >
-      ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
+      ${icon && !iconMode ? iconTemplate(icon) : nothing}${iconMode === "only" ? html`<!-- START DEPRECATION: use <dso-icon-button> -->` : nothing}<span
         class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
         >${screenreaderPrefix ? html`<span class="sr-only">${screenreaderPrefix}</span>` : nothing}${label}${
           screenreaderSuffix ? html`<span class="sr-only">${screenreaderSuffix}</span>` : nothing
         }</span
-      >${icon && iconMode ? iconTemplate(icon) : nothing}
+      >${icon && iconMode ? iconTemplate(icon) : nothing}${iconMode === "only" ? html`<!-- END DEPRECATION -->` : nothing}
     </button>
   `;
 }
