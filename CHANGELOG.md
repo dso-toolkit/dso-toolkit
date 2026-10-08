@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Deprecated
+* Grid: Deprecate selector `.dso-banner` ([#4000](https://github.com/dso-toolkit/dso-toolkit/issues/4000))
+
 ## 🚨 Release 101.1.0 - 2026-10-08
 
 ### Changed
