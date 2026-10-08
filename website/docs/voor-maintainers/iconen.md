@@ -34,14 +34,38 @@ De DSO Toolkit biedt een iconenset aan. Deze set is op een aantal manieren te ge
 ## `di` mixins
 
 De `di` mixins maken gebruik van iconen die als data-uri worden ingebakken in CSS custom properties op `:root`
-(gegenereerd door `@include di.inline-icons();` in `dso.scss`). Er wordt geen spritesheet meer gebruikt.
+(gegenereerd door `@include di.inline-icons();` in `dso.scss`).
 
 "di" staat voor **D**SO Toolkit **I**con. De `di.base()` en `di.variant()` mixins worden in HTML/CSS implementaties
-gebruikt voor werkvormen waar de afnemer geen vrije keuze voor iconen heeft. Denk bijvoorbeeld aan het Alert
-component: de iconen zijn gekoppeld aan de variant. "Danger" heeft altijd het gele gevarendriehoek. Het icoon is
-afhankelijk van de variant. Bij de Web Component implementatie is dit scriptend geregeld, maar voor de HTML/CSS
-implementatie is het icoon gekoppeld aan de modifier classes voor de varianten. Deze mixins gaan niet uit van een
-pseudo element. Die verantwoordelijkheid ligt bij de maintainer.
+gebruikt voor werkvormen waar de afnemer het icoon niet zelf kiest, maar waar het icoon vastligt bij een variant van
+het component. Een voorbeeld is het List component: een `li` met de modifier class `dso-status-warning` toont altijd
+het icoon `status-warning`, en een `li` met `dso-forbidden` toont altijd het icoon `forbidden` in de kleur rood. De
+afnemer kiest dus de variant, en daarmee ligt het icoon vast. In een Web Component wordt het icoon bij de variant
+gekozen in de component-code (bijvoorbeeld `<dso-alert status="warning">`, dat intern `<dso-icon>` gebruikt). In de HTML/CSS implementatie koppel je het icoon aan de modifier class van de variant. Dat doe je door in die
+modifier class een `di` mixin aan te roepen. De mixins zetten alleen het icoon als achtergrondafbeelding op het
+element waarin je ze aanroept:
+
+- `di.base()` zet `background-image` plus de basis-CSS: `background-repeat`, `background-position`,
+  `background-size`, afmetingen en `vertical-align`.
+- `di.variant()` zet alleen `background-image`.
+
+De mixins maken dus geen pseudo-element aan en zetten ook geen `content` of positionering. Wil je het icoon in een
+pseudo-element tonen, zoals meestal het geval is, dan maak je zelf het `::before` of `::after` element aan. Daarin zet
+je `content: ""` en zo nodig de positionering, en roep je de mixin aan:
+
+```scss
+ul > li.dso-status-warning {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -1.2em;
+
+    @include di.base("status-warning");
+  }
+}
+```
 
 Om een icoon (en optioneel een kleur) beschikbaar te maken voor de `di` mixins, registreer je de combinatie in
 `packages/dso-toolkit/src/di.scss`:

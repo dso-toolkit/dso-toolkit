@@ -10,8 +10,7 @@
     },
     "packages/dso-toolkit": {
       "entry": ["gulp/**/*.js"],
-      "project": ["src/**/*.ts", "gulp/**/*.js"],
-      "ignoreDependencies": ["@prettier/plugin-xml"]
+      "project": ["src/**/*.ts", "gulp/**/*.js"]
     },
     "packages/core": {},
     "angular-workspace": {

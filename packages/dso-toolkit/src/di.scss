@@ -19,7 +19,13 @@ $colors: (
   "zwart": colors.$zwart,
 );
 
-// Lege lijst = icoon met vaste kleuren (geen currentColor): één property zonder kleur-suffix.
+// Per icoon de kleurnamen (sleutels uit $colors) waarin het beschikbaar is. Voor elke kleur maakt
+// inline-icons() een custom property, bijvoorbeeld "cross" + "zwart" → --_dso-di-cross-zwart.
+
+// Een lege lijst () is voor meerkleurige iconen (bijv. status-error): de svg heeft geen
+// fill="currentColor" en kan dus niet worden ingekleurd. Daarvoor komt één property zonder
+// kleur in de naam (--_dso-di-status-error), en gebruik je de mixins zonder kleur:
+// di.base("status-error").
 $icons: (
   "asterisk": ("grijs-50"),
   "call": (
