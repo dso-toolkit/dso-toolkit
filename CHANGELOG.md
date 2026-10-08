@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Dropdown Menu: States zijn niet te onderscheiden ([#3918](https://github.com/dso-toolkit/dso-toolkit/issues/3918))
+
 ## 🚨 Release 101.1.0 - 2026-10-08
 
 ### Changed
