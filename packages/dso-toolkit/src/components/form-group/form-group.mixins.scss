@@ -5,5 +5,5 @@
 
   display: inline-block;
 
-  @include di.base(asterisk, 0.75rem, text-top);
+  @include di.base("asterisk", "grijs-50", $size: 0.75rem, $vertical-align: text-top);
 }

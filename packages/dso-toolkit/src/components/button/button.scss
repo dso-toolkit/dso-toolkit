@@ -1,19 +1,19 @@
 @use "sass:map";
 
-@use "../../di-inline";
+@use "../../di";
 @use "../../variables/units";
 
 @use "button.mixins" as button-mixins;
 
 @mixin _shared-icon($icon, $colors) {
   &::after {
-    @include di-inline.base($icon, map.get($colors, "default"));
+    @include di.base($icon, map.get($colors, "default"));
   }
 
   @if map.has-key($colors, "hover") {
     &:hover {
       &::after {
-        @include di-inline.variant($icon, map.get($colors, "hover"));
+        @include di.variant($icon, map.get($colors, "hover"));
       }
     }
   }
@@ -21,7 +21,7 @@
   @if map.has-key($colors, "disabled") {
     &[disabled] {
       &::after {
-        @include di-inline.variant($icon, map.get($colors, "disabled"));
+        @include di.variant($icon, map.get($colors, "disabled"));
       }
     }
   }
@@ -31,12 +31,12 @@
   $property: --_dso-button-tertiary-#{$icon}-icon;
 
   &::after {
-    @include di-inline.base($icon, "grasgroen", $override-property: $property);
+    @include di.base($icon, "grasgroen", $override-property: $property);
   }
 
   &[disabled] {
     &::after {
-      @include di-inline.variant($icon, "grasgroen-40");
+      @include di.variant($icon, "grasgroen-40");
     }
   }
 
@@ -44,7 +44,7 @@
     &:hover,
     &:active {
       &::after {
-        @include di-inline.variant($icon, "bosgroen", $override-property: $property);
+        @include di.variant($icon, "bosgroen", $override-property: $property);
       }
     }
   }

@@ -18,13 +18,4 @@ module.exports = {
     "liberty/use-logical-spec": "always",
     "no-invalid-position-declaration": null,
   },
-  overrides: [
-    {
-      files: ["packages/dso-toolkit/src/icons/**.scss"],
-      rules: {
-        "selector-pseudo-class-no-unknown": null,
-        "selector-type-no-unknown": null,
-      },
-    },
-  ],
 };
