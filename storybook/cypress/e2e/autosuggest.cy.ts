@@ -446,6 +446,33 @@ describe("Autosuggest", () => {
     cy.get("dso-autosuggest.hydrated").find("div[role='option'] .suggestion-row .extra mark").should("contain", "omg");
   });
 
+  describe("in a narrow container", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--with-provided-mark-function");
+    });
+
+    it("shows type and extras below the value at a viewport of 320px", () => {
+      cy.viewport(320, 660);
+      cy.get("input").focus().type("gro");
+      waitForAutosuggestListboxLayout();
+      cy.get("dso-autosuggest.hydrated")
+        .find("div[role='option']")
+        .should(($options) => {
+          $options.each((_, option) => {
+            expect(option.scrollWidth).to.be.at.most(option.clientWidth);
+          });
+        });
+      cy.matchImageSnapshot({ capture: "viewport" });
+    });
+
+    it("follows the width of the container instead of the viewport", () => {
+      cy.get("#storybook-root").invoke("css", "inline-size", "480px");
+      cy.get("input").focus().type("gro");
+      waitForAutosuggestListboxLayout();
+      cy.matchImageSnapshot({ capture: "viewport" });
+    });
+  });
+
   it("should limit the block-size of the listbox-container to 10 items", () => {
     cy.get("input").focus().type("sugg");
     waitForAutosuggestListboxLayout();

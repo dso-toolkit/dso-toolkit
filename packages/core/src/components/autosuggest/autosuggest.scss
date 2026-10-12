@@ -12,6 +12,7 @@
 }
 
 .listbox-container {
+  container-type: inline-size;
   inset-inline: 0;
   inset-block-start: 100%;
   block-size: auto;
@@ -63,6 +64,10 @@
     .suggestion-row {
       display: flex;
       justify-content: space-between;
+
+      @container (max-width: 480px) {
+        flex-direction: column;
+      }
     }
 
     &:active {
@@ -96,6 +101,10 @@ mark {
 
 .type {
   text-align: end;
+
+  @container (max-width: 480px) {
+    text-align: start;
+  }
 }
 
 .extra {
@@ -104,5 +113,9 @@ mark {
 
   &:not(:first-child) {
     text-align: end;
+
+    @container (max-width: 480px) {
+      text-align: start;
+    }
   }
 }
