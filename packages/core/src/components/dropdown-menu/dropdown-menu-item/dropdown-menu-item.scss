@@ -40,11 +40,25 @@ button {
   text-decoration: none;
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
 
-  &:hover,
-  &:focus {
-    background-color: colors.$grasgroen-20;
+  &:hover {
+    background-color: var(--_dso-dropdown-menu-item-hover-background-color, #{colors.$grasgroen-20});
     color: colors.$grijs-90;
     text-decoration: none;
+  }
+
+  &:focus {
+    color: colors.$grijs-90;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    color: colors.$bosgroen;
+  }
+
+  &:is(:focus, :focus-visible) {
+    background-color: colors.$grasgroen-20;
+    outline: 2px solid colors.$bosgroen;
+    outline-offset: -2px;
   }
 
   &:active {
