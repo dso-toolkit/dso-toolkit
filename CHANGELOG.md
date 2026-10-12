@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Icons: Vervang de di.svg-sprite door di-inline ([#3939](https://github.com/dso-toolkit/dso-toolkit/issues/3939))
+* Packages: Update Stencil naar 4.45.2 ([#4026](https://github.com/dso-toolkit/dso-toolkit/issues/4026))
 
 ## 🚨 Release 101.1.0 - 2026-10-08
 
