@@ -21,7 +21,7 @@
   @if map.has-key($colors, "active") {
     &:active {
       &::after {
-        @include di-inline.variant($icon, map.get($colors, "active"));
+        @include di.variant($icon, map.get($colors, "active"));
       }
     }
   }
@@ -89,20 +89,14 @@ label {
 
   &.dso-secondary {
     @include button-mixins.secondary($base-styling: true);
-    @include _shared(
-      (
-        "default": "grasgroen",
-        "hover": "bosgroen",
-        "active": "wit",
-        "disabled": "grasgroen-40",
-      ),
-      (
-        "default": "grasgroen",
-        "hover": "bosgroen",
-        "active": "wit",
-        "disabled": "grasgroen-40",
-      )
-    );
+
+    &.download::after {
+      @include di.current-color-icon("download");
+    }
+
+    &.extern::after {
+      @include di.current-color-icon("external-link");
+    }
   }
 
   &.dso-tertiary {
