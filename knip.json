@@ -9,8 +9,8 @@
       "ignoreDependencies": ["axe-core", "eslint-config-prettier", "wait-on"]
     },
     "packages/dso-toolkit": {
-      "entry": ["src/index.ts", "scripts/*.ts"],
-      "project": ["src/**/*.{ts,tsx}", "scripts/*.ts"]
+      "entry": ["src/index.ts", "scripts/*.{ts,mjs}"],
+      "project": ["src/**/*.{ts,tsx}", "scripts/*.{ts,mjs}"]
     },
     "angular-workspace": {
       "entry": ["projects/component-library/src/public-api.ts"],
