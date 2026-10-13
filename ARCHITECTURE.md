@@ -12,7 +12,19 @@ De DSO Toolkit is een Design System en bestaat uit de volgende NPM packages:
 - `@dso-toolkit/react`
 - `@dso-toolkit/angular`
 
-![DSO Toolkit dependency graph](dependency-graph.svg)
+```mermaid
+flowchart BT
+  dso-toolkit["<b>dso-toolkit</b><br/>Basis package: SCSS, CSS, HTML/CSS componenten,<br/>Web Components, icons en assets"]
+  react["<b>@dso-toolkit/react</b><br/>React bindings voor de Web Components"]
+  angular["<b>@dso-toolkit/angular</b><br/>Angular bindings voor de Web Components"]
+  storybook["<b>dso-storybook</b> (niet gepubliceerd)<br/>storybook.dso-toolkit.nl"]
+  website["<b>website</b> (niet gepubliceerd)<br/>Docusaurus, www.dso-toolkit.nl"]
+
+  react -- "peerDependency" --> dso-toolkit
+  angular -- "peerDependency" --> dso-toolkit
+  storybook -- "dependency" --> dso-toolkit
+  website -- "dependency" --> dso-toolkit
+```
 
 ## Termen
 
