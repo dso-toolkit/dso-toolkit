@@ -296,11 +296,6 @@
     "secondary"
   );
 
-  &:focus:not(:active),
-  &:focus-visible:not(:active) {
-    @include _shared-variant($defaults-map, "secondary", $hover-map, "-hover");
-  }
-
   &.dso-spinner-left,
   &.dso-spinner-right {
     &[disabled] {
@@ -357,7 +352,8 @@
   text-decoration: none;
 
   &,
-  &:visited:not(:hover):not(:active):not(:focus) {
+  &:visited:not(:hover):not(:active),
+  &:focus-visible:not(:hover):not(:active) {
     color: button-variables.$secondary-color;
   }
 

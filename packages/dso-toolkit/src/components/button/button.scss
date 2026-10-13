@@ -89,14 +89,20 @@ label {
 
   &.dso-secondary {
     @include button-mixins.secondary($base-styling: true);
-
-    &.download::after {
-      @include di.current-color-icon("download");
-    }
-
-    &.extern::after {
-      @include di.current-color-icon("external-link");
-    }
+    @include _shared(
+      (
+        "default": "grasgroen",
+        "hover": "bosgroen",
+        "active": "wit",
+        "disabled": "grasgroen-40",
+      ),
+      (
+        "default": "grasgroen",
+        "hover": "bosgroen",
+        "active": "wit",
+        "disabled": "grasgroen-40",
+      )
+    );
   }
 
   &.dso-tertiary {

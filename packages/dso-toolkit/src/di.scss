@@ -126,21 +126,6 @@ $icons: (
   vertical-align: $vertical-align;
 }
 
-@mixin current-color-icon($icon, $color: "grasgroen") {
-  background-color: currentColor;
-  -webkit-mask-image: var(#{custom-property($icon, $color)});
-  mask-image: var(#{custom-property($icon, $color)});
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: cover;
-  mask-size: cover;
-  block-size: icon-variables.$size;
-  inline-size: icon-variables.$size;
-  vertical-align: icon-variables.$vertical-align;
-}
-
 @mixin inline-icons() {
   :root {
     @each $icon, $color-names in $icons {
