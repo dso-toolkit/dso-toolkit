@@ -15,7 +15,9 @@ azcopy sync --from-to=LocalBlob --delete-destination=true ./website/www/ "https:
 # pack the package the same way npm would, extract that tarball into a scratch directory and sync that.
 DT_PACK_DIR=$(mktemp -d)
 pnpm --filter dso-toolkit pack --pack-destination "$DT_PACK_DIR"
-tar -xzf "$DT_PACK_DIR"/dso-toolkit-*.tgz -C "$DT_PACK_DIR"
+# -m: npm/pnpm pack stamps every entry with a fixed mtime (1985-10-26). azcopy sync only uploads files that are
+# newer than the destination blob, so without -m changed files would never overwrite an existing branch deploy.
+tar -xzmf "$DT_PACK_DIR"/dso-toolkit-*.tgz -C "$DT_PACK_DIR"
 pnpm exec tsx scripts/create-hashes dso-toolkit "$DT_PACK_DIR/package"
 
 azcopy sync --from-to=LocalBlob --delete-destination=true "$DT_PACK_DIR/package/" "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/cdn.dso-toolkit.nl/www/dso-toolkit/${DT_REF}/?${SAS_TOKEN}"
