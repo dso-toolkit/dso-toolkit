@@ -1,0 +1,66 @@
+@use "../../../global/mixins/symbol.mixins" as symbol-mixins;
+@use "../../../utilities";
+@use "../../../variables/units";
+
+@use "../../insert";
+@use "../../delete";
+
+@use "map-layer-object.variables" as map-layer-object-variables;
+@use "../map-layer.variables" as map-layer-variables;
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+
+  ins,
+  del {
+    display: contents;
+    text-decoration: none;
+  }
+}
+
+:host(:not(:last-child)) {
+  margin-block-end: units.$u1;
+}
+
+:host([wijzigactie="voegtoe"]) {
+  @include insert.root();
+}
+
+:host([wijzigactie="verwijder"]) {
+  @include delete.root($strikethrough: false);
+}
+
+.map-layer-object {
+  display: flex;
+  align-items: flex-start;
+  padding: 2px;
+  min-block-size: map-layer-variables.$map-layer-min-block-size - 4px;
+
+  ::slotted([slot="symbol"]) {
+    @include symbol-mixins.symbolContainer(
+      map-layer-object-variables.$symbol-block-size,
+      map-layer-object-variables.$symbol-inline-size
+    );
+  }
+
+  &-heading {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: units.$u1 * 0.5;
+    min-inline-size: 0;
+  }
+
+  .slide-toggle-container {
+    display: flex;
+    align-items: center;
+
+    dso-slide-toggle {
+      display: flex;
+      padding-block: 0;
+    }
+  }
+}

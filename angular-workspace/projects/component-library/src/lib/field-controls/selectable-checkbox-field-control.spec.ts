@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormControl, ReactiveFormsModule } from "@angular/forms";
 import { FormField, disabled, form, required } from "@angular/forms/signals";
 import { By } from "@angular/platform-browser";
-import { SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
+import { SelectableChangeEvent } from "dso-toolkit/dist/components";
 
 import { BooleanValueAccessor, DsoSelectableCheckboxFieldControl, DsoToolkitModule } from "../../public-api";
 import { DsoSelectable } from "../stencil-generated/components";

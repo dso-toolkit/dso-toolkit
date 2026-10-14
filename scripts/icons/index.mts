@@ -110,7 +110,7 @@ async function generateTypeIconAlias(icons: string[]) {
   const contents = `export type IconAlias = "${aliases.join('"|"')}"`;
 
   // Start: Core icon.interfaces.ts
-  let filepath = "packages/core/src/components/icon/icon.interfaces.ts";
+  let filepath = "packages/dso-toolkit/src/components/icon/icon.interfaces.ts";
   await writeFile(filepath, await format(contents, filepath));
   // End: Core icon.interfaces.ts
 
@@ -129,7 +129,7 @@ async function generateTypeIconAlias(icons: string[]) {
 }
 
 async function updateIconTsx(icons: string[]) {
-  const filepath = "packages/core/src/components/icon/icon.tsx";
+  const filepath = "packages/dso-toolkit/src/components/icon/icon.tsx";
   const aliases: string[] = getAliases(icons);
 
   const iconTsx = await readFile(filepath, "utf-8");

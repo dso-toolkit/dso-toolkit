@@ -32,8 +32,8 @@ export default [
       "angular-workspace/projects/component-library/src/lib/stencil-generated",
       "packages/*/dist",
       "packages/*/www",
-      "packages/core/loader",
-      "packages/core/src/components.d.ts",
+      "packages/dso-toolkit/loader",
+      "packages/dso-toolkit/src/components.d.ts",
       "packages/react/src/components.ts",
       "packages/react/src/react-component-lib",
       "storybook/www",
@@ -153,19 +153,19 @@ export default [
   },
   {
     ...stencil.configs.flat.base,
-    files: ["packages/core/src/**/*{.ts,.tsx}"],
+    files: ["packages/dso-toolkit/src/**/*{.ts,.tsx}"],
   },
   {
     ...stencil.configs.flat.recommended,
-    files: ["packages/core/src/**/*{.ts,.tsx}"],
+    files: ["packages/dso-toolkit/src/**/*{.ts,.tsx}"],
   },
   {
-    files: ["packages/core/src/**/*{.ts,.tsx}"],
+    files: ["packages/dso-toolkit/src/**/*{.ts,.tsx}"],
     languageOptions: {
       ecmaVersion: 5,
       sourceType: "script",
       parserOptions: {
-        project: "./packages/core/tsconfig.json",
+        project: "./packages/dso-toolkit/tsconfig.json",
       },
     },
     rules: {

@@ -1,6 +1,6 @@
-import componentsReadme from "@dso-toolkit/core/src/components/plekinfo-card/plekinfo-card-item/readme.md?raw";
-import readme from "@dso-toolkit/core/src/components/plekinfo-card/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import componentsReadme from "dso-toolkit/src/components/plekinfo-card/plekinfo-card-item/readme.md?raw";
+import readme from "dso-toolkit/src/components/plekinfo-card/readme.md?raw";
 import { compiler } from "markdown-to-jsx/react";
 
 import { omgevingsnormContent, withItemsContent } from "./plekinfo-card-item.content.js";

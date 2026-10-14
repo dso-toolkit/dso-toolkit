@@ -1,0 +1,133 @@
+@use "sass:color";
+
+@use "../../variables/colors";
+@use "../../variables/units";
+@use "../../variables/zindex";
+
+@use "../button";
+@use "../insert";
+@use "../delete";
+
+:host {
+  display: inline-block;
+  position: relative;
+
+  .wrapper {
+    overflow: visible;
+    padding: 0;
+    border: 0;
+
+    &::backdrop {
+      background-color: color.scale(colors.$wit, $alpha: -20%);
+    }
+  }
+}
+
+:host(:hover) .open,
+.open:focus {
+  opacity: 1;
+}
+
+.open {
+  opacity: 0;
+  position: absolute;
+  inset-inline-end: units.$u2;
+  inset-block-start: units.$u2;
+}
+
+.wrapper {
+  align-self: center;
+  box-shadow: 0 units.$u1 units.$u3 0 rgba(25, 25, 25, 0.4);
+  line-height: 0;
+  outline: 4px solid colors.$wit;
+  z-index: zindex.$image-overlay;
+
+  .title {
+    background-color: colors.$wit;
+    font-weight: 700;
+    line-height: initial;
+    padding: units.$u1;
+    position: absolute;
+  }
+
+  img {
+    inline-size: auto;
+    block-size: auto;
+    max-inline-size: 100%;
+    max-block-size: calc(100vh - #{units.$u8});
+  }
+
+  .figuur-bijschrift:not([hidden]) {
+    display: block;
+    font-size: 0.75rem;
+    font-style: italic;
+    padding-block-end: units.$u1 * 1.5;
+    padding-block-start: units.$u2;
+  }
+}
+
+.close {
+  position: absolute;
+  inset-block-start: units.$u2;
+  inset-inline-end: units.$u2;
+}
+
+ins.editaction-add {
+  display: inline-block;
+  margin-block-end: units.$u1;
+  padding: units.$u1;
+  @include insert.element();
+  @include insert.root();
+
+  .wrapper {
+    outline: none;
+    padding: units.$u1;
+    @include insert.root();
+
+    .editaction-label {
+      line-height: 1.5;
+    }
+
+    .close {
+      inset-block-start: units.$u6;
+    }
+  }
+
+  .open {
+    inset-block-start: units.$u6;
+  }
+}
+
+del.editaction-remove {
+  display: inline-block;
+  margin-block-end: units.$u1;
+  padding: units.$u1;
+  @include delete.root();
+
+  .wrapper {
+    outline: none;
+    padding: units.$u1;
+    @include delete.root();
+
+    .title {
+      text-decoration: line-through;
+    }
+
+    .editaction-label {
+      line-height: 1.5;
+    }
+
+    .close {
+      inset-block-start: units.$u6;
+    }
+  }
+
+  .open {
+    inset-block-start: units.$u6;
+  }
+}
+
+.editaction-label {
+  font-style: italic;
+  margin-block-end: units.$u1;
+}

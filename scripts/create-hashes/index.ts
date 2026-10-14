@@ -29,12 +29,16 @@ function includeFile(filename: string) {
 
 async function main() {
   const filter = process.argv[2];
+  // Optional: directory with the already unpacked package contents (e.g. the
+  // extracted `pnpm pack` tarball used to publish to the CDN). When omitted,
+  // the files are read from and hashes.json is written to the package itself.
+  const outputDir = process.argv[3];
 
   if (!filter) {
-    throw new Error("Missing package filter argument. Usage: tsx scripts/create-hashes <filter>");
+    throw new Error("Missing package filter argument. Usage: tsx scripts/create-hashes <filter> [outputDir]");
   }
 
-  const base = execSync(`pnpm --filter ${filter} exec pwd`).toString().trim();
+  const base = outputDir ?? execSync(`pnpm --filter ${filter} exec pwd`).toString().trim();
   const json = execSync(`pnpm --filter ${filter} pack --dry-run --json`).toString();
   const { files }: PnpmPackOutput = JSON.parse(json);
 

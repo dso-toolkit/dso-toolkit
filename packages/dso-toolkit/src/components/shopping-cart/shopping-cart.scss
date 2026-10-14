@@ -1,188 +1,56 @@
+@use "../button";
 @use "../../utilities";
-@use "../../variables/units";
 @use "../../variables/colors";
-@use "../../variables/zindex";
-@use "../list";
-@use "../form-control";
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/units";
 
-@use "shopping-cart.variables" as css-shopping-cart-variables;
-@use "../../global/mixins/set-colors.mixin" as set-colors;
+:host {
+  display: block;
+}
 
-.dso-shopping-cart {
-  .dso-status {
-    @include set-colors.apply(colors.$grijs-5, "shopping-cart");
+@include utilities.box-sizing();
 
-    border: 0;
-    border-radius: css-shopping-cart-variables.$radius;
-    box-shadow: none;
-    display: block;
-    font-weight: 600;
-    padding-block: units.$u2;
-    padding-inline: units.$u6;
-    position: relative;
-    text-align: start;
+.shopping-cart {
+  background-color: colors.$lichtblauw-20;
+  padding-block: units.$u2;
+  padding-inline: units.$u2;
+}
 
-    dso-icon {
-      @include utilities.transition(transform);
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: units.$u2;
+  margin-block-end: units.$u2;
+}
 
-      inset-inline-start: units.$u2;
-      position: absolute;
-      margin-inline-end: units.$u1;
-      transform: rotate(0);
-    }
+::slotted([slot="heading"]) {
+  margin-block: 0 !important;
+  margin-inline: 0 !important;
+  color: inherit !important;
+  font-size: units.$font-size-h3s !important;
+  font-weight: 600 !important;
+  line-height: units.$font-line-height-h3 !important;
 
-    &[aria-expanded="true"] {
-      dso-icon {
-        transform: rotate(90deg);
-      }
-    }
+  @media (min-width: media-query-breakpoints.$screen-xs-min) {
+    font-size: units.$font-size-h3 !important;
   }
+}
 
-  span.dso-status {
-    display: inline-block;
-    padding-inline-start: units.$u2;
-  }
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: units.$u1;
+}
 
-  .dso-status,
-  .dso-delete {
-    + .dso-items {
-      border-block-start: 1px solid css-shopping-cart-variables.$border-color;
-      border-start-start-radius: 0;
-      border-start-end-radius: 0;
-    }
-  }
+:host([mode="side"]) .items {
+  --_dso-shopping-cart-line-clamp: 2;
+}
 
-  .dso-contents {
-    @include set-colors.apply(colors.$grijs-5, "shopping-cart");
+button {
+  @include button.element();
 
-    border: 0;
-    border-radius: css-shopping-cart-variables.$radius;
-    position: relative;
-
-    > .dso-delete {
-      position: absolute;
-      inline-size: units.$u3;
-      z-index: zindex.$shopping-cart;
-    }
-
-    > .dso-items {
-      inline-size: 100%;
-    }
-
-    + .dso-warning {
-      margin-block-start: units.$u2;
-    }
-  }
-
-  ul,
-  ol {
-    @include list.unstyled();
-
-    @include set-colors.apply(colors.$grijs-5, "shopping-cart");
-
-    border-radius: css-shopping-cart-variables.$radius;
-    margin-block-end: 0;
-    margin-block-start: 0;
-
-    li {
-      border-block-start: 1px solid css-shopping-cart-variables.$border-color;
-    }
-  }
-
-  .dso-activities, // .dso-activities is deprecated
-  .dso-subitems {
-    > li {
-      font-weight: normal;
-    }
-  }
-
-  li {
-    padding-block-end: units.$u2;
-    padding-block-start: units.$u2;
-    position: relative;
-
-    > dso-icon {
-      float: inline-start;
-      block-size: units.$u3;
-      margin-inline-end: units.$u1;
-      text-align: center;
-      inline-size: units.$u3;
-    }
-  }
-
-  .dso-items {
-    > li {
-      font-weight: 600;
-      padding-inline-start: units.$u2;
-      padding-inline-end: units.$u10;
-
-      &:first-child {
-        border-block-start: 0;
-      }
-    }
-
-    .dso-activities, // .dso-activities is deprecated
-    .dso-subitems {
-      margin-inline-end: units.$u8 * -1;
-      margin-block-start: units.$u2;
-
-      li {
-        margin-inline-start: units.$u2 * -1;
-        margin-inline-end: units.$u2 * -1;
-        padding-block: units.$u2;
-        padding-inline: units.$u6;
-
-        &:last-child {
-          padding-block-end: 0;
-        }
-      }
-    }
-  }
-
-  .dso-edit-name {
-    @include form-control.root();
-  }
-
-  .dso-delete,
-  .dso-edit-cart-item {
-    background-color: transparent;
-    border: 0;
-    box-shadow: none;
-    color: colors.$grasgroen;
-    block-size: units.$u3;
-    padding: 0;
-    position: absolute;
-    text-align: center;
-    inset-block-start: units.$u2;
-    inline-size: units.$u3;
-  }
-
-  .dso-delete {
-    inset-inline-end: units.$u2;
-  }
-
-  .dso-edit-cart-item {
-    inset-inline-end: units.$u6;
-  }
-
-  .dso-edit-additive {
-    font-weight: 400;
-    margin-inline-end: units.$u8 * -1;
-    margin-block-start: units.$u1;
-
-    label {
-      @include utilities.sr-only();
-    }
-  }
-
-  .dso-empty {
-    padding-block: (units.$u3 * 0.5);
-    padding-inline: units.$u2;
-  }
-
-  // demo
-  .dso-secondary {
-    padding-block: 6px;
-    padding-inline: 12px;
+  &.dso-secondary {
+    @include button.secondary($base-styling: true);
   }
 }

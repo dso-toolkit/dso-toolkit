@@ -1,0 +1,55 @@
+@use "../../utilities";
+@use "../../variables/typography";
+@use "../../variables/units";
+
+@use "../insert";
+@use "../delete";
+
+@use "../link/link";
+
+:host {
+  display: block;
+  padding: 2px;
+}
+
+:host([wijzigactie="voegtoe"]) {
+  @include insert.root();
+}
+
+:host([wijzigactie="verwijder"]) {
+  @include delete.root();
+}
+
+@include utilities.box-sizing();
+
+.annotation-body {
+  display: flex;
+  gap: units.$u1;
+}
+
+.annotation-info {
+  flex-grow: 1;
+}
+
+.annotation-symbol,
+.annotation-control {
+  flex-shrink: 0;
+}
+
+.annotation-title {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.annotation-title,
+.annotation-data {
+  margin-block: 0;
+
+  .content:has(+ dso-label) {
+    margin-inline-end: units.$u1 * 0.5;
+  }
+}
+
+.annotation-data {
+  font-size: typography.$font-size-small;
+}

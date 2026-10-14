@@ -1,9 +1,4 @@
-import {
-  DatePickerBlurEvent,
-  DatePickerChangeEvent,
-  DatePickerFocusEvent,
-  DatePickerKeyboardEvent,
-} from "@dso-toolkit/core";
+import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "dso-toolkit";
 
 export interface DatePicker {
   id?: string;

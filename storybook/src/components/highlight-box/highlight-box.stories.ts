@@ -1,5 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/highlight-box/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import readme from "dso-toolkit/src/components/highlight-box/readme.md?raw";
 import { TemplateResult, html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 

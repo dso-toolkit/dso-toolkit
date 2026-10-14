@@ -56,6 +56,24 @@ Sass hanteert geen SemVer. Aan de versienummers is niet te zien of een release b
 
 Vergelijk daarom altijd de gegenereerde `dso.css` van master met die van de topic branch en controleer of de verschillen kloppen.
 
+`sass` en `sass-embedded` moeten altijd samen en op exact dezelfde versie worden opgehoogd in de catalog (`pnpm-workspace.yaml`, `catalog.sass` en `catalog.sass-embedded`). `@stencil/sass` gebruikt zelf een oudere `sass-embedded`; die wordt via de override `"@stencil/sass>sass-embedded": "catalog:"` gedwongen om dezelfde catalog-versie te gebruiken als de rest van de monorepo.
+
+## Stencil
+
+Bij elke versie-bump van `@stencil/core` moet de pnpm-patch opnieuw gezet worden: Stencil kent standaard geen output target die alleen de globale stylesheet (`dist/dso.css`) bouwt zonder de component-bundels. De patch voegt een `dist-global-styles` output target toe die `@stencil/core` wél toestaat. Omdat de patch rechtstreeks op de gecompileerde `compiler/stencil.js` van de geïnstalleerde versie is gemaakt, vervalt hij bij een nieuwe versie en moet hij opnieuw worden toegepast:
+
+```sh
+pnpm patch @stencil/core@<nieuwe-versie>
+```
+
+Neem de wijziging uit de bestaande patch (`patches/@stencil__core@<oude-versie>.patch`) over in de uitgepakte map die `pnpm patch` opent, en rond af met:
+
+```sh
+pnpm patch-commit <pad-naar-uitgepakte-map>
+```
+
+Dit genereert een nieuwe `patches/@stencil__core@<nieuwe-versie>.patch` en werkt de `patchedDependencies` in `pnpm-workspace.yaml` bij. Verwijder de oude patch-file als deze niet meer wordt gerefereerd.
+
 ## Danger.yml
 
 In `.github/workflows/danger.yml` de packages TypeScript en Danger meenemen.

@@ -1,0 +1,16 @@
+@use "../../utilities";
+@use "../../variables/icon";
+
+:host {
+  display: inline-block;
+  block-size: icon.$size;
+  vertical-align: icon.$vertical-align;
+  inline-size: icon.$size;
+}
+
+@include utilities.box-sizing();
+
+.icon-container {
+  display: block;
+  line-height: 0;
+}

@@ -26,21 +26,13 @@ async function main(version: string | undefined, emoji: string | undefined) {
 }
 
 async function updatePackageJsons(version: string) {
-  const packagePaths = [
-    "packages/dso-toolkit",
-    "packages/core",
-    "packages/react",
-    "angular-workspace/projects/component-library",
-  ];
+  const packagePaths = ["packages/dso-toolkit", "packages/react", "angular-workspace/projects/component-library"];
 
   for (const packagePath of packagePaths) {
     const packageJson = JSON.parse(await readFile(`${packagePath}/package.json`, "utf-8"));
 
     packageJson.version = version;
 
-    if (packageJson.peerDependencies?.["@dso-toolkit/core"]) {
-      packageJson.peerDependencies["@dso-toolkit/core"] = version;
-    }
     if (packageJson.peerDependencies?.["dso-toolkit"]) {
       packageJson.peerDependencies["dso-toolkit"] = version;
     }

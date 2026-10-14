@@ -9,13 +9,12 @@
       "ignoreDependencies": ["axe-core", "eslint-config-prettier", "wait-on"]
     },
     "packages/dso-toolkit": {
-      "entry": ["gulp/**/*.js"],
-      "project": ["src/**/*.ts", "gulp/**/*.js"]
+      "entry": ["src/index.ts", "scripts/*.{ts,mjs}"],
+      "project": ["src/**/*.{ts,tsx}", "scripts/*.{ts,mjs}"]
     },
-    "packages/core": {},
     "angular-workspace": {
       "entry": ["projects/component-library/src/public-api.ts"],
-      "ignoreDependencies": ["@angular-devkit/core", "@angular/cdk", "@dso-toolkit/core"]
+      "ignoreDependencies": ["@angular-devkit/core", "@angular/cdk", "dso-toolkit"]
     },
     "storybook": {
       "entry": [".storybook/middleware.js", "scripts/*.ts"],

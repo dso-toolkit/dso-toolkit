@@ -2,8 +2,7 @@
 
 This repository houses several projects, and issues are labeled accordingly:
 
-- `/packages/dso-toolkit`: A component library
-- `/packages/core`: A Web Component implementation written in Stencil Components
+- `/packages/dso-toolkit`: A component library, including the Web Component implementation written in Stencil Components and the global SCSS styling.
 
 This project uses [Semantic Versioning](http://semver.org/).
 
