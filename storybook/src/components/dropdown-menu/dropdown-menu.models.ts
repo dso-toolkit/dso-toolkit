@@ -3,11 +3,9 @@ export interface DropdownMenu {
   variant: "primary" | "secondary" | "tertiary";
   checkable?: boolean;
   groups: DropdownMenuGroup[];
-  dropdownAlign?: "left" | "right"; // Remove in #3316
 }
 
 export interface DropdownMenuGroup {
-  id?: string; // Remove in #3316
   label?: string;
   items: DropdownMenuItemLink[] | DropdownMenuItemButton[];
 }
