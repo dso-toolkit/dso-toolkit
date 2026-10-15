@@ -30,14 +30,12 @@ button {
   background-color: colors.$wit;
   padding-block: units.$u2;
   padding-inline: units.$u1;
-
-  &.sub-item {
-    --_dso-shopping-cart-item-name-weight: normal;
-    --_dso-shopping-cart-item-name-indent: #{units.$u3};
-  }
 }
 
 .sub-items {
+  --_dso-shopping-cart-item-name-weight: normal;
+  --_dso-shopping-cart-item-name-indent: #{units.$u3};
+
   display: flex;
   flex-direction: column;
   gap: units.$u1;

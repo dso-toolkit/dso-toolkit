@@ -126,12 +126,6 @@ describe("Shopping Cart", () => {
         .invoke("prop", "label")
         .should("equal", "Verwijder Nieuwe naam");
     });
-
-    it("does not render warnings", () => {
-      cy.get("dso-shopping-cart-item.hydrated[warning]").should("not.exist");
-      cy.get("dso-shopping-cart-item.hydrated").shadow().find(".item-name dso-icon").should("not.exist");
-      cy.contains("Let op:").should("not.exist");
-    });
   });
 
   describe("Main", () => {
@@ -215,6 +209,21 @@ describe("Shopping Cart", () => {
         .realClick()
         .get("@dsoToggleListener")
         .should("be.calledOnce");
+    });
+
+    it("renders the warning slot below the items on a full width white background", () => {
+      cy.get("dso-shopping-cart.hydrated")
+        .find("[slot='warning']")
+        .should("have.css", "background-color", "rgb(255, 255, 255)")
+        .and("have.css", "margin", "0px")
+        .and("have.css", "padding", "16px")
+        .then(($warning) => {
+          cy.get("dso-shopping-cart.hydrated").then(($cart) => {
+            expect($warning.outerWidth()).to.equal($cart.outerWidth());
+          });
+        });
+
+      cy.get("dso-shopping-cart.hydrated").shadow().find(".content + slot[name='warning']").should("exist");
     });
 
     it("renders a warning icon with the warning text only on items with a warning", () => {

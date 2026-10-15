@@ -1380,7 +1380,7 @@ export namespace Components {
          */
         "removable": boolean;
         /**
-          * The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology.
+          * The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology. Explain the meaning of the icon visually in the `warning` slot of `dso-shopping-cart`.
          */
         "warning"?: string;
     }
@@ -4507,7 +4507,7 @@ declare namespace LocalJSX {
          */
         "removable"?: boolean;
         /**
-          * The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology.
+          * The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology. Explain the meaning of the icon visually in the `warning` slot of `dso-shopping-cart`.
          */
         "warning"?: string;
     }

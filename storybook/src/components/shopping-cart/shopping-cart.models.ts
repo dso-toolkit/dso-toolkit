@@ -1,3 +1,5 @@
+import { TemplateResult } from "lit-html";
+
 import { Form } from "../form/form.models.js";
 
 type ShoppingCartMode = "side" | "main";
@@ -29,6 +31,7 @@ export interface ShoppingCart {
   isOpen?: boolean;
   // Core Shopping cart
   mode?: ShoppingCartMode;
+  warning?: TemplateResult | string;
   toggleable?: boolean;
   dsoToggle?: (event: CustomEvent<ShoppingCartToggleEvent>) => void;
   // shared

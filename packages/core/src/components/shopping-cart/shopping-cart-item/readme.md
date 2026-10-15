@@ -1,28 +1,16 @@
 # `<dso-shopping-cart-item>`
 
-Een Shopping Cart Item wordt weergegeven als een lijstitem. Plaats het in het default-slot van `<dso-shopping-cart>`
-(of genest in een andere `<dso-shopping-cart-item>`, zie hieronder) voor de juiste lijstsemantiek.
-
-Geneste Shopping Cart Items kunnen in het default-slot worden geplaatst om ze weer te geven als subitems.
-Er wordt slechts één niveau van nesting ondersteund; diepere nesting wordt niet anders weergegeven.
-
-De property `warning` bevat de waarschuwingstekst. Als deze een niet-lege string bevat, wordt er vóór de naam een
-waarschuwingsicoon weergegeven en wordt de tekst beschikbaar gemaakt voor hulptechnologie (bijvoorbeeld
-`<dso-shopping-cart-item warning="Voor deze werkzaamheid is op dit moment geen informatie beschikbaar.">`). De
-gebruiker van het component is verantwoordelijk voor een visuele toelichting bij het icoon (bijvoorbeeld een
-alinea met "Let op:") en moet deze buiten het component weergeven.
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property    | Attribute   | Description                                                                                                               | Type                  | Default     |
-| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `editable`  | `editable`  | When set an edit (pencil) action is rendered.                                                                             | `boolean`             | `false`     |
-| `mode`      | `mode`      | The mode of the Shopping Cart Item.                                                                                       | `"edit" \| "view"`    | `"view"`    |
-| `removable` | `removable` | When set a delete (trash) action is rendered.                                                                             | `boolean`             | `false`     |
-| `warning`   | `warning`   | The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology. | `string \| undefined` | `undefined` |
+| Property    | Attribute   | Description                                                                                                                                                                                                      | Type                  | Default     |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
+| `editable`  | `editable`  | When set an edit (pencil) action is rendered.                                                                                                                                                                    | `boolean`             | `false`     |
+| `mode`      | `mode`      | The mode of the Shopping Cart Item.                                                                                                                                                                              | `"edit" \| "view"`    | `"view"`    |
+| `removable` | `removable` | When set a delete (trash) action is rendered.                                                                                                                                                                    | `boolean`             | `false`     |
+| `warning`   | `warning`   | The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology. Explain the meaning of the icon visually in the `warning` slot of `dso-shopping-cart`. | `string \| undefined` | `undefined` |
 
 
 ## Events

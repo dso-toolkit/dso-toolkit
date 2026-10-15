@@ -19,8 +19,8 @@ attribuut toont daardoor geen icoon meer; geef altijd een tekst mee.
 Daarnaast worden geneste Shopping Cart Items nu als eigen, ingesprongen kader gerenderd en staan ze in een geneste
 lijst (één nestniveau wordt ondersteund). Hiervoor is geen migratie nodig.
 
-De visuele uitleg van het waarschuwingsicoon (bijvoorbeeld een "Let op:"-paragraaf) blijft de verantwoordelijkheid
-van de afnemer en wordt als gewone `<p>` buiten het component gerenderd.
+De visuele uitleg van het waarschuwingsicoon (bijvoorbeeld een "Let op:"-paragraaf) plaats je in het nieuwe
+`warning` slot van de Shopping Cart. Die wordt onder de items getoond, op een witte achtergrond over de volle breedte van de Shopping Cart.
 
 ## Migratiepad
 
@@ -29,9 +29,12 @@ van de afnemer en wordt als gewone `<p>` buiten het component gerenderd.
 <dso-shopping-cart-item warning>...</dso-shopping-cart-item>
 
 ✅
-<dso-shopping-cart-item warning="Voor deze werkzaamheid is op dit moment geen informatie beschikbaar.">
-  ...
-</dso-shopping-cart-item>
+<dso-shopping-cart>
+  <dso-shopping-cart-item warning="Voor deze werkzaamheid is op dit moment geen informatie beschikbaar.">
+    ...
+  </dso-shopping-cart-item>
+  <p slot="warning"><strong>Let op:</strong> ...</p>
+</dso-shopping-cart>
 ```
 
 ## Grid

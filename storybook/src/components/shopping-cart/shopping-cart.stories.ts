@@ -1,7 +1,7 @@
 import readme from "@dso-toolkit/core/src/components/shopping-cart/readme.md?raw";
 import componentsReadme from "@dso-toolkit/core/src/components/shopping-cart/shopping-cart-item/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { html, nothing } from "lit-html";
+import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
@@ -49,27 +49,16 @@ const meta: Meta<ShoppingCartArgs> = {
 
 export default meta;
 
-const render = (args: ShoppingCartArgs) => {
-  const items = args.items;
-  const hasWarningExample = items.some(
-    (item) => !!item.warningText || (item.subitems ?? []).some((subitem) => !!subitem.warningText),
-  );
+const warningExplanation = html`
+  <strong>Let op:</strong> Voor de werkzaamheden met een ${iconTemplate({ icon: "status-warning" })} is op dit moment
+  geen informatie beschikbaar. Neem contact op met uw gemeente of waterschap om te weten wat u moet doen.
+`;
 
-  return html`
-    ${shoppingCartTemplate(shoppingCartArgsMapper(args))}
-    ${
-      hasWarningExample
-        ? html`
-            <p>
-              <strong>Let op:</strong> Voor de werkzaamheden met een ${iconTemplate({ icon: "status-warning" })} is op
-              dit moment geen informatie beschikbaar. Neem contact op met uw gemeente of waterschap om te weten wat u
-              moet doen.
-            </p>
-          `
-        : nothing
-    }
-  `;
-};
+const render = (args: ShoppingCartArgs) =>
+  shoppingCartTemplate({
+    ...shoppingCartArgsMapper(args),
+    warning: args.warning ? warningExplanation : undefined,
+  });
 
 const warningText = (warning: boolean | undefined): string | undefined =>
   warning ? "Voor deze werkzaamheid is op dit moment geen informatie beschikbaar." : undefined;
