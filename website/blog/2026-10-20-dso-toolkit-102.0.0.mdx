@@ -1,0 +1,150 @@
+---
+authors: [iterox, xiangjuzou-prog, tfrijsewijk]
+date: 2026-10-20
+---
+
+# DSO Toolkit v102.0.0 🏋️‍♀️
+
+Deze release bevat **BREAKING** changes voor de volgende componenten:
+
+- Shopping Cart
+- Shopping Cart Item
+- Button (icon-only werkvorm)
+
+Daarnaast een **deprecation** voor een onderdeel van het component Grid.
+
+<!-- truncate -->
+
+## Shopping Cart
+
+**Breaking:** De Shopping Cart rendert zelf geen knop meer in de header. De property `toggleable` en het event
+`dsoToggle` (en het bijbehorende type `ShoppingCartToggleEvent`) zijn verwijderd. Plaats zelf een knop in het nieuwe
+`button` slot en luister zelf naar het klik-event (`click` op een `<button>` of `dsoClick` op een `<dso-icon-button>`).
+
+Hierdoor is het ook mogelijk om in de `main` modus, zonder Sluiten-knop, een tertiaire "Alles verwijderen"-knop met
+prullenbak-icoon te tonen:
+
+```html
+<dso-shopping-cart mode="main">
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  <button slot="button" type="button" class="dso-tertiary">
+    <span>Alles verwijderen</span>
+    <dso-icon icon="trash"></dso-icon>
+  </button>
+  ...
+</dso-shopping-cart>
+```
+
+### Migratiepad
+
+```html
+❌ main
+<dso-shopping-cart mode="main" toggleable>
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  ...
+</dso-shopping-cart>
+
+✅ main
+<dso-shopping-cart mode="main">
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  <button slot="button" type="button" class="dso-secondary">
+    <span>Sluiten</span>
+    <dso-icon icon="cross"></dso-icon>
+  </button>
+  ...
+</dso-shopping-cart>
+```
+
+```html
+❌ side
+<dso-shopping-cart mode="side" toggleable>
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  ...
+</dso-shopping-cart>
+
+✅ side
+<dso-shopping-cart mode="side">
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  <dso-icon-button slot="button" icon="chevron-left" variant="secondary" label="Openen"></dso-icon-button>
+  ...
+</dso-shopping-cart>
+```
+
+## Shopping Cart Item
+
+**Breaking:** De `warning` property van de Shopping Cart Item is geen boolean meer, maar bevat de waarschuwingstekst.
+Bij een tekst toont het item een waarschuwingsicoon voor de naam, en is de tekst beschikbaar voor hulptechnologie. Een
+leeg of boolean attribuut toont daardoor geen icoon meer; geef altijd een tekst mee.
+
+Geneste Shopping Cart Items staan nu elk in een eigen kader, met de naam ingesprongen, in een geneste lijst. Eén
+nestniveau wordt ondersteund. Hiervoor is geen migratie nodig.
+
+De visuele uitleg van het waarschuwingsicoon (bijvoorbeeld een "Let op:"-paragraaf) plaats je in het nieuwe
+`warning` slot van de Shopping Cart. Die wordt onder de items getoond, op een witte achtergrond over de volle breedte van de Shopping Cart.
+
+### Migratiepad
+
+```html
+❌
+<dso-shopping-cart-item warning>...</dso-shopping-cart-item>
+
+✅
+<dso-shopping-cart>
+  <dso-shopping-cart-item warning="Voor deze werkzaamheid is op dit moment geen informatie beschikbaar.">
+    ...
+  </dso-shopping-cart-item>
+  <p slot="warning"><strong>Let op:</strong> ...</p>
+</dso-shopping-cart>
+```
+
+## Button
+
+We keuren het gebruik van de icon-only werkvorm van Button in deze release af. Het betere alternatief is een `Icon Button`, dat we in 🌯 Release 79.1.0 hebben geïntroduceerd. Dit beter toegankelijke component is speciaal ontworpen voor icon-only knoppen.
+
+## Migratiepad
+
+```html
+❌
+<button type="button" class="dso-primary dso-small | dso-secondary | dso-tertiary | dso-map">
+  <span class="sr-only">Button label</span>
+  <dso-icon icon="..."></dso-icon>
+</button>
+
+✅
+<dso-icon-button
+  variant="secondary | tertiary | map"
+  icon="..."
+  label="Button label"
+  tooltip-placement="top"
+></dso-icon-button>
+```
+
+## Grid
+
+De selectors `.dso-banner` en `.no-button-banner` in combinatie met de selector `.row` uit het op Bootstrap gebaseerde 12-koloms gridsysteem (het Grid-component van het DSO Design System) zijn deprecated en worden verwijderd in een toekomstige **BREAKING** release.
+Afnemers die deze selectors momenteel gebruiken om een Highlight Box op of onder een achtergrondafbeelding op landingspagina's te tonen, moeten overstappen naar het nieuwe webcomponent `Hero Image`.
+
+### Migratiepad
+
+Vervang de oude HTML markup met classes `row dso-banner no-button-banner` en de custom-class met daarin de background-image styling door het web component `Hero Image`.
+
+```html
+❌
+<div class="row dso-banner no-button-banner my-beautiful-image">
+  <div class="col-lg-6 col-md-9 col-sm-12 col-xs-12">
+    <dso-highlight-box white> ... </dso-highlight-box>
+  </div>
+</div>
+
+✅
+<dso-hero-image>
+  <div slot="image" class="my-beautiful-image"></div>
+  <dso-highlight-box white> ... </dso-highlight-box>
+</dso-hero-image>
+
+✅
+<dso-hero-image>
+  <div slot="image" style="background-image: url(images/my-beautiful-image.webp)"></div>
+  <dso-highlight-box white> ... </dso-highlight-box>
+</dso-hero-image>
+```

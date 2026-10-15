@@ -12,6 +12,7 @@ export function iconButtonTemplate({
   tooltipPlacement,
   variant,
   toggled,
+  slot,
 }: IconButton) {
   return html`
     <dso-icon-button
@@ -22,6 +23,7 @@ export function iconButtonTemplate({
       ?toggled=${toggled}
       ?expanded=${expanded}
       ?disabled=${disabled}
+      slot=${ifDefined(slot)}
       @dsoClick=${ifDefined(dsoClick)}
     ></dso-icon-button>
   `;

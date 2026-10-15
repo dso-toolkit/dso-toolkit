@@ -14,22 +14,6 @@ describe("Shopping Cart", () => {
       cy.dsoCheckA11y("dso-shopping-cart.hydrated");
     });
 
-    it("emits dsoToggle when the user clicks the toggle button", () => {
-      cy.get("dso-shopping-cart.hydrated")
-        .then(($shoppingCart) => {
-          $shoppingCart.on("dsoToggle", cy.stub().as("dsoToggleListener"));
-        })
-        .shadow()
-        .find("dso-icon-button")
-        .realClick()
-        .get("@dsoToggleListener")
-        .should("be.calledOnce")
-        .invoke("getCalls")
-        .invoke("at", -1)
-        .its("args.0.detail.originalEvent")
-        .should("exist");
-    });
-
     it("truncates the item name to two lines", () => {
       cy.get("dso-shopping-cart-item.hydrated")
         .first()
@@ -199,18 +183,6 @@ describe("Shopping Cart", () => {
         .should("exist");
     });
 
-    it("emits dsoToggle when the user clicks the close button", () => {
-      cy.get("dso-shopping-cart.hydrated")
-        .then(($shoppingCart) => {
-          $shoppingCart.on("dsoToggle", cy.stub().as("dsoToggleListener"));
-        })
-        .shadow()
-        .find("button.dso-secondary")
-        .realClick()
-        .get("@dsoToggleListener")
-        .should("be.calledOnce");
-    });
-
     it("renders the warning slot below the items on a full width white background", () => {
       cy.get("dso-shopping-cart.hydrated")
         .find("[slot='warning']")
@@ -256,6 +228,29 @@ describe("Shopping Cart", () => {
         .shadow()
         .find(".item-name dso-icon")
         .should("not.exist");
+    });
+  });
+
+  describe("Main met Alles verwijderen", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-shopping-cart--main-alles-verwijderen");
+      cy.get("dso-shopping-cart.hydrated", { timeout: 10000 }).should("exist");
+    });
+
+    it("matches image snapshot", () => {
+      cy.get("dso-shopping-cart.hydrated").matchImageSnapshot("shopping-cart-main-alles-verwijderen");
+    });
+
+    it("should be accessible", () => {
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-shopping-cart.hydrated");
+    });
+
+    it("applies the block padding to a tertiary button in the button slot", () => {
+      cy.get("dso-shopping-cart.hydrated")
+        .find(".dso-tertiary[slot='button']")
+        .should("have.css", "padding-top", "11px")
+        .and("have.css", "padding-bottom", "11px");
     });
   });
 });
