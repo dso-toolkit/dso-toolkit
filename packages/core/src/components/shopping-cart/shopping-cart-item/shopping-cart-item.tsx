@@ -5,6 +5,7 @@ import {
   Event,
   EventEmitter,
   Fragment,
+  Host,
   Prop,
   forceUpdate,
   h,
@@ -18,7 +19,7 @@ import {
 } from "./shopping-cart-item.interfaces";
 
 /**
- * @slot - In the `edit` mode it holds the form content. In the `view` mode it can hold nested Shopping Cart Items, which render as sub items.
+ * @slot - In the `edit` mode it holds the form content. In the `view` mode it can hold nested Shopping Cart Items, which render as sub items in a nested list; one level of nesting is supported.
  * @slot name - The name of the item. In the `edit` mode it is the title of the form; use a heading element (e.g. `<h4 slot="name">`) matching the heading hierarchy of the page. The text is also used in the labels of the edit and delete actions.
  * @slot info - An optional line of information shown below the name.
  */
@@ -40,10 +41,10 @@ export class ShoppingCartItem implements ComponentInterface {
   mode: ShoppingCartItemMode = "view";
 
   /**
-   * When set a warning icon is rendered before the name.
+   * The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology.
    */
   @Prop({ reflect: true })
-  warning = false;
+  warning?: string;
 
   /**
    * When set an edit (pencil) action is rendered.
@@ -89,6 +90,14 @@ export class ShoppingCartItem implements ComponentInterface {
     return this.host.querySelector(":scope > [slot='name']")?.textContent?.trim() ?? "";
   }
 
+  private get isSubItem(): boolean {
+    return this.host.parentElement?.tagName === "DSO-SHOPPING-CART-ITEM";
+  }
+
+  private get hasSubItems(): boolean {
+    return !!this.host.querySelector(":scope > dso-shopping-cart-item");
+  }
+
   private renderActions() {
     return (
       <div class="item-actions">
@@ -115,38 +124,51 @@ export class ShoppingCartItem implements ComponentInterface {
   render() {
     if (this.mode === "edit") {
       return (
-        <div class="item item-edit">
-          <div class="item-edit-header">
-            <slot name="name" />
-            <button type="button" class="dso-tertiary" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
-              Sluiten
-              <dso-icon icon="cross"></dso-icon>
-            </button>
+        <Host role="listitem">
+          <div class="item item-edit">
+            <div class="item-edit-header">
+              <slot name="name" />
+              <button type="button" class="dso-tertiary" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
+                Sluiten
+                <dso-icon icon="cross"></dso-icon>
+              </button>
+            </div>
+            <div class="item-edit-body">
+              <slot />
+            </div>
           </div>
-          <div class="item-edit-body">
-            <slot />
-          </div>
-        </div>
+        </Host>
       );
     }
 
+    const warning = this.warning?.trim();
+    const hasSubItems = this.hasSubItems;
+
     return (
-      <div class="item">
-        <div class="item-header">
-          <div class="item-name">
-            {this.warning && (
-              <Fragment>
-                <dso-icon icon="status-warning" aria-hidden="true"></dso-icon>
-                <span class="sr-only">waarschuwing: </span>
-              </Fragment>
-            )}
-            <slot name="name" />
+      <Host role="listitem">
+        <div class={{ item: true, "sub-item": this.isSubItem }}>
+          <div class="item-header">
+            <div class="item-name">
+              {warning && (
+                <Fragment>
+                  <dso-icon icon="status-warning" aria-hidden="true"></dso-icon>
+                  <span class="sr-only">{this.warning}</span>
+                </Fragment>
+              )}
+              <slot name="name" />
+            </div>
+            {(this.editable || this.removable) && this.renderActions()}
           </div>
-          {(this.editable || this.removable) && this.renderActions()}
+          <slot name="info" />
         </div>
-        <slot />
-        <slot name="info" />
-      </div>
+        {hasSubItems ? (
+          <ul class="sub-items" role="list">
+            <slot />
+          </ul>
+        ) : (
+          <slot />
+        )}
+      </Host>
     );
   }
 }

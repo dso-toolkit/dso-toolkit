@@ -9,7 +9,7 @@ export function shoppingCartTemplate({ mode, toggleable, title, titleTag, items,
   const renderItem = (item: ShoppingCartItem): TemplateResult => html`
     <dso-shopping-cart-item
       mode=${ifDefined(item.mode)}
-      ?warning=${item.warning}
+      warning=${ifDefined(item.warningText)}
       ?editable=${item.editable}
       ?removable=${item.removable}
       @dsoEdit=${item.dsoEdit}

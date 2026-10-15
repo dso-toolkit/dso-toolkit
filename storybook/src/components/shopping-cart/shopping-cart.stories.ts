@@ -1,9 +1,12 @@
 import readme from "@dso-toolkit/core/src/components/shopping-cart/readme.md?raw";
 import componentsReadme from "@dso-toolkit/core/src/components/shopping-cart/shopping-cart-item/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { html } from "lit-html";
+import { html, nothing } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
+
+import { noControl } from "../../shared/no-control.js";
+import { iconTemplate } from "../icon/icon.template.js";
 
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
 import { ShoppingCartItem } from "./shopping-cart.models.js";
@@ -46,24 +49,56 @@ const meta: Meta<ShoppingCartArgs> = {
 
 export default meta;
 
-const render = (args: ShoppingCartArgs) => shoppingCartTemplate(shoppingCartArgsMapper(args));
+const render = (args: ShoppingCartArgs) => {
+  const items = args.items;
+  const hasWarningExample = items.some(
+    (item) => !!item.warningText || (item.subitems ?? []).some((subitem) => !!subitem.warningText),
+  );
 
-const sideItems = ({ warning }: Pick<ShoppingCartArgs, "warning">): ShoppingCartItem[] => [
+  return html`
+    ${shoppingCartTemplate(shoppingCartArgsMapper(args))}
+    ${
+      hasWarningExample
+        ? html`
+            <p>
+              <strong>Let op:</strong> Voor de werkzaamheden met een ${iconTemplate({ icon: "status-warning" })} is op
+              dit moment geen informatie beschikbaar. Neem contact op met uw gemeente of waterschap om te weten wat u
+              moet doen.
+            </p>
+          `
+        : nothing
+    }
+  `;
+};
+
+const warningText = (warning: boolean | undefined): string | undefined =>
+  warning ? "Voor deze werkzaamheid is op dit moment geen informatie beschikbaar." : undefined;
+
+const sideItems: ShoppingCartItem[] = [
   {
     label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
     info: "Aanvraag vergunning (Gemeente Utrecht)",
-    warning,
     subitems: [
       {
         label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
-        warning,
+      },
+    ],
+  },
+  {
+    label: "Garagebedrijf, autoschadeherstelbedrijf, autowasstraat of bedrijf voor carrosseriebouw",
+    info: "Aanvraag vergunning (Gemeente Woerden)",
+    subitems: [
+      {
+        label: "Verbrandingsmotor proefdraaien",
+      },
+      {
+        label: "Metaal bewerken of behandelen",
       },
     ],
   },
   {
     label: "Flora- en fauna-activiteit",
     info: "Aanvraag vergunning",
-    warning,
   },
   {
     label: "Verspreiding Aziatische duizendknoopsoorten voorkomen",
@@ -76,7 +111,6 @@ const sideItems = ({ warning }: Pick<ShoppingCartArgs, "warning">): ShoppingCart
     subitems: [
       {
         label: "Lozen van grondwater bij ontwatering",
-        warning,
       },
     ],
   },
@@ -90,18 +124,31 @@ const mainItems = ({ warning, itemMode }: Pick<ShoppingCartArgs, "warning" | "it
   {
     label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
     info: "Aanvraag vergunning (Gemeente Utrecht)",
-    warning,
+    warningText: warningText(warning),
     subitems: [
       {
         label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
-        warning,
+        warningText: warningText(warning),
+      },
+    ],
+  },
+  {
+    label: "Garagebedrijf, autoschadeherstelbedrijf, autowasstraat of bedrijf voor carrosseriebouw",
+    info: "Aanvraag vergunning (Gemeente Woerden)",
+    subitems: [
+      {
+        label: "Verbrandingsmotor proefdraaien",
+        warningText: warningText(warning),
+      },
+      {
+        label: "Metaal bewerken of behandelen",
       },
     ],
   },
   {
     label: "Flora- en fauna-activiteit",
     info: "Aanvraag vergunning",
-    warning,
+    warningText: warningText(warning),
   },
   itemMode === "edit"
     ? {
@@ -150,7 +197,7 @@ const mainItems = ({ warning, itemMode }: Pick<ShoppingCartArgs, "warning" | "it
     subitems: [
       {
         label: "Lozen van grondwater bij ontwatering",
-        warning,
+        warningText: warningText(warning),
       },
     ],
   },
@@ -161,16 +208,18 @@ const mainItems = ({ warning, itemMode }: Pick<ShoppingCartArgs, "warning" | "it
 ];
 
 export const Side: ShoppingCartStory = {
+  argTypes: {
+    warning: noControl(),
+  },
   args: {
     _implementation: "core",
     mode: "side",
     toggleable: true,
     editable: false,
     removable: true,
-    warning: true,
-    items: sideItems({ warning: true }),
+    items: sideItems,
   },
-  render: (args) => render({ ...args, items: sideItems(args) }),
+  render: (args) => render({ ...args, items: sideItems }),
 };
 
 export const Main: ShoppingCartStory = {

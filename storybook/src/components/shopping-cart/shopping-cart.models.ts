@@ -49,6 +49,7 @@ export interface ShoppingCartItem {
   editable?: boolean;
   removable?: boolean;
   form?: Form;
+  warningText?: string;
   // shared
   label: string;
   warning?: boolean;

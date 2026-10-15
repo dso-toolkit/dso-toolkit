@@ -28,14 +28,24 @@ button {
 
 .item {
   background-color: colors.$wit;
-  padding-block: var(--_dso-shopping-cart-item-padding-block, #{units.$u2});
-  padding-inline: var(--_dso-shopping-cart-item-padding-inline, #{units.$u1});
+  padding-block: units.$u2;
+  padding-inline: units.$u1;
 
-  > slot {
-    --_dso-shopping-cart-item-padding-block: #{units.$u1} 0;
-    --_dso-shopping-cart-item-padding-inline: #{units.$u2} 0;
+  &.sub-item {
     --_dso-shopping-cart-item-name-weight: normal;
+    --_dso-shopping-cart-item-name-indent: #{units.$u3};
   }
+}
+
+.sub-items {
+  display: flex;
+  flex-direction: column;
+  gap: units.$u1;
+  margin-block: units.$u1 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  list-style: none;
 }
 
 .item-edit {
@@ -58,6 +68,7 @@ button {
   align-items: flex-start;
   gap: units.$ru1;
   min-inline-size: 0;
+  padding-inline-start: var(--_dso-shopping-cart-item-name-indent, 0);
 
   dso-icon {
     flex: none;

@@ -1,14 +1,38 @@
 ---
-authors: [xiangjuzou-prog]
+authors: [iterox, xiangjuzou-prog]
+date: 2026-10-15
 ---
 
 # DSO Toolkit v102.0.0 🏋️‍♀️
 
-Deze release bevat een **deprecation** voor een onderdeel van het volgende component:
-
-- Grid
+Deze release bevat een **BREAKING** change voor het component Shopping Cart Item en een **deprecation** voor een
+onderdeel van het component Grid
 
 <!-- truncate -->
+
+## Shopping Cart Item
+
+**Breaking:** De `warning` property van de Shopping Cart Item is geen boolean meer, maar bevat de waarschuwingstekst.
+Die tekst wordt na het waarschuwingsicoon als sr-only tekst voor schermlezers gerenderd. Een leeg of boolean
+attribuut toont daardoor geen icoon meer; geef altijd een tekst mee.
+
+Daarnaast worden geneste Shopping Cart Items nu als eigen, ingesprongen kader gerenderd en staan ze in een geneste
+lijst (één nestniveau wordt ondersteund). Hiervoor is geen migratie nodig.
+
+De visuele uitleg van het waarschuwingsicoon (bijvoorbeeld een "Let op:"-paragraaf) blijft de verantwoordelijkheid
+van de afnemer en wordt als gewone `<p>` buiten het component gerenderd.
+
+## Migratiepad
+
+```html
+❌
+<dso-shopping-cart-item warning>...</dso-shopping-cart-item>
+
+✅
+<dso-shopping-cart-item warning="Voor deze werkzaamheid is op dit moment geen informatie beschikbaar.">
+  ...
+</dso-shopping-cart-item>
+```
 
 ## Grid
 

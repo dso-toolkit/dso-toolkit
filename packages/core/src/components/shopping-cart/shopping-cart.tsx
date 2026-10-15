@@ -60,9 +60,9 @@ export class ShoppingCart implements ComponentInterface {
           <slot name="heading" />
           {this.toggleable && this.renderToggle()}
         </div>
-        <div class="items">
+        <ul class="items" role="list">
           <slot />
-        </div>
+        </ul>
       </div>
     );
   }
