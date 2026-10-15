@@ -16,6 +16,7 @@ export interface IconButton {
   disabled?: boolean;
   dsoClick?: HandlerFunction;
   toggled?: boolean;
+  slot?: string;
 }
 
 export function isIconButtonInterface(object: unknown): object is IconButton {

@@ -1,14 +1,68 @@
 ---
-authors: [iterox, xiangjuzou-prog]
+authors: [iterox, xiangjuzou-prog, tfrijsewijk]
 date: 2026-10-15
 ---
 
 # DSO Toolkit v102.0.0 🏋️‍♀️
 
-Deze release bevat een **BREAKING** change voor het component Shopping Cart Item en een **deprecation** voor een
-onderdeel van het component Grid
+Deze release bevat **BREAKING** changes voor de componenten Shopping Cart en Shopping Cart Item en daarnaast een **deprecation** voor een onderdeel van het component Grid.
 
 <!-- truncate -->
+
+## Shopping Cart
+
+**Breaking:** De Shopping Cart rendert zelf geen knop meer in de header. De property `toggleable` en het event
+`dsoToggle` (en het bijbehorende type `ShoppingCartToggleEvent`) zijn verwijderd. Plaats zelf een knop in het nieuwe
+`button` slot en luister zelf naar het klik-event (`click` op een `<button>` of `dsoClick` op een `<dso-icon-button>`).
+
+Hierdoor is het ook mogelijk om in de `main` modus, zonder Sluiten-knop, een tertiaire "Alles verwijderen"-knop met
+prullenbak-icoon te tonen:
+
+```html
+<dso-shopping-cart mode="main">
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  <button slot="button" type="button" class="dso-tertiary">
+    <span>Alles verwijderen</span>
+    <dso-icon icon="trash"></dso-icon>
+  </button>
+  ...
+</dso-shopping-cart>
+```
+
+### Migratiepad
+
+```html
+❌ main
+<dso-shopping-cart mode="main" toggleable>
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  ...
+</dso-shopping-cart>
+
+✅ main
+<dso-shopping-cart mode="main">
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  <button slot="button" type="button" class="dso-secondary">
+    <span>Sluiten</span>
+    <dso-icon icon="cross"></dso-icon>
+  </button>
+  ...
+</dso-shopping-cart>
+```
+
+```html
+❌ side
+<dso-shopping-cart mode="side" toggleable>
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  ...
+</dso-shopping-cart>
+
+✅ side
+<dso-shopping-cart mode="side">
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  <dso-icon-button slot="button" icon="chevron-left" variant="secondary" label="Openen"></dso-icon-button>
+  ...
+</dso-shopping-cart>
+```
 
 ## Shopping Cart Item
 
@@ -22,7 +76,7 @@ nestniveau wordt ondersteund. Hiervoor is geen migratie nodig.
 De visuele uitleg van het waarschuwingsicoon (bijvoorbeeld een "Let op:"-paragraaf) plaats je in het nieuwe
 `warning` slot van de Shopping Cart. Die wordt onder de items getoond, op een witte achtergrond over de volle breedte van de Shopping Cart.
 
-## Migratiepad
+### Migratiepad
 
 ```html
 ❌

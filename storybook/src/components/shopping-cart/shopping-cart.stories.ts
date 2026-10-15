@@ -6,6 +6,8 @@ import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { noControl } from "../../shared/no-control.js";
+import { Button } from "../button/button.models.js";
+import { IconButton } from "../icon-button/icon-button.models.js";
 
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
 import { itemWarning, warningExplanation } from "./shopping-cart.content.js";
@@ -27,7 +29,8 @@ const meta: Meta<ShoppingCartArgs> = {
     shoppingcartTitle: "Gekozen activiteiten",
     shoppingcartTitleTag: "h2",
     items: [],
-    dsoToggle: fn(),
+    click: fn(),
+    dsoClick: fn(),
     dsoClose: fn(),
     dsoEdit: fn(),
     dsoDelete: fn(),
@@ -49,9 +52,10 @@ const meta: Meta<ShoppingCartArgs> = {
 
 export default meta;
 
-const render = (args: ShoppingCartArgs) =>
+const render = (args: ShoppingCartArgs, button?: Button | IconButton) =>
   shoppingCartTemplate({
     ...shoppingCartArgsMapper(args),
+    button,
     warning: args.warning ? warningExplanation() : undefined,
   });
 
@@ -197,12 +201,20 @@ export const Side: ShoppingCartStory = {
   args: {
     _implementation: "core",
     mode: "side",
-    toggleable: true,
     editable: false,
     removable: true,
     items: sideItems,
   },
-  render: (args) => render({ ...args, items: sideItems }),
+  render: (args) =>
+    render(
+      { ...args, items: sideItems },
+      {
+        icon: "chevron-left",
+        variant: "secondary",
+        label: "Openen",
+        dsoClick: args.dsoClick,
+      },
+    ),
 };
 
 export const Main: ShoppingCartStory = {
@@ -220,12 +232,45 @@ export const Main: ShoppingCartStory = {
   args: {
     _implementation: "core",
     mode: "main",
-    toggleable: true,
     editable: true,
     removable: true,
     warning: true,
     itemMode: "view",
     items: mainItems({ warning: true, itemMode: "view" }),
   },
-  render: (args) => render({ ...args, items: mainItems(args) }),
+  render: (args) =>
+    render(
+      { ...args, items: mainItems(args) },
+      {
+        variant: "secondary",
+        label: "Sluiten",
+        icon: { icon: "cross" },
+        iconMode: "after",
+        onClick: args.click,
+      },
+    ),
+};
+
+export const MainAllesVerwijderen: ShoppingCartStory = {
+  name: "Main met Alles verwijderen",
+  args: {
+    _implementation: "core",
+    mode: "main",
+    editable: true,
+    removable: true,
+    warning: true,
+    itemMode: "view",
+    items: mainItems({ warning: true, itemMode: "view" }),
+  },
+  render: (args) =>
+    render(
+      { ...args, items: mainItems(args) },
+      {
+        variant: "tertiary",
+        label: "Alles verwijderen",
+        icon: { icon: "trash" },
+        iconMode: "after",
+        onClick: args.click,
+      },
+    ),
 };
