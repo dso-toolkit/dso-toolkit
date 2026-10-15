@@ -1380,10 +1380,9 @@ export namespace Components {
          */
         "removable": boolean;
         /**
-          * When set a warning icon is rendered before the name.
-          * @default false
+          * The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology. Explain the meaning of the icon visually in the `warning` slot of `dso-shopping-cart`.
          */
-        "warning": boolean;
+        "warning"?: string;
     }
     interface DsoSkiplink {
         /**
@@ -4508,10 +4507,9 @@ declare namespace LocalJSX {
          */
         "removable"?: boolean;
         /**
-          * When set a warning icon is rendered before the name.
-          * @default false
+          * The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology. Explain the meaning of the icon visually in the `warning` slot of `dso-shopping-cart`.
          */
-        "warning"?: boolean;
+        "warning"?: string;
     }
     interface DsoSkiplink {
         /**
@@ -5095,7 +5093,7 @@ declare namespace LocalJSX {
     }
     interface DsoShoppingCartItemAttributes {
         "mode": ShoppingCartItemMode;
-        "warning": boolean;
+        "warning": string;
         "editable": boolean;
         "removable": boolean;
     }

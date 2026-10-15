@@ -12,6 +12,9 @@
 
 .shopping-cart {
   background-color: colors.$lichtblauw-20;
+}
+
+.content {
   padding-block: units.$u2;
   padding-inline: units.$u2;
 }
@@ -41,6 +44,19 @@
   display: flex;
   flex-direction: column;
   gap: units.$u1;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  list-style: none;
+}
+
+::slotted([slot="warning"]) {
+  margin-block: 0 !important;
+  margin-inline: 0 !important;
+  padding-block: units.$u2 !important;
+  padding-inline: units.$u2 !important;
+  background-color: colors.$wit !important;
 }
 
 :host([mode="side"]) .items {

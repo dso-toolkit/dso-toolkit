@@ -5,11 +5,11 @@ import { formTemplate } from "../form/form.template.js";
 
 import { ShoppingCart, ShoppingCartItem } from "./shopping-cart.models.js";
 
-export function shoppingCartTemplate({ mode, toggleable, title, titleTag, items, dsoToggle }: ShoppingCart) {
+export function shoppingCartTemplate({ mode, toggleable, title, titleTag, items, warning, dsoToggle }: ShoppingCart) {
   const renderItem = (item: ShoppingCartItem): TemplateResult => html`
     <dso-shopping-cart-item
       mode=${ifDefined(item.mode)}
-      ?warning=${item.warning}
+      warning=${ifDefined(item.warning)}
       ?editable=${item.editable}
       ?removable=${item.removable}
       @dsoEdit=${item.dsoEdit}
@@ -25,7 +25,7 @@ export function shoppingCartTemplate({ mode, toggleable, title, titleTag, items,
   return html`
     <dso-shopping-cart mode=${ifDefined(mode)} ?toggleable=${toggleable} @dsoToggle=${dsoToggle}>
       ${titleTag === "h2" ? html`<h2 slot="heading">${title}</h2>` : html`<h3 slot="heading">${title}</h3>`}
-      ${items.map(renderItem)}
+      ${items.map(renderItem)} ${warning ? html`<p slot="warning">${warning}</p>` : nothing}
     </dso-shopping-cart>
   `;
 }

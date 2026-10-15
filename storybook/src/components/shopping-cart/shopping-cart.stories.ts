@@ -5,7 +5,10 @@ import { html } from "lit-html";
 import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
+import { noControl } from "../../shared/no-control.js";
+
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
+import { itemWarning, warningExplanation } from "./shopping-cart.content.js";
 import { ShoppingCartItem } from "./shopping-cart.models.js";
 import { shoppingCartTemplate } from "./shopping-cart.template.js";
 
@@ -46,24 +49,39 @@ const meta: Meta<ShoppingCartArgs> = {
 
 export default meta;
 
-const render = (args: ShoppingCartArgs) => shoppingCartTemplate(shoppingCartArgsMapper(args));
+const render = (args: ShoppingCartArgs) =>
+  shoppingCartTemplate({
+    ...shoppingCartArgsMapper(args),
+    warning: args.warning ? warningExplanation() : undefined,
+  });
 
-const sideItems = ({ warning }: Pick<ShoppingCartArgs, "warning">): ShoppingCartItem[] => [
+const warningText = (warning: boolean | undefined): string | undefined => (warning ? itemWarning() : undefined);
+
+const sideItems: ShoppingCartItem[] = [
   {
     label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
     info: "Aanvraag vergunning (Gemeente Utrecht)",
-    warning,
     subitems: [
       {
         label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
-        warning,
+      },
+    ],
+  },
+  {
+    label: "Garagebedrijf, autoschadeherstelbedrijf, autowasstraat of bedrijf voor carrosseriebouw",
+    info: "Aanvraag vergunning (Gemeente Woerden)",
+    subitems: [
+      {
+        label: "Verbrandingsmotor proefdraaien",
+      },
+      {
+        label: "Metaal bewerken of behandelen",
       },
     ],
   },
   {
     label: "Flora- en fauna-activiteit",
     info: "Aanvraag vergunning",
-    warning,
   },
   {
     label: "Verspreiding Aziatische duizendknoopsoorten voorkomen",
@@ -76,7 +94,6 @@ const sideItems = ({ warning }: Pick<ShoppingCartArgs, "warning">): ShoppingCart
     subitems: [
       {
         label: "Lozen van grondwater bij ontwatering",
-        warning,
       },
     ],
   },
@@ -90,18 +107,31 @@ const mainItems = ({ warning, itemMode }: Pick<ShoppingCartArgs, "warning" | "it
   {
     label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
     info: "Aanvraag vergunning (Gemeente Utrecht)",
-    warning,
+    warning: warningText(warning),
     subitems: [
       {
         label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
-        warning,
+        warning: warningText(warning),
+      },
+    ],
+  },
+  {
+    label: "Garagebedrijf, autoschadeherstelbedrijf, autowasstraat of bedrijf voor carrosseriebouw",
+    info: "Aanvraag vergunning (Gemeente Woerden)",
+    subitems: [
+      {
+        label: "Verbrandingsmotor proefdraaien",
+        warning: warningText(warning),
+      },
+      {
+        label: "Metaal bewerken of behandelen",
       },
     ],
   },
   {
     label: "Flora- en fauna-activiteit",
     info: "Aanvraag vergunning",
-    warning,
+    warning: warningText(warning),
   },
   itemMode === "edit"
     ? {
@@ -150,7 +180,7 @@ const mainItems = ({ warning, itemMode }: Pick<ShoppingCartArgs, "warning" | "it
     subitems: [
       {
         label: "Lozen van grondwater bij ontwatering",
-        warning,
+        warning: warningText(warning),
       },
     ],
   },
@@ -161,16 +191,18 @@ const mainItems = ({ warning, itemMode }: Pick<ShoppingCartArgs, "warning" | "it
 ];
 
 export const Side: ShoppingCartStory = {
+  argTypes: {
+    warning: noControl(),
+  },
   args: {
     _implementation: "core",
     mode: "side",
     toggleable: true,
     editable: false,
     removable: true,
-    warning: true,
-    items: sideItems({ warning: true }),
+    items: sideItems,
   },
-  render: (args) => render({ ...args, items: sideItems(args) }),
+  render: (args) => render({ ...args, items: sideItems }),
 };
 
 export const Main: ShoppingCartStory = {

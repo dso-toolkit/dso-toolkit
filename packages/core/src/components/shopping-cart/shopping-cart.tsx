@@ -6,6 +6,8 @@ import { ShoppingCartMode, ShoppingCartToggleEvent } from "./shopping-cart.inter
  * @slot - The slot to place the `dso-shopping-cart-item` elements in.
  * @slot heading - The title of the Shopping Cart, as a heading element (e.g. `<h3 slot="heading">`) matching the
  * heading hierarchy of the page.
+ * @slot warning - An optional explanation of the warning icon of the Shopping Cart Items, e.g. a `<p>` starting with
+ * "Let op:". Shown below the items on a white background spanning the full width of the Shopping Cart.
  */
 @Component({
   tag: "dso-shopping-cart",
@@ -56,13 +58,16 @@ export class ShoppingCart implements ComponentInterface {
   render() {
     return (
       <div class="shopping-cart">
-        <div class="header">
-          <slot name="heading" />
-          {this.toggleable && this.renderToggle()}
+        <div class="content">
+          <div class="header">
+            <slot name="heading" />
+            {this.toggleable && this.renderToggle()}
+          </div>
+          <ul class="items" role="list">
+            <slot />
+          </ul>
         </div>
-        <div class="items">
-          <slot />
-        </div>
+        <slot name="warning" />
       </div>
     );
   }

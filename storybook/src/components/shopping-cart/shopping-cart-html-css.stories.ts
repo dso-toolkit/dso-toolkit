@@ -210,7 +210,7 @@ export const WithSubitemsAndWarning: ShoppingCartStory = {
         subitems: [
           {
             label: "Opslaan van vloeistoffen in een ondergrondse opslagtank",
-            warning: true,
+            warning: "Voor deze werkzaamheid is op dit moment geen informatie beschikbaar.",
           },
         ],
       },

@@ -37,6 +37,31 @@ describe("Shopping Cart", () => {
         .should("have.css", "-webkit-line-clamp", "2");
     });
 
+    it("renders the list and listitem roles", () => {
+      cy.get("dso-shopping-cart.hydrated").shadow().find("ul.items[role='list']").should("exist");
+
+      cy.get("dso-shopping-cart-item.hydrated").first().should("have.attr", "role", "listitem");
+    });
+
+    it("renders a nested list for items with sub items", () => {
+      cy.get("dso-shopping-cart-item.hydrated").first().shadow().find("ul.sub-items[role='list']").should("exist");
+
+      cy.get("dso-shopping-cart-item.hydrated dso-shopping-cart-item.hydrated")
+        .first()
+        .should("have.attr", "role", "listitem");
+    });
+
+    it("does not render a nested list for an item without sub items", () => {
+      cy.get("dso-shopping-cart-item.hydrated").last().shadow().find("ul.sub-items").should("not.exist");
+    });
+
+    it("renders the top-level item name in bold", () => {
+      cy.get("dso-shopping-cart-item.hydrated")
+        .first()
+        .children("[slot='name']")
+        .should("have.css", "font-weight", "600");
+    });
+
     it("renders a nested item as sub item", () => {
       cy.get("dso-shopping-cart-item.hydrated dso-shopping-cart-item.hydrated")
         .first()
@@ -47,6 +72,14 @@ describe("Shopping Cart", () => {
         .first()
         .children("[slot='name']")
         .should("have.css", "-webkit-line-clamp", "2");
+
+      cy.get("dso-shopping-cart-item.hydrated dso-shopping-cart-item.hydrated")
+        .first()
+        .shadow()
+        .find(".item-name")
+        .should(($itemName) => {
+          expect(parseFloat($itemName.css("padding-left"))).to.be.greaterThan(0);
+        });
     });
 
     it("shows only a delete action", () => {
@@ -92,21 +125,6 @@ describe("Shopping Cart", () => {
         .find(".item-actions dso-icon-button")
         .invoke("prop", "label")
         .should("equal", "Verwijder Nieuwe naam");
-    });
-
-    it("renders a warning icon only on items with a warning", () => {
-      cy.get("dso-shopping-cart-item.hydrated[warning]")
-        .first()
-        .shadow()
-        .find(".item-name dso-icon")
-        .invoke("prop", "icon")
-        .should("equal", "status-warning");
-
-      cy.get("dso-shopping-cart-item.hydrated:not([warning])")
-        .first()
-        .shadow()
-        .find(".item-name dso-icon")
-        .should("not.exist");
     });
   });
 
@@ -191,6 +209,53 @@ describe("Shopping Cart", () => {
         .realClick()
         .get("@dsoToggleListener")
         .should("be.calledOnce");
+    });
+
+    it("renders the warning slot below the items on a full width white background", () => {
+      cy.get("dso-shopping-cart.hydrated")
+        .find("[slot='warning']")
+        .should("have.css", "background-color", "rgb(255, 255, 255)")
+        .and("have.css", "margin", "0px")
+        .and("have.css", "padding", "16px")
+        .then(($warning) => {
+          cy.get("dso-shopping-cart.hydrated").then(($cart) => {
+            expect($warning.outerWidth()).to.equal($cart.outerWidth());
+          });
+        });
+
+      cy.get("dso-shopping-cart.hydrated").shadow().find(".content + slot[name='warning']").should("exist");
+    });
+
+    it("renders a warning icon with the warning text only on items with a warning", () => {
+      cy.get("dso-shopping-cart-item.hydrated[warning]")
+        .first()
+        .shadow()
+        .find(".item-name dso-icon")
+        .invoke("prop", "icon")
+        .should("equal", "status-warning");
+
+      cy.get("dso-shopping-cart-item.hydrated[warning]")
+        .first()
+        .then(($item) => {
+          const warningText = $item.attr("warning");
+
+          cy.wrap($item).shadow().find(".item-name .sr-only").invoke("text").should("equal", warningText);
+        });
+
+      cy.get("dso-shopping-cart-item.hydrated:not([warning])")
+        .first()
+        .shadow()
+        .find(".item-name dso-icon")
+        .should("not.exist");
+    });
+
+    it("does not render a warning icon for an empty warning attribute", () => {
+      cy.get("dso-shopping-cart-item.hydrated")
+        .first()
+        .invoke("attr", "warning", "")
+        .shadow()
+        .find(".item-name dso-icon")
+        .should("not.exist");
     });
   });
 });
