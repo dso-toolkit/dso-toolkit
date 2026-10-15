@@ -17,12 +17,11 @@ export interface ShoppingCartArgs {
   shoppingcartTitleTag: "h2" | "h3";
   shoppingcartTitle: string;
   mode?: "main" | "side";
-  toggleable?: boolean;
   editable?: boolean;
   removable?: boolean;
   itemMode?: "view" | "edit";
   warning?: boolean;
-  dsoToggle: HandlerFunction;
+  buttonClick: HandlerFunction;
   dsoEdit: HandlerFunction;
   dsoDelete: HandlerFunction;
   dsoClose: HandlerFunction;
@@ -61,12 +60,6 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
     },
   },
   mode: noControl(),
-  toggleable: {
-    if: { arg: "_implementation", eq: "core" },
-    control: {
-      type: "boolean",
-    },
-  },
   editable: noControl(),
   removable: noControl(),
   itemMode: {
@@ -95,7 +88,7 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
       type: "text",
     },
   },
-  dsoToggle: argTypeAction(),
+  buttonClick: argTypeAction(),
   dsoEdit: argTypeAction(),
   dsoDelete: argTypeAction(),
   dsoClose: argTypeAction(),
@@ -111,7 +104,6 @@ export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
     removeAll: a.removeAll,
     isOpen: a.isOpen,
     mode: a.mode,
-    toggleable: a.toggleable,
     items: a.items.map((item) => ({
       ...item,
       editable: a.editable ?? item.editable,
@@ -129,6 +121,5 @@ export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
     })),
     titleTag: a.shoppingcartTitleTag,
     title: a.shoppingcartTitle,
-    dsoToggle: (event) => a.dsoToggle(event),
   };
 }

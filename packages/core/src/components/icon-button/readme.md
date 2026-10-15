@@ -57,7 +57,6 @@ Type: `Promise<void>`
  - [dso-modal](../modal)
  - [dso-onboarding-tip](../onboarding-tip)
  - [dso-panel](../panel)
- - [dso-shopping-cart](../shopping-cart)
  - [dso-shopping-cart-item](../shopping-cart/shopping-cart-item)
 
 ### Depends on
@@ -83,7 +82,6 @@ graph TD;
   dso-modal --> dso-icon-button
   dso-onboarding-tip --> dso-icon-button
   dso-panel --> dso-icon-button
-  dso-shopping-cart --> dso-icon-button
   dso-shopping-cart-item --> dso-icon-button
   style dso-icon-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

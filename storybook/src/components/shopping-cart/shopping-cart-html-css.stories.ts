@@ -22,7 +22,7 @@ const meta: Meta<ShoppingCartArgs> = {
     shoppingcartTitle: "Gekozen activiteiten",
     shoppingcartTitleTag: "h2",
     items: [],
-    dsoToggle: fn(),
+    buttonClick: fn(),
     dsoClose: fn(),
     dsoEdit: fn(),
     dsoDelete: fn(),
