@@ -1,14 +1,12 @@
 import { TemplateResult } from "lit-html";
 
+import { Button } from "../button/button.models.js";
 import { Form } from "../form/form.models.js";
+import { IconButton } from "../icon-button/icon-button.models.js";
 
 type ShoppingCartMode = "side" | "main";
 
 type ShoppingCartItemMode = "view" | "edit";
-
-export interface ShoppingCartToggleEvent {
-  originalEvent: MouseEvent;
-}
 
 export interface ShoppingCartItemEditEvent {
   originalEvent: MouseEvent;
@@ -31,9 +29,8 @@ export interface ShoppingCart {
   isOpen?: boolean;
   // Core Shopping cart
   mode?: ShoppingCartMode;
+  button?: Button | IconButton;
   warning?: TemplateResult | string;
-  toggleable?: boolean;
-  dsoToggle?: (event: CustomEvent<ShoppingCartToggleEvent>) => void;
   // shared
   items: ShoppingCartItem[];
   title: string;

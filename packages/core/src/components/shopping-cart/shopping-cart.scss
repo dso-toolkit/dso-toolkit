@@ -1,4 +1,5 @@
-@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/button/button.variables" as button-variables;
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
@@ -63,10 +64,12 @@
   --_dso-shopping-cart-line-clamp: 2;
 }
 
-button {
-  @include button.element();
+::slotted([slot="button"]) {
+  flex-shrink: 0;
+}
 
-  &.dso-secondary {
-    @include button.secondary($base-styling: true);
-  }
+::slotted(.dso-tertiary[slot="button"]) {
+  @include set-colors.apply(colors.$lichtblauw-20, "shopping-cart");
+
+  --_dso-button-padding-block-tertiary: #{button-variables.$block-padding};
 }

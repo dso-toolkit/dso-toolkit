@@ -1,3 +1,11 @@
+function shouldBeHydrated() {
+  cy.get("dso-shopping-cart").should("have.class", "hydrated");
+  cy.get("dso-shopping-cart-item").should(($items) => {
+    expect($items).to.have.length.greaterThan(0);
+    expect($items.filter(":not(.hydrated)")).to.have.length(0);
+  });
+}
+
 describe("Shopping Cart", () => {
   describe("Side", () => {
     beforeEach(() => {
@@ -14,15 +22,23 @@ describe("Shopping Cart", () => {
       cy.dsoCheckA11y("dso-shopping-cart.hydrated");
     });
 
-    it("emits dsoToggle when the user clicks the toggle button", () => {
+    it("renders the Openen icon button in the button slot", () => {
       cy.get("dso-shopping-cart.hydrated")
-        .then(($shoppingCart) => {
-          $shoppingCart.on("dsoToggle", cy.stub().as("dsoToggleListener"));
+        .find("dso-icon-button[slot='button']")
+        .should("exist")
+        .and("be.visible")
+        .invoke("prop", "label")
+        .should("equal", "Openen");
+    });
+
+    it("emits a click event when the user clicks the Openen button", () => {
+      cy.get("dso-shopping-cart.hydrated")
+        .find("dso-icon-button[slot='button']")
+        .then(($button) => {
+          $button.on("dsoClick", cy.stub().as("dsoClickListener"));
         })
-        .shadow()
-        .find("dso-icon-button")
         .realClick()
-        .get("@dsoToggleListener")
+        .get("@dsoClickListener")
         .should("be.calledOnce")
         .invoke("getCalls")
         .invoke("at", -1)
@@ -199,15 +215,23 @@ describe("Shopping Cart", () => {
         .should("exist");
     });
 
-    it("emits dsoToggle when the user clicks the close button", () => {
+    it("renders the Sluiten button in the button slot", () => {
       cy.get("dso-shopping-cart.hydrated")
-        .then(($shoppingCart) => {
-          $shoppingCart.on("dsoToggle", cy.stub().as("dsoToggleListener"));
+        .find("button.dso-secondary[slot='button']")
+        .should("exist")
+        .and("be.visible")
+        .invoke("text")
+        .should("contain", "Sluiten");
+    });
+
+    it("emits a click event when the user clicks the Sluiten button", () => {
+      cy.get("dso-shopping-cart.hydrated")
+        .find("button.dso-secondary[slot='button']")
+        .then(($button) => {
+          $button.on("click", cy.stub().as("clickListener"));
         })
-        .shadow()
-        .find("button.dso-secondary")
         .realClick()
-        .get("@dsoToggleListener")
+        .get("@clickListener")
         .should("be.calledOnce");
     });
 
@@ -224,6 +248,38 @@ describe("Shopping Cart", () => {
         });
 
       cy.get("dso-shopping-cart.hydrated").shadow().find(".content + slot[name='warning']").should("exist");
+    });
+
+    it("renders the Alles verwijderen button in the button slot", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-shopping-cart--main&args=headerButton:alles-verwijderen");
+      shouldBeHydrated();
+
+      cy.get("dso-shopping-cart.hydrated")
+        .find("button.dso-tertiary[slot='button']")
+        .should("exist")
+        .and("be.visible")
+        .invoke("text")
+        .should("contain", "Alles verwijderen");
+
+      cy.get("dso-shopping-cart.hydrated")
+        .find("button.dso-tertiary[slot='button'] dso-icon")
+        .invoke("prop", "icon")
+        .should("equal", "trash");
+    });
+
+    it("should be accessible with the Alles verwijderen button", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-shopping-cart--main&args=headerButton:alles-verwijderen");
+      shouldBeHydrated();
+
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-shopping-cart.hydrated");
+    });
+
+    it("does not render a button in the header when headerButton is geen", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-shopping-cart--main&args=headerButton:geen");
+      shouldBeHydrated();
+
+      cy.get("dso-shopping-cart.hydrated").find("[slot='button']").should("not.exist");
     });
 
     it("renders a warning icon with the warning text only on items with a warning", () => {

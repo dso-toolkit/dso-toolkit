@@ -52,7 +52,7 @@ import { ResponsiveElementSize } from "./components/responsive-element/responsiv
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
-import { ShoppingCartMode, ShoppingCartToggleEvent } from "./components/shopping-cart/shopping-cart.interfaces";
+import { ShoppingCartMode } from "./components/shopping-cart/shopping-cart.interfaces";
 import { ShoppingCartItemCloseEvent, ShoppingCartItemDeleteEvent, ShoppingCartItemEditEvent, ShoppingCartItemMode } from "./components/shopping-cart/shopping-cart-item/shopping-cart-item.interfaces";
 import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
@@ -108,7 +108,7 @@ export { ResponsiveElementSize } from "./components/responsive-element/responsiv
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
-export { ShoppingCartMode, ShoppingCartToggleEvent } from "./components/shopping-cart/shopping-cart.interfaces";
+export { ShoppingCartMode } from "./components/shopping-cart/shopping-cart.interfaces";
 export { ShoppingCartItemCloseEvent, ShoppingCartItemDeleteEvent, ShoppingCartItemEditEvent, ShoppingCartItemMode } from "./components/shopping-cart/shopping-cart-item/shopping-cart-item.interfaces";
 export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
@@ -1357,11 +1357,6 @@ export namespace Components {
           * @default "side"
          */
         "mode": ShoppingCartMode;
-        /**
-          * When set, a toggle button is rendered. In the `side` mode this is a button to expand the Shopping Cart, in the `main` mode this is a button to collapse the Shopping Cart.
-          * @default false
-         */
-        "toggleable": boolean;
     }
     interface DsoShoppingCartItem {
         /**
@@ -1727,10 +1722,6 @@ export interface DsoSegmentedButtonCustomEvent<T> extends CustomEvent<T> {
 export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSelectableElement;
-}
-export interface DsoShoppingCartCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLDsoShoppingCartElement;
 }
 export interface DsoShoppingCartItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2689,18 +2680,7 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
-    interface HTMLDsoShoppingCartElementEventMap {
-        "dsoToggle": ShoppingCartToggleEvent;
-    }
     interface HTMLDsoShoppingCartElement extends Components.DsoShoppingCart, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLDsoShoppingCartElementEventMap>(type: K, listener: (this: HTMLDsoShoppingCartElement, ev: DsoShoppingCartCustomEvent<HTMLDsoShoppingCartElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLDsoShoppingCartElementEventMap>(type: K, listener: (this: HTMLDsoShoppingCartElement, ev: DsoShoppingCartCustomEvent<HTMLDsoShoppingCartElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoShoppingCartElement: {
         prototype: HTMLDsoShoppingCartElement;
@@ -4468,15 +4448,6 @@ declare namespace LocalJSX {
           * @default "side"
          */
         "mode"?: ShoppingCartMode;
-        /**
-          * Emitted when the user clicks the toggle button (the button in the `side` mode or the "Sluiten" button in the `main` mode).
-         */
-        "onDsoToggle"?: (event: DsoShoppingCartCustomEvent<ShoppingCartToggleEvent>) => void;
-        /**
-          * When set, a toggle button is rendered. In the `side` mode this is a button to expand the Shopping Cart, in the `main` mode this is a button to collapse the Shopping Cart.
-          * @default false
-         */
-        "toggleable"?: boolean;
     }
     interface DsoShoppingCartItem {
         /**
@@ -5089,7 +5060,6 @@ declare namespace LocalJSX {
     }
     interface DsoShoppingCartAttributes {
         "mode": ShoppingCartMode;
-        "toggleable": boolean;
     }
     interface DsoShoppingCartItemAttributes {
         "mode": ShoppingCartItemMode;
