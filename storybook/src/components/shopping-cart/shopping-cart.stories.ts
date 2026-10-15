@@ -27,7 +27,7 @@ const meta: Meta<ShoppingCartArgs> = {
     shoppingcartTitle: "Gekozen activiteiten",
     shoppingcartTitleTag: "h2",
     items: [],
-    dsoToggle: fn(),
+    buttonClick: fn(),
     dsoClose: fn(),
     dsoEdit: fn(),
     dsoDelete: fn(),
@@ -197,7 +197,7 @@ export const Side: ShoppingCartStory = {
   args: {
     _implementation: "core",
     mode: "side",
-    toggleable: true,
+    headerButton: "sluiten",
     editable: false,
     removable: true,
     items: sideItems,
@@ -216,11 +216,20 @@ export const Main: ShoppingCartStory = {
         disable: false,
       },
     },
+    headerButton: {
+      options: ["sluiten", "alles-verwijderen", "geen"],
+      control: {
+        type: "radio",
+      },
+      table: {
+        disable: false,
+      },
+    },
   },
   args: {
     _implementation: "core",
     mode: "main",
-    toggleable: true,
+    headerButton: "sluiten",
     editable: true,
     removable: true,
     warning: true,

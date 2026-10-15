@@ -28,7 +28,7 @@ type ShoppingCartBlockArgs = {
 type ShoppingCartOverlayArgs = {
   mode: "side" | "main";
   gridColumnDsoClose: HandlerFunction;
-  shoppingCartDsoToggle: HandlerFunction;
+  shoppingCartButtonClick: HandlerFunction;
 } & ShoppingCartBlockArgs;
 
 export const Block: StoryObj<ShoppingCartBlockArgs> = {
@@ -151,7 +151,7 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
       },
     },
     gridColumnDsoClose: argTypeAction(),
-    shoppingCartDsoToggle: argTypeAction(),
+    shoppingCartButtonClick: argTypeAction(),
     shoppingCartItemDsoEdit: argTypeAction(),
     shoppingCartItemDsoDelete: argTypeAction(),
     shoppingCartItemDsoClose: argTypeAction(),
@@ -160,7 +160,7 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
   args: {
     mode: "main",
     gridColumnDsoClose: fn().mockName("dsoClose"),
-    shoppingCartDsoToggle: fn().mockName("dsoToggle"),
+    shoppingCartButtonClick: fn().mockName("buttonClick"),
     shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
     shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
     shoppingCartItemDsoClose: fn().mockName("dsoClose"),
@@ -169,7 +169,7 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
   render: ({
     mode,
     gridColumnDsoClose,
-    shoppingCartDsoToggle,
+    shoppingCartButtonClick,
     shoppingCartItemDsoEdit,
     shoppingCartItemDsoDelete,
     shoppingCartItemDsoClose,
@@ -359,9 +359,22 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
               dsoClose: gridColumnDsoClose,
               content: shoppingCartTemplate({
                 mode,
-                toggleable: true,
+                button:
+                  mode === "main"
+                    ? {
+                        variant: "secondary",
+                        label: "Sluiten",
+                        icon: { icon: "cross" },
+                        iconMode: "after",
+                        onClick: shoppingCartButtonClick,
+                      }
+                    : {
+                        icon: "chevron-left",
+                        variant: "secondary",
+                        label: "Openen",
+                        dsoClick: shoppingCartButtonClick,
+                      },
                 title: "Gekozen activiteiten",
-                dsoToggle: shoppingCartDsoToggle,
                 items: mode === "main" ? mainItems : sideItems,
                 warning: mode === "main" ? warningExplanation() : undefined,
               }),
