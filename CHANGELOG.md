@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Dropdown Menu: States zijn niet te onderscheiden ([#3918](https://github.com/dso-toolkit/dso-toolkit/issues/3918))
 
+### Deprecated
+* Grid: Deprecate selector `.dso-banner` ([#4000](https://github.com/dso-toolkit/dso-toolkit/issues/4000))
+
 ### Fixed
 * Button: Icon van secondary variant active state heeft onjuiste kleur ([#3847](https://github.com/dso-toolkit/dso-toolkit/issues/3847))
 
