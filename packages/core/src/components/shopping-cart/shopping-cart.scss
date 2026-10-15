@@ -21,6 +21,8 @@
 }
 
 .header {
+  @include set-colors.apply(colors.$lichtblauw-20, "shopping-cart");
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,11 +67,9 @@
 }
 
 ::slotted([slot="button"]) {
-  flex-shrink: 0;
+  flex-shrink: 0 !important;
 }
 
 ::slotted(.dso-tertiary[slot="button"]) {
-  @include set-colors.apply(colors.$lichtblauw-20, "shopping-cart");
-
-  --_dso-button-padding-block-tertiary: #{button-variables.$block-padding};
+  --_dso-button-padding-block-tertiary: #{button-variables.$block-padding} !important;
 }

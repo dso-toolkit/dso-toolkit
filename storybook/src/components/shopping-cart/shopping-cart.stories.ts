@@ -6,7 +6,9 @@ import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { noControl } from "../../shared/no-control.js";
+import { Button } from "../button/button.models.js";
 import { iconTemplate } from "../icon/icon.template.js";
+import { IconButton } from "../icon-button/icon-button.models.js";
 
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
 import { ShoppingCartItem } from "./shopping-cart.models.js";
@@ -54,9 +56,10 @@ const warningExplanation = html`
   geen informatie beschikbaar. Neem contact op met uw gemeente of waterschap om te weten wat u moet doen.
 `;
 
-const render = (args: ShoppingCartArgs) =>
+const render = (args: ShoppingCartArgs, button?: Button | IconButton) =>
   shoppingCartTemplate({
     ...shoppingCartArgsMapper(args),
+    button,
     warning: args.warning ? warningExplanation : undefined,
   });
 
@@ -203,12 +206,20 @@ export const Side: ShoppingCartStory = {
   args: {
     _implementation: "core",
     mode: "side",
-    headerButton: "sluiten",
     editable: false,
     removable: true,
     items: sideItems,
   },
-  render: (args) => render({ ...args, items: sideItems }),
+  render: (args) =>
+    render(
+      { ...args, items: sideItems },
+      {
+        icon: "chevron-left",
+        variant: "secondary",
+        label: "Openen",
+        dsoClick: args.buttonClick,
+      },
+    ),
 };
 
 export const Main: ShoppingCartStory = {
@@ -222,25 +233,49 @@ export const Main: ShoppingCartStory = {
         disable: false,
       },
     },
-    headerButton: {
-      options: ["sluiten", "alles-verwijderen", "geen"],
-      control: {
-        type: "radio",
-      },
-      table: {
-        disable: false,
-      },
-    },
   },
   args: {
     _implementation: "core",
     mode: "main",
-    headerButton: "sluiten",
     editable: true,
     removable: true,
     warning: true,
     itemMode: "view",
     items: mainItems({ warning: true, itemMode: "view" }),
   },
-  render: (args) => render({ ...args, items: mainItems(args) }),
+  render: (args) =>
+    render(
+      { ...args, items: mainItems(args) },
+      {
+        variant: "secondary",
+        label: "Sluiten",
+        icon: { icon: "cross" },
+        iconMode: "after",
+        onClick: args.buttonClick,
+      },
+    ),
+};
+
+export const MainAllesVerwijderen: ShoppingCartStory = {
+  name: "Main met Alles verwijderen",
+  args: {
+    _implementation: "core",
+    mode: "main",
+    editable: true,
+    removable: true,
+    warning: true,
+    itemMode: "view",
+    items: mainItems({ warning: true, itemMode: "view" }),
+  },
+  render: (args) =>
+    render(
+      { ...args, items: mainItems(args) },
+      {
+        variant: "tertiary",
+        label: "Alles verwijderen",
+        icon: { icon: "trash" },
+        iconMode: "after",
+        onClick: args.buttonClick,
+      },
+    ),
 };
