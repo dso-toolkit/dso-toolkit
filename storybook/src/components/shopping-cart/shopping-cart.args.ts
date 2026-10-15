@@ -3,12 +3,8 @@ import { HandlerFunction } from "storybook/actions";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
 import { noControl } from "../../shared/no-control.js";
-import { Button } from "../button/button.models.js";
-import { IconButton } from "../icon-button/icon-button.models.js";
 
 import { ShoppingCart, ShoppingCartItem } from "./shopping-cart.models.js";
-
-export type ShoppingCartHeaderButton = "sluiten" | "alles-verwijderen" | "geen";
 
 export interface ShoppingCartArgs {
   _implementation: "html/css" | "core";
@@ -21,12 +17,12 @@ export interface ShoppingCartArgs {
   shoppingcartTitleTag: "h2" | "h3";
   shoppingcartTitle: string;
   mode?: "main" | "side";
-  headerButton?: ShoppingCartHeaderButton;
   editable?: boolean;
   removable?: boolean;
   itemMode?: "view" | "edit";
   warning?: boolean;
-  buttonClick: HandlerFunction;
+  click: HandlerFunction;
+  dsoClick: HandlerFunction;
   dsoEdit: HandlerFunction;
   dsoDelete: HandlerFunction;
   dsoClose: HandlerFunction;
@@ -65,7 +61,6 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
     },
   },
   mode: noControl(),
-  headerButton: noControl(),
   editable: noControl(),
   removable: noControl(),
   itemMode: {
@@ -94,47 +89,14 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
       type: "text",
     },
   },
-  buttonClick: argTypeAction(),
+  click: argTypeAction(),
+  dsoClick: argTypeAction(),
   dsoEdit: argTypeAction(),
   dsoDelete: argTypeAction(),
   dsoClose: argTypeAction(),
   dsoSubmit: argTypeAction(),
   _implementation: noControl(),
 };
-
-function headerButton(a: ShoppingCartArgs): Button | IconButton | undefined {
-  if (a.mode === "side") {
-    return a.headerButton === "geen"
-      ? undefined
-      : {
-          icon: "chevron-left",
-          variant: "secondary",
-          label: "Openen",
-          dsoClick: a.buttonClick,
-        };
-  }
-
-  switch (a.headerButton) {
-    case "alles-verwijderen":
-      return {
-        variant: "tertiary",
-        label: "Alles verwijderen",
-        icon: { icon: "trash" },
-        iconMode: "after",
-        onClick: a.buttonClick,
-      };
-    case "sluiten":
-      return {
-        variant: "secondary",
-        label: "Sluiten",
-        icon: { icon: "cross" },
-        iconMode: "after",
-        onClick: a.buttonClick,
-      };
-    default:
-      return undefined;
-  }
-}
 
 export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
   return {
@@ -144,7 +106,6 @@ export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
     removeAll: a.removeAll,
     isOpen: a.isOpen,
     mode: a.mode,
-    button: headerButton(a),
     items: a.items.map((item) => ({
       ...item,
       editable: a.editable ?? item.editable,

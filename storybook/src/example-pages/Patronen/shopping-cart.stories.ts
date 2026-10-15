@@ -28,7 +28,8 @@ type ShoppingCartBlockArgs = {
 type ShoppingCartOverlayArgs = {
   mode: "side" | "main";
   gridColumnDsoClose: HandlerFunction;
-  shoppingCartButtonClick: HandlerFunction;
+  buttonClick: HandlerFunction;
+  iconButtonDsoClick: HandlerFunction;
 } & ShoppingCartBlockArgs;
 
 export const Block: StoryObj<ShoppingCartBlockArgs> = {
@@ -151,7 +152,8 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
       },
     },
     gridColumnDsoClose: argTypeAction(),
-    shoppingCartButtonClick: argTypeAction(),
+    buttonClick: argTypeAction(),
+    iconButtonDsoClick: argTypeAction(),
     shoppingCartItemDsoEdit: argTypeAction(),
     shoppingCartItemDsoDelete: argTypeAction(),
     shoppingCartItemDsoClose: argTypeAction(),
@@ -160,7 +162,8 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
   args: {
     mode: "main",
     gridColumnDsoClose: fn().mockName("dsoClose"),
-    shoppingCartButtonClick: fn().mockName("buttonClick"),
+    buttonClick: fn().mockName("click"),
+    iconButtonDsoClick: fn().mockName("dsoClick"),
     shoppingCartItemDsoEdit: fn().mockName("dsoEdit"),
     shoppingCartItemDsoDelete: fn().mockName("dsoDelete"),
     shoppingCartItemDsoClose: fn().mockName("dsoClose"),
@@ -169,7 +172,8 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
   render: ({
     mode,
     gridColumnDsoClose,
-    shoppingCartButtonClick,
+    buttonClick,
+    iconButtonDsoClick,
     shoppingCartItemDsoEdit,
     shoppingCartItemDsoDelete,
     shoppingCartItemDsoClose,
@@ -366,13 +370,13 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
                         label: "Sluiten",
                         icon: { icon: "cross" },
                         iconMode: "after",
-                        onClick: shoppingCartButtonClick,
+                        onClick: buttonClick,
                       }
                     : {
                         icon: "chevron-left",
                         variant: "secondary",
                         label: "Openen",
-                        dsoClick: shoppingCartButtonClick,
+                        dsoClick: iconButtonDsoClick,
                       },
                 title: "Gekozen activiteiten",
                 items: mode === "main" ? mainItems : sideItems,
