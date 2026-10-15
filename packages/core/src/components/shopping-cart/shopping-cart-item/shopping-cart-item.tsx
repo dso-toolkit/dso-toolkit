@@ -41,7 +41,8 @@ export class ShoppingCartItem implements ComponentInterface {
   mode: ShoppingCartItemMode = "view";
 
   /**
-   * The warning text. When set, a warning icon is rendered before the name and the text is available to assistive technology.
+   * The warning text. When set, a warning icon is rendered before the name and the text is available to assistive
+   * technology. Explain the meaning of the icon visually in the `warning` slot of `dso-shopping-cart`.
    */
   @Prop({ reflect: true })
   warning?: string;
@@ -88,10 +89,6 @@ export class ShoppingCartItem implements ComponentInterface {
 
   get name(): string {
     return this.host.querySelector(":scope > [slot='name']")?.textContent?.trim() ?? "";
-  }
-
-  private get isSubItem(): boolean {
-    return this.host.parentElement?.tagName === "DSO-SHOPPING-CART-ITEM";
   }
 
   private get hasSubItems(): boolean {
@@ -142,17 +139,16 @@ export class ShoppingCartItem implements ComponentInterface {
     }
 
     const warning = this.warning?.trim();
-    const hasSubItems = this.hasSubItems;
 
     return (
       <Host role="listitem">
-        <div class={{ item: true, "sub-item": this.isSubItem }}>
+        <div class="item">
           <div class="item-header">
             <div class="item-name">
               {warning && (
                 <Fragment>
                   <dso-icon icon="status-warning" aria-hidden="true"></dso-icon>
-                  <span class="sr-only">{this.warning}</span>
+                  <span class="sr-only">{warning}</span>
                 </Fragment>
               )}
               <slot name="name" />
@@ -161,7 +157,7 @@ export class ShoppingCartItem implements ComponentInterface {
           </div>
           <slot name="info" />
         </div>
-        {hasSubItems ? (
+        {this.hasSubItems ? (
           <ul class="sub-items" role="list">
             <slot />
           </ul>

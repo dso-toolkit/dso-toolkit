@@ -13,14 +13,14 @@ onderdeel van het component Grid
 ## Shopping Cart Item
 
 **Breaking:** De `warning` property van de Shopping Cart Item is geen boolean meer, maar bevat de waarschuwingstekst.
-Die tekst wordt na het waarschuwingsicoon als sr-only tekst voor schermlezers gerenderd. Een leeg of boolean
-attribuut toont daardoor geen icoon meer; geef altijd een tekst mee.
+Bij een tekst toont het item een waarschuwingsicoon voor de naam, en is de tekst beschikbaar voor hulptechnologie. Een
+leeg of boolean attribuut toont daardoor geen icoon meer; geef altijd een tekst mee.
 
-Daarnaast worden geneste Shopping Cart Items nu als eigen, ingesprongen kader gerenderd en staan ze in een geneste
-lijst (één nestniveau wordt ondersteund). Hiervoor is geen migratie nodig.
+Geneste Shopping Cart Items staan nu elk in een eigen kader, met de naam ingesprongen, in een geneste lijst. Eén
+nestniveau wordt ondersteund. Hiervoor is geen migratie nodig.
 
-De visuele uitleg van het waarschuwingsicoon (bijvoorbeeld een "Let op:"-paragraaf) blijft de verantwoordelijkheid
-van de afnemer en wordt als gewone `<p>` buiten het component gerenderd.
+De visuele uitleg van het waarschuwingsicoon (bijvoorbeeld een "Let op:"-paragraaf) plaats je in het nieuwe
+`warning` slot van de Shopping Cart. Die wordt onder de items getoond, op een witte achtergrond over de volle breedte van de Shopping Cart.
 
 ## Migratiepad
 
@@ -29,9 +29,12 @@ van de afnemer en wordt als gewone `<p>` buiten het component gerenderd.
 <dso-shopping-cart-item warning>...</dso-shopping-cart-item>
 
 ✅
-<dso-shopping-cart-item warning="Voor deze werkzaamheid is op dit moment geen informatie beschikbaar.">
-  ...
-</dso-shopping-cart-item>
+<dso-shopping-cart>
+  <dso-shopping-cart-item warning="Voor deze werkzaamheid is op dit moment geen informatie beschikbaar.">
+    ...
+  </dso-shopping-cart-item>
+  <p slot="warning"><strong>Let op:</strong> ...</p>
+</dso-shopping-cart>
 ```
 
 ## Grid

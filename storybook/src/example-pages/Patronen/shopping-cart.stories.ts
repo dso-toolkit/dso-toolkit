@@ -4,6 +4,7 @@ import { HandlerFunction } from "storybook/actions";
 import { fn } from "storybook/test";
 
 import { gridColumnTemplate } from "../../components/grid-column/grid-column.template.js";
+import { itemWarning, warningExplanation } from "../../components/shopping-cart/shopping-cart.content.js";
 import { ShoppingCartItem } from "../../components/shopping-cart/shopping-cart.models.js";
 import { shoppingCartTemplate } from "../../components/shopping-cart/shopping-cart.template.js";
 import { examplePageMeta } from "../../example-page-meta.js";
@@ -85,13 +86,13 @@ export const Block: StoryObj<ShoppingCartBlockArgs> = {
         label:
           "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam, niet zijnde de Noordzee, of waterkering in beheer bij het Rijk",
         info: "Aanvraag vergunning (Gemeente Woerden)",
-        warning: true,
+        warning: itemWarning(),
         editable: true,
         removable: true,
         subitems: [
           {
             label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
-            warning: true,
+            warning: itemWarning(),
           },
         ],
         dsoEdit: shoppingCartItemDsoEdit,
@@ -131,6 +132,7 @@ export const Block: StoryObj<ShoppingCartBlockArgs> = {
                 mode: "main",
                 title: "Gekozen activiteiten",
                 items,
+                warning: warningExplanation(),
               })}
             </div>
           </div>
@@ -177,12 +179,10 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
       {
         label: "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam",
         info: "Aanvraag vergunning (Gemeente Utrecht)",
-        warning: true,
         removable: true,
         subitems: [
           {
             label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
-            warning: true,
           },
         ],
         dsoDelete: shoppingCartItemDsoDelete,
@@ -242,13 +242,13 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
         label:
           "Ontgraven, verplaatsen of toepassen van grond of baggerspecie in of bij een oppervlaktewaterlichaam, niet zijnde de Noordzee, of waterkering in beheer bij het Rijk",
         info: "Aanvraag vergunning (Gemeente Woerden)",
-        warning: true,
+        warning: itemWarning(),
         editable: true,
         removable: true,
         subitems: [
           {
             label: "Afscheiding tussen balkons of dakterrassen plaatsen of vervangen",
-            warning: true,
+            warning: itemWarning(),
           },
         ],
         dsoEdit: shoppingCartItemDsoEdit,
@@ -363,6 +363,7 @@ export const Overlay: StoryObj<ShoppingCartOverlayArgs> = {
                 title: "Gekozen activiteiten",
                 dsoToggle: shoppingCartDsoToggle,
                 items: mode === "main" ? mainItems : sideItems,
+                warning: mode === "main" ? warningExplanation() : undefined,
               }),
             })}
           </div>
