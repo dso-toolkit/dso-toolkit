@@ -14,7 +14,7 @@ export interface PlekinfoCardItem {
 }
 
 export interface PlekinfoCardBase {
-  label: Renvooi | string;
+  heading: Renvooi | string;
   href: string;
   targetBlank: boolean;
   active?: boolean;

@@ -1,16 +1,22 @@
 @use "../../variables/colors";
 @use "../../variables/units";
 
-@mixin symbolContainer($symbol-height, $symbol-width, $margin-block-start: 0) {
-  background-color: colors.$wit;
-  display: block;
-  float: inline-start;
-  block-size: $symbol-height;
-  margin-block-start: $margin-block-start;
-  margin-inline-end: units.$u1;
-  inline-size: $symbol-width;
-  overflow: hidden;
-  position: relative;
+@mixin symbolContainer($symbol-height, $symbol-width, $margin-block-start: 0, $important: false) {
+  $flag: null;
+
+  @if $important {
+    $flag: !important;
+  }
+
+  background-color: colors.$wit $flag;
+  display: block $flag;
+  float: inline-start $flag;
+  block-size: $symbol-height $flag;
+  margin-block-start: $margin-block-start $flag;
+  margin-inline-end: units.$u1 $flag;
+  inline-size: $symbol-width $flag;
+  overflow: hidden $flag;
+  position: relative $flag;
 }
 
 @mixin symbol() {

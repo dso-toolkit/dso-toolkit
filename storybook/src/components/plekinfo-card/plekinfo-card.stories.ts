@@ -21,7 +21,7 @@ const meta: Meta<PlekinfoCardArgs> = {
   title: "Core/Plekinfo Card",
   argTypes: plekinfoCardArgTypes,
   args: plekinfoCardArgs,
-  render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol(), content())),
+  render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol())),
   decorators: [decorator],
   parameters: {
     docs: {
@@ -33,6 +33,10 @@ const meta: Meta<PlekinfoCardArgs> = {
 export default meta;
 
 export const Default: PlekinfoCardStory = {};
+
+export const WithContent: PlekinfoCardStory = {
+  render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol(), content())),
+};
 
 export const Static: PlekinfoCardStory = {
   args: {
@@ -65,7 +69,7 @@ export const WithLabel: PlekinfoCardStory = {
 export const WithNameChange: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
-    label: {
+    heading: {
       value: {
         was: "Radargebieden",
         wordt: "Radarverstorende bouwwerken",
@@ -77,7 +81,7 @@ export const WithNameChange: PlekinfoCardStory = {
 export const WithNameChangeComplex: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
-    label: {
+    heading: {
       value: [
         "Waardes worden weergegeven op de kaart",
         {
@@ -93,7 +97,7 @@ export const WithNameChangeComplex: PlekinfoCardStory = {
 export const WithItems: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
-    label: {
+    heading: {
       value: "Bijbehorend bouwwerk bouwen",
     },
     interaction: {
@@ -111,7 +115,7 @@ export const WithItems: PlekinfoCardStory = {
 export const WithOmgevingsnormItems: PlekinfoCardStory = {
   args: {
     ...plekinfoCardArgs,
-    label: {
+    heading: {
       value: "Maximale bouwhoogte",
     },
     interaction: {

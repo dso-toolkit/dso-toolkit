@@ -89,15 +89,19 @@ export class PlekinfoCard implements ComponentInterface {
   }
 
   get symbolSlottedElement(): Element | null {
-    return this.host.querySelector("[slot='symbol']");
+    return this.host.querySelector(":scope > [slot='symbol']");
   }
 
   get metaSlottedElement(): Element | null {
-    return this.host.querySelector("[slot='meta']");
+    return this.host.querySelector(":scope > [slot='meta']");
   }
 
   get interaction(): Element | null {
-    return this.host.querySelector("[slot='interaction']");
+    return this.host.querySelector(":scope > [slot='interaction']");
+  }
+
+  get contentSlottedElement(): Element | null {
+    return this.host.querySelector(":scope > [slot='content']");
   }
 
   render() {
@@ -110,37 +114,43 @@ export class PlekinfoCard implements ComponentInterface {
             <slot name="symbol" />
           </div>
           <div class="dso-plekinfo-card-heading">
-            {this.href ? (
-              <a
-                href={this.href}
-                target={this.targetBlank ? "_blank" : undefined}
-                rel={this.targetBlank ? "noopener noreferrer" : undefined}
-                class="heading-anchor"
-                onClick={(event) => this.clickEventHandler(event)}
-              >
+            <div class="dso-plekinfo-card-title">
+              {this.href ? (
+                <a
+                  href={this.href}
+                  target={this.targetBlank ? "_blank" : undefined}
+                  rel={this.targetBlank ? "noopener noreferrer" : undefined}
+                  class="heading-anchor"
+                  onClick={(event) => this.clickEventHandler(event)}
+                >
+                  <span class="heading-content">
+                    <slot name="heading" />
+                  </span>
+                  {/* Word joiner: prevents a line break between label text and icon */}
+                  {"\u2060"}
+                  {this.targetBlank ? (
+                    <>
+                      <dso-icon icon="external-link" />
+                      <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
+                    </>
+                  ) : (
+                    <dso-icon icon="chevron-right" />
+                  )}
+                </a>
+              ) : (
                 <span class="heading-content">
                   <slot name="heading" />
                 </span>
-                {/* Word joiner: prevents a line break between label text and icon */}
-                {"\u2060"}
-                {this.targetBlank ? (
-                  <>
-                    <dso-icon icon="external-link" />
-                    <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
-                  </>
-                ) : (
-                  <dso-icon icon="chevron-right" />
-                )}
-              </a>
-            ) : (
-              <slot name="heading" />
-            )}
-            {this.metaSlottedElement !== null && <slot name="meta" />}
+              )}
+              {this.metaSlottedElement !== null && <slot name="meta" />}
+            </div>
             {this.interaction !== null && <slot name="interaction" />}
           </div>
-          <div class="dso-plekinfo-card-content">
-            <slot name="content" />
-          </div>
+          {this.contentSlottedElement !== null && (
+            <div class="dso-plekinfo-card-content">
+              <slot name="content" />
+            </div>
+          )}
         </WrapWijzigactie>
       </Host>
     );

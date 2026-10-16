@@ -54,7 +54,7 @@ dso-accordion {
       }
     }
 
-    *:first-child:not(dso-info) {
+    *:first-child:not(dso-info, dso-slide-toggle, .dso-slider) {
       margin-block-start: 0 !important;
     }
 

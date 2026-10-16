@@ -1,7 +1,7 @@
 @use "~dso-toolkit/src/utilities";
-@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/components/plekinfo-card";
 @use "~dso-toolkit/src/components/insert/insert";
 @use "~dso-toolkit/src/components/delete/delete";
@@ -20,11 +20,16 @@
   .dso-plekinfo-card-heading {
     display: flex;
     align-items: start;
-    column-gap: units.$u2;
+    column-gap: units.$u1;
+  }
 
-    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-      flex-wrap: wrap;
-    }
+  .dso-plekinfo-card-title {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-items: start;
+    column-gap: units.$u1;
+    min-inline-size: 0;
   }
 
   .dso-plekinfo-card-heading + .dso-plekinfo-card-content {
@@ -34,6 +39,12 @@
   .dso-plekinfo-card-symbol {
     grid-row: span 2;
     margin-inline-end: units.$u2;
+
+    &:not([hidden]) {
+      display: flex;
+      align-items: center;
+      block-size: typography.$line-height-computed;
+    }
   }
 
   &:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
@@ -80,20 +91,22 @@ del.dso-plekinfo-card-container:has(.dso-plekinfo-card-heading a:is(:hover, :foc
   justify-content: space-between !important;
   flex-shrink: 0 !important;
   align-self: end !important;
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    flex-basis: 100% !important;
-    margin-block-start: units.$u1 !important;
-  }
 }
 
 ::slotted([slot="heading"]) {
   display: inline !important;
   margin-block: 0 !important;
-  font-size: 1.125em !important;
+  font-size: inherit !important;
   font-weight: 700 !important;
   color: colors.$bosgroen !important;
-  line-height: 1.25 !important;
+  line-height: inherit !important;
+  overflow-wrap: anywhere !important;
+}
+
+.heading-anchor,
+.dso-plekinfo-card-title > .heading-content {
+  font-size: 1.125em;
+  line-height: typography.$line-height-computed;
 }
 
 ::slotted([slot="content"]) {
@@ -104,13 +117,9 @@ del.dso-plekinfo-card-container:has(.dso-plekinfo-card-heading a:is(:hover, :foc
 
 ::slotted([slot="interaction"]) {
   display: flex !important;
+  flex-shrink: 0 !important;
   justify-content: space-between !important;
   margin-inline-start: auto !important;
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    flex-basis: 100% !important;
-    margin-block-start: units.$u2 !important;
-  }
 }
 
 .heading-anchor {
