@@ -41,7 +41,7 @@ export function plekinfoCardInAccordionSections(): AccordionSection[] {
       dsoActiveChange,
       content: html`
         ${plekinfoCardTemplate({
-          label: "Bouwactiviteit",
+          heading: "Bouwactiviteit",
           href: "#",
           targetBlank: false,
           interaction,
@@ -76,7 +76,7 @@ export function plekinfoCardInAccordionSections(): AccordionSection[] {
       dsoActiveChange,
       content: html`
         ${plekinfoCardTemplate({
-          label: "Maximale bouwhoogte",
+          heading: "Maximale bouwhoogte",
           href: "#",
           targetBlank: false,
           interaction,

@@ -25,11 +25,14 @@
   ::slotted([slot="symbol"]) {
     @include symbol-mixins.symbolContainer(
       plekinfo-card-item-variables.$symbol-block-size,
-      plekinfo-card-item-variables.$symbol-inline-size
+      plekinfo-card-item-variables.$symbol-inline-size,
+      $important: true
     );
 
-    margin-inline-end: 0;
-    background-color: transparent;
+    display: flex !important;
+    align-items: center !important;
+    margin-inline-end: 0 !important;
+    background-color: transparent !important;
   }
 }
 

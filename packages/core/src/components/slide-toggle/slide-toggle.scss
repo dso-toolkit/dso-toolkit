@@ -1,13 +1,24 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/variables/typography";
 
 $slide-toggle-height: 20px;
 
 :host {
-  display: inline-block;
-  padding-block-start: calc((#{typography.$line-height-computed} - #{$slide-toggle-height}) * 0.5);
+  display: inline-flex;
+  align-items: flex-start;
+  block-size: max-content;
+  margin-block: calc((1lh - #{$slide-toggle-height}) * 0.5);
+  vertical-align: top;
+}
+
+:host(:has(> label)) {
+  margin-block: 0;
+}
+
+:host(:has(> label)) button.dso-slider {
+  margin-block: calc((1lh - #{$slide-toggle-height}) * 0.5);
+  font: inherit;
 }
 
 button.dso-slider {

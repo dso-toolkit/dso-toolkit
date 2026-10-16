@@ -1,11 +1,14 @@
 import { html } from "lit-html";
 
+import { AccordionSection } from "../../../components/accordion/accordion.models.js";
+import { accordionTemplate } from "../../../components/accordion/accordion.template.js";
 import { AdvancedSelect } from "../../../components/advanced-select/advanced-select.models.js";
 import { Breadcrumbs } from "../../../components/breadcrumbs/breadcrumbs.models.js";
+import { cardContainerTemplate } from "../../../components/card-container/card-container.template.js";
 import { DocumentCard } from "../../../components/document-card/document-card.models.js";
 import { Header } from "../../../components/header/header.models.js";
 import { Navbar } from "../../../components/navbar/navbar.models.js";
-import { defaultSymbol } from "../../../components/plekinfo-card/plekinfo-card.content.js";
+import { symbol } from "../../../components/plekinfo-card/plekinfo-card.content.js";
 import { PlekinfoCard } from "../../../components/plekinfo-card/plekinfo-card.models.js";
 import { TabsItem } from "../../../components/tabs/tabs.models.js";
 import { mainMenu } from "../../content/main-menu.content.js";
@@ -185,48 +188,185 @@ export function documentPanelSubmenu(): Navbar {
   };
 }
 
-function plekInfoCardDefault(): PlekinfoCard {
+interface PlekinfoGroep {
+  naam: string;
+  aantal: number;
+  kaarten: PlekinfoCard[];
+}
+
+function toonOpKaart() {
+  return { checked: false, accessibleLabel: "Toon gebied op de kaart" };
+}
+
+function kaartMetSymbool(heading: string, uit?: string): PlekinfoCard {
   return {
+    heading,
     href: "#",
     targetBlank: false,
-    interaction: {
-      checked: false,
-      accessibleLabel: "sr-only label van het schuifje",
-    },
-    label: "Aanvraagvereisten binnenplanse omgevingsvergunning omgevingsplanactiviteit bouwwerken",
-    active: false,
-    symbool: defaultSymbol(),
+    interaction: toonOpKaart(),
+    symbool: symbol("vgz023"),
+    content: uit ? html`<p>Uit: ${uit}</p>` : undefined,
   };
 }
 
-export function plekinfoCardsListActiviteiten(): PlekinfoCard[] {
+function kaartMetItems(heading: string, items: Array<[label: string, sublabel?: string]>): PlekinfoCard {
+  return {
+    heading,
+    href: "#",
+    targetBlank: false,
+    interaction: toonOpKaart(),
+    items: items.map(([label, sublabel]) => ({ symbool: symbol("vszt030"), label, sublabel })),
+  };
+}
+
+function groepen(lijst: PlekinfoGroep[]) {
+  return accordionTemplate({
+    variant: "compact-black",
+    sections: lijst.map(({ naam, aantal, kaarten }) => ({
+      handleTitle: `${naam} (${aantal})`,
+      heading: "h5",
+      open: true,
+      content: cardContainerTemplate({ mode: "list", cards: kaarten }),
+    })),
+  });
+}
+
+function gebiedsaanwijzingen(): PlekinfoGroep[] {
   return [
-    { ...plekInfoCardDefault() },
     {
-      ...plekInfoCardDefault(),
-      label: "Acculader in werking hebben",
+      naam: "beperkingengebied",
+      aantal: 3,
+      kaarten: [
+        kaartMetSymbool("Gebruik van laserstralen", "Voorbeschermingsregels luchthavenbesluit Eelde"),
+        kaartMetSymbool(
+          "Goede werking apparatuur luchtverkeersdienstverlening",
+          "Voorbeschermingsregels luchthavenbesluit Eelde",
+        ),
+        kaartMetSymbool("Vliegveiligheid", "Voorbeschermingsregels luchthavenbesluit Eelde"),
+      ],
     },
     {
-      ...plekInfoCardDefault(),
-      label: "Activiteit gereguleerd in omgevingsplanregels van rijkswege",
+      naam: "bodem",
+      aantal: 3,
+      kaarten: [
+        kaartMetSymbool("bodemfunctieklasse - GR2L"),
+        kaartMetSymbool("bodemkwaliteitsklasse - bovengrond - wonen"),
+        kaartMetSymbool("bodemkwaliteitsklasse - ondergrond - wonen"),
+      ],
     },
     {
-      ...plekInfoCardDefault(),
-      label: "Activiteit die betrekking heeft op een gemeentelijk monument",
+      naam: "functie",
+      aantal: 6,
+      kaarten: [
+        kaartMetSymbool("aandachtsgebied archeologische verwachting"),
+        kaartMetSymbool("bodembeheergebied"),
+        kaartMetSymbool("geluidaandachtsgebied wegen"),
+        kaartMetSymbool("geluidzone industrie Zuidoost"),
+        kaartMetSymbool("gemeentelijk monument"),
+        kaartMetSymbool("monumentale bomen en houtopstand"),
+      ],
     },
   ];
 }
 
-export function plekinfoCardsListLocaties(): PlekinfoCard[] {
+function omgevingsnormen(): PlekinfoGroep[] {
   return [
     {
-      ...plekInfoCardDefault(),
-      label: "ambtsgebied",
+      naam: "bouwhoogte",
+      aantal: 3,
+      kaarten: [
+        kaartMetItems("maximale bouwhoogte boven NAP: DVORDME Windturbine", [["51 meter"]]),
+        kaartMetItems("maximale bouwhoogte boven NAP: Outer horizontal", [["154 meter"]]),
+        kaartMetItems("maximale bouwhoogte boven NAP: TAR Eelde", [["68 meter"]]),
+      ],
     },
     {
-      ...plekInfoCardDefault(),
-      label: "Ambtsgebied Gemeente Midden-Groningen",
+      naam: "maximum bebouwde oppervlakte",
+      aantal: 3,
+      kaarten: [
+        kaartMetItems("bebouwde oppervlakte - achtererfgebied - maximum", [["50 vierkante meter"]]),
+        kaartMetItems("bebouwde oppervlakte - bouwwerken met een dak - achtererfgebied - maximum", [
+          ["50 vierkante meter"],
+        ]),
+        kaartMetItems(
+          "bebouwde oppervlakte - gebouwen - buiten gebied hoofdgebouwen en gebied bouwwerken met een dak - maximum",
+          [["50 vierkante meter"]],
+        ),
+      ],
     },
+    {
+      naam: "maximum bebouwingspercentage",
+      aantal: 1,
+      kaarten: [kaartMetItems("bebouwingspercentage - achtererfgebied - maximum", [["50 procent"]])],
+    },
+    {
+      naam: "maximum bouwhoogte",
+      aantal: 6,
+      kaarten: [
+        kaartMetItems("bouwhoogte - bouwwerk met een dak - maximum", [["6 meter"]]),
+        kaartMetItems("bouwhoogte - bouwwerk zonder een dak - geen erf- perceel- of terreinafscheiding - maximum", [
+          ["6 meter"],
+        ]),
+        kaartMetItems("bouwhoogte - bouwwerk zonder een dak - maximum", [["5 meter"]]),
+        kaartMetItems("bouwhoogte - hoofdgebouw - maximum", [["10 meter"]]),
+        kaartMetItems("bouwhoogte - erf- of terreinafscheiding - voor voorgevelrooilijn - maximum", [["1 meter"]]),
+        kaartMetItems("bouwhoogte - erf- of terreinafscheiding - achter voorgevelrooilijn - maximum", [["2 meter"]]),
+      ],
+    },
+    {
+      naam: "maximum goothoogte",
+      aantal: 1,
+      kaarten: [kaartMetItems("goothoogte - hoofdgebouw - maximum", [["4 meter"]])],
+    },
+    {
+      naam: "minimum vloeroppervlakte",
+      aantal: 1,
+      kaarten: [kaartMetItems("gebruiksoppervlakte - zelfstandige woning - minimum", [["50 vierkante meter"]])],
+    },
+  ];
+}
+
+function activiteiten(): PlekinfoGroep[] {
+  return [
+    {
+      naam: "maatschappelijke activiteit",
+      aantal: 3,
+      kaarten: [
+        kaartMetItems("Kinderopvang", [
+          ["toegestaan", "in: kinderopvang - toestemmingsvrij"],
+          ["", "in: kinderopvang - toestemmingsvrij"],
+        ]),
+        kaartMetItems("Levensbeschouwelijke instellingen", [
+          ["", "in: levensbeschouwelijke instellingen - toestemmingsvrij"],
+          ["toegestaan", "in: levensbeschouwelijke instellingen - toestemmingsvrij"],
+        ]),
+        kaartMetItems("Overige medische activiteiten", [["", "in: overige medische activiteiten - toestemmingsvrij"]]),
+      ],
+    },
+    {
+      naam: "milieubelastende activiteit",
+      aantal: 52,
+      kaarten: [
+        "Acculader in werking hebben",
+        "Activiteit op een locatie met historische bodemverontreiniging zonder onaanvaardbaar risico",
+        "Afvalwater of andere afvalstoffen, waarvan de lozing in een schoonwaterriool niet is vrijgesteld in het omgevingsplan, lozen in een schoonwaterriool",
+        "Afvalwater, afkomstig van een calamiteitenoefening, lozen in het riool of op of in de bodem",
+        "Afvalwater, afkomstig van een gemeentelijke voorziening voor inzameling en transport van afvalwater, lozen in het riool of op of in de bodem",
+        "Afvalwater, afkomstig van het maken van betonmortel, lozen in het riool of op of in de bodem",
+        "Afvalwater, afkomstig van het opslaan en overslaan van goederen, lozen in het riool of op of in de bodem",
+        "Afvalwater, afkomstig van het schoonmaken van drinkwaterleidingen, lozen in het riool of op of in de bodem",
+        "Afvalwater, afkomstig van het telen, kweken, spoelen of sorteren van gewassen, lozen in het riool of op of in de bodem",
+        "Afvalwater, afkomstig van onderhoudswerkzaamheden aan bouwwerken, lozen in het riool of op of in de bodem",
+      ].map((heading) => kaartMetItems(heading, [["", "in: gemeente Groningen"]])),
+    },
+  ];
+}
+
+export function plekinfoSecties(): AccordionSection[] {
+  return [
+    { handleTitle: "Gebiedsaanwijzingen (12)", heading: "h4", open: true, content: groepen(gebiedsaanwijzingen()) },
+    { handleTitle: "Omgevingsnormen (15)", heading: "h4", open: true, content: groepen(omgevingsnormen()) },
+    { handleTitle: "Activiteiten (95)", heading: "h4", open: true, content: groepen(activiteiten()) },
   ];
 }
 

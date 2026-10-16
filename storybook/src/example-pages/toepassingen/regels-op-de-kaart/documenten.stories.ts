@@ -29,8 +29,7 @@ import {
   documentPanelSubmenu,
   header,
   mainSubmenu,
-  plekinfoCardsListActiviteiten,
-  plekinfoCardsListLocaties,
+  plekinfoSecties,
 } from "./documenten.content.js";
 import { openLayersMapPartial } from "./open-layers-map.partial.js";
 
@@ -252,8 +251,8 @@ export const Documenten: StoryObj<DocumentenArgs> = {
               : undefined,
             documentPanel: html`
               ${documentHeaderTemplate({
-                title: "Omgevingsplan gemeente Gouda",
-                type: "Omgevingsplan - Gemeente Gouda",
+                title: "Omgevingsplan gemeente Groningen",
+                type: "Omgevingsplan - Gemeente Groningen",
                 owner: "",
                 featuresContent: featuresContent(),
                 advancedSelect: advancedSelect(),
@@ -272,20 +271,7 @@ export const Documenten: StoryObj<DocumentenArgs> = {
               ${accordionTemplate({
                 variant: "compact-black",
                 reverseAlign: true,
-                sections: [
-                  {
-                    handleTitle: "Activiteiten(90)",
-                    heading: "h4",
-                    open: true,
-                    content: cardContainerTemplate({ mode: "list", cards: plekinfoCardsListActiviteiten() }),
-                  },
-                  {
-                    handleTitle: "Locaties (3)",
-                    heading: "h4",
-                    open: true,
-                    content: cardContainerTemplate({ mode: "list", cards: plekinfoCardsListLocaties() }),
-                  },
-                ],
+                sections: plekinfoSecties(),
               })}
             `,
           })}

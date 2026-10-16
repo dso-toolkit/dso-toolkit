@@ -20,7 +20,7 @@ describe("Plekinfo Card", () => {
     cy.get("dso-plekinfo-card.hydrated")
       .invoke("prop", "wijzigactie", "verwijder")
       .shadow()
-      .find(".dso-plekinfo-card-heading > a")
+      .find(".dso-plekinfo-card-title > a")
       .realHover();
 
     cy.get("dso-plekinfo-card.hydrated")
@@ -33,7 +33,7 @@ describe("Plekinfo Card", () => {
     cy.get("dso-plekinfo-card.hydrated")
       .invoke("prop", "wijzigactie", "voegtoe")
       .shadow()
-      .find(".dso-plekinfo-card-heading > a")
+      .find(".dso-plekinfo-card-title > a")
       .realHover();
 
     cy.get("dso-plekinfo-card.hydrated")
@@ -45,7 +45,7 @@ describe("Plekinfo Card", () => {
   it("should call dsoPlekinfoCardClick event when user clicks the title in the heading", () => {
     cy.get("dso-plekinfo-card.hydrated")
       .shadow()
-      .find(".dso-plekinfo-card-heading > a")
+      .find(".dso-plekinfo-card-title > a")
       .realClick()
       .get("@dsoPlekinfoCardClickListener")
       .should("have.been.calledOnce");
@@ -121,7 +121,7 @@ describe("Plekinfo Card", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--static")
       .get("dso-plekinfo-card.hydrated")
       .shadow()
-      .find(".dso-plekinfo-card-heading > slot[name='heading']")
+      .find(".dso-plekinfo-card-title > .heading-content > slot[name='heading']")
       .should("exist");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
@@ -134,6 +134,12 @@ describe("Plekinfo Card", () => {
       .should("exist");
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+  });
+
+  it("shows content", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--with-content")
+      .get("dso-plekinfo-card.hydrated")
+      .matchImageSnapshot();
   });
 
   describe("Plekinfo Card Item (Integration)", () => {

@@ -12,7 +12,7 @@ import { SlideToggle } from "../slide-toggle/slide-toggle.models.js";
 import { PlekinfoCard, PlekinfoCardBase, PlekinfoWijzigactie } from "./plekinfo-card.models.js";
 
 export interface PlekinfoCardArgs {
-  label: Renvooi | string;
+  heading: Renvooi | string;
   href: string;
   targetBlank: boolean;
   interaction?: SlideToggle;
@@ -26,13 +26,13 @@ export const plekinfoCardArgs: Omit<PlekinfoCardArgs, "meta" | "wijzigactie"> = 
   href: "#",
   targetBlank: false,
   interaction: undefined,
-  label: "Radarverstorende bouwwerken",
+  heading: "Radarverstorende bouwwerken",
   active: false,
   dsoPlekinfoCardClick: fn(),
 };
 
 export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
-  label: {
+  heading: {
     control: {
       type: "object",
     },
@@ -77,7 +77,7 @@ export function plekinfoCardArgsMapper(
 
 export function plekinfoCardBaseArgsMapper(a: PlekinfoCardArgs): PlekinfoCardBase {
   return {
-    label: a.label,
+    heading: a.heading,
     href: a.href,
     targetBlank: a.targetBlank,
     active: a.active,
