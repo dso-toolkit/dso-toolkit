@@ -10,8 +10,10 @@
   }
 
   dso-slide-toggle {
-    margin-block-start: accordion-variables.$block-padding - accordion-variables.$compact-border-width;
+    $handle-padding: accordion-variables.$block-padding - accordion-variables.$compact-border-width;
+
     margin-inline: units.$u1;
+    line-height: calc(#{accordion-variables.$chevron-icon-size} + 2 * #{$handle-padding});
   }
 }
 

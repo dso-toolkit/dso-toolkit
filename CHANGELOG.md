@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Button: Icon van secondary variant active state heeft onjuiste kleur ([#3847](https://github.com/dso-toolkit/dso-toolkit/issues/3847))
+* Plekinfo Card: Diverse afwijkingen ten opzichte van het ontwerp ([#4036](https://github.com/dso-toolkit/dso-toolkit/issues/4036))
 
 ## 🪀 Release 101.2.0 - 2026-10-12
 

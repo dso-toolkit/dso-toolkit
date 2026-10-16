@@ -26,7 +26,7 @@ function plekinfoCardItemTemplate({ symbool, label, sublabel, meta, wijzigactie 
 }
 
 export function plekinfoCardTemplate({
-  label,
+  heading,
   href,
   targetBlank,
   active,
@@ -52,7 +52,7 @@ export function plekinfoCardTemplate({
     }}
   >
     ${symbool ? html`<span slot="symbol">${symbool}</span>` : nothing}
-    ${html`<h2 slot="heading">${textTemplate(label)}</h2>`}
+    ${html`<h2 slot="heading">${textTemplate(heading)}</h2>`}
     ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}
     ${
       interaction
