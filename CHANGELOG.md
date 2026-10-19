@@ -20,6 +20,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Plekinfo Card: Diverse afwijkingen ten opzichte van het ontwerp ([#4036](https://github.com/dso-toolkit/dso-toolkit/issues/4036))
 * Truncate: Maakt de omgeving breder in plaats van de tekst in te korten ([#4038](https://github.com/dso-toolkit/dso-toolkit/issues/4038))
 
+### Task
+* Packages: Dependencies updates ([#3965](https://github.com/dso-toolkit/dso-toolkit/issues/3965))
+
 ## 🪀 Release 101.2.0 - 2026-10-12
 
 ### Changed

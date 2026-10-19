@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "lib": ["DOM", "ES2022"],
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "module": "ESNext",
     "target": "ES2020",
     "noUnusedLocals": true,
