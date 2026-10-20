@@ -48,6 +48,27 @@
 | `dsoTableOfContentsClick` | Emitted when the user clicks the heading in mode="table-of-contents".                                                                                       | `CustomEvent<DocumentComponentTableOfContentsClickEvent>` |
 
 
+## Methods
+
+### `getElementByEId(eId: string) => Promise<HTMLElement | undefined>`
+
+Returns the rendered element of the STOP element with the given `eId` in the Kop or Inhoud of this Document
+Component, or `undefined` when it is not rendered (e.g. when the Document Component is closed). Nested Document
+Components are not searched.
+
+#### Parameters
+
+| Name  | Type     | Description                                                                             |
+| ----- | -------- | --------------------------------------------------------------------------------------- |
+| `eId` | `string` | The `eId` attribute value of the STOP element, e.g. `chp_1__art_1.1__list_o_1__item_1`. |
+
+#### Returns
+
+Type: `Promise<HTMLElement | undefined>`
+
+
+
+
 ## Slots
 
 | Slot            | Description                                                     |

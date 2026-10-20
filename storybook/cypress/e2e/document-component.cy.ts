@@ -426,4 +426,32 @@ describe("Document Component", () => {
       });
     }
   });
+
+  it("returns the rendered element of an eId with getElementByEId", () => {
+    const eId = "art_1__list_o_1__item_b";
+
+    setProps({
+      inhoud: `<Inhoud><Lijst eId="art_1__list_o_1" type="expliciet"><Li eId="art_1__list_o_1__item_a"><LiNummer>a.</LiNummer><Al>item a</Al></Li><Li eId="${eId}"><LiNummer>b.</LiNummer><Al>item b</Al></Li></Lijst></Inhoud>`,
+      open: true,
+    });
+
+    cy.get("@document-component")
+      .shadow()
+      .find("dso-ozon-content.hydrated")
+      .shadow()
+      .find(`li#${eId}`)
+      .should("contain.text", "item b");
+
+    cy.get<HTMLDsoDocumentComponentElement>("@document-component")
+      .then(async ($el) => {
+        const element = await $el[0]!.getElementByEId(eId);
+
+        return { nodeName: element?.nodeName, id: element?.id };
+      })
+      .should("deep.equal", { nodeName: "LI", id: eId });
+
+    cy.get<HTMLDsoDocumentComponentElement>("@document-component")
+      .then(async ($el) => (await $el[0]!.getElementByEId("does_not_exist")) ?? null)
+      .should("be.null");
+  });
 });

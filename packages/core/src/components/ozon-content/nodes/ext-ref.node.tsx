@@ -2,6 +2,7 @@ import { h } from "@stencil/core";
 import kebabCase from "lodash.kebabcase";
 
 import { isModifiedEvent } from "../../../utils/is-modified-event";
+import { getEIdFromNode } from "../functions/get-eid-from-node.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
 
@@ -31,6 +32,7 @@ export class OzonContentExtRefNode implements OzonContentNode {
 
     return (
       <a
+        id={getEIdFromNode(node)}
         target="_blank"
         rel="noopener noreferrer"
         href={href ?? undefined}
