@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🏋️‍♀️ Release 102.0.0 - 2026-10-20
+
 ### Changed
 * **BREAKING** Shopping Cart Item: missende sublevel modus voor titel ([#4015](https://github.com/dso-toolkit/dso-toolkit/issues/4015))
 * **BREAKING** Shopping Cart: optionele knop Alles verwijderen ([#3990](https://github.com/dso-toolkit/dso-toolkit/issues/3990))
