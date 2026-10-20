@@ -669,6 +669,28 @@ describe("Ozon Content", () => {
           'Bijschrift bij het figuur. (bron: <span class="dso-ozon-bron">Bron waaruit het figuur is overgenomen</span>)',
         );
     });
+
+    it("only sets the eId as id on the Bijschrift outside dso-image-overlay", () => {
+      const eId = "art_1__img_o_1__ref_o_1";
+
+      cy.get("dso-ozon-content.hydrated")
+        .invoke(
+          "prop",
+          "content",
+          `<Figuur eId="art_1__img_o_1"><Illustratie naam="afbeelding.jpg" breedte="720" hoogte="1124" dpi="400" alt="Afbeelding" uitlijning="center"/><Bijschrift locatie="onder">Zie <ExtRef eId="${eId}" soort="URL" ref="https://www.example.com">website</ExtRef></Bijschrift></Figuur>`,
+        )
+        .shadow()
+        .find(`[id="${eId}"]`)
+        .should("have.length", 1);
+
+      cy.get("dso-ozon-content.hydrated")
+        .then(async ($ozonContent: JQuery<HTMLDsoOzonContentElement>) => {
+          const element = await $ozonContent[0].getElementByEId(eId);
+
+          return element?.closest("dso-image-overlay") === null;
+        })
+        .should("be.true");
+    });
   });
 
   it("should render Lijst element", () => {

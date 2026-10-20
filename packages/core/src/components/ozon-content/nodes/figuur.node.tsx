@@ -1,5 +1,6 @@
 import { Fragment, FunctionalComponent, JSX, h } from "@stencil/core";
 
+import { getEIdFromNode } from "../functions/get-eid-from-node.function";
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
@@ -80,7 +81,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
     };
   }
 
-  render(node: Element, { mapNodeToJsx, urlResolver }: OzonContentNodeContext) {
+  render(node: Element, { mapNodeToJsx, urlResolver }: OzonContentNodeContext, ignoreMark?: boolean) {
     const childNodes = Array.from(node.childNodes);
     const titel = childNodes.find((n) => getNodeName(n) === "Titel");
     const bron = childNodes.find((n) => getNodeName(n) === "Bron");
@@ -106,6 +107,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
 
       return (
         <div
+          id={getEIdFromNode(node, ignoreMark)}
           class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}
           style={this.getStyle(illustratie)}
         >
