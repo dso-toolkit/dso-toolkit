@@ -37,4 +37,8 @@
   display: block;
 }
 
+.slot-container {
+  min-inline-size: 0;
+}
+
 @include utilities.box-sizing();

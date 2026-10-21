@@ -70,6 +70,47 @@ describe("Accordion", () => {
       .matchImageSnapshot();
   });
 
+  describe("Unbreakable content", () => {
+    const longUrl =
+      "https://www.example.nl/een/heel/lange/url/zonder/spaties/die/niet/kan/afbreken/regels-op-de-kaart/documenten";
+
+    beforeEach(() => {
+      cy.get("dso-accordion.hydrated")
+        .invoke("css", "width", "320px")
+        .find("dso-accordion-section:nth-child(3)")
+        .as("section")
+        .invoke("prop", "open", true);
+    });
+
+    const assertWidth = (content: string) => {
+      cy.get("@section")
+        .invoke("append", content)
+        .shadow()
+        .find("dso-expandable")
+        .shadow()
+        .find(".slot-container")
+        .should(($slotContainer) => expect($slotContainer[0]?.offsetWidth).to.be.at.most(320));
+    };
+
+    it("keeps a wide table from widening the expandable", () => {
+      assertWidth(`
+      <table style="width: 600px;">
+        <tr><td>Brede tabelcel die de container niet mag opduwen</td></tr>
+      </table>
+    `);
+    });
+
+    it("keeps a long URL within the expandable", () => {
+      assertWidth(`<p>${longUrl}</p>`);
+    });
+
+    it("keeps a long URL in a closed nested section within the expandable", () => {
+      assertWidth(`<dso-accordion>
+        <dso-accordion-section handle-title="Nested"><p>${longUrl}</p></dso-accordion-section>
+      </dso-accordion>`);
+    });
+  });
+
   it("should render handle as <a> when handleUrl is set", () => {
     const href = "#hekkie";
 
