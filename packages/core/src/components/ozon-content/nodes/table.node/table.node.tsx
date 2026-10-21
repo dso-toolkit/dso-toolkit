@@ -2,6 +2,7 @@ import { h } from "@stencil/core";
 import { clsx } from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
+import { getEIdFromNode } from "../../functions/get-eid-from-node.function";
 import { getNodeName } from "../../get-node-name.function";
 import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
 import { OzonContentNode } from "../../ozon-content-node.interface";
@@ -38,7 +39,7 @@ export class OzonContentTableNode implements OzonContentNode {
     const bron = Array.from(node.childNodes).find((n) => getNodeName(n) === "Bron");
 
     return (
-      <dso-table>
+      <dso-table id={getEIdFromNode(node)}>
         <table
           class={clsx("table", {
             "editaction-add": wijzigactie === "voegtoe",

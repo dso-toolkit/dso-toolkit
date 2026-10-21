@@ -1,5 +1,6 @@
 import { Fragment, FunctionalComponent, JSX, h } from "@stencil/core";
 
+import { getEIdFromNode } from "../functions/get-eid-from-node.function";
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
@@ -106,6 +107,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
 
       return (
         <div
+          id={getEIdFromNode(node)}
           class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}
           style={this.getStyle(illustratie)}
         >
