@@ -7,21 +7,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING** Annotation: Label moet kunnen worden aangepast ([#4033](https://github.com/dso-toolkit/dso-toolkit/issues/4033))
+* Ozon Content: Scrollen naar `IntRef` element ipv parent document component ([#3425](https://github.com/dso-toolkit/dso-toolkit/issues/3425))
 * Viewer Grid: Aanpassing breedtes ([#3555](https://github.com/dso-toolkit/dso-toolkit/issues/3555))
 
-<<<<<<< HEAD
 ### Task
 * Packages: Dependencies updates ([#3965](https://github.com/dso-toolkit/dso-toolkit/issues/3965))
 
-=======
->>>>>>> 77b42c46 (#3555 [Changed] Feedback)
 ## 🏋️‍♀️ Release 102.0.0 - 2026-10-20
 
 ### Changed
 * **BREAKING** Shopping Cart Item: missende sublevel modus voor titel ([#4015](https://github.com/dso-toolkit/dso-toolkit/issues/4015))
 * **BREAKING** Shopping Cart: optionele knop Alles verwijderen ([#3990](https://github.com/dso-toolkit/dso-toolkit/issues/3990))
 * Dropdown Menu: States zijn niet te onderscheiden ([#3918](https://github.com/dso-toolkit/dso-toolkit/issues/3918))
-* Ozon Content: Scrollen naar `IntRef` element ipv parent document component ([#3425](https://github.com/dso-toolkit/dso-toolkit/issues/3425))
 
 ### Deprecated
 * Grid: Deprecate selector `.dso-banner` ([#4000](https://github.com/dso-toolkit/dso-toolkit/issues/4000))
