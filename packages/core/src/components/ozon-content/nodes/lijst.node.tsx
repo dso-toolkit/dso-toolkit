@@ -2,6 +2,7 @@ import { h } from "@stencil/core";
 import { clsx } from "clsx";
 
 import { WrapWijzigactie } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+import { getEIdFromNode } from "../functions/get-eid-from-node.function";
 import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
 import { wijzigactieToClassName } from "../functions/wijzigactie-to-class-name.function";
 import { getNodeName } from "../get-node-name.function";
@@ -21,7 +22,7 @@ export class OzonContentLijstNode implements OzonContentNode {
 
     return (
       <WrapWijzigactie wijzigactie={wijzigactie}>
-        <div class={clsx("dso-ozon-lijst od-Lijst", wijzigactieToClassName(wijzigactie))}>
+        <div id={getEIdFromNode(node)} class={clsx("dso-ozon-lijst od-Lijst", wijzigactieToClassName(wijzigactie))}>
           {aanhef && mapNodeToJsx(aanhef)}
           <ul class={type}>
             {listItems.map((item) => {
@@ -30,7 +31,7 @@ export class OzonContentLijstNode implements OzonContentNode {
               const liWijzigactie = parseWijzigactieFromNode(item);
 
               return (
-                <li class={clsx("od-Li", wijzigactieToClassName(liWijzigactie))}>
+                <li id={getEIdFromNode(item)} class={clsx("od-Li", wijzigactieToClassName(liWijzigactie))}>
                   {liNummer && <span class="od-LiNummer">{mapNodeToJsx(liNummer)}</span>}
                   <WrapWijzigactie wijzigactie={liWijzigactie}>
                     {mapNodeToJsx(itemNodes.filter((n) => getNodeName(n) !== "LiNummer"))}

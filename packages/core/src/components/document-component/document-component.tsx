@@ -7,6 +7,7 @@ import {
   Fragment,
   FunctionalComponent,
   Host,
+  Method,
   Prop,
   h,
 } from "@stencil/core";
@@ -346,6 +347,27 @@ export class DocumentComponent implements ComponentInterface {
       this.dsoOpenToggle.emit({ originalEvent: e, open: !this.open });
     }
   };
+
+  /**
+   * Returns the rendered element of the STOP element with the given `eId` in the Kop or Inhoud of this Document
+   * Component, or `undefined` when it is not rendered (e.g. when the Document Component is closed). Nested Document
+   * Components are not searched.
+   *
+   * @param eId The `eId` attribute value of the STOP element, e.g. `chp_1__art_1.1__list_o_1__item_1`.
+   */
+  @Method()
+  async getElementByEId(eId: string): Promise<HTMLElement | undefined> {
+    const ozonContents = Array.from(this.host.shadowRoot?.querySelectorAll("dso-ozon-content") ?? []);
+
+    for (const ozonContent of ozonContents) {
+      const element = await ozonContent.getElementByEId(eId);
+      if (element) {
+        return element;
+      }
+    }
+
+    return undefined;
+  }
 
   private handleOzonContentClick = (event: DsoOzonContentCustomEvent<OzonContentClickEvent>) => {
     const { detail } = event;

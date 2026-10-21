@@ -546,6 +546,11 @@ export namespace Components {
          */
         "gereserveerd": DocumentComponentInputType | undefined;
         /**
+          * Returns the rendered element of the STOP element with the given `eId` in the Kop or Inhoud of this Document Component, or `undefined` when it is not rendered (e.g. when the Document Component is closed). Nested Document Components are not searched.
+          * @param eId The `eId` attribute value of the STOP element, e.g. `chp_1__art_1.1__list_o_1__item_1`.
+         */
+        "getElementByEId": (eId: string) => Promise<HTMLElement | undefined>;
+        /**
           * The heading level to use (only in mode="document"). When the level is 6 or lower a native heading element (`<h2>` … `<h6>`) is rendered; deeper levels are rendered as `<div role="heading" aria-level="*">` because HTML has no native heading elements beyond `<h6>`. In mode="table-of-contents" the nested lists carry the structure and no heading is rendered.
           * @default 2
          */
@@ -1137,6 +1142,11 @@ export namespace Components {
           * The XML to be rendered.
          */
         "content"?: OzonContentInputType;
+        /**
+          * Returns the rendered element of the STOP element with the given `eId`, or `undefined` when it is not rendered.
+          * @param eId The `eId` attribute value of the STOP element, e.g. `chp_1__art_1.1__list_o_1__item_1`.
+         */
+        "getElementByEId": (eId: string) => Promise<HTMLElement | undefined>;
         /**
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
           * @default false

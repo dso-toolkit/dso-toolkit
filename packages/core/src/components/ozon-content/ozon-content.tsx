@@ -1,10 +1,12 @@
 import {
   Component,
   ComponentInterface,
+  Element,
   Event,
   EventEmitter,
   Fragment,
   JSX,
+  Method,
   Prop,
   State,
   Watch,
@@ -32,6 +34,9 @@ const mapper = new Mapper();
   shadow: true,
 })
 export class OzonContent implements ComponentInterface {
+  @Element()
+  host!: HTMLDsoOzonContentElement;
+
   /**
    * The XML to be rendered.
    */
@@ -89,6 +94,16 @@ export class OzonContent implements ComponentInterface {
 
   @State()
   state: OzonContentNodeState = {};
+
+  /**
+   * Returns the rendered element of the STOP element with the given `eId`, or `undefined` when it is not rendered.
+   *
+   * @param eId The `eId` attribute value of the STOP element, e.g. `chp_1__art_1.1__list_o_1__item_1`.
+   */
+  @Method()
+  async getElementByEId(eId: string): Promise<HTMLElement | undefined> {
+    return this.host.shadowRoot?.getElementById(eId) ?? undefined;
+  }
 
   private handleMarkItemHighlight = (text: string, elementRef: HTMLElement) => {
     this.dsoOzonContentMarkItemHighlight.emit({ text, elementRef });

@@ -4,6 +4,7 @@ import {
   Wijzigactie,
   WrapWijzigactie,
 } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+import { getEIdFromNode } from "../functions/get-eid-from-node.function";
 import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
 import { wijzigactieToClassName } from "../functions/wijzigactie-to-class-name.function";
 import { getNodeName } from "../get-node-name.function";
@@ -52,7 +53,7 @@ export class OzonContentBegripNode implements OzonContentNode {
     const definitions = childNodes.filter((n) => getNodeName(n) === "Definitie");
 
     return (
-      <div class={className}>
+      <div id={getEIdFromNode(node)} class={className}>
         {terms.map((term) => (
           <Term node={term} begripWijzigactie={wijzigactie} mapNodeToJsx={mapNodeToJsx} />
         ))}

@@ -426,4 +426,48 @@ describe("Document Component", () => {
       });
     }
   });
+
+  const eIdCases = [
+    { listEId: "art_1__list_o_1", eId: "art_1__list_o_1__item_b" },
+    { listEId: "chp_13__subsec_13.3__art_13.11__list_o_1", eId: "chp_13__subsec_13.3__art_13.11__list_o_1__item_1" },
+  ];
+
+  for (const { listEId, eId } of eIdCases) {
+    it(`returns the rendered element of eId "${eId}" with getElementByEId`, () => {
+      setProps({
+        inhoud: `<Inhoud><Lijst eId="${listEId}" type="expliciet"><Li eId="${listEId}__item_a"><LiNummer>a.</LiNummer><Al>item a</Al></Li><Li eId="${eId}"><LiNummer>b.</LiNummer><Al>item b</Al></Li></Lijst></Inhoud>`,
+        open: true,
+      });
+
+      cy.get("@document-component")
+        .shadow()
+        .find("dso-ozon-content.hydrated")
+        .shadow()
+        .find(`li[id="${eId}"]`)
+        .should("contain.text", "item b");
+
+      cy.get<HTMLDsoDocumentComponentElement>("@document-component")
+        .then(async ($el) => {
+          const element = await $el[0]!.getElementByEId(eId);
+
+          return { nodeName: element?.nodeName, id: element?.id, text: element?.textContent };
+        })
+        .should("deep.include", { nodeName: "LI", id: eId })
+        .its("text")
+        .should("contain", "item b");
+    });
+  }
+
+  it("returns undefined from getElementByEId for an unknown eId", () => {
+    setProps({
+      inhoud: `<Inhoud><Lijst eId="chp_13__subsec_13.3__art_13.11__list_o_1" type="expliciet"><Li eId="chp_13__subsec_13.3__art_13.11__list_o_1__item_1"><LiNummer>a.</LiNummer><Al>item a</Al></Li></Lijst></Inhoud>`,
+      open: true,
+    });
+
+    cy.get("@document-component").shadow().find("dso-ozon-content.hydrated");
+
+    cy.get<HTMLDsoDocumentComponentElement>("@document-component")
+      .then(async ($el) => (await $el[0]!.getElementByEId("chp_13__subsec_13.3__art_13.12")) ?? null)
+      .should("be.null");
+  });
 });

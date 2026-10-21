@@ -48,6 +48,25 @@ Zie ook de documentatie van het component Image Overlay
 | `dsoOzonContentMarkItemHighlight` | Emitted when a marked item is highlighted.      | `CustomEvent<OzonContentMarkItemHighlightEvent>`                                                                                                                                                                                                                                                                                                                      |
 
 
+## Methods
+
+### `getElementByEId(eId: string) => Promise<HTMLElement | undefined>`
+
+Returns the rendered element of the STOP element with the given `eId`, or `undefined` when it is not rendered.
+
+#### Parameters
+
+| Name  | Type     | Description                                                                             |
+| ----- | -------- | --------------------------------------------------------------------------------------- |
+| `eId` | `string` | The `eId` attribute value of the STOP element, e.g. `chp_1__art_1.1__list_o_1__item_1`. |
+
+#### Returns
+
+Type: `Promise<HTMLElement | undefined>`
+
+
+
+
 ## Dependencies
 
 ### Used by

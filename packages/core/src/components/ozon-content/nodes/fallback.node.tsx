@@ -1,5 +1,6 @@
 import { h } from "@stencil/core";
 
+import { getEIdFromNode } from "../functions/get-eid-from-node.function";
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
@@ -9,6 +10,10 @@ export class OzonContentFallbackNode implements OzonContentNode {
   name = ["<fallback>"];
 
   render(node: Node, { mapNodeToJsx }: OzonContentNodeContext, ignoreMark: boolean) {
-    return <span class={`fallback od-${getNodeName(node)}`}>{mapNodeToJsx(node.childNodes, ignoreMark)}</span>;
+    return (
+      <span id={getEIdFromNode(node)} class={`fallback od-${getNodeName(node)}`}>
+        {mapNodeToJsx(node.childNodes, ignoreMark)}
+      </span>
+    );
   }
 }

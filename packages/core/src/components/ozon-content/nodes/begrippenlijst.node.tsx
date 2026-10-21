@@ -1,6 +1,7 @@
 import { h } from "@stencil/core";
 
 import { WrapWijzigactie } from "../../../functional-components/wrap-wijzigactie/wrap-wijzigactie.functional-component";
+import { getEIdFromNode } from "../functions/get-eid-from-node.function";
 import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
 import { wijzigactieToClassName } from "../functions/wijzigactie-to-class-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
@@ -15,7 +16,7 @@ export class OzonContentBegrippenlijstNode implements OzonContentNode {
     const className = wijzigactieToClassName(wijzigactie);
 
     return (
-      <div class="begrippenlijst">
+      <div id={getEIdFromNode(node)} class="begrippenlijst">
         <WrapWijzigactie wijzigactie={wijzigactie}>
           <dl class={className}>{content}</dl>
         </WrapWijzigactie>
