@@ -86,11 +86,51 @@ describe("Image Overlay", () => {
       .get("dso-image-overlay")
       .find('div[slot = "bijschrift"] span')
       .should("have.text", "Bijschrift bij afbeelding")
-      .and("be.visible");
+      .and("be.visible")
+      .and("have.css", "font-size", "14px");
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".wrapper")
+      .should(($wrapper) => {
+        const titleBottom = $wrapper.find(".title")[0]!.getBoundingClientRect().bottom;
+        const imageTop = $wrapper.find(".content > img")[0]!.getBoundingClientRect().top;
+
+        expect(titleBottom).to.be.at.most(imageTop);
+      });
+  });
+
+  it("should render a custom title", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=title:Eigen%20titel");
+    cy.injectAxe();
+
+    cy.get("dso-image-overlay").find('div[slot="titel"] span').should("have.text", "Eigen titel");
+  });
+
+  it("should support STOP titles with multiple elements", () => {
+    cy.get('dso-image-overlay div[slot="titel"]').then(($titleSlot) => {
+      const titleSlot = $titleSlot[0]!;
+      const doc = titleSlot.ownerDocument;
+
+      const firstLine = doc.createElement("span");
+      firstLine.textContent = "Wonen, werken en bereikbaarheid";
+
+      const secondLine = doc.createElement("span");
+      secondLine.textContent = "Strategie: VISTA";
+
+      titleSlot.replaceChildren(firstLine, doc.createElement("br"), secondLine);
+    });
+
+    openOverlay();
+
+    cy.get('dso-image-overlay div[slot="titel"] span').should(($lines) => {
+      expect($lines).to.have.length(2);
+      expect($lines[1]!.getBoundingClientRect().top).to.be.at.least($lines[0]!.getBoundingClientRect().bottom);
+    });
   });
 });
 
 function openOverlay() {
   cy.get("@open-button").click();
-  cy.get("dso-image-overlay").shadow().find(".wrapper > div > img").should("be.visible");
+  cy.get("dso-image-overlay").shadow().find(".wrapper .content > img").should("be.visible");
 }

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Annotation: Label moet kunnen worden aangepast ([#4033](https://github.com/dso-toolkit/dso-toolkit/issues/4033))
 * Ozon Content: Scrollen naar `IntRef` element ipv parent document component ([#3425](https://github.com/dso-toolkit/dso-toolkit/issues/3425))
 * Viewer Grid: Aanpassing breedtes ([#3555](https://github.com/dso-toolkit/dso-toolkit/issues/3555))
+* Image Overlay: Titel en sluiten-knop van vergrote afbeelding vallen over afbeelding heen ([#3491](https://github.com/dso-toolkit/dso-toolkit/issues/3491))
 
 ### Fixed
 * Expandable: Maakt alle inhoud zo breed als het breedste element ([#4039](https://github.com/dso-toolkit/dso-toolkit/issues/4039))

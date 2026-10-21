@@ -37,20 +37,41 @@
 
 .wrapper {
   align-self: center;
-  box-shadow: 0 units.$u1 units.$u3 0 rgba(25, 25, 25, 0.4);
+  background-color: transparent;
   line-height: 0;
-  outline: 4px solid colors.$wit;
   z-index: zindex.$image-overlay;
 
+  > div {
+    display: grid;
+  }
+
+  .figure {
+    display: grid;
+    filter: drop-shadow(4px 0 4px rgba(0, 0, 0, 0.25));
+  }
+
   .title {
+    justify-self: start;
     background-color: colors.$wit;
-    font-weight: 700;
-    line-height: initial;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
     padding: units.$u1;
-    position: absolute;
+  }
+
+  .content {
+    display: grid;
+    grid-template-areas:
+      "image"
+      "caption";
+    background-color: colors.$wit;
+    padding-block: units.$u1 * 0.5;
+    padding-inline: units.$u1 * 0.5;
   }
 
   img {
+    grid-area: image;
+    display: block;
     inline-size: auto;
     block-size: auto;
     max-inline-size: 100%;
@@ -58,18 +79,22 @@
   }
 
   .figuur-bijschrift:not([hidden]) {
+    grid-area: caption;
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-style: italic;
-    padding-block-end: units.$u1 * 1.5;
-    padding-block-start: units.$u2;
+    line-height: 1.5;
+    padding-block-start: units.$u1 * 1.5;
+    padding-block-end: units.$u1 * 1;
+    padding-inline: units.$u1 * 0.5;
   }
 }
 
 .close {
-  position: absolute;
-  inset-block-start: units.$u2;
-  inset-inline-end: units.$u2;
+  grid-area: image;
+  justify-self: end;
+  align-self: start;
+  margin: units.$u2;
 }
 
 ins.editaction-add {
@@ -86,10 +111,6 @@ ins.editaction-add {
 
     .editaction-label {
       line-height: 1.5;
-    }
-
-    .close {
-      inset-block-start: units.$u6;
     }
   }
 
@@ -115,10 +136,6 @@ del.editaction-remove {
 
     .editaction-label {
       line-height: 1.5;
-    }
-
-    .close {
-      inset-block-start: units.$u6;
     }
   }
 
