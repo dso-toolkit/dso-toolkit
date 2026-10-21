@@ -69,7 +69,11 @@ const childrenTemplate = html`<div slot="annotations">
     type: "locatie",
     locatieNoemer: "locatieNoemer",
     symboolCode: "vszt030",
-    gewijzigdeLocatie: true,
+    meta: {
+      status: "warning",
+      compact: true,
+      label: "gewijzigde locatie",
+    },
   })}
   ${annotationTemplate({ type: "locatie", locatieNoemer: "Locatie 3", symboolCode: "vag000" })}
   ${annotationTemplate({ type: "locatie", locatieNoemer: "Locatie 4", symboolCode: "vszt030" })}

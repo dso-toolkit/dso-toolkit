@@ -42,12 +42,9 @@ In beiden gevallen wordt de tekst uitgelezen door middel van `HTMLElement.textCo
 
  - [dso-accordion-section](../accordion/components)
  - [dso-advanced-select](../advanced-select)
- - [dso-annotation-activiteit](../annotation/annotation-activiteit)
- - [dso-annotation-gebiedsaanwijzing](../annotation/annotation-gebiedsaanwijzing)
- - [dso-annotation-locatie](../annotation/annotation-locatie)
- - [dso-annotation-omgevingsnormwaarde](../annotation/annotation-omgevingsnormwaarde)
  - [dso-document-component](../document-component)
  - [dso-project-item](../project-item)
+ - [dsot-document-component-demo](../document-component-demo)
 
 ### Depends on
 
@@ -62,12 +59,9 @@ graph TD;
   dso-icon-button --> dso-icon
   dso-accordion-section --> dso-label
   dso-advanced-select --> dso-label
-  dso-annotation-activiteit --> dso-label
-  dso-annotation-gebiedsaanwijzing --> dso-label
-  dso-annotation-locatie --> dso-label
-  dso-annotation-omgevingsnormwaarde --> dso-label
   dso-document-component --> dso-label
   dso-project-item --> dso-label
+  dsot-document-component-demo --> dso-label
   style dso-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -13,7 +13,6 @@ describe("Annotation - Activiteit", () => {
 
   it("sets regelKwalificatie, regelKwalificatieVoorzetsel and locatieNoemers as data", () => {
     cy.get("@annotation")
-      .invoke("prop", "gewijzigdeLocatie", false)
       .invoke("prop", "regelKwalificatie", "toegestaan")
       .invoke("prop", "regelKwalificatieVoorzetsel", "in")
       .invoke("prop", "locatieNoemers", ["locatie 1", "locatie 2"])
@@ -41,7 +40,6 @@ describe("Annotation - Gebiedsaanwijzing", () => {
 
   it("sets naam as title", () => {
     cy.get("@annotation")
-      .invoke("prop", "gewijzigdeLocatie", false)
       .invoke("prop", "naam", "De naam")
       .get("@annotation")
       .shadow()
@@ -74,7 +72,6 @@ describe("Annotation - Omgevingsnormwaarde", () => {
 
   it("sets waardes as data", () => {
     cy.get("@annotation")
-      .invoke("prop", "gewijzigdeLocatie", false)
       .invoke("prop", "waardes", ["waarde 1", "waarde 2"])
       .get("@annotation")
       .shadow()
@@ -87,7 +84,6 @@ describe("Annotation - Omgevingsnormwaarde", () => {
 
   it("doesn't show colon when waardes are omitted", () => {
     cy.get("@annotation")
-      .invoke("prop", "gewijzigdeLocatie", false)
       .invoke("prop", "waardes", [])
       .get("@annotation")
       .shadow()
@@ -144,7 +140,6 @@ describe("Annotation - Locatie", () => {
 
   it("sets locatieNoemers as title", () => {
     cy.get("@annotation")
-      .invoke("prop", "gewijzigdeLocatie", false)
       .invoke("prop", "locatieNoemer", "De locatie")
       .get("@annotation")
       .shadow()
@@ -214,22 +209,21 @@ function setupAnnotation(type: "activiteit" | "gebiedsaanwijzing" | "omgevingsno
         .should("exist");
     });
 
-    it("shows gewijzigde locatie", () => {
+    it("shows meta slot only when it has slotted content", () => {
       cy.get(`@annotation`)
-        .invoke("prop", "gewijzigdeLocatie", false)
-        .should("not.have.attr", "gewijzigde-locatie")
+        .find("[slot='meta']")
+        .should("exist")
         .get(`@annotation`)
         .shadow()
-        .find("dso-label.hydrated:contains('gewijzigde locatie')")
-        .should("not.exist")
+        .find(".meta")
+        .should("not.have.attr", "hidden")
         .get(`@annotation`)
-        .invoke("prop", "gewijzigdeLocatie", true)
-        .get(`@annotation`)
-        .should("have.attr", "gewijzigde-locatie")
+        .find("[slot='meta']")
+        .invoke("remove")
         .get(`@annotation`)
         .shadow()
-        .find("dso-label.hydrated:contains('gewijzigde locatie')")
-        .should("exist");
+        .find(".meta")
+        .should("have.attr", "hidden");
     });
   }
 }
