@@ -1,13 +1,22 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 
-// Keep in sync with documentation readme.md
-$small: 375px;
-$medium: 624px;
-$large: 60%;
-$large-min: 768px;
-$large-max: 1024px;
+$main-panel-small: 375px;
+$main-panel-medium: 624px;
+$main-panel-large: 60%;
+$main-panel-large-min: 768px;
+$main-panel-large-max: 1024px;
 $overlay-inline-size: 624px;
+
+$document-panel-small: 25%;
+$document-panel-small-min: 375px;
+$document-panel-small-max: 623px;
+$document-panel-medium: 40%;
+$document-panel-medium-min: 624px;
+$document-panel-medium-max: 1024px;
+$document-panel-large: 60%;
+$document-panel-large-min: 768px;
+$document-panel-large-max: 1200px;
 
 $filter-panel-inline-size: 768px;
 $filter-panel-max-inline-size: 380px;
