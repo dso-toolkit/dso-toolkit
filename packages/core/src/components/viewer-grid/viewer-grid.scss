@@ -256,46 +256,40 @@ slot[name="legend"] {
 }
 
 @media screen and (min-width: #{media-query-breakpoints.$screen-md-min + units.$u5}) {
-  :host(:not([print])[main-size="small"]) .dso-main-panel,
-  :host(:not([print])[document-panel-size="small"]) .dso-document-panel {
-    flex-basis: core-viewer-grid-variables.$small;
+  :host(:not([print])[main-size="small"]) .dso-main-panel {
+    flex-basis: core-viewer-grid-variables.$main-panel-small;
     min-inline-size: 0;
-    max-inline-size: core-viewer-grid-variables.$small;
-
-    @media screen and (max-width: core-viewer-grid-variables.$small) {
-      flex-basis: 100vw;
-      max-inline-size: 100vw;
-      min-inline-size: 0;
-      transition: none;
-    }
+    max-inline-size: core-viewer-grid-variables.$main-panel-small;
   }
 
-  :host(:not([print])[main-size="medium"]) .dso-main-panel,
+  :host(:not([print])[main-size="medium"]) .dso-main-panel {
+    flex-basis: core-viewer-grid-variables.$main-panel-medium;
+    min-inline-size: core-viewer-grid-variables.$main-panel-small;
+    max-inline-size: core-viewer-grid-variables.$main-panel-medium;
+  }
+
+  :host(:not([print])[main-size="large"]) .dso-main-panel {
+    flex-basis: core-viewer-grid-variables.$main-panel-large;
+    min-inline-size: core-viewer-grid-variables.$main-panel-large-min;
+    max-inline-size: core-viewer-grid-variables.$main-panel-large-max;
+  }
+
+  :host(:not([print])[document-panel-size="small"]) .dso-document-panel {
+    flex-basis: core-viewer-grid-variables.$document-panel-small;
+    min-inline-size: core-viewer-grid-variables.$document-panel-small-min;
+    max-inline-size: core-viewer-grid-variables.$document-panel-small-max;
+  }
+
   :host(:not([print])[document-panel-size="medium"]) .dso-document-panel {
-    flex-basis: core-viewer-grid-variables.$medium;
-    min-inline-size: core-viewer-grid-variables.$small;
-    max-inline-size: core-viewer-grid-variables.$medium;
-
-    @media screen and (max-width: core-viewer-grid-variables.$medium) {
-      flex-basis: 100vw;
-      max-inline-size: 100vw;
-      min-inline-size: core-viewer-grid-variables.$small;
-      transition: none;
-    }
+    flex-basis: core-viewer-grid-variables.$document-panel-medium;
+    min-inline-size: core-viewer-grid-variables.$document-panel-medium-min;
+    max-inline-size: core-viewer-grid-variables.$document-panel-medium-max;
   }
 
-  :host(:not([print])[main-size="large"]) .dso-main-panel,
   :host(:not([print])[document-panel-size="large"]) .dso-document-panel {
-    flex-basis: core-viewer-grid-variables.$large;
-    min-inline-size: core-viewer-grid-variables.$large-min;
-    max-inline-size: core-viewer-grid-variables.$large-max;
-
-    @media screen and (max-width: core-viewer-grid-variables.$large-min) {
-      flex-basis: 100vw;
-      max-inline-size: 100vw;
-      min-inline-size: core-viewer-grid-variables.$large-min;
-      transition: none;
-    }
+    flex-basis: core-viewer-grid-variables.$document-panel-large;
+    min-inline-size: core-viewer-grid-variables.$document-panel-large-min;
+    max-inline-size: core-viewer-grid-variables.$document-panel-large-max;
   }
 
   :host(:not([print])) {

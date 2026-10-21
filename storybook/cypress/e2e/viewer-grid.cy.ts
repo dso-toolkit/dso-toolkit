@@ -130,6 +130,35 @@ describe("Viewer Grid", () => {
       .should("have.been.calledOnce");
   });
 
+  describe("Document Panel sizes", () => {
+    const sizes = [
+      { size: "small", minInlineSize: "375px", maxInlineSize: "623px" },
+      { size: "medium", minInlineSize: "624px", maxInlineSize: "1024px" },
+      { size: "large", minInlineSize: "768px", maxInlineSize: "1200px" },
+    ];
+
+    beforeEach(() => {
+      cy.visit(url);
+    });
+
+    for (const { size, minInlineSize, maxInlineSize } of sizes) {
+      it(`matches snapshot (${size})`, () => {
+        cy.get("dso-viewer-grid.hydrated")
+          .invoke("attr", "document-panel-open", "")
+          .invoke("attr", "document-panel-size", size)
+          .shadow()
+          .find(".dso-document-panel")
+          .should("be.visible")
+          .and("have.css", "min-inline-size", minInlineSize)
+          .and("have.css", "max-inline-size", maxInlineSize);
+
+        cy.get("dso-viewer-grid.hydrated")
+          .wait(250)
+          .matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" -- ")}`);
+      });
+    }
+  });
+
   describe("Filter Panel", () => {
     const viewports = [
       { name: "normal view", width: 1600, height: 600 },
