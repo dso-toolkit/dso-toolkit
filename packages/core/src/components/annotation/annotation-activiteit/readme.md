@@ -10,7 +10,6 @@
 | Property                      | Attribute                       | Description                                                                         | Type                                                                                                           | Default     |
 | ----------------------------- | ------------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
 | `active`                      | `active`                        | Een optionele boolean die aangeeft of de annotatie actief is.                       | `boolean \| undefined`                                                                                         | `undefined` |
-| `gewijzigdeLocatie`           | `gewijzigde-locatie`            | Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.     | `boolean \| undefined`                                                                                         | `undefined` |
 | `locatieNoemers`              | --                              | De noemer van de locatie.                                                           | `RenvooiValue[] \| undefined`                                                                                  | `undefined` |
 | `naam`                        | `naam`                          | De naam van de activiteit.                                                          | `string \| undefined \| { toegevoegd: string; } \| { verwijderd: string; } \| { was: string; wordt: string; }` | `undefined` |
 | `regelKwalificatie`           | `regel-kwalificatie`            | De activiteit regel kwalificatie.                                                   | `string \| undefined \| { toegevoegd: string; } \| { verwijderd: string; } \| { was: string; wordt: string; }` | `undefined` |
@@ -25,23 +24,25 @@
 | `dsoActiveChange` | Een optionele event listener voor wijzigingen aan de status van de annotatie. | `CustomEvent<AnnotationActiveChangeEvent>` |
 
 
+## Slots
+
+| Slot     | Description                                                                                                     |
+| -------- | --------------------------------------------------------------------------------------------------------------- |
+| `"meta"` | Een optioneel slot voor een `Label`, bijvoorbeeld om aan te geven dat de locatie van de annotatie gewijzigd is. |
+
+
 ## Dependencies
 
 ### Depends on
 
 - [dso-renvooi](../../renvooi)
 - [dso-slide-toggle](../../slide-toggle)
-- [dso-label](../../label)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-annotation-activiteit --> dso-renvooi
   dso-annotation-activiteit --> dso-slide-toggle
-  dso-annotation-activiteit --> dso-label
-  dso-label --> dso-truncate
-  dso-label --> dso-icon-button
-  dso-icon-button --> dso-icon
   style dso-annotation-activiteit fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
