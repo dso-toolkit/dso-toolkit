@@ -45,7 +45,7 @@
 .annotation-data {
   margin-block: 0;
 
-  .content:has(+ dso-label) {
+  .content:has(+ .meta:not([hidden])) {
     margin-inline-end: units.$u1 * 0.5;
   }
 }

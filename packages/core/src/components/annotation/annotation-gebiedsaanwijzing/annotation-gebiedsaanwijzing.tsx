@@ -1,12 +1,14 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State, h } from "@stencil/core";
 
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 import { AnnotationBody } from "../annotation-body";
-import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
 import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
 import { watcher } from "../annotation-watcher";
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "../annotation.interfaces";
 
+/**
+ * @slot meta - Een optioneel slot voor een `Label`, bijvoorbeeld om aan te geven dat de locatie van de annotatie gewijzigd is.
+ */
 @Component({
   tag: "dso-annotation-gebiedsaanwijzing",
   styleUrl: "../annotation.scss",
@@ -26,12 +28,6 @@ export class AnnotationGebiedsaanwijzing implements ComponentInterface {
   active?: boolean;
 
   /**
-   * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-   */
-  @Prop({ reflect: true })
-  gewijzigdeLocatie?: boolean;
-
-  /**
    * Een optionele event listener voor wijzigingen aan de status van de annotatie.
    */
   @Event()
@@ -46,7 +42,21 @@ export class AnnotationGebiedsaanwijzing implements ComponentInterface {
   @Element()
   private host!: HTMLDsoAnnotationGebiedsaanwijzingElement;
 
+  @State()
+  hasMeta = false;
+
+  private metaSlot?: HTMLSlotElement;
+
   private watcher = watcher(this.host);
+
+  private updateMeta = () => {
+    this.hasMeta = (this.metaSlot?.assignedNodes({ flatten: true }).length ?? 0) > 0;
+  };
+
+  private setMetaSlot = (element: HTMLSlotElement | undefined) => {
+    this.metaSlot = element;
+    this.updateMeta();
+  };
 
   connectedCallback(): void {
     this.watcher.watch();
@@ -69,7 +79,9 @@ export class AnnotationGebiedsaanwijzing implements ComponentInterface {
             <span class="content">
               <dso-renvooi value={this.naam} />
             </span>
-            {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
+            <span class="meta" hidden={!this.hasMeta}>
+              <slot name="meta" ref={this.setMetaSlot} onSlotchange={this.updateMeta} />
+            </span>
           </>
         }
       />

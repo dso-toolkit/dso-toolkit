@@ -2,6 +2,7 @@ import { DsoAnnotationActiviteitCustomEvent, DsoAnnotationKaartCustomEvent } fro
 import { html, nothing } from "lit-html";
 
 import { assertNever } from "../../shared/assert-never.js";
+import { labelTemplate } from "../label/label.template.js";
 
 import { Annotation, AnnotationActiveChangeEvent, AnnotationKaartClickEvent } from "./annotation.models.js";
 
@@ -14,7 +15,7 @@ export function annotationTemplate(annotation: Annotation) {
       symboolCode,
       active,
       dsoActiveChange,
-      gewijzigdeLocatie,
+      meta,
       regelKwalificatieVoorzetsel,
       wijzigactie,
     } = annotation;
@@ -25,45 +26,34 @@ export function annotationTemplate(annotation: Annotation) {
       .regelKwalificatie=${regelKwalificatie}
       .active=${active}
       @dsoActiveChange=${(e: DsoAnnotationActiviteitCustomEvent<AnnotationActiveChangeEvent>) => dsoActiveChange?.(e.detail)}
-      .gewijzigdeLocatie=${gewijzigdeLocatie}
       .regelKwalificatieVoorzetsel=${regelKwalificatieVoorzetsel}
       .wijzigactie=${wijzigactie}
     >
       ${symboolCode ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>` : nothing}
+      ${meta ? labelTemplate({ ...meta, slotName: "meta" }) : nothing}
     </dso-annotation-activiteit>`;
   }
 
   if (annotation.type === "gebiedsaanwijzing") {
-    const { naam, symboolCode, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie } = annotation;
+    const { naam, symboolCode, active, dsoActiveChange, meta, wijzigactie } = annotation;
 
     return html`<dso-annotation-gebiedsaanwijzing
       .naam=${naam}
       .active=${active}
       @dsoActiveChange=${dsoActiveChange}
-      .gewijzigdeLocatie=${gewijzigdeLocatie}
       .wijzigactie=${wijzigactie}
     >
       ${symboolCode ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>` : nothing}
+      ${meta ? labelTemplate({ ...meta, slotName: "meta" }) : nothing}
     </dso-annotation-gebiedsaanwijzing>`;
   }
 
   if (annotation.type === "omgevingsnormwaarde") {
-    const {
-      symboolCode,
-      toelichting,
-      active,
-      dsoActiveChange,
-      gewijzigdeLocatie,
-      wijzigactie,
-      eenheid,
-      naam,
-      waardes,
-    } = annotation;
+    const { symboolCode, toelichting, active, dsoActiveChange, meta, wijzigactie, eenheid, naam, waardes } = annotation;
 
     return html`<dso-annotation-omgevingsnormwaarde
       .active=${active}
       @dsoActiveChange=${dsoActiveChange}
-      .gewijzigdeLocatie=${gewijzigdeLocatie}
       .toelichting=${toelichting}
       .wijzigactie=${wijzigactie}
       .eenheid=${eenheid}
@@ -71,20 +61,21 @@ export function annotationTemplate(annotation: Annotation) {
       .waardes=${waardes}
     >
       ${symboolCode ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>` : nothing}
+      ${meta ? labelTemplate({ ...meta, slotName: "meta" }) : nothing}
     </dso-annotation-omgevingsnormwaarde>`;
   }
 
   if (annotation.type === "locatie") {
-    const { symboolCode, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie, locatieNoemer } = annotation;
+    const { symboolCode, active, dsoActiveChange, meta, wijzigactie, locatieNoemer } = annotation;
 
     return html`<dso-annotation-locatie
       .active=${active}
       @dsoActiveChange=${dsoActiveChange}
-      .gewijzigdeLocatie=${gewijzigdeLocatie}
       .wijzigactie=${wijzigactie}
       .locatieNoemer=${locatieNoemer}
     >
       ${symboolCode ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>` : nothing}
+      ${meta ? labelTemplate({ ...meta, slotName: "meta" }) : nothing}
     </dso-annotation-locatie>`;
   }
 

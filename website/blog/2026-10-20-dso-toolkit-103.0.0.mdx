@@ -1,0 +1,44 @@
+---
+authors: [cvanderleij]
+date: 2026-10-20
+---
+
+# DSO Toolkit v103.0.0 ⛳️
+
+Deze release bevat een **BREAKING** change voor de Annotation-componenten:
+
+- Annotation Activiteit
+- Annotation Gebiedsaanwijzing
+- Annotation Locatie
+- Annotation Omgevingsnormwaarde
+
+<!-- truncate -->
+
+## Annotation
+
+**Breaking:** De property `gewijzigdeLocatie` (attribuut `gewijzigde-locatie`) is verwijderd van de componenten
+`dso-annotation-activiteit`, `dso-annotation-gebiedsaanwijzing`, `dso-annotation-locatie` en
+`dso-annotation-omgevingsnormwaarde`. Deze property toonde een vast Label met de tekst "gewijzigde locatie".
+
+In plaats daarvan hebben deze componenten een nieuw `meta` slot gekregen. Hierin plaats je zelf een Label, waardoor je
+de tekst, status en weergave van het Label naar wens kunt aanpassen.
+
+### Migratiepad
+
+Vervang het attribuut `gewijzigde-locatie` door een `dso-label` in het `meta` slot.
+
+```html
+❌
+<dso-annotation-locatie locatie-noemer="Winkelgebied" gewijzigde-locatie>
+  <span class="symboolcode" slot="symbool" data-symboolcode="vszt030"></span>
+</dso-annotation-locatie>
+
+✅
+<dso-annotation-locatie locatie-noemer="Winkelgebied">
+  <span class="symboolcode" slot="symbool" data-symboolcode="vszt030"></span>
+  <dso-label slot="meta" status="warning" compact>gewijzigde locatie</dso-label>
+</dso-annotation-locatie>
+```
+
+Dit geldt ook voor `dso-annotation-activiteit`, `dso-annotation-gebiedsaanwijzing` en
+`dso-annotation-omgevingsnormwaarde`.

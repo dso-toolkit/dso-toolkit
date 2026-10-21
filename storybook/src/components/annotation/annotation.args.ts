@@ -2,6 +2,7 @@ import { ArgTypes } from "@storybook/web-components-vite";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../shared/arg-type-action.js";
+import { Label } from "../label/label.models.js";
 import { RenvooiValue } from "../renvooi/renvooi.models.js";
 
 import {
@@ -19,7 +20,7 @@ interface AnnotationBaseArgs {
   symboolCode: string | undefined;
   wijzigactie: AnnotationWijzigactie | undefined;
   active?: boolean;
-  gewijzigdeLocatie?: boolean;
+  meta?: Label;
   dsoActiveChange(event: AnnotationActiveChangeEvent): void;
 }
 
@@ -28,7 +29,11 @@ const annotationBaseArgs: AnnotationBaseArgs = {
   symboolCode: "vszt030",
   wijzigactie: undefined,
   active: true,
-  gewijzigdeLocatie: true,
+  meta: {
+    status: "warning",
+    compact: true,
+    label: "gewijzigde locatie",
+  },
 };
 
 const annotationArgTypesBase: ArgTypes<AnnotationBaseArgs> = {
@@ -49,9 +54,9 @@ const annotationArgTypesBase: ArgTypes<AnnotationBaseArgs> = {
       type: "boolean",
     },
   },
-  gewijzigdeLocatie: {
+  meta: {
     control: {
-      type: "boolean",
+      type: "object",
     },
   },
   dsoActiveChange: argTypeAction(),

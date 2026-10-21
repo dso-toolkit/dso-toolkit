@@ -396,11 +396,13 @@ export class DocumentComponentDemo implements ComponentInterface {
           <div slot="annotations">
             <dso-annotation-locatie
               active={this.isCheckedSlideToggle(documentComponent)}
-              gewijzigde-locatie
               locatieNoemer={"Winkelgebied"}
               onDsoActiveChange={() => this.handleSelectableChange(documentComponent)}
             >
               <span class="symboolcode" slot="symbool" data-symboolcode="vszt030"></span>
+              <dso-label slot="meta" status="warning" compact>
+                gewijzigde locatie
+              </dso-label>
             </dso-annotation-locatie>
           </div>
         )}
