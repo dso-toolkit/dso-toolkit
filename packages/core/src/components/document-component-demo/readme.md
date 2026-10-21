@@ -32,6 +32,7 @@
 
 - [dso-document-component](../document-component)
 - [dso-annotation-locatie](../annotation/annotation-locatie)
+- [dso-label](../label)
 - [dso-responsive-element](../responsive-element)
 
 ### Graph
@@ -39,6 +40,7 @@
 graph TD;
   dsot-document-component-demo --> dso-document-component
   dsot-document-component-demo --> dso-annotation-locatie
+  dsot-document-component-demo --> dso-label
   dsot-document-component-demo --> dso-responsive-element
   dso-document-component --> dso-icon-button
   dso-document-component --> dso-ozon-content
@@ -66,7 +68,6 @@ graph TD;
   dso-alert --> dso-icon-button
   dso-annotation-locatie --> dso-renvooi
   dso-annotation-locatie --> dso-slide-toggle
-  dso-annotation-locatie --> dso-label
   style dsot-document-component-demo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -267,10 +267,6 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
-        /**
           * De noemer van de locatie.
          */
         "locatieNoemers"?: Array<RenvooiValue | string>;
@@ -296,10 +292,6 @@ export namespace Components {
           * Een optionele boolean die aangeeft of de annotatie actief is.
          */
         "active"?: boolean;
-        /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
         /**
           * De naam van de gebiedsaanwijzing.
          */
@@ -329,10 +321,6 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
-        /**
           * De noemer van de locatie.
          */
         "locatieNoemer"?: RenvooiValue | string;
@@ -350,10 +338,6 @@ export namespace Components {
           * De eenheid van de omgevingsnorm of omgevingswaarde.
          */
         "eenheid"?: RenvooiValue | string;
-        /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
         /**
           * De naam van de omgevingsnorm of omgevingswaarde.
          */
@@ -3115,10 +3099,6 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
-        /**
           * De noemer van de locatie.
          */
         "locatieNoemers"?: Array<RenvooiValue | string>;
@@ -3148,10 +3128,6 @@ declare namespace LocalJSX {
           * Een optionele boolean die aangeeft of de annotatie actief is.
          */
         "active"?: boolean;
-        /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
         /**
           * De naam van de gebiedsaanwijzing.
          */
@@ -3189,10 +3165,6 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
-        /**
           * De noemer van de locatie.
          */
         "locatieNoemer"?: RenvooiValue | string;
@@ -3214,10 +3186,6 @@ declare namespace LocalJSX {
           * De eenheid van de omgevingsnorm of omgevingswaarde.
          */
         "eenheid"?: RenvooiValue | string;
-        /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
         /**
           * De naam van de omgevingsnorm of omgevingswaarde.
          */
@@ -4748,7 +4716,6 @@ declare namespace LocalJSX {
     interface DsoAnnotationActiviteitAttributes {
         "wijzigactie": AnnotationWijzigactie;
         "active": boolean;
-        "gewijzigdeLocatie": boolean;
         "naam": RenvooiValue | string;
         "regelKwalificatie": RenvooiValue | string;
         "regelKwalificatieVoorzetsel": string;
@@ -4756,7 +4723,6 @@ declare namespace LocalJSX {
     interface DsoAnnotationGebiedsaanwijzingAttributes {
         "wijzigactie": AnnotationWijzigactie;
         "active": boolean;
-        "gewijzigdeLocatie": boolean;
         "naam": RenvooiValue | string;
     }
     interface DsoAnnotationKaartAttributes {
@@ -4767,13 +4733,11 @@ declare namespace LocalJSX {
     interface DsoAnnotationLocatieAttributes {
         "wijzigactie": AnnotationWijzigactie;
         "active": boolean;
-        "gewijzigdeLocatie": boolean;
         "locatieNoemer": RenvooiValue | string;
     }
     interface DsoAnnotationOmgevingsnormwaardeAttributes {
         "wijzigactie": AnnotationWijzigactie;
         "active": boolean;
-        "gewijzigdeLocatie": boolean;
         "naam": RenvooiValue | string;
         "toelichting": string;
         "eenheid": RenvooiValue | string;

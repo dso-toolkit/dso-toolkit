@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* **BREAKING** Annotation: Label moet kunnen worden aangepast ([#4033](https://github.com/dso-toolkit/dso-toolkit/issues/4033))
+
 ### Task
 * Packages: Dependencies updates ([#3965](https://github.com/dso-toolkit/dso-toolkit/issues/3965))
 

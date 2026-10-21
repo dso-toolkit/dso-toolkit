@@ -1,3 +1,4 @@
+import { Label } from "../label/label.models.js";
 import { RenvooiValue } from "../renvooi/renvooi.models.js";
 
 export type Annotation =
@@ -27,9 +28,9 @@ interface AnnotationBase {
   active?: boolean;
 
   /**
-   * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
+   * Een optioneel label in het meta slot, bijvoorbeeld om aan te geven dat de locatie van de annotatie gewijzigd is.
    */
-  gewijzigdeLocatie?: boolean;
+  meta?: Label;
 
   /**
    * Een optionele event listener voor wijzigingen aan de status van de annotatie.
