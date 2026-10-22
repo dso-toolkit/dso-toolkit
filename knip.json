@@ -12,10 +12,12 @@
       "entry": ["gulp/**/*.js"],
       "project": ["src/**/*.ts", "gulp/**/*.js"]
     },
-    "packages/core": {},
+    "packages/core": {
+      "entry": ["scripts/readme.ts"]
+    },
     "angular-workspace": {
       "entry": ["projects/component-library/src/public-api.ts"],
-      "ignoreDependencies": ["@angular-devkit/core", "@angular/cdk", "@dso-toolkit/core"]
+      "ignoreDependencies": ["@angular-devkit/core", "@angular/cdk"]
     },
     "storybook": {
       "entry": [".storybook/middleware.js", "scripts/*.ts"],

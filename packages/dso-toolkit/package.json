@@ -27,8 +27,8 @@
     "@types/gulp-filter": "^3.0.41",
     "@types/gulp-postcss": "^8.0.6",
     "@types/gulp-rename": "^2.0.7",
-    "cssnano": "^9.0.3",
-    "del": "^8.0.1",
+    "cssnano": "^9.9.0",
+    "del": "^9.0.1",
     "gulp": "^5.0.1",
     "gulp-filter": "^10.0.0",
     "gulp-postcss": "^10.0.0",
@@ -39,7 +39,7 @@
     "postcss": "catalog:",
     "sass": "catalog:",
     "stylelint": "catalog:",
-    "through2": "^5.0.11",
+    "through2": "^5.0.12",
     "vinyl-sourcemaps-apply": "^0.2.1"
   },
   "nx": {
