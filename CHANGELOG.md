@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Expandable: Maakt alle inhoud zo breed als het breedste element ([#4039](https://github.com/dso-toolkit/dso-toolkit/issues/4039))
 
+### Task
+* Packages: Dependencies updates ([#3965](https://github.com/dso-toolkit/dso-toolkit/issues/3965))
+
 ## 🏋️‍♀️ Release 102.0.0 - 2026-10-20
 
 ### Changed
