@@ -38,20 +38,40 @@ describe("Image Overlay", () => {
     cy.matchImageSnapshot();
 
     cy.get("dso-image-overlay").shadow().find("dso-icon-button.close.hydrated").click();
-    cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
+    cy.get("dso-image-overlay").shadow().find(".wrapper").should("not.exist");
+  });
+
+  it("should keep the caption within the viewport when the viewport is short", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=image:2");
+    cy.injectAxe();
+    cy.viewport(1000, 400);
+
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+    openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".figuur-bijschrift")
+      .should(($caption) => {
+        const caption = $caption[0]!;
+        const { top, bottom } = caption.getBoundingClientRect();
+
+        expect(top).to.be.at.least(0);
+        expect(bottom).to.be.at.most(caption.ownerDocument.defaultView!.innerHeight);
+      });
   });
 
   it("should close overlay on escape", () => {
     openOverlay();
     cy.realPress("Escape");
-    cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
+    cy.get("dso-image-overlay").shadow().find(".wrapper").should("not.exist");
   });
 
   it("should close overlay on click outside", () => {
     openOverlay();
 
     cy.get("body").realClick({ y: 50, x: 50 });
-    cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
+    cy.get("dso-image-overlay").shadow().find(".wrapper").should("not.exist");
   });
 
   it("should only have overlay available if image is zoomable", () => {
