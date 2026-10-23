@@ -12,6 +12,7 @@ const meta: Meta<ImageOverlayArgs> = {
   argTypes: imageOverlayArgTypes,
   args: {
     image: 0,
+    title: "Afbeelding 1",
   },
   parameters: {
     docs: {
