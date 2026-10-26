@@ -60,33 +60,50 @@ describe("Info Button", () => {
     });
 
     it("should update aria-expanded and visibility when toggletip is toggled via keyboard", () => {
-      visitStory("information");
-
       const button = () => getComponent().shadow().find("dso-icon-button").shadow().find("button");
 
       const tooltip = () => getComponent().shadow().find("> .dso-tooltip");
 
       button().should("have.attr", "aria-expanded", "false");
       tooltip().should("have.css", "visibility", "hidden");
+      button().should(($button) => expect($button[0]?.ariaDescribedByElements ?? []).to.be.empty);
 
       button().focus().should("have.focus");
       cy.realPress("Enter");
 
       button().should("have.attr", "aria-expanded", "true");
       tooltip().should("have.css", "visibility", "visible");
+      tooltip().then(($tooltip) =>
+        button().should(($button) => expect($button[0]?.ariaDescribedByElements).to.deep.equal([$tooltip[0]])),
+      );
 
       cy.realPress("Escape");
 
       button().should("have.attr", "aria-expanded", "false");
       tooltip().should("have.css", "visibility", "hidden");
+      button().should(($button) => expect($button[0]?.ariaDescribedByElements ?? []).to.be.empty);
     });
+  });
 
-    it("should not render aria-expanded when there is no toggletip", () => {
-      visitStory("default");
+  it("should reflect active in aria-expanded and aria-controls when there is no toggletip", () => {
+    visitStory("default");
 
-      const button = () => getComponent().shadow().find("dso-icon-button").shadow().find("button");
+    const button = () => getComponent().shadow().find("dso-icon-button").shadow().find("button");
 
-      button().should("not.have.attr", "aria-expanded");
+    getComponent().find("[slot='toggletip']").invoke("remove");
+    cy.document().then((doc) => {
+      const target = doc.createElement("div");
+      target.id = "info-button-controls-target";
+      doc.body.append(target);
     });
+    getComponent().invoke("prop", "controls", "info-button-controls-target");
+
+    button().should("have.attr", "aria-expanded", "false");
+    cy.get("#info-button-controls-target").then(($target) =>
+      button().should(($button) => expect($button[0]?.ariaControlsElements).to.deep.equal([$target[0]])),
+    );
+
+    getComponent().invoke("prop", "active", true);
+    button().should("have.attr", "aria-expanded", "true");
   });
 });

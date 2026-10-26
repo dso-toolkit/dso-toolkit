@@ -19,8 +19,41 @@ describe("Selectable", () => {
     cy.get("@info-content").should("be.visible");
 
     function toggleInfo(active?: boolean) {
-      cy.get("dso-selectable").then(($s) => $s[0].toggleInfo(active));
+      cy.get("dso-selectable").then(($s) => $s[0]!.toggleInfo(active));
     }
+  });
+
+  it("relates the info button to the info and reflects the expanded state", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-selectable--with-info");
+
+    const infoButton = () =>
+      cy.get("dso-selectable.hydrated dso-info-button").shadow().find("dso-icon-button").shadow().find("button");
+
+    cy.get("dso-selectable.hydrated dso-info").then(([info]) => {
+      infoButton().should(($button) => {
+        expect($button).to.have.attr("aria-expanded", "false");
+        expect($button).not.to.have.attr("aria-pressed");
+        expect($button[0]?.ariaControlsElements).to.deep.equal([info]);
+        expect($button[0]?.ariaDescribedByElements ?? []).to.have.length(0);
+      });
+
+      infoButton().realClick();
+      cy.wrap(info).should("have.attr", "active");
+      infoButton().should(($button) => {
+        expect($button).to.have.attr("aria-expanded", "true");
+        expect($button[0]?.ariaDescribedByElements).to.deep.equal([info]);
+      });
+
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-selectable.hydrated");
+
+      infoButton().realClick();
+      cy.wrap(info).should("not.have.attr", "active");
+      infoButton().should(($button) => {
+        expect($button).to.have.attr("aria-expanded", "false");
+        expect($button[0]?.ariaDescribedByElements ?? []).to.have.length(0);
+      });
+    });
   });
 
   it("supports controlled input", () => {
