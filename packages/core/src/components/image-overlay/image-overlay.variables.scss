@@ -1,0 +1,13 @@
+@use "~dso-toolkit/src/variables/units";
+
+$title-font-size: 1.25rem;
+$title-line-height: 1.3;
+$caption-font-size: 0.875rem;
+$caption-line-height: 1.5;
+$title-line-size: $title-font-size * $title-line-height;
+$caption-line-size: $caption-font-size * $caption-line-height;
+$title-padding: units.$u1 * 2;
+$white-border: units.$u1;
+$caption-padding: units.$u1 * 1.75;
+$fixed-spacing: $title-padding + $white-border + $caption-padding;
+$reserved-block-size: calc(#{units.$u4} + #{$title-line-size} + #{$caption-line-size} + #{$fixed-spacing});

@@ -38,20 +38,66 @@ describe("Image Overlay", () => {
     cy.matchImageSnapshot();
 
     cy.get("dso-image-overlay").shadow().find("dso-icon-button.close.hydrated").click();
-    cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
+    cy.get("dso-image-overlay").shadow().find(".wrapper").should("not.exist");
+  });
+
+  it("should keep the caption within the viewport when the viewport is short", () => {
+    cy.viewport(1000, 400);
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=image:2");
+    cy.injectAxe();
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+    openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".content")
+      .should(($content) => {
+        const { top, bottom } = $content[0]!.getBoundingClientRect();
+        const viewportHeight = $content[0]!.ownerDocument.defaultView!.innerHeight;
+
+        expect(top).to.be.at.least(0);
+        expect(bottom).to.be.at.most(viewportHeight);
+      });
+  });
+
+  it("should keep Figma spacing for a wide image in a narrow viewport", () => {
+    cy.viewport(320, 600);
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=image:0");
+    cy.injectAxe();
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+    openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".figuur-bijschrift")
+      .should("have.css", "padding-top", "10px")
+      .and("have.css", "padding-bottom", "4px");
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".content")
+      .should(($content) => {
+        const image = $content.find("img")[0]!.getBoundingClientRect();
+        const close = $content.find(".close")[0]!.getBoundingClientRect();
+        const caption = $content.find(".figuur-bijschrift")[0]!.getBoundingClientRect();
+
+        expect(caption.top, "caption starts directly below image").to.be.closeTo(image.bottom, 1);
+        expect(close.top - image.top, "close button top offset").to.be.closeTo(16, 1);
+        expect(image.right - close.right, "close button right offset").to.be.closeTo(16, 1);
+      });
   });
 
   it("should close overlay on escape", () => {
     openOverlay();
     cy.realPress("Escape");
-    cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
+    cy.get("dso-image-overlay").shadow().find(".wrapper").should("not.exist");
   });
 
   it("should close overlay on click outside", () => {
     openOverlay();
 
     cy.get("body").realClick({ y: 50, x: 50 });
-    cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
+    cy.get("dso-image-overlay").shadow().find(".wrapper").should("not.exist");
   });
 
   it("should only have overlay available if image is zoomable", () => {
@@ -86,11 +132,61 @@ describe("Image Overlay", () => {
       .get("dso-image-overlay")
       .find('div[slot = "bijschrift"] span')
       .should("have.text", "Bijschrift bij afbeelding")
-      .and("be.visible");
+      .and("be.visible")
+      .and("have.css", "font-size", "14px");
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".wrapper")
+      .should(($wrapper) => {
+        const titleBottom = $wrapper.find(".title")[0]!.getBoundingClientRect().bottom;
+        const imageTop = $wrapper.find(".content > img")[0]!.getBoundingClientRect().top;
+
+        expect(titleBottom).to.be.at.most(imageTop);
+      });
+  });
+
+  it("should render a custom title", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=title:Eigen%20titel");
+    cy.injectAxe();
+
+    cy.get("dso-image-overlay").find('div[slot="titel"] span').should("have.text", "Eigen titel");
+  });
+
+  it("should support STOP titles with multiple elements", () => {
+    cy.get('dso-image-overlay div[slot="titel"]').then(($titleSlot) => {
+      const titleSlot = $titleSlot[0]!;
+      const doc = titleSlot.ownerDocument;
+
+      const firstLine = doc.createElement("span");
+      firstLine.textContent = "Wonen, werken en bereikbaarheid";
+
+      const secondLine = doc.createElement("span");
+      secondLine.textContent = "Strategie: VISTA";
+
+      titleSlot.replaceChildren(firstLine, doc.createElement("br"), secondLine);
+    });
+
+    openOverlay();
+
+    cy.get('dso-image-overlay div[slot="titel"] span').should(($lines) => {
+      expect($lines).to.have.length(2);
+      expect($lines[1]!.getBoundingClientRect().top).to.be.at.least($lines[0]!.getBoundingClientRect().bottom);
+    });
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".wrapper")
+      .should(($wrapper) => {
+        const titleBottom = $wrapper.find(".title")[0]!.getBoundingClientRect().bottom;
+        const imageTop = $wrapper.find(".content > img")[0]!.getBoundingClientRect().top;
+
+        expect(titleBottom).to.be.at.most(imageTop);
+      });
   });
 });
 
 function openOverlay() {
   cy.get("@open-button").click();
-  cy.get("dso-image-overlay").shadow().find(".wrapper > div > img").should("be.visible");
+  cy.get("dso-image-overlay").shadow().find(".wrapper .content > img").should("be.visible");
 }
