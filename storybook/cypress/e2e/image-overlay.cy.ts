@@ -42,22 +42,48 @@ describe("Image Overlay", () => {
   });
 
   it("should keep the caption within the viewport when the viewport is short", () => {
+    cy.viewport(1000, 400);
     cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=image:2");
     cy.injectAxe();
-    cy.viewport(1000, 400);
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+    openOverlay();
 
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".content")
+      .should(($content) => {
+        const { top, bottom } = $content[0]!.getBoundingClientRect();
+        const viewportHeight = $content[0]!.ownerDocument.defaultView!.innerHeight;
+
+        expect(top).to.be.at.least(0);
+        expect(bottom).to.be.at.most(viewportHeight);
+      });
+  });
+
+  it("should keep Figma spacing for a wide image in a narrow viewport", () => {
+    cy.viewport(320, 600);
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=image:0");
+    cy.injectAxe();
     cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
     openOverlay();
 
     cy.get("dso-image-overlay")
       .shadow()
       .find(".figuur-bijschrift")
-      .should(($caption) => {
-        const caption = $caption[0]!;
-        const { top, bottom } = caption.getBoundingClientRect();
+      .should("have.css", "padding-top", "10px")
+      .and("have.css", "padding-bottom", "4px");
 
-        expect(top).to.be.at.least(0);
-        expect(bottom).to.be.at.most(caption.ownerDocument.defaultView!.innerHeight);
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".content")
+      .should(($content) => {
+        const image = $content.find("img")[0]!.getBoundingClientRect();
+        const close = $content.find(".close")[0]!.getBoundingClientRect();
+        const caption = $content.find(".figuur-bijschrift")[0]!.getBoundingClientRect();
+
+        expect(caption.top, "caption starts directly below image").to.be.closeTo(image.bottom, 1);
+        expect(close.top - image.top, "close button top offset").to.be.closeTo(16, 1);
+        expect(image.right - close.right, "close button right offset").to.be.closeTo(16, 1);
       });
   });
 
@@ -147,6 +173,16 @@ describe("Image Overlay", () => {
       expect($lines).to.have.length(2);
       expect($lines[1]!.getBoundingClientRect().top).to.be.at.least($lines[0]!.getBoundingClientRect().bottom);
     });
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".wrapper")
+      .should(($wrapper) => {
+        const titleBottom = $wrapper.find(".title")[0]!.getBoundingClientRect().bottom;
+        const imageTop = $wrapper.find(".content > img")[0]!.getBoundingClientRect().top;
+
+        expect(titleBottom).to.be.at.most(imageTop);
+      });
   });
 });
 
