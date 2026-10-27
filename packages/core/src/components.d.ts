@@ -788,11 +788,11 @@ export namespace Components {
     }
     interface DsoIconButton {
         /**
-          * The element controlled by the button. Sets `ariaControlsElements` on the native button when supported.
+          * The element controlled by the button. Sets `ariaControlsElements` on the native button when supported. Intended for a wrapping component passing an element across a shadow boundary.
          */
         "controlsElement"?: HTMLElement;
         /**
-          * The element describing the button. Sets `ariaDescribedByElements` on the native button when supported.
+          * The element describing the button. Sets `ariaDescribedByElements` on the native button when supported. Intended for a wrapping component passing an element across a shadow boundary.
          */
         "describedByElement"?: HTMLElement;
         /**
@@ -854,7 +854,7 @@ export namespace Components {
          */
         "active": boolean;
         /**
-          * The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by the Info Button. Must be in the same document or shadow root as the Info Button.
+          * The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by this Info Button. The element must be in the same document or shadow root as the Info Button. When a toggletip is present, this property is ignored. Without a toggletip, `aria-expanded` is only set when `controls` is provided.
          */
         "controls"?: string;
         /**
@@ -3743,11 +3743,11 @@ declare namespace LocalJSX {
     }
     interface DsoIconButton {
         /**
-          * The element controlled by the button. Sets `ariaControlsElements` on the native button when supported.
+          * The element controlled by the button. Sets `ariaControlsElements` on the native button when supported. Intended for a wrapping component passing an element across a shadow boundary.
          */
         "controlsElement"?: HTMLElement;
         /**
-          * The element describing the button. Sets `ariaDescribedByElements` on the native button when supported.
+          * The element describing the button. Sets `ariaDescribedByElements` on the native button when supported. Intended for a wrapping component passing an element across a shadow boundary.
          */
         "describedByElement"?: HTMLElement;
         /**
@@ -3813,7 +3813,7 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by the Info Button. Must be in the same document or shadow root as the Info Button.
+          * The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by this Info Button. The element must be in the same document or shadow root as the Info Button. When a toggletip is present, this property is ignored. Without a toggletip, `aria-expanded` is only set when `controls` is provided.
          */
         "controls"?: string;
         /**

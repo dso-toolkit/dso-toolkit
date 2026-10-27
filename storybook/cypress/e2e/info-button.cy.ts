@@ -85,12 +85,17 @@ describe("Info Button", () => {
     });
   });
 
-  it("should reflect active in aria-expanded and aria-controls when there is no toggletip", () => {
+  it("should only reflect active in aria-expanded when controls is set and there is no toggletip", () => {
     visitStory("default");
 
     const button = () => getComponent().shadow().find("dso-icon-button").shadow().find("button");
 
     getComponent().find("[slot='toggletip']").invoke("remove");
+
+    button().should("not.have.attr", "aria-expanded");
+    getComponent().invoke("prop", "active", true);
+    button().should("not.have.attr", "aria-expanded");
+
     cy.document().then((doc) => {
       const target = doc.createElement("div");
       target.id = "info-button-controls-target";
@@ -98,12 +103,12 @@ describe("Info Button", () => {
     });
     getComponent().invoke("prop", "controls", "info-button-controls-target");
 
-    button().should("have.attr", "aria-expanded", "false");
+    button().should("have.attr", "aria-expanded", "true");
     cy.get("#info-button-controls-target").then(($target) =>
       button().should(($button) => expect($button[0]?.ariaControlsElements).to.deep.equal([$target[0]])),
     );
 
-    getComponent().invoke("prop", "active", true);
-    button().should("have.attr", "aria-expanded", "true");
+    getComponent().invoke("prop", "active", false);
+    button().should("have.attr", "aria-expanded", "false");
   });
 });

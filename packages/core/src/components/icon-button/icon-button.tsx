@@ -62,13 +62,15 @@ export class IconButton implements ComponentInterface {
   expanded?: boolean;
 
   /**
-   * The element controlled by the button. Sets `ariaControlsElements` on the native button when supported.
+   * The element controlled by the button. Sets `ariaControlsElements` on the native button when supported. Intended
+   * for a wrapping component passing an element across a shadow boundary.
    */
   @Prop()
   controlsElement?: HTMLElement;
 
   /**
-   * The element describing the button. Sets `ariaDescribedByElements` on the native button when supported.
+   * The element describing the button. Sets `ariaDescribedByElements` on the native button when supported. Intended
+   * for a wrapping component passing an element across a shadow boundary.
    */
   @Prop()
   describedByElement?: HTMLElement;

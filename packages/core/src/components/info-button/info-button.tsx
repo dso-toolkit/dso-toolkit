@@ -63,8 +63,9 @@ export class InfoButton implements ComponentInterface {
   toggletipPlacement: TooltipPlacement = "top";
 
   /**
-   * The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by the Info Button. Must be in the same
-   * document or shadow root as the Info Button.
+   * The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by this Info Button. The element must be
+   * in the same document or shadow root as the Info Button. When a toggletip is present, this property is ignored.
+   * Without a toggletip, `aria-expanded` is only set when `controls` is provided.
    */
   @Prop({ reflect: true })
   controls?: string;
@@ -171,7 +172,7 @@ export class InfoButton implements ComponentInterface {
 
   render() {
     const controlsElement = this.hasToggletip ? undefined : this.getControlsElement();
-    const expanded = this.hasToggletip ? this.toggletipActive : this.active;
+    const expanded = this.hasToggletip ? this.toggletipActive : this.controls ? this.active : undefined;
     const describedByElement = expanded ? (this.hasToggletip ? this.toggletipElRef : controlsElement) : undefined;
 
     return (
