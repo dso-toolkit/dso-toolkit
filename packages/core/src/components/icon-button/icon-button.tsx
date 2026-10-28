@@ -62,6 +62,20 @@ export class IconButton implements ComponentInterface {
   expanded?: boolean;
 
   /**
+   * The element controlled by the button. Sets `ariaControlsElements` on the native button when supported. Intended
+   * for a wrapping component passing an element across a shadow boundary.
+   */
+  @Prop()
+  controlsElement?: HTMLElement;
+
+  /**
+   * The element describing the button. Sets `ariaDescribedByElements` on the native button when supported. Intended
+   * for a wrapping component passing an element across a shadow boundary.
+   */
+  @Prop()
+  describedByElement?: HTMLElement;
+
+  /**
    * Whether the button is toggled.
    */
   @Prop({ reflect: true })
@@ -95,6 +109,16 @@ export class IconButton implements ComponentInterface {
 
   disconnectedCallback() {
     this.tooltipController.dispose();
+  }
+
+  componentDidRender(): void {
+    if (this.buttonElRef) {
+      // Stencil's DOM types do not yet include ARIA element reflection properties.
+      Object.assign(this.buttonElRef, {
+        ariaControlsElements: this.controlsElement ? [this.controlsElement] : null,
+        ariaDescribedByElements: this.describedByElement ? [this.describedByElement] : null,
+      });
+    }
   }
 
   private handleClick = (event: MouseEvent) => {

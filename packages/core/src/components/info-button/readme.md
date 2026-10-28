@@ -14,18 +14,21 @@ De toggletip is volledig met het toetsenbord te bedienen:
 - `Escape` sluit de toggletip
 - Focus buiten het component sluit de toggletip
 
-Daarnaast wordt aria-expanded correct bijgewerkt, zodat screenreaders de actuele status kunnen aankondigen.
+Daarnaast wordt `aria-expanded` bijgewerkt, zodat screenreaders de actuele status aankondigen: bij een toggletip volgt
+het de toggletip, anders de property `active` (bijvoorbeeld voor een externe `<dso-info>`, te koppelen via `controls`).
+Zolang de toelichting open is, beschrijft deze de knop, zodat screenreaders de inhoud direct bij het openen voorlezen.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property             | Attribute             | Description                              | Type                                     | Default                   |
-| -------------------- | --------------------- | ---------------------------------------- | ---------------------------------------- | ------------------------- |
-| `active`             | `active`              | Whether the InfoButton is active.        | `boolean`                                | `false`                   |
-| `label`              | `label`               | The label.                               | `string`                                 | `"Toelichting bij optie"` |
-| `toggletipPlacement` | `toggletip-placement` | The placement of the Toggletip on click. | `"bottom" \| "left" \| "right" \| "top"` | `"top"`                   |
+| Property             | Attribute             | Description                                                                                                                                                                                                                                                                                                   | Type                                     | Default                   |
+| -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ------------------------- |
+| `active`             | `active`              | Whether the InfoButton is active.                                                                                                                                                                                                                                                                             | `boolean`                                | `false`                   |
+| `controls`           | `controls`            | The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by this Info Button. The element must be in the same document or shadow root as the Info Button. When a toggletip is present, this property is ignored. Without a toggletip, `aria-expanded` is only set when `controls` is provided. | `string \| undefined`                    | `undefined`               |
+| `label`              | `label`               | The label.                                                                                                                                                                                                                                                                                                    | `string`                                 | `"Toelichting bij optie"` |
+| `toggletipPlacement` | `toggletip-placement` | The placement of the Toggletip on click.                                                                                                                                                                                                                                                                      | `"bottom" \| "left" \| "right" \| "top"` | `"top"`                   |
 
 
 ## Events

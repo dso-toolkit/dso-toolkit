@@ -145,6 +145,8 @@ export class Selectable implements ComponentInterface {
 
   private fallbackIdentifier = createIdentifier("DsoSelectable");
 
+  private infoIdentifier = createIdentifier("DsoSelectableInfo");
+
   private input: HTMLInputElement | undefined;
 
   private handleOnChange = (e: Event) => {
@@ -223,13 +225,14 @@ export class Selectable implements ComponentInterface {
           {hasInfo && !this.infoFixed && (
             <dso-info-button
               active={this.infoActive}
+              controls={this.infoIdentifier}
               onDsoToggle={(e) => (this.infoActive = e.detail.active)}
             ></dso-info-button>
           )}
         </div>
         {hasInfo && (
           <dso-info
-            id={hasInfo && this.infoFixed ? this.describedById : undefined}
+            id={this.infoFixed ? this.describedById : this.infoIdentifier}
             fixed={this.infoFixed}
             active={this.infoActive}
             onDsoClose={() => (this.infoActive = false)}

@@ -788,6 +788,14 @@ export namespace Components {
     }
     interface DsoIconButton {
         /**
+          * The element controlled by the button. Sets `ariaControlsElements` on the native button when supported. Intended for a wrapping component passing an element across a shadow boundary.
+         */
+        "controlsElement"?: HTMLElement;
+        /**
+          * The element describing the button. Sets `ariaDescribedByElements` on the native button when supported. Intended for a wrapping component passing an element across a shadow boundary.
+         */
+        "describedByElement"?: HTMLElement;
+        /**
           * To disable the Icon Button
           * @default false
          */
@@ -845,6 +853,10 @@ export namespace Components {
           * @default false
          */
         "active": boolean;
+        /**
+          * The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by this Info Button. The element must be in the same document or shadow root as the Info Button. When a toggletip is present, this property is ignored. Without a toggletip, `aria-expanded` is only set when `controls` is provided.
+         */
+        "controls"?: string;
         /**
           * The label.
           * @default "Toelichting bij optie"
@@ -3731,6 +3743,14 @@ declare namespace LocalJSX {
     }
     interface DsoIconButton {
         /**
+          * The element controlled by the button. Sets `ariaControlsElements` on the native button when supported. Intended for a wrapping component passing an element across a shadow boundary.
+         */
+        "controlsElement"?: HTMLElement;
+        /**
+          * The element describing the button. Sets `ariaDescribedByElements` on the native button when supported. Intended for a wrapping component passing an element across a shadow boundary.
+         */
+        "describedByElement"?: HTMLElement;
+        /**
           * To disable the Icon Button
           * @default false
          */
@@ -3792,6 +3812,10 @@ declare namespace LocalJSX {
           * @default false
          */
         "active"?: boolean;
+        /**
+          * The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by this Info Button. The element must be in the same document or shadow root as the Info Button. When a toggletip is present, this property is ignored. Without a toggletip, `aria-expanded` is only set when `controls` is provided.
+         */
+        "controls"?: string;
         /**
           * The label.
           * @default "Toelichting bij optie"
@@ -4892,6 +4916,7 @@ declare namespace LocalJSX {
         "active": boolean;
         "label": string;
         "toggletipPlacement": TooltipPlacement;
+        "controls": string;
     }
     interface DsoInputRangeAttributes {
         "min": number;
