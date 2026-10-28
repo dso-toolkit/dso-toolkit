@@ -63,6 +63,14 @@ export class InfoButton implements ComponentInterface {
   toggletipPlacement: TooltipPlacement = "top";
 
   /**
+   * The id of the element (e.g. `<dso-info>`) that is expanded or collapsed by this Info Button. The element must be
+   * in the same document or shadow root as the Info Button. When a toggletip is present, this property is ignored.
+   * Without a toggletip, `aria-expanded` is only set when `controls` is provided.
+   */
+  @Prop({ reflect: true })
+  controls?: string;
+
+  /**
    * Emitted when the user activates the Info Button.
    */
   @Event()
@@ -132,6 +140,14 @@ export class InfoButton implements ComponentInterface {
     this.toggletipController.update(false);
   }
 
+  private getControlsElement(): HTMLElement | undefined {
+    const root = this.host.getRootNode();
+
+    return this.controls && (root instanceof Document || root instanceof ShadowRoot)
+      ? (root.getElementById(this.controls) ?? undefined)
+      : undefined;
+  }
+
   componentDidRender() {
     this.toggletipController.update(this.hasToggletip && this.toggletipActive);
   }
@@ -155,6 +171,10 @@ export class InfoButton implements ComponentInterface {
   }
 
   render() {
+    const controlsElement = this.hasToggletip ? undefined : this.getControlsElement();
+    const expanded = this.hasToggletip ? this.toggletipActive : this.controls ? this.active : undefined;
+    const describedByElement = expanded ? (this.hasToggletip ? this.toggletipElRef : controlsElement) : undefined;
+
     return (
       <Host onKeyDown={this.keyDownHandler}>
         <dso-icon-button
@@ -163,7 +183,9 @@ export class InfoButton implements ComponentInterface {
           onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
           icon={this.active || this.toggletipActive ? "info-solid" : "info-outline"}
           ref={(element) => (this.button = element)}
-          expanded={this.hasToggletip ? this.toggletipActive : undefined}
+          expanded={expanded}
+          controlsElement={controlsElement}
+          describedByElement={describedByElement}
         />
         {this.hasToggletip && (
           <Tooltip
