@@ -237,9 +237,6 @@ catalogs:
     lodash.startcase:
       specifier: ^4.4.0
       version: 4.4.0
-    markdown-to-jsx:
-      specifier: ^9.10.3
-      version: 9.10.3
     prettier:
       specifier: ^3.9.10
       version: 3.9.10
@@ -746,9 +743,6 @@ importers:
       lodash.startcase:
         specifier: 'catalog:'
         version: 4.4.0
-      markdown-to-jsx:
-        specifier: 'catalog:'
-        version: 9.10.3(react@19.3.1)
       start-server-and-test:
         specifier: ^3.0.13
         version: 3.0.13(supports-color@8.1.1)
@@ -8554,24 +8548,6 @@ packages:
 
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
-
-  markdown-to-jsx@9.10.3:
-    resolution: {integrity: sha512-J5/NCmNYQ0ExsnThzvF3F1fSzNYLgROcW2diUqRqoIoiyhoy8DSI06jLuMYk0c86SQd/FiVYJrV6tIgci9S2tQ==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      react: '>= 16.0.0'
-      react-native: '*'
-      solid-js: '>=1.0.0'
-      vue: '>=3.0.0'
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-native:
-        optional: true
-      solid-js:
-        optional: true
-      vue:
-        optional: true
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -21503,10 +21479,6 @@ snapshots:
   markdown-extensions@2.0.0: {}
 
   markdown-table@3.0.4: {}
-
-  markdown-to-jsx@9.10.3(react@19.3.1):
-    optionalDependencies:
-      react: 19.3.1
 
   math-intrinsics@1.1.0: {}
 

@@ -1,0 +1,19 @@
+import expandableReadme from "@dso-toolkit/core/src/components/expandable/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./expandable/expandable.stories";
+
+<Meta of={Stories} />
+
+# Expandable
+
+## Default
+
+<Canvas of={Stories.Default} />
+
+## With Animation
+
+<Canvas of={Stories.WithAnimation} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{expandableReadme}</Markdown>

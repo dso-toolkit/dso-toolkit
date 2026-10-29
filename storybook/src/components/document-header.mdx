@@ -1,0 +1,21 @@
+import documentHeaderReadme from "dso-toolkit/src/components/document-header/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./document-header/document-header.stories";
+
+<Meta of={Stories} />
+
+# Document Header
+
+<Canvas of={Stories.Default} />
+
+## Ontwerp variant
+
+<Canvas of={Stories.DefaultOntwerp} />
+
+## Besluitversie variant
+
+<Canvas of={Stories.DefaultBesluitversie} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{documentHeaderReadme}</Markdown>
