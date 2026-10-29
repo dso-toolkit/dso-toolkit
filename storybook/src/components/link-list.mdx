@@ -1,0 +1,13 @@
+import linkListReadme from "dso-toolkit/src/components/link-list/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./link-list/link-list.stories";
+
+<Meta of={Stories} />
+
+# Link List
+
+<Canvas of={Stories.Ul} />
+
+Een link lijst heeft andere styling (donkergrijze linkkleur en iconen) op een gekleurde achtergrond: bv. in een Highlight Box en in de Footer.
+
+<Markdown>{linkListReadme}</Markdown>

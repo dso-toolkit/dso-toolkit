@@ -1,0 +1,22 @@
+import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
+import * as CoreStories from "./shopping-cart/shopping-cart.stories";
+import coreReadme from "@dso-toolkit/core/src/components/shopping-cart/readme.md?raw";
+import componentsReadme from "@dso-toolkit/core/src/components/shopping-cart/shopping-cart-item/readme.md?raw";
+
+<Meta of={CoreStories} name="Docs" />
+
+### Side
+
+<Canvas of={CoreStories.Side} />
+
+### Main
+
+<Canvas of={CoreStories.Main} />
+
+### Main Alles Verwijderen
+
+<Canvas of={CoreStories.MainAllesVerwijderen} />
+
+<Markdown>{coreReadme}</Markdown>
+
+<Markdown>{componentsReadme}</Markdown>

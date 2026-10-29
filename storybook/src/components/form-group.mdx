@@ -1,0 +1,54 @@
+import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
+import * as Stories from "./form-group/form-group.stories";
+import readme from "dso-toolkit/src/components/form-group/readme.md?raw";
+
+<Meta of={Stories} />
+
+# Form Group
+
+🚧 Documentatie volgt 🚧
+
+## Form Group: Checkboxes
+
+Een checkbox group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
+
+## Form Group: Confirm
+
+🚧 Documentatie volgt 🚧
+
+## Form Group: Files
+
+Dit component ondersteund twee verschillende manieren voor het maken van een upload knop:
+
+- Een `input[type="file"]` met een `label` element
+- Een `button` element
+
+Zie de comments in de HTML. Het gebruik van een `input[type="file"]` is semantisch correcter en voorkomt mogelijke _clickjacking_ warnings in Firefox. Het afhandelen van de upload kan aan `onchange` worden gehangen.
+
+[https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/](https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/)
+
+## Form Group: Input
+
+🚧 Documentatie volgt 🚧
+
+## Form Group: Radios
+
+Een radio group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
+
+## Form Group: Search Bar
+
+🚧 Documentatie volgt 🚧
+
+## Form Group: Select
+
+🚧 Documentatie volgt 🚧
+
+## Form Group: Static
+
+🚧 Documentatie volgt 🚧
+
+## Form Group: Textarea
+
+Attribuut `@rows` is optioneel
+
+<Markdown>{readme}</Markdown>

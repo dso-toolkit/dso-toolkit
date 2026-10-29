@@ -1,0 +1,54 @@
+import { Markdown, Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as Stories from "./plekinfo-card.stories";
+import readme from "@dso-toolkit/core/src/components/plekinfo-card/readme.md?raw";
+import itemReadme from "@dso-toolkit/core/src/components/plekinfo-card/plekinfo-card-item/readme.md?raw";
+
+<Meta of={Stories} name="Docs" />
+
+# Plekinfo Card
+
+Een Plekinfo Card toont informatie over een locatie. De card kan een symbool, rijke content of een lijst met Plekinfo Card Items bevatten.
+
+## Varianten
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### With Content
+
+<Canvas of={Stories.WithContent} />
+
+### Static
+
+<Canvas of={Stories.Static} />
+
+### With Slide Toggle
+
+<Canvas of={Stories.WithSlideToggle} />
+
+### With Label
+
+<Canvas of={Stories.WithLabel} />
+
+### With Name Change
+
+<Canvas of={Stories.WithNameChange} />
+
+### With Name Change Complex
+
+<Canvas of={Stories.WithNameChangeComplex} />
+
+### With Items
+
+<Canvas of={Stories.WithItems} />
+
+### With Omgevingsnorm Items
+
+<Canvas of={Stories.WithOmgevingsnormItems} />
+
+<Markdown>{readme}</Markdown>
+
+## Plekinfo Card Item
+
+<Markdown>{itemReadme}</Markdown>
