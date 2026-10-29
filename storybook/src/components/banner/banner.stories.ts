@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/banner/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { BannerArgs, bannerArgTypes, bannerArgsMapper } from "./banner.args.js";
 import {
@@ -19,14 +17,10 @@ type BannerStory = StoryObj<BannerArgs>;
 
 const meta: Meta<BannerArgs> = {
   title: "Core/Banner",
+  tags: ["!autodocs"],
   argTypes: bannerArgTypes,
   args: {
     icon: true,
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
 };
 

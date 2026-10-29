@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/expandable/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { ExpandableArgs, expandableArgTypes, expandableArgsMapper } from "./expandable.args.js";
 import { expandableContent } from "./expandable.content.js";
@@ -11,19 +9,13 @@ type ExpandableStory = StoryObj<ExpandableArgs>;
 
 const meta: Meta<ExpandableArgs> = {
   title: "Core/Expandable",
+  tags: ["!autodocs"],
   argTypes: expandableArgTypes,
   args: {
     open: false,
   },
   decorators: [decorator],
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-    html: {
-      root: "#expandable-mock",
-    },
-  },
+
   render: (args) => expandableTemplate(expandableArgsMapper(args, expandableContent())),
 };
 

@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/form-group/readme.md?raw";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   FormGroupCheckboxesArgs,
@@ -88,12 +86,8 @@ type FormGroupTextareaStory = StoryObj<FormGroupTextareaArgs>;
 
 const meta: Meta = {
   title: "HTML|CSS/Form Group",
+  tags: ["!autodocs"],
   decorators: [(story) => html`<formGroup>${story()}</formGroup>`],
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

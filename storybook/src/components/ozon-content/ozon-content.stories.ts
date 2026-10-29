@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/ozon-content/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { OzonContentArgs, ozonContentArgTypes, ozonContentArgsMapper } from "./ozon-content.args.js";
@@ -12,12 +10,8 @@ type OzonContentStory = StoryObj<OzonContentArgs>;
 const meta: Meta<OzonContentArgs> = {
   title: "Core/Ozon Content",
   argTypes: ozonContentArgTypes,
+  tags: ["!autodocs"],
   render: (args) => ozonContentTemplate(ozonContentArgsMapper(args)),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

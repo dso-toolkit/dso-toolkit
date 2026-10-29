@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/cursor-tooltip/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   CursorTooltipArgs,
@@ -14,13 +12,9 @@ type CursorTooltipStory = StoryObj<CursorTooltipArgs>;
 
 const meta: Meta<CursorTooltipArgs> = {
   title: "Core/Cursor Tooltip",
+  tags: ["!autodocs"],
   argTypes: cursorTooltipArgTypes,
   args: cursorTooltipArgs,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

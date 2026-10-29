@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/card/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import {
@@ -19,15 +17,11 @@ type CardStory = StoryObj<CardArgs>;
 
 const meta: Meta<CardArgs> = {
   title: "Core/Card",
+  tags: ["!autodocs"],
   argTypes: cardArgTypes,
   args: {
     href: "#",
     dsoCardClick: fn(),
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
 };
 
