@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/table/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { TableArgs, tableArgTypes, tableArgsMapper } from "./table.args.js";
 import {
@@ -16,12 +14,8 @@ type TableStory = StoryObj<TableArgs>;
 
 const meta: Meta<TableArgs> = {
   title: "Core/Table",
+  tags: ["!autodocs"],
   argTypes: tableArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

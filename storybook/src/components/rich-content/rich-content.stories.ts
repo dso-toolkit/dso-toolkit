@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/rich-content/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { RichContentArgs, richContentArgTypes, richContentArgsMapper } from "./rich-content.args.js";
 import { children } from "./rich-content.content.js";
@@ -10,12 +8,8 @@ type RichContentStory = StoryObj<RichContentArgs>;
 
 const meta: Meta<RichContentArgs> = {
   title: "HTML|CSS/Rich Content",
+  tags: ["!autodocs"],
   argTypes: richContentArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/pagination/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { PaginationArgs, paginationArgTypes, paginationArgsMapper } from "./pagination.args.js";
@@ -10,15 +8,12 @@ type PaginationStory = StoryObj<PaginationArgs>;
 
 const meta: Meta<PaginationArgs> = {
   title: "Core/Pagination",
+  tags: ["!autodocs"],
   argTypes: paginationArgTypes,
   args: {
     dsoSelectPage: fn(),
   },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+
   render: (args) => paginationTemplate(paginationArgsMapper(args)),
 };
 

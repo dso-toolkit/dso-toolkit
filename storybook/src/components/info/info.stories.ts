@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/info/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { InfoArgs, infoArgTypes, infoArgsMapper } from "./info.args.js";
@@ -11,12 +9,9 @@ type InfoStory = StoryObj<InfoArgs>;
 
 const meta: Meta<InfoArgs> = {
   title: "Core/Info",
+  tags: ["!autodocs"],
   argTypes: infoArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+
   render: (args) => infoTemplate(infoArgsMapper(args, richContent())),
 };
 

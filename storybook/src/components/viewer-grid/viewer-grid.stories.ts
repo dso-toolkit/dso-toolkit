@@ -1,8 +1,6 @@
-import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { when } from "lit-html/directives/when.js";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { alertTemplate } from "../alert/alert.template.js";
@@ -31,6 +29,7 @@ type ViewerGridStoryArgs = Pick<
 
 const meta: Meta<ViewerGridArgs> = {
   title: "Core/Viewer Grid",
+  tags: ["!autodocs"],
   argTypes: viewerGridArgTypes,
   args: {
     dsoActiveTabSwitch: fn(),
@@ -44,9 +43,6 @@ const meta: Meta<ViewerGridArgs> = {
   parameters: {
     controls: {
       hideNoControlsWarning: true,
-    },
-    docs: {
-      page: () => compiler(readme),
     },
   },
   render: (args) => viewerGridTemplate(viewerGridArgsMapper(args, example)),

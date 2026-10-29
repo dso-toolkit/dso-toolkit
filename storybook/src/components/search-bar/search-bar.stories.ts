@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/search-bar/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { SearchBarArgs, searchBarArgTypes, searchBarArgsMapper } from "./search-bar.args.js";
 import { searchBarTemplate } from "./search-bar.template.js";
@@ -25,13 +23,9 @@ const defaultArgs: SearchBarArgs = {
 
 const meta: Meta<SearchBarArgs> = {
   title: "HTML|CSS/Search Bar",
+  tags: ["!autodocs"],
   argTypes: searchBarArgTypes,
   args: defaultArgs,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
   render: (args) => searchBarTemplate(searchBarArgsMapper(args)),
 };
 

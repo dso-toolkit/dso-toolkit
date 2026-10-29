@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/definition-list/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { DefinitionListArgs, definitionListArgTypes, definitionListArgsMapper } from "./definition-list.args.js";
 import {
@@ -16,12 +14,8 @@ type DefinitionListStory = StoryObj<DefinitionListArgs>;
 
 const meta: Meta<DefinitionListArgs> = {
   title: "HTML|CSS/Definition List",
+  tags: ["!autodocs"],
   argTypes: definitionListArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

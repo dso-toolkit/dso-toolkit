@@ -1,7 +1,4 @@
-import componentsReadme from "@dso-toolkit/core/src/components/map-layer/components/readme.md?raw";
-import readme from "@dso-toolkit/core/src/components/map-layer/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { MapLayerArgs, mapLayerArgTypes, mapLayerArgs, mapLayerArgsMapper } from "./map-layer.args.js";
 import {
@@ -20,11 +17,7 @@ const meta: Meta<MapLayerArgs> = {
   argTypes: mapLayerArgTypes,
   args: mapLayerArgs,
   decorators: [decorator],
-  parameters: {
-    docs: {
-      page: () => compiler(`${readme}\n${componentsReadme}`),
-    },
-  },
+  tags: ["!autodocs"],
 };
 
 export default meta;
