@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/logo/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { LogoArgs, logoArgTypes, logoArgsMapper } from "./logo.args.js";
@@ -16,11 +14,7 @@ const meta: Meta<LogoArgs> = {
     dsoLogoClick: fn(),
   },
   render: (args) => logoTemplate(logoArgsMapper(args)),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+  tags: ["!autodocs"],
 };
 
 export default meta;
