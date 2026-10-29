@@ -1,0 +1,21 @@
+import highlightBoxReadme from "@dso-toolkit/core/src/components/highlight-box/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./highlight-box/highlight-box.stories";
+
+<Meta of={Stories} />
+
+# Highlight Box
+
+<Canvas of={Stories.Default} />
+
+Standaard achtergrondkleur grijs, andere varianten zijn:
+
+- Green
+- Grey with border
+- White with Dropshadow
+- With Banner Image
+- With border
+- With icon
+- Yellow
+
+<Markdown>{highlightBoxReadme}</Markdown>

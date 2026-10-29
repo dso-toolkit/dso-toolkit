@@ -1,0 +1,25 @@
+import legendReadme from "@dso-toolkit/core/src/components/legend/readme.md?raw";
+import legendGroupReadme from "@dso-toolkit/core/src/components/legend/legend-group/readme.md?raw";
+import legendItemReadme from "@dso-toolkit/core/src/components/legend/legend-item/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./legend/legend.stories";
+
+<Meta of={Stories} />
+
+# Legend
+
+## Legenda
+
+<Canvas of={Stories.Legenda} />
+
+## Kaartlagen
+
+<Canvas of={Stories.Kaartlagen} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{legendReadme}</Markdown>
+
+<Markdown>{legendGroupReadme}</Markdown>
+
+<Markdown>{legendItemReadme}</Markdown>

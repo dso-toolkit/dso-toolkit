@@ -1,0 +1,46 @@
+import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
+import * as Stories from "./button-row/button-row.stories";
+import * as ButtonOnColorStories from "../example-pages/Patronen/button-on-color.stories";
+import readme from "dso-toolkit/src/components/button-row/readme.md?raw";
+
+<Meta of={Stories} />
+
+# Button Row
+
+<Canvas of={Stories.Default} />
+
+Button rows geven de gebruiker de mogelijkheid om meerdere buttons achter elkaar te plaatsen. Dit kan dienen om bijvoorbeeld een 'toolbar' na te bootsen of om te laten zien welke opties er mogelijk zijn voor het desbetreffende onderdeel of sector op de pagina. Er gaan maximaal 6 buttons in een `button-row`. Anders wordt het te onoverzichtelijk en verliest het zijn functie.
+
+De buttons die achter elkaar geplaatst worden dienen dezelfde `variant` te hebben: `primary`, `secondary` of `tertiary`. Ze worden niet door elkaar gebruikt.
+
+## Emphasized
+
+<Canvas of={Stories.Emphasized} />
+
+Een variant van de button-row is de `emphasized` variant. Hierin worden `tertiaire` buttons geplaatst die zwart zijn en de row heeft een grijze achtergrond.
+
+## Primaire buttons in een `button-row`
+
+<Canvas of={Stories.PrimaireButtonVarianten} />
+
+Hierboven staan enkele voorbeelden van het gebruik van de primaire button en zijn varianten. Deze zijn hier in de `button-row` gepresenteerd zodat men ook het gebruik van de `row` ziet.
+
+## Secundaire buttons in een `button-row`
+
+<Canvas of={Stories.SecundaireButtonVarianten} />
+
+Hierboven staan enkele voorbeelden van het gebruik van de secundaire button.
+
+## Tertiaire buttons in een `button-row`
+
+<Canvas of={Stories.TertiaireButtonVarianten} />
+
+Hierboven staan enkele voorbeelden van het gebruik van de tertiare button.
+
+## Buttons op witte, lichte en donkere achtergrond
+
+<Canvas of={ButtonOnColorStories.ButtonOnColor} />
+
+Hierboven staan alle buttons getoond op een witte, lichte en donkere achtergrond. De achtergrondkleur van de content bepaalt de achtergrond- en tekstkleur van de button.
+
+<Markdown>{readme}</Markdown>

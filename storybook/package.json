@@ -31,7 +31,6 @@
     "http-server": "^14.1.1",
     "lit-html": "catalog:",
     "lodash.startcase": "catalog:",
-    "markdown-to-jsx": "catalog:",
     "start-server-and-test": "^3.0.13",
     "storybook": "catalog:storybook",
     "tsx": "catalog:",

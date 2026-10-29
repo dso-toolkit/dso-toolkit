@@ -1,0 +1,13 @@
+import richContentReadme from "dso-toolkit/src/components/rich-content/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./rich-content/rich-content.stories";
+
+<Meta of={Stories} />
+
+# Rich Content
+
+Dit component dient te worden ingezet bij alle artikel-achtige werkvormen waar rijke tekst (markup) in voorkomt.
+
+<Canvas of={Stories.RichContent} />
+
+<Markdown>{richContentReadme}</Markdown>

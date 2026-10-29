@@ -1,0 +1,11 @@
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./hero-image/hero-image.stories";
+import readme from "@dso-toolkit/core/src/components/hero-image/readme.md?raw";
+
+<Meta of={Stories} />
+
+# Hero Image
+
+<Canvas of={Stories.Default} />
+
+<Markdown>{readme}</Markdown>

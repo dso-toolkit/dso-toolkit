@@ -1,0 +1,13 @@
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./button-group/button-group.stories";
+import readme from "@dso-toolkit/core/src/components/button-group/readme.md?raw";
+
+<Meta of={Stories} />
+
+# Button Group
+
+<Canvas of={Stories.Default} />
+
+Button Groups zijn een manier om gerelateerde acties of opties te groeperen in een enkele visuele component. Ze helpen gebruikers om snel keuzes te maken en acties uit te voeren zonder te veel ruimte in te nemen op de pagina.
+
+<Markdown>{readme}</Markdown>
