@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Expandable: Maakt alle inhoud zo breed als het breedste element ([#4039](https://github.com/dso-toolkit/dso-toolkit/issues/4039))
+* Card: Default variant plakt de chevron niet aan het laatste woord als de titel lang is ([#3755](https://github.com/dso-toolkit/dso-toolkit/issues/3755))
 * Info-button: screenreader feedback op open- of dichtgeklapt ([#3985](https://github.com/dso-toolkit/dso-toolkit/issues/3985))
 
 ### Task
