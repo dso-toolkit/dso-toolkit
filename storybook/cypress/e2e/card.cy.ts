@@ -81,6 +81,36 @@ describe("Card", () => {
       .should("have.prop", "icon", "download");
   });
 
+  const longLabels = {
+    "with spaces": "Omgevingsplan Nieuwegein ".repeat(12).trim(),
+    "without spaces": "OmgevingsplanNieuwegein".repeat(8),
+  };
+
+  for (const [description, label] of Object.entries(longLabels)) {
+    it(`should keep the icon attached to the last word of a long title (${description})`, () => {
+      cy.viewport(600, 600)
+        .visit(`http://localhost:45000/iframe.html?id=core-card--default&args=label:${encodeURIComponent(label)}`)
+        .get("dso-card.hydrated [slot='heading']")
+        .should("have.text", label)
+        .then(($heading) => {
+          const lineRects = $heading[0].getClientRects();
+          const lastLine = lineRects[lineRects.length - 1];
+          expect(lineRects.length, "heading wraps over multiple lines").to.be.greaterThan(1);
+
+          cy.get("dso-card.hydrated")
+            .shadow()
+            .find("a.heading-anchor > dso-icon")
+            .then(($icon) => {
+              const icon = $icon[0].getBoundingClientRect();
+              const iconCenter = icon.top + icon.height / 2;
+
+              expect(iconCenter, "icon is on the last line").to.be.within(lastLine.top, lastLine.bottom);
+              expect(icon.left - lastLine.right, "icon follows the last word").to.be.within(0, 16);
+            });
+        });
+    });
+  }
+
   it("should show different background-color when active='true'", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-card--default")
       .get("dso-card.hydrated")
