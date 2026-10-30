@@ -8,6 +8,7 @@
   padding-inline-start: var(--_dso-selectable-padding-inline-start, selectable-variables.$symbol-indent);
   position: relative;
   display: var(--dso-selectable-display, block);
+  isolation: isolate;
 
   label {
     font-weight: 400;
