@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/button/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { ButtonArgs, buttonArgTypes, buttonArgsMapper } from "./button.args.js";
@@ -15,11 +13,7 @@ const meta: Meta<ButtonArgs> = {
     element: "button",
     click: fn(),
   },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+  tags: ["!autodocs"],
   render: (args) => buttonTemplate(buttonArgsMapper(args)),
 };
 

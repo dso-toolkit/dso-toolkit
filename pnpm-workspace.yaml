@@ -20,7 +20,6 @@ catalog:
   http-proxy-middleware: "^4.2.0"
   lodash.startcase: "^4.4.0"
   lit-html: "^3.3.3"
-  markdown-to-jsx: ^9.10.3
   postcss: ^8.5.31
   prettier: ^3.9.10
   react: ^19.3.1

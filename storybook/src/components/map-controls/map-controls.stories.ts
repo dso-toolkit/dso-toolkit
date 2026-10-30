@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/map-controls/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { MapControlsArgs, mapControlsArgTypes, mapControlsArgsMapper } from "./map-controls.args.js";
@@ -12,6 +10,7 @@ type MapControlsStory = StoryObj<MapControlsArgs>;
 
 const meta: Meta<MapControlsArgs> = {
   title: "Core/Map Controls",
+  tags: ["!autodocs"],
   argTypes: mapControlsArgTypes,
   args: {
     open: false,
@@ -27,9 +26,6 @@ const meta: Meta<MapControlsArgs> = {
   parameters: {
     html: {
       root: "#map-container-mock",
-    },
-    docs: {
-      page: () => compiler(readme),
     },
   },
   render: (args) => mapControlsTemplate(mapControlsArgsMapper(args)),

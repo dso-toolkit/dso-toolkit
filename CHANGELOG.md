@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Viewer Grid: Aanpassing breedtes ([#3555](https://github.com/dso-toolkit/dso-toolkit/issues/3555))
 * Image Overlay: Titel en sluiten-knop van vergrote afbeelding vallen over afbeelding heen ([#3491](https://github.com/dso-toolkit/dso-toolkit/issues/3491))
 
+### Docs
+* Documentatie: Verhuis componentendocumentatie van Docusaurus naar Storybook ([#3932](https://github.com/dso-toolkit/dso-toolkit/issues/3932))
+
 ### Fixed
 * Expandable: Maakt alle inhoud zo breed als het breedste element ([#4039](https://github.com/dso-toolkit/dso-toolkit/issues/4039))
 * Info-button: screenreader feedback op open- of dichtgeklapt ([#3985](https://github.com/dso-toolkit/dso-toolkit/issues/3985))

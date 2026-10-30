@@ -1,7 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/highlight-box/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 
 import { buttonTemplate } from "../button/button.template.js";
 import { linkTemplate } from "../link/link.template.js";
@@ -14,6 +12,7 @@ type HighlightBoxStory = StoryObj<HighlightBoxArgs>;
 
 const meta: Meta<HighlightBoxArgs> = {
   title: "Core/Highlight Box",
+  tags: ["!autodocs"],
   argTypes: highlightBoxArgTypes,
   args: {
     yellow: false,
@@ -23,11 +22,6 @@ const meta: Meta<HighlightBoxArgs> = {
     bannerImage: false,
   },
   render: (args) => highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

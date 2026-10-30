@@ -1,0 +1,21 @@
+import mapMessageReadme from "@dso-toolkit/core/src/components/map-message/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./map-message/map-message.stories";
+
+<Meta of={Stories} />
+
+# Map Message
+
+## success
+
+<Canvas of={Stories.Success} />
+
+## Error
+
+<Canvas of={Stories.Error} />
+
+## Instruction
+
+<Canvas of={Stories.Instruction} />
+
+<Markdown>{mapMessageReadme}</Markdown>

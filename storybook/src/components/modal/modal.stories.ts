@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { ModalArgs, modalArgTypes, modalArgsMapper } from "./modal.args.js";
@@ -20,15 +18,11 @@ type ModalStory = StoryObj<ModalArgs>;
 
 const meta: Meta<ModalArgs> = {
   title: "Core/Modal",
+  tags: ["!autodocs"],
   argTypes: modalArgTypes,
   args: {
     closable: true,
     dsoClose: fn(),
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
 };
 

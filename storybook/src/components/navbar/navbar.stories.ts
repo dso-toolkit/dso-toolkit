@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/navbar/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { MarkBarArgs, markBarArgsMapper } from "../mark-bar/mark-bar.args.js";
 import { markBarTemplate } from "../mark-bar/mark-bar.template.js";
@@ -12,14 +10,10 @@ type NavbarStory = StoryObj<NavbarArgs>;
 
 const meta: Meta<NavbarArgs> = {
   title: "HTML|CSS/Navbar",
+  tags: ["!autodocs"],
   argTypes: navbarArgTypes,
   args: navbarArgs,
   render: (args) => navbarTemplate(navbarArgsMapper(args)),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

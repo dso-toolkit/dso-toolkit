@@ -1,0 +1,24 @@
+import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
+import * as Stories from "./history-item/history-item.stories";
+import * as InWerkingExampleStories from "../example-pages/Patronen/History Item/history-item-in-werking.stories";
+import * as OntwerpExampleStories from "../example-pages/Patronen/History Item/history-item-ontwerp.stories";
+import readme from "@dso-toolkit/core/src/components/history-item/readme.md?raw";
+
+<Meta of={Stories} />
+
+# History Item
+
+<Canvas of={Stories.InWerking} />
+<Canvas of={Stories.Besluit} />
+<Canvas of={Stories.TijdelijkRegelingdeel} />
+<Canvas of={Stories.TijdelijkRegelingdeelBesluit} />
+<Canvas of={Stories.Waarschuwing} />
+<Canvas of={Stories.Ontwerp} />
+
+<Canvas of={InWerkingExampleStories.HistoryItemInWerking} />
+
+<Canvas of={OntwerpExampleStories.HistoryItemOntwerp} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{readme}</Markdown>

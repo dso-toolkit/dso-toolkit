@@ -1,0 +1,69 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Voor developers/React bindings" />
+
+# React bindings
+
+De toolkit levert gegenereerde React-wrappers voor de Web Components. Gebruik deze bindings in een React-applicatie; zij geven props door aan het onderliggende Web Component en maken events beschikbaar als React event handlers.
+
+## Met React bindings
+
+Installeer de React bindings naast de basis package:
+
+```sh
+npm install @dso-toolkit/react
+```
+
+Importeer de gegenereerde `Dso*`-componenten. Props worden als JSX-props gezet en custom events worden beluisterd met een `onDso...`-prop.
+
+```tsx
+import { useState } from "react";
+
+import { DsoDatePicker } from "@dso-toolkit/react";
+
+export function App() {
+  const [date, setDate] = useState("");
+
+  return <DsoDatePicker value={date} onDsoDateChange={(event) => setDate(event.detail.value)} />;
+}
+```
+
+Gebruik `<DsoDatePicker>` en niet rechtstreeks `<dso-date-picker>`. Voor een event met de naam `dsoChange` is de React-prop `onDsoChange`; `dsoSelect` en `dsoSearch` worden respectievelijk `onDsoSelect` en `onDsoSearch`. Bij Autosuggest ziet dat er bijvoorbeeld zo uit: `<DsoAutosuggest onDsoChange={handleChange} onDsoSelect={handleSelect} onDsoSearch={handleSearch} />`.
+
+## Zonder React bindings
+
+Zonder bindings gebruik je de Web Components rechtstreeks. Registreer ieder gebruikt component expliciet; dit is tree shakeable, maar wordt bij veel componenten foutgevoeliger.
+
+```sh
+npm install @dso-toolkit/core
+```
+
+```ts
+import { defineCustomElementDsoDatePicker } from "@dso-toolkit/core";
+
+defineCustomElementDsoDatePicker();
+```
+
+Zet properties op het DOM-element en luister naar custom events met `addEventListener`.
+
+```tsx
+import { useEffect, useRef } from "react";
+
+export function App() {
+  const datePicker = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const element = datePicker.current;
+    if (!element) return;
+
+    const onDateChange = (event: Event) => console.log((event as CustomEvent).detail);
+    element.addEventListener("dsoDateChange", onDateChange);
+
+    return () => element.removeEventListener("dsoDateChange", onDateChange);
+  }, []);
+
+  return <dso-date-picker ref={datePicker} value={"01-01-2024"} />;
+}
+```
+
+Zie ook de [Stencil-documentatie voor React](https://stenciljs.com/docs/react#usage).

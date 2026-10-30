@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/attachments-counter/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   AttachmentsCounterArgs,
@@ -13,12 +11,8 @@ type AttachmentsCounterStory = StoryObj<AttachmentsCounterArgs>;
 
 const meta: Meta<AttachmentsCounterArgs> = {
   title: "Core/Attachments Counter",
+  tags: ["!autodocs"],
   argTypes: attachmentsCounterArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

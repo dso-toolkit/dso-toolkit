@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/link/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { LinkArgs, linkArgTypes, linkArgsMapper } from "./link.args.js";
 import { linkTemplate } from "./link.template.js";
@@ -10,11 +8,7 @@ type LinkStory = StoryObj<LinkArgs>;
 const meta: Meta<LinkArgs> = {
   title: "HTML|CSS/Link",
   argTypes: linkArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+  tags: ["!autodocs"],
   render: (args) => linkTemplate(linkArgsMapper(args)),
 };
 

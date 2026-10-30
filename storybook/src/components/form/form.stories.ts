@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/form/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { FormArgs, formArgTypes, formArgsMapper } from "./form.args.js";
 import { formGroupCollectionContent, formGroupContent } from "./form.content.js";
@@ -10,12 +8,8 @@ type FormStory = StoryObj<FormArgs>;
 
 const meta: Meta<FormArgs> = {
   title: "HTML|CSS/Form",
+  tags: ["!autodocs"],
   argTypes: formArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

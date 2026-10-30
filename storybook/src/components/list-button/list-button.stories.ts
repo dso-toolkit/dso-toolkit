@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/list-button/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { ListButtonArgs, listButtonArgTypes, listButtonArgsMapper, listButtonDefaultArgs } from "./list-button.args.js";
@@ -11,17 +9,14 @@ type ListButtonStory = StoryObj<ListButtonArgs>;
 
 const meta: Meta<ListButtonArgs> = {
   title: "Core/List Button",
+  tags: ["!autodocs"],
   argTypes: listButtonArgTypes,
   args: {
     label: "Milieubelastende activiteit - Melding",
     dsoCountChange: fn(),
     dsoSelectedChange: fn(),
   },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+
   render: (args) => listButtonTemplate(listButtonConnector([listButtonArgsMapper(args)])),
 };
 

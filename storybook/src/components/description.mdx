@@ -1,0 +1,15 @@
+import descriptionReadme from "dso-toolkit/src/components/description/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./description/description.stories";
+
+<Meta of={Stories} />
+
+# Description
+
+<Canvas of={Stories.Example} />
+
+Het content element (`.dso-description-content`) moet direct na het Description element worden gebruikt. Het tonen/verbergen van de content kan met een `.dso-open` modifier op `.dso-description-term`, maar het content element mag ook scriptend volledig achterwege worden gelaten.
+
+Als scriptend het content element achterwege wordt gelaten, moet bij het tonen van de content nog steeds `.dso-open` op het term element geplaatst worden, en het content element moet nog steeds direct na het term element worden geplaatst.
+
+<Markdown>{descriptionReadme}</Markdown>

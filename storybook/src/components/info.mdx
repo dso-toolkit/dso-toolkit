@@ -1,0 +1,13 @@
+import infoReadme from "@dso-toolkit/core/src/components/info/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./info/info.stories";
+
+<Meta of={Stories} />
+
+# Info
+
+<Canvas of={Stories.Default} />
+
+Afbeeldingen worden in <code>form dso-info</code> in het midden uitgelijnd
+
+<Markdown>{infoReadme}</Markdown>

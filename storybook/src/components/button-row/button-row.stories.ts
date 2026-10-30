@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/button-row/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { ButtonRowArgs, buttonRowArgTypes, buttonRowArgsMapper } from "./button-row.args.js";
 import { buttonRowTemplate } from "./button-row.template.js";
@@ -9,12 +7,8 @@ type ButtonRowStory = StoryObj<ButtonRowArgs>;
 
 const meta: Meta<ButtonRowArgs> = {
   title: "HTML|CSS/Button Row",
+  tags: ["!autodocs"],
   argTypes: buttonRowArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
   render: (args) => buttonRowTemplate(buttonRowArgsMapper(args)),
 };
 

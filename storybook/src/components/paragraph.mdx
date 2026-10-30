@@ -1,0 +1,17 @@
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./paragraph/paragraph.stories";
+import readme from "dso-toolkit/src/components/paragraph/readme.md?raw";
+
+<Meta of={Stories} />
+
+# Paragraph
+
+## Default
+
+<Canvas of={Stories.Default} />
+
+## Disclaimer
+
+<Canvas of={Stories.Disclaimer} />
+
+<Markdown>{readme}</Markdown>

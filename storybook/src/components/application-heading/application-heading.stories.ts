@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/application-heading/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   ApplicationHeadingArgs,
@@ -13,12 +11,9 @@ type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs>;
 
 const meta: Meta<ApplicationHeadingArgs> = {
   title: "HTML|CSS/Application Heading",
+  tags: ["!autodocs"],
   argTypes: applicationHeadingArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+
   render: (args) => applicationHeadingTemplate(applicationHeadingArgsMapper(args)),
 };
 

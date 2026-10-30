@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/selectable/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { v4 as uuidv4 } from "uuid";
 
 import { SelectableArgs, selectableArgTypes, selectableArgsMapper } from "./selectable.args.js";
@@ -12,6 +10,7 @@ type SelectableStory = StoryObj<SelectableArgs>;
 
 const meta: Meta<SelectableArgs> = {
   title: "Core/Selectable",
+  tags: ["!autodocs"],
   argTypes: selectableArgTypes,
   args: {
     type: "radio",
@@ -26,11 +25,7 @@ const meta: Meta<SelectableArgs> = {
     required: false,
     value: "the-value",
   },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+
   render: (args) => selectableTemplate(selectableArgsMapper(args, infoRichContent())),
 };
 

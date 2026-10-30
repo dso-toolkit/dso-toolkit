@@ -1,0 +1,49 @@
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./annotation/annotation.stories";
+import activiteitReadme from "@dso-toolkit/core/src/components/annotation/annotation-activiteit/readme.md?raw";
+import gebiedsaanwijzingReadme from "@dso-toolkit/core/src/components/annotation/annotation-gebiedsaanwijzing/readme.md?raw";
+import kaartReadme from "@dso-toolkit/core/src/components/annotation/annotation-kaart/readme.md?raw";
+import locatieReadme from "@dso-toolkit/core/src/components/annotation/annotation-locatie/readme.md?raw";
+import omgevingsnormwaardeReadme from "@dso-toolkit/core/src/components/annotation/annotation-omgevingsnormwaarde/readme.md?raw";
+import rootReadme from "@dso-toolkit/core/src/components/annotation/readme.md?raw";
+
+<Meta of={Stories} />
+
+# Annotation
+
+## Activiteit
+
+<Canvas of={Stories.Activiteit} />
+
+🚧 Documentatie volgt 🚧
+
+## Gebiedsaanwijzing
+
+<Canvas of={Stories.Gebiedsaanwijzing} />
+
+🚧 Documentatie volgt 🚧
+
+## Kaart
+
+<Canvas of={Stories.Kaart} />
+
+🚧 Documentatie volgt 🚧
+
+## Locatie
+
+<Canvas of={Stories.Locatie} />
+
+🚧 Documentatie volgt 🚧
+
+## Omgevingsnormwaarde
+
+<Canvas of={Stories.Omgevingsnormwaarde} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{rootReadme}</Markdown>
+<Markdown>{activiteitReadme}</Markdown>
+<Markdown>{gebiedsaanwijzingReadme}</Markdown>
+<Markdown>{omgevingsnormwaardeReadme}</Markdown>
+<Markdown>{kaartReadme}</Markdown>
+<Markdown>{locatieReadme}</Markdown>
