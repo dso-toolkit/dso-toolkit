@@ -93,19 +93,29 @@ export class Card implements ComponentInterface {
                 rel="noopener noreferrer"
                 onClick={(e) => this.clickEventHandler(e)}
               >
-                <slot name="heading" />
+                <span class="heading-content">
+                  <slot name="heading" />
+                </span>
+                {/* Word joiner: prevents a line break between label text and icon */}
+                {"\u2060"}
                 <dso-icon icon="external-link"></dso-icon>
                 <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
               </a>
             )) ||
               (this.mode === "download" && (
                 <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
-                  <slot name="heading" />
+                  <span class="heading-content">
+                    <slot name="heading" />
+                  </span>
+                  {"\u2060"}
                   <dso-icon icon="download"></dso-icon>
                 </a>
               )) || (
                 <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
-                  <slot name="heading" />
+                  <span class="heading-content">
+                    <slot name="heading" />
+                  </span>
+                  {"\u2060"}
                   <dso-icon icon="chevron-right"></dso-icon>
                 </a>
               )}
