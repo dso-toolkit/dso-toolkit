@@ -1,5 +1,4 @@
-import imageReadme from "dso-toolkit/src/components/image/readme.md?raw";
-import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
 import * as Stories from "./image/image.stories";
 
 <Meta of={Stories} />
@@ -11,5 +10,3 @@ import * as Stories from "./image/image.stories";
 Afbeeldingen kunnen responsive worden gemaakt via het toevoegen van de `.img-responsive` class. Deze voegt `max-width 100%; height: auto; display: block` toe aan de afbeelding, zodat hij netjes met zijn parent meeschaalt.
 
 Om afbeeldingen, die gebruik maken van `.img-responsive`, te centreren - gebruik `.center-block` in plaats van `.text-center`
-
-<Markdown>{imageReadme}</Markdown>

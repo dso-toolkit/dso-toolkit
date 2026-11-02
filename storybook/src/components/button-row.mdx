@@ -1,7 +1,6 @@
-import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
 import * as Stories from "./button-row/button-row.stories";
 import * as ButtonOnColorStories from "../example-pages/Patronen/button-on-color.stories";
-import readme from "dso-toolkit/src/components/button-row/readme.md?raw";
 
 <Meta of={Stories} />
 
@@ -42,5 +41,3 @@ Hierboven staan enkele voorbeelden van het gebruik van de tertiare button.
 <Canvas of={ButtonOnColorStories.ButtonOnColor} />
 
 Hierboven staan alle buttons getoond op een witte, lichte en donkere achtergrond. De achtergrondkleur van de content bepaalt de achtergrond- en tekstkleur van de button.
-
-<Markdown>{readme}</Markdown>
