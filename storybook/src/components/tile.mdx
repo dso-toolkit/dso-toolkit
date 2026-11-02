@@ -1,5 +1,4 @@
-import tileReadme from "dso-toolkit/src/components/tile/readme.md?raw";
-import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
 import * as Stories from "./tile/tile.stories";
 
 <Meta of={Stories} />
@@ -9,5 +8,3 @@ import * as Stories from "./tile/tile.stories";
 <Canvas of={Stories.Default} />
 
 De breedte van het element wordt gedicteerd door de breedte van het omliggende element. Als afbeelding kan alleen een `<img>` gebruikt worden.
-
-<Markdown>{tileReadme}</Markdown>
