@@ -88,10 +88,12 @@
 
   @if $icon-placement == "before" {
     padding-inline-start: var(--_dso-link-icon-padding-inline-start, 1.5em);
+    padding-inline-end: 0;
     background-position: bottom -3px left 0;
   }
 
   @if $icon-placement == "after" {
+    padding-inline-start: 0;
     padding-inline-end: var(--_dso-link-icon-padding-inline-end, 1.5em);
     background-position: bottom -3px right 0;
   }
