@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/list/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { ListArgs, listArgTypes, listArgsMapper } from "./list.args.js";
 import { Type } from "./list.models.js";
@@ -19,12 +17,9 @@ const meta: Meta<ListArgs> = {
       { text: "Ingediende verzoeken" },
     ],
   },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+
   title: "HTML|CSS/List",
+  tags: ["!autodocs"],
   render: (args) => listTemplate(listArgsMapper(args)),
 };
 

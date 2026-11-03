@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/description/readme.md?raw";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   DescriptionArgs,
@@ -18,11 +16,7 @@ type DescriptionExampleStory = StoryObj<DescriptionExampleArgs>;
 
 const meta: Meta = {
   title: "HTML|CSS/Description",
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+  tags: ["!autodocs"],
 };
 
 export default meta;

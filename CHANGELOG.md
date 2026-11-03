@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Documentatie: Verhuis componentendocumentatie van Docusaurus naar Storybook ([#3932](https://github.com/dso-toolkit/dso-toolkit/issues/3932))
+
 ### Fixed
 * Link: Mailto-link toont onbedoelde rechterpadding ([#4052](https://github.com/dso-toolkit/dso-toolkit/issues/4052))
 

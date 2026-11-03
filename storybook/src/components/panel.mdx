@@ -1,0 +1,21 @@
+import panelReadme from "@dso-toolkit/core/src/components/panel/readme.md?raw";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./panel/panel.stories";
+
+<Meta of={Stories} />
+
+# Panel
+
+## Varianten
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Emphasized
+
+<Canvas of={Stories.Emphasized} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{panelReadme}</Markdown>

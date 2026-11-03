@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/slide-toggle/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
@@ -17,14 +15,10 @@ type SlideToggleStory = StoryObj<SlideToggleArgs>;
 
 const meta: Meta<SlideToggleArgs> = {
   title: "Core/Slide Toggle",
+  tags: ["!autodocs"],
   argTypes: slideToggleArgTypes,
   args: {
     dsoActiveChange: fn(),
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
   render: (args) => slideToggleTemplate(slideToggleConnector([slideToggleArgsMapper(args)])),
 };

@@ -21,16 +21,16 @@ export const decorator: Decorator = (story) => html`
       padding: 0;
       margin: 16px 48px;
       gap: 4px;
-    }
 
-    li {
-      text-align: center;
-      padding: 16px;
-      background-color: #efefef;
-    }
+      li {
+        text-align: center;
+        padding: 16px;
+        background-color: #efefef;
+      }
 
-    dso-icon {
-      margin-block-end: 16px;
+      dso-icon {
+        margin-block-end: 16px;
+      }
     }
   </style>
 `;

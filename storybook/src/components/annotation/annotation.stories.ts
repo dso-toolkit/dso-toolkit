@@ -1,11 +1,4 @@
-import activiteitReadme from "@dso-toolkit/core/src/components/annotation/annotation-activiteit/readme.md?raw";
-import gebiedsaanwijzingReadme from "@dso-toolkit/core/src/components/annotation/annotation-gebiedsaanwijzing/readme.md?raw";
-import kaartReadme from "@dso-toolkit/core/src/components/annotation/annotation-kaart/readme.md?raw";
-import locatieReadme from "@dso-toolkit/core/src/components/annotation/annotation-locatie/readme.md?raw";
-import omgevingsnormwaardeReadme from "@dso-toolkit/core/src/components/annotation/annotation-omgevingsnormwaarde/readme.md?raw";
-import rootReadme from "@dso-toolkit/core/src/components/annotation/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   AnnotationActiviteitArgs,
@@ -32,15 +25,6 @@ import {
 import { decorator } from "./annotation.decorator.js";
 import { annotationTemplate } from "./annotation.template.js";
 
-const readme = [
-  rootReadme,
-  activiteitReadme,
-  gebiedsaanwijzingReadme,
-  omgevingsnormwaardeReadme,
-  kaartReadme,
-  locatieReadme,
-].join("\n\n");
-
 type AnnotationActiviteitStory = StoryObj<AnnotationActiviteitArgs>;
 type AnnotationGebiedsaanwijzingStory = StoryObj<AnnotationGebiedsaanwijzingArgs>;
 type AnnotationOmgevingsnormwaardeStory = StoryObj<AnnotationOmgevingsnormwaardeArgs>;
@@ -50,11 +34,7 @@ type AnnotationKaartStory = StoryObj<AnnotationKaartArgs>;
 const meta: Meta = {
   title: "Core/Annotation",
   decorators: [decorator],
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+  tags: ["!autodocs"],
 };
 
 export default meta;

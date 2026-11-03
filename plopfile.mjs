@@ -54,6 +54,11 @@ export default function (/** @type {import('plop').NodePlopAPI} */ plop) {
         templateFile: "plop-templates/storybook-boilerplate/component.stories.ts.hbs",
         path: "storybook/src/components/{{ kebabCase name }}/{{ kebabCase name }}.stories.ts",
       },
+      {
+        type: "add",
+        templateFile: "plop-templates/storybook-boilerplate/component.mdx.hbs",
+        path: "storybook/src/components/{{ kebabCase name }}.mdx",
+      },
     ],
   });
 }

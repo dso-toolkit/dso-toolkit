@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/icon-button/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import icons from "../../../assets/icons.json";
 
@@ -11,13 +9,9 @@ type IconButtonStory = StoryObj<IconButtonArgs>;
 
 const meta: Meta<IconButtonArgs> = {
   title: "Core/Icon Button",
+  tags: ["!autodocs"],
   args: iconButtonArgs,
   render: (args) => iconButtonTemplate(args),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

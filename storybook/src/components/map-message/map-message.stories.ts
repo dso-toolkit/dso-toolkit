@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/map-message/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { MapMessageArgs, mapMessageArgTypes, mapMessageArgsMapper } from "./map-message.args.js";
 import { mapMessageTemplate } from "./map-message.template.js";
@@ -9,12 +7,9 @@ type MapMessageStory = StoryObj<MapMessageArgs>;
 
 const meta: Meta<MapMessageArgs> = {
   title: "Core/Map Message",
+  tags: ["!autodocs"],
   argTypes: mapMessageArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+
   render: (args) => mapMessageTemplate(mapMessageArgsMapper(args)),
 };
 

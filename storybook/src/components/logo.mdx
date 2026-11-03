@@ -1,0 +1,17 @@
+import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
+import * as Stories from "./logo/logo.stories";
+import readme from "@dso-toolkit/core/src/components/logo/readme.md?raw";
+
+<Meta of={Stories} />
+
+# Logo
+
+<Canvas of={Stories.Default} />
+
+<Canvas of={Stories.WithLabel} />
+
+<Canvas of={Stories.WithRibbon} />
+
+<Canvas of={Stories.WithLabelAndRibbon} />
+
+<Markdown>{readme}</Markdown>

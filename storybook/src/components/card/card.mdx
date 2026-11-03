@@ -1,0 +1,58 @@
+import { Markdown, Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as Stories from "./card.stories";
+import readme from "@dso-toolkit/core/src/components/card/readme.md?raw";
+
+<Meta of={Stories} name="Docs" />
+
+# Card
+
+Cards zijn containers voor korte stukken informatie die met elkaar te maken hebben. Qua grootte en vorm lijken ze op speelkaarten.
+
+## Wanneer te gebruiken
+
+Cards passen beter in een situatie waarbij gebruikers browsen voor informatie dan wanneer ze een zoekveld gebruiken. Gebruik ze om samenhangende informatie visueel te groeperen wanneer de gebruiker een actie moet ondernemen of kan doorklikken naar aanvullende details.
+
+## Wanneer niet te gebruiken
+
+Gebruik geen cards als content al als samenhangend geheel bij elkaar staat, zoals een lijst met dezelfde producten. Gebruik ze ook niet als content in een vaste volgorde moet worden gelezen.
+
+## Hoe te gebruiken
+
+Een Card mag uitsluitend in een [Card List of Card Grid](?path=/docs/core-card-container--docs) worden gebruikt. Zorg dat alle elementen in een card over hetzelfde onderwerp gaan, gebruik alleen essentiële informatie en maak de hele card klikbaar.
+
+## Gedrag en toegankelijkheid
+
+Geef het informatieknopje het `sr-only`-tekstalternatief "toon informatie over [titel card]", zodat screenreadergebruikers weten bij welke card het knopje hoort.
+
+## Varianten
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### With Selectable And Button
+
+<Canvas of={Stories.WithSelectableAndButton} />
+
+### With Button
+
+<Canvas of={Stories.WithButton} />
+
+### With Label
+
+<Canvas of={Stories.WithLabel} />
+
+### With Slide Toggle
+
+<Canvas of={Stories.WithSlideToggle} />
+
+### With Toggletip
+
+<Canvas of={Stories.WithInfoButtonWithToggletip} />
+
+## Bronvermelding
+
+- Nielsen Norman Group. [Cards: UI-Component Definition](https://www.nngroup.com/articles/cards-component/)
+- U.S. Web Design System. [Cards contain content and actions about a single subject](https://designsystem.digital.gov/components/card/)
+
+<Markdown>{readme}</Markdown>

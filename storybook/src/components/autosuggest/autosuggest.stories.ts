@@ -1,7 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { buttonTemplate } from "../button/button.template.js";
@@ -29,16 +27,12 @@ type AutosuggestConnector = (
 
 const meta: Meta<AutosuggestArgs> = {
   title: "Core/Autosuggest",
+  tags: ["!autodocs"],
   argTypes: autosuggestArgTypes,
   args: {
     dsoSelect: fn(),
     dsoChange: fn(),
     dsoSearch: fn(),
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
 };
 

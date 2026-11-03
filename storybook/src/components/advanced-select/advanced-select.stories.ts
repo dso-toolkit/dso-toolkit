@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/advanced-select/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   AdvancedSelectArgs,
@@ -14,13 +12,9 @@ type AdvancedSelectStory = StoryObj<AdvancedSelectArgs>;
 
 const meta: Meta<AdvancedSelectArgs> = {
   title: "Core/Advanced Select",
+  tags: ["!autodocs"],
   argTypes: advancedSelectArgTypes,
   args: advancedSelectArgs,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

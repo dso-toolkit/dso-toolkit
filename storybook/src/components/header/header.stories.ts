@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/header/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { HeaderArgs, headerArgTypes, headerArgsMapper } from "./header.args.js";
@@ -10,6 +8,7 @@ type HeaderStory = StoryObj<HeaderArgs>;
 
 const meta: Meta<HeaderArgs> = {
   title: "Core/Header",
+  tags: ["!autodocs"],
   argTypes: headerArgTypes,
   args: {
     mainMenu: [
@@ -54,11 +53,6 @@ const meta: Meta<HeaderArgs> = {
     dsoHeaderClick: fn(),
   },
   render: (args) => headerTemplate(headerArgsMapper(args)),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

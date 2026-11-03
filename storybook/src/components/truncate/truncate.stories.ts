@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/truncate/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { TruncateArgs, truncateArgTypes } from "./truncate.args.js";
 import { ingekortContent, ingekortMetRenvooiContent, passendContent } from "./truncate.content.js";
@@ -11,12 +9,9 @@ type TruncateStory = StoryObj<TruncateArgs>;
 
 const meta: Meta<TruncateArgs> = {
   title: "Core/Truncate",
+  tags: ["!autodocs"],
   argTypes: truncateArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
+
   render: ({ content }) => truncateTemplate({ children: content }),
 };
 
