@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## ⛳️ Release 103.0.0 - 2026-11-03
+
 ### Changed
 * **BREAKING** Annotation: Label moet kunnen worden aangepast ([#4033](https://github.com/dso-toolkit/dso-toolkit/issues/4033))
 * Ozon Content: Scrollen naar `IntRef` element ipv parent document component ([#3425](https://github.com/dso-toolkit/dso-toolkit/issues/3425))
