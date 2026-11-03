@@ -56,6 +56,43 @@ describe("Selectable", () => {
     });
   });
 
+  it("labels the info close button with infoCloseLabel", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-selectable--with-info");
+
+    const closeButton = () =>
+      cy.get("dso-selectable.hydrated dso-info").shadow().find("dso-icon-button").shadow().find("button");
+
+    closeButton().should("have.attr", "aria-label", "Sluit toelichting Label");
+
+    cy.get("dso-selectable.hydrated").invoke("prop", "infoCloseLabel", "Sluit uitleg");
+
+    closeButton().should("have.attr", "aria-label", "Sluit uitleg");
+  });
+
+  it("returns focus to the info button when the info is closed", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-selectable--with-info");
+
+    cy.get("dso-selectable.hydrated dso-info-button")
+      .shadow()
+      .find("dso-icon-button")
+      .shadow()
+      .find("button")
+      .as("infoButton")
+      .realClick();
+
+    cy.get("dso-selectable.hydrated dso-info").should("have.attr", "active");
+    cy.get("dso-selectable.hydrated dso-info").shadow().find("dso-icon-button").shadow().find("button").realClick();
+    cy.get("dso-selectable.hydrated dso-info").should("not.have.attr", "active");
+
+    cy.get("@infoButton").then(([button]) => {
+      cy.get("dso-selectable.hydrated dso-info-button").should(([infoButton]) => {
+        const iconButton = infoButton!.shadowRoot!.activeElement;
+
+        expect(iconButton?.shadowRoot?.activeElement).to.equal(button);
+      });
+    });
+  });
+
   it("supports controlled input", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-selectable--checkbox");
 

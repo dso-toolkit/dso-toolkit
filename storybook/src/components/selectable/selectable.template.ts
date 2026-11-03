@@ -22,6 +22,7 @@ export function selectableTemplate({
   disabled,
   dsoChange,
   info,
+  infoCloseLabel,
   options,
   slot,
 }: Selectable): TemplateResult {
@@ -35,6 +36,7 @@ export function selectableTemplate({
       errormessage=${ifDefined(errormessage)}
       labelled-by-id=${ifDefined(labelledById)}
       slot=${ifDefined(slot)}
+      info-close-label=${ifDefined(infoCloseLabel)}
       ?invalid=${invalid}
       ?disabled=${disabled}
       ?required=${required}

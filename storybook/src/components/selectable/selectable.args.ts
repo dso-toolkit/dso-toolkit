@@ -23,6 +23,7 @@ export interface SelectableArgs {
   infoRichContent?: TemplateResult | string;
   infoFixed?: boolean;
   infoActive?: boolean;
+  infoCloseLabel?: string;
   infoClosed: HandlerFunction;
   infoToggled: HandlerFunction;
   options?: Selectable[];
@@ -105,6 +106,11 @@ export const selectableArgTypes: ArgTypes<SelectableArgs> = {
   infoActive: {
     control: {
       type: "boolean",
+    },
+  },
+  infoCloseLabel: {
+    control: {
+      type: "text",
     },
   },
   infoClosed: argTypeAction(),

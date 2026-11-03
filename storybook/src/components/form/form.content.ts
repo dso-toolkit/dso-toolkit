@@ -258,6 +258,8 @@ function overigeVragenFormGroups(): FormGroup[] {
       info: {
         id: "input-radio-infobutton-vraag",
         content: "Toelichting bij vraag",
+        closeLabel:
+          "Sluit toelichting Soms laat de vraagstelling aan duidelijkheid te wensen over. Wenst u een toelichting hierop?",
         fixed: false,
       },
       selectables: [
@@ -267,6 +269,8 @@ function overigeVragenFormGroups(): FormGroup[] {
           value: "1",
           label: "ja, de vraagstelling aan duidelijkheid te wensen over, ik wil graag een toelichting hierop",
           checked: true,
+          infoCloseLabel:
+            "Sluit toelichting ja, de vraagstelling aan duidelijkheid te wensen over, ik wil graag een toelichting hierop",
           info: {
             id: "input-radio-infobutton-antwoord",
             content: "Toelichting bij antwoord",
@@ -294,6 +298,7 @@ function overigeVragenFormGroups(): FormGroup[] {
           "Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont",
         active: true,
         fixed: false,
+        closeLabel: "Sluit toelichting Toelichting op uw vraag",
       },
       selectables: [
         {
@@ -302,6 +307,7 @@ function overigeVragenFormGroups(): FormGroup[] {
           value: "1",
           label: "ja",
           checked: true,
+          infoCloseLabel: "Sluit toelichting ja",
           info: {
             id: "input-radio-infobutton-open-antwoord",
             content: "Toelichting op uw antwoord",

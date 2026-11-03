@@ -51,6 +51,7 @@ export const Checkbox: SelectableStory = {
 export const WithInfo: SelectableStory = {
   args: {
     infoFixed: false,
+    infoCloseLabel: "Sluit toelichting Label",
   },
 };
 
