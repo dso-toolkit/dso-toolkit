@@ -25,9 +25,10 @@ export class Info {
 
   /**
    * The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`.
+   * Defaults to "Sluiten".
    */
   @Prop()
-  closeLabel = "Sluiten";
+  closeLabel?: string;
 
   /**
    * Emitted when the user activates the close button.
@@ -41,11 +42,11 @@ export class Info {
   private previousActiveElement?: HTMLElement;
 
   @Watch("active")
-  activeChanged(active?: boolean) {
+  activeChanged(active?: boolean): void {
     this.previousActiveElement = active ? getDeepActiveElement() : undefined;
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.activeChanged(this.active);
   }
 
@@ -55,7 +56,7 @@ export class Info {
         <slot></slot>
         {!this.fixed && (
           <dso-icon-button
-            label={this.closeLabel}
+            label={this.closeLabel ?? "Sluiten"}
             variant="tertiary"
             icon="cross"
             onDsoClick={(e) =>

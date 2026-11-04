@@ -120,9 +120,10 @@ export class Selectable implements ComponentInterface {
 
   /**
    * The accessible label of the close button of the Info. Make this specific, for example `Sluit toelichting [label]`.
+   * Defaults to "Sluiten".
    */
   @Prop()
-  infoCloseLabel = "Sluiten";
+  infoCloseLabel?: string;
 
   /**
    * Emitted when the user checks or unchecks the Selectable.
@@ -157,13 +158,13 @@ export class Selectable implements ComponentInterface {
 
   private infoButton: HTMLDsoInfoButtonElement | undefined;
 
-  private handleInfoClose = () => {
+  private handleInfoClose = (): void => {
     this.infoActive = false;
 
     this.infoButton?.setFocus();
   };
 
-  private handleOnChange = (e: Event) => {
+  private handleOnChange = (e: Event): void => {
     const inputTarget = e.target instanceof HTMLInputElement ? e.target : undefined;
 
     this.dsoChange.emit({
@@ -176,7 +177,7 @@ export class Selectable implements ComponentInterface {
     forceUpdate(this.host);
   };
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.mutationObserver?.disconnect();
 
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
@@ -187,12 +188,12 @@ export class Selectable implements ComponentInterface {
     this.setIndeterminate();
   }
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     this.mutationObserver?.disconnect();
   }
 
   @Watch("indeterminate")
-  setIndeterminate() {
+  setIndeterminate(): void {
     if (!(this.input instanceof HTMLInputElement) || this.type !== "checkbox") {
       return;
     }

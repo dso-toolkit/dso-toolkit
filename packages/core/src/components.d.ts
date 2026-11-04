@@ -845,10 +845,9 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
-          * The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`.
-          * @default "Sluiten"
+          * The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`. Defaults to "Sluiten".
          */
-        "closeLabel": string;
+        "closeLabel"?: string;
         /**
           * Set to true if the Info should not be toggled and always visible.
          */
@@ -1331,10 +1330,9 @@ export namespace Components {
          */
         "indeterminate"?: boolean;
         /**
-          * The accessible label of the close button of the Info. Make this specific, for example `Sluit toelichting [label]`.
-          * @default "Sluiten"
+          * The accessible label of the close button of the Info. Make this specific, for example `Sluit toelichting [label]`. Defaults to "Sluiten".
          */
-        "infoCloseLabel": string;
+        "infoCloseLabel"?: string;
         /**
           * Set to true if the Info should not be toggled and always visible.
          */
@@ -3810,8 +3808,7 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`.
-          * @default "Sluiten"
+          * The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`. Defaults to "Sluiten".
          */
         "closeLabel"?: string;
         /**
@@ -4429,8 +4426,7 @@ declare namespace LocalJSX {
          */
         "indeterminate"?: boolean;
         /**
-          * The accessible label of the close button of the Info. Make this specific, for example `Sluit toelichting [label]`.
-          * @default "Sluiten"
+          * The accessible label of the close button of the Info. Make this specific, for example `Sluit toelichting [label]`. Defaults to "Sluiten".
          */
         "infoCloseLabel"?: string;
         /**

@@ -67,6 +67,12 @@ describe("Selectable", () => {
     cy.get("dso-selectable.hydrated").invoke("prop", "infoCloseLabel", "Sluit uitleg");
 
     closeButton().should("have.attr", "aria-label", "Sluit uitleg");
+
+    cy.get<HTMLDsoSelectableElement>("dso-selectable.hydrated").then(
+      ([selectable]) => (selectable!.infoCloseLabel = undefined),
+    );
+
+    closeButton().should("have.attr", "aria-label", "Sluiten");
   });
 
   it("returns focus to the info button when the info is closed", () => {

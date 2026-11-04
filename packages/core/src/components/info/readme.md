@@ -29,11 +29,11 @@ If the Info is opened in another way than by the Info Button, use `setFocus()` o
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                                            | Type                   | Default     |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------------ | ---------------------- | ----------- |
-| `active`     | `active`      | Whether the Info is active.                                                                            | `boolean \| undefined` | `undefined` |
-| `closeLabel` | `close-label` | The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`. | `string`               | `"Sluiten"` |
-| `fixed`      | `fixed`       | Set to true if the Info should not be toggled and always visible.                                      | `boolean \| undefined` | `undefined` |
+| Property     | Attribute     | Description                                                                                                                   | Type                   | Default     |
+| ------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `active`     | `active`      | Whether the Info is active.                                                                                                   | `boolean \| undefined` | `undefined` |
+| `closeLabel` | `close-label` | The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`. Defaults to "Sluiten". | `string \| undefined`  | `undefined` |
+| `fixed`      | `fixed`       | Set to true if the Info should not be toggled and always visible.                                                             | `boolean \| undefined` | `undefined` |
 
 
 ## Events
