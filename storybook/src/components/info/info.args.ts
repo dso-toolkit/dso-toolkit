@@ -10,6 +10,7 @@ export interface InfoArgs {
   id: string;
   fixed: boolean;
   active: boolean;
+  closeLabel: string;
   dsoClose: HandlerFunction;
 }
 
@@ -29,6 +30,11 @@ export const infoArgTypes: ArgTypes<InfoArgs> = {
       type: "boolean",
     },
   },
+  closeLabel: {
+    control: {
+      type: "text",
+    },
+  },
   dsoClose: argTypeAction(),
 };
 
@@ -37,7 +43,8 @@ export function infoArgsMapper(a: InfoArgs, content: TemplateResult): Required<I
     id: a.id,
     fixed: a.fixed,
     active: a.active,
+    closeLabel: a.closeLabel,
     content,
-    dsoClose: () => a.dsoClose(),
+    dsoClose: (e) => a.dsoClose(e.detail),
   };
 }

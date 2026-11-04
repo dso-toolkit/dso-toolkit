@@ -25,6 +25,7 @@ export default meta;
 export const Default: InfoStory = {
   args: {
     active: true,
+    closeLabel: "Sluiten",
     dsoClose: fn(),
   },
 };

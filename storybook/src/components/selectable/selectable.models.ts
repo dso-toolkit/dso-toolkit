@@ -18,6 +18,7 @@ export interface Selectable {
   disabled?: boolean;
   dsoChange?: (e: SelectableChangeEvent) => void;
   info?: Info;
+  infoCloseLabel?: string;
   slot?: string;
   options?: Selectable[];
 }

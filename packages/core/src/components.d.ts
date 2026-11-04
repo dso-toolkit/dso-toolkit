@@ -30,6 +30,7 @@ import { GridColumnCloseEvent } from "./components/grid-column/grid-column.inter
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
+import { InfoCloseEvent } from "./components/info/info.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendItemActiveChangeEvent, LegendItemDeleteEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
@@ -86,6 +87,7 @@ export { GridColumnCloseEvent } from "./components/grid-column/grid-column.inter
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
+export { InfoCloseEvent } from "./components/info/info.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendItemActiveChangeEvent, LegendItemDeleteEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
@@ -843,6 +845,10 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
+          * The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`. Defaults to "Sluiten".
+         */
+        "closeLabel"?: string;
+        /**
           * Set to true if the Info should not be toggled and always visible.
          */
         "fixed"?: boolean;
@@ -1323,6 +1329,10 @@ export namespace Components {
           * An indeterminate state is neither true or false. It means the answer is somewhere in between.  Can be used to indicate child Selectables that are a mix of checked and unchecked.
          */
         "indeterminate"?: boolean;
+        /**
+          * The accessible label of the close button of the Info. Make this specific, for example `Sluit toelichting [label]`. Defaults to "Sluiten".
+         */
+        "infoCloseLabel"?: string;
         /**
           * Set to true if the Info should not be toggled and always visible.
          */
@@ -2198,7 +2208,7 @@ declare global {
         new (): HTMLDsoImageOverlayElement;
     };
     interface HTMLDsoInfoElementEventMap {
-        "dsoClose": MouseEvent;
+        "dsoClose": InfoCloseEvent;
     }
     interface HTMLDsoInfoElement extends Components.DsoInfo, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoInfoElementEventMap>(type: K, listener: (this: HTMLDsoInfoElement, ev: DsoInfoCustomEvent<HTMLDsoInfoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3798,13 +3808,17 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
+          * The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`. Defaults to "Sluiten".
+         */
+        "closeLabel"?: string;
+        /**
           * Set to true if the Info should not be toggled and always visible.
          */
         "fixed"?: boolean;
         /**
-          * Emitted when the user activates the close button.
+          * Emitted when the user activates the close button.  `previousActiveElement` contains the element that had focus when the Info was activated. Use it to return focus after closing the Info.
          */
-        "onDsoClose"?: (event: DsoInfoCustomEvent<MouseEvent>) => void;
+        "onDsoClose"?: (event: DsoInfoCustomEvent<InfoCloseEvent>) => void;
     }
     interface DsoInfoButton {
         /**
@@ -4412,6 +4426,10 @@ declare namespace LocalJSX {
          */
         "indeterminate"?: boolean;
         /**
+          * The accessible label of the close button of the Info. Make this specific, for example `Sluit toelichting [label]`. Defaults to "Sluiten".
+         */
+        "infoCloseLabel"?: string;
+        /**
           * Set to true if the Info should not be toggled and always visible.
          */
         "infoFixed"?: boolean;
@@ -4911,6 +4929,7 @@ declare namespace LocalJSX {
     interface DsoInfoAttributes {
         "fixed": boolean;
         "active": boolean;
+        "closeLabel": string;
     }
     interface DsoInfoButtonAttributes {
         "active": boolean;
@@ -5056,6 +5075,7 @@ declare namespace LocalJSX {
         "checked": boolean;
         "indeterminate": boolean;
         "infoFixed": boolean;
+        "infoCloseLabel": string;
     }
     interface DsoShoppingCartAttributes {
         "mode": ShoppingCartMode;

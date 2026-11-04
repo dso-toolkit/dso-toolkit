@@ -119,6 +119,13 @@ export class Selectable implements ComponentInterface {
   infoFixed?: boolean;
 
   /**
+   * The accessible label of the close button of the Info. Make this specific, for example `Sluit toelichting [label]`.
+   * Defaults to "Sluiten".
+   */
+  @Prop()
+  infoCloseLabel?: string;
+
+  /**
    * Emitted when the user checks or unchecks the Selectable.
    */
   @Event()
@@ -149,7 +156,15 @@ export class Selectable implements ComponentInterface {
 
   private input: HTMLInputElement | undefined;
 
-  private handleOnChange = (e: Event) => {
+  private infoButton: HTMLDsoInfoButtonElement | undefined;
+
+  private handleInfoClose = (): void => {
+    this.infoActive = false;
+
+    this.infoButton?.setFocus();
+  };
+
+  private handleOnChange = (e: Event): void => {
     const inputTarget = e.target instanceof HTMLInputElement ? e.target : undefined;
 
     this.dsoChange.emit({
@@ -162,7 +177,7 @@ export class Selectable implements ComponentInterface {
     forceUpdate(this.host);
   };
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.mutationObserver?.disconnect();
 
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
@@ -173,12 +188,12 @@ export class Selectable implements ComponentInterface {
     this.setIndeterminate();
   }
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     this.mutationObserver?.disconnect();
   }
 
   @Watch("indeterminate")
-  setIndeterminate() {
+  setIndeterminate(): void {
     if (!(this.input instanceof HTMLInputElement) || this.type !== "checkbox") {
       return;
     }
@@ -227,6 +242,7 @@ export class Selectable implements ComponentInterface {
               active={this.infoActive}
               controls={this.infoIdentifier}
               onDsoToggle={(e) => (this.infoActive = e.detail.active)}
+              ref={(el) => (this.infoButton = el)}
             ></dso-info-button>
           )}
         </div>
@@ -235,7 +251,8 @@ export class Selectable implements ComponentInterface {
             id={this.infoFixed ? this.describedById : this.infoIdentifier}
             fixed={this.infoFixed}
             active={this.infoActive}
-            onDsoClose={() => (this.infoActive = false)}
+            closeLabel={this.infoCloseLabel}
+            onDsoClose={this.handleInfoClose}
           >
             <div>
               <slot name="info"></slot>
