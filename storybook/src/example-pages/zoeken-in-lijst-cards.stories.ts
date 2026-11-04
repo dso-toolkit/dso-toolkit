@@ -27,6 +27,11 @@ export const ZoekenInLijstCards: StoryObj = {
   name: "Zoeken in lijst cards",
   render: () => {
     return html`
+      <style>
+        .row:has(+ .dso-footnotes) > [class*="col-"] > dso-card-container:last-child {
+          --_dso-card-container-list-border-block-end: 0;
+        }
+      </style>
       <div class="container">
         ${headerPartial({
           ...header(),
