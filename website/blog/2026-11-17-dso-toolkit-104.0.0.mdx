@@ -1,0 +1,79 @@
+---
+authors: [cvanderleij]
+date: 2026-11-17
+---
+
+# DSO Toolkit v104.0.0 🔦
+
+Deze release bevat een **BREAKING** change voor het component:
+
+- Info
+
+Daarnaast zijn het label van de sluitknop en het focusmanagement van de toelichting bij Info en Selectable verbeterd.
+
+<!-- truncate -->
+
+## Info
+
+**Breaking:** Het `dsoClose` event van `dso-info` geeft niet langer een `MouseEvent` mee, maar een `InfoCloseEvent`:
+
+```ts
+interface InfoCloseEvent {
+  originalEvent: MouseEvent;
+  previousActiveElement?: HTMLElement;
+}
+```
+
+Het oorspronkelijke klik-event staat nu in `originalEvent`. In `previousActiveElement` staat het element dat focus had
+op het moment dat de Info actief werd, meestal de Info Button. Na het sluiten verdwijnt de sluitknop en daarmee de
+focus. Met `previousActiveElement` kun je de focus terugzetten.
+
+Verder heeft de Info een nieuwe property `closeLabel` (attribuut `close-label`) gekregen. Hiermee geef je de sluitknop
+een specifiek label, bijvoorbeeld "Sluit toelichting". Standaard is het label "Sluiten".
+
+### Migratiepad
+
+Lees het klik-event uit `originalEvent` en zet na het sluiten de focus terug.
+
+```ts
+❌
+info.addEventListener("dsoClose", (e: DsoInfoCustomEvent<MouseEvent>) => {
+  info.active = false;
+
+  console.log(e.detail.target);
+});
+
+✅
+info.addEventListener("dsoClose", (e: DsoInfoCustomEvent<InfoCloseEvent>) => {
+  info.active = false;
+
+  console.log(e.detail.originalEvent.target);
+  e.detail.previousActiveElement?.focus();
+});
+```
+
+Is de Info op een andere manier geopend dan via de Info Button? Gebruik dan `setFocus()` van `dso-info-button` om de
+focus terug te zetten.
+
+```html
+❌
+<dso-info active>...</dso-info>
+
+✅
+<dso-info active close-label="Sluit toelichting Wenst u een toelichting op deze vraag?">...</dso-info>
+```
+
+## Selectable
+
+De Selectable zet na het sluiten van de toelichting de focus automatisch terug op de Info Button. Hiervoor is geen
+migratie nodig.
+
+Met de nieuwe property `infoCloseLabel` (attribuut `info-close-label`) geef je de sluitknop van de toelichting een
+specifiek label. Standaard is het label "Sluiten".
+
+```html
+<dso-selectable type="radio" value="ja" info-close-label="Sluit toelichting Ja">
+  Ja
+  <div class="dso-rich-content" slot="info">...</div>
+</dso-selectable>
+```

@@ -137,6 +137,7 @@ export function formGroupSelectArgsMapper(a: FormGroupSelectArgs): FormGroupSele
             active: a.infoActive,
             fixed: a.infoFixed,
             dsoClose: a.infoCloseHandler,
+            closeLabel: `Sluit toelichting ${a.label}`,
             content: a.infoText,
           }
         : undefined,

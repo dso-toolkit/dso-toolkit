@@ -149,6 +149,7 @@ export function formGroupRadiosArgsMapper(a: FormGroupRadiosArgs): FormGroupRadi
             active: a.infoActive,
             fixed: a.infoFixed,
             dsoClose: a.infoCloseHandler,
+            closeLabel: `Sluit toelichting ${a.label}`,
             content: a.infoText,
           }
         : undefined,

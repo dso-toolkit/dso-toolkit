@@ -1,4 +1,6 @@
-import { Component, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
+import { Component, Event, EventEmitter, Fragment, Prop, Watch, h } from "@stencil/core";
+
+import { InfoCloseEvent } from "./info.interfaces";
 
 /**
  * @slot - The content to be displayed inside the info box.
@@ -22,10 +24,31 @@ export class Info {
   active?: boolean;
 
   /**
+   * The accessible label of the close button. Make this specific, for example `Sluit toelichting [label]`.
+   * Defaults to "Sluiten".
+   */
+  @Prop()
+  closeLabel?: string;
+
+  /**
    * Emitted when the user activates the close button.
+   *
+   * `previousActiveElement` contains the element that had focus when the Info was activated. Use it to return focus
+   * after closing the Info.
    */
   @Event()
-  dsoClose!: EventEmitter<MouseEvent>;
+  dsoClose!: EventEmitter<InfoCloseEvent>;
+
+  private previousActiveElement?: HTMLElement;
+
+  @Watch("active")
+  activeChanged(active?: boolean): void {
+    this.previousActiveElement = active ? getDeepActiveElement() : undefined;
+  }
+
+  componentWillLoad(): void {
+    this.activeChanged(this.active);
+  }
 
   render() {
     return (
@@ -33,13 +56,28 @@ export class Info {
         <slot></slot>
         {!this.fixed && (
           <dso-icon-button
-            label="Sluiten"
+            label={this.closeLabel ?? "Sluiten"}
             variant="tertiary"
             icon="cross"
-            onDsoClick={(e) => this.dsoClose.emit(e.detail.originalEvent)}
+            onDsoClick={(e) =>
+              this.dsoClose.emit({
+                originalEvent: e.detail.originalEvent,
+                previousActiveElement: this.previousActiveElement,
+              })
+            }
           />
         )}
       </Fragment>
     );
   }
+}
+
+function getDeepActiveElement(): HTMLElement | undefined {
+  let activeElement = document.activeElement;
+
+  while (activeElement?.shadowRoot?.activeElement) {
+    activeElement = activeElement.shadowRoot.activeElement;
+  }
+
+  return activeElement instanceof HTMLElement && activeElement !== document.body ? activeElement : undefined;
 }
