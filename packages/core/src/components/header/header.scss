@@ -245,7 +245,7 @@ div[popover] {
           line-height: 1.5;
           padding: units.$u2;
           text-decoration: none;
-          white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
+          overflow-wrap: anywhere;
 
           &:focus {
             text-decoration: underline;

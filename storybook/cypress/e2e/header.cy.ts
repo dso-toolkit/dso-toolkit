@@ -746,6 +746,34 @@ describe("Header", () => {
       compactMenuItemTest(label, "realClick", menuItemEvent);
     }
 
+    it("wraps long menu item labels instead of overflowing on mobile", () => {
+      cy.viewport(320, 800);
+
+      cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+        .then(($header) =>
+          setMenuItems($header, [
+            ...defaultMenuItems,
+            { label: "Een heel erg lang menu-item dat niet op één regel past", url: "#lang" },
+          ]),
+        )
+        .invoke("attr", "auth-status", "loggedIn")
+        .invoke("attr", "user-profile-name", "Johannes Wilhelmus Maria van der Achternaam-Langenaam");
+
+      ensureCompactMenuOpen();
+
+      cy.get("dso-header[is-compact]")
+        .shadow()
+        .find(".dropdown-menu-options li a")
+        .should("have.length.at.least", 2)
+        .each(($item) => {
+          const item = $item[0]!;
+          const rect = item.getBoundingClientRect();
+
+          expect(item.scrollWidth, `"${$item.text()}" scrollWidth`).to.be.at.most(item.clientWidth);
+          expect(rect.right, `"${$item.text()}" right edge`).to.be.at.most(320);
+        });
+    });
+
     it("keeps the focused menu item visible when the dropdown becomes scrollable", { browser: "!firefox" }, () => {
       const menuItems = Array.from({ length: 25 }, (_, i) => ({
         label: `Tab Item ${i + 1}`,
