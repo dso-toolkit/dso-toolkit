@@ -56,6 +56,12 @@ describe("Icon Button", () => {
       .shadow()
       .find(".dso-tooltip .tooltip-inner")
       .should("have.text", "Hamburger menu");
+
+    cy.get("dso-icon-button.hydrated")
+      .invoke("attr", "tooltip", "")
+      .shadow()
+      .find(".dso-tooltip .tooltip-inner")
+      .should("have.text", "Hamburger menu");
   });
 
   const placements: Record<TooltipPlacement, [number, number]> = {

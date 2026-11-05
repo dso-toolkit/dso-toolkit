@@ -170,7 +170,7 @@ export class IconButton implements ComponentInterface {
           tipElementRef={(element) => (this.tooltipElRef = element)}
           tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}
         >
-          {this.tooltip ?? this.label}
+          {this.tooltip || this.label}
         </Tooltip>
       </button>
     );
