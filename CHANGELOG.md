@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Toelichting: label en lost focus ([#3986](https://github.com/dso-toolkit/dso-toolkit/issues/3986))
 
 ### Changed
-* Dropdown Menu: Focus volgt de muis en focusrand valt niet meer buiten beeld ([#4034](https://github.com/dso-toolkit/dso-toolkit/issues/4034))
+* Dropdown Menu: Focus op eerste item ([#4034](https://github.com/dso-toolkit/dso-toolkit/issues/4034))
 
 ### Fixed
 * Link: Mailto-link toont onbedoelde rechterpadding ([#4052](https://github.com/dso-toolkit/dso-toolkit/issues/4052))
