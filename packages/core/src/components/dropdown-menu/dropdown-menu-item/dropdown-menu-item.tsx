@@ -71,6 +71,11 @@ export class DropdownMenuItem implements ComponentInterface {
     return this.host.closest("dso-dropdown-menu");
   }
 
+  // Focus follows the mouse, so hover and focus never highlight different items at the same time.
+  private handleMouseEnter = () => {
+    this.anchorOrButtonRef?.focus({ preventScroll: true });
+  };
+
   private handleClick = (event: MouseEvent) => {
     this.dsoClick.emit({ originalEvent: event, isModifiedEvent: isModifiedEvent(event) });
   };
@@ -96,6 +101,7 @@ export class DropdownMenuItem implements ComponentInterface {
               role={checkable ? "menuitemradio" : "menuitem"}
               aria-checked={checked?.toString()}
               onClick={this.handleClick}
+              onMouseEnter={this.handleMouseEnter}
               ref={(element) => (this.anchorOrButtonRef = element)}
             >
               {checkable && checked && <dso-icon icon="check" />}
@@ -108,6 +114,7 @@ export class DropdownMenuItem implements ComponentInterface {
               role={checkable ? "menuitemradio" : "menuitem"}
               aria-checked={checked?.toString()}
               onClick={this.handleClick}
+              onMouseEnter={this.handleMouseEnter}
               ref={(element) => (this.anchorOrButtonRef = element)}
             >
               {checkable && checked && <dso-icon icon="check" />}
