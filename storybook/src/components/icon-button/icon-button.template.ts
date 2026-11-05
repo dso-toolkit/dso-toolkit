@@ -6,6 +6,7 @@ import { IconButton } from "./icon-button.models.js";
 export function iconButtonTemplate({
   expanded,
   label,
+  tooltip,
   dsoClick,
   disabled,
   icon,
@@ -19,6 +20,7 @@ export function iconButtonTemplate({
       variant=${variant}
       icon=${icon}
       label=${label}
+      tooltip=${ifDefined(tooltip)}
       tooltip-placement=${ifDefined(tooltipPlacement)}
       ?toggled=${toggled}
       ?expanded=${expanded}

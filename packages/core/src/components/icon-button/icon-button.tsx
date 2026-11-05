@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, h } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, Watch, h } from "@stencil/core";
 
 import { TooltipController } from "../../functional-components/tooltip/tooltip.controller";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -32,10 +32,16 @@ export class IconButton implements ComponentInterface {
   icon!: IconAlias | undefined;
 
   /**
-   * The label of the Icon Button which is shown on hover in a tooltip.
+   * The accessible name of the Icon Button. Also shown as tooltip when `tooltip` is not set.
    */
   @Prop({ reflect: true })
   label!: string | undefined;
+
+  /**
+   * Optional shorter text for the tooltip. Must occur as whole words in `label`, preferably at the start.
+   */
+  @Prop({ reflect: true })
+  tooltip?: string;
 
   /**
    * The variant of the Icon Button.
@@ -91,11 +97,11 @@ export class IconButton implements ComponentInterface {
    * Focuses the button.
    */
   @Method()
-  async setFocus() {
+  async setFocus(): Promise<void> {
     this.buttonElRef?.focus();
   }
 
-  private handleShowTooltip = () => {
+  private handleShowTooltip = (): void => {
     if (this.disabled) {
       return;
     }
@@ -103,11 +109,27 @@ export class IconButton implements ComponentInterface {
     this.tooltipController.show();
   };
 
-  private handleHideTooltip = () => {
+  private handleHideTooltip = (): void => {
     this.tooltipController.hide();
   };
 
-  disconnectedCallback() {
+  @Watch("label")
+  @Watch("tooltip")
+  tooltipWatcher(): void {
+    this.warnIfTooltipNotInLabel();
+  }
+
+  private warnIfTooltipNotInLabel(): void {
+    if (this.tooltip && !` ${this.label ?? ""} `.includes(` ${this.tooltip} `)) {
+      console.warn(`Icon Button: tooltip "${this.tooltip}" does not appear in label "${this.label ?? ""}"`);
+    }
+  }
+
+  componentWillLoad(): void {
+    this.warnIfTooltipNotInLabel();
+  }
+
+  disconnectedCallback(): void {
     this.tooltipController.dispose();
   }
 
@@ -121,7 +143,7 @@ export class IconButton implements ComponentInterface {
     }
   }
 
-  private handleClick = (event: MouseEvent) => {
+  private handleClick = (event: MouseEvent): void => {
     this.tooltipController.notifyClick();
     this.handleHideTooltip();
     this.dsoClick.emit({ originalEvent: event, toggled: !this.toggled });
@@ -148,7 +170,7 @@ export class IconButton implements ComponentInterface {
           tipElementRef={(element) => (this.tooltipElRef = element)}
           tipArrowElementRef={(element) => (this.tooltipArrowElRef = element)}
         >
-          {this.label}
+          {this.tooltip || this.label}
         </Tooltip>
       </button>
     );
