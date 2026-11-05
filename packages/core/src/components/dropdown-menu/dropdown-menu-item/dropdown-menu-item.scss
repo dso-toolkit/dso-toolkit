@@ -57,6 +57,8 @@ button {
     background-color: colors.$grasgroen-20;
     color: colors.$grijs-90;
     text-decoration: none;
+    // Keep the browser focus ring inside the item, dso-scrollable clips anything outside.
+    outline-offset: -2px;
   }
 
   &:active {

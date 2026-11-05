@@ -150,6 +150,24 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").eq(0).should("have.focus");
   });
 
+  it("should move focus to the hovered menu item and keep it when the mouse leaves", { browser: "!firefox" }, () => {
+    cy.get("@button").should("be.visible").focus().click();
+
+    cy.get("@menuitems").eq(0).should("have.focus");
+
+    cy.get("@menuitems").eq(2).shadow().find("a").realHover();
+
+    cy.get("@menuitems").eq(2).should("have.focus");
+
+    cy.get("body").realHover({ position: "bottomRight" });
+
+    cy.get("@menuitems").eq(2).should("have.focus");
+
+    cy.realPress("ArrowDown");
+
+    cy.get("@menuitems").eq(3).should("have.focus");
+  });
+
   it("tab should cycle through options and button", { browser: "!firefox" }, () => {
     cy.get("@button").should("be.visible").focus().click();
 
