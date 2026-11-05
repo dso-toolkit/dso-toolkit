@@ -811,7 +811,7 @@ export namespace Components {
          */
         "icon": IconAlias | undefined;
         /**
-          * The label of the Icon Button which is shown on hover in a tooltip.
+          * The accessible name of the Icon Button. Also shown as tooltip when `tooltip` is not set.
          */
         "label": string | undefined;
         /**
@@ -822,6 +822,10 @@ export namespace Components {
           * Whether the button is toggled.
          */
         "toggled"?: boolean;
+        /**
+          * Optional shorter text for the tooltip. Must occur as whole words in `label`, preferably at the start.
+         */
+        "tooltip"?: string;
         /**
           * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
@@ -3774,7 +3778,7 @@ declare namespace LocalJSX {
          */
         "icon": IconAlias | undefined;
         /**
-          * The label of the Icon Button which is shown on hover in a tooltip.
+          * The accessible name of the Icon Button. Also shown as tooltip when `tooltip` is not set.
          */
         "label": string | undefined;
         /**
@@ -3785,6 +3789,10 @@ declare namespace LocalJSX {
           * Whether the button is toggled.
          */
         "toggled"?: boolean;
+        /**
+          * Optional shorter text for the tooltip. Must occur as whole words in `label`, preferably at the start.
+         */
+        "tooltip"?: string;
         /**
           * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
@@ -4917,6 +4925,7 @@ declare namespace LocalJSX {
     interface DsoIconButtonAttributes {
         "icon": IconAlias | undefined;
         "label": string | undefined;
+        "tooltip": string;
         "variant": IconButtonVariant;
         "tooltipPlacement": TooltipPlacement;
         "disabled": boolean;

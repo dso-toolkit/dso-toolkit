@@ -12,6 +12,7 @@ export interface IconButton {
   variant: IconButtonVariant;
   icon: IconAlias;
   label: string;
+  tooltip?: string;
   tooltipPlacement?: IconButtonTooltipPlacement;
   disabled?: boolean;
   dsoClick?: HandlerFunction;

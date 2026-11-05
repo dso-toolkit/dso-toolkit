@@ -21,14 +21,6 @@ describe("Icon Button", () => {
     });
   });
 
-  it("should set the label", () => {
-    cy.get("dso-icon-button.hydrated")
-      .invoke("attr", "label", "Hamburger menu")
-      .shadow()
-      .find(".dso-tooltip .tooltip-inner")
-      .should("have.text", "Hamburger menu");
-  });
-
   it("should correctly render aria-label and aria-pressed based on toggled state", () => {
     cy.get("dso-icon-button.hydrated").as("button");
 
@@ -51,6 +43,21 @@ describe("Icon Button", () => {
       .and("have.attr", "aria-label", "Hamburger menu");
   });
 
+  it("should fall back to the label when tooltip is removed", () => {
+    cy.get("dso-icon-button.hydrated")
+      .invoke("attr", "label", "Hamburger menu")
+      .invoke("attr", "tooltip", "Hamburger")
+      .shadow()
+      .find(".dso-tooltip .tooltip-inner")
+      .should("have.text", "Hamburger");
+
+    cy.get("dso-icon-button.hydrated")
+      .invoke("removeAttr", "tooltip")
+      .shadow()
+      .find(".dso-tooltip .tooltip-inner")
+      .should("have.text", "Hamburger menu");
+  });
+
   const placements: Record<TooltipPlacement, [number, number]> = {
     top: [275, 453],
     right: [318, 531],
@@ -61,6 +68,51 @@ describe("Icon Button", () => {
   Object.entries(placements).forEach(([placement, [expectedTop, expectedLeft]]) => {
     it(`should place the tooltip correctly when tooltip-placement is ${placement}`, () => {
       checkTooltipPosition(placement as "top" | "right" | "bottom" | "left", expectedTop, expectedLeft);
+    });
+  });
+});
+
+describe("Icon Button with tooltip", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-icon-button--secondary", {
+      onBeforeLoad(win) {
+        cy.stub(win.console, "warn").as("consoleWarn");
+      },
+    });
+
+    cy.get("dso-icon-button.hydrated")
+      .invoke("prop", "label", "Verwijder Test project 3 September")
+      .invoke("prop", "tooltip", "Verwijder");
+  });
+
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-icon-button.hydrated");
+  });
+
+  it("should show the tooltip text while label stays the accessible name", () => {
+    cy.get("dso-icon-button.hydrated").shadow().find(".dso-tooltip .tooltip-inner").should("have.text", "Verwijder");
+
+    cy.get("dso-icon-button.hydrated")
+      .shadow()
+      .find("button")
+      .should("have.attr", "aria-label", "Verwijder Test project 3 September");
+
+    cy.get("@consoleWarn").should("not.have.been.calledWithMatch", /^Icon Button:/);
+  });
+
+  const validationCases = [
+    { label: "", tooltip: "Verwijder" },
+    { label: "Verwijder Test project 3 September", tooltip: "Verwijderen" },
+    { label: "Verwijderen Test project", tooltip: "Verwijder" },
+    { label: "Verwijder: Test project", tooltip: "Verwijder" },
+  ];
+
+  validationCases.forEach(({ label, tooltip }) => {
+    it(`should warn for tooltip "${tooltip}" with label "${label}"`, () => {
+      cy.get("dso-icon-button.hydrated").invoke("prop", "label", label).invoke("prop", "tooltip", tooltip);
+
+      cy.get("@consoleWarn").should("have.been.calledWithMatch", /^Icon Button: tooltip/);
     });
   });
 });

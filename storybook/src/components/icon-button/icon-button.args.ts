@@ -12,6 +12,7 @@ export interface IconButtonArgs {
   variant: IconButtonVariant;
   icon: IconAlias;
   label: string;
+  tooltip?: string;
   tooltipPlacement?: IconButtonTooltipPlacement;
   dsoClick?: HandlerFunction;
   disabled: boolean;
@@ -54,6 +55,11 @@ export function iconButtonArgTypes(icons: string[]): ArgTypes<IconButtonArgs> {
       },
     },
     label: {
+      control: {
+        type: "text",
+      },
+    },
+    tooltip: {
       control: {
         type: "text",
       },
