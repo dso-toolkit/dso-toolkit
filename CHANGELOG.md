@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Dropdown Menu: Focus op eerste item ([#4034](https://github.com/dso-toolkit/dso-toolkit/issues/4034))
 
 ### Fixed
+* Plekinfo Card: Wijzig actie ziet er 'vreemd' uit ([#4074](https://github.com/dso-toolkit/dso-toolkit/issues/4074))
 * Link: Mailto-link toont onbedoelde rechterpadding ([#4052](https://github.com/dso-toolkit/dso-toolkit/issues/4052))
 * Voorbeeldpagina's: Zoeken in lijst cards heeft dubbele scheidingslijnen ([#4044](https://github.com/dso-toolkit/dso-toolkit/issues/4044))
 
