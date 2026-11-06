@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Dropdown Menu: Focus op eerste item ([#4034](https://github.com/dso-toolkit/dso-toolkit/issues/4034))
 
+### Removed
+* **BREAKING** Grid System: Remove selector `.dso-banner` ([#3923](https://github.com/dso-toolkit/dso-toolkit/issues/3923))
+
 ### Fixed
 * Link: Mailto-link toont onbedoelde rechterpadding ([#4052](https://github.com/dso-toolkit/dso-toolkit/issues/4052))
 
