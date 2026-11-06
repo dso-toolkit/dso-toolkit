@@ -57,7 +57,9 @@
       );
       color: var(--_dso-icon-button-secondary-toggled-color, colors.$wit);
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:focus-visible {
         background-color: var(
           --_dso-icon-button-secondary-toggled-hover-background-color,
           icon-button-variables.$secondary-toggled-hover-background-color
@@ -94,7 +96,9 @@
   border: 0;
 
   &:not([disabled]) {
-    &:hover {
+    &:hover,
+    &:focus,
+    &:focus-visible {
       color: var(
         --_dso-icon-button-tertiary-hover-color,
         var(--_dso-icon-button-tertiary-color, button.$tertiary-hover-color)
@@ -114,7 +118,9 @@
         var(--_dso-icon-button-tertiary-color, icon-button-variables.$tertiary-toggled-color)
       );
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:focus-visible {
         color: var(
           --_dso-icon-button-tertiary-toggled-hover-color,
           var(--_dso-icon-button-tertiary-color, icon-button-variables.$tertiary-toggled-hover-color)
@@ -175,7 +181,9 @@
       );
       color: var(--_dso-icon-button-secondary-toggled-color, colors.$wit);
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:focus-visible {
         background-color: var(
           --_dso-icon-button-secondary-toggled-hover-background-color,
           icon-button-variables.$secondary-toggled-hover-background-color

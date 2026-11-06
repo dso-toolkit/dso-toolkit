@@ -47,7 +47,9 @@
   padding-block: button-variables.$block-padding;
   padding-inline: button-variables.$inline-padding;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:focus-visible {
     @include _shared-variant($defaults-map, $variant, $hover-map, "-hover");
   }
 
@@ -57,7 +59,9 @@
 
   &[disabled] {
     &,
-    &:hover {
+    &:hover,
+    &:focus,
+    &:focus-visible {
       @include _shared-variant($defaults-map, $variant, $disabled-map, "-disabled");
     }
   }
@@ -81,13 +85,13 @@
       margin-inline-start: units.$u1 * -1;
     }
 
-    span:not(.sr-only) + dso-icon {
-      margin-inline-start: units.$u1;
+    span:not(.sr-only) ~ dso-icon {
+      margin-inline-start: units.$u1 * 0.5;
       margin-inline-end: units.$u1 * -1;
     }
 
     dso-icon + span:not(.sr-only) {
-      margin-inline-start: units.$u1;
+      margin-inline-start: units.$u1 * 0.5;
     }
   }
 }
@@ -311,13 +315,17 @@
     }
 
     &:not([disabled]) {
-      &:hover {
+      &:hover,
+      &:focus,
+      &:focus-visible {
         &::before {
           @include _spinner-icon($color: colors.$wit, $valign: top, $position: inline-start);
         }
       }
 
-      &.dso-small:hover {
+      &.dso-small:hover,
+      &.dso-small:focus,
+      &.dso-small:focus-visible {
         &::before {
           block-size: units.$u2;
           inline-size: units.$u2;
@@ -332,13 +340,17 @@
     }
 
     &:not([disabled]) {
-      &:hover {
+      &:hover,
+      &:focus,
+      &:focus-visible {
         &::after {
           @include _spinner-icon($color: colors.$wit, $valign: top, $position: inline-end);
         }
       }
 
-      &.dso-small:hover {
+      &.dso-small:hover,
+      &.dso-small:focus,
+      &.dso-small:focus-visible {
         &::after {
           block-size: units.$u2;
           inline-size: units.$u2;
@@ -352,14 +364,19 @@
   text-decoration: none;
 
   &,
-  &:visited:not(:hover):not(:active),
-  &:focus-visible:not(:hover):not(:active) {
+  &:visited:not(:hover):not(:active):not(:focus):not(:focus-visible) {
     color: button-variables.$secondary-color;
   }
 
   &:hover,
+  &:focus,
   &:focus-visible {
+    color: button-variables.$secondary-hover-color;
     text-decoration: none;
+  }
+
+  &:active {
+    color: colors.$wit;
   }
 }
 
@@ -410,7 +427,10 @@
   }
 
   &:not([disabled]) {
-    &:hover {
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:active {
       text-decoration: underline;
       text-underline-position: under;
     }
@@ -463,7 +483,7 @@
   text-decoration: none;
 
   &,
-  &:visited {
+  &:visited:not(:hover):not(:focus):not(:focus-visible):not(:active) {
     color: var(--_dso-button-tertiary-color, button-variables.$tertiary-color);
   }
 }
@@ -473,7 +493,7 @@
 }
 
 @mixin map() {
-  @include secondary($modifiers: false);
+  @include secondary();
 
   @include map-box-shadow();
 
