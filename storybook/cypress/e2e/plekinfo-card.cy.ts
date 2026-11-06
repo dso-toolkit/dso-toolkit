@@ -165,6 +165,37 @@ describe("Plekinfo Card", () => {
       cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
     });
 
+    [
+      { wijzigactie: "voegtoe", element: "ins", backgroundColor: "rgb(228, 241, 212)" },
+      { wijzigactie: "verwijder", element: "del", backgroundColor: "rgb(245, 216, 220)" },
+    ].forEach(({ wijzigactie, element, backgroundColor }) => {
+      it(`should show renvooi background over the entire card with wijzigactie='${wijzigactie}'`, () => {
+        // Move the mouse away from the heading anchor, to prevent hover styling from previous tests
+        cy.get("body").realMouseMove(0, 0, { position: "topLeft" });
+
+        cy.get("dso-plekinfo-card.hydrated dso-plekinfo-card-item.hydrated").should("have.length.at.least", 1);
+
+        cy.get("dso-plekinfo-card.hydrated")
+          .invoke("prop", "wijzigactie", wijzigactie)
+          .shadow()
+          .find(`${element}.dso-plekinfo-card-container`)
+          .should("have.css", "display", "block")
+          .and("have.css", "background-color", backgroundColor)
+          .then(($container) => {
+            const containerRect = $container[0].getBoundingClientRect();
+
+            cy.get("dso-plekinfo-card.hydrated").then(($card) => {
+              const cardRect = $card[0].getBoundingClientRect();
+
+              expect(containerRect.width).to.equal(cardRect.width);
+              expect(containerRect.height).to.equal(cardRect.height);
+            });
+          });
+
+        cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+      });
+    });
+
     it("should show label and sublabel in the tooltip when the text is truncated", () => {
       cy.get("dso-plekinfo-card.hydrated").invoke("css", "inline-size", "280px");
 
