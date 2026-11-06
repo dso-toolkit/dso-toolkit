@@ -34,11 +34,20 @@ describe("Image Overlay", () => {
   it("should open and close overlay", () => {
     openOverlay();
 
-    // Take the entire page, otherwise the enlargement of the image will not be snapshotted
-    cy.matchImageSnapshot();
-
     cy.get("dso-image-overlay").shadow().find("dso-icon-button.close.hydrated").click();
     cy.get("dso-image-overlay").shadow().find(".wrapper").should("not.exist");
+  });
+
+  ["image-overlay", "image-overlay-met-alleen-titel", "image-overlay-met-alleen-bijschrift"].forEach((story) => {
+    it(`should match snapshot of opened overlay: ${story}`, () => {
+      cy.visit(`http://localhost:45000/iframe.html?id=core-image-overlay--${story}`);
+      cy.injectAxe();
+      cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+      openOverlay();
+
+      // Take the entire page, otherwise the enlargement of the image will not be snapshotted
+      cy.matchImageSnapshot(`${Cypress.currentTest.title}`);
+    });
   });
 
   it("should keep the caption within the viewport when the viewport is short", () => {
@@ -143,6 +152,25 @@ describe("Image Overlay", () => {
         const imageTop = $wrapper.find(".content > img")[0]!.getBoundingClientRect().top;
 
         expect(titleBottom).to.be.at.most(imageTop);
+      });
+  });
+
+  it("should place the caption below the image when there is no title", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay-met-alleen-bijschrift");
+    cy.injectAxe();
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+    openOverlay();
+
+    cy.get("dso-image-overlay").shadow().find(".title").should("not.exist");
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".content")
+      .should(($content) => {
+        const image = $content.find("img")[0]!.getBoundingClientRect();
+        const caption = $content.find(".figuur-bijschrift")[0]!.getBoundingClientRect();
+
+        expect(caption.top, "caption starts directly below image").to.be.closeTo(image.bottom, 1);
       });
   });
 
