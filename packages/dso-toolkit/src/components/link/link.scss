@@ -3,7 +3,7 @@
 a {
   @include link-mixins.root();
 
-  &:where(:not(.dso-primary, .dso-secondary, .dso-tertiary)) {
+  &:where(:not(.dso-primary, .dso-secondary, .dso-tertiary, .dso-map)) {
     @include link-mixins.linkIcons();
   }
 }
