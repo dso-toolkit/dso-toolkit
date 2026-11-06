@@ -4,6 +4,7 @@
 @use "../../variables/units";
 
 @use "button.mixins" as button-mixins;
+@use "button.variables" as button-variables;
 
 @mixin _shared-icon($icon, $colors) {
   &::after {
@@ -11,7 +12,9 @@
   }
 
   @if map.has-key($colors, "hover") {
-    &:hover {
+    &:hover,
+    &:focus,
+    &:focus-visible {
       &::after {
         @include di.variant($icon, map.get($colors, "hover"));
       }
@@ -50,21 +53,28 @@
 
   &:not([disabled]) {
     &:hover,
-    &:active {
+    &:focus,
+    &:focus-visible {
       &::after {
         @include di.variant($icon, "bosgroen", $override-property: $property);
+      }
+    }
+
+    &:active {
+      &::after {
+        @include di.variant($icon, "bosgroen-140", $override-property: $property);
       }
     }
   }
 }
 
-@mixin _shared($download-colors, $extern-colors) {
+@mixin _shared($icon-colors) {
   &.download {
-    @include _shared-icon("download", $download-colors);
+    @include _shared-icon("download", $icon-colors);
   }
 
   &.extern {
-    @include _shared-icon("external-link", $extern-colors);
+    @include _shared-icon("external-link", $icon-colors);
   }
 }
 
@@ -77,32 +87,12 @@ button,
 label {
   &.dso-primary {
     @include button-mixins.primary($base-styling: true);
-    @include _shared(
-      (
-        "default": "wit",
-      ),
-      (
-        "default": "wit",
-      )
-    );
+    @include _shared(button-variables.$primary-icon-colors);
   }
 
   &.dso-secondary {
     @include button-mixins.secondary($base-styling: true);
-    @include _shared(
-      (
-        "default": "grasgroen",
-        "hover": "bosgroen",
-        "active": "wit",
-        "disabled": "grasgroen-40",
-      ),
-      (
-        "default": "grasgroen",
-        "hover": "bosgroen",
-        "active": "wit",
-        "disabled": "grasgroen-40",
-      )
-    );
+    @include _shared(button-variables.$secondary-icon-colors);
   }
 
   &.dso-tertiary {
@@ -127,6 +117,7 @@ label {
 
   &.dso-map {
     @include button-mixins.map();
+    @include _shared(button-variables.$secondary-icon-colors);
   }
 }
 
@@ -135,7 +126,8 @@ a {
     @include button-mixins.anchor-primary();
   }
 
-  &.dso-secondary {
+  &.dso-secondary,
+  &.dso-map {
     @include button-mixins.anchor-secondary();
   }
 
