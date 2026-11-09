@@ -52,6 +52,10 @@ dso-accordion {
       > :last-child {
         margin-block-end: 0;
       }
+
+      + .form-group.dso-files {
+        margin-block-start: units.$block-spacing-small;
+      }
     }
 
     *:first-child:not(dso-info, dso-slide-toggle, .dso-slider) {
