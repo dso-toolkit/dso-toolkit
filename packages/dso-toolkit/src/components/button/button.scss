@@ -13,7 +13,6 @@
 
   @if map.has-key($colors, "hover") {
     &:hover,
-    &:focus,
     &:focus-visible {
       &::after {
         @include di.variant($icon, map.get($colors, "hover"));
@@ -53,7 +52,6 @@
 
   &:not([disabled]) {
     &:hover,
-    &:focus,
     &:focus-visible {
       &::after {
         @include di.variant($icon, "bosgroen", $override-property: $property);

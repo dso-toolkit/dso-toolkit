@@ -58,7 +58,6 @@
       color: var(--_dso-icon-button-secondary-toggled-color, colors.$wit);
 
       &:hover,
-      &:focus,
       &:focus-visible {
         background-color: var(
           --_dso-icon-button-secondary-toggled-hover-background-color,
@@ -97,7 +96,6 @@
 
   &:not([disabled]) {
     &:hover,
-    &:focus,
     &:focus-visible {
       color: var(
         --_dso-icon-button-tertiary-hover-color,
@@ -119,7 +117,6 @@
       );
 
       &:hover,
-      &:focus,
       &:focus-visible {
         color: var(
           --_dso-icon-button-tertiary-toggled-hover-color,
@@ -182,7 +179,6 @@
       color: var(--_dso-icon-button-secondary-toggled-color, colors.$wit);
 
       &:hover,
-      &:focus,
       &:focus-visible {
         background-color: var(
           --_dso-icon-button-secondary-toggled-hover-background-color,

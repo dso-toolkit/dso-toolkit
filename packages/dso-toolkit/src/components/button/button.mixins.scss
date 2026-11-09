@@ -48,7 +48,6 @@
   padding-inline: button-variables.$inline-padding;
 
   &:hover,
-  &:focus,
   &:focus-visible {
     @include _shared-variant($defaults-map, $variant, $hover-map, "-hover");
   }
@@ -60,7 +59,6 @@
   &[disabled] {
     &,
     &:hover,
-    &:focus,
     &:focus-visible {
       @include _shared-variant($defaults-map, $variant, $disabled-map, "-disabled");
     }
@@ -316,7 +314,6 @@
 
     &:not([disabled]) {
       &:hover,
-      &:focus,
       &:focus-visible {
         &::before {
           @include _spinner-icon($color: colors.$wit, $valign: top, $position: inline-start);
@@ -324,7 +321,6 @@
       }
 
       &.dso-small:hover,
-      &.dso-small:focus,
       &.dso-small:focus-visible {
         &::before {
           block-size: units.$u2;
@@ -341,7 +337,6 @@
 
     &:not([disabled]) {
       &:hover,
-      &:focus,
       &:focus-visible {
         &::after {
           @include _spinner-icon($color: colors.$wit, $valign: top, $position: inline-end);
@@ -349,7 +344,6 @@
       }
 
       &.dso-small:hover,
-      &.dso-small:focus,
       &.dso-small:focus-visible {
         &::after {
           block-size: units.$u2;
@@ -364,12 +358,11 @@
   text-decoration: none;
 
   &,
-  &:visited:not(:hover):not(:active):not(:focus):not(:focus-visible) {
+  &:visited:not(:hover):not(:active):not(:focus-visible) {
     color: button-variables.$secondary-color;
   }
 
   &:hover,
-  &:focus,
   &:focus-visible {
     color: button-variables.$secondary-hover-color;
     text-decoration: none;
@@ -428,8 +421,6 @@
 
   &:not([disabled]) {
     &:hover,
-    &:focus,
-    &:focus-visible,
     &:active {
       text-decoration: underline;
       text-underline-position: under;
@@ -483,7 +474,7 @@
   text-decoration: none;
 
   &,
-  &:visited:not(:hover):not(:focus):not(:focus-visible):not(:active) {
+  &:visited:not(:hover):not(:focus-visible):not(:active) {
     color: var(--_dso-button-tertiary-color, button-variables.$tertiary-color);
   }
 }
@@ -503,11 +494,6 @@
   padding-block: units.$u1;
   padding-inline: units.$u2;
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons on maps
-
-  &:focus,
-  &:focus-visible {
-    outline-offset: -1px;
-  }
 
   &:has(span.sr-only):has(dso-icon) {
     padding: units.$u1;
