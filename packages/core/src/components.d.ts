@@ -678,6 +678,9 @@ export namespace Components {
          */
         "open"?: boolean;
     }
+    /**
+     * Een grid kolom valt in overlay-modus over de andere kolommen van de row. Zie de voorbeeldpagina's onder Patronen voor hoe het component met `<dso-grid-column>` werkt.
+     */
     interface DsoGridColumn {
         /**
           * The column widths per breakpoint (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix. Widths only; push, pull and offset are not supported.
@@ -1026,6 +1029,9 @@ export namespace Components {
          */
         "ribbon"?: string;
     }
+    /**
+     * Private component, do not use.
+     */
     interface DsoMapBaseLayers {
         /**
           * The base layers.
@@ -1084,6 +1090,9 @@ export namespace Components {
          */
         "variant": "success" | "error" | "instruction" | undefined;
     }
+    /**
+     * Private component, do not use.
+     */
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
@@ -2122,6 +2131,9 @@ declare global {
     interface HTMLDsoGridColumnElementEventMap {
         "dsoClose": GridColumnCloseEvent;
     }
+    /**
+     * Een grid kolom valt in overlay-modus over de andere kolommen van de row. Zie de voorbeeldpagina's onder Patronen voor hoe het component met `<dso-grid-column>` werkt.
+     */
     interface HTMLDsoGridColumnElement extends Components.DsoGridColumn, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoGridColumnElementEventMap>(type: K, listener: (this: HTMLDsoGridColumnElement, ev: DsoGridColumnCustomEvent<HTMLDsoGridColumnElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2373,6 +2385,9 @@ declare global {
     interface HTMLDsoMapBaseLayersElementEventMap {
         "dsoBaseLayerChange": BaseLayerChangeEvent;
     }
+    /**
+     * Private component, do not use.
+     */
     interface HTMLDsoMapBaseLayersElement extends Components.DsoMapBaseLayers, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoMapBaseLayersElementEventMap>(type: K, listener: (this: HTMLDsoMapBaseLayersElement, ev: DsoMapBaseLayersCustomEvent<HTMLDsoMapBaseLayersElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2451,6 +2466,9 @@ declare global {
     interface HTMLDsoMapOverlaysElementEventMap {
         "dsoToggleOverlay": OverlayChangeEvent;
     }
+    /**
+     * Private component, do not use.
+     */
     interface HTMLDsoMapOverlaysElement extends Components.DsoMapOverlays, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoMapOverlaysElementEventMap>(type: K, listener: (this: HTMLDsoMapOverlaysElement, ev: DsoMapOverlaysCustomEvent<HTMLDsoMapOverlaysElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3633,6 +3651,9 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    /**
+     * Een grid kolom valt in overlay-modus over de andere kolommen van de row. Zie de voorbeeldpagina's onder Patronen voor hoe het component met `<dso-grid-column>` werkt.
+     */
     interface DsoGridColumn {
         /**
           * The column widths per breakpoint (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix. Widths only; push, pull and offset are not supported.
@@ -4049,6 +4070,9 @@ declare namespace LocalJSX {
          */
         "ribbon"?: string;
     }
+    /**
+     * Private component, do not use.
+     */
     interface DsoMapBaseLayers {
         /**
           * The base layers.
@@ -4134,6 +4158,9 @@ declare namespace LocalJSX {
          */
         "variant": "success" | "error" | "instruction" | undefined;
     }
+    /**
+     * Private component, do not use.
+     */
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.

@@ -1,7 +1,5 @@
 # `<dso-annotation-kaart>`
 
-
-
 <!-- Auto Generated Below -->
 
 

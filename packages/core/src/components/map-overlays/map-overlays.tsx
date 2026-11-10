@@ -7,6 +7,9 @@ import { SelectableChangeEvent } from "../selectable/selectable.interfaces";
 import { translations } from "./map-overlays.i18n";
 import { Overlay, OverlayChangeEvent } from "./map-overlays.interfaces";
 
+/**
+ * Private component, do not use.
+ */
 @Component({
   tag: "dso-map-overlays",
   styleUrl: "./map-overlays.scss",

@@ -1,11 +1,5 @@
 # `<dso-tree-view>`
 
-The collection property of the Tree View is an array of `TreeViewItem`. The collection is an immutable array containing the state of the Tree View that should be managed _outside_ of Tree View.
-
-### State management
-
-When the user interacts with the Tree View, events are emitted when a node is opened, closed or clicked. The Tree View events will provide the complete path of TreeViewItems from the root to the item that is emitting the event. The consumer of the Tree View should update the TreeView's collection on the open and close events with the new state.
-
 <!-- Auto Generated Below -->
 
 

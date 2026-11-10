@@ -1,4 +1,5 @@
 import truncateReadme from "@dso-toolkit/core/src/components/truncate/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./truncate.stories";
 
@@ -22,4 +23,6 @@ Screenreaders lezen de visueel ingekorte tekst wel volledig voor. De tooltip is 
 
 Bevat de inhoud een `dso-renvooi`, dan toont de tooltip dezelfde doorhaling (`del`) en markering (`ins`) als de regel zelf.
 
-<Markdown>{truncateReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(truncateReadme)}</Markdown>

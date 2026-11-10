@@ -1,7 +1,6 @@
-import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
 import * as Stories from "./form.stories";
 import * as AnimatedFormStories from "../../example-pages/Patronen/animated-form.stories";
-import readme from "dso-toolkit/src/components/form/readme.md?raw";
 import formAccordion from "./form-accordion.jpg";
 import formAlertSamenvatting from "./form-alert-samenvatting.jpg";
 import formAlert from "./form-alert.jpg";
@@ -44,6 +43,8 @@ Buttons worden uitgelijnd afhankelijk van de context:
 De uitzonderingen worden met de modifier `.dso-single-page` ingezet (op het bovenliggende `form` of `.form`, of op `.dso-form-buttons` zelf).
 
 Zie ook: [H91: Using HTML form controls and links](https://www.w3.org/TR/WCAG20-TECHS/H91)
+
+De opbouw van een Form Group, met de classes `.dso-invalid` en `.dso-valid`, staat bij [Form Group](?path=/docs/html-css-form-group--docs).
 
 ## Formuliervalidatie
 
@@ -122,5 +123,3 @@ Door het toggelen van de `open` property kan men de inhoud tonen of verbergen. D
 - Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via [https://www.nngroup.com/articles/indicators-validations-notifications/](https://www.nngroup.com/articles/indicators-validations-notifications/)
 - Web Content Accessibility Guidelines (2018, 05 June). WC3. Geraadpleegd op 13 oktober 2020, via [https://www.w3.org/WAI/standards-guidelines/wcag/](https://www.w3.org/WAI/standards-guidelines/wcag/)
 - hiddedevries.nl (2017, 04 April). How to make inline error messages accessible. Geraadpleegd op 13 oktober 2020, via [https://web.archive.org/web/20201125163925/https://hiddedevries.nl/en/blog/2017-04-04-how-to-make-inline-error-messages-accessible](https://web.archive.org/web/20201125163925/https://hiddedevries.nl/en/blog/2017-04-04-how-to-make-inline-error-messages-accessible)
-
-<Markdown>{readme}</Markdown>

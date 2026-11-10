@@ -1,4 +1,5 @@
 import listButtonReadme from "@dso-toolkit/core/src/components/list-button/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./list-button.stories";
 
@@ -16,4 +17,6 @@ import * as Stories from "./list-button.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{listButtonReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(listButtonReadme)}</Markdown>

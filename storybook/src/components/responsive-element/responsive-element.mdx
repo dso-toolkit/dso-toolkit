@@ -1,4 +1,5 @@
 import responsiveElementReadme from "@dso-toolkit/core/src/components/responsive-element/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./responsive-element.stories";
 
@@ -10,4 +11,6 @@ import * as Stories from "./responsive-element.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{responsiveElementReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(responsiveElementReadme)}</Markdown>

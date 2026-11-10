@@ -1,10 +1,13 @@
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./card-container.stories";
 import readme from "@dso-toolkit/core/src/components/card-container/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 
 <Meta of={Stories} />
 
 # Card Container
+
+Een Card Container bevat een lijst of een grid van Cards, Document Cards of Plekinfo Cards.
 
 ## Grid
 
@@ -14,6 +17,8 @@ import readme from "@dso-toolkit/core/src/components/card-container/readme.md?ra
 
 <Canvas of={Stories.CardList} />
 
-<Markdown>{readme}</Markdown>
-
 🚧 Documentatie volgt 🚧
+
+## API
+
+<Markdown>{generatedReadme(readme)}</Markdown>

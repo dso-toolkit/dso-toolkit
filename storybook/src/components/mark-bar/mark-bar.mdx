@@ -1,4 +1,5 @@
 import markBarReadme from "@dso-toolkit/core/src/components/mark-bar/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./mark-bar.stories";
 
@@ -12,4 +13,6 @@ import * as Stories from "./mark-bar.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{markBarReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(markBarReadme)}</Markdown>

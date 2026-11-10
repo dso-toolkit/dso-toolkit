@@ -1,7 +1,5 @@
 # `<dso-annotation-activiteit>`
 
-
-
 <!-- Auto Generated Below -->
 
 

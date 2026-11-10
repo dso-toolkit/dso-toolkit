@@ -1,15 +1,5 @@
 # `<dso-highlight-box>`
 
-## Note
-The default background color is `grey`. Other available variants are:
-- Green
-- Grey with border
-- White with Dropshadow
-- With Banner Image
-- With border
-- With icon
-- Yellow
-
 <!-- Auto Generated Below -->
 
 

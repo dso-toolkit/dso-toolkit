@@ -1,6 +1,8 @@
 import { Markdown, Meta, Canvas } from "@storybook/addon-docs/blocks";
 import * as Stories from "./card.stories";
 import readme from "@dso-toolkit/core/src/components/card/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import removeDsoCardClicked from "./remove-dso-card-clicked.png";
 
 <Meta of={Stories} name="Docs" />
 
@@ -25,6 +27,10 @@ Een Card mag uitsluitend in een [Card List of Card Grid](?path=/docs/core-card-c
 Geef het informatieknopje het `sr-only`-tekstalternatief "toon informatie over [titel card]", zodat screenreadergebruikers weten bij welke card het knopje hoort.
 
 ## Varianten
+
+Beware: clicking the heading link with property `href` set doesn't navigate to the URL set. This is caused by the storybook implementation, which inhibits this normal behavior. Use developer tools to remove the Event Listener `dsoCardClicked` to enable the navigation to the set `href`.
+
+<img src={removeDsoCardClicked} alt="Event Listener dsoCardClicked verwijderen in de developer tools" />
 
 ### Default
 
@@ -55,4 +61,6 @@ Geef het informatieknopje het `sr-only`-tekstalternatief "toon informatie over [
 - Nielsen Norman Group. [Cards: UI-Component Definition](https://www.nngroup.com/articles/cards-component/)
 - U.S. Web Design System. [Cards contain content and actions about a single subject](https://designsystem.digital.gov/components/card/)
 
-<Markdown>{readme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(readme)}</Markdown>

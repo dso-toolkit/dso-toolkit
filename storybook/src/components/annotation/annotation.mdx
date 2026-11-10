@@ -5,7 +5,7 @@ import gebiedsaanwijzingReadme from "@dso-toolkit/core/src/components/annotation
 import kaartReadme from "@dso-toolkit/core/src/components/annotation/annotation-kaart/readme.md?raw";
 import locatieReadme from "@dso-toolkit/core/src/components/annotation/annotation-locatie/readme.md?raw";
 import omgevingsnormwaardeReadme from "@dso-toolkit/core/src/components/annotation/annotation-omgevingsnormwaarde/readme.md?raw";
-import rootReadme from "@dso-toolkit/core/src/components/annotation/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 
 <Meta of={Stories} />
 
@@ -41,9 +41,22 @@ import rootReadme from "@dso-toolkit/core/src/components/annotation/readme.md?ra
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{rootReadme}</Markdown>
-<Markdown>{activiteitReadme}</Markdown>
-<Markdown>{gebiedsaanwijzingReadme}</Markdown>
-<Markdown>{omgevingsnormwaardeReadme}</Markdown>
-<Markdown>{kaartReadme}</Markdown>
-<Markdown>{locatieReadme}</Markdown>
+## API `<dso-annotation-activiteit>`
+
+<Markdown>{generatedReadme(activiteitReadme)}</Markdown>
+
+## API `<dso-annotation-gebiedsaanwijzing>`
+
+<Markdown>{generatedReadme(gebiedsaanwijzingReadme)}</Markdown>
+
+## API `<dso-annotation-omgevingsnormwaarde>`
+
+<Markdown>{generatedReadme(omgevingsnormwaardeReadme)}</Markdown>
+
+## API `<dso-annotation-kaart>`
+
+<Markdown>{generatedReadme(kaartReadme)}</Markdown>
+
+## API `<dso-annotation-locatie>`
+
+<Markdown>{generatedReadme(locatieReadme)}</Markdown>

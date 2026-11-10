@@ -1,29 +1,5 @@
 # `<dso-info>`
 
-## Close button label
-
-The close button has the label "Sluiten" by default. Use `closeLabel` to make it specific for the context, for example
-"Sluit toelichting" followed by the label of
-the question or option.
-
-## Focus management
-
-When the Info is closed with the close button, the close button disappears and focus is lost. The consumer is responsible
-for returning focus, usually to the Info Button that opened the Info.
-
-When the Info becomes active, it stores the element that had focus at that moment. This element is passed as
-`previousActiveElement` in the `dsoClose` event:
-
-```typescript
-info.addEventListener("dsoClose", (e: DsoInfoCustomEvent<InfoCloseEvent>) => {
-  info.active = false;
-
-  e.detail.previousActiveElement?.focus();
-});
-```
-
-If the Info is opened in another way than by the Info Button, use `setFocus()` on `<dso-info-button>` instead.
-
 <!-- Auto Generated Below -->
 
 

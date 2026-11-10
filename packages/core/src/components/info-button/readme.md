@@ -1,23 +1,5 @@
 # `<dso-info-button>`
 
-Het gedrag van de Info Button is afhankelijk van het gebruik van het toggletip-slot:
-
-- Bij een klik emit de `Info Button` het `dsoToggle` event, zolang het `slot name="toggletip"` **niet** is gevuld.
-- Indien het `slot name="toggletip"` **wél** is gevuld, verzorgt `Info Button` de Toggletip functionaliteit en 
-  wordt er geen `dsoToggle` event meer ge-emit.
-
-## Toegankelijkheid
-
-De toggletip is volledig met het toetsenbord te bedienen:
-
-- `Enter` of klik opent de toggletip
-- `Escape` sluit de toggletip
-- Focus buiten het component sluit de toggletip
-
-Daarnaast wordt `aria-expanded` bijgewerkt, zodat screenreaders de actuele status aankondigen: bij een toggletip volgt
-het de toggletip, anders de property `active` (bijvoorbeeld voor een externe `<dso-info>`, te koppelen via `controls`).
-Zolang de toelichting open is, beschrijft deze de knop, zodat screenreaders de inhoud direct bij het openen voorlezen.
-
 <!-- Auto Generated Below -->
 
 

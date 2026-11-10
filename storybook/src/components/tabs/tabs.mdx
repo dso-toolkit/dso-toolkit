@@ -2,6 +2,7 @@ import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./tabs.stories";
 import readme from "@dso-toolkit/core/src/components/tabs/readme.md?raw";
 import componentsReadme from "@dso-toolkit/core/src/components/tabs/components/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 
 <Meta of={Stories} />
 
@@ -17,6 +18,10 @@ import componentsReadme from "@dso-toolkit/core/src/components/tabs/components/r
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{readme}</Markdown>
+## API `<dso-tabs>`
 
-<Markdown>{componentsReadme}</Markdown>
+<Markdown>{generatedReadme(readme)}</Markdown>
+
+## API `<dso-tab>`
+
+<Markdown>{generatedReadme(componentsReadme)}</Markdown>

@@ -1,4 +1,5 @@
 import iconButtonReadme from "@dso-toolkit/core/src/components/icon-button/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./icon-button.stories";
 
@@ -40,4 +41,6 @@ De tekst van `tooltip` moet als losse woorden, gescheiden door spaties, in `labe
 
 <Canvas of={Stories.Map} />
 
-<Markdown>{iconButtonReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(iconButtonReadme)}</Markdown>

@@ -1,4 +1,5 @@
 import iconReadme from "@dso-toolkit/core/src/components/icon/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./icon.stories";
 
@@ -43,4 +44,6 @@ Er is een icoon beschikbaar die als tijdelijke vervanging kan dienen. Deze heet 
 - [Nielsen Norman Group](https://www.nngroup.com/)
 - [Dienst digitale overheid](https://www.digitoegankelijk.nl)
 
-<Markdown>{iconReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(iconReadme)}</Markdown>

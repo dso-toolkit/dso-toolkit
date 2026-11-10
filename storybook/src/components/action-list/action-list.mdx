@@ -1,5 +1,6 @@
 import actionListReadme from "@dso-toolkit/core/src/components/action-list/readme.md?raw";
 import actionListItemReadme from "@dso-toolkit/core/src/components/action-list/components/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./action-list.stories";
 
@@ -13,8 +14,12 @@ import * as Stories from "./action-list.stories";
 
 <Canvas of={Stories.WithWarning} />
 
-<Markdown>{actionListReadme}</Markdown>
+## API `<dso-action-list>`
+
+<Markdown>{generatedReadme(actionListReadme)}</Markdown>
 
 ## Action List Item
 
-<Markdown>{actionListItemReadme}</Markdown>
+## API `<dso-action-list-item>`
+
+<Markdown>{generatedReadme(actionListItemReadme)}</Markdown>

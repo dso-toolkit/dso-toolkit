@@ -1,5 +1,4 @@
-import listReadme from "dso-toolkit/src/components/list/readme.md?raw";
-import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
 import * as Stories from "./list.stories";
 
 <Meta of={Stories} />
@@ -10,4 +9,9 @@ import * as Stories from "./list.stories";
 
 Een List Group is een flexibel en krachtig component om simpele en complexe lijsten van elementen te tonen, met custom content.
 
-<Markdown>{listReadme}</Markdown>
+## Status
+
+Een List Item (`<li>`) kan een status hebben. Een status bestaat uit een icon en een toelichting. De status wordt met een modifier class op het List Item gezet.
+
+- Forbidden (`dso-forbidden`)
+- Status Warning (`dso-status-warning`)

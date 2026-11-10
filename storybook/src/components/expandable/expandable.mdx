@@ -1,4 +1,5 @@
 import expandableReadme from "@dso-toolkit/core/src/components/expandable/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./expandable.stories";
 
@@ -16,4 +17,6 @@ import * as Stories from "./expandable.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{expandableReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(expandableReadme)}</Markdown>

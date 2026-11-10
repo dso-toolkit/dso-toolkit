@@ -1,4 +1,5 @@
 import attachmentsCounterReadme from "@dso-toolkit/core/src/components/attachments-counter/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./attachments-counter.stories";
 
@@ -14,4 +15,6 @@ De Attachments Counter is een teller voor bijlagen. Deze wordt getoond met het a
 
 Gebruik de Attachments Counter bij elementen waar bestanden kunnen worden geüpload, gedownload en/of bekeken.
 
-<Markdown>{attachmentsCounterReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(attachmentsCounterReadme)}</Markdown>

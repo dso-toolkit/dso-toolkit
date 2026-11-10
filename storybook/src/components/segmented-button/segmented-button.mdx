@@ -1,4 +1,5 @@
 import segmentedButtonReadme from "@dso-toolkit/core/src/components/segmented-button/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./segmented-button.stories";
 
@@ -8,8 +9,15 @@ import * as Stories from "./segmented-button.stories";
 
 <Canvas of={Stories.Default} />
 
+Beperk het aantal segmenten, houd labels kort en consistent. Het component kan niet overgaan op een volgende regel. Zorg ervoor dat de opties ook bij mobiele resolutie (320 px) passen op 1 regel.
+
+- Één knop kan actief zijn.
+- Uitgeschakelde opties in de segmented button kunnen niet door de gebruiker geactiveerd worden.
+
 Andere optie:
 
 - WithDisabledButton
 
-<Markdown>{segmentedButtonReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(segmentedButtonReadme)}</Markdown>

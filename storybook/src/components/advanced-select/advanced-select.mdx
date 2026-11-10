@@ -1,4 +1,5 @@
 import advancedSelectReadme from "@dso-toolkit/core/src/components/advanced-select/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./advanced-select.stories";
 
@@ -10,4 +11,6 @@ import * as Stories from "./advanced-select.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{advancedSelectReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(advancedSelectReadme)}</Markdown>

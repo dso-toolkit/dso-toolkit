@@ -1,6 +1,5 @@
-import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
 import * as Stories from "./link.stories";
-import readme from "dso-toolkit/src/components/link/readme.md?raw";
 
 <Meta of={Stories} />
 
@@ -42,6 +41,8 @@ Externe links moeten `class="extern" target="_blank" rel="noopener noreferrer"` 
 <Canvas of={Stories.ExternalLink} />
 
 ### Link With Icon
+
+Plaats bij gebruik van de "Link With Icon"-variant de tekst in een `<span>text hier</span>` om de afstand tot het icoon te creëren.
 
 <Canvas of={Stories.LinkWithIcon} />
 
@@ -120,5 +121,3 @@ Verminder dubbelzinnigheid door een label met een icoon op te nemen. Zorg dat zo
 - NN/g Nielsen Norman Group. In page links. Geraadpleegd op 20 maart 2020, van [https://www.nngroup.com/articles/in-page-links/](https://www.nngroup.com/articles/in-page-links/)
 - NN/g Nielsen Norman Group. Anchoring principle. Geraadpleegd op 20 maart 2020, van [https://www.nngroup.com/articles/anchoring-principle/](https://www.nngroup.com/articles/anchoring-principle/)
 - Mozilla.org. The Anchor Element. Geraadpleegd op 20 maart 2020, van [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
-
-<Markdown>{readme}</Markdown>

@@ -1,6 +1,7 @@
 import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
 import * as Stories from "./ozon-content.stories";
 import readme from "@dso-toolkit/core/src/components/ozon-content/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import debugOzonContent from "./debug-ozon-content.png";
 
 <Meta of={Stories} />
@@ -21,6 +22,12 @@ Het Ozon Content-component presenteert afbeeldingen conform de STOP/TPOD-specifi
 
 Het component maakt gebruik van de attributen `hoogte`, `breedte` en `dpi` om vooraf ruimte te reserveren op de pagina. De afbeelding wordt daarna ingeladen zonder dat de hoogte van de content verandert. Dit is nodig om correct te kunnen scrollen naar specifieke punten in het omgevingsdocument. Zonder deze reservering zou de afbeelding content kunnen overschrijven, waardoor gescripte scrollacties op een verkeerde plek terechtkomen.
 
+De hoogte en breedte van de afbeelding moeten worden uitgerekend volgens de [STOP-richtlijnen](https://koop.gitlab.io/STOP/standaard/1.4.0-ic/regeltekst_afbeelding.html).
+
+De gerenderde breedte van een afbeelding is een percentage van de beschikbare breedte van de container waarbinnen de afbeelding getoond wordt. Afbeeldingen kunnen niet breder worden dan de container.
+
+Het component [Image Overlay](?path=/docs/core-image-overlay--docs) wordt ingezet om afbeeldingen (`<Illustratie>`) uit de XML in HTML te renderen.
+
 Melders verwijzen soms naar de presentatie van het omgevingsdocument op [officiëlebekendmakingen.nl](https://officielebekendmakingen.nl), waar afbeeldingen niet vervormd worden weergegeven. Dat komt omdat deze site geen gebruik maakt van de `hoogte`- en `breedte`-attributen uit de XML, maar de werkelijke afmetingen van de afbeelding gebruikt.
 
 ### Debuggen
@@ -38,4 +45,6 @@ Volg deze stappen om de content te inspecteren:
 
 Als deze niet overeenkomen met de werkelijke afmetingen van de afbeelding, is er mogelijk sprake van een fout in de aanlevering aan de LVBB. In dat geval kan DSO-LV de fout niet corrigeren. Het is dan aan de plansoftwareleverancier en/of het bevoegd gezag om de afbeelding aan te passen naar de juiste afmetingen.
 
-<Markdown>{readme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(readme)}</Markdown>

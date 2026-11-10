@@ -2,6 +2,7 @@ import { Markdown, Meta, Canvas } from "@storybook/addon-docs/blocks";
 import * as Stories from "./plekinfo-card.stories";
 import readme from "@dso-toolkit/core/src/components/plekinfo-card/readme.md?raw";
 import itemReadme from "@dso-toolkit/core/src/components/plekinfo-card/plekinfo-card-item/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 
 <Meta of={Stories} name="Docs" />
 
@@ -47,8 +48,16 @@ Een Plekinfo Card toont informatie over een locatie. De card kan een symbool, ri
 
 <Canvas of={Stories.WithOmgevingsnormItems} />
 
-<Markdown>{readme}</Markdown>
-
 ## Plekinfo Card Item
 
-<Markdown>{itemReadme}</Markdown>
+Eén regel in een Plekinfo Card: een symbool, een label, een optioneel sublabel en optioneel een Label als meta. Gebruik Plekinfo Card Item alleen in het slot `content` van een Plekinfo Card.
+
+Label en sublabel staan samen in één Truncate. Past de tekst niet, dan eindigt de regel op een ellipsis en toont de tooltip label en sublabel volledig.
+
+## API `<dso-plekinfo-card>`
+
+<Markdown>{generatedReadme(readme)}</Markdown>
+
+## API `<dso-plekinfo-card-item>`
+
+<Markdown>{generatedReadme(itemReadme)}</Markdown>

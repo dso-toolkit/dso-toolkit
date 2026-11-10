@@ -1,7 +1,5 @@
 # <dso-ozon-content-toggletip>
 
-
-
 <!-- Auto Generated Below -->
 
 

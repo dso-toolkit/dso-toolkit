@@ -1,4 +1,5 @@
 import datePickerReadme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./date-picker.stories";
 
@@ -68,4 +69,6 @@ Zonder `[formField]` stel je datumgrenzen zoals voorheen in met `min` en `max` o
 <dso-date-picker [formField]="myForm.datum" [minDate]="minimumDate()" [maxDate]="maximumDate()" />
 ```
 
-<Markdown>{datePickerReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(datePickerReadme)}</Markdown>

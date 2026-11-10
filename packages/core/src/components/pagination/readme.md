@@ -1,7 +1,5 @@
 # `<dso-pagination>`
 
-
-
 <!-- Auto Generated Below -->
 
 

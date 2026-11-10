@@ -1,9 +1,11 @@
 # `<dso-base-layers>`
 
-Private component, do not use.
-
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+Private component, do not use.
 
 ## Properties
 

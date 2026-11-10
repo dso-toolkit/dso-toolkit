@@ -1,4 +1,5 @@
 import projectItemReadme from "@dso-toolkit/core/src/components/project-item/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./project-item.stories";
 
@@ -12,4 +13,6 @@ import * as Stories from "./project-item.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{projectItemReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(projectItemReadme)}</Markdown>

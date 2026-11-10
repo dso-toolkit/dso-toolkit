@@ -1,4 +1,5 @@
 import modalReadme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Markdown, Meta } from "@storybook/addon-docs/blocks";
 import * as Stories from "./modal.stories";
 
@@ -33,6 +34,8 @@ Gebruik een modal alleen voor simpele interacties. Vermijd modals voor complexe 
 
 Het modal component heeft voor elk framework een eigen voorschrift voor de implementatie. Zie de storybook documentatie voor meer informatie.
 
+Bij het instantieren van een `dso-modal` wordt op de body het scrollgedrag 'achter' de modal automatisch uitgezet dmv detectie middels CSS. Als afnemer kun je dus een modal starten door `<dso-modal>` pas te renderen als je een modal wil.
+
 ## Gedrag en toegankelijkheid
 
 ### Algemeen
@@ -57,4 +60,6 @@ In tegenstelling tot gewone meldingen moet er tenminste één interactief elemen
 - Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via [https://www.nngroup.com/articles/indicators-validations-notifications/](https://www.nngroup.com/articles/indicators-validations-notifications/)
 - Web Content Accessibility Guidelines (2018, 05 June). WC3. Geraadpleegd op 13 oktober 2020, via [https://www.w3.org/WAI/standards-guidelines/wcag/](https://www.w3.org/WAI/standards-guidelines/wcag/)
 
-<Markdown>{modalReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(modalReadme)}</Markdown>

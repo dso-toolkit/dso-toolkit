@@ -1,4 +1,5 @@
 import contactInformationReadme from "@dso-toolkit/core/src/components/contact-information/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./contact-information.stories";
 
@@ -10,4 +11,6 @@ import * as Stories from "./contact-information.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{contactInformationReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(contactInformationReadme)}</Markdown>

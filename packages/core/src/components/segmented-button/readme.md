@@ -1,11 +1,5 @@
 # `<dso-segmented-button>`
 
-Beperk het aantal segmenten, houd labels kort en consistent. Het component kan niet overgaan op een volgende regel. Zorg ervoor dat de opties ook bij mobiele resolutie (320 px) passen op 1 regel.
-
-- Één knop kan actief zijn.
-- Uitgeschakelde opties in de segmented button kunnen niet door de gebruiker geactiveerd worden.
-
-
 <!-- Auto Generated Below -->
 
 

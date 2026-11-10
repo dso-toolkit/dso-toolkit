@@ -1,7 +1,6 @@
-import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
 import * as ButtonStories from "./button.stories";
 import * as ButtonRowStories from "../button-row/button-row.stories";
-import buttonReadme from "dso-toolkit/src/components/button/readme.md?raw";
 
 <Meta of={ButtonStories} name="Docs" />
 
@@ -81,9 +80,18 @@ Standaard zijn primaire en secundaire buttons 48 pixels hoog en worden dan 30 pi
 - Elementen zoals buttons die er hetzelfde uitzien, moeten ook overal hetzelfde 'doen';
 - Button tekst moet beschrijven wat het doet.
 
+## Technische opmerkingen
+
+De classes `.dso-primary`, `.dso-secondary` en `.dso-tertiary` werken op een `button` en ook op een `a`: `a.dso-primary`, `a.dso-secondary`, `a.dso-tertiary`.
+
+Het label van de button staat altijd in een `<span>`. Naast de label `<span>` kan een Icon staan.
+
+### Modifiers
+
+- `.dso-small`: Om de button compacter te maken.
+- `.dso-align`: Met deze modifier kunnen tertiare buttons verticaal worden uitgelijnd met primary en secondary buttons.
+
 ## Bronvermelding
 
 - [Nielsen Norman Group](https://www.nngroup.com/)
 - [Dienst digitale overheid](https://www.digitoegankelijk.nl)
-
-<Markdown>{buttonReadme}</Markdown>

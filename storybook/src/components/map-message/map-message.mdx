@@ -1,4 +1,5 @@
 import mapMessageReadme from "@dso-toolkit/core/src/components/map-message/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./map-message.stories";
 
@@ -18,4 +19,6 @@ import * as Stories from "./map-message.stories";
 
 <Canvas of={Stories.Instruction} />
 
-<Markdown>{mapMessageReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(mapMessageReadme)}</Markdown>

@@ -1,4 +1,5 @@
 import selectableReadme from "@dso-toolkit/core/src/components/selectable/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./selectable.stories";
 
@@ -9,6 +10,10 @@ import * as Stories from "./selectable.stories";
 <Canvas of={Stories.Radio} />
 
 🚧 Documentatie volgt 🚧
+
+`interface SelectableChangeEvent` is structurally identical to `Event`.
+
+When the Info is closed with its close button, focus is returned to the Info Button. The close button is labelled "Sluiten" by default. Use `infoCloseLabel` to make it specific, for example "Sluit toelichting" followed by the label of the Selectable.
 
 ## Angular Signal Forms
 
@@ -60,4 +65,6 @@ export class RadioGroupExampleComponent {
 
 Gebruik voor alle opties binnen de groep dezelfde `name` en geef iedere optie een unieke, niet-lege `value`. Eén radio-optie is ook mogelijk. De groepsdirective synchroniseert de geselecteerde optie met het formulier en zet `disabled`, `required` en `invalid` door; het `fieldset` groepeert en labelt de opties. De browser blijft de toetsenbordbediening van de radio's verzorgen.
 
-<Markdown>{selectableReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(selectableReadme)}</Markdown>

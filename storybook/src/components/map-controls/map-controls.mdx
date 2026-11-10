@@ -1,4 +1,5 @@
 import mapControlsReadme from "@dso-toolkit/core/src/components/map-controls/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./map-controls.stories";
 
@@ -10,4 +11,6 @@ import * as Stories from "./map-controls.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{mapControlsReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(mapControlsReadme)}</Markdown>

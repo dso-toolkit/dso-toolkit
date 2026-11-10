@@ -1,4 +1,5 @@
 import panelReadme from "@dso-toolkit/core/src/components/panel/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./panel.stories";
 
@@ -18,4 +19,6 @@ import * as Stories from "./panel.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{panelReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(panelReadme)}</Markdown>

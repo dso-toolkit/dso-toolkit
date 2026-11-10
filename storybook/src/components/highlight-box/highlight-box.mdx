@@ -1,4 +1,5 @@
 import highlightBoxReadme from "@dso-toolkit/core/src/components/highlight-box/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./highlight-box.stories";
 
@@ -18,4 +19,6 @@ Standaard achtergrondkleur grijs, andere varianten zijn:
 - With icon
 - Yellow
 
-<Markdown>{highlightBoxReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(highlightBoxReadme)}</Markdown>

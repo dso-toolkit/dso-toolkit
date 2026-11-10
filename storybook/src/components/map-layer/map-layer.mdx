@@ -2,6 +2,7 @@ import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./map-layer.stories";
 import readme from "@dso-toolkit/core/src/components/map-layer/readme.md?raw";
 import componentsReadme from "@dso-toolkit/core/src/components/map-layer/components/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 
 <Meta of={Stories} />
 
@@ -25,6 +26,10 @@ import componentsReadme from "@dso-toolkit/core/src/components/map-layer/compone
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{readme}</Markdown>
+## API `<dso-map-layer>`
 
-<Markdown>{componentsReadme}</Markdown>
+<Markdown>{generatedReadme(readme)}</Markdown>
+
+## API `<dso-map-layer-object>`
+
+<Markdown>{generatedReadme(componentsReadme)}</Markdown>

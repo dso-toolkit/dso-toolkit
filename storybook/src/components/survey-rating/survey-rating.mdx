@@ -1,4 +1,5 @@
 import surveyRatingReadme from "@dso-toolkit/core/src/components/survey-rating/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
 import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
 import * as Stories from "./survey-rating.stories";
 
@@ -12,4 +13,6 @@ import * as Stories from "./survey-rating.stories";
 
 🚧 Documentatie volgt 🚧
 
-<Markdown>{surveyRatingReadme}</Markdown>
+## API
+
+<Markdown>{generatedReadme(surveyRatingReadme)}</Markdown>
