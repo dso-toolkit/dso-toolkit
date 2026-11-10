@@ -21,4 +21,51 @@ import * as Stories from "./date-picker.stories";
 - De geselecteerde datum (datum die in het invoerveld staat / komt) staat in een gevuld groen cirkeltje. Tekstalternatief is het attribuut `aria-selected="true"`. Op het referentie platform wordt dit uitgesproken als "geselecteerd".
 - In de tabel met datums kan worden genavigeerd met de pijltjestoetsen, met enter wordt een datum geselecteerd en sluit het modal. Op het referentie platform behandelt NVDA dit als een standaard tabel waardoor met de commando's voor tabel navigatie wordt genavigeerd, dit is een kennelijke ontwerpkeuze van NVDA en werkt goed. Het is ook mogelijk op de gebruikelijke manier met pijltjestoetsen te navigeren door de focusmodus te activeren (NVDA + spatie).
 
+## Angular Signal Forms
+
+`@dso-toolkit/angular` ondersteunt Angular Signal Forms via de `[formField]`-directive uit `@angular/forms/signals`.
+
+```ts
+import { Component, signal } from "@angular/core";
+import { FormField, form, required, validate } from "@angular/forms/signals";
+import { DsoDatePicker, DsoDatePickerFieldControl } from "@dso-toolkit/angular";
+
+@Component({
+  standalone: true,
+  imports: [DsoDatePicker, DsoDatePickerFieldControl, FormField],
+  template: `
+    <dso-date-picker
+      [formField]="myForm.datum"
+      [minDate]="minimumDate()"
+      [maxDate]="maximumDate()"
+      [(inputError)]="dateInputError"
+    />
+  `,
+})
+export class ExampleComponent {
+  model = signal({ datum: "" });
+  minimumDate = signal("01-01-2024");
+  maximumDate = signal("31-12-2024");
+  dateInputError = signal<"required" | "min-range" | "max-range" | "invalid" | undefined>(undefined);
+  myForm = form(this.model, (path) => {
+    required(path.datum, { when: () => this.dateInputError() !== "invalid" });
+    validate(path.datum, ({ value }) =>
+      !value() && this.dateInputError() === "invalid" ? { kind: "invalid" } : undefined,
+    );
+  });
+}
+```
+
+De adapter geeft de invoerfout uit `dsoDateChange` of `dsoBlur` door via `inputError`. Het voorbeeld gebruikt dit signal om ongeldige invoer van een leeg verplicht veld te onderscheiden. De `when`-voorwaarde voorkomt dat ongeldige invoer daarnaast ook een `required`-fout krijgt. Valideer datumgrenzen zelf in het Signal Form met dezelfde `minimumDate`- en `maximumDate`-signals; de adapter zet `minDate` en `maxDate` alleen door naar de Date Picker. Wis `dateInputError` zelf bij programmatische resets van het formulier.
+
+Zonder `[formField]` stel je datumgrenzen zoals voorheen in met `min` en `max` op de Date Picker. Gebruik alleen bij een Date Picker met `[formField]` `minDate` en `maxDate` voor datumgrenzen, niet `min` en `max`. Angular Signal Forms gebruikt `min` en `max` zelf voor formuliergrenzen. Het type daarvan verschilt tussen Angular 21 en 22; de adapter biedt daarom geen eigen `min`- of `max`-input. Formuliergrenzen stellen geen datumgrens in; `minDate` en `maxDate` geven datumstrings door aan de Date Picker.
+
+```html
+<!-- Statische datumgrenzen -->
+<dso-date-picker [formField]="myForm.datum" minDate="01-01-2024" maxDate="31-12-2024" />
+
+<!-- Dynamische datumgrenzen -->
+<dso-date-picker [formField]="myForm.datum" [minDate]="minimumDate()" [maxDate]="maximumDate()" />
+```
+
 <Markdown>{datePickerReadme}</Markdown>
