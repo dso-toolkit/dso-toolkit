@@ -5274,6 +5274,9 @@ declare module "@stencil/core" {
             "dso-dropdown-menu-group": LocalJSX.IntrinsicElements["dso-dropdown-menu-group"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuGroupElement>;
             "dso-dropdown-menu-item": LocalJSX.IntrinsicElements["dso-dropdown-menu-item"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuItemElement>;
             "dso-expandable": LocalJSX.IntrinsicElements["dso-expandable"] & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
+            /**
+             * Een grid kolom valt in overlay-modus over de andere kolommen van de row. Zie de voorbeeldpagina's onder Patronen voor hoe het component met `<dso-grid-column>` werkt.
+             */
             "dso-grid-column": LocalJSX.IntrinsicElements["dso-grid-column"] & JSXBase.HTMLAttributes<HTMLDsoGridColumnElement>;
             "dso-header": LocalJSX.IntrinsicElements["dso-header"] & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-hero-image": LocalJSX.IntrinsicElements["dso-hero-image"] & JSXBase.HTMLAttributes<HTMLDsoHeroImageElement>;
@@ -5291,11 +5294,17 @@ declare module "@stencil/core" {
             "dso-legend-item": LocalJSX.IntrinsicElements["dso-legend-item"] & JSXBase.HTMLAttributes<HTMLDsoLegendItemElement>;
             "dso-list-button": LocalJSX.IntrinsicElements["dso-list-button"] & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
             "dso-logo": LocalJSX.IntrinsicElements["dso-logo"] & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
+            /**
+             * Private component, do not use.
+             */
             "dso-map-base-layers": LocalJSX.IntrinsicElements["dso-map-base-layers"] & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
             "dso-map-controls": LocalJSX.IntrinsicElements["dso-map-controls"] & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-layer": LocalJSX.IntrinsicElements["dso-map-layer"] & JSXBase.HTMLAttributes<HTMLDsoMapLayerElement>;
             "dso-map-layer-object": LocalJSX.IntrinsicElements["dso-map-layer-object"] & JSXBase.HTMLAttributes<HTMLDsoMapLayerObjectElement>;
             "dso-map-message": LocalJSX.IntrinsicElements["dso-map-message"] & JSXBase.HTMLAttributes<HTMLDsoMapMessageElement>;
+            /**
+             * Private component, do not use.
+             */
             "dso-map-overlays": LocalJSX.IntrinsicElements["dso-map-overlays"] & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-mark-bar": LocalJSX.IntrinsicElements["dso-mark-bar"] & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
             "dso-modal": LocalJSX.IntrinsicElements["dso-modal"] & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
