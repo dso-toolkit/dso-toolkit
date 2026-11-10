@@ -1,13 +1,12 @@
 import { html, nothing } from "lit-html";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { imageTemplate } from "../image/image.template.js";
 
 import { ImageOverlay } from "./image-overlay.models.js";
 
-export function imageOverlayTemplate({ image, title, bijschrift }: ImageOverlay) {
+export function imageOverlayTemplate({ image, title, bijschrift, wijzigactie }: ImageOverlay) {
   return html`
-    <dso-image-overlay>
+    <dso-image-overlay .wijzigactie=${wijzigactie}>
       ${
         title
           ? html`<div slot="titel">
@@ -19,7 +18,7 @@ export function imageOverlayTemplate({ image, title, bijschrift }: ImageOverlay)
       ${
         bijschrift
           ? html`<div slot="bijschrift">
-              <span>${unsafeHTML(bijschrift.split("\n").join("<br />"))}</span>
+              <span>${bijschrift.split("\n").map((line, i) => (i ? html`<br />${line}` : line))}</span>
             </div>`
           : nothing
       }

@@ -212,6 +212,80 @@ describe("Image Overlay", () => {
         expect(titleBottom).to.be.at.most(imageTop);
       });
   });
+
+  [
+    {
+      wijzigactie: "voegtoe",
+      selector: "ins.editaction-add",
+      label: "Toegevoegd:",
+      backgroundColor: "rgb(228, 241, 212)",
+    },
+    {
+      wijzigactie: "verwijder",
+      selector: "del.editaction-remove",
+      label: "Verwijderd:",
+      backgroundColor: "rgb(245, 216, 220)",
+    },
+  ].forEach(({ wijzigactie, selector, label, backgroundColor }) => {
+    it(`should show wijzigactie "${wijzigactie}"`, () => {
+      cy.visit(
+        `http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=wijzigactie:${wijzigactie}`,
+      );
+      cy.injectAxe();
+      cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+
+      cy.get("dso-image-overlay")
+        .shadow()
+        .find(selector)
+        .should("have.css", "background-color", backgroundColor)
+        .children(".editaction-label")
+        .should("have.text", label)
+        .and("be.visible");
+
+      cy.get("dso-image-overlay").realHover();
+      cy.get("dso-image-overlay")
+        .shadow()
+        .find(selector)
+        .should(($wrapper) => {
+          const labelBottom = $wrapper.children(".editaction-label")[0]!.getBoundingClientRect().bottom;
+          const openButtonTop = $wrapper.children(".open")[0]!.getBoundingClientRect().top;
+
+          expect(openButtonTop, "open button below label").to.be.at.least(labelBottom);
+        });
+
+      openOverlay();
+
+      cy.get("dso-image-overlay")
+        .shadow()
+        .find(`${selector} > .wrapper`)
+        .should("have.css", "background-color", backgroundColor)
+        .find(".editaction-label")
+        .should("have.text", label)
+        .and("be.visible");
+    });
+  });
+
+  it('should strike through the title in the overlay for wijzigactie "verwijder"', () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=wijzigactie:verwijder");
+    cy.injectAxe();
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+    openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("del.editaction-remove > .wrapper .title")
+      .should("have.css", "text-decoration-line", "line-through");
+  });
+
+  it("should ignore an unknown wijzigactie", () => {
+    cy.get("dso-image-overlay").invoke("attr", "wijzigactie", "onbekend");
+
+    cy.get("dso-image-overlay").shadow().find("ins, del, .editaction-label").should("not.exist");
+
+    openOverlay();
+
+    cy.get("dso-image-overlay").shadow().find(".wrapper .editaction-label").should("not.exist");
+  });
 });
 
 function openOverlay() {

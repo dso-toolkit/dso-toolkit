@@ -4,4 +4,5 @@ export interface ImageOverlay {
   image: Image;
   title?: string;
   bijschrift?: string;
+  wijzigactie?: "voegtoe" | "verwijder";
 }
