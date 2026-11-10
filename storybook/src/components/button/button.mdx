@@ -6,18 +6,18 @@ import * as ButtonRowStories from "../button-row/button-row.stories";
 
 # Buttons
 
+<Canvas of={ButtonStories.Primary} />
+
 Buttons geven gebruikers de mogelijkheid om actie te nemen en keuzes te maken in een enkele klik. Buttons communiceren acties die gebruikers kunnen nemen. Ze moeten makkelijk te identificeren en makkelijk te vinden zijn. Tegelijkertijd moet een button duidelijk de actie aantonen die de gebruiker moet volbrengen. Gebruik vorm en kleur om een button visueel als button herkenbaar te maken voor de gebruiker.
 
 - Plaats buttons waar gebruikers ze verwachten en makkelijk vindbaar zijn
 - Van belang zijn: de grootte van een button, de 'touch size' en witruimte rondom
-- Verschillende platvormen gebruiken verschillende formaten buttons
+- Verschillende platforms gebruiken verschillende formaten buttons
 - Let op positie en volgorde met name als buttons in groepen staan (vorige/volgende) benadruk welke primair is of de belangrijkste actie aanduidt
 - Een actieknop moet opvallen: gebruik daarom een contrasterende kleur
 - Gebruik visuele hints om aandacht te vestigen op een actieknop
 
 ## Primaire buttons
-
-<Canvas of={ButtonStories.Primary} />
 
 De primaire actie is die button waarmee de gebruiker de taak volbrengt.
 
@@ -60,11 +60,15 @@ In het algemeen wordt hiervoor een minder prominente button stijl gebruikt.
 - Tekst grasgroen (`#39870c`), Asap semibold 16
 - En/of icoon in grasgroen (`#39870c`)
 
-✨ Zie voor meer voorbeelden en het gebruik van de tertiare button de [button-row](?path=/docs/html-css-button-row--docs) pagina.
+✨ Zie voor meer voorbeelden en het gebruik van de tertiaire button de [button-row](?path=/docs/html-css-button-row--docs) pagina.
 
 ### Afbrekingen met ellipsis
 
 Gelet op [WCAG succescriterium 1.4.4](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html) zijn afbrekingen met ellipsis acceptabel als de volledige content beschikbaar is op focus of na activatie van de gebruiker. Dit gepaard met een indicatie dat deze informatie toegankelijk is voor de gebruiker, naast het feit dat het afgebroken is.
+
+## Map
+
+<Canvas of={ButtonStories.Map} />
 
 ## Hoe te gebruiken: Kleine buttons
 
@@ -89,7 +93,7 @@ Het label van de button staat altijd in een `<span>`. Naast de label `<span>` ka
 ### Modifiers
 
 - `.dso-small`: Om de button compacter te maken.
-- `.dso-align`: Met deze modifier kunnen tertiare buttons verticaal worden uitgelijnd met primary en secondary buttons.
+- `.dso-align`: Met deze modifier kunnen tertiaire buttons verticaal worden uitgelijnd met primary en secondary buttons.
 
 ## Bronvermelding
 

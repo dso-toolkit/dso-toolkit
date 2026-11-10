@@ -1,13 +1,13 @@
 import modalReadme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
 import { generatedReadme } from "../../shared/generated-readme";
-import { Markdown, Meta } from "@storybook/addon-docs/blocks";
+import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
 import * as Stories from "./modal.stories";
 
 <Meta of={Stories} />
 
 # Modal
 
-[Bekijk de modal in Storybook](?path=/story/core-modal--confirm)
+<Canvas of={Stories.Confirm} />
 
 Modals onderbreken de flow van de gebruiker en vragen om actie. Ze zijn geschikt wanneer de gebruiker zijn aandacht moet richten op belangrijke informatie. Bijvoorbeeld een modal met een waarschuwing om te voorkomen dat gebruikers per ongeluk een destructieve actie uitvoeren zonder dat ze het resultaat begrijpen.
 
@@ -15,7 +15,7 @@ Modals onderbreken de flow van de gebruiker en vragen om actie. Ze zijn geschikt
 
 - **Onderbreken:** Gebruik een modal om informatie op te vragen of weer te geven die nodig is om verder te gaan met een door de gebruiker gestart proces.
 - **Informeren:** Gebruik een modal om de gebruiker te informeren, bijvoorbeeld over belangrijke waarschuwingen, een systeemfout of gevolg van een gebruikersactie.
-- **Bevestigen:** Gebruik een modal om een beslissing van de gebruiker af te dwingen, bijvoorbeeld met de tekst "Weet u het zeker?"". Beschrijf duidelijk welke actie wordt bevestigd. Leg ook de mogelijke gevolgen uit.
+- **Bevestigen:** Gebruik een modal om een beslissing van de gebruiker af te dwingen, bijvoorbeeld met de tekst "Weet u het zeker?". Beschrijf duidelijk welke actie wordt bevestigd. Leg ook de mogelijke gevolgen uit.
 
 ## Wanneer niet te gebruiken
 
@@ -30,12 +30,6 @@ Gebruik een modal alleen voor simpele interacties. Vermijd modals voor complexe 
 - Button labels moeten de gebruiker duidelijk vertellen wat er gebeurt als ze erop klikken.
 - Gebruik geen modal bovenop een ander modal. Als de flow een tweede modal vereist is die vaak te complex om in een modal te plaatsen.
 
-### Technische informatie
-
-Het modal component heeft voor elk framework een eigen voorschrift voor de implementatie. Zie de storybook documentatie voor meer informatie.
-
-Bij het instantieren van een `dso-modal` wordt op de body het scrollgedrag 'achter' de modal automatisch uitgezet dmv detectie middels CSS. Als afnemer kun je dus een modal starten door `<dso-modal>` pas te renderen als je een modal wil.
-
 ## Gedrag en toegankelijkheid
 
 ### Algemeen
@@ -46,18 +40,44 @@ Bij het instantieren van een `dso-modal` wordt op de body het scrollgedrag 'acht
 - De tab focus moet beperkt zijn tot de modal (keyboard trap).
 - Een modal kan gesloten worden door op de sluitknop te klikken. Ook kan een modal gesloten worden door op de ESC-toets te drukken of door buiten de modal te klikken.
 - Wanneer de modal wordt gesloten, moet de focus, indien mogelijk, teruggezet worden naar de positie die hij had voordat de modal werd geopend.
-- Valideer eventuele invoer van een gebruiker voordat de modal wordt gesloten. Als een validatiefout optreed, moet de modal open blijven en wordt er een alert en/of inline foutmelding gegeven bij het betreffende invoerveld.
+- Valideer eventuele invoer van een gebruiker voordat de modal wordt gesloten. Als een validatiefout optreedt, moet de modal open blijven en wordt er een alert en/of inline foutmelding gegeven bij het betreffende invoerveld.
 
-### Modal Dialog roles: `dialog` vs `alertdialog`
+### Rol van de modal
 
 Is een modal bedoeld om gebruikers te onderbreken met dringende informatie, details of acties? Gebruik dan de `role="alertdialog"`. In andere gevallen gebruik je `role="dialog"`.
 
 In tegenstelling tot gewone meldingen moet er tenminste één interactief element in een alertdialog staan. Zet de focus daarop als de modal verschijnt. Meestal is dit een actie om te bevestigen, sluiten of annuleren. Er kunnen ook andere interactieve elementen in een alertdialog staan, zoals invoervelden, checkboxen en radio selecties. Waar de focus gezet moet worden is afhankelijk van het doel van de modal.
 
+## Technische opmerkingen
+
+Een modal open je door `<dso-modal>` te renderen. Zolang het element op de pagina staat, scrolt de pagina achter de modal niet.
+
+## Varianten
+
+### Active
+
+<Canvas of={Stories.Active} />
+
+### Loading
+
+<Canvas of={Stories.Loading} />
+
+### Fullscreen
+
+<Canvas of={Stories.Fullscreen} />
+
+### Passive
+
+<Canvas of={Stories.Passive} />
+
+### With Datepicker
+
+<Canvas of={Stories.WithDatepicker} />
+
 ## Bronvermelding
 
 - Nielsen Norman Group (2017, 23 April). Modal & Nonmodal Dialogs. Geraadpleegd op 13 oktober 2020, via [https://www.nngroup.com/articles/modal-nonmodal-dialog/](https://www.nngroup.com/articles/modal-nonmodal-dialog/)
 - Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via [https://www.nngroup.com/articles/indicators-validations-notifications/](https://www.nngroup.com/articles/indicators-validations-notifications/)
-- Web Content Accessibility Guidelines (2018, 05 June). WC3. Geraadpleegd op 13 oktober 2020, via [https://www.w3.org/WAI/standards-guidelines/wcag/](https://www.w3.org/WAI/standards-guidelines/wcag/)
+- Web Content Accessibility Guidelines (2018, 05 June). W3C. Geraadpleegd op 13 oktober 2020, via [https://www.w3.org/WAI/standards-guidelines/wcag/](https://www.w3.org/WAI/standards-guidelines/wcag/)
 
 <Markdown>{generatedReadme(modalReadme)}</Markdown>

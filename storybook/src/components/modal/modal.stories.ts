@@ -23,6 +23,14 @@ const meta: Meta<ModalArgs> = {
     closable: true,
     dsoClose: fn(),
   },
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: "500px",
+      },
+    },
+  },
 };
 
 export default meta;

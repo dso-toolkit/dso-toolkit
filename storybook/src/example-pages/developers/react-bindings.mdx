@@ -54,7 +54,9 @@ export function App() {
 
   useEffect(() => {
     const element = datePicker.current;
-    if (!element) return;
+    if (!element) {
+      return;
+    }
 
     const onDateChange = (event: Event) => console.log((event as CustomEvent).detail);
     element.addEventListener("dsoDateChange", onDateChange);

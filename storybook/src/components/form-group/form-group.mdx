@@ -5,7 +5,9 @@ import * as Stories from "./form-group.stories";
 
 # Form Group
 
-Een formulier bestaat uit Form Group. Elke veld/werkvorm heeft z'n eigen `.form-group`.
+<Canvas of={Stories.Input} />
+
+Een formulier bestaat uit Form Groups. Elke veld/werkvorm heeft z'n eigen `.form-group`.
 
 Als de gebruiker een ongeldige waarde invoert moet er `.dso-invalid` op `.form-group` worden geplaatst:
 
@@ -19,19 +21,27 @@ Als het formulier daarna weer geldig wordt gemaakt moet de `.dso-invalid` class 
 <div class="form-group dso-*** dso-valid">[...]</div>
 ```
 
-🚧 Documentatie volgt 🚧
-
 ## Form Group: Checkboxes
+
+<Canvas of={Stories.Checkboxes} />
 
 Een checkbox group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
 
 ## Form Group: Confirm
 
-🚧 Documentatie volgt 🚧
+<Canvas of={Stories.Confirm} />
+
+## Form Group: Date Picker
+
+<Canvas of={Stories.DatePicker} />
 
 ## Form Group: Files
 
-Dit component ondersteund twee verschillende manieren voor het maken van een upload knop:
+<Canvas of={Stories.Files} />
+
+<Canvas of={Stories.NoFiles} />
+
+Dit component ondersteunt twee verschillende manieren voor het maken van een upload knop:
 
 - Een `input[type="file"]` met een `label` element
 - Een `button` element
@@ -58,20 +68,24 @@ Een Form Group "input" kan een Form Buttons als laatste child hebben. De knoppen
 
 ## Form Group: Radios
 
+<Canvas of={Stories.Radios} />
+
 Een radio group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
 
 ## Form Group: Search Bar
 
-🚧 Documentatie volgt 🚧
+<Canvas of={Stories.SearchBar} />
 
 ## Form Group: Select
 
-🚧 Documentatie volgt 🚧
+<Canvas of={Stories.Select} />
 
 ## Form Group: Static
 
-🚧 Documentatie volgt 🚧
+<Canvas of={Stories.Static} />
 
 ## Form Group: Textarea
+
+<Canvas of={Stories.Textarea} />
 
 Attribuut `@rows` is optioneel

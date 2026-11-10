@@ -171,7 +171,7 @@ export const Contents: DocumentComponentDemoStory = {
           case "JCI":
             return `http://wetten.overheid.nl/${value}`;
           case "document":
-            return `https://zoek.officielebekendmakingen.nl/${value}`;
+            return `https://zoek.officiele-bekendmakingen.nl/${value}`;
           case "AKN":
           case "URL":
           default:

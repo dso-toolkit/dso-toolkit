@@ -6,6 +6,8 @@ import * as FormStories from "../form/form.stories";
 
 # Form Buttons
 
+<Canvas of={FormButtonsStories.Default} />
+
 ## Button combinaties
 
 Wanneer buttons bij elkaar gegroepeerd moeten worden aangeboden, moet een <code>.dso-form-buttons</code> worden toegepast.
@@ -14,10 +16,6 @@ Doorgaans zullen deze groeperingen in context van een formulier staan, maar dit 
 Als buttons links uitgelijnd moeten worden, worden deze gegroepeerd in een <code>div.dso-aside</code>.
 Uitzondering: dit is niet nodig in een <code>.dso-single-page</code>, daar worden de knoppen al links uitgelijnd.
 
-### Standaard
-
-<Canvas of={FormButtonsStories.Default} />
-
 ### Paginering door stappen
 
 <Canvas of={FormButtonsStories.MultiPage} />
@@ -25,3 +23,11 @@ Uitzondering: dit is niet nodig in een <code>.dso-single-page</code>, daar worde
 ### Single page
 
 <Canvas of={FormStories.SinglePage} />
+
+### Sections
+
+<Canvas of={FormButtonsStories.Sections} />
+
+### Simple Form
+
+<Canvas of={FormButtonsStories.SimpleForm} />

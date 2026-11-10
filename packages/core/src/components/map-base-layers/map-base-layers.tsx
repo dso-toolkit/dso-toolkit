@@ -6,9 +6,6 @@ import { i18n } from "../../utils/i18n";
 import { translations } from "./map-base-layers.i18n";
 import { BaseLayer, BaseLayerChangeEvent } from "./map-base-layers.interfaces";
 
-/**
- * Private component, do not use.
- */
 @Component({
   tag: "dso-map-base-layers",
   styleUrl: "./map-base-layers.scss",

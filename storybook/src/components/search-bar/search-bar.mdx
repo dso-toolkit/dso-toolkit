@@ -10,7 +10,7 @@ import * as Stories from "./search-bar.stories";
 
 ## Technische opmerkingen
 
-Pas bij een waarde toont de reset-knop, initieel is deze knop er niet.
+De reset-knop verschijnt pas als het veld een waarde heeft.
 
 ## Toegankelijkheid
 
@@ -18,10 +18,48 @@ Een input, en dus ook deze search-bar, dient volgens WCAG succescriterium 1.3.1 
 Een label wordt aan een specifieke input gekoppeld door het gebruik van het `for`-attribuut.
 De waarde van het `for` attribuut moet gelijk zijn aan de waarde van het `id` attribuut van de input.
 
-NB. zie ook "Form > Search Bar" waar het label wordt verstrekt als onderdeel van de `.form-group`:
+Zie ook de Search Bar op de pagina [Form Group](?path=/docs/html-css-form-group--docs). Daar is het label onderdeel van de `.form-group`:
 
 <Canvas of={FormGroupStories.SearchBar} />
 
-### Bronvermelding
+## Varianten
+
+### Visual Label Without Icon
+
+<Canvas of={Stories.VisualLabelWithoutIcon} />
+
+### Placeholder With Long Text
+
+<Canvas of={Stories.PlaceholderWithLongText} />
+
+### Hidden Label With Icon
+
+<Canvas of={Stories.HiddenLabelWithIcon} />
+
+### Hidden Label Without Icon
+
+<Canvas of={Stories.HiddenLabelWithoutIcon} />
+
+### With Value
+
+<Canvas of={Stories.WithValue} />
+
+### Invalid
+
+<Canvas of={Stories.Invalid} />
+
+### Hidden Button
+
+<Canvas of={Stories.HiddenButton} />
+
+### With Results Message
+
+<Canvas of={Stories.WithResultsMessage} />
+
+### With Hidden Results Message
+
+<Canvas of={Stories.WithHiddenResultsMessage} />
+
+## Bronvermelding
 
 - Using label elements to associate text labels with form controls, [https://www.w3.org/WAI/WCAG21/Techniques/html/H44](https://www.w3.org/WAI/WCAG21/Techniques/html/H44)

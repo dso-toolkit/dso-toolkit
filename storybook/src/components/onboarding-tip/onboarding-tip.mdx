@@ -7,13 +7,9 @@ import * as Stories from "./onboarding-tip.stories";
 
 # Onboarding Tip
 
-De `<dso-onboarding-tip>` is bedoeld om extra uitleg of hulp te geven bij een specifiek element op de pagina, het zogenaamde referentie-element.
-
-## Default
-
 <Canvas of={Stories.Default} />
 
-🚧 Documentatie volgt 🚧
+De `<dso-onboarding-tip>` is bedoeld om extra uitleg of hulp te geven bij een specifiek element op de pagina, het zogenaamde referentie-element.
 
 ## Koppeling met een referentie-element
 
@@ -30,10 +26,6 @@ Zorg ervoor dat de tip in het DOM zo dicht mogelijk bij het referentie-element s
 
 ## Positionering
 
-De positionering van de tip gebeurt automatisch met behulp van [Floating-UI](https://floating-ui.com/), zodat deze altijd op de juiste plek verschijnt ten opzichte van het referentie-element.
-
-## Top Layer
-
-De onboarding tip wordt in de top layer geplaatst. Dit betekent dat hij altijd boven andere elementen in hetzelfde document zichtbaar is.
+De tip verschijnt automatisch op de juiste plek bij het referentie-element en staat altijd boven andere elementen op de pagina.
 
 <Markdown>{generatedReadme(onboardingTipReadme)}</Markdown>

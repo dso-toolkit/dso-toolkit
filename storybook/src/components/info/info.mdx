@@ -11,15 +11,15 @@ import * as Stories from "./info.stories";
 
 Afbeeldingen worden in <code>form dso-info</code> in het midden uitgelijnd
 
-## Close button label
+## Label van de sluitknop
 
-The close button has the label "Sluiten" by default. Use `closeLabel` to make it specific for the context, for example "Sluit toelichting" followed by the label of the question or option.
+De sluitknop heeft standaard het label "Sluiten". Maak het label met `closeLabel` specifiek voor de context, bijvoorbeeld "Sluit toelichting" gevolgd door het label van de vraag of optie.
 
-## Focus management
+## Focus
 
-When the Info is closed with the close button, the close button disappears and focus is lost. The consumer is responsible for returning focus, usually to the Info Button that opened the Info.
+Sluit de gebruiker de Info met de sluitknop, dan verdwijnt de sluitknop en is de focus weg. De afnemer zet de focus terug, meestal op de Info Button die de Info opende.
 
-When the Info becomes active, it stores the element that had focus at that moment. This element is passed as `previousActiveElement` in the `dsoClose` event:
+Wordt de Info actief, dan onthoudt de Info het element dat op dat moment focus had. Dat element zit als `previousActiveElement` in het `dsoClose`-event:
 
 ```typescript
 info.addEventListener("dsoClose", (e: DsoInfoCustomEvent<InfoCloseEvent>) => {
@@ -29,6 +29,12 @@ info.addEventListener("dsoClose", (e: DsoInfoCustomEvent<InfoCloseEvent>) => {
 });
 ```
 
-If the Info is opened in another way than by the Info Button, use `setFocus()` on `<dso-info-button>` instead.
+Is de Info op een andere manier geopend dan met de Info Button, gebruik dan `setFocus()` op `<dso-info-button>`.
+
+## Varianten
+
+### Fixed
+
+<Canvas of={Stories.Fixed} />
 
 <Markdown>{generatedReadme(infoReadme)}</Markdown>

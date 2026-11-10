@@ -43,6 +43,12 @@ const meta: Meta<ViewerGridArgs> = {
     controls: {
       hideNoControlsWarning: true,
     },
+    docs: {
+      story: {
+        inline: false,
+        height: "600px",
+      },
+    },
   },
   render: (args) => viewerGridTemplate(viewerGridArgsMapper(args, example)),
 };

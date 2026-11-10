@@ -8,6 +8,8 @@ import removeDsoCardClicked from "./remove-dso-card-clicked.png";
 
 # Card
 
+<Canvas of={Stories.Default} />
+
 Cards zijn containers voor korte stukken informatie die met elkaar te maken hebben. Qua grootte en vorm lijken ze op speelkaarten.
 
 ## Wanneer te gebruiken
@@ -28,13 +30,9 @@ Geef het informatieknopje het `sr-only`-tekstalternatief "toon informatie over [
 
 ## Varianten
 
-Beware: clicking the heading link with property `href` set doesn't navigate to the URL set. This is caused by the storybook implementation, which inhibits this normal behavior. Use developer tools to remove the Event Listener `dsoCardClicked` to enable the navigation to the set `href`.
+Let op: in de voorbeelden hieronder navigeert een klik op de titellink niet naar de `href`. De stories houden die navigatie tegen. Verwijder in de developer tools de event listener `dsoCardClicked` om de navigatie te zien.
 
 <img src={removeDsoCardClicked} alt="Event Listener dsoCardClicked verwijderen in de developer tools" />
-
-### Default
-
-<Canvas of={Stories.Default} />
 
 ### With Selectable And Button
 

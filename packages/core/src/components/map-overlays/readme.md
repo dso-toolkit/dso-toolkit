@@ -3,10 +3,6 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Private component, do not use.
-
 ## Properties
 
 | Property                | Attribute | Description                                                           | Type        | Default     |

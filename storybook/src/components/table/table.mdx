@@ -10,19 +10,19 @@ import layoutTabelVoorbeeld from "./layout-tabel_voorbeeld.png";
 
 <Canvas of={Stories.Default} />
 
-## Table responsive
+Gebruik tabellen om inhoud logisch te structureren, zodat het gemakkelijker wordt om relaties te zien en te begrijpen.
 
-Met de class `.dso-table-responsive` wordt de tabel responsive wanneer de viewport smaller is dan 768px:
+Het component `<table>` wordt als een data-tabel gebruikt of als data-grid.
 
-## Horizontal scrolling
+## Responsive tabel
+
+Met de class `.dso-table-responsive` wordt de tabel responsive wanneer de viewport smaller is dan 768px.
+
+## Horizontaal scrollen
 
 Als het al bekend is dat een tabel in een smalle container wordt geplaatst, zoals in een menu naast een kaart kan de implementator het responsive scroll gedrag forceren met een wrapper `div.dso-table-scroll-container`.
 
 Boven de tabel verschijnt de melding `beweeg de tabel van links naar rechts`.
-
-Gebruik tabellen om inhoud logisch te structureren, zodat het gemakkelijker wordt om relaties te zien en te begrijpen. Gebruik een tabel nooit om inhoud op een pagina op te maken. Gebruik in plaats daarvan het gridsysteem.
-
-Het component `<table>` wordt als een data-tabel gebruikt of als data-grid.
 
 ## Hoe component "table" gebruiken als data-tabel
 
@@ -42,8 +42,6 @@ Het component `<table>` wordt als een data-tabel gebruikt of als data-grid.
 ### Maak geen layout-tabel
 
 Gebruik een `<table>` nooit om inhoud op een pagina op te maken. Dit is ook wel bekend als een layout-tabel. Gebruik in plaats daarvan het responsive grid-systeem om inhoud op een pagina op te maken.
-
-Zie ook: [Layout](https://www.dso-toolkit.nl/master/fundament/layout)
 
 <img src={layoutTabelVoorbeeld} alt="Voorbeeld van een layout-tabel" />
 
@@ -65,8 +63,8 @@ Het bevat **wel** interactieve elementen om de tabel aan te passen.
 ### Sorteren in een data-grid
 
 - Bij het gebruik van `role="grid"` wordt vanuit gegaan dat de data in het data-grid aanpasbaar is. Voeg `aria-readonly="true"` toe, als de data niet aanpasbaar is.
-- Als je een kolom sorteerbaar wilt maken, voeg dan aan `<th>` `"role=columnheader"` toe.
-- - Als je een rij sorteerbaar wilt maken, voeg dan aan `<th>` `"role=rowheader"` toe.
+- Als je een kolom sorteerbaar wilt maken, voeg dan aan `<th>` `role="columnheader"` toe.
+- Als je een rij sorteerbaar wilt maken, voeg dan aan `<th>` `role="rowheader"` toe.
 - Wanneer de sortering oplopend is, geef dit bij `<th>` aan met `aria-sort="ascending"`. Bij aflopende resultaten, gebruik `aria-sort="descending"`.
 - Als er meerdere sorteerbare kolommen of rijen zijn, dan mag er alleen één sortering tegelijk actief zijn met `aria-sort`.
 
@@ -79,6 +77,24 @@ Het bevat **wel** interactieve elementen om de tabel aan te passen.
 - Gebruik `<th scope="row">` voor koptitels in de rijen.
 - Splits de table in twee losse tables als er twee kop niveaus nodig zijn.
 
+## Varianten
+
+### With Dso Image Overlay
+
+<Canvas of={Stories.WithDsoImageOverlay} />
+
+### With Vertical Lines
+
+<Canvas of={Stories.WithVerticalLines} />
+
+### Sorted Ascending
+
+<Canvas of={Stories.SortedAscending} />
+
+### Sorted Descending
+
+<Canvas of={Stories.SortedDescending} />
+
 ## Bronvermelding
 
 - [WAI-ARIA 1.1 Table](https://www.w3.org/WAI/ARIA/apg/patterns/table/)
@@ -89,6 +105,5 @@ Het bevat **wel** interactieve elementen om de tabel aan te passen.
 ## Disclaimer
 
 De namen in de voorbeelden zijn fictief en hebben geen relatie tot werkelijke personen. Elke overeenkomst met betrekking tot naam, karakter of achtergrond van bestaande personen berust volledig op toeval.
-_The names in the examples are fictitious and have no relation to actual persons. Any similarity with regard to name, character or background of existing persons is entirely coincidental._
 
 <Markdown>{generatedReadme(readme)}</Markdown>

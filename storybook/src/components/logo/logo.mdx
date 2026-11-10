@@ -7,15 +7,9 @@ import { generatedReadme } from "../../shared/generated-readme";
 
 # Logo
 
-Een Web Component waarmee een slim, toegankelijk en uniform logo in applicaties kan worden getoond.
-
 <Canvas of={Stories.Default} />
 
-<Canvas of={Stories.WithLabel} />
-
-<Canvas of={Stories.WithRibbon} />
-
-<Canvas of={Stories.WithLabelAndRibbon} />
+Een Web Component waarmee een slim, toegankelijk en uniform logo in applicaties kan worden getoond.
 
 ## Gebruik
 
@@ -55,5 +49,35 @@ Op schermen minder dan 480px breed zit een eventuele `ribbon` een paar pixels ho
 ## Toegankelijkheid
 
 Als er een `label` en/of een `ribbon` worden toegevoegd, worden deze op het component gezet met een aria-label.
+
+## Varianten
+
+### With Name
+
+<Canvas of={Stories.WithName} />
+
+### With Label
+
+<Canvas of={Stories.WithLabel} />
+
+### With Label And Label Url
+
+<Canvas of={Stories.WithLabelAndLabelUrl} />
+
+### With Logo Url
+
+<Canvas of={Stories.WithLogoUrl} />
+
+### With Logo Url And Label And Label Url
+
+<Canvas of={Stories.WithLogoUrlAndLabelAndLabelUrl} />
+
+### With Ribbon
+
+<Canvas of={Stories.WithRibbon} />
+
+### With Label And Ribbon
+
+<Canvas of={Stories.WithLabelAndRibbon} />
 
 <Markdown>{generatedReadme(readme)}</Markdown>

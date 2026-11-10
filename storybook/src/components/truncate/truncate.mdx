@@ -11,8 +11,6 @@ import * as Stories from "./truncate.stories";
 
 Truncate toont zijn inhoud op één regel. Past de inhoud niet, dan eindigt deze op een ellipsis en wordt de inhoud focusbaar gemaakt. Bij hover of focus verschijnt een tooltip met de volledige inhoud, en Escape sluit die tooltip weer.
 
-Andere componenten, zoals Label en Plekinfo Card Item, gebruiken Truncate om hun eigen inkort- en tooltipgedrag te bieden.
-
 ## Gedrag en toegankelijkheid
 
 Gelet op [WCAG succescriterium 1.4.4](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html) zijn afbrekingen met ellipsis acceptabel als de volledige content beschikbaar is wanneer de gebruiker de tekst focus geeft of na activatie van de gebruiker.
@@ -22,5 +20,11 @@ Screenreaders lezen de visueel ingekorte tekst wel volledig voor. De tooltip is 
 <Canvas of={Stories.IngekortMetRenvooi} />
 
 Bevat de inhoud een `dso-renvooi`, dan toont de tooltip dezelfde doorhaling (`del`) en markering (`ins`) als de regel zelf.
+
+## Varianten
+
+### Passend
+
+<Canvas of={Stories.Passend} />
 
 <Markdown>{generatedReadme(truncateReadme)}</Markdown>

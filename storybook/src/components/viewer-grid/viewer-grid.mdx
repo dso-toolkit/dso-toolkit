@@ -1,23 +1,21 @@
 import viewerGridReadme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 import { generatedReadme } from "../../shared/generated-readme";
-import { Markdown, Meta } from "@storybook/addon-docs/blocks";
+import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
 import * as Stories from "./viewer-grid.stories";
 
 <Meta of={Stories} />
 
 # Viewer Grid
 
-## Main Panel
-
-[Bekijk het hoofdscherm in Storybook](?path=/story/core-viewer-grid--viewer-grid)
+<Canvas of={Stories.ViewerGrid} />
 
 ## Filter Panel
 
-[Bekijk het filterpaneel in Storybook](?path=/story/core-viewer-grid--filter-panel)
+<Canvas of={Stories.FilterPanel} />
 
 ## Document Panel
 
-[Bekijk het documentpaneel in Storybook](?path=/story/core-viewer-grid--document-panel)
+<Canvas of={Stories.DocumentPanel} />
 
 🚧 Documentatie volgt 🚧
 

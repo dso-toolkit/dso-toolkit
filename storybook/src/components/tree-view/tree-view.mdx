@@ -9,12 +9,10 @@ import * as Stories from "./tree-view.stories";
 
 <Canvas of={Stories.TreeView} />
 
-🚧 Documentatie volgt 🚧
+De property `collection` van de Tree View is een array van `TreeViewItem`. Die array is immutable en bevat de toestand van de Tree View. Die toestand beheert de afnemer, _buiten_ de Tree View.
 
-The collection property of the Tree View is an array of `TreeViewItem`. The collection is an immutable array containing the state of the Tree View that should be managed _outside_ of Tree View.
+## Toestand beheren
 
-## State management
-
-When the user interacts with the Tree View, events are emitted when a node is opened, closed or clicked. The Tree View events will provide the complete path of TreeViewItems from the root to the item that is emitting the event. The consumer of the Tree View should update the TreeView's collection on the open and close events with the new state.
+Opent, sluit of klikt de gebruiker een node, dan stuurt de Tree View een event. Elk event bevat het volledige pad van `TreeViewItem`s, van de root tot het item waar het event over gaat. Werk bij de events voor openen en sluiten de `collection` bij met de nieuwe toestand.
 
 <Markdown>{generatedReadme(treeViewReadme)}</Markdown>

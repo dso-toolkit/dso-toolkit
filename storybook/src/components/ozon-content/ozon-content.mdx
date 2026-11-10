@@ -8,13 +8,13 @@ import debugOzonContent from "./debug-ozon-content.png";
 
 # Ozon Content
 
-Dit component presenteert STOP/TPOD XML van de DSO-LV Ozon Content API's.
-
 <Canvas of={Stories.Kop} />
+
+Dit component presenteert STOP/TPOD XML van de DSO-LV Ozon Content API's.
 
 ## Vervormde afbeeldingen in Ozon Content
 
-Ozon levert content zoals deze wordt aangeleverd door de LVBB. De aanleveringen zijn conform STOP/TPOD. In het verleden hebben plansoftwareleveranciers de STOP/TPOD-specificaties met betrekking tot afbeeldingen soms onjuist geïnterpreteerd.
+Ozon levert content zoals deze wordt aangeleverd door de LVBB. De aanleveringen zijn conform STOP/TPOD, maar volgen de specificaties voor afbeeldingen niet altijd juist.
 
 Volgens STOP/TPOD moeten de attributen `hoogte` en `breedte` op het `<Illustratie>`-element de **werkelijke** afmetingen van de afbeelding aangeven. In de praktijk zijn deze attributen echter soms gebruikt om de afbeelding te schalen naar een gewenste weergave. De correcte manier om een afbeelding te schalen is via het `dpi`-attribuut op het `<Illustratie>`-element.
 
@@ -28,7 +28,7 @@ De gerenderde breedte van een afbeelding is een percentage van de beschikbare br
 
 Het component [Image Overlay](?path=/docs/core-image-overlay--docs) wordt ingezet om afbeeldingen (`<Illustratie>`) uit de XML in HTML te renderen.
 
-Melders verwijzen soms naar de presentatie van het omgevingsdocument op [officiëlebekendmakingen.nl](https://officielebekendmakingen.nl), waar afbeeldingen niet vervormd worden weergegeven. Dat komt omdat deze site geen gebruik maakt van de `hoogte`- en `breedte`-attributen uit de XML, maar de werkelijke afmetingen van de afbeelding gebruikt.
+Op [officiele-bekendmakingen.nl](https://officiele-bekendmakingen.nl) worden afbeeldingen niet vervormd weergegeven. Die site gebruikt de werkelijke afmetingen van de afbeelding, niet de `hoogte`- en `breedte`-attributen uit de XML.
 
 ### Debuggen
 
@@ -44,5 +44,91 @@ Volg deze stappen om de content te inspecteren:
 4. Controleer bij het `<Illustratie>`-element de attributen `hoogte` en `breedte`.
 
 Als deze niet overeenkomen met de werkelijke afmetingen van de afbeelding, is er mogelijk sprake van een fout in de aanlevering aan de LVBB. In dat geval kan DSO-LV de fout niet corrigeren. Het is dan aan de plansoftwareleverancier en/of het bevoegd gezag om de afbeelding aan te passen naar de juiste afmetingen.
+
+## Varianten
+
+### Abbr
+
+<Canvas of={Stories.Abbr} />
+
+### Al
+
+<Canvas of={Stories.Al} />
+
+### Begrippenlijst
+
+<Canvas of={Stories.Begrippenlijst} />
+
+### Complexe Table Zonder Colsep En Met Rowsep
+
+<Canvas of={Stories.ComplexeTableZonderColsepEnMetRowsep} />
+
+### Ext Io Ref
+
+<Canvas of={Stories.ExtIoRef} />
+
+### Ext Ref
+
+<Canvas of={Stories.ExtRef} />
+
+### Figuur
+
+<Canvas of={Stories.Figuur} />
+
+### Inhoud
+
+<Canvas of={Stories.Inhoud} />
+
+### Inhoud Al Noot
+
+<Canvas of={Stories.InhoudAlNoot} />
+
+### Int Io Ref
+
+<Canvas of={Stories.IntIoRef} />
+
+### Int Io Ref Not Annotated
+
+<Canvas of={Stories.IntIoRefNotAnnotated} />
+
+### Int Ref
+
+<Canvas of={Stories.IntRef} />
+
+### Int Ref Begrip
+
+<Canvas of={Stories.IntRefBegrip} />
+
+### Kop Met Renvooi
+
+<Canvas of={Stories.KopMetRenvooi} />
+
+### Lijst
+
+<Canvas of={Stories.Lijst} />
+
+### Renvooi Weergave
+
+<Canvas of={Stories.RenvooiWeergave} />
+
+### Table
+
+<Canvas of={Stories.Table} />
+
+### Table Met Bron
+
+<Canvas of={Stories.TableMetBron} />
+
+### Table Met Noot
+
+<Canvas of={Stories.TableMetNoot} />
+
+### Table Met Thead
+
+<Canvas of={Stories.TableMetThead} />
+
+### Table Zonder Colsep En Met Rowsep
+
+<Canvas of={Stories.TableZonderColsepEnMetRowsep} />
 
 <Markdown>{generatedReadme(readme)}</Markdown>

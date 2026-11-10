@@ -11,7 +11,9 @@ import formVerplicht from "./form-verplicht.jpg";
 
 # Form
 
-## Technische opmerkingen:
+<Canvas of={Stories.Horizontal} />
+
+## Technische opmerkingen
 
 Een formulier begint altijd met een `form`-element. Als een `form`-element ongewenst is kan een element met de class `.form` worden ingezet. Elke _textuele_ `input` **en** `select` zit in een `.form-group`. Elk formulier onderdeel is een _groep_ met een `label`.
 
@@ -54,18 +56,20 @@ Ten eerste wordt een invoerveld gevalideerd als de focus wordt verplaatst. Er ve
 
 ### Inline validatie
 
-**Verplichte velden**
+#### Verplichte velden
+
 Op het moment dat de gebruiker focus verplaatst uit het verplichte invoerveld of het formulier indient, verschijnt er een foutmelding direct onder het betreffende invoerveld: dit is een `.dso-message` waar met `@aria-describedby` naar verwezen moet worden. De `.dso-message` krijgt een `role="alert"`-attribuut. Deze vorm van validatie wordt toegepast op alle formulierelementen.
 
 - Voorkom dat inline-validatie op focus wordt weergegeven. In dit geval wordt de foutmelding al weergegeven zonder dat de gebruiker begonnen is met typen.
 - Valideer niet na elk getypt teken. Deze aanpak verhoogt niet alleen het aantal onnodige validatiepogingen, maar frustreert gebruikers ook. Er zijn een paar uitzonderingen op deze regel:
-  - Het is handig om inline te valideren terwijl de gebruiker typt bij het maken van een wachtwoord. Zo controleert u of het wachtwoord voldoet aan de eisen.
+  - Het is handig om inline te valideren terwijl de gebruiker typt bij het maken van een wachtwoord. Zo ziet de gebruiker direct of het wachtwoord aan de eisen voldoet.
   - Als een gebruiker een gebruikersnaam maakt, om te controleren of een naam beschikbaar is.
   - Als een gebruiker een bericht typt met een tekenlimiet.
 
 <img src={formVerplicht} alt="Formulier met verplichte invoervelden" />
 
-**Verplicht invoerformaat**
+#### Verplicht invoerformaat
+
 Net als de verplichte velden kunnen er ook verplichte invoerformaten zijn. Bijvoorbeeld een e-mailadres wat de vorm naam@domein.nl moet hebben. Het is belangrijk om vóór het invoerveld duidelijk te maken wat de eisen zijn aan de invoer, óf automatisch de invoer te corrigeren. Bijvoorbeeld: Postcode (1234 AB). Het beste is om de instructie binnen het labelelement te plaatsen zodat de instructie wordt voorgelezen als de bezoeker op het invoerveld staat.
 
 <img src={formVerplichtFormaat} alt="Formulier met verplicht invoerformaat" />
@@ -117,9 +121,27 @@ Door het toggelen van de `open` property kan men de inhoud tonen of verbergen. D
 
 <Canvas of={AnimatedFormStories.AnimatedForm} />
 
-### Bronvermelding
+## Varianten
+
+### Horizontal Collections
+
+<Canvas of={Stories.HorizontalCollections} />
+
+### Vertical
+
+<Canvas of={Stories.Vertical} />
+
+### Vertical Collections
+
+<Canvas of={Stories.VerticalCollections} />
+
+### Single Page
+
+<Canvas of={Stories.SinglePage} />
+
+## Bronvermelding
 
 - Nielsen Norman Group (2019, 03 February). How to Report Errors in Forms. Geraadpleegd op 13 oktober 2020, via [https://www.nngroup.com/articles/errors-forms-design-guidelines/](https://www.nngroup.com/articles/errors-forms-design-guidelines/)
 - Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via [https://www.nngroup.com/articles/indicators-validations-notifications/](https://www.nngroup.com/articles/indicators-validations-notifications/)
-- Web Content Accessibility Guidelines (2018, 05 June). WC3. Geraadpleegd op 13 oktober 2020, via [https://www.w3.org/WAI/standards-guidelines/wcag/](https://www.w3.org/WAI/standards-guidelines/wcag/)
+- Web Content Accessibility Guidelines (2018, 05 June). W3C. Geraadpleegd op 13 oktober 2020, via [https://www.w3.org/WAI/standards-guidelines/wcag/](https://www.w3.org/WAI/standards-guidelines/wcag/)
 - hiddedevries.nl (2017, 04 April). How to make inline error messages accessible. Geraadpleegd op 13 oktober 2020, via [https://web.archive.org/web/20201125163925/https://hiddedevries.nl/en/blog/2017-04-04-how-to-make-inline-error-messages-accessible](https://web.archive.org/web/20201125163925/https://hiddedevries.nl/en/blog/2017-04-04-how-to-make-inline-error-messages-accessible)

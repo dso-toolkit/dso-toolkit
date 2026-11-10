@@ -13,7 +13,7 @@ Zoeksuggesties zijn aanbevolen resultaten die verschijnen in een dropdown als ge
 
 ## Hoe te gebruiken
 
-Een goede zoeksuggestie helpt de gebruiker bij het bedenken van een zoekopdracht. Dat kan een vrije zoekopdracht zijn, zoals bij Google, of zoeken in een 'onzichtbare' lijst met vaste waarden. Denk hierbij aan een adresboeken in een applicatie met een kaart.
+Een goede zoeksuggestie helpt de gebruiker bij het bedenken van een zoekopdracht. Dat kan een vrije zoekopdracht zijn, zoals bij Google, of zoeken in een 'onzichtbare' lijst met vaste waarden. Denk hierbij aan een adresboek in een applicatie met een kaart.
 
 Zoeksuggesties gebruiken heeft de volgende voordelen voor een gebruiker:
 
@@ -38,10 +38,6 @@ Aan de hand van het debounced `dsoChange` event van `<dso-autosuggest>` of het `
 
 Als de gebruiker een suggestie activeert wordt het event `dsoSelect` met het type `CustomEvent<Suggestion>` ge-emit.
 
-### Naamgeving events
-
-De events van dit Web Component heten `dsoChange` en `dsoSelect` omdat `change` en `select` gereserveerde (native) DOM event names zijn.
-
 ## Autosuggest en Search Bar
 
 Search Bar is voorbereid op het gebruik van Autosuggest. Let op dat Search Bar een HTML/CSS component is en dat de afnemer zelf de eventuele "Zoekopdracht legen" knop moet aansluiten.
@@ -49,5 +45,23 @@ Search Bar is voorbereid op het gebruik van Autosuggest. Let op dat Search Bar e
 ## Markeren van zoekresultaten
 
 De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeerfunctie te gebruiken. Als deze functie door de afnemer wordt meegegeven, roept het Autosuggest component deze functie voor elke suggestie aan. De afnemer krijgt de tekst (`value: string`) en de type (`type: string`) mee. Een type kan bv. de primaire suggestie zijn, of de type aanduiding, of een van de extra's. De markeerfunctie wordt per suggestie voor alle onderdelen aangeroepen. Label, het optionele type, en voor elke extra.
+
+## Varianten
+
+### Minimal 3 Characters
+
+<Canvas of={Stories.Minimal3Characters} />
+
+### In Searchbar
+
+<Canvas of={Stories.InSearchbar} />
+
+### With Provided Mark Function
+
+<Canvas of={Stories.WithProvidedMarkFunction} />
+
+### Suggestion Groups
+
+<Canvas of={Stories.SuggestionGroups} />
 
 <Markdown>{generatedReadme(readme)}</Markdown>

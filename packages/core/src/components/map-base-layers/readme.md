@@ -1,11 +1,7 @@
-# `<dso-base-layers>`
+# `<dso-map-base-layers>`
 
 <!-- Auto Generated Below -->
 
-
-## Overview
-
-Private component, do not use.
 
 ## Properties
 
