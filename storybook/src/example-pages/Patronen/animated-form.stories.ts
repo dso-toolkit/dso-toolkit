@@ -14,7 +14,6 @@ import { getAnimatedFormContent } from "./animated-form.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Patronen/Animated Form",
-  tags: ["!autodocs"],
 };
 
 export default meta;

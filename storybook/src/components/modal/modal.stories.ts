@@ -18,7 +18,6 @@ type ModalStory = StoryObj<ModalArgs>;
 
 const meta: Meta<ModalArgs> = {
   title: "Core/Modal",
-  tags: ["!autodocs"],
   argTypes: modalArgTypes,
   args: {
     closable: true,

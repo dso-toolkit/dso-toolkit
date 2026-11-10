@@ -14,7 +14,6 @@ const meta: Meta<LogoArgs> = {
     dsoLogoClick: fn(),
   },
   render: (args) => logoTemplate(logoArgsMapper(args)),
-  tags: ["!autodocs"],
 };
 
 export default meta;

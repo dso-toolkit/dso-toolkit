@@ -8,7 +8,6 @@ type PaginationStory = StoryObj<PaginationArgs>;
 
 const meta: Meta<PaginationArgs> = {
   title: "Core/Pagination",
-  tags: ["!autodocs"],
   argTypes: paginationArgTypes,
   args: {
     dsoSelectPage: fn(),

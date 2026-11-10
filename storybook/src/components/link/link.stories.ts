@@ -8,7 +8,6 @@ type LinkStory = StoryObj<LinkArgs>;
 const meta: Meta<LinkArgs> = {
   title: "HTML|CSS/Link",
   argTypes: linkArgTypes,
-  tags: ["!autodocs"],
   render: (args) => linkTemplate(linkArgsMapper(args)),
 };
 

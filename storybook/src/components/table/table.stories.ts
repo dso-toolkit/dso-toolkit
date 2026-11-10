@@ -14,7 +14,6 @@ type TableStory = StoryObj<TableArgs>;
 
 const meta: Meta<TableArgs> = {
   title: "Core/Table",
-  tags: ["!autodocs"],
   argTypes: tableArgTypes,
 };
 

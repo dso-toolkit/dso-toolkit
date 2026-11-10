@@ -7,7 +7,6 @@ type SkiplinkStory = StoryObj<SkiplinkArgs>;
 
 const meta: Meta<SkiplinkArgs> = {
   title: "Core/Skiplink",
-  tags: ["!autodocs"],
   argTypes: skiplinkArgTypes,
   args: skiplinkArgs,
 

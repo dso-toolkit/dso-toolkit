@@ -5,7 +5,6 @@ import { justifyFormGroupsTemplate } from "./justify-form-groups.template.js";
 
 const meta: Meta = {
   title: "HTML|CSS/Justify Form Groups",
-  tags: ["!autodocs"],
 };
 
 export default meta;

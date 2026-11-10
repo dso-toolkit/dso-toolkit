@@ -5,7 +5,6 @@ import { heroImageTemplate } from "./hero-image.template.js";
 
 const meta: Meta = {
   title: "Core/Hero Image",
-  tags: ["!autodocs"],
 };
 
 export default meta;

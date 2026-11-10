@@ -10,7 +10,6 @@ type SelectableStory = StoryObj<SelectableArgs>;
 
 const meta: Meta<SelectableArgs> = {
   title: "Core/Selectable",
-  tags: ["!autodocs"],
   argTypes: selectableArgTypes,
   args: {
     type: "radio",

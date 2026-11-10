@@ -8,7 +8,6 @@ type RichContentStory = StoryObj<RichContentArgs>;
 
 const meta: Meta<RichContentArgs> = {
   title: "HTML|CSS/Rich Content",
-  tags: ["!autodocs"],
   argTypes: richContentArgTypes,
 };
 

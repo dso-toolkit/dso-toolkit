@@ -7,7 +7,6 @@ type ImageOverlayStory = StoryObj<ImageOverlayArgs>;
 
 const meta: Meta<ImageOverlayArgs> = {
   title: "Core/Image Overlay",
-  tags: ["!autodocs"],
   argTypes: imageOverlayArgTypes,
   args: {
     image: 0,

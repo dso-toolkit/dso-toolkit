@@ -7,7 +7,6 @@ type ImageStory = StoryObj<ImageArgs>;
 
 const meta: Meta<ImageArgs> = {
   title: "HTML|CSS/Image",
-  tags: ["!autodocs"],
   argTypes: imageArgTypes,
   args: {
     source: "images/sneeuwpop.png",

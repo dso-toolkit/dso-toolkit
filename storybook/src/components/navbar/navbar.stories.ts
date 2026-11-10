@@ -10,7 +10,6 @@ type NavbarStory = StoryObj<NavbarArgs>;
 
 const meta: Meta<NavbarArgs> = {
   title: "HTML|CSS/Navbar",
-  tags: ["!autodocs"],
   argTypes: navbarArgTypes,
   args: navbarArgs,
   render: (args) => navbarTemplate(navbarArgsMapper(args)),

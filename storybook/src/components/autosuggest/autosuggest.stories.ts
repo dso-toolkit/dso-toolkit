@@ -27,7 +27,6 @@ type AutosuggestConnector = (
 
 const meta: Meta<AutosuggestArgs> = {
   title: "Core/Autosuggest",
-  tags: ["!autodocs"],
   argTypes: autosuggestArgTypes,
   args: {
     dsoSelect: fn(),

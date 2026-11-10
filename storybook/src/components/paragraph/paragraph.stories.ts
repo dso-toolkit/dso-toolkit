@@ -8,7 +8,6 @@ type ParagraphStory = StoryObj<ParagraphArgs>;
 
 const meta: Meta<ParagraphArgs> = {
   title: "HTML|CSS/Paragraph",
-  tags: ["!autodocs"],
   argTypes: paragraphArgTypes,
 };
 

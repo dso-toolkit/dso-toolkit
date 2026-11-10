@@ -8,7 +8,6 @@ type ContextStory = StoryObj<ContextArgs>;
 
 const meta: Meta<ContextArgs> = {
   title: "HTML|CSS/Context",
-  tags: ["!autodocs"],
   argTypes: contextArgTypes,
   args: {
     type: "label",

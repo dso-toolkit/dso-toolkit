@@ -13,7 +13,6 @@ type DocumentCardStory = StoryObj<DocumentCardArgs>;
 
 const meta: Meta<DocumentCardArgs> = {
   title: "Core/Document Card",
-  tags: ["!autodocs"],
   argTypes: documentCardArgTypes,
   args: documentCardArgs,
 };

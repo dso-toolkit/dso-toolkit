@@ -11,7 +11,6 @@ type AttachmentsCounterStory = StoryObj<AttachmentsCounterArgs>;
 
 const meta: Meta<AttachmentsCounterArgs> = {
   title: "Core/Attachments Counter",
-  tags: ["!autodocs"],
   argTypes: attachmentsCounterArgTypes,
 };
 

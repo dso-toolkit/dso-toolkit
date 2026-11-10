@@ -7,7 +7,6 @@ type RenvooiStory = StoryObj<RenvooiArgs>;
 
 const meta: Meta<RenvooiArgs> = {
   title: "Core/Renvooi",
-  tags: ["!autodocs"],
   argTypes: renvooiArgTypes,
   args: renvooiArgs,
 };

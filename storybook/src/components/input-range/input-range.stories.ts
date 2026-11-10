@@ -7,7 +7,6 @@ type InputRangeStory = StoryObj<InputRangeArgs>;
 
 const meta: Meta<InputRangeArgs> = {
   title: "Core/Input Range",
-  tags: ["!autodocs"],
   argTypes: inputRangeArgTypes,
   args: inputRangeArgs,
 };

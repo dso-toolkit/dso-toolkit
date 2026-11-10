@@ -11,7 +11,6 @@ type PanelStory = StoryObj<PanelArgs>;
 
 const meta: Meta<PanelArgs> = {
   title: "Core/Panel",
-  tags: ["!autodocs"],
   argTypes: panelArgTypes,
   args: panelArgs,
 

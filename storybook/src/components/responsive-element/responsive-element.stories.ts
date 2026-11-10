@@ -48,7 +48,6 @@ type ResponsiveElementStory = StoryObj<ResponsiveElementArgs>;
 
 const meta: Meta<ResponsiveElementArgs> = {
   title: "Core/Responsive Element",
-  tags: ["!autodocs"],
   argTypes: responsiveElementArgTypes,
   args: {
     dsoSizeChange: fn(),

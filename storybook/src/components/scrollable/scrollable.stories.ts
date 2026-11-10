@@ -10,7 +10,6 @@ type ScrollableStory = StoryObj<ScrollableArgs>;
 
 const meta: Meta<ScrollableArgs> = {
   title: "Core/Scrollable",
-  tags: ["!autodocs"],
   argTypes: scrollableArgTypes,
   args: {
     dsoScrollEnd: fn(),

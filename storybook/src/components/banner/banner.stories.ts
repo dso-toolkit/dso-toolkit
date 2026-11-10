@@ -17,7 +17,6 @@ type BannerStory = StoryObj<BannerArgs>;
 
 const meta: Meta<BannerArgs> = {
   title: "Core/Banner",
-  tags: ["!autodocs"],
   argTypes: bannerArgTypes,
   args: {
     icon: true,

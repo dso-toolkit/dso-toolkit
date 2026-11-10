@@ -15,7 +15,6 @@ type AlertStory = StoryObj<AlertArgs>;
 
 const meta: Meta<AlertArgs> = {
   title: "Core/Alert",
-  tags: ["!autodocs"],
   argTypes: alertArgTypes,
   args: {
     withButton: true,

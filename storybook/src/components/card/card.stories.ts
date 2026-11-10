@@ -17,7 +17,6 @@ type CardStory = StoryObj<CardArgs>;
 
 const meta: Meta<CardArgs> = {
   title: "Core/Card",
-  tags: ["!autodocs"],
   argTypes: cardArgTypes,
   args: {
     href: "#",

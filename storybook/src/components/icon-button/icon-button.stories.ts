@@ -9,7 +9,6 @@ type IconButtonStory = StoryObj<IconButtonArgs>;
 
 const meta: Meta<IconButtonArgs> = {
   title: "Core/Icon Button",
-  tags: ["!autodocs"],
   args: iconButtonArgs,
   render: (args) => iconButtonTemplate(args),
 };

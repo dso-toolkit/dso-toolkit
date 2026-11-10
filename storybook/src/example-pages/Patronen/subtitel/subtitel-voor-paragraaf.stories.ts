@@ -9,7 +9,6 @@ import { headerPartial } from "../../partials/header.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Patronen/Subtitel/Subtitel voor een Paragraaf",
-  tags: ["!autodocs"],
 };
 
 export default meta;

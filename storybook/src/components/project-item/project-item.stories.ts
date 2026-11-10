@@ -7,7 +7,6 @@ type ProjectItemStory = StoryObj<ProjectItemArgs>;
 
 const meta: Meta<ProjectItemArgs> = {
   title: "Core/Project Item",
-  tags: ["!autodocs"],
   argTypes: projectItemArgTypes,
   args: projectItemArgs,
 };

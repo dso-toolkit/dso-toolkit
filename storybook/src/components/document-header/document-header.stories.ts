@@ -10,7 +10,6 @@ type DocumentHeaderStory = StoryObj<DocumentHeaderArgs>;
 
 const meta: Meta<DocumentHeaderArgs> = {
   title: "HTML|CSS/Document Header",
-  tags: ["!autodocs"],
   argTypes: documentHeaderArgTypes,
   args: {
     advancedSelect: {

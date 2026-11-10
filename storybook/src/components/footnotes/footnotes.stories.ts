@@ -21,7 +21,6 @@ type FootnotesListStory = StoryObj<FootnotesListArgs>;
 
 const meta: Meta = {
   title: "HTML|CSS/Footnotes",
-  tags: ["!autodocs"],
   argTypes: {},
   args: {},
 };

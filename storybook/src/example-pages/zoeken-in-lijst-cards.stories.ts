@@ -18,7 +18,6 @@ import { cardContainer } from "./zoeken-in-lijst-cards.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Zoeken in lijst cards",
-  tags: ["!autodocs"],
 };
 
 export default meta;

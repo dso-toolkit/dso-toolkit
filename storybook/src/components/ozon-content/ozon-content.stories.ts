@@ -10,7 +10,6 @@ type OzonContentStory = StoryObj<OzonContentArgs>;
 const meta: Meta<OzonContentArgs> = {
   title: "Core/Ozon Content",
   argTypes: ozonContentArgTypes,
-  tags: ["!autodocs"],
   render: (args) => ozonContentTemplate(ozonContentArgsMapper(args)),
 };
 

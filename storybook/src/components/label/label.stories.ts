@@ -9,7 +9,6 @@ type LabelStory = StoryObj<LabelArgs>;
 
 const meta: Meta<LabelArgs> = {
   title: "Core/Label",
-  tags: ["!autodocs"],
   argTypes: labelArgTypes,
   args: {
     dsoRemoveClick: fn(),

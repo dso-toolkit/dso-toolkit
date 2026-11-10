@@ -34,7 +34,6 @@ type AnnotationKaartStory = StoryObj<AnnotationKaartArgs>;
 const meta: Meta = {
   title: "Core/Annotation",
   decorators: [decorator],
-  tags: ["!autodocs"],
 };
 
 export default meta;

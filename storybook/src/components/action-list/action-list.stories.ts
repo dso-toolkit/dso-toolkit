@@ -8,7 +8,6 @@ type ActionListStory = StoryObj<ActionListArgs>;
 
 const meta: Meta<ActionListArgs> = {
   title: "Core/Action List",
-  tags: ["!autodocs"],
   argTypes: actionListArgTypes,
   args: actionListArgs,
 };

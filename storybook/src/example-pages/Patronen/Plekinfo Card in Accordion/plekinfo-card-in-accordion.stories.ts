@@ -9,7 +9,6 @@ import { plekinfoCardInAccordionSections } from "./plekinfo-card-in-accordion.co
 
 const meta: Meta = {
   title: "Patronen/Plekinfo Card in Accordion",
-  tags: ["!autodocs"],
   ...examplePageMeta(),
 };
 

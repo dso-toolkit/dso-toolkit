@@ -7,7 +7,6 @@ type FormButtonsStory = StoryObj<FormButtonsArgs>;
 
 const meta: Meta<FormButtonsArgs> = {
   title: "HTML|CSS/Form Buttons",
-  tags: ["!autodocs"],
   argTypes: formButtonsArgTypes,
   render: (args) => formButtonsTemplate(formButtonsArgsMapper(args)),
 };

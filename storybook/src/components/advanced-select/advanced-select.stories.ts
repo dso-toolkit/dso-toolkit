@@ -12,7 +12,6 @@ type AdvancedSelectStory = StoryObj<AdvancedSelectArgs>;
 
 const meta: Meta<AdvancedSelectArgs> = {
   title: "Core/Advanced Select",
-  tags: ["!autodocs"],
   argTypes: advancedSelectArgTypes,
   args: advancedSelectArgs,
 };

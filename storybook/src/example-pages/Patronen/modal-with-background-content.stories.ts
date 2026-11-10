@@ -8,7 +8,6 @@ import { examplePageMeta } from "../../example-page-meta.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Patronen/Modal with background content",
-  tags: ["!autodocs"],
 };
 
 export default meta;

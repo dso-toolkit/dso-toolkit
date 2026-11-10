@@ -16,7 +16,6 @@ type PlekinfoCardStory = StoryObj<PlekinfoCardArgs>;
 
 const meta: Meta<PlekinfoCardArgs> = {
   title: "Core/Plekinfo Card",
-  tags: ["!autodocs"],
   argTypes: plekinfoCardArgTypes,
   args: plekinfoCardArgs,
   render: (args) => plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol())),

@@ -8,7 +8,6 @@ type HeaderStory = StoryObj<HeaderArgs>;
 
 const meta: Meta<HeaderArgs> = {
   title: "Core/Header",
-  tags: ["!autodocs"],
   argTypes: headerArgTypes,
   args: {
     mainMenu: [

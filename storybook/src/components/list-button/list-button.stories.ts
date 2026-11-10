@@ -9,7 +9,6 @@ type ListButtonStory = StoryObj<ListButtonArgs>;
 
 const meta: Meta<ListButtonArgs> = {
   title: "Core/List Button",
-  tags: ["!autodocs"],
   argTypes: listButtonArgTypes,
   args: {
     label: "Milieubelastende activiteit - Melding",

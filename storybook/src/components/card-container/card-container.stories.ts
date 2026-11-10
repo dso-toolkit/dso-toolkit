@@ -13,7 +13,6 @@ type CardContainerStory = StoryObj<CardContainerArgs>;
 
 const meta: Meta<CardContainerArgs> = {
   title: "Core/Card Container",
-  tags: ["!autodocs"],
   argTypes: cardContainerArgTypes,
   args: cardContainerArgs,
   render: (args) => cardContainerTemplate(cardContainerArgsMapper(args, content())),

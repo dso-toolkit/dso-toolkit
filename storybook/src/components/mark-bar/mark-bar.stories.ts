@@ -7,7 +7,6 @@ type MarkBarStory = StoryObj<MarkBarArgs>;
 
 const meta: Meta<MarkBarArgs> = {
   title: "Core/Mark Bar",
-  tags: ["!autodocs"],
   args: markBarArgs,
   argTypes: markBarArgTypes,
 

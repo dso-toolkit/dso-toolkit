@@ -86,7 +86,6 @@ type FormGroupTextareaStory = StoryObj<FormGroupTextareaArgs>;
 
 const meta: Meta = {
   title: "HTML|CSS/Form Group",
-  tags: ["!autodocs"],
   decorators: [(story) => html`<formGroup>${story()}</formGroup>`],
 };
 

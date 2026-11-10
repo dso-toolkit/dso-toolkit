@@ -12,7 +12,6 @@ type HighlightBoxStory = StoryObj<HighlightBoxArgs>;
 
 const meta: Meta<HighlightBoxArgs> = {
   title: "Core/Highlight Box",
-  tags: ["!autodocs"],
   argTypes: highlightBoxArgTypes,
   args: {
     yellow: false,

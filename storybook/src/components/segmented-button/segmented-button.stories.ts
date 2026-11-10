@@ -12,7 +12,6 @@ type SegmentedButtonStory = StoryObj<SegmentedButtonArgs>;
 
 const meta: Meta<SegmentedButtonArgs> = {
   title: "Core/Segmented Button",
-  tags: ["!autodocs"],
   argTypes: segmentedButtonArgTypes,
   args: {
     ...segmentedButtonArgs,

@@ -14,7 +14,6 @@ import { headerPartial } from "./partials/header.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Meerdere highlight boxes",
-  tags: ["!autodocs"],
 };
 
 export default meta;

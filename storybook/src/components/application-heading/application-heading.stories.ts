@@ -11,7 +11,6 @@ type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs>;
 
 const meta: Meta<ApplicationHeadingArgs> = {
   title: "HTML|CSS/Application Heading",
-  tags: ["!autodocs"],
   argTypes: applicationHeadingArgTypes,
 
   render: (args) => applicationHeadingTemplate(applicationHeadingArgsMapper(args)),

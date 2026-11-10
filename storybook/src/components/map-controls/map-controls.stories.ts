@@ -10,7 +10,6 @@ type MapControlsStory = StoryObj<MapControlsArgs>;
 
 const meta: Meta<MapControlsArgs> = {
   title: "Core/Map Controls",
-  tags: ["!autodocs"],
   argTypes: mapControlsArgTypes,
   args: {
     open: false,

@@ -11,7 +11,6 @@ type OnboardingTipStory = StoryObj<OnboardingTipArgs>;
 
 const meta: Meta<OnboardingTipArgs> = {
   title: "Core/Onboarding Tip",
-  tags: ["!autodocs"],
   argTypes: onboardingTipArgTypes,
   decorators: [decorator],
 };

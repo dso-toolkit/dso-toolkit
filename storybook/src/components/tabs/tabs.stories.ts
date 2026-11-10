@@ -8,7 +8,6 @@ type TabsStory = StoryObj<TabsArgs>;
 
 const meta: Meta<TabsArgs> = {
   title: "Core/Tabs",
-  tags: ["!autodocs"],
   argTypes: tabsArgTypes,
   args: {
     dsoTabSwitch: fn(),

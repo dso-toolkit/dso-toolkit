@@ -5,7 +5,6 @@ import { labelGroupTemplate } from "./label-group.template.js";
 
 const meta: Meta = {
   title: "HTML|CSS/Label Group",
-  tags: ["!autodocs"],
 };
 
 export default meta;

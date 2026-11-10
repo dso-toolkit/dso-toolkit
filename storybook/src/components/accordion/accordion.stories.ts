@@ -21,7 +21,6 @@ type AccordionStory = StoryObj<AccordionArgs>;
 
 const meta: Meta<AccordionArgs> = {
   title: "Core/Accordion",
-  tags: ["!autodocs"],
   argTypes: accordionArgTypes,
   args: accordionArgs,
 };

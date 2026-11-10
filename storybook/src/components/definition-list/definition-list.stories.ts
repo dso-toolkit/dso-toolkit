@@ -14,7 +14,6 @@ type DefinitionListStory = StoryObj<DefinitionListArgs>;
 
 const meta: Meta<DefinitionListArgs> = {
   title: "HTML|CSS/Definition List",
-  tags: ["!autodocs"],
   argTypes: definitionListArgTypes,
 };
 

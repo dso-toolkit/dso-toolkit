@@ -7,7 +7,6 @@ type ButtonGroupStory = StoryObj<ButtonGroupArgs>;
 
 const meta: Meta<ButtonGroupArgs> = {
   title: "Core/Button Group",
-  tags: ["!autodocs"],
   argTypes: buttonGroupArgTypes,
   args: buttonGroupArgs,
 };

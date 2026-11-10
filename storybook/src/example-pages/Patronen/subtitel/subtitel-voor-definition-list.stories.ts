@@ -12,7 +12,6 @@ import { definitionList } from "./subtitle.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Patronen/Subtitel/Subtitel voor een Definitie Lijst",
-  tags: ["!autodocs"],
 };
 
 export default meta;

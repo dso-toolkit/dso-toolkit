@@ -9,7 +9,6 @@ type InfoButtonStory = StoryObj<InfoButtonArgs>;
 
 const meta: Meta<InfoButtonArgs> = {
   title: "Core/Info Button",
-  tags: ["!autodocs"],
   argTypes: infoButtonArgTypes,
   args: {
     label: "Toelichting bij vraag",

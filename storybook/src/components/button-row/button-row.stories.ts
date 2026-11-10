@@ -7,7 +7,6 @@ type ButtonRowStory = StoryObj<ButtonRowArgs>;
 
 const meta: Meta<ButtonRowArgs> = {
   title: "HTML|CSS/Button Row",
-  tags: ["!autodocs"],
   argTypes: buttonRowArgTypes,
   render: (args) => buttonRowTemplate(buttonRowArgsMapper(args)),
 };

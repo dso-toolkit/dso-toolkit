@@ -8,7 +8,6 @@ type FormStory = StoryObj<FormArgs>;
 
 const meta: Meta<FormArgs> = {
   title: "HTML|CSS/Form",
-  tags: ["!autodocs"],
   argTypes: formArgTypes,
 };
 

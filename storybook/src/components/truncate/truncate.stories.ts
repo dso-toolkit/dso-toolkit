@@ -9,7 +9,6 @@ type TruncateStory = StoryObj<TruncateArgs>;
 
 const meta: Meta<TruncateArgs> = {
   title: "Core/Truncate",
-  tags: ["!autodocs"],
   argTypes: truncateArgTypes,
 
   render: ({ content }) => truncateTemplate({ children: content }),

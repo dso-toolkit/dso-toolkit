@@ -12,7 +12,6 @@ type LinkListStory = StoryObj<LinkListArgs>;
 
 const meta: Meta<LinkListArgs> = {
   title: "HTML|CSS/Link List",
-  tags: ["!autodocs"],
   argTypes: linkListArgTypes,
   args: {
     links: links(),

@@ -8,7 +8,6 @@ type HistoryItemStory = StoryObj<HistoryItemArgs>;
 
 const meta: Meta<HistoryItemArgs> = {
   title: "Core/History Item",
-  tags: ["!autodocs"],
   argTypes: historyItemArgTypes,
   args: {
     dsoClick: fn(),

@@ -7,7 +7,6 @@ type BreadcrumbsStory = StoryObj<BreadcrumbsArgs>;
 
 const meta: Meta<BreadcrumbsArgs> = {
   title: "HTML|CSS/Breadcrumbs",
-  tags: ["!autodocs"],
   argTypes: breadcrumbsArgTypes,
 };
 

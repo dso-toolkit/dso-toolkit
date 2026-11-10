@@ -13,7 +13,6 @@ const meta: Meta<ButtonArgs> = {
     element: "button",
     click: fn(),
   },
-  tags: ["!autodocs"],
   render: (args) => buttonTemplate(buttonArgsMapper(args)),
 };
 

@@ -9,7 +9,6 @@ type ShoppingCartStory = StoryObj<ShoppingCartArgs>;
 
 const meta: Meta<ShoppingCartArgs> = {
   title: "HTML|CSS/Shopping Cart",
-  tags: ["!autodocs"],
   argTypes: shoppingCartArgTypes,
   args: {
     _implementation: "html/css",

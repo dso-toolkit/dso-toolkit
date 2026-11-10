@@ -8,7 +8,6 @@ type SurveyRatingStory = StoryObj<SurveyRatingArgs>;
 
 const meta: Meta<SurveyRatingArgs> = {
   title: "Core/Survey Rating",
-  tags: ["!autodocs"],
   argTypes: surveyRatingArgTypes,
   args: {
     dsoSubmit: fn(),

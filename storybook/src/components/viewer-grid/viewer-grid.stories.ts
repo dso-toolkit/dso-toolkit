@@ -29,7 +29,6 @@ type ViewerGridStoryArgs = Pick<
 
 const meta: Meta<ViewerGridArgs> = {
   title: "Core/Viewer Grid",
-  tags: ["!autodocs"],
   argTypes: viewerGridArgTypes,
   args: {
     dsoActiveTabSwitch: fn(),

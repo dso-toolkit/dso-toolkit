@@ -23,7 +23,6 @@ const defaultArgs: SearchBarArgs = {
 
 const meta: Meta<SearchBarArgs> = {
   title: "HTML|CSS/Search Bar",
-  tags: ["!autodocs"],
   argTypes: searchBarArgTypes,
   args: defaultArgs,
   render: (args) => searchBarTemplate(searchBarArgsMapper(args)),

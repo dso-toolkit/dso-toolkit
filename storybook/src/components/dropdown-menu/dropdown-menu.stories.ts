@@ -10,7 +10,6 @@ type DropdownMenuStory = StoryObj<DropdownMenuArgs>;
 
 const meta: Meta<DropdownMenuArgs> = {
   title: "Core/Dropdown Menu",
-  tags: ["!autodocs"],
   argTypes: dropdownMenuArgTypes,
   decorators: [decorator],
   args: {

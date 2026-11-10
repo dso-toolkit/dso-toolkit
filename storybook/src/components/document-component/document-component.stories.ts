@@ -117,7 +117,6 @@ function demoTemplate(
 
 const meta: Meta = {
   title: "Core/Document Component",
-  tags: ["!autodocs"],
 };
 
 export default meta;

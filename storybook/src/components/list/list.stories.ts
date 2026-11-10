@@ -19,7 +19,6 @@ const meta: Meta<ListArgs> = {
   },
 
   title: "HTML|CSS/List",
-  tags: ["!autodocs"],
   render: (args) => listTemplate(listArgsMapper(args)),
 };
 

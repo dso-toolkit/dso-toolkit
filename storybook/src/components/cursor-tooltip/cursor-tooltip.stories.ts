@@ -12,7 +12,6 @@ type CursorTooltipStory = StoryObj<CursorTooltipArgs>;
 
 const meta: Meta<CursorTooltipArgs> = {
   title: "Core/Cursor Tooltip",
-  tags: ["!autodocs"],
   argTypes: cursorTooltipArgTypes,
   args: cursorTooltipArgs,
 };

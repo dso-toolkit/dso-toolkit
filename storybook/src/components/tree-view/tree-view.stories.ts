@@ -9,7 +9,6 @@ import { treeViewTemplate } from "./tree-view.template.js";
 
 const meta: Meta<TreeViewArgs> = {
   title: "Core/Tree View",
-  tags: ["!autodocs"],
   argTypes: treeViewArgTypes,
   args: {
     dsoClickItem: fn(),

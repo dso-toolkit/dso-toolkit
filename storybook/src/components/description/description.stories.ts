@@ -16,7 +16,6 @@ type DescriptionExampleStory = StoryObj<DescriptionExampleArgs>;
 
 const meta: Meta = {
   title: "HTML|CSS/Description",
-  tags: ["!autodocs"],
 };
 
 export default meta;

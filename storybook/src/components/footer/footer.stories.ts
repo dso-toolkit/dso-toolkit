@@ -5,7 +5,6 @@ import { footerTemplate } from "./footer.template.js";
 
 const meta: Meta = {
   title: "HTML|CSS/Footer",
-  tags: ["!autodocs"],
 };
 
 export default meta;

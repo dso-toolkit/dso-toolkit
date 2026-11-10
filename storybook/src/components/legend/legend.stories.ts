@@ -16,7 +16,6 @@ type LegendStory = StoryObj<LegendArgs>;
 
 const meta: Meta<LegendArgs> = {
   title: "Core/Legend",
-  tags: ["!autodocs"],
   argTypes: legendArgTypes,
   args: legendArgs,
   decorators: [decorator],

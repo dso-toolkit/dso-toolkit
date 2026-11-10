@@ -15,7 +15,6 @@ type SlideToggleStory = StoryObj<SlideToggleArgs>;
 
 const meta: Meta<SlideToggleArgs> = {
   title: "Core/Slide Toggle",
-  tags: ["!autodocs"],
   argTypes: slideToggleArgTypes,
   args: {
     dsoActiveChange: fn(),

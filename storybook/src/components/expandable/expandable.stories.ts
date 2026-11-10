@@ -9,7 +9,6 @@ type ExpandableStory = StoryObj<ExpandableArgs>;
 
 const meta: Meta<ExpandableArgs> = {
   title: "Core/Expandable",
-  tags: ["!autodocs"],
   argTypes: expandableArgTypes,
   args: {
     open: false,

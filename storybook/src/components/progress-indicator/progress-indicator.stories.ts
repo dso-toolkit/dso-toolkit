@@ -11,7 +11,6 @@ type ProgressIndicatorStory = StoryObj<ProgressIndicatorArgs>;
 
 const meta: Meta<ProgressIndicatorArgs> = {
   title: "Core/Progress Indicator",
-  tags: ["!autodocs"],
   argTypes: progressIndicatorArgTypes,
 
   render: (args) => progressIndicatorTemplate(progressIndicatorArgsMapper(args)),

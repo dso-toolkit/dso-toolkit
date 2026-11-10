@@ -17,7 +17,6 @@ const meta: Meta<MapLayerArgs> = {
   argTypes: mapLayerArgTypes,
   args: mapLayerArgs,
   decorators: [decorator],
-  tags: ["!autodocs"],
 };
 
 export default meta;

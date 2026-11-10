@@ -10,7 +10,6 @@ import { rowEqualHeightsTemplate } from "./row-equal-heights.template.js";
 
 const meta: Meta = {
   title: "HTML|CSS/Row Equal Heights",
-  tags: ["!autodocs"],
   decorators: [decorator],
 };
 

@@ -8,7 +8,6 @@ type TijdreisBannerStory = StoryObj<TijdreisBannerArgs>;
 
 const meta: Meta<TijdreisBannerArgs> = {
   title: "Core/Tijdreis Banner",
-  tags: ["!autodocs"],
   args: {
     click: fn(),
   },

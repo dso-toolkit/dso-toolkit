@@ -7,7 +7,6 @@ type MapMessageStory = StoryObj<MapMessageArgs>;
 
 const meta: Meta<MapMessageArgs> = {
   title: "Core/Map Message",
-  tags: ["!autodocs"],
   argTypes: mapMessageArgTypes,
 
   render: (args) => mapMessageTemplate(mapMessageArgsMapper(args)),

@@ -8,7 +8,6 @@ type BadgeStory = StoryObj<BadgeArgs>;
 
 const meta: Meta<BadgeArgs> = {
   title: "Core/Badge",
-  tags: ["!autodocs"],
   argTypes: badgeArgTypes,
 };
 

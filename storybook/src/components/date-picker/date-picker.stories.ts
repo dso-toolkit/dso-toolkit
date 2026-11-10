@@ -11,7 +11,6 @@ type DatePickerStory = StoryObj<DatePickerArgs>;
 
 const meta: Meta<DatePickerArgs> = {
   title: "Core/Date Picker",
-  tags: ["!autodocs"],
   argTypes: datePickerArgTypes,
   args: {
     label: "Datum",
