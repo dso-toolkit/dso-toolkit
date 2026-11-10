@@ -57,7 +57,7 @@ export default function (/** @type {import('plop').NodePlopAPI} */ plop) {
       {
         type: "add",
         templateFile: "plop-templates/storybook-boilerplate/component.mdx.hbs",
-        path: "storybook/src/components/{{ kebabCase name }}.mdx",
+        path: "storybook/src/components/{{ kebabCase name }}/{{ kebabCase name }}.mdx",
       },
     ],
   });
