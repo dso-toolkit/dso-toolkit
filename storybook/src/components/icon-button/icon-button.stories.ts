@@ -37,3 +37,13 @@ export const Map: IconButtonStory = {
     variant: "map",
   },
 };
+
+export const ShortTooltip: IconButtonStory = {
+  argTypes,
+  parameters,
+  args: {
+    icon: "trash",
+    label: "Verwijder Test project 3 September",
+    tooltip: "Verwijder",
+  },
+};
