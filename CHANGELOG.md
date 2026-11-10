@@ -12,13 +12,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Dropdown Menu: Focus op eerste item ([#4034](https://github.com/dso-toolkit/dso-toolkit/issues/4034))
 
-### Removed
-* **BREAKING** Grid System: Remove selector `.dso-banner` ([#3923](https://github.com/dso-toolkit/dso-toolkit/issues/3923))
-
 ### Fixed
 * Link: Mailto-link toont onbedoelde rechterpadding ([#4052](https://github.com/dso-toolkit/dso-toolkit/issues/4052))
 * Voorbeeldpagina's: Zoeken in lijst cards heeft dubbele scheidingslijnen ([#4044](https://github.com/dso-toolkit/dso-toolkit/issues/4044))
 * Header: Mobile dropdown kapt tekst af ([#4070](https://github.com/dso-toolkit/dso-toolkit/issues/4070))
+* Plekinfo Card: Wijzig actie ziet er 'vreemd' uit ([#4074](https://github.com/dso-toolkit/dso-toolkit/issues/4074))
+
+### Removed
+* **BREAKING** Grid System: Remove selector `.dso-banner` ([#3923](https://github.com/dso-toolkit/dso-toolkit/issues/3923))
 
 ## ⛳️ Release 103.0.0 - 2026-11-03
 
