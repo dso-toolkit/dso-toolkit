@@ -4,7 +4,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Angular bindings
 
-De toolkit levert gegenereerde Angular bindings voor de Web Components. Gebruik deze bindings in een Angular-applicatie; properties worden als Angular inputs gezet en custom events worden met Angular event bindings beluisterd.
+De toolkit levert gegenereerde Angular bindings voor de Web Components. Gebruik deze bindings in een Angular-applicatie. Je zet properties als Angular inputs en luistert naar custom events met Angular event bindings.
 
 ## Met Angular bindings
 
@@ -13,6 +13,8 @@ Installeer de Angular bindings naast de basis package:
 ```sh
 npm install @dso-toolkit/angular
 ```
+
+Laad daarnaast de stylesheet `dso-toolkit/dist/dso.css`. De bindings registreren de componenten zelf.
 
 Importeer de benodigde gegenereerde componenten in een standalone component. Properties gebruiken `[prop]` en events gebruiken `(dsoEvent)`.
 
@@ -40,17 +42,7 @@ Voor `dsoChange`, `dsoSelect` en `dsoSearch` gebruik je respectievelijk `(dsoCha
 
 ## Zonder Angular bindings
 
-Zonder bindings registreer je de Web Components zelf. Dit is tree shakeable, maar ieder gebruikt component moet afzonderlijk worden geregistreerd.
-
-```sh
-npm install @dso-toolkit/core
-```
-
-```ts
-import { defineCustomElementDsoDatePicker } from "@dso-toolkit/core";
-
-defineCustomElementDsoDatePicker();
-```
+Zonder bindings gebruik je de Web Components rechtstreeks. Installeer en registreer ze zoals beschreven op [Web Components](?path=/docs/voor-developers-web-components--docs).
 
 Sta custom elements toe in Angular en gebruik daarna het custom element in een Angular-template. Properties en events werken rechtstreeks op het element.
 

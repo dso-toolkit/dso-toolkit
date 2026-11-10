@@ -4,7 +4,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # React bindings
 
-De toolkit levert gegenereerde React-wrappers voor de Web Components. Gebruik deze bindings in een React-applicatie; zij geven props door aan het onderliggende Web Component en maken events beschikbaar als React event handlers.
+De toolkit levert gegenereerde React-wrappers voor de Web Components. Gebruik deze bindings in een React-applicatie. De bindings geven props door aan het onderliggende Web Component en maken events beschikbaar als React event handlers.
 
 ## Met React bindings
 
@@ -14,7 +14,9 @@ Installeer de React bindings naast de basis package:
 npm install @dso-toolkit/react
 ```
 
-Importeer de gegenereerde `Dso*`-componenten. Props worden als JSX-props gezet en custom events worden beluisterd met een `onDso...`-prop.
+Laad daarnaast de stylesheet `dso-toolkit/dist/dso.css`. De bindings registreren de componenten zelf.
+
+Importeer de gegenereerde `Dso*`-componenten. Je zet props als JSX-props en luistert naar custom events met een `onDso...`-prop.
 
 ```tsx
 import { useState } from "react";
@@ -32,19 +34,17 @@ Gebruik `<DsoDatePicker>` en niet rechtstreeks `<dso-date-picker>`. Voor een eve
 
 ## Zonder React bindings
 
-Zonder bindings gebruik je de Web Components rechtstreeks. Registreer ieder gebruikt component expliciet; dit is tree shakeable, maar wordt bij veel componenten foutgevoeliger.
+Zonder bindings gebruik je de Web Components rechtstreeks. Installeer en registreer ze zoals beschreven op [Web Components](?path=/docs/voor-developers-web-components--docs), voordat React ze rendert.
 
-```sh
-npm install @dso-toolkit/core
+Vanaf React 19 zet je properties en events direct op het element. React zet een prop als property op het element en maakt van een prop die met `on` begint een event listener. De eventnaam is de rest van de prop, met dezelfde hoofdletters: voor `dsoDateChange` is de prop `ondsoDateChange`.
+
+```tsx
+export function App() {
+  return <dso-date-picker value="01-01-2024" ondsoDateChange={(event: CustomEvent) => console.log(event.detail)} />;
+}
 ```
 
-```ts
-import { defineCustomElementDsoDatePicker } from "@dso-toolkit/core";
-
-defineCustomElementDsoDatePicker();
-```
-
-Zet properties op het DOM-element en luister naar custom events met `addEventListener`.
+Bij React 18 zet je properties op het DOM-element en luister je naar custom events met `addEventListener`.
 
 ```tsx
 import { useEffect, useRef } from "react";
