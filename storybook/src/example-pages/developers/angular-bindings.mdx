@@ -53,7 +53,11 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component } from "@angular/core";
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `<dso-date-picker value="01-01-2024" (dsoDateChange)="onDateChange($event)" />`,
 })
-export class ExampleComponent {}
+export class ExampleComponent {
+  onDateChange(event: Event) {
+    console.log((event as CustomEvent).detail);
+  }
+}
 ```
 
 ## Signal Forms
