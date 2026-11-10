@@ -26,11 +26,19 @@ export function formGroupFilesTemplate(formGroup: FormGroupFiles) {
         [`dso-${formGroup.state}`]: !!formGroup.state,
       })}"
     >
-      <div class="dso-label-container">
-        <label for=${formGroup.id} class="control-label"> ${formGroup.label} </label>
-        ${formGroup.info?.fixed === false && formGroup.infoButton ? infoButtonTemplate(formGroup.infoButton) : nothing}
-        ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
-      </div>
+      ${
+        formGroup.label
+          ? html`<div class="dso-label-container">
+              <label for=${formGroup.id} class="control-label"> ${formGroup.label} </label>
+              ${
+                formGroup.info?.fixed === false && formGroup.infoButton
+                  ? infoButtonTemplate(formGroup.infoButton)
+                  : nothing
+              }
+              ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
+            </div>`
+          : nothing
+      }
       <div class="dso-field-container">
         ${
           formGroup.files.length > 0
