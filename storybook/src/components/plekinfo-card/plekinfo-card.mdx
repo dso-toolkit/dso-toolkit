@@ -48,16 +48,12 @@ Een Plekinfo Card toont informatie over een locatie. De card kan een symbool, ri
 
 <Canvas of={Stories.WithOmgevingsnormItems} />
 
+<Markdown>{generatedReadme(readme)}</Markdown>
+
 ## Plekinfo Card Item
 
 Eén regel in een Plekinfo Card: een symbool, een label, een optioneel sublabel en optioneel een Label als meta. Gebruik Plekinfo Card Item alleen in het slot `content` van een Plekinfo Card.
 
 Label en sublabel staan samen in één Truncate. Past de tekst niet, dan eindigt de regel op een ellipsis en toont de tooltip label en sublabel volledig.
 
-## API `<dso-plekinfo-card>`
-
-<Markdown>{generatedReadme(readme)}</Markdown>
-
-## API `<dso-plekinfo-card-item>`
-
-<Markdown>{generatedReadme(itemReadme)}</Markdown>
+<Markdown>{generatedReadme(itemReadme, { headingLevel: 3 })}</Markdown>
