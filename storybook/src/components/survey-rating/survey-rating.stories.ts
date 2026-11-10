@@ -13,7 +13,6 @@ const meta: Meta<SurveyRatingArgs> = {
     dsoSubmit: fn(),
     dsoClose: fn(),
   },
-
   render: (args) => surveyRatingTemplate(surveyRatingArgsMapper(args)),
 };
 

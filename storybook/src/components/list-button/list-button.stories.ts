@@ -15,7 +15,6 @@ const meta: Meta<ListButtonArgs> = {
     dsoCountChange: fn(),
     dsoSelectedChange: fn(),
   },
-
   render: (args) => listButtonTemplate(listButtonConnector([listButtonArgsMapper(args)])),
 };
 

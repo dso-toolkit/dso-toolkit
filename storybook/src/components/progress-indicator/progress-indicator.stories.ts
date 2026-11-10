@@ -12,7 +12,6 @@ type ProgressIndicatorStory = StoryObj<ProgressIndicatorArgs>;
 const meta: Meta<ProgressIndicatorArgs> = {
   title: "Core/Progress Indicator",
   argTypes: progressIndicatorArgTypes,
-
   render: (args) => progressIndicatorTemplate(progressIndicatorArgsMapper(args)),
 };
 

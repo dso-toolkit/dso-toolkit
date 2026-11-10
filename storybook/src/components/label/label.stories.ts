@@ -13,7 +13,6 @@ const meta: Meta<LabelArgs> = {
   args: {
     dsoRemoveClick: fn(),
   },
-
   render: (args) => labelTemplate(labelArgsMapper(args)),
 };
 

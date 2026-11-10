@@ -9,7 +9,6 @@ const meta: Meta<MarkBarArgs> = {
   title: "Core/Mark Bar",
   args: markBarArgs,
   argTypes: markBarArgTypes,
-
   render: (args) => markBarTemplate(markBarArgsMapper(args)),
 };
 

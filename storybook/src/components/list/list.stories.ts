@@ -17,7 +17,6 @@ const meta: Meta<ListArgs> = {
       { text: "Ingediende verzoeken" },
     ],
   },
-
   title: "HTML|CSS/List",
   render: (args) => listTemplate(listArgsMapper(args)),
 };

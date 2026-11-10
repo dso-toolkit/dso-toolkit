@@ -14,7 +14,6 @@ const meta: Meta<ExpandableArgs> = {
     open: false,
   },
   decorators: [decorator],
-
   render: (args) => expandableTemplate(expandableArgsMapper(args, expandableContent())),
 };
 

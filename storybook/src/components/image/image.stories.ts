@@ -12,7 +12,6 @@ const meta: Meta<ImageArgs> = {
     source: "images/sneeuwpop.png",
     alt: "Afbeelding van een sneeuwpop",
   },
-
   render: (args) => imageTemplate(imageArgsMapper(args)),
 };
 

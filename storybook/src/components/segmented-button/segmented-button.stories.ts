@@ -16,7 +16,6 @@ const meta: Meta<SegmentedButtonArgs> = {
   args: {
     ...segmentedButtonArgs,
   },
-
   render: (args) => segmentedButtonTemplate(segmentedButtonArgsMapper(args)),
 };
 

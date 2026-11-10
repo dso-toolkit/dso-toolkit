@@ -9,7 +9,6 @@ const meta: Meta<SkiplinkArgs> = {
   title: "Core/Skiplink",
   argTypes: skiplinkArgTypes,
   args: skiplinkArgs,
-
   render: (args) => skiplinkTemplate(skiplinkArgsMapper(args)),
 };
 

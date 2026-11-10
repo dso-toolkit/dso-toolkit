@@ -17,7 +17,6 @@ const meta: Meta<DropdownMenuArgs> = {
     dropdownMenuPosition: "left",
     dsoClick: fn(),
   },
-
   render: (args) => dropdownMenuTemplate(dropdownMenuArgsMapper(args)),
 };
 

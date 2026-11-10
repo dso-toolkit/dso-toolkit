@@ -16,7 +16,6 @@ const meta: Meta<TijdreisBannerArgs> = {
       action: "click",
     },
   },
-
   render: (args) => tijdreisBannerTemplate(tijdreisBannerArgs(args)),
 };
 

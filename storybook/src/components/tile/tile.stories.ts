@@ -8,7 +8,6 @@ type TileStory = StoryObj<TileArgs>;
 const meta: Meta<TileArgs> = {
   title: "HTML|CSS/Tile",
   argTypes: tileArgTypes,
-
   render: (args) => tileTemplate(tileArgsMapper(args)),
 };
 

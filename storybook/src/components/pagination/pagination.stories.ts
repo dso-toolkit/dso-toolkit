@@ -12,7 +12,6 @@ const meta: Meta<PaginationArgs> = {
   args: {
     dsoSelectPage: fn(),
   },
-
   render: (args) => paginationTemplate(paginationArgsMapper(args)),
 };
 

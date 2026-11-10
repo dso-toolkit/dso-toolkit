@@ -12,7 +12,6 @@ const meta: Meta<ContextArgs> = {
   args: {
     type: "label",
   },
-
   render: (args) => contextTemplate(contextArgsMapper(args, content(), children(), label())),
 };
 

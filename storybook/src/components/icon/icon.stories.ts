@@ -10,7 +10,6 @@ type IconStory = StoryObj<IconArgs>;
 
 const meta: Meta<IconArgs> = {
   title: "Core/Icon",
-
   render: (args) => iconTemplate(iconArgsMapper(args)),
 };
 

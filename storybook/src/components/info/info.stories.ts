@@ -10,7 +10,6 @@ type InfoStory = StoryObj<InfoArgs>;
 const meta: Meta<InfoArgs> = {
   title: "Core/Info",
   argTypes: infoArgTypes,
-
   render: (args) => infoTemplate(infoArgsMapper(args, richContent())),
 };
 

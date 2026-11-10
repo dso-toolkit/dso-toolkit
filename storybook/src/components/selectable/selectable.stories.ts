@@ -24,7 +24,6 @@ const meta: Meta<SelectableArgs> = {
     required: false,
     value: "the-value",
   },
-
   render: (args) => selectableTemplate(selectableArgsMapper(args, infoRichContent())),
 };
 

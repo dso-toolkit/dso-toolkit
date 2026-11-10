@@ -13,7 +13,6 @@ const meta: Meta<PanelArgs> = {
   title: "Core/Panel",
   argTypes: panelArgTypes,
   args: panelArgs,
-
   render: (args) => panelTemplate(panelArgsMapper(args, children, heading)),
 };
 
