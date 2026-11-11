@@ -34,11 +34,20 @@ describe("Image Overlay", () => {
   it("should open and close overlay", () => {
     openOverlay();
 
-    // Take the entire page, otherwise the enlargement of the image will not be snapshotted
-    cy.matchImageSnapshot();
-
     cy.get("dso-image-overlay").shadow().find("dso-icon-button.close.hydrated").click();
     cy.get("dso-image-overlay").shadow().find(".wrapper").should("not.exist");
+  });
+
+  ["image-overlay", "image-overlay-met-alleen-titel", "image-overlay-met-alleen-bijschrift"].forEach((story) => {
+    it(`should match snapshot of opened overlay: ${story}`, () => {
+      cy.visit(`http://localhost:45000/iframe.html?id=core-image-overlay--${story}`);
+      cy.injectAxe();
+      cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+      openOverlay();
+
+      // Take the entire page, otherwise the enlargement of the image will not be snapshotted
+      cy.matchImageSnapshot(`${Cypress.currentTest.title}`);
+    });
   });
 
   it("should keep the caption within the viewport when the viewport is short", () => {
@@ -146,6 +155,25 @@ describe("Image Overlay", () => {
       });
   });
 
+  it("should place the caption below the image when there is no title", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay-met-alleen-bijschrift");
+    cy.injectAxe();
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+    openOverlay();
+
+    cy.get("dso-image-overlay").shadow().find(".title").should("not.exist");
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find(".content")
+      .should(($content) => {
+        const image = $content.find("img")[0]!.getBoundingClientRect();
+        const caption = $content.find(".figuur-bijschrift")[0]!.getBoundingClientRect();
+
+        expect(caption.top, "caption starts directly below image").to.be.closeTo(image.bottom, 1);
+      });
+  });
+
   it("should render a custom title", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=title:Eigen%20titel");
     cy.injectAxe();
@@ -183,6 +211,80 @@ describe("Image Overlay", () => {
 
         expect(titleBottom).to.be.at.most(imageTop);
       });
+  });
+
+  [
+    {
+      wijzigactie: "voegtoe",
+      selector: "ins.editaction-add",
+      label: "Toegevoegd:",
+      backgroundColor: "rgb(228, 241, 212)",
+    },
+    {
+      wijzigactie: "verwijder",
+      selector: "del.editaction-remove",
+      label: "Verwijderd:",
+      backgroundColor: "rgb(245, 216, 220)",
+    },
+  ].forEach(({ wijzigactie, selector, label, backgroundColor }) => {
+    it(`should show wijzigactie "${wijzigactie}"`, () => {
+      cy.visit(
+        `http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=wijzigactie:${wijzigactie}`,
+      );
+      cy.injectAxe();
+      cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+
+      cy.get("dso-image-overlay")
+        .shadow()
+        .find(selector)
+        .should("have.css", "background-color", backgroundColor)
+        .children(".editaction-label")
+        .should("have.text", label)
+        .and("be.visible");
+
+      cy.get("dso-image-overlay").realHover();
+      cy.get("dso-image-overlay")
+        .shadow()
+        .find(selector)
+        .should(($wrapper) => {
+          const labelBottom = $wrapper.children(".editaction-label")[0]!.getBoundingClientRect().bottom;
+          const openButtonTop = $wrapper.children(".open")[0]!.getBoundingClientRect().top;
+
+          expect(openButtonTop, "open button below label").to.be.at.least(labelBottom);
+        });
+
+      openOverlay();
+
+      cy.get("dso-image-overlay")
+        .shadow()
+        .find(`${selector} > .wrapper`)
+        .should("have.css", "background-color", backgroundColor)
+        .find(".editaction-label")
+        .should("have.text", label)
+        .and("be.visible");
+    });
+  });
+
+  it('should strike through the title in the overlay for wijzigactie "verwijder"', () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=wijzigactie:verwijder");
+    cy.injectAxe();
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+    openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("del.editaction-remove > .wrapper .title")
+      .should("have.css", "text-decoration-line", "line-through");
+  });
+
+  it("should ignore an unknown wijzigactie", () => {
+    cy.get("dso-image-overlay").invoke("attr", "wijzigactie", "onbekend");
+
+    cy.get("dso-image-overlay").shadow().find("ins, del, .editaction-label").should("not.exist");
+
+    openOverlay();
+
+    cy.get("dso-image-overlay").shadow().find(".wrapper .editaction-label").should("not.exist");
   });
 });
 

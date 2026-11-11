@@ -4,6 +4,7 @@ import {
   Element,
   FunctionalComponent,
   Host,
+  JSX,
   Listen,
   Prop,
   State,
@@ -26,18 +27,21 @@ const Dimmer: FunctionalComponent<{
   ref: (element: HTMLDialogElement | undefined) => void;
   close: (e: Event) => void;
   click: () => void;
-}> = ({ active, src, alt, ref, close, click }, children) =>
+  titel?: JSX.Element;
+  bijschrift?: JSX.Element;
+  editactionLabel?: JSX.Element;
+}> = ({ active, src, alt, ref, close, click, titel, bijschrift, editactionLabel }) =>
   active &&
   src && (
     <dialog class="wrapper" ref={ref} onClose={close} onClick={close}>
       <div onClick={close}>
-        {children[2]}
+        {editactionLabel}
         <div class="figure">
-          {children[0]}
+          {titel}
           <div class="content">
             <img src={src} alt={alt} />
             <dso-icon-button icon="cross" variant="map" class="close" label="Sluiten" onDsoClick={click} />
-            {children[1]}
+            {bijschrift}
           </div>
         </div>
       </div>
@@ -207,6 +211,18 @@ export class ImageOverlay implements ComponentInterface {
     const editActionLabel: string | undefined =
       (this.wijzigactie && this.isWijzigactie(this.wijzigactie) && wijzigactieLabels[this.wijzigactie]) || undefined;
 
+    const titel = this.titelSlot ? (
+      <div class="title">
+        <slot name="titel" />
+      </div>
+    ) : undefined;
+
+    const bijschrift = (
+      <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
+        <slot name="bijschrift" />
+      </div>
+    );
+
     const button = this.zoomable && (
       <dso-icon-button
         icon="external-link"
@@ -230,17 +246,10 @@ export class ImageOverlay implements ComponentInterface {
               ref={(element) => (this.wrapperElement = element)}
               close={this.dialogCloseEventListener}
               click={() => this.closeZoomedImage()}
-            >
-              {this.titelSlot && (
-                <div class="title">
-                  <slot name="titel" />
-                </div>
-              )}
-              <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
-                <slot name="bijschrift" />
-              </div>
-              {<div class="editaction-label">{editActionLabel}:</div>}
-            </Dimmer>
+              titel={titel}
+              bijschrift={bijschrift}
+              editactionLabel={<div class="editaction-label">{editActionLabel}:</div>}
+            />
             <slot />
             {button}
           </del>
@@ -260,17 +269,10 @@ export class ImageOverlay implements ComponentInterface {
               ref={(element) => (this.wrapperElement = element)}
               close={this.dialogCloseEventListener}
               click={() => this.closeZoomedImage()}
-            >
-              {this.titelSlot && (
-                <div class="title">
-                  <slot name="titel" />
-                </div>
-              )}
-              <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
-                <slot name="bijschrift" />
-              </div>
-              {<div class="editaction-label">{editActionLabel}:</div>}
-            </Dimmer>
+              titel={titel}
+              bijschrift={bijschrift}
+              editactionLabel={<div class="editaction-label">{editActionLabel}:</div>}
+            />
             <slot />
             {button}
           </ins>
@@ -287,16 +289,9 @@ export class ImageOverlay implements ComponentInterface {
           ref={(element) => (this.wrapperElement = element)}
           close={this.dialogCloseEventListener}
           click={() => this.closeZoomedImage()}
-        >
-          {this.titelSlot && (
-            <div class="title">
-              <slot name="titel" />
-            </div>
-          )}
-          <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
-            <slot name="bijschrift" />
-          </div>
-        </Dimmer>
+          titel={titel}
+          bijschrift={bijschrift}
+        />
         <slot />
         {button}
       </Host>

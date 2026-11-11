@@ -5,13 +5,26 @@ import { ImageOverlay } from "./image-overlay.models.js";
 
 export interface ImageOverlayArgs {
   image: 0 | 1 | 2 | 3;
-  title: string;
+  title?: string;
+  bijschrift?: string;
+  wijzigactie?: "voegtoe" | "verwijder";
 }
 
 export const imageOverlayArgTypes: ArgTypes<ImageOverlayArgs> = {
   title: {
     control: {
       type: "text",
+    },
+  },
+  bijschrift: {
+    control: {
+      type: "text",
+    },
+  },
+  wijzigactie: {
+    options: [undefined, "voegtoe", "verwijder"],
+    control: {
+      type: "select",
     },
   },
   image: {
@@ -32,5 +45,7 @@ export function imageOverlayArgsMapper(a: ImageOverlayArgs): ImageOverlay {
   return {
     image: images()[a.image],
     title: a.title,
+    bijschrift: a.bijschrift,
+    wijzigactie: a.wijzigactie,
   };
 }

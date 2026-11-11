@@ -2,5 +2,7 @@ import { Image } from "../image/image.models.js";
 
 export interface ImageOverlay {
   image: Image;
-  title: string;
+  title?: string;
+  bijschrift?: string;
+  wijzigactie?: "voegtoe" | "verwijder";
 }

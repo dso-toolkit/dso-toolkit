@@ -13,6 +13,7 @@ const meta: Meta<ImageOverlayArgs> = {
   args: {
     image: 0,
     title: "Afbeelding 1",
+    bijschrift: "Bijschrift bij afbeelding",
   },
   parameters: {
     docs: {
@@ -28,4 +29,20 @@ export const ImageOverlay: ImageOverlayStory = {
     layout: "fullscreen",
   },
   render: (args) => imageOverlayTemplate(imageOverlayArgsMapper(args)),
+};
+
+export const ImageOverlayMetAlleenTitel: ImageOverlayStory = {
+  ...ImageOverlay,
+  name: "Image Overlay met alleen titel",
+  args: {
+    bijschrift: "",
+  },
+};
+
+export const ImageOverlayMetAlleenBijschrift: ImageOverlayStory = {
+  ...ImageOverlay,
+  name: "Image Overlay met alleen bijschrift",
+  args: {
+    title: "",
+  },
 };
