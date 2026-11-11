@@ -1,0 +1,17 @@
+@use "dso-toolkit/src/variables/media-query-breakpoints";
+@use "dso-toolkit/src/variables/units";
+
+.shopping-cart-animation {
+  margin-block-start: units.$u4;
+
+  > .col-sm-8 {
+    display: grid;
+    gap: units.$u4;
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    > .col-sm-4 {
+      margin-block-start: units.$u4;
+    }
+  }
+}
