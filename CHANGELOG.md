@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Header: Mobile dropdown kapt tekst af ([#4070](https://github.com/dso-toolkit/dso-toolkit/issues/4070))
 * Plekinfo Card: Wijzig actie ziet er 'vreemd' uit ([#4074](https://github.com/dso-toolkit/dso-toolkit/issues/4074))
 * Voorbeeldpagina's: Overlappende hit areas Lees meer en Bijlage toevoegen ([#3988](https://github.com/dso-toolkit/dso-toolkit/issues/3988))
+* Button: Inconsistente hover- en focusstijlen bij meerdere varianten ([#4028](https://github.com/dso-toolkit/dso-toolkit/issues/4028))
 
 ### Removed
 * **BREAKING** Grid System: Remove selector `.dso-banner` ([#3923](https://github.com/dso-toolkit/dso-toolkit/issues/3923))
