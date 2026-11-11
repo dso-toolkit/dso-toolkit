@@ -83,13 +83,13 @@
       margin-inline-start: units.$u1 * -1;
     }
 
-    span:not(.sr-only) ~ dso-icon {
-      margin-inline-start: units.$u1 * 0.5;
+    span:not(.sr-only) + dso-icon {
+      margin-inline-start: units.$u1;
       margin-inline-end: units.$u1 * -1;
     }
 
     dso-icon + span:not(.sr-only) {
-      margin-inline-start: units.$u1 * 0.5;
+      margin-inline-start: units.$u1;
     }
   }
 }
