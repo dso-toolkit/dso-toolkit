@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Shopping Cart: Animatie van inkomend vinkje ([#4051](https://github.com/dso-toolkit/dso-toolkit/issues/4051))
+
 ## 🔦 Release 104.0.0 - 2026-11-12
 
 ### Added

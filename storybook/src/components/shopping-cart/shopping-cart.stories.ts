@@ -1,3 +1,4 @@
+import { cancelSwoopie, swoopie } from "@dso-toolkit/core";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { fn } from "storybook/test";
@@ -5,11 +6,13 @@ import { fn } from "storybook/test";
 import { noControl } from "../../shared/no-control.js";
 import { Button } from "../button/button.models.js";
 import { IconButton } from "../icon-button/icon-button.models.js";
+import { listButtonTemplate } from "../list-button/list-button.template.js";
 
 import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "./shopping-cart.args.js";
-import { itemWarning, warningExplanation } from "./shopping-cart.content.js";
+import { incomingCheckActivities, itemWarning, warningExplanation } from "./shopping-cart.content.js";
 import { ShoppingCartItem } from "./shopping-cart.models.js";
 import { shoppingCartTemplate } from "./shopping-cart.template.js";
+import "./shopping-cart.stories.scss";
 
 type ShoppingCartStory = StoryObj<ShoppingCartArgs>;
 
@@ -44,12 +47,52 @@ const meta: Meta<ShoppingCartArgs> = {
 
 export default meta;
 
+export function createFlyingCheck(): HTMLElement {
+  const target = document.createElement("dso-selectable");
+
+  target.setAttribute("type", "checkbox");
+  target.setAttribute("checked", "");
+  target.style.setProperty("--_dso-selectable-color", "#fff");
+  target.style.setProperty("--_dso-selectable-background-color", "#2b5780");
+  target.inert = true;
+
+  return target;
+}
+
 const render = (args: ShoppingCartArgs, button?: Button | IconButton) =>
   shoppingCartTemplate({
     ...shoppingCartArgsMapper(args),
     button,
     warning: args.warning ? warningExplanation() : undefined,
   });
+
+const handleAnimationSelectedChange = (event: CustomEvent<{ checked: boolean }>) => {
+  if (!(event.currentTarget instanceof HTMLElement)) {
+    return;
+  }
+
+  const listButton = event.currentTarget;
+  listButton.toggleAttribute("checked", event.detail.checked);
+  const selectable = listButton.shadowRoot?.querySelector<HTMLElement>("dso-selectable");
+
+  if (!selectable) {
+    return;
+  }
+
+  if (!event.detail.checked) {
+    cancelSwoopie(selectable);
+    return;
+  }
+
+  const shoppingCart = listButton.closest(".shopping-cart-animation")?.querySelector("dso-shopping-cart");
+  const heading = shoppingCart?.querySelector<HTMLElement>('[slot="heading"]');
+
+  if (!heading) {
+    return;
+  }
+
+  swoopie(createFlyingCheck(), selectable, heading);
+};
 
 const warningText = (warning: boolean | undefined): string | undefined => (warning ? itemWarning() : undefined);
 
@@ -265,4 +308,20 @@ export const MainAllesVerwijderen: ShoppingCartStory = {
         onClick: args.click,
       },
     ),
+};
+
+export const IncomingCheck: ShoppingCartStory = {
+  name: "Incoming check animation",
+  render: () => html`
+    <div class="row shopping-cart-animation">
+      <div class="col-sm-8">
+        ${incomingCheckActivities.map((label) =>
+          listButtonTemplate({ label, dsoSelectedChange: handleAnimationSelectedChange }),
+        )}
+      </div>
+      <div class="col-sm-4">
+        ${shoppingCartTemplate({ mode: "side", title: "Gekozen activiteiten", titleTag: "h2", items: [] })}
+      </div>
+    </div>
+  `,
 };
