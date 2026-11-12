@@ -1,1 +1,1 @@
-export { waitForComponents } from "./wait-for-components";
+export { waitForComponents, waitForFonts } from "./wait-for-components";

@@ -1,12 +1,16 @@
-import { BaseLayer, Overlay } from "@dso-toolkit/core";
+import { BaseLayer, Overlay } from "dso-toolkit";
+
+import { waitForFonts } from "../support/wait-for-components";
 
 // Sync with $transition-duration in map-controls.scss and map-controls.tsx
 const transitionDuration = 300;
 
 describe("Map Controls", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls")
-      .get("dso-map-controls.hydrated")
+    cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls");
+    waitForFonts();
+
+    cy.get("dso-map-controls.hydrated")
       .then(($mapControls) => {
         $mapControls.on("dsoZoomIn", cy.stub().as("dsoZoomIn"));
         $mapControls.on("dsoZoomOut", cy.stub().as("dsoZoomOut"));
@@ -30,12 +34,12 @@ describe("Map Controls", () => {
   });
 
   it("shows a Button with Icon 'layers' and text 'Map layers'", () => {
-    cy.viewport(768, 660)
-      .visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls&globals=locale:en")
-      .get("dso-map-controls.hydrated")
-      .shadow()
-      .find(".toggle-visibility-button")
-      .matchImageSnapshot();
+    cy.viewport(768, 660).visit(
+      "http://localhost:45000/iframe.html?id=core-map-controls--map-controls&globals=locale:en",
+    );
+    waitForFonts();
+
+    cy.get("dso-map-controls.hydrated").shadow().find(".toggle-visibility-button").matchImageSnapshot();
   });
 
   it("shows an Icon Button with Icon 'layers' and attribute label='Kaartlagen`", () => {
@@ -105,8 +109,10 @@ describe("Map Controls", () => {
   });
 
   it('panel should have English header "Map layers" and close button "Hide panel Map layers"', () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls&globals=locale:en")
-      .get("dso-map-controls.hydrated")
+    cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls&globals=locale:en");
+    waitForFonts();
+
+    cy.get("dso-map-controls.hydrated")
       .shadow()
       .as("dsoMapControlsShadow")
       .find(".toggle-visibility-button")

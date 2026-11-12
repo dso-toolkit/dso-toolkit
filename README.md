@@ -41,17 +41,15 @@ The same goes for the component library:
 
 ```html
 <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso.css" />
-
-or minified:
-
-<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso.min.css" />
 ```
 
 For Web Components:
 
 ```html
-<script type="module" src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.esm.js"></script>
-<script nomodule src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.js"></script>
+<script
+  type="module"
+  src="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso-toolkit/dso-toolkit.esm.js"
+></script>
 ```
 
 The referenced scripts are very small: Only the actually used Web Components are lazy loaded. For more information: https://stenciljs.com/docs/distribution

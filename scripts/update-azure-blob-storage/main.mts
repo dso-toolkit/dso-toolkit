@@ -85,6 +85,9 @@ async function main(
    */
   const siteRoots: Array<{ path: string; main?: boolean }> = [
     { path: "cdn.dso-toolkit.nl/www/dso-toolkit" },
+    // @dso-toolkit/core was merged into dso-toolkit (#3931); this siteRoot stays so existing
+    // branch/tag deploys on the CDN keep being cleaned up by this script, but no new content
+    // is ever deployed here again.
     { path: "cdn.dso-toolkit.nl/www/@dso-toolkit/core" },
     { path: "dso-toolkit.nl/www", main: true },
     { path: "storybook.dso-toolkit.nl/www" },

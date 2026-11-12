@@ -11,7 +11,7 @@ De toolkit levert gegenereerde Angular bindings voor de Web Components. Gebruik 
 Installeer de Angular bindings naast de basis package:
 
 ```sh
-npm install @dso-toolkit/angular
+npm install @dso-toolkit/angular dso-toolkit
 ```
 
 Laad daarnaast de stylesheet `dso-toolkit/dist/dso.css`. De bindings registreren de componenten zelf.
@@ -20,7 +20,7 @@ Importeer de benodigde gegenereerde componenten in een standalone component. Pro
 
 ```ts
 import { Component } from "@angular/core";
-import { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "@dso-toolkit/core";
+import { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "dso-toolkit";
 
 import { DsoDatePicker } from "@dso-toolkit/angular";
 

@@ -1,5 +1,5 @@
-import { DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
+import { DsotDocumentComponentDemoCustomEvent } from "dso-toolkit";
 import { html } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { HandlerFunction } from "storybook/actions";

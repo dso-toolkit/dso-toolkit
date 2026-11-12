@@ -1,60 +1,256 @@
-@use "document-component.variables" as document-component-variables;
+@use "../../utilities";
 
-dso-responsive-element.dso-document-components {
-  &[small] {
-    dso-document-component {
-      &::part(_annotation-container),
-      &::part(_content) {
-        padding-inline-start: document-component-variables.$indent;
-      }
+@use "../../variables/colors";
+@use "../../variables/typography";
+@use "../../variables/units";
 
-      &[not-collapsible] {
-        &::part(_heading-container) {
-          padding-inline-start: document-component-variables.$indent;
-        }
-      }
+@use "../link";
+@use "../button/button";
+@use "../mark/mark";
+@use "../document-component";
+@use "../delete";
+@use "../insert";
 
-      &:not([not-collapsible]) {
-        &::part(_children-container) {
-          padding-inline-start: document-component-variables.$indent;
-        }
+.sr-only {
+  @include utilities.sr-only();
+}
 
-        dso-document-component {
-          margin-inline-start: document-component-variables.$indent * -1;
-        }
+:host {
+  display: block;
+
+  --depth: var(--a, 0);
+}
+
+:host([not-collapsible]:where([wijzigactie="verwijder"], [wijzigactie="voegtoe"])) {
+  padding-inline-start: units.$u1;
+  margin-inline-end: units.$u1;
+}
+
+:host(:where([wijzigactie="verwijder"], [wijzigactie="voegtoe"])),
+:host(:where([wijzigactie="nieuweContainer"], [wijzigactie="verwijderContainer"])) .heading-container {
+  padding-block-start: units.$u1 * 0.5;
+  padding-block-end: units.$u1 * 0.5;
+}
+
+:host([wijzigactie="verwijderContainer"]) .heading-container,
+:host(:where([wijzigactie="verwijder"])) {
+  --_dso-document-component-text-decoration: line-through;
+
+  @include delete.root($strikethrough: false);
+}
+
+.heading-element,
+.content {
+  @include delete.strikethrough($_value: var(--_dso-document-component-text-decoration));
+}
+
+:host([wijzigactie="nieuweContainer"]) .heading-container,
+:host([wijzigactie="voegtoe"]) {
+  @include insert.root();
+}
+
+:host([filtered]) {
+  position: relative;
+
+  &::before {
+    content: "";
+    inset-inline-start: -3px;
+    position: absolute;
+    display: block;
+    inline-size: 3px;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    background-color: colors.$lichtblauw;
+  }
+}
+
+:host([open]),
+:host([open-annotation]) {
+  .annotation-container,
+  .heading-container {
+    margin-block-end: units.$u1;
+  }
+}
+
+:host(:not([open])),
+:host([mode="table-of-contents"]) {
+  dso-ozon-content::part(_subtitels) {
+    display: none;
+  }
+}
+
+.recursive-toggle,
+.toggle-button {
+  --_dso-icon-button-tertiary-color: #{colors.$bosgroen};
+  border: 0;
+  padding: 0;
+  background: 0;
+  color: colors.$bosgroen;
+}
+
+.heading-anchor {
+  display: flex;
+  flex-wrap: nowrap;
+
+  @include link.root();
+
+  text-decoration: none;
+}
+
+.heading-element {
+  align-items: start;
+  display: flex;
+  font-size: typography.$font-size-base;
+  // Explicit, because in the table of contents this is a div instead of a heading and the bold no longer comes from
+  // the user agent stylesheet.
+  font-weight: 700;
+  color: colors.$bosgroen;
+  margin: 0;
+
+  > * {
+    vertical-align: middle;
+  }
+}
+
+.alternative-title {
+  cursor: pointer;
+  @include link.pseudo();
+}
+
+:host([not-collapsible]) {
+  .heading-container {
+    margin-block-end: 0;
+  }
+
+  .editaction-label {
+    margin-inline-start: 0;
+  }
+
+  dso-ozon-content.kop::part(_kop) {
+    color: colors.$zwart;
+  }
+}
+
+:host(:not([not-collapsible])) {
+  dso-ozon-content[inline].kop::part(_kop) {
+    display: inline;
+  }
+}
+
+:host([mode="document"]:not([not-collapsible])) {
+  --_dso-link-color: #{document-component.$heading-anchor-color};
+  --_dso-link-hover-color: #{document-component.$heading-anchor-hover-color};
+
+  dso-ozon-content {
+    &.kop::part(_kop) {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--_dso-link-hover-color);
+        text-decoration: underline;
       }
     }
   }
 
-  &:not([small]) {
-    dso-document-component {
-      &[filtered] {
-        &::before {
-          inset-inline-start: calc((var(--depth) * #{document-component-variables.$indent} + 3px) * -1);
-        }
-      }
+  .editaction-label {
+    margin-inline-start: document-component.$indent;
+  }
+}
 
-      &:not([not-collapsible]) {
-        --b: calc(var(--depth) + 1);
+:host([mode="document"]:not([not-collapsible]):active) {
+  dso-ozon-content.kop::part(_kop) {
+    text-decoration: none;
+  }
+}
 
-        &::part(_annotation-container),
-        &::part(_content),
-        &::part(_children-container) {
-          padding-inline-start: document-component-variables.$indent;
-        }
+:host([mode="table-of-contents"]) {
+  .heading-container {
+    padding-inline-start: document-component.$indent-table-of-contents;
+  }
 
-        li {
-          --a: var(--b);
-        }
-      }
+  .heading-element {
+    color: inherit;
+  }
+
+  .editaction-label {
+    margin-inline-start: 0;
+  }
+}
+
+:host([mode="table-of-contents"][type="ARTIKEL"]) {
+  dso-ozon-content.kop::part(_kop) {
+    --_dso-icon-button-tertiary-color: inherit;
+    color: inherit;
+  }
+}
+
+:host([mode="table-of-contents"]:not([type="HOOFDSTUK"])) {
+  dso-ozon-content.kop::part(_kop) {
+    font-weight: normal;
+  }
+}
+
+.addons {
+  margin-inline-start: auto;
+  display: flex;
+  gap: units.$u1;
+}
+
+.heading {
+  display: flex;
+  align-items: start;
+  gap: units.$u1;
+}
+
+:host([type="ARTIKEL"]:not([alternative-title]):not([mode="table-of-contents"])) {
+  dso-ozon-content.kop::part(_kop),
+  .toggle-button {
+    --_dso-icon-button-tertiary-color: #{colors.$zwart};
+    color: colors.$zwart;
+  }
+}
+
+:host([type="LID"][open-annotation]) {
+  .annotation-container {
+    margin-block-start: units.$u1;
+  }
+}
+
+.editaction-label {
+  font-style: italic;
+  margin-inline-start: units.$u1;
+}
+
+.content,
+.heading-container {
+  padding-inline-end: units.$u1;
+}
+
+.content {
+  --_dso-alert-margin-block-end: #{units.$u1};
+}
+
+.annotation-container {
+  padding-inline-end: units.$u1;
+
+  dso-panel {
+    --_dso-panel-body-background-color: #{colors.$wit};
+  }
+}
+
+:host(:where([annotations-wijzigactie="verwijder"])) {
+  .annotation-container {
+    dso-panel {
+      --_dso-panel-body-background-color: #{colors.$rood-10};
+      --_dso-renvooi-text-decoration: line-through;
     }
   }
 }
 
-dso-document-component[not-applicable] {
-  opacity: 0.6;
-
-  dso-document-component[not-applicable] {
-    opacity: 1;
+:host([annotations-wijzigactie="voegtoe"]) {
+  .annotation-container {
+    dso-panel {
+      --_dso-panel-body-background-color: #{colors.$lime-10};
+    }
   }
 }

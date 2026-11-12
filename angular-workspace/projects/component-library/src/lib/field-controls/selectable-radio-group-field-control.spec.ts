@@ -2,7 +2,7 @@ import { Component, ErrorHandler, signal } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormField, disabled, form, required } from "@angular/forms/signals";
 import { By } from "@angular/platform-browser";
-import { SelectableChangeEvent } from "@dso-toolkit/core/dist/components";
+import { SelectableChangeEvent } from "dso-toolkit/dist/components";
 
 import { DsoSelectableRadioGroupFieldControl, RadioValueAccessor } from "../../public-api";
 import { DsoSelectable } from "../stencil-generated/components";

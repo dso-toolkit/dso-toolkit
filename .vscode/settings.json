@@ -9,5 +9,5 @@
     "**/.docusaurus": true,
     "angular-workspace/.angular": true
   },
-  "html.customData": ["packages/core/vscode-data.json"]
+  "html.customData": ["packages/dso-toolkit/vscode-data.json"]
 }

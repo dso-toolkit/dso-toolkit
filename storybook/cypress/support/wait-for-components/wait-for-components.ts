@@ -34,9 +34,16 @@ export function waitForComponents() {
       }
     });
 
-  // Wacht tot alle (async ge-preloade) webfonts geladen zijn. De cursieve Asap-variant
-  // wordt gebruikt in de disclaimer boven de footer; als die pas na de snapshot laadt,
-  // verschuift de footer verticaal en ontstaat er een diff.
+  // De cursieve Asap-variant wordt gebruikt in de disclaimer boven de footer; als die pas na
+  // de snapshot laadt, verschuift de footer verticaal en ontstaat er een diff.
+  waitForFonts();
+}
+
+/**
+ * Wacht tot alle (async ge-preloade) webfonts geladen zijn, zodat image snapshots niet
+ * afhangen van het moment waarop een font binnenkomt.
+ */
+export function waitForFonts() {
   cy.document().then((doc) => doc.fonts.ready);
   cy.document().its("fonts.status").should("equal", "loaded");
 }

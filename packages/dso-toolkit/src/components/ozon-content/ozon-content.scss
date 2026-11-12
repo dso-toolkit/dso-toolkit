@@ -1,0 +1,304 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+@use "../link";
+@use "../button/button.mixins" as button-mixins;
+@use "../insert";
+@use "../delete";
+@use "../rich-content";
+
+@use "../button/button";
+@use "../mark/mark";
+@use "../superscript/superscript";
+@use "../subscript/subscript";
+@use "../table/table.global" as table;
+
+@use "./ozon-content.variables" as ozon-content-variables;
+
+:host(:not([inline])) {
+  display: block;
+}
+
+:host([inline]) {
+  display: inline;
+}
+
+.toggle-note {
+  --_dso-ozon-content-toggletip-text-decoration: none;
+  --_dso-ozon-content-toggletip-color: #{colors.$grasgroen};
+}
+
+span[role="section"],
+span[role="paragraph"] {
+  display: block;
+}
+
+span[role="paragraph"] {
+  margin-block: var(--_dso-span-role-paragraph-margin-block, 0);
+
+  + span[role="paragraph"] {
+    margin-block: var(--_dso-span-role-paragraph-margin-block, units.$u2 0);
+
+    .dso-tertiary {
+      margin-block-start: -3px;
+    }
+  }
+}
+
+:host(:not([inline])) .fallback {
+  display: block;
+}
+
+a {
+  @include link.root();
+}
+
+// Styling below copied from DSO Viewer 20211011
+
+.od-Term {
+  font-weight: 700;
+}
+
+.od-Definitie,
+.od-Tussenkop {
+  font-style: italic;
+}
+
+.od-Inhoud,
+.od-Inhoud > .od-Lijst,
+.od-Lidnr,
+.od-LiNr,
+.od-Opschrift,
+.od-Tussenkop {
+  display: inline;
+}
+
+.od-Al {
+  margin-block-end: 0.75em;
+}
+
+.dso-ozon-bron {
+  font-style: italic;
+  font-size: 0.75rem;
+}
+
+.dso-ozon-figuur {
+  text-align: var(--_dso-ozon-content-illustratie-uitlijning);
+  margin-block-end: units.$u1;
+
+  .figuur-bijschrift {
+    display: block;
+    font-size: 0.75rem;
+    font-style: italic;
+  }
+
+  &.bijschrift-boven {
+    .figuur-bijschrift {
+      padding-block-end: 0.25rem;
+    }
+  }
+
+  &.bijschrift-onder {
+    .figuur-bijschrift {
+      padding-block-start: 0.25rem;
+    }
+  }
+
+  .figuur-titel {
+    color: colors.$mauve;
+    display: block;
+    font-weight: 500;
+    padding-block-end: 0.5rem;
+  }
+
+  > dso-image-overlay {
+    inline-size: var(--_dso-ozon-content-illustratie-width);
+    block-size: auto;
+    max-block-size: 200vh;
+    aspect-ratio: var(--_dso-ozon-content-illustratie-aspect-ratio);
+
+    img {
+      block-size: 100%;
+      inline-size: 100%;
+    }
+  }
+}
+
+.dso-ozon-lijst {
+  span.od-Lijstaanhef,
+  span.od-Lijstsluiting {
+    margin-block-end: units.$u1;
+  }
+
+  ul {
+    margin-block-end: units.$u1 !important;
+    margin-block-start: units.$u1;
+
+    p {
+      margin-block-end: units.$u1;
+    }
+
+    &.expliciet {
+      list-style: none;
+
+      > .od-Li {
+        position: relative;
+
+        > span.od-LiNummer {
+          position: absolute;
+          inset-inline-start: units.$u6 * -1 + 4;
+          text-align: end;
+          inline-size: units.$u5;
+        }
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.od-Tabel thead {
+  font-weight: 600;
+}
+
+.od-Kadertekst {
+  border: 1px solid #e5e5e5;
+  margin-block-end: units.$u1;
+  padding: units.$u1;
+}
+
+p,
+span[role="paragraph"],
+.dso-ozon-lijst,
+.dso-ozon-lijst > ul > li,
+table {
+  &.editaction-add {
+    @include insert.root();
+  }
+
+  &.editaction-remove {
+    @include delete.root();
+  }
+}
+
+ins {
+  @include insert.element();
+
+  &.new-text {
+    @include insert.root();
+  }
+
+  &.editaction-add {
+    display: inline-block;
+    margin-block-end: units.$u1;
+    padding: units.$u1;
+
+    @include insert.root();
+
+    p:last-child {
+      margin: 0;
+    }
+  }
+}
+
+del {
+  &.removed-text {
+    @include delete.root();
+  }
+
+  &.editaction-remove {
+    display: inline-block;
+    margin-block-end: units.$u1;
+    padding: units.$u1;
+    @include delete.root();
+
+    p:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.editaction-label {
+  font-style: italic;
+}
+
+.dso-rich-content {
+  @include rich-content.children();
+}
+
+.od-abbr {
+  text-decoration: underline dotted;
+}
+
+.subtitels-container {
+  cursor: default;
+}
+
+.subtitel {
+  color: ozon-content-variables.$subtitel-color;
+  font-weight: 700;
+  margin-block: 0 units.$u2;
+  margin-inline: 0;
+
+  &:has(del, ins) {
+    display: inline-block;
+    inline-size: 100%;
+    margin-inline: units.$u1 * -0.5;
+    padding-inline: units.$u1 * 0.5;
+  }
+
+  &:has(del:not(.removed-text)) {
+    @include delete.root();
+  }
+
+  &:has(ins:not(.new-text)) {
+    @include insert.element();
+    @include insert.root();
+  }
+
+  ins,
+  del {
+    color: ozon-content-variables.$subtitel-renvooi-color;
+  }
+}
+
+td {
+  &.editaction-remove {
+    @include delete.root();
+  }
+  &.editaction-add {
+    @include insert.root();
+  }
+}
+
+.begrippenlijst {
+  .editaction-add {
+    @include insert.root();
+  }
+
+  .editaction-remove {
+    @include delete.root();
+
+    dt,
+    dd {
+      @include delete.strikethrough();
+    }
+  }
+
+  dt {
+    display: inline-block;
+  }
+}
+
+.kop {
+  ins {
+    @include insert.element();
+    @include insert.root();
+  }
+
+  del {
+    @include delete.root();
+  }
+}

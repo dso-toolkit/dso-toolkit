@@ -1,4 +1,4 @@
-// In CI zet packages/core/scripts/readme.ts de Types-sectie vóór het deel van Stencil, dus die marker gaat voor.
+// In CI zet packages/dso-toolkit/scripts/readme.ts de Types-sectie vóór het deel van Stencil, dus die marker gaat voor.
 const markers = ["<!-- Auto Generated dso-toolkit -->", "<!-- Auto Generated Below -->"];
 
 // De handmatige documentatie staat in de MDX. Stencil begint bij h2. Staat de API van een subcomponent onder een eigen
