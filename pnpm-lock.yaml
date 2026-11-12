@@ -195,9 +195,6 @@ catalogs:
       specifier: ~7.8.2
       version: 7.8.2
   default:
-    '@iframe-resizer/child':
-      specifier: ^5.5.9
-      version: 5.5.9
     '@stencil/core':
       specifier: 4.45.2
       version: 4.45.2
@@ -686,9 +683,6 @@ importers:
       '@dso-toolkit/core':
         specifier: workspace:*
         version: link:../packages/core
-      '@iframe-resizer/child':
-        specifier: 'catalog:'
-        version: 5.5.9
       '@simonsmith/cypress-image-snapshot':
         specifier: ^11.0.0
         version: 11.0.0(cypress@16.2.0)
@@ -2642,9 +2636,6 @@ packages:
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
-
-  '@iframe-resizer/child@5.5.9':
-    resolution: {integrity: sha512-kX4GeGvlfu9S0XfDgSEy+O36q6qFz17kslLYdBT1evBTCK7Q3ETYtZMzVnHlB5PKc9co699kWEZbmpUGtE9IQw==}
 
   '@inquirer/ansi@1.0.2':
     resolution: {integrity: sha512-S8qNSZiYzFd0wAcyG5AXCvUHC5Sr7xpZ9wZ2py9XR88jUz8wooStVx5M6dRzczbBWjic9NP7+rY0Xi7qqK/aMQ==}
@@ -5490,9 +5481,6 @@ packages:
   at-least-node@1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
-
-  auto-console-group@1.3.0:
-    resolution: {integrity: sha512-W/G5jy1ZPeVYPyqOVGND7EjbzrsLgRD3s+1QegXfJ7bYlphFxjqG60rviFXWw0d2YCj0Clc7hU5/nTqrBEhBIw==}
 
   autoprefixer@10.6.1:
     resolution: {integrity: sha512-cL1Qz6ADZhcEbny/8HPfe99J6HhNoYtpX2LFLIbhgGE7Q1hlQVkYFdetDN7Id3KiQxhDrHwzlHr/YQCnZ8+xSA==}
@@ -15050,10 +15038,6 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@iframe-resizer/child@5.5.9':
-    dependencies:
-      auto-console-group: 1.3.0
-
   '@inquirer/ansi@1.0.2': {}
 
   '@inquirer/checkbox@4.3.2(@types/node@24.19.2)':
@@ -17739,8 +17723,6 @@ snapshots:
   asynckit@0.4.0: {}
 
   at-least-node@1.0.0: {}
-
-  auto-console-group@1.3.0: {}
 
   autoprefixer@10.6.1(postcss@8.5.31):
     dependencies:
