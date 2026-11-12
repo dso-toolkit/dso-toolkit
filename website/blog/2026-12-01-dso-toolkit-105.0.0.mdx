@@ -1,9 +1,9 @@
 ---
 authors: [iterox]
-date: 2026-10-19
+date: 2026-12-01
 ---
 
-# DSO Toolkit 103.0.0 ⛳
+# DSO Toolkit v105.0.0
 
 Deze release bevat een **BREAKING** change: `@dso-toolkit/core` is samengevoegd in `dso-toolkit`.
 
@@ -11,7 +11,7 @@ Deze release bevat een **BREAKING** change: `@dso-toolkit/core` is samengevoegd 
 
 ## Waarom
 
-In het epic "Platform versimpelen" [#3928](https://github.com/dso-toolkit/dso-toolkit/issues/3928) maken we het platform eenvoudiger te installeren en te onderhouden. Omdat de bibliotheek die DSO Toolkit gebruikt om Web Componenten te genereren (Stencil) ook de globale stylesheet (`dso.css`) kan bouwen is er geen technische reden meer om de HTML/CSS componenten (`dso-toolkit`) en de Web Components (`@dso-toolkit/core`) als twee aparte NPM packages aan te bieden. Afnemers moesten voorheen twee packages installeren en op elkaar afstemmen, terwijl ze in de praktijk altijd samen worden gebruikt. Vanaf 103.0.0 is er dus nog maar één basis package: `dso-toolkit`. Stencil is daarmee het fundament van zowel de HTML/CSS componenten als de Web Components.
+In het epic "Platform versimpelen" [#3928](https://github.com/dso-toolkit/dso-toolkit/issues/3928) maken we het platform eenvoudiger te installeren en te onderhouden. Omdat de bibliotheek die DSO Toolkit gebruikt om Web Componenten te genereren (Stencil) ook de globale stylesheet (`dso.css`) kan bouwen is er geen technische reden meer om de HTML/CSS componenten (`dso-toolkit`) en de Web Components (`@dso-toolkit/core`) als twee aparte NPM packages aan te bieden. Afnemers moesten voorheen twee packages installeren en op elkaar afstemmen, terwijl ze in de praktijk altijd samen worden gebruikt. Vanaf 105.0.0 is er dus nog maar één basis package: `dso-toolkit`. Stencil is daarmee het fundament van zowel de HTML/CSS componenten als de Web Components.
 
 `@dso-toolkit/react` en `@dso-toolkit/angular` blijven bestaan als optionele framework bindings, met een peerDependency op `dso-toolkit` in plaats van op `@dso-toolkit/core`.
 
@@ -60,7 +60,7 @@ Alleen `dso-toolkit/src/variables/*.scss` wordt nog gepubliceerd (of via de sass
 
 ### 6. CDN
 
-Nieuwe versies worden vanaf 103.0.0 alleen nog gepubliceerd onder `https://cdn.dso-toolkit.nl/dso-toolkit/<versie>/`.
+Nieuwe versies worden vanaf 105.0.0 alleen nog gepubliceerd onder `https://cdn.dso-toolkit.nl/dso-toolkit/<versie>/`.
 Dit geldt voor de Web Components (`dso-toolkit.esm.js`) en de globale stylesheet (`dso.css`).
 
 Voor deze versie zijn ook SRI-hashes beschikbaar, zodat je zowel de stylesheet als de Web Components met een `integrity`-attribuut kunt laden, bijvoorbeeld:
@@ -68,19 +68,19 @@ Voor deze versie zijn ook SRI-hashes beschikbaar, zodat je zowel de stylesheet a
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.dso-toolkit.nl/dso-toolkit/103.0.0/dist/dso.css"
+  href="https://cdn.dso-toolkit.nl/dso-toolkit/105.0.0/dist/dso.css"
   integrity="sha384-<hash uit hashes.json>"
   crossorigin="anonymous"
 />
 <script
   type="module"
-  src="https://cdn.dso-toolkit.nl/dso-toolkit/103.0.0/dist/dso-toolkit/dso-toolkit.esm.js"
+  src="https://cdn.dso-toolkit.nl/dso-toolkit/105.0.0/dist/dso-toolkit/dso-toolkit.esm.js"
   integrity="sha384-<hash uit hashes.json>"
   crossorigin="anonymous"
 ></script>
 ```
 
-Onder `https://cdn.dso-toolkit.nl/@dso-toolkit/core/<versie>/` komen geen nieuwe versies meer bij; bestaande versies (`<103.0.0`) blijven daar wel beschikbaar. Per versie is er één `hashes.json` met de SRI-hashes (`sha384`/`sha512`) voor alle build artifacts.
+Onder `https://cdn.dso-toolkit.nl/@dso-toolkit/core/<versie>/` komen geen nieuwe versies meer bij; bestaande versies (`<105.0.0`) blijven daar wel beschikbaar. Per versie is er één `hashes.json` met de SRI-hashes (`sha384`/`sha512`) voor alle build artifacts.
 
 ### 7. CommonJS
 
