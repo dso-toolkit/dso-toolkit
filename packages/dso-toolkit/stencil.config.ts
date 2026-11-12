@@ -45,25 +45,22 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
-      // Copies the root README.md and CHANGELOG.md into the package. A top-level `{ type: "copy", ... }` output
-      // target is silently dropped by Stencil's `validateOutputTargets`, so this must live on the `dist`
-      // output target instead. `src` is relative to `srcDir` ("src"). Stencil resolves this
-      // `copy` config relative to "dist/dso-toolkit" (buildDir + namespace), so `../../` is
-      // needed to land in packages/dso-toolkit/README.md instead of dist/README.md.
-      copy: [
-        { src: "../../../README.md", dest: "../../README.md" },
-        { src: "../../../CHANGELOG.md", dest: "../../CHANGELOG.md" },
-      ],
     },
     {
       type: "dist-custom-elements",
       customElementsExportBehavior: "single-export-module",
+      // Copies the root README.md and CHANGELOG.md into the package. A top-level `{ type: "copy", ... }` output
+      // target is silently dropped by Stencil's `validateOutputTargets`. The `dist` output target runs its `copy`
+      // twice in parallel (for dist/dso-toolkit and dist/collection), which fails on Windows with EBUSY. This
+      // `copy` runs once, relative to the package root. `src` is relative to `srcDir` ("src").
       copy: [
         {
           src: "../scripts/custom-elements",
           dest: "dist/components",
           warn: true,
         },
+        { src: "../../../README.md", dest: "README.md" },
+        { src: "../../../CHANGELOG.md", dest: "CHANGELOG.md" },
       ],
     },
     {
