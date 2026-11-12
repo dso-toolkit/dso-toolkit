@@ -14,8 +14,8 @@ const preview: Preview = {
       toolbar: {
         icon: "globe",
         items: [
-          { value: "nl", left: "🇳🇱", title: "Nederlands" },
-          { value: "en", left: "🇬🇧", title: "English" },
+          { value: "nl", title: "Nederlands" },
+          { value: "en", title: "English" },
         ],
       },
     },
