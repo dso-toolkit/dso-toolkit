@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/tijdreis-banner/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { TijdreisBannerArgs, tijdreisBannerArgs } from "./tijdreis-banner.args.js";
@@ -16,11 +14,6 @@ const meta: Meta<TijdreisBannerArgs> = {
   argTypes: {
     click: {
       action: "click",
-    },
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
     },
   },
   render: (args) => tijdreisBannerTemplate(tijdreisBannerArgs(args)),

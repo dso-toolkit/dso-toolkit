@@ -1,6 +1,5 @@
 import { defineCustomElements } from "@dso-toolkit/core/dist/bundle/index.js";
 import { Preview } from "@storybook/web-components-vite";
-import "@iframe-resizer/child";
 
 import "dso-toolkit/dist/dso.css";
 
@@ -14,8 +13,8 @@ const preview: Preview = {
       toolbar: {
         icon: "globe",
         items: [
-          { value: "nl", left: "🇳🇱", title: "Nederlands" },
-          { value: "en", left: "🇬🇧", title: "English" },
+          { value: "nl", title: "Nederlands" },
+          { value: "en", title: "English" },
         ],
       },
     },
@@ -36,7 +35,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: "alphabetically",
-        order: ["HTML|CSS", "Core"],
+        order: ["HTML|CSS", "Core", "Patronen", "Voor developers", ["Web Components"]],
       },
     },
     docs: {
@@ -46,7 +45,6 @@ const preview: Preview = {
       },
     },
   },
-  tags: ["autodocs"],
 };
 
 export default preview;

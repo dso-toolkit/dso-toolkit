@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/footnotes/readme.md?raw";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 
 import { footnoteTemplate } from "./footnote.template.js";
 import {
@@ -25,11 +23,6 @@ const meta: Meta = {
   title: "HTML|CSS/Footnotes",
   argTypes: {},
   args: {},
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

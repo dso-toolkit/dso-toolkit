@@ -20,7 +20,6 @@ import { linkList } from "./homepage.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Loket/Homepage",
-  tags: ["!autodocs"],
 };
 
 export default meta;

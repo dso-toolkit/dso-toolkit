@@ -16,6 +16,8 @@ import { GridColumnCloseEvent } from "./grid-column.interfaces";
 const overlayMediaQuery = "(min-width: 768px)";
 
 /**
+ * Een grid kolom valt in overlay-modus over de andere kolommen van de row. Zie de voorbeeldpagina's onder Patronen voor hoe het component met `<dso-grid-column>` werkt.
+ *
  * @slot - The default slot for the column content.
  */
 @Component({

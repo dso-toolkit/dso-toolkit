@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/document-card/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   DocumentCardArgs,
@@ -17,11 +15,6 @@ const meta: Meta<DocumentCardArgs> = {
   title: "Core/Document Card",
   argTypes: documentCardArgTypes,
   args: documentCardArgs,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

@@ -1,6 +1,4 @@
-# `<dso-base-layers>`
-
-Private component, do not use.
+# `<dso-map-base-layers>`
 
 <!-- Auto Generated Below -->
 

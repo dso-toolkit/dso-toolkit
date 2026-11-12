@@ -1,0 +1,20 @@
+import paginationReadme from "@dso-toolkit/core/src/components/pagination/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./pagination.stories";
+
+<Meta of={Stories} />
+
+# Pagination
+
+<Canvas of={Stories.Pagination} />
+
+🚧 Documentatie volgt 🚧
+
+## Varianten
+
+### Pagination Without Total
+
+<Canvas of={Stories.PaginationWithoutTotal} />
+
+<Markdown>{generatedReadme(paginationReadme)}</Markdown>

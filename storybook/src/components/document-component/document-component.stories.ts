@@ -1,9 +1,7 @@
 import { DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
-import readme from "@dso-toolkit/core/src/components/document-component/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
-import { compiler } from "markdown-to-jsx/react";
 import { HandlerFunction } from "storybook/actions";
 import { fn } from "storybook/test";
 
@@ -119,11 +117,6 @@ function demoTemplate(
 
 const meta: Meta = {
   title: "Core/Document Component",
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;
@@ -178,7 +171,7 @@ export const Contents: DocumentComponentDemoStory = {
           case "JCI":
             return `http://wetten.overheid.nl/${value}`;
           case "document":
-            return `https://zoek.officielebekendmakingen.nl/${value}`;
+            return `https://zoek.officiele-bekendmakingen.nl/${value}`;
           case "AKN":
           case "URL":
           default:

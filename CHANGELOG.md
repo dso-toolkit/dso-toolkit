@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Dropdown Menu: Focus op eerste item ([#4034](https://github.com/dso-toolkit/dso-toolkit/issues/4034))
 
+### Docs
+* Documentatie: Verhuis componentendocumentatie van Docusaurus naar Storybook ([#3932](https://github.com/dso-toolkit/dso-toolkit/issues/3932))
+
 ### Fixed
 * Image Overlay: Positie van onderschrift klopt niet ([#4076](https://github.com/dso-toolkit/dso-toolkit/issues/4076))
 * Link: Mailto-link toont onbedoelde rechterpadding ([#4052](https://github.com/dso-toolkit/dso-toolkit/issues/4052))

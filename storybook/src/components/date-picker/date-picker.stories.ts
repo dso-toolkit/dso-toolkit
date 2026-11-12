@@ -1,7 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
@@ -24,14 +22,6 @@ const meta: Meta<DatePickerArgs> = {
     dsoKeyUp: fn(),
   },
   render: (args) => datePickerTemplate(datePickerArgsMapper(args)),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-    options: {
-      enableShortcuts: false,
-    },
-  },
 };
 
 export default meta;

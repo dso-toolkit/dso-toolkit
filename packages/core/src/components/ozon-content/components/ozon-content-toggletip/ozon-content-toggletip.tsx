@@ -5,6 +5,8 @@ import { Tooltip } from "../../../../functional-components/tooltip/tooltip.funct
 import { IconAlias } from "../../../icon/icon.interfaces";
 
 /**
+ * Private component, do not use.
+ *
  * @slot - A slot to place the main content inside the toggletip overlay.
  * @slot label - A slot to place the trigger label text of the toggletip.
  */

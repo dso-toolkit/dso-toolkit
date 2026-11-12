@@ -7,7 +7,6 @@ import { examplePageMeta } from "../example-page-meta.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Typografie",
-  tags: ["!autodocs"],
 };
 
 export default meta;

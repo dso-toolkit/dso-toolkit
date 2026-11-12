@@ -1,7 +1,5 @@
 # `<dso-input-range>`
 
-
-
 <!-- Auto Generated Below -->
 
 

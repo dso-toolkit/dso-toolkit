@@ -1,8 +1,5 @@
 # `<dso-dropdown-menu>`
 
-Must contain at least one `<dso-dropdown-menu-group>`. A `<dso-dropdown-menu-group>` must contain at least one 
-`<dso-dropdown-menu-item>`.
-
 <!-- Auto Generated Below -->
 
 

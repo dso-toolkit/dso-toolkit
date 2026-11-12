@@ -1,0 +1,51 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as Stories from "./list.stories";
+
+<Meta of={Stories} />
+
+# List
+
+<Canvas of={Stories.Unordered} />
+
+List toont lijsten met items, van een eenvoudige opsomming tot items met eigen inhoud.
+
+## Status
+
+Een List Item (`<li>`) kan een status hebben. Een status bestaat uit een icon en een toelichting. De status wordt met een modifier class op het List Item gezet.
+
+- Forbidden (`dso-forbidden`)
+- Status Warning (`dso-status-warning`)
+
+## Varianten
+
+### Columns
+
+<Canvas of={Stories.Columns} />
+
+### Group
+
+<Canvas of={Stories.Group} />
+
+### Icons
+
+<Canvas of={Stories.Icons} />
+
+### Image List
+
+<Canvas of={Stories.ImageList} />
+
+### Ordered
+
+<Canvas of={Stories.Ordered} />
+
+### Ordered Action
+
+<Canvas of={Stories.OrderedAction} />
+
+### Unordered Action
+
+<Canvas of={Stories.UnorderedAction} />
+
+### Unstyled
+
+<Canvas of={Stories.Unstyled} />

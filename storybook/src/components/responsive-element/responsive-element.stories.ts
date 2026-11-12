@@ -1,7 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/responsive-element/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { ResponsiveElementArgs, responsiveElementArgTypes } from "./responsive-element.args.js";
@@ -54,18 +52,14 @@ const meta: Meta<ResponsiveElementArgs> = {
   args: {
     dsoSizeChange: fn(),
   },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;
 
 export const ResponsiveElement: ResponsiveElementStory = {
   render: (args) =>
-    html`<style>
+    html`<div>
+      <style>
         ${css}
       </style>
       ${demoGrid.map(
@@ -95,5 +89,6 @@ export const ResponsiveElement: ResponsiveElementStory = {
             )}
           </div>
         `,
-      )}`,
+      )}
+    </div>`,
 };

@@ -1,23 +1,5 @@
 # `<dso-autosuggest>`
 
-Dit custom element is een wrapper voor een `<input type="text">`.
-
-Aan de hand van het debounced `dsoChange` event van `<dso-autosuggest>` of het `change` event van de slotted `<input type="text">` moet de afnemer de property `suggestions` voorzien van relevante suggesties `Suggestion[]`. Verder is de afnemer verantwoordelijk voor sortering op relevantie en het limiteren van het aantal suggesties.
-
-Als de gebruiker een suggestie activeert wordt het event `dsoSelect` met het type `CustomEvent<Suggestion>` ge-emit.
-
-### Naamgeving events
-
-De events van dit Web Component heten `dsoChange` en `dsoSelect` omdat `change` en `select` gereserveerde (native) DOM event names zijn.
-
-## Autosuggest en Search Bar
-
-Search Bar is voorbereid op het gebruik van Autosuggest. Let op dat Search Bar een HTML/CSS component is en dat de afnemer zelf de eventuele "Zoekopdracht legen" knop moet aansluiten.
-
-## Markeren van zoekresultaten
-
-De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeerfunctie te gebruiken. Als deze functie door de afnemer wordt meegegeven, roept het Autosuggest component deze functie voor elke suggestie aan. De afnemer krijgt de tekst (`value: string`) en de type (`type: string`) mee. Een type kan bv. de primaire suggestie zijn, of de type aanduiding, of een van de extra's. De markeerfunctie wordt per suggestie voor alle onderdelen aangeroepen. Label, het optionele type, en voor elke extra.
-
 <!-- Auto Generated Below -->
 
 

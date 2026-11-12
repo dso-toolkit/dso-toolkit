@@ -1,0 +1,52 @@
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./annotation.stories";
+import activiteitReadme from "@dso-toolkit/core/src/components/annotation/annotation-activiteit/readme.md?raw";
+import gebiedsaanwijzingReadme from "@dso-toolkit/core/src/components/annotation/annotation-gebiedsaanwijzing/readme.md?raw";
+import kaartReadme from "@dso-toolkit/core/src/components/annotation/annotation-kaart/readme.md?raw";
+import locatieReadme from "@dso-toolkit/core/src/components/annotation/annotation-locatie/readme.md?raw";
+import omgevingsnormwaardeReadme from "@dso-toolkit/core/src/components/annotation/annotation-omgevingsnormwaarde/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+
+<Meta of={Stories} />
+
+# Annotation
+
+<Canvas of={Stories.Activiteit} />
+
+## Activiteit
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{generatedReadme(activiteitReadme, { headingLevel: 3 })}</Markdown>
+
+## Gebiedsaanwijzing
+
+<Canvas of={Stories.Gebiedsaanwijzing} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{generatedReadme(gebiedsaanwijzingReadme, { headingLevel: 3 })}</Markdown>
+
+## Kaart
+
+<Canvas of={Stories.Kaart} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{generatedReadme(kaartReadme, { headingLevel: 3 })}</Markdown>
+
+## Locatie
+
+<Canvas of={Stories.Locatie} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{generatedReadme(locatieReadme, { headingLevel: 3 })}</Markdown>
+
+## Omgevingsnormwaarde
+
+<Canvas of={Stories.Omgevingsnormwaarde} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{generatedReadme(omgevingsnormwaardeReadme, { headingLevel: 3 })}</Markdown>

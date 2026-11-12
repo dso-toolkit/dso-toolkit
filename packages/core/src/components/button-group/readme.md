@@ -1,7 +1,5 @@
 # `<dso-button-group>`
 
-
-
 <!-- Auto Generated Below -->
 
 

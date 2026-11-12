@@ -1,0 +1,30 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as Stories from "./application-heading.stories";
+
+<Meta of={Stories} />
+
+# Application Heading
+
+<Canvas of={Stories.Default} />
+
+## Technische opmerkingen
+
+De class van dit component is `.dso-app-heading`, niet `.dso-application-heading`.
+
+## Varianten
+
+### With Subtitle
+
+<Canvas of={Stories.WithSubtitle} />
+
+### With Subtitle And Steps
+
+<Canvas of={Stories.WithSubtitleAndSteps} />
+
+### Subtitle Only
+
+<Canvas of={Stories.SubtitleOnly} />
+
+### Subtitle And Steps Only
+
+<Canvas of={Stories.SubtitleAndStepsOnly} />

@@ -1,7 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/panel/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 
 import { infoTemplate } from "../info/info.template.js";
 import { richContentTemplate } from "../rich-content/rich-content.template.js";
@@ -15,11 +13,6 @@ const meta: Meta<PanelArgs> = {
   title: "Core/Panel",
   argTypes: panelArgTypes,
   args: panelArgs,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
   render: (args) => panelTemplate(panelArgsMapper(args, children, heading)),
 };
 

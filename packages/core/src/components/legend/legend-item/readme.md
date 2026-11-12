@@ -1,7 +1,5 @@
 # `<dso-legend-item>`
 
-
-
 <!-- Auto Generated Below -->
 
 

@@ -9,7 +9,6 @@ import { examplePageMeta } from "../../example-page-meta.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Patronen/Alert on color",
-  tags: ["!autodocs"],
 };
 
 export default meta;

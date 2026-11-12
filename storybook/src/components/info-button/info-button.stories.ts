@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/info-button/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { InfoButtonArgs, infoButtonArgTypes, infoButtonArgsMapper } from "./info-button.args.js";
@@ -17,9 +15,6 @@ const meta: Meta<InfoButtonArgs> = {
     dsoToggle: fn(),
   },
   parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
     layout: "centered",
   },
   render: (args) => infoButtonTemplate(infoButtonArgsMapper(args, children())),

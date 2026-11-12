@@ -1,9 +1,11 @@
-# <dso-ozon-content-toggletip>
-
-
+# `<dso-ozon-content-toggletip>`
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+Private component, do not use.
 
 ## Properties
 

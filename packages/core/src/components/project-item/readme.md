@@ -1,7 +1,5 @@
 # `<dso-project-item>`
 
-
-
 <!-- Auto Generated Below -->
 
 

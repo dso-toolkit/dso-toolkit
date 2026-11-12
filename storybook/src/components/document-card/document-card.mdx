@@ -1,0 +1,32 @@
+import { Markdown, Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as Stories from "./document-card.stories";
+import readme from "@dso-toolkit/core/src/components/document-card/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+
+<Meta of={Stories} name="Docs" />
+
+# Document Card
+
+<Canvas of={Stories.Default} />
+
+Een Document Card toont de belangrijkste informatie over een document en biedt een link naar de volledige inhoud.
+
+## Varianten
+
+### With Label
+
+<Canvas of={Stories.WithLabel} />
+
+### With Type Toelichting
+
+<Canvas of={Stories.WithTypeToelichting} />
+
+### With Status Toelichting
+
+<Canvas of={Stories.WithStatusToelichting} />
+
+### With Labels
+
+<Canvas of={Stories.WithLabels} />
+
+<Markdown>{generatedReadme(readme)}</Markdown>
