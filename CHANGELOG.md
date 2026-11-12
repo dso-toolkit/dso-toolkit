@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🔦 Release 104.0.0 - 2026-11-12
+
 ### Added
 * **BREAKING** Toelichting: label en lost focus ([#3986](https://github.com/dso-toolkit/dso-toolkit/issues/3986))
 * Icon Button: Toegankelijke naam los van de tooltip kunnen instellen ([#3966](https://github.com/dso-toolkit/dso-toolkit/issues/3966))
