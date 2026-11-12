@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/document-header/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { options } from "../advanced-select/advanced-select.content.js";
 
@@ -24,11 +22,6 @@ const meta: Meta<DocumentHeaderArgs> = {
     sticky: false,
   },
   render: (args) => documentHeaderTemplate(documentHeaderArgsMapper(args, featuresContent())),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

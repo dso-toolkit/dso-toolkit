@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@dso-toolkit/core": "workspace:*",
-    "@iframe-resizer/child": "catalog:",
     "@simonsmith/cypress-image-snapshot": "^11.0.0",
     "@storybook/addon-a11y": "catalog:storybook",
     "@storybook/addon-docs": "catalog:storybook",
@@ -31,7 +30,6 @@
     "http-server": "^14.1.1",
     "lit-html": "catalog:",
     "lodash.startcase": "catalog:",
-    "markdown-to-jsx": "catalog:",
     "start-server-and-test": "^3.0.13",
     "storybook": "catalog:storybook",
     "tsx": "catalog:",

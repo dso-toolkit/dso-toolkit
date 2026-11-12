@@ -678,6 +678,9 @@ export namespace Components {
          */
         "open"?: boolean;
     }
+    /**
+     * Een kolom in het grid. In overlay-modus valt de kolom over de andere kolommen van de row.
+     */
     interface DsoGridColumn {
         /**
           * The column widths per breakpoint (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix. Widths only; push, pull and offset are not supported.
@@ -1183,6 +1186,9 @@ export namespace Components {
          */
         "urlResolver"?: OzonContentUrlResolver;
     }
+    /**
+     * Private component, do not use.
+     */
     interface DsoOzonContentToggletip {
         /**
           * The alias of the icon in the button.
@@ -2122,6 +2128,9 @@ declare global {
     interface HTMLDsoGridColumnElementEventMap {
         "dsoClose": GridColumnCloseEvent;
     }
+    /**
+     * Een kolom in het grid. In overlay-modus valt de kolom over de andere kolommen van de row.
+     */
     interface HTMLDsoGridColumnElement extends Components.DsoGridColumn, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoGridColumnElementEventMap>(type: K, listener: (this: HTMLDsoGridColumnElement, ev: DsoGridColumnCustomEvent<HTMLDsoGridColumnElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2537,6 +2546,9 @@ declare global {
         prototype: HTMLDsoOzonContentElement;
         new (): HTMLDsoOzonContentElement;
     };
+    /**
+     * Private component, do not use.
+     */
     interface HTMLDsoOzonContentToggletipElement extends Components.DsoOzonContentToggletip, HTMLStencilElement {
     }
     var HTMLDsoOzonContentToggletipElement: {
@@ -3633,6 +3645,9 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    /**
+     * Een kolom in het grid. In overlay-modus valt de kolom over de andere kolommen van de row.
+     */
     interface DsoGridColumn {
         /**
           * The column widths per breakpoint (e.g. "xs-4", "md-6 lg-8"). Without "col-" prefix. Widths only; push, pull and offset are not supported.
@@ -4260,6 +4275,9 @@ declare namespace LocalJSX {
          */
         "urlResolver"?: OzonContentUrlResolver;
     }
+    /**
+     * Private component, do not use.
+     */
     interface DsoOzonContentToggletip {
         /**
           * The alias of the icon in the button.
@@ -5247,6 +5265,9 @@ declare module "@stencil/core" {
             "dso-dropdown-menu-group": LocalJSX.IntrinsicElements["dso-dropdown-menu-group"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuGroupElement>;
             "dso-dropdown-menu-item": LocalJSX.IntrinsicElements["dso-dropdown-menu-item"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuItemElement>;
             "dso-expandable": LocalJSX.IntrinsicElements["dso-expandable"] & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
+            /**
+             * Een kolom in het grid. In overlay-modus valt de kolom over de andere kolommen van de row.
+             */
             "dso-grid-column": LocalJSX.IntrinsicElements["dso-grid-column"] & JSXBase.HTMLAttributes<HTMLDsoGridColumnElement>;
             "dso-header": LocalJSX.IntrinsicElements["dso-header"] & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-hero-image": LocalJSX.IntrinsicElements["dso-hero-image"] & JSXBase.HTMLAttributes<HTMLDsoHeroImageElement>;
@@ -5274,6 +5295,9 @@ declare module "@stencil/core" {
             "dso-modal": LocalJSX.IntrinsicElements["dso-modal"] & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
             "dso-onboarding-tip": LocalJSX.IntrinsicElements["dso-onboarding-tip"] & JSXBase.HTMLAttributes<HTMLDsoOnboardingTipElement>;
             "dso-ozon-content": LocalJSX.IntrinsicElements["dso-ozon-content"] & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
+            /**
+             * Private component, do not use.
+             */
             "dso-ozon-content-toggletip": LocalJSX.IntrinsicElements["dso-ozon-content-toggletip"] & JSXBase.HTMLAttributes<HTMLDsoOzonContentToggletipElement>;
             "dso-pagination": LocalJSX.IntrinsicElements["dso-pagination"] & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-panel": LocalJSX.IntrinsicElements["dso-panel"] & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;

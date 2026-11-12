@@ -1,0 +1,14 @@
+import markBarReadme from "@dso-toolkit/core/src/components/mark-bar/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./mark-bar.stories";
+
+<Meta of={Stories} />
+
+# Mark Bar
+
+<Canvas of={Stories.Default} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{generatedReadme(markBarReadme)}</Markdown>

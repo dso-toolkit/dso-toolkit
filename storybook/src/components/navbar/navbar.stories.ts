@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/navbar/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { MarkBarArgs, markBarArgsMapper } from "../mark-bar/mark-bar.args.js";
 import { markBarTemplate } from "../mark-bar/mark-bar.template.js";
@@ -15,11 +13,6 @@ const meta: Meta<NavbarArgs> = {
   argTypes: navbarArgTypes,
   args: navbarArgs,
   render: (args) => navbarTemplate(navbarArgsMapper(args)),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

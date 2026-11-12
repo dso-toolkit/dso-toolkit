@@ -1,13 +1,5 @@
 # `<dso-label>`
 
-## Gedrag bij `[truncate]` en `[removable]`
-
-In de content van het label wordt alleen tekst ondersteund.
-
-Wanneer het label is afgekapt (`[truncate]`), toont de volledige content van het label in de tooltip bij hoveren en focus.
-De tekst die bij de `[removable]` knop wordt voorgelezen bevat ook verborgen tekst.
-In beiden gevallen wordt de tekst uitgelezen door middel van `HTMLElement.textContent` op `<dso-label>`.
-
 <!-- Auto Generated Below -->
 
 

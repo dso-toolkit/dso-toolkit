@@ -1,8 +1,6 @@
-import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 import { when } from "lit-html/directives/when.js";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { alertTemplate } from "../alert/alert.template.js";
@@ -46,7 +44,10 @@ const meta: Meta<ViewerGridArgs> = {
       hideNoControlsWarning: true,
     },
     docs: {
-      page: () => compiler(readme),
+      story: {
+        inline: false,
+        height: "600px",
+      },
     },
   },
   render: (args) => viewerGridTemplate(viewerGridArgsMapper(args, example)),

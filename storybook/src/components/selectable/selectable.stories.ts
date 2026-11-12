@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/selectable/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { v4 as uuidv4 } from "uuid";
 
 import { SelectableArgs, selectableArgTypes, selectableArgsMapper } from "./selectable.args.js";
@@ -25,11 +23,6 @@ const meta: Meta<SelectableArgs> = {
     label: "Label",
     required: false,
     value: "the-value",
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
   render: (args) => selectableTemplate(selectableArgsMapper(args, infoRichContent())),
 };

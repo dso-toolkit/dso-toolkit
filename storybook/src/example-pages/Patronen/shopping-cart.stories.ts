@@ -3,7 +3,7 @@ import { html } from "lit-html";
 import { HandlerFunction } from "storybook/actions";
 import { fn } from "storybook/test";
 
-import { gridColumnTemplate } from "../../components/grid-column/grid-column.template.js";
+import { gridColumnTemplate } from "../../components/grid/grid-column.template.js";
 import { itemWarning, warningExplanation } from "../../components/shopping-cart/shopping-cart.content.js";
 import { ShoppingCartItem } from "../../components/shopping-cart/shopping-cart.models.js";
 import { shoppingCartTemplate } from "../../components/shopping-cart/shopping-cart.template.js";
@@ -13,7 +13,6 @@ import { argTypeAction } from "../../shared/arg-type-action.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Patronen/Shopping Cart",
-  tags: ["!autodocs"],
 };
 
 export default meta;

@@ -1,8 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/shopping-cart/readme.md?raw";
-import componentsReadme from "@dso-toolkit/core/src/components/shopping-cart/shopping-cart-item/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { noControl } from "../../shared/no-control.js";
@@ -43,11 +40,6 @@ const meta: Meta<ShoppingCartArgs> = {
       </div>
     `,
   ],
-  parameters: {
-    docs: {
-      page: () => compiler(`${readme}\n${componentsReadme}`),
-    },
-  },
 };
 
 export default meta;

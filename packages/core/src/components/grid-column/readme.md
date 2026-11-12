@@ -1,9 +1,11 @@
 # `<dso-grid-column>`
 
-Een grid kolom valt in overlay-modus over de andere kolommen van de row. Zie de voorbeeldpagina's onder Patronen voor hoe het component met `<dso-grid-column>` werkt.
-
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+Een kolom in het grid. In overlay-modus valt de kolom over de andere kolommen van de row.
 
 ## Properties
 

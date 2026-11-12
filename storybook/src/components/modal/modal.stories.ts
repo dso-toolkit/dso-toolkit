@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { ModalArgs, modalArgTypes, modalArgsMapper } from "./modal.args.js";
@@ -27,7 +25,10 @@ const meta: Meta<ModalArgs> = {
   },
   parameters: {
     docs: {
-      page: () => compiler(readme),
+      story: {
+        inline: false,
+        height: "500px",
+      },
     },
   },
 };

@@ -1,7 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { buttonTemplate } from "../button/button.template.js";
@@ -34,11 +32,6 @@ const meta: Meta<AutosuggestArgs> = {
     dsoSelect: fn(),
     dsoChange: fn(),
     dsoSearch: fn(),
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
 };
 

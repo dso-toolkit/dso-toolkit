@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/paragraph/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { ParagraphArgs, paragraphArgTypes, paragraphArgsMapper } from "./paragraph.args.js";
 import { defaultContent, disclaimerContent } from "./paragraph.content.js";
@@ -11,11 +9,6 @@ type ParagraphStory = StoryObj<ParagraphArgs>;
 const meta: Meta<ParagraphArgs> = {
   title: "HTML|CSS/Paragraph",
   argTypes: paragraphArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

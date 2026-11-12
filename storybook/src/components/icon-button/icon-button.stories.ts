@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/icon-button/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import icons from "../../../assets/icons.json";
 
@@ -13,11 +11,6 @@ const meta: Meta<IconButtonArgs> = {
   title: "Core/Icon Button",
   args: iconButtonArgs,
   render: (args) => iconButtonTemplate(args),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;
@@ -42,5 +35,15 @@ export const Map: IconButtonStory = {
   parameters,
   args: {
     variant: "map",
+  },
+};
+
+export const ShortTooltip: IconButtonStory = {
+  argTypes,
+  parameters,
+  args: {
+    icon: "trash",
+    label: "Verwijder Test project 3 September",
+    tooltip: "Verwijder",
   },
 };

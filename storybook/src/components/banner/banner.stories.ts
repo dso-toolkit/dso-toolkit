@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/banner/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { BannerArgs, bannerArgTypes, bannerArgsMapper } from "./banner.args.js";
 import {
@@ -22,11 +20,6 @@ const meta: Meta<BannerArgs> = {
   argTypes: bannerArgTypes,
   args: {
     icon: true,
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
 };
 

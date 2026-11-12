@@ -1,0 +1,14 @@
+import skiplinkReadme from "@dso-toolkit/core/src/components/skiplink/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./skiplink.stories";
+
+<Meta of={Stories} />
+
+# Skiplink
+
+<Canvas of={Stories.Default} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{generatedReadme(skiplinkReadme)}</Markdown>

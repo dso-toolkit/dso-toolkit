@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/link-list/readme.md?raw";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 
 import { highlightBoxTemplate } from "../highlight-box/highlight-box.template.js";
 
@@ -19,11 +17,6 @@ const meta: Meta<LinkListArgs> = {
     links: links(),
   },
   render: (args) => linkListTemplate(linkListArgsMapper(args)),
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

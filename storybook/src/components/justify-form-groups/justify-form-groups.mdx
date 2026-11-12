@@ -1,0 +1,12 @@
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
+import * as Stories from "./justify-form-groups.stories";
+
+<Meta of={Stories} />
+
+# Justify Form Groups
+
+<Canvas of={Stories.JustifyFormGroups} />
+
+## Let op
+
+Bij justify-form-groups moet het aantal velden opgegeven worden als extra classname: `.form-groups-n`, waarbij `n` moet worden vervangen met het aantal `.form-group` velden er in het `.dso-justify-form-groups` staan. Maximaal kan dit **3** zijn, `.dso-form-buttons` wordt hierbij niet meegeteld.

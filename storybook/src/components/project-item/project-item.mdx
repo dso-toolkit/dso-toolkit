@@ -1,0 +1,14 @@
+import projectItemReadme from "@dso-toolkit/core/src/components/project-item/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./project-item.stories";
+
+<Meta of={Stories} />
+
+# Project Item
+
+<Canvas of={Stories.Default} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{generatedReadme(projectItemReadme)}</Markdown>

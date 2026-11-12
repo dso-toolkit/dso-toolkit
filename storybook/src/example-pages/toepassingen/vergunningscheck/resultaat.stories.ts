@@ -19,7 +19,6 @@ import { headerPartial } from "../../partials/header.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Vergunningscheck/Resultaat",
-  tags: ["!autodocs"],
 };
 
 export default meta;

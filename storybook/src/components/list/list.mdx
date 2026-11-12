@@ -1,0 +1,65 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as Stories from "./list.stories";
+
+<Meta of={Stories} />
+
+# List
+
+<Canvas of={Stories.Unordered} />
+
+List toont lijsten met items, van een eenvoudige opsomming tot items met eigen inhoud. Een lijst is een `ul` of een `ol`. Een modifier class op de lijst bepaalt de variant.
+
+## Status
+
+Een List Item (`<li>`) kan een status hebben. Een status bestaat uit een icon en een toelichting. De status wordt met een modifier class op het List Item gezet.
+
+- Forbidden (`dso-forbidden`)
+- Status Warning (`dso-status-warning`)
+
+## Varianten
+
+### Columns
+
+Met de class `.dso-columns-list` op de `ul` of `ol`.
+
+<Canvas of={Stories.Columns} />
+
+### Group
+
+Met de class `.list-group` op de lijst en `.list-group-item` op elk item.
+
+<Canvas of={Stories.Group} />
+
+### Icons
+
+<Canvas of={Stories.Icons} />
+
+### Image List
+
+Met de class `.dso-img-list` op de `ul`. De extra class `.dso-img-list-spaced` zet meer ruimte tussen de items.
+
+<Canvas of={Stories.ImageList} />
+
+### Ordered
+
+Een `ol` zonder modifier class.
+
+<Canvas of={Stories.Ordered} />
+
+### Ordered Action
+
+Met de class `.dso-action-list` op de `ol`.
+
+<Canvas of={Stories.OrderedAction} />
+
+### Unordered Action
+
+Met de class `.dso-action-list` op de `ul`.
+
+<Canvas of={Stories.UnorderedAction} />
+
+### Unstyled
+
+Met de class `.dso-list-unstyled` op de `ul` of `ol`.
+
+<Canvas of={Stories.Unstyled} />

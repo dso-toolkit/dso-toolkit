@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/row-equal-heights/readme.md?raw";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 
 import { highlightBoxTemplate } from "../highlight-box/highlight-box.template.js";
 import { tileTemplate } from "../tile/tile.template.js";
@@ -13,11 +11,6 @@ import { rowEqualHeightsTemplate } from "./row-equal-heights.template.js";
 const meta: Meta = {
   title: "HTML|CSS/Row Equal Heights",
   decorators: [decorator],
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

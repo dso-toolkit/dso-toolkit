@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/history-item/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { HistoryItemArgs, historyItemArgTypes, historyItemArgsMapper } from "./history-item.args.js";
@@ -13,11 +11,6 @@ const meta: Meta<HistoryItemArgs> = {
   argTypes: historyItemArgTypes,
   args: {
     dsoClick: fn(),
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
   render: (args) => historyItemTemplate(historyItemArgsMapper(args)),
 };

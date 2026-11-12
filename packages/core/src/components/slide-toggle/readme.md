@@ -1,7 +1,5 @@
 # `<dso-slide-toggle>`
 
-
-
 <!-- Auto Generated Below -->
 
 

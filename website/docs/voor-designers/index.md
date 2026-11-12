@@ -12,6 +12,5 @@ Als je nieuwe componenten wilt toe gaan voegen aan de toolkit, lees dan de secti
 ## Links naar relevante pagina's:
 
 - [Kleurgebruik](/fundament/kleuren)
-- [Typografie](/fundament/typografie)
 - [Lay-out](/fundament/layout)
 - [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)

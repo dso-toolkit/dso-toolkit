@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/image/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 
 import { ImageArgs, imageArgTypes, imageArgsMapper } from "./image.args.js";
 import { imageTemplate } from "./image.template.js";
@@ -13,11 +11,6 @@ const meta: Meta<ImageArgs> = {
   args: {
     source: "images/sneeuwpop.png",
     alt: "Afbeelding van een sneeuwpop",
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
   render: (args) => imageTemplate(imageArgsMapper(args)),
 };

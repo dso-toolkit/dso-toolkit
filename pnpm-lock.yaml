@@ -195,9 +195,6 @@ catalogs:
       specifier: ~7.8.2
       version: 7.8.2
   default:
-    '@iframe-resizer/child':
-      specifier: ^5.5.9
-      version: 5.5.9
     '@stencil/core':
       specifier: 4.45.2
       version: 4.45.2
@@ -237,9 +234,6 @@ catalogs:
     lodash.startcase:
       specifier: ^4.4.0
       version: 4.4.0
-    markdown-to-jsx:
-      specifier: ^9.10.3
-      version: 9.10.3
     prettier:
       specifier: ^3.9.10
       version: 3.9.10
@@ -689,9 +683,6 @@ importers:
       '@dso-toolkit/core':
         specifier: workspace:*
         version: link:../packages/core
-      '@iframe-resizer/child':
-        specifier: 'catalog:'
-        version: 5.5.9
       '@simonsmith/cypress-image-snapshot':
         specifier: ^11.0.0
         version: 11.0.0(cypress@16.2.0)
@@ -746,9 +737,6 @@ importers:
       lodash.startcase:
         specifier: 'catalog:'
         version: 4.4.0
-      markdown-to-jsx:
-        specifier: 'catalog:'
-        version: 9.10.3(react@19.3.1)
       start-server-and-test:
         specifier: ^3.0.13
         version: 3.0.13(supports-color@8.1.1)
@@ -791,9 +779,6 @@ importers:
       '@easyops-cn/docusaurus-search-local':
         specifier: ^0.55.3
         version: 0.55.3(@docusaurus/theme-common@3.10.2(@docusaurus/plugin-content-docs@3.10.2(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.31))(csso@5.0.5)(debug@4.4.3(supports-color@10.2.2))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.31)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@10.2.2)(typescript@5.9.3)(uglify-js@3.19.3))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.31))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.31)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@10.2.2)(uglify-js@3.19.3))(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.31))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.31)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@10.2.2)(typescript@5.9.3)(uglify-js@3.19.3)
-      '@iframe-resizer/react':
-        specifier: ^5.5.9
-        version: 5.5.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@mdx-js/react':
         specifier: ^3.1.1
         version: 3.1.1(@types/react@19.3.0)(react@19.3.1)
@@ -2651,18 +2636,6 @@ packages:
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
-
-  '@iframe-resizer/child@5.5.9':
-    resolution: {integrity: sha512-kX4GeGvlfu9S0XfDgSEy+O36q6qFz17kslLYdBT1evBTCK7Q3ETYtZMzVnHlB5PKc9co699kWEZbmpUGtE9IQw==}
-
-  '@iframe-resizer/core@5.5.9':
-    resolution: {integrity: sha512-HacDQx81pgHlmY48tRogcX02TOXfvjllJzI+xfVYmvEXhxoViyi9yEobhNQEt8Mq6NmrH1vHhz6FRfQ9uBTsjQ==}
-
-  '@iframe-resizer/react@5.5.9':
-    resolution: {integrity: sha512-PXzQ9m594JsUWjfgk0BIvd9Boow/GSBhViwxlHoHPRsZGsLMqsELvdlcnCEL3acKVl5mDl2KF+hIImA98vPalA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0  || ^19.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0  || ^19.0.0
 
   '@inquirer/ansi@1.0.2':
     resolution: {integrity: sha512-S8qNSZiYzFd0wAcyG5AXCvUHC5Sr7xpZ9wZ2py9XR88jUz8wooStVx5M6dRzczbBWjic9NP7+rY0Xi7qqK/aMQ==}
@@ -5508,9 +5481,6 @@ packages:
   at-least-node@1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
-
-  auto-console-group@1.3.0:
-    resolution: {integrity: sha512-W/G5jy1ZPeVYPyqOVGND7EjbzrsLgRD3s+1QegXfJ7bYlphFxjqG60rviFXWw0d2YCj0Clc7hU5/nTqrBEhBIw==}
 
   autoprefixer@10.6.1:
     resolution: {integrity: sha512-cL1Qz6ADZhcEbny/8HPfe99J6HhNoYtpX2LFLIbhgGE7Q1hlQVkYFdetDN7Id3KiQxhDrHwzlHr/YQCnZ8+xSA==}
@@ -8554,24 +8524,6 @@ packages:
 
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
-
-  markdown-to-jsx@9.10.3:
-    resolution: {integrity: sha512-J5/NCmNYQ0ExsnThzvF3F1fSzNYLgROcW2diUqRqoIoiyhoy8DSI06jLuMYk0c86SQd/FiVYJrV6tIgci9S2tQ==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      react: '>= 16.0.0'
-      react-native: '*'
-      solid-js: '>=1.0.0'
-      vue: '>=3.0.0'
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-native:
-        optional: true
-      solid-js:
-        optional: true
-      vue:
-        optional: true
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -15086,22 +15038,6 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@iframe-resizer/child@5.5.9':
-    dependencies:
-      auto-console-group: 1.3.0
-
-  '@iframe-resizer/core@5.5.9':
-    dependencies:
-      auto-console-group: 1.3.0
-
-  '@iframe-resizer/react@5.5.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
-    dependencies:
-      '@babel/runtime': 7.29.10
-      '@iframe-resizer/core': 5.5.9
-      auto-console-group: 1.3.0
-      react: 19.3.1
-      react-dom: 19.3.1(react@19.3.1)
-
   '@inquirer/ansi@1.0.2': {}
 
   '@inquirer/checkbox@4.3.2(@types/node@24.19.2)':
@@ -17787,8 +17723,6 @@ snapshots:
   asynckit@0.4.0: {}
 
   at-least-node@1.0.0: {}
-
-  auto-console-group@1.3.0: {}
 
   autoprefixer@10.6.1(postcss@8.5.31):
     dependencies:
@@ -21503,10 +21437,6 @@ snapshots:
   markdown-extensions@2.0.0: {}
 
   markdown-table@3.0.4: {}
-
-  markdown-to-jsx@9.10.3(react@19.3.1):
-    optionalDependencies:
-      react: 19.3.1
 
   math-intrinsics@1.1.0: {}
 

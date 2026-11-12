@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/badge/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { BadgeArgs, badgeArgTypes, badgeArgsMapper } from "./badge.args.js";
 import { children } from "./badge.content.js";
@@ -11,11 +9,6 @@ type BadgeStory = StoryObj<BadgeArgs>;
 const meta: Meta<BadgeArgs> = {
   title: "Core/Badge",
   argTypes: badgeArgTypes,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

@@ -1,8 +1,4 @@
-import dropdownMenuGroupReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-group/readme.md?raw";
-import dropdownMenuItemReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-item/readme.md?raw";
-import readme from "@dso-toolkit/core/src/components/dropdown-menu/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { DropdownMenuArgs, dropdownMenuArgTypes, dropdownMenuArgsMapper } from "./dropdown-menu.args.js";
@@ -20,11 +16,6 @@ const meta: Meta<DropdownMenuArgs> = {
     buttonVariant: "secondary",
     dropdownMenuPosition: "left",
     dsoClick: fn(),
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(`${readme}\n${dropdownMenuGroupReadme}\n${dropdownMenuItemReadme}`),
-    },
   },
   render: (args) => dropdownMenuTemplate(dropdownMenuArgsMapper(args)),
 };

@@ -1,7 +1,5 @@
 # `<dso-survey-rating>`
 
-
-
 <!-- Auto Generated Below -->
 
 

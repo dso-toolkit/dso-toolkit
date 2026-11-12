@@ -1,21 +1,5 @@
 # `<dso-shopping-cart>`
 
-Zie de voorbeeldpagina's onder Patronen voor hoe de Shopping Cart samenwerkt met `<dso-grid-column>`.
-
-De Shopping Cart rendert zelf geen knop in de header. Plaats zelf een knop in de `button` slot en luister zelf
-naar het klik-event. "Alles verwijderen" is bedoeld voor `mode="main"` wanneer er géén Sluiten-knop staat.
-
-```html
-<!-- main: sluiten -->
-<button slot="button" type="button" class="dso-secondary"><span>Sluiten</span><dso-icon icon="cross"></dso-icon></button>
-
-<!-- main zonder sluiten: alles verwijderen -->
-<button slot="button" type="button" class="dso-tertiary"><span>Alles verwijderen</span><dso-icon icon="trash"></dso-icon></button>
-
-<!-- side: openen -->
-<dso-icon-button slot="button" icon="chevron-left" variant="secondary" label="Openen"></dso-icon-button>
-```
-
 <!-- Auto Generated Below -->
 
 

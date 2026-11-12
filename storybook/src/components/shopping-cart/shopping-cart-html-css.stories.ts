@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import readme from "dso-toolkit/src/components/shopping-cart/readme.md?raw";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
@@ -28,11 +26,6 @@ const meta: Meta<ShoppingCartArgs> = {
     dsoEdit: fn(),
     dsoDelete: fn(),
     dsoSubmit: fn(),
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
   render: (args) => shoppingCartTemplate(shoppingCartArgsMapper(args)),
 };

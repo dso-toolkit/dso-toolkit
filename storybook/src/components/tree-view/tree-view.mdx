@@ -1,0 +1,18 @@
+import treeViewReadme from "@dso-toolkit/core/src/components/tree-view/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./tree-view.stories";
+
+<Meta of={Stories} />
+
+# Tree View
+
+<Canvas of={Stories.TreeView} />
+
+De property `collection` van de Tree View is een array van `TreeViewItem`. Die array is immutable en bevat de toestand van de Tree View. Die toestand beheert de afnemer, _buiten_ de Tree View.
+
+## Toestand beheren
+
+Opent, sluit of klikt de gebruiker een node, dan stuurt de Tree View een event. Elk event bevat het volledige pad van `TreeViewItem`s, van de root tot het item waar het event over gaat. Werk bij de events voor openen en sluiten de `collection` bij met de nieuwe toestand.
+
+<Markdown>{generatedReadme(treeViewReadme)}</Markdown>

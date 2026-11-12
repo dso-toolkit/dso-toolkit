@@ -1,7 +1,5 @@
 # `<dso-legend-group>`
 
-
-
 <!-- Auto Generated Below -->
 
 

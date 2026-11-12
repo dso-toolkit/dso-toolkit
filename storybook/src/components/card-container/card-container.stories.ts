@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/card-container/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   CardContainerArgs,
@@ -17,11 +15,6 @@ const meta: Meta<CardContainerArgs> = {
   title: "Core/Card Container",
   argTypes: cardContainerArgTypes,
   args: cardContainerArgs,
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
   render: (args) => cardContainerTemplate(cardContainerArgsMapper(args, content())),
 };
 

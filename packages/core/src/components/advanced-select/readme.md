@@ -1,7 +1,5 @@
 # `<dso-advanced-select>`
 
-
-
 <!-- Auto Generated Below -->
 
 

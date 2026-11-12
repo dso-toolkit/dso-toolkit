@@ -1,0 +1,103 @@
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
+import * as Stories from "./form-group.stories";
+
+<Meta of={Stories} />
+
+# Form Group
+
+<Canvas of={Stories.Input} />
+
+Een formulier bestaat uit Form Groups. Elke veld/werkvorm heeft z'n eigen `.form-group`. Daarnaast heeft elke Form Group een modifier class voor het soort veld, zoals `.dso-input` of `.dso-checkboxes`. Die class staat hieronder bij elk soort.
+
+Als de gebruiker een ongeldige waarde invoert moet er `.dso-invalid` op `.form-group` worden geplaatst:
+
+```html
+<div class="form-group dso-*** dso-invalid">[...]</div>
+```
+
+Als het formulier daarna weer geldig wordt gemaakt moet de `.dso-invalid` class vervangen worden door `.dso-valid`:
+
+```html
+<div class="form-group dso-*** dso-valid">[...]</div>
+```
+
+## Form Group: Checkboxes
+
+<Canvas of={Stories.Checkboxes} />
+
+Een checkbox group heeft als root element `fieldset.form-group.dso-checkboxes`, en geen `div.form-group`.
+
+## Form Group: Confirm
+
+<Canvas of={Stories.Confirm} />
+
+De Form Group heeft de class `.dso-confirm`.
+
+## Form Group: Date Picker
+
+<Canvas of={Stories.DatePicker} />
+
+De Form Group heeft de classes `.dso-input` en `.dso-input-date`.
+
+## Form Group: Files
+
+<Canvas of={Stories.Files} />
+
+<Canvas of={Stories.NoFiles} />
+
+De Form Group heeft de class `.dso-files`.
+
+Dit component ondersteunt twee verschillende manieren voor het maken van een upload knop:
+
+- Een `input[type="file"]` met een `label` element
+- Een `button` element
+
+Zie de comments in de HTML. Het gebruik van een `input[type="file"]` is semantisch correcter en voorkomt mogelijke _clickjacking_ warnings in Firefox. Het afhandelen van de upload kan aan `onchange` worden gehangen.
+
+[https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/](https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/)
+
+Als er geen bestanden zijn geüpload in een Form Group "files" dan wordt er geen "lege" unordered list `dso-filelist` in het formulier geplaatst. Pas na de eerste upload is er een `ul` met 1 `li`st-item in het formulier aanwezig.
+
+## Form Group: Input
+
+Dit is een standaard invoerveld (`<input>`). Dit veld wordt gekoppeld aan een `<label>`. De Form Group heeft de class `.dso-input`, plus `.dso-input-<type>` voor het type van het invoerveld, zoals `.dso-input-text`.
+
+- Gebruik `type="email"` voor het automatisch valideren van een e-mailadres.
+- Gebruik `type="password"` voor wachtwoorden.
+- Gebruik `type="url"` voor het invoeren van URLs.
+- Gebruik `type="tel"` voor het invoeren van een telefoonnummer.
+- Gebruik **niet** `type="date"` maar het Web Component "Date Picker".
+
+### Form Buttons in een Form Group "input"
+
+Een Form Group "input" kan een Form Buttons als laatste child hebben. De knoppen komen dan naast het invoerveld te staan, met het label over de volle breedte erboven. Een foutmelding of help-tekst verschijnt onder het veld zonder dat de knoppen meezakken. Gebruik een compacte knop (`.dso-small`), die is even hoog als het invoerveld.
+
+## Form Group: Radios
+
+<Canvas of={Stories.Radios} />
+
+Een radio group heeft als root element `fieldset.form-group.dso-radios`, en geen `div.form-group`.
+
+## Form Group: Search Bar
+
+<Canvas of={Stories.SearchBar} />
+
+De Form Group heeft de class `.dso-form-group-search-bar`.
+
+## Form Group: Select
+
+<Canvas of={Stories.Select} />
+
+De Form Group heeft de class `.dso-select`.
+
+## Form Group: Static
+
+<Canvas of={Stories.Static} />
+
+De Form Group heeft de class `.dso-static`.
+
+## Form Group: Textarea
+
+<Canvas of={Stories.Textarea} />
+
+De Form Group heeft de class `.dso-textarea`. Attribuut `@rows` is optioneel

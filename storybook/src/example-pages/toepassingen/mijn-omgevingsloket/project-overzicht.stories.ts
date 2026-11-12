@@ -19,7 +19,6 @@ import { linkList } from "./project-overzicht.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Mijn Omgevingsloket/Project Overzicht",
-  tags: ["!autodocs"],
 };
 
 export default meta;

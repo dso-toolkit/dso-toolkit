@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/alert/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { AlertArgs, alertArgTypes, alertArgsMapper } from "./alert.args.js";
@@ -22,11 +20,6 @@ const meta: Meta<AlertArgs> = {
     withButton: true,
     closable: false,
     dsoClose: fn(),
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
 };
 

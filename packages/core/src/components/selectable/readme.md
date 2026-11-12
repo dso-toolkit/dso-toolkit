@@ -1,11 +1,5 @@
 # `<dso-selectable>`
 
-`interface SelectableChangeEvent` is structurally identical to `Event`.
-
-When the Info is closed with its close button, focus is returned to the Info Button. The close button is labelled
-"Sluiten" by default. Use `infoCloseLabel` to make it specific, for example "Sluit toelichting" followed by the label of
-the Selectable.
-
 <!-- Auto Generated Below -->
 
 

@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/onboarding-tip/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
@@ -15,11 +13,6 @@ const meta: Meta<OnboardingTipArgs> = {
   title: "Core/Onboarding Tip",
   argTypes: onboardingTipArgTypes,
   decorators: [decorator],
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
-  },
 };
 
 export default meta;

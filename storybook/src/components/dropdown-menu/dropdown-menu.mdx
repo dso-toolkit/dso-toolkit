@@ -1,0 +1,30 @@
+import dropdownMenuReadme from "@dso-toolkit/core/src/components/dropdown-menu/readme.md?raw";
+import dropdownMenuGroupReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-group/readme.md?raw";
+import dropdownMenuItemReadme from "@dso-toolkit/core/src/components/dropdown-menu/dropdown-menu-item/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./dropdown-menu.stories";
+
+<Meta of={Stories} />
+
+# Dropdown Menu
+
+<Canvas of={Stories.Buttons} />
+
+Een `<dso-dropdown-menu>` bevat minstens één `<dso-dropdown-menu-group>`. Een `<dso-dropdown-menu-group>` bevat minstens één `<dso-dropdown-menu-item>`.
+
+## Varianten
+
+### Anchors
+
+<Canvas of={Stories.Anchors} />
+
+<Markdown>{generatedReadme(dropdownMenuReadme)}</Markdown>
+
+## Dropdown Menu Group
+
+<Markdown>{generatedReadme(dropdownMenuGroupReadme, { headingLevel: 3 })}</Markdown>
+
+## Dropdown Menu Item
+
+<Markdown>{generatedReadme(dropdownMenuItemReadme, { headingLevel: 3 })}</Markdown>

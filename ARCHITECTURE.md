@@ -24,7 +24,7 @@ De DSO Toolkit is een Design System en bestaat uit de volgende NPM packages:
 
 ### Implementatie details
 
-Per component wordt in `readme.md` functionele documentatie bijgehouden.
+De documentatie van een component staat in een MDX-pagina in Storybook, zie Storybook definities.
 
 ### Styling
 
@@ -45,6 +45,7 @@ Per component staat de Storybook definitie in `storybook/src/components/<compone
 - `<component>.content.ts`: demo- en dummy content. Content is altijd een functie, ook zonder parameter, zodat elke story en elke render verse objecten krijgt. Id's in content zijn vaste, leesbare strings.
 - `<component>.template.ts`: de lit-html template. Heeft een template een ander component nodig, dan importeert die de template daarvan, zodat er per component één bron blijft.
 - `<component>.stories.ts`: de meta met titel, argTypes, args en render, en per story een named export met alleen wat afwijkt.
+- `<component>.mdx`: de documentatiepagina. Bij een Web Component toont die ook de API uit de `readme.md` die Stencil genereert.
 
 Een nieuw component genereer je met `npx plop new-stencil-component`.
 
@@ -74,4 +75,4 @@ Angular Components worden, net als de React Components, gegenereerd door Stencil
 
 ## Docusaurus
 
-Docusaurus is ons documentatie platform. In Docusaurus zijn componenten geschreven waarmee een Story kan worden ingeladen. Daarnaast is er nog een maatwerk `VersionSelector` en `AllVersions` component.
+Docusaurus bevat de documentatie die niet bij één component hoort, zoals de fundamenten en de pagina's voor maintainers. De documentatie van de componenten staat in Storybook. Voor Docusaurus zijn drie eigen componenten geschreven: `VersionSelector`, `AllVersions` en `ColorSwatch`.

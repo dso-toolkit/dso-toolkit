@@ -1,0 +1,67 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Voor developers/Angular bindings" />
+
+# Angular bindings
+
+De toolkit levert gegenereerde Angular bindings voor de Web Components. Gebruik deze bindings in een Angular-applicatie. Je zet properties als Angular inputs en luistert naar custom events met Angular event bindings.
+
+## Met Angular bindings
+
+Installeer de Angular bindings naast de basis package:
+
+```sh
+npm install @dso-toolkit/angular
+```
+
+Laad daarnaast de stylesheet `dso-toolkit/dist/dso.css`. De bindings registreren de componenten zelf.
+
+Importeer de benodigde gegenereerde componenten in een standalone component. Properties gebruiken `[prop]` en events gebruiken `(dsoEvent)`.
+
+```ts
+import { Component } from "@angular/core";
+import { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "@dso-toolkit/core";
+
+import { DsoDatePicker } from "@dso-toolkit/angular";
+
+@Component({
+  standalone: true,
+  imports: [DsoDatePicker],
+  template: ` <dso-date-picker [value]="date" (dsoDateChange)="onDateChange($event)" /> `,
+})
+export class ExampleComponent {
+  date = "";
+
+  onDateChange(event: DsoDatePickerCustomEvent<DatePickerChangeEvent>) {
+    this.date = event.detail.value;
+  }
+}
+```
+
+Voor `dsoChange`, `dsoSelect` en `dsoSearch` gebruik je respectievelijk `(dsoChange)`, `(dsoSelect)` en `(dsoSearch)`.
+
+## Zonder Angular bindings
+
+Zonder bindings gebruik je de Web Components rechtstreeks. Installeer en registreer ze zoals beschreven op [Web Components](?path=/docs/voor-developers-web-components--docs).
+
+Sta custom elements toe in Angular en gebruik daarna het custom element in een Angular-template. Properties en events werken rechtstreeks op het element.
+
+```ts
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from "@angular/core";
+
+@Component({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  template: `<dso-date-picker value="01-01-2024" (dsoDateChange)="onDateChange($event)" />`,
+})
+export class ExampleComponent {
+  onDateChange(event: Event) {
+    console.log((event as CustomEvent).detail);
+  }
+}
+```
+
+## Signal Forms
+
+`@dso-toolkit/angular` ondersteunt Angular Signal Forms voor Date Picker en Selectable. De uitleg staat op de pagina's van die componenten: [Date Picker](?path=/docs/core-date-picker--docs) en [Selectable](?path=/docs/core-selectable--docs).
+
+Zie ook de [Stencil-documentatie voor Angular](https://stenciljs.com/docs/angular#consumer-usage).

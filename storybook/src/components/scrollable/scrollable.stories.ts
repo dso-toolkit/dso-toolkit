@@ -1,7 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/scrollable/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { ScrollableArgs, scrollableArgTypes, scrollableArgsMapper } from "./scrollable.args.js";
@@ -25,9 +23,6 @@ const meta: Meta<ScrollableArgs> = {
   parameters: {
     html: {
       root: "#scrollable-mock",
-    },
-    docs: {
-      page: () => compiler(readme),
     },
   },
 };

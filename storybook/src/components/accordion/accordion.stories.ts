@@ -1,7 +1,4 @@
-import componentsReadme from "@dso-toolkit/core/src/components/accordion/components/readme.md?raw";
-import readme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { children } from "../badge/badge.content.js";
 
@@ -26,11 +23,6 @@ const meta: Meta<AccordionArgs> = {
   title: "Core/Accordion",
   argTypes: accordionArgTypes,
   args: accordionArgs,
-  parameters: {
-    docs: {
-      page: () => compiler(`${readme}\n${componentsReadme}`),
-    },
-  },
 };
 
 export default meta;

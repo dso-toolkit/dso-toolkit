@@ -1,0 +1,31 @@
+import onboardingTipReadme from "@dso-toolkit/core/src/components/onboarding-tip/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./onboarding-tip.stories";
+
+<Meta of={Stories} />
+
+# Onboarding Tip
+
+<Canvas of={Stories.Default} />
+
+De `<dso-onboarding-tip>` is bedoeld om extra uitleg of hulp te geven bij een specifiek element op de pagina, het zogenaamde referentie-element.
+
+## Koppeling met een referentie-element
+
+Om een Onboarding Tip correct te koppelen:
+
+- Geef het referentie-element een uniek id.
+- Verwijs vanuit het referentie-element naar de tip via `aria-describedby`, met als waarde het id van de `<dso-onboarding-tip>`.
+
+Zorg ervoor dat de tip in het DOM zo dicht mogelijk bij het referentie-element staat.
+
+## Zichtbaarheid en toegankelijkheid
+
+- Wanneer de Onboarding Tip verdwijnt (bijvoorbeeld doordat hij uit het DOM wordt verwijderd), moet ook de verwijzing via `aria-describedby` van het referentie-element worden verwijderd.
+
+## Positionering
+
+De tip verschijnt automatisch op de juiste plek bij het referentie-element en staat altijd boven andere elementen op de pagina.
+
+<Markdown>{generatedReadme(onboardingTipReadme)}</Markdown>

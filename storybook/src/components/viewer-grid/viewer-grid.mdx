@@ -1,0 +1,22 @@
+import viewerGridReadme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Canvas, Markdown, Meta } from "@storybook/addon-docs/blocks";
+import * as Stories from "./viewer-grid.stories";
+
+<Meta of={Stories} />
+
+# Viewer Grid
+
+<Canvas of={Stories.ViewerGrid} />
+
+## Filter Panel
+
+<Canvas of={Stories.FilterPanel} />
+
+## Document Panel
+
+<Canvas of={Stories.DocumentPanel} />
+
+🚧 Documentatie volgt 🚧
+
+<Markdown>{generatedReadme(viewerGridReadme)}</Markdown>

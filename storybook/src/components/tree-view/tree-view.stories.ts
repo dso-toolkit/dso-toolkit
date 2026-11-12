@@ -1,7 +1,5 @@
-import readme from "@dso-toolkit/core/src/components/tree-view/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit-html";
-import { compiler } from "markdown-to-jsx/react";
 import { fn } from "storybook/test";
 
 import { TreeViewArgs, treeViewArgTypes } from "./tree-view.args.js";
@@ -21,9 +19,6 @@ const meta: Meta<TreeViewArgs> = {
     },
     controls: {
       hideNoControlsWarning: true,
-    },
-    docs: {
-      page: () => compiler(readme),
     },
   },
 };

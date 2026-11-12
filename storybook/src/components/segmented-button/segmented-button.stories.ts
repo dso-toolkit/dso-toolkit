@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/segmented-button/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import {
   SegmentedButtonArgs,
@@ -17,11 +15,6 @@ const meta: Meta<SegmentedButtonArgs> = {
   argTypes: segmentedButtonArgTypes,
   args: {
     ...segmentedButtonArgs,
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
   render: (args) => segmentedButtonTemplate(segmentedButtonArgsMapper(args)),
 };

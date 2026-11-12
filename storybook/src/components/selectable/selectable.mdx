@@ -1,0 +1,78 @@
+import selectableReadme from "@dso-toolkit/core/src/components/selectable/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./selectable.stories";
+
+<Meta of={Stories} />
+
+# Selectable
+
+<Canvas of={Stories.Radio} />
+
+Sluit de gebruiker de Info met de sluitknop, dan gaat de focus terug naar de Info Button. De sluitknop heeft standaard het label "Sluiten". Maak het label met `infoCloseLabel` specifiek, bijvoorbeeld "Sluit toelichting" gevolgd door het label van de Selectable.
+
+## Angular Signal Forms
+
+Naast de klassieke `ControlValueAccessor`-integraties (`ngModel` en Reactive Forms) ondersteunt `@dso-toolkit/angular` ook Angular Signal Forms via de `[formField]`-directive uit `@angular/forms/signals`. Dit werkt voor `dso-selectable[type=checkbox]` en voor groepen `dso-selectable[type=radio]`.
+
+### Checkboxes
+
+```ts
+import { Component, signal } from "@angular/core";
+import { FormField, form } from "@angular/forms/signals";
+import { DsoSelectable, DsoSelectableCheckboxFieldControl } from "@dso-toolkit/angular";
+
+@Component({
+  standalone: true,
+  imports: [DsoSelectable, DsoSelectableCheckboxFieldControl, FormField],
+  template: `<dso-selectable type="checkbox" [formField]="myForm.akkoord" />`,
+})
+export class ExampleComponent {
+  model = signal({ akkoord: false });
+  myForm = form(this.model);
+}
+```
+
+### Radio-Selectables
+
+Plaats `[formField]` op een `fieldset` met `dsoSelectableRadioGroup`, niet op de afzonderlijke radio's. De `value` van iedere `dso-selectable` is een vaste optiewaarde; de groepsdirective beheert de veranderlijke formulierwaarde.
+
+```ts
+import { Component, signal } from "@angular/core";
+import { FormField, form, required } from "@angular/forms/signals";
+import { DsoSelectable, DsoSelectableRadioGroupFieldControl } from "@dso-toolkit/angular";
+
+@Component({
+  standalone: true,
+  imports: [DsoSelectable, DsoSelectableRadioGroupFieldControl, FormField],
+  template: `
+    <fieldset dsoSelectableRadioGroup [formField]="myForm.keuze">
+      <legend>Maak een keuze</legend>
+      <dso-selectable type="radio" name="keuze" value="ja">Ja</dso-selectable>
+      <dso-selectable type="radio" name="keuze" value="nee">Nee</dso-selectable>
+    </fieldset>
+  `,
+})
+export class RadioGroupExampleComponent {
+  model = signal({ keuze: "ja" });
+  myForm = form(this.model, (path) => required(path.keuze));
+}
+```
+
+Gebruik voor alle opties binnen de groep dezelfde `name` en geef iedere optie een unieke, niet-lege `value`. Eén radio-optie is ook mogelijk. De groepsdirective synchroniseert de geselecteerde optie met het formulier en zet `disabled`, `required` en `invalid` door; het `fieldset` groepeert en labelt de opties. De browser blijft de toetsenbordbediening van de radio's verzorgen.
+
+## Varianten
+
+### Checkbox
+
+<Canvas of={Stories.Checkbox} />
+
+### With Info
+
+<Canvas of={Stories.WithInfo} />
+
+### Nested
+
+<Canvas of={Stories.Nested} />
+
+<Markdown>{generatedReadme(selectableReadme)}</Markdown>

@@ -1,6 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/image-overlay/readme.md?raw";
 import { Meta, StoryObj } from "@storybook/web-components-vite";
-import { compiler } from "markdown-to-jsx/react";
 
 import { ImageOverlayArgs, imageOverlayArgTypes, imageOverlayArgsMapper } from "./image-overlay.args.js";
 import { imageOverlayTemplate } from "./image-overlay.template.js";
@@ -14,11 +12,6 @@ const meta: Meta<ImageOverlayArgs> = {
     image: 0,
     title: "Afbeelding 1",
     bijschrift: "Bijschrift bij afbeelding",
-  },
-  parameters: {
-    docs: {
-      page: () => compiler(readme),
-    },
   },
 };
 

@@ -1,0 +1,46 @@
+import highlightBoxReadme from "@dso-toolkit/core/src/components/highlight-box/readme.md?raw";
+import { generatedReadme } from "../../shared/generated-readme";
+import { Meta, Canvas, Markdown } from "@storybook/addon-docs/blocks";
+import * as Stories from "./highlight-box.stories";
+
+<Meta of={Stories} />
+
+# Highlight Box
+
+<Canvas of={Stories.Default} />
+
+## Varianten
+
+### Yellow
+
+<Canvas of={Stories.Yellow} />
+
+### Green
+
+<Canvas of={Stories.Green} />
+
+### Grey
+
+<Canvas of={Stories.Grey} />
+
+### Grey With Border
+
+<Canvas of={Stories.GreyWithBorder} />
+
+### White With Dropshadow
+
+<Canvas of={Stories.WhiteWithDropshadow} />
+
+### With Border
+
+<Canvas of={Stories.WithBorder} />
+
+### With Icon
+
+<Canvas of={Stories.WithIcon} />
+
+### With Banner Image
+
+<Canvas of={Stories.WithBannerImage} />
+
+<Markdown>{generatedReadme(highlightBoxReadme)}</Markdown>

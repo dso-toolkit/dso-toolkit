@@ -16,7 +16,6 @@ import { accordionSections } from "./landingspagina.content.js";
 const meta: Meta = {
   ...examplePageMeta(),
   title: "Voorbeeldpagina's/Toepassingen/Vergunningscheck/Landingspagina",
-  tags: ["!autodocs"],
 };
 
 export default meta;
