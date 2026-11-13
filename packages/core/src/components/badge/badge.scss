@@ -20,6 +20,10 @@
 
 @include utilities.box-sizing();
 
+.sr-only {
+  @include utilities.sr-only();
+}
+
 .dso-badge {
   border-width: 1px;
   border-style: solid;

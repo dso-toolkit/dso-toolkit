@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Packages: Update axe-core naar 4.14.0 en los WCAG-fouten op ([#4040](https://github.com/dso-toolkit/dso-toolkit/issues/4040))
+
 ## 🔦 Release 104.0.0 - 2026-11-12
 
 ### Added

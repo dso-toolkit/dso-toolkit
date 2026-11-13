@@ -394,7 +394,7 @@ export namespace Components {
     }
     interface DsoBadge {
         /**
-          * The accessible name of the interactive Badge with Toggletip.
+          * The label of the interactive Badge with Toggletip. It is shown in the Tooltip and added to the accessible name, after the visible text of the Badge.
          */
         "label"?: string;
         /**
@@ -3304,7 +3304,7 @@ declare namespace LocalJSX {
     }
     interface DsoBadge {
         /**
-          * The accessible name of the interactive Badge with Toggletip.
+          * The label of the interactive Badge with Toggletip. It is shown in the Tooltip and added to the accessible name, after the visible text of the Badge.
          */
         "label"?: string;
         /**
