@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING** Highlight Box: With Banner Image aanpassen ([#3924](https://github.com/dso-toolkit/dso-toolkit/issues/3924))
 
+### Removed
+* **BREAKING** List: Remove `ol.dso-list-ordered-action` selector ([#3954](https://github.com/dso-toolkit/dso-toolkit/issues/3954))
+
 ## 🔦 Release 104.0.0 - 2026-11-12
 
 ### Added
