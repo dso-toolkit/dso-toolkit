@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property             | Attribute             | Description                                                                      | Type                                                                                                | Default     |
-| -------------------- | --------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------- |
-| `label`              | `label`               | The accessible name of the interactive Badge with Toggletip.                     | `string \| undefined`                                                                               | `undefined` |
-| `status`             | `status`              | The status of the Badge.                                                         | `"attention" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
-| `toggletipPlacement` | `toggletip-placement` | The placement of the toggletip on click of the interactive Badge with Toggletip. | `"bottom" \| "left" \| "right" \| "top"`                                                            | `"top"`     |
+| Property             | Attribute             | Description                                                                                                                                          | Type                                                                                                | Default     |
+| -------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------- |
+| `label`              | `label`               | The label of the interactive Badge with Toggletip. It is shown in the Tooltip and added to the accessible name, after the visible text of the Badge. | `string \| undefined`                                                                               | `undefined` |
+| `status`             | `status`              | The status of the Badge.                                                                                                                             | `"attention" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
+| `toggletipPlacement` | `toggletip-placement` | The placement of the toggletip on click of the interactive Badge with Toggletip.                                                                     | `"bottom" \| "left" \| "right" \| "top"`                                                            | `"top"`     |
 
 
 ## Slots

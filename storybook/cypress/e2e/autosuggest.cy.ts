@@ -407,6 +407,20 @@ describe("Autosuggest", () => {
       .should("have.text", "null");
   });
 
+  it("should include type and extras in the accessible name of an option", () => {
+    cy.get("input").focus().type("omgevingsplan groningen");
+    cy.wait(200);
+    cy.get("dso-autosuggest.hydrated")
+      .find("div[role='option']")
+      .first()
+      .should(
+        "have.attr",
+        "aria-label",
+        "Omgevingsplan gemeente Groningen omgevingsplan (omgevingswet) In werking vanaf 01-01-2024 gemeente Groningen /akn/nl/act/gm0014/2020/omgevingsplan",
+      );
+    cy.dsoCheckA11y("dso-autosuggest.hydrated");
+  });
+
   it("should mark suggestion based on consumer provided AutosuggestMarkItems", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--with-provided-mark-function");
 

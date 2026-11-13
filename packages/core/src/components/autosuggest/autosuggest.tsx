@@ -49,21 +49,20 @@ const Option: FunctionalComponent<{
     onMouseLeave={mouseLeave}
     onClick={click}
     aria-selected={selected}
-    aria-label={suggestion.value}
+    aria-label={[suggestion.value, suggestion.type, ...(suggestion.extras ?? [])].filter(Boolean).join(" ")}
     ref={ref}
   >
     <div class="suggestion-row">
       <span class="value">{markedSuggestion.value}</span>
-      {markedSuggestion.type ? <span class="type">{markedSuggestion.type}</span> : undefined}
+      {markedSuggestion.type ? [" ", <span class="type">{markedSuggestion.type}</span>] : undefined}
     </div>
     {markedSuggestion.extras &&
-      markedSuggestion.extras.map((markedChunk) => (
+      markedSuggestion.extras.map((markedChunk) => [
+        " ",
         <div class="suggestion-row">
-          {markedChunk.map((extra) => (
-            <span class="extra">{extra}</span>
-          ))}
-        </div>
-      ))}
+          {markedChunk.map((extra, index) => [index > 0 && " ", <span class="extra">{extra}</span>])}
+        </div>,
+      ])}
   </div>
 );
 

@@ -39,6 +39,13 @@ describe("Badge", () => {
       cy.viewport(1400, 720);
     });
 
+    it("should be accessible with the visible text in the accessible name", () => {
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-badge.hydrated");
+      getComponent().shadow().find(".toggletip-button").should("not.have.attr", "aria-label");
+      getComponent().shadow().find(".toggletip-button .sr-only").should("not.be.empty");
+    });
+
     it("should show the tooltip on hover", () => {
       getComponent()
         .realHover()

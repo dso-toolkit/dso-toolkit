@@ -53,7 +53,8 @@ export class Badge implements ComponentInterface {
   status?: BadgeStatus;
 
   /**
-   * The accessible name of the interactive Badge with Toggletip.
+   * The label of the interactive Badge with Toggletip. It is shown in the Tooltip and added to the accessible name,
+   * after the visible text of the Badge.
    */
   @Prop({ reflect: true })
   label?: string;
@@ -136,7 +137,6 @@ export class Badge implements ComponentInterface {
           <button
             ref={(el) => (this.buttonElRef = el)}
             type="button"
-            aria-label={this.label}
             class="toggletip-button"
             onMouseEnter={this.handleShowTooltip}
             onMouseLeave={this.handleHideTooltip}
@@ -154,6 +154,7 @@ export class Badge implements ComponentInterface {
             >
               <slot></slot>
             </span>
+            {this.label && <span class="sr-only">{this.label}</span>}
           </button>
           <Tooltip
             tipElementRef={(element) => (this.tooltipElRef = element)}
