@@ -1,0 +1,33 @@
+---
+authors: [cvanderleij]
+date: 2026-12-01
+---
+
+# DSO Toolkit v106.0.0
+
+Deze release bevat **BREAKING** changes voor het component:
+
+- List
+
+<!-- truncate -->
+
+## List
+
+**Breaking:** De selector `ol.dso-list-ordered-action` in het HTML/CSS-component `List` is verwijderd. Deze was
+deprecated sinds [v100.3.0](./2026-08-31-dso-toolkit-100.3.0.mdx).
+
+### Migratiepad
+
+Gebruik de `ol.dso-action-list` selector van de `List`.
+
+```html
+❌
+<ol class="dso-list-ordered-action">
+  <li>...</li>
+</ol>
+
+✅
+<ol class="dso-action-list">
+  <li>...</li>
+</ol>
+```
