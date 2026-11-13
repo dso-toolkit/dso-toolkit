@@ -57,7 +57,7 @@
       padding-inline-start: 0;
 
       &::before {
-        background: colors.$wit;
+        background: var(--_dso-selectable-background-color, colors.$wit);
         border: 0;
         box-shadow: 0 0 0 selectable-variables.$border-width
           var(--_dso-selectable-color, selectable-variables.$valid-color);
