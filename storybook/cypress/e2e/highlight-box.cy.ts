@@ -4,7 +4,7 @@ describe("Highlight Box", () => {
     "green",
     "grey-with-border",
     "white-with-dropshadow",
-    "with-banner-image",
+    "with-image",
     "with-border",
     "with-icon",
     "yellow",
@@ -22,4 +22,18 @@ describe("Highlight Box", () => {
       cy.get("dso-highlight-box.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} - ${story}`);
     });
   }
+
+  it("uses the image slot for the With Image variant", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-highlight-box--with-image");
+
+    cy.get("dso-highlight-box.hydrated")
+      .find('img[slot="image"]')
+      .should("be.visible")
+      .should(($image) => {
+        const image = $image[0];
+
+        expect(image.assignedSlot?.name).to.equal("image");
+        expect(getComputedStyle(image).objectFit).to.equal("cover");
+      });
+  });
 });

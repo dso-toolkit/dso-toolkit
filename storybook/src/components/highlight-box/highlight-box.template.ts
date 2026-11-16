@@ -3,7 +3,6 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { iconTemplate } from "../icon/icon.template.js";
-import { imageTemplate } from "../image/image.template.js";
 
 import { HighlightBox } from "./highlight-box.models.js";
 
@@ -17,7 +16,7 @@ export function highlightBoxTemplate({
   step,
   icon,
   content,
-  bannerImage,
+  image,
 }: HighlightBox) {
   return html`
     <dso-highlight-box
@@ -31,12 +30,8 @@ export function highlightBoxTemplate({
       .icon=${ifDefined(icon)}
     >
       ${
-        bannerImage
-          ? imageTemplate({
-              source: "images/banner-image.webp",
-              alt: "Twee kanppe mannen met een kaart",
-              modifier: "dso-highlight-box-banner",
-            })
+        image
+          ? html`<img slot="image" src="images/banner-image.webp" alt="Twee knappe mannen met een kaart" />`
           : nothing
       }
       ${typeof content === "string" ? unsafeHTML(content) : content}

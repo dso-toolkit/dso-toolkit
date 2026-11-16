@@ -1,0 +1,31 @@
+---
+authors: [xiangjuzou-prog]
+date: 2026-12-01
+---
+
+# DSO Toolkit v106.0.0 🐣
+
+Deze release bevat **breaking** changes voor het volgende component:
+
+- Highlight Box
+
+<!-- truncate -->
+
+**Breaking:** De variant `With Banner Image` heet voortaan `With Image`. De afbeelding wordt via het named slot
+`image` geplaatst. De class `dso-highlight-box-banner` vervalt.
+
+### Migratiepad
+
+```html
+❌
+<dso-highlight-box>
+  <img src="..." class="dso-highlight-box-banner" alt="..." />
+  <div class="dso-rich-content">...</div>
+</dso-highlight-box>
+
+✅
+<dso-highlight-box>
+  <img src="..." slot="image" alt="..." />
+  <div class="dso-rich-content">...</div>
+</dso-highlight-box>
+```

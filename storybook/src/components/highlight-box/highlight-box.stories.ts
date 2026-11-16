@@ -18,7 +18,7 @@ const meta: Meta<HighlightBoxArgs> = {
     white: false,
     border: false,
     dropShadow: false,
-    bannerImage: false,
+    image: false,
   },
   render: (args) => highlightBoxTemplate(highlightBoxArgsMapper(args, content, stepContent)),
 };
@@ -94,4 +94,4 @@ export const GreyWithBorder: HighlightBoxStory = { args: { grey: true, border: t
 export const WhiteWithDropshadow: HighlightBoxStory = { args: { white: true, dropShadow: true } };
 export const WithBorder: HighlightBoxStory = { args: { border: true } };
 export const WithIcon: HighlightBoxStory = { args: { yellow: true, icon: "plus" } };
-export const WithBannerImage: HighlightBoxStory = { args: { bannerImage: true } };
+export const WithImage: HighlightBoxStory = { args: { image: true } };

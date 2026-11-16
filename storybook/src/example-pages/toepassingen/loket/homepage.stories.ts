@@ -120,7 +120,7 @@ export const Homepage: StoryObj = {
               ${highlightBoxTemplate({
                 white: true,
                 dropShadow: true,
-                bannerImage: true,
+                image: true,
                 content: richContentTemplate({
                   children: html`
                     <h2>Vergunning aanvragen of melding doen</h2>
@@ -137,7 +137,7 @@ export const Homepage: StoryObj = {
               ${highlightBoxTemplate({
                 white: true,
                 dropShadow: true,
-                bannerImage: true,
+                image: true,
                 content: richContentTemplate({
                   children: html`
                     <h2>Bekijk de regels op de kaart op uw locatie</h2>
@@ -154,7 +154,7 @@ export const Homepage: StoryObj = {
               ${highlightBoxTemplate({
                 white: true,
                 dropShadow: true,
-                bannerImage: true,
+                image: true,
                 content: richContentTemplate({
                   children: html`
                     <h2>Maatregelen voor bedrijven en burgers</h2>

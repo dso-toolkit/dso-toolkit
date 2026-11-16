@@ -12,5 +12,5 @@ export interface HighlightBox {
   step?: number;
   icon?: IconAlias;
   content: TemplateResult | string;
-  bannerImage?: boolean;
+  image?: boolean;
 }
