@@ -37,10 +37,9 @@ const Option: FunctionalComponent<{
   mouseLeave: () => void;
   click: (e: MouseEvent) => void;
   selected: string;
-  suggestion: Suggestion;
   markedSuggestion: MarkedSuggestion;
   ref: (element: HTMLDivElement | undefined) => void;
-}> = ({ id, mouseEnter, mouseLeave, click, selected, suggestion, ref, markedSuggestion }) => (
+}> = ({ id, mouseEnter, mouseLeave, click, selected, ref, markedSuggestion }) => (
   <div
     class="option"
     role="option"
@@ -49,7 +48,6 @@ const Option: FunctionalComponent<{
     onMouseLeave={mouseLeave}
     onClick={click}
     aria-selected={selected}
-    aria-label={[suggestion.value, suggestion.type, ...(suggestion.extras ?? [])].filter(Boolean).join(" ")}
     ref={ref}
   >
     <div class="suggestion-row">
@@ -785,7 +783,6 @@ export class Autosuggest {
                         mouseLeave={() => this.resetSelectedSuggestion()}
                         click={this.onOptionClick}
                         selected={(suggestion === this.selectedSuggestion).toString()}
-                        suggestion={suggestion}
                         ref={(element) => element && this.listboxItems.push(element)}
                         markedSuggestion={this.getMarkedSuggestions(suggestion)}
                       />
@@ -812,7 +809,6 @@ export class Autosuggest {
                                 mouseLeave={() => this.resetSelectedSuggestion()}
                                 click={this.onOptionClick}
                                 selected={(suggestion === this.selectedSuggestion).toString()}
-                                suggestion={suggestion}
                                 ref={(element) => element && this.listboxItems.push(element)}
                                 markedSuggestion={this.getMarkedSuggestions(suggestion)}
                               />
