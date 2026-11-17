@@ -33,7 +33,14 @@ const Dimmer: FunctionalComponent<{
 }> = ({ active, src, alt, ref, close, click, titel, bijschrift, editactionLabel }) =>
   active &&
   src && (
-    <dialog class="wrapper" ref={ref} onClose={close} onClick={close}>
+    <dialog
+      class="wrapper"
+      ref={ref}
+      onClose={close}
+      onClick={close}
+      aria-labelledby={titel ? "titel" : undefined}
+      aria-label={titel ? undefined : "Vergrote afbeelding"}
+    >
       <div onClick={close}>
         {editactionLabel}
         <div class="figure">
@@ -212,7 +219,7 @@ export class ImageOverlay implements ComponentInterface {
       (this.wijzigactie && this.isWijzigactie(this.wijzigactie) && wijzigactieLabels[this.wijzigactie]) || undefined;
 
     const titel = this.titelSlot ? (
-      <div class="title">
+      <div class="title" id="titel">
         <slot name="titel" />
       </div>
     ) : undefined;

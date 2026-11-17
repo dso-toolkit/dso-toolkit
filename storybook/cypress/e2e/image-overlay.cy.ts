@@ -174,6 +174,33 @@ describe("Image Overlay", () => {
       });
   });
 
+  it("should label the overlay with the title", () => {
+    openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("dialog.wrapper")
+      .should("have.attr", "aria-labelledby", "titel")
+      .and("not.have.attr", "aria-label")
+      .get("dso-image-overlay")
+      .shadow()
+      .find('#titel > slot[name="titel"]')
+      .should("exist");
+  });
+
+  it("should label the overlay without a title", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay-met-alleen-bijschrift");
+    cy.injectAxe();
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
+    openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("dialog.wrapper")
+      .should("have.attr", "aria-label", "Vergrote afbeelding")
+      .and("not.have.attr", "aria-labelledby");
+  });
+
   it("should render a custom title", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=title:Eigen%20titel");
     cy.injectAxe();

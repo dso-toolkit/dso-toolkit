@@ -669,6 +669,92 @@ describe("Ozon Content", () => {
           'Bijschrift bij het figuur. (bron: <span class="dso-ozon-bron">Bron waaruit het figuur is overgenomen</span>)',
         );
     });
+
+    // The aliases of beforeEach re-run its `invoke("prop", "content")` and would reset the content.
+    function setFiguurContent(content: string) {
+      cy.get("dso-ozon-content.hydrated").invoke("prop", "content", content);
+    }
+
+    function figuurShadow() {
+      return cy.get("dso-ozon-content.hydrated").shadow();
+    }
+
+    it("only uses @alt as alternative text", () => {
+      setFiguurContent(`
+        <Inhoud>
+          <Figuur eId="met-alt"><Titel>Titel</Titel><Illustratie naam="a.jpg" breedte="720" hoogte="1124" alt="Alternatieve tekst" /></Figuur>
+          <Figuur eId="lege-alt"><Titel>Titel</Titel><Illustratie naam="b.jpg" breedte="720" hoogte="1124" alt="" /></Figuur>
+          <Figuur eId="met-titel"><Titel>Titel</Titel><Illustratie naam="c.jpg" breedte="720" hoogte="1124" /></Figuur>
+          <Figuur eId="zonder-titel"><Illustratie naam="d.jpg" breedte="720" hoogte="1124" /></Figuur>
+        </Inhoud>
+      `);
+
+      [
+        { eId: "met-alt", alt: "Alternatieve tekst" },
+        { eId: "lege-alt", alt: "" },
+        { eId: "met-titel", alt: "" },
+        { eId: "zonder-titel", alt: "" },
+      ].forEach(({ eId, alt }) =>
+        figuurShadow().find(`#${eId} dso-image-overlay > img`).should("have.attr", "alt", alt),
+      );
+    });
+
+    it("does not render empty Titel, Bijschrift and Bron", () => {
+      setFiguurContent(`
+        <Figuur eId="figuur">
+          <Titel />
+          <Illustratie naam="houtkachel-of-open-haard-infographic.jpg" breedte="720" hoogte="1124" dpi="400" />
+          <Bijschrift locatie="onder"> </Bijschrift>
+          <Bron>Gemeente Lochem</Bron>
+        </Figuur>
+      `);
+
+      figuurShadow().find(".dso-ozon-figuur > .figuur-bijschrift").should("have.text", "(bron: Gemeente Lochem)");
+      figuurShadow().find(".dso-ozon-figuur").should("have.class", "bijschrift-onder");
+      figuurShadow().find(".figuur-titel").should("not.exist");
+      figuurShadow().find('dso-image-overlay div[slot="titel"]').should("not.exist");
+
+      setFiguurContent(`
+        <Figuur eId="figuur">
+          <Titel></Titel>
+          <Illustratie naam="houtkachel-of-open-haard-infographic.jpg" breedte="720" hoogte="1124" dpi="400" />
+          <Bijschrift locatie="onder" />
+          <Bron />
+        </Figuur>
+      `);
+
+      figuurShadow().find(".dso-ozon-figuur .figuur-bijschrift").should("not.exist");
+      figuurShadow().find(".dso-ozon-figuur .figuur-titel").should("not.exist");
+    });
+
+    it("renders a Titel that only contains an InlineTekstAfbeelding", () => {
+      setFiguurContent(`
+        <Figuur eId="figuur">
+          <Titel><InlineTekstAfbeelding naam="icon.png" alt="Icoon" /></Titel>
+          <Illustratie naam="houtkachel-of-open-haard-infographic.jpg" breedte="720" hoogte="1124" dpi="400" />
+        </Figuur>
+      `);
+
+      figuurShadow().find(".figuur-titel img").should("have.attr", "alt", "Icoon");
+    });
+  });
+
+  it("should only use @alt as alternative text of InlineTekstAfbeelding", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
+
+    cy.get("dso-ozon-content.hydrated")
+      .invoke(
+        "prop",
+        "content",
+        `<Al><InlineTekstAfbeelding naam="met-alt.png" alt="Logo" /><InlineTekstAfbeelding naam="zonder-alt.png" /></Al>`,
+      )
+      .shadow()
+      .find("img")
+      .should("have.length", 2)
+      .then(($images) => {
+        expect($images[0]).to.have.attr("alt", "Logo");
+        expect($images[1]).to.have.attr("alt", "");
+      });
   });
 
   it("should render Lijst element", () => {

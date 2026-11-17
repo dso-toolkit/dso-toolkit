@@ -10,7 +10,9 @@ import * as Stories from "./image-overlay.stories";
 
 <Canvas of={Stories.ImageOverlay} />
 
-Dit component verwacht één (default) slotted `<img>` element. Het component gebruikt alleen de attributen `src` en `alt` om de overlay te maken. Zonder deze attributen zal de overlay niet werken.
+Dit component verwacht één (default) slotted `<img>` element. Het component gebruikt de attributen `src` en `alt` van dit element voor de vergrote weergave. Zonder `src` werkt de overlay niet. Een lege `alt` (`alt=""`) is toegestaan.
+
+De vergrote weergave krijgt als toegankelijke naam de inhoud van het slot `titel`. Zonder titel is de naam "Vergrote afbeelding".
 
 ## Zoomgedrag
 

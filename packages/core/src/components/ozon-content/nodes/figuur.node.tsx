@@ -1,6 +1,7 @@
 import { Fragment, FunctionalComponent, JSX, h } from "@stencil/core";
 
 import { getEIdFromNode } from "../functions/get-eid-from-node.function";
+import { hasContent } from "../functions/has-content.function";
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
@@ -26,21 +27,17 @@ interface Illustratie {
   alt: string | null;
 }
 
-const Bijschrift: FunctionalComponent<BijschriftProps> = ({ bijschrift, bron, mapNodeToJsx, ignoreMark }) => {
-  const bronText = bron && bron.textContent?.trim();
-
-  return (
-    <span class="figuur-bijschrift">
-      {bijschrift && bijschrift.inhoud && mapNodeToJsx(bijschrift.inhoud, ignoreMark)}
-      {bronText && (
-        <Fragment>
-          {`${bijschrift ? " " : ""}(bron: `}
-          {mapNodeToJsx(bron, ignoreMark)})
-        </Fragment>
-      )}
-    </span>
-  );
-};
+const Bijschrift: FunctionalComponent<BijschriftProps> = ({ bijschrift, bron, mapNodeToJsx, ignoreMark }) => (
+  <span class="figuur-bijschrift">
+    {bijschrift && mapNodeToJsx(bijschrift.inhoud, ignoreMark)}
+    {bron && (
+      <Fragment>
+        {`${bijschrift ? " " : ""}(bron: `}
+        {mapNodeToJsx(bron, ignoreMark)})
+      </Fragment>
+    )}
+  </span>
+);
 
 export class OzonContentFiguurNode implements OzonContentNode {
   name = ["Figuur"];
@@ -83,8 +80,8 @@ export class OzonContentFiguurNode implements OzonContentNode {
 
   render(node: Element, { mapNodeToJsx, urlResolver }: OzonContentNodeContext) {
     const childNodes = Array.from(node.childNodes);
-    const titel = childNodes.find((n) => getNodeName(n) === "Titel");
-    const bron = childNodes.find((n) => getNodeName(n) === "Bron");
+    const titel = childNodes.find((n) => getNodeName(n) === "Titel" && hasContent(n));
+    const bron = childNodes.find((n) => getNodeName(n) === "Bron" && hasContent(n));
 
     const illustratieNode = childNodes.find((n) => getNodeName(n) === "Illustratie");
     const bijschriftNode = childNodes.find((n) => getNodeName(n) === "Bijschrift");
@@ -95,7 +92,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
       const illustratie = this.mapIllustratieNode(illustratieNode);
 
       const bijschrift =
-        bijschriftNode instanceof Element
+        bijschriftNode instanceof Element && hasContent(bijschriftNode)
           ? {
               inhoud: bijschriftNode.childNodes,
               locatie: bijschriftNode.getAttribute("locatie") ?? "onder",
@@ -108,7 +105,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
       return (
         <div
           id={getEIdFromNode(node)}
-          class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}
+          class={`dso-ozon-figuur bijschrift-${bijschrift?.locatie ?? "onder"}`}
           style={this.getStyle(illustratie)}
         >
           {titel && <span class="figuur-titel">{mapNodeToJsx(titel)}</span>}
@@ -121,7 +118,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
                 <span>{mapNodeToJsx(titel, true)}</span>
               </div>
             )}
-            <img src={src ?? undefined} alt={illustratie.alt ?? titel?.textContent ?? illustratie.naam ?? undefined} />
+            <img src={src ?? undefined} alt={illustratie.alt ?? ""} />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
                 <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} ignoreMark />
