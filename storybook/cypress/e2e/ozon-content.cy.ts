@@ -670,7 +670,6 @@ describe("Ozon Content", () => {
         );
     });
 
-    // The aliases of beforeEach re-run its `invoke("prop", "content")` and would reset the content.
     function setFiguurContent(content: string) {
       cy.get("dso-ozon-content.hydrated").invoke("prop", "content", content);
     }
