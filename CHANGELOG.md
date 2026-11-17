@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Ozon Content: Lege alt-tekst meegegeven aan Image Overlay ([#4080](https://github.com/dso-toolkit/dso-toolkit/issues/4080))
+* Header & Dropdown Menu: Menu sluit al bij mousedown, waardoor de klik op een menu-item verloren gaat ([#4093](https://github.com/dso-toolkit/dso-toolkit/issues/4093))
 
 ### Removed
 * **BREAKING** List: Remove `ol.dso-list-ordered-action` selector ([#3954](https://github.com/dso-toolkit/dso-toolkit/issues/3954))
