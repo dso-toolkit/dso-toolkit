@@ -1,3 +1,5 @@
+import { emulateSafariMouseFocus } from "../support/focus-emulation";
+
 describe("Dropdown menu - anchors", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--anchors");
@@ -342,9 +344,58 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@menuitems").should("be.visible");
 
-    cy.get("@menuitems").eq(1).click({ force: true });
+    cy.get("@menuitems").eq(1).shadow().find("a").click({ force: true });
 
     cy.get("@menuitems").should("not.be.visible");
+  });
+
+  it("selects an item when the clicked item does not take focus", { browser: "!firefox" }, () => {
+    cy.get("@menuitems")
+      .eq(1)
+      .then(($menuItem) => {
+        $menuItem.get(0)!.addEventListener("click", (e) => {
+          e.preventDefault();
+        });
+
+        $menuItem.on("dsoClick", cy.stub().as("menuItemClick"));
+      });
+
+    cy.get("@button").should("be.visible").realClick();
+
+    cy.get("@menuitems").eq(0).should("have.focus");
+
+    cy.get("@menuitems").eq(1).then(emulateSafariMouseFocus).realClick();
+
+    cy.get("@menuItemClick").should("have.been.called");
+  });
+
+  it("closes the menu on a click in an iframe", { browser: "!firefox" }, () => {
+    cy.document().then((document) => {
+      const iframe = document.createElement("iframe");
+      iframe.id = "outside-iframe";
+      iframe.title = "Inhoud in een iframe";
+      iframe.srcdoc = "<p>Inhoud in een iframe</p>";
+      Object.assign(iframe.style, {
+        position: "fixed",
+        insetBlockEnd: "0",
+        insetInlineEnd: "0",
+        inlineSize: "300px",
+        blockSize: "150px",
+        border: "0",
+        zIndex: "99999",
+      });
+      document.body.appendChild(iframe);
+    });
+
+    cy.get<HTMLIFrameElement>("#outside-iframe").its("0.contentDocument.body").should("not.be.empty");
+
+    cy.get("@button").should("be.visible").realClick();
+
+    cy.get("@menuitems").eq(0).should("have.focus");
+
+    cy.get("#outside-iframe").realClick();
+
+    cy.get("@options").should("not.be.visible");
   });
 });
 

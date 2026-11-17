@@ -1,6 +1,8 @@
 import { HeaderMenuItem } from "@dso-toolkit/core";
 import { HeaderClickEvent, HeaderClickMenuItemEvent } from "@dso-toolkit/core/src/components/header/header.interfaces";
 
+import { emulateCypressFocusSimulation, emulateSafariMouseFocus } from "../support/focus-emulation";
+
 type TestHeaderClickMenuItemEvent = Omit<HeaderClickMenuItemEvent, "originalEvent">;
 type TestHeaderClickEvent = Omit<HeaderClickEvent, "originalEvent">;
 
@@ -811,6 +813,287 @@ describe("Header", () => {
             });
           }
         });
+    });
+  });
+
+  describe("closing the dropdown", { browser: "!firefox" }, () => {
+    interface DropdownVariant {
+      name: string;
+      readySelector: string;
+      label: string;
+      compact: boolean;
+    }
+
+    const overflowMenu: DropdownVariant = {
+      name: "overflow menu",
+      readySelector: ".dso-nav-main.ready .dropdown-menu-item .dropdown-menu",
+      label: "Hulpcentrum",
+      compact: false,
+    };
+
+    const compactMenu: DropdownVariant = {
+      name: "compact menu",
+      readySelector: ".dropdown .dropdown-menu",
+      label: "Aanvragen",
+      compact: true,
+    };
+
+    const toggleSelector = ".dropdown-menu > button";
+    const popoverSelector = ".dropdown-menu > div[popover=manual]";
+
+    const slowFramesTimeout = 10000;
+
+    function configureHeader($header: JQuery<HTMLElement>, variant: DropdownVariant) {
+      const element = $header.get(0) as HTMLDsoHeaderElement | undefined;
+
+      if (!element) {
+        return;
+      }
+
+      element.mainMenu = defaultMenuItems;
+
+      if (variant.compact) {
+        element.compact = "always";
+      }
+    }
+
+    function waitForFrames(win: Window) {
+      return new Cypress.Promise<void>((resolve) => {
+        win.requestAnimationFrame(() => win.requestAnimationFrame(() => resolve()));
+      });
+    }
+
+    function prepareDropdown(variant: DropdownVariant, viewportWidth = 1000, viewportHeight = 660) {
+      cy.viewport(viewportWidth, viewportHeight);
+
+      cy.get<HTMLDsoHeaderElement>("dso-header.hydrated").then(($header) => configureHeader($header, variant));
+
+      cy.get("@dsoHeaderShadow").find(variant.readySelector, { timeout: slowFramesTimeout }).should("be.visible");
+
+      waitForResizeSettled();
+    }
+
+    function waitForPopoverPositioned() {
+      waitForResizeSettled();
+    }
+
+    function expectDropdownOpen(open: boolean) {
+      cy.get("@dsoHeaderShadow")
+        .find(popoverSelector)
+        .should(($popover) => {
+          expect($popover.get(0)!.matches(":popover-open"), "popover open").to.equal(open);
+        });
+
+      cy.get("@dsoHeaderShadow")
+        .find(toggleSelector)
+        .should("have.attr", "aria-expanded", open ? "true" : "false");
+    }
+
+    function openDropdown(variant: DropdownVariant, viewportWidth?: number, viewportHeight?: number) {
+      prepareDropdown(variant, viewportWidth, viewportHeight);
+
+      cy.get("@dsoHeaderShadow").find(toggleSelector).realClick();
+
+      waitForPopoverPositioned();
+
+      expectDropdownOpen(true);
+
+      cy.get("@dsoHeaderShadow").find(toggleSelector).should("have.focus");
+    }
+
+    function menuItem(variant: DropdownVariant) {
+      return cy.get("@dsoHeaderShadow").find(popoverSelector).contains("li", variant.label).find("a, button");
+    }
+
+    function expectMenuItemSelected(variant: DropdownVariant) {
+      cy.get("@headerListener")
+        .should("have.been.calledOnce")
+        .its("lastCall.args.0.detail.menuItem.label")
+        .should("equal", variant.label);
+    }
+
+    function placeBottomLeft(element: HTMLElement) {
+      Object.assign(element.style, {
+        position: "fixed",
+        insetBlockEnd: "0",
+        insetInlineStart: "0",
+        inlineSize: "300px",
+        blockSize: "150px",
+        border: "0",
+        zIndex: "1",
+      });
+    }
+
+    function addOutsideContent() {
+      cy.document().then((document) => {
+        const content = document.createElement("div");
+        content.id = "outside-content";
+        content.textContent = "Inhoud buiten de header";
+        placeBottomLeft(content);
+        document.body.appendChild(content);
+      });
+    }
+
+    function addOutsideIframe() {
+      cy.document().then((document) => {
+        const iframe = document.createElement("iframe");
+        iframe.id = "outside-iframe";
+        iframe.title = "Inhoud in een iframe";
+        iframe.srcdoc = "<p>Inhoud in een iframe</p>";
+        placeBottomLeft(iframe);
+        document.body.appendChild(iframe);
+      });
+
+      cy.get<HTMLIFrameElement>("#outside-iframe").its("0.contentDocument.body").should("not.be.empty");
+    }
+
+    function addFocusableBeforeHeader() {
+      cy.document().then((document) => {
+        const button = document.createElement("button");
+        button.id = "before-header";
+        button.type = "button";
+        button.textContent = "Vóór de header";
+        document.body.prepend(button);
+      });
+    }
+
+    function expectHitAtCenter(selector: string, expectedLocalName: string) {
+      cy.get(selector).should(($element) => {
+        const element = $element.get(0)!;
+        const { left, top, width, height } = element.getBoundingClientRect();
+        const hit = element.ownerDocument.elementFromPoint(left + width / 2, top + height / 2);
+
+        expect(hit?.localName, "element at the click position").to.equal(expectedLocalName);
+      });
+    }
+
+    for (const variant of [overflowMenu, compactMenu]) {
+      describe(variant.name, () => {
+        it("selects an item when the focus change on mousedown has no related target", () => {
+          openDropdown(variant);
+
+          menuItem(variant).should("be.visible").then(emulateCypressFocusSimulation).realClick();
+
+          expectMenuItemSelected(variant);
+        });
+
+        it("selects an item when the clicked item does not take focus", () => {
+          openDropdown(variant);
+
+          menuItem(variant).should("be.visible").then(emulateSafariMouseFocus).realClick();
+
+          expectMenuItemSelected(variant);
+        });
+
+        it("closes the dropdown on a click outside", () => {
+          addOutsideContent();
+          openDropdown(variant);
+
+          expectHitAtCenter("#outside-content", "div");
+
+          cy.get("#outside-content").realClick();
+
+          expectDropdownOpen(false);
+        });
+
+        it("closes the dropdown on a click outside when the toggle did not take focus", () => {
+          addOutsideContent();
+          prepareDropdown(variant);
+
+          cy.get("@dsoHeaderShadow").find(toggleSelector).then(emulateSafariMouseFocus).realClick();
+
+          expectDropdownOpen(true);
+
+          cy.get("@dsoHeaderShadow").find(toggleSelector).should("not.have.focus");
+
+          cy.get("#outside-content").realClick();
+
+          expectDropdownOpen(false);
+        });
+
+        it("closes the dropdown when focus moves outside with the keyboard", () => {
+          addFocusableBeforeHeader();
+          openDropdown(variant);
+
+          cy.realPress(["Shift", "Tab"]);
+
+          expectDropdownOpen(false);
+        });
+
+        it("closes the dropdown on a click in an iframe", () => {
+          addOutsideIframe();
+          openDropdown(variant);
+
+          expectHitAtCenter("#outside-iframe", "iframe");
+
+          cy.get("#outside-iframe").realClick();
+
+          expectDropdownOpen(false);
+        });
+
+        it("closes the dropdown in an iframe on a click outside the iframe", () => {
+          addOutsideContent();
+
+          cy.document().then((document) => {
+            const iframe = document.createElement("iframe");
+            iframe.id = "header-iframe";
+            iframe.title = "Header in een iframe";
+            iframe.src = "/iframe.html?id=core-header--with-label";
+            Object.assign(iframe.style, {
+              position: "fixed",
+              insetBlockStart: "0",
+              insetInlineStart: "0",
+              inlineSize: "100vw",
+              blockSize: "400px",
+              border: "0",
+              zIndex: "1",
+              backgroundColor: "white",
+            });
+            document.body.appendChild(iframe);
+          });
+
+          cy.get<HTMLIFrameElement>("#header-iframe")
+            .its("0.contentDocument.body")
+            .should("not.be.empty")
+            .then(cy.wrap)
+            .find("dso-header.hydrated")
+            .then(($header) => configureHeader($header, variant))
+            .shadow()
+            .as("iframeHeaderShadow")
+            .find(variant.readySelector, { timeout: slowFramesTimeout })
+            .should("be.visible");
+
+          cy.get<HTMLIFrameElement>("#header-iframe").its("0.contentWindow").then(waitForFrames);
+
+          cy.get("@iframeHeaderShadow").find(toggleSelector).realClick();
+
+          cy.get("@iframeHeaderShadow").find(toggleSelector).should("have.attr", "aria-expanded", "true");
+
+          cy.get("#outside-content").realClick();
+
+          cy.get("@iframeHeaderShadow").find(toggleSelector).should("have.attr", "aria-expanded", "false");
+        });
+      });
+    }
+
+    it("closes the compact menu on a click on the backdrop below the mobile breakpoint", () => {
+      addOutsideContent();
+      openDropdown(compactMenu, 400, 1000);
+
+      cy.get("@dsoHeaderShadow")
+        .find(popoverSelector)
+        .should(($popover) => {
+          const popover = $popover.get(0)!;
+          const content = popover.ownerDocument.getElementById("outside-content")!;
+          const { left, top, width, height } = content.getBoundingClientRect();
+          const hit = (popover.getRootNode() as ShadowRoot).elementFromPoint(left + width / 2, top + height / 2);
+
+          expect(hit, "element at the click position").to.equal(popover);
+        });
+
+      cy.get("#outside-content").realClick();
+
+      expectDropdownOpen(false);
     });
   });
 });

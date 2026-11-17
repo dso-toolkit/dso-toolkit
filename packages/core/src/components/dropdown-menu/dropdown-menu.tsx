@@ -81,6 +81,20 @@ export class DropdownMenu implements ComponentInterface {
     }
   }
 
+  @Listen("pointerdown", { target: "document", capture: true })
+  onDocumentPointerDown(event: PointerEvent) {
+    if (this.open && !event.composedPath().includes(this.host)) {
+      this.toggleOptions(false);
+    }
+  }
+
+  @Listen("blur", { target: "window" })
+  onWindowBlur() {
+    if (this.open) {
+      this.toggleOptions(false);
+    }
+  }
+
   /**
    * @internal
    */
@@ -210,12 +224,12 @@ export class DropdownMenu implements ComponentInterface {
   }
 
   private focusOutListener = (event: FocusEvent) => {
-    if (this.open && !this.isInsideDropdownMenu(event.relatedTarget)) {
+    if (this.open && event.relatedTarget !== null && !this.isInsideDropdownMenu(event.relatedTarget)) {
       this.toggleOptions(false);
     }
   };
 
-  private isInsideDropdownMenu(element: EventTarget | null): boolean {
+  private isInsideDropdownMenu(element: EventTarget): boolean {
     return element instanceof Node && (this.host.contains(element) || !!this.host.shadowRoot?.contains(element));
   }
 
