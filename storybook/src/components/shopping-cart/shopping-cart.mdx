@@ -24,6 +24,45 @@ import { generatedReadme } from "../../shared/generated-readme";
 
 Bij het selecteren vliegt een vinkje vanaf de checkbox naar de titel van de Shopping Cart.
 
+### Gebruik in een toepassing
+
+Importeer `swoopie` en `cancelSwoopie` uit `@dso-toolkit/core`. Geef achtereenvolgens het vliegende element, de bron en het doel mee. Annuleer een lopende animatie wanneer de bron wordt gedeselecteerd.
+
+```html
+<dso-selectable id="activity-checkbox" type="checkbox">Activiteit</dso-selectable>
+```
+
+```ts
+import { cancelSwoopie, swoopie } from "@dso-toolkit/core";
+
+const createFlyingCheck = (): HTMLElement => {
+  const check = document.createElement("dso-selectable");
+
+  check.setAttribute("type", "checkbox");
+  check.setAttribute("checked", "");
+
+  return check;
+};
+
+const source = document.querySelector<HTMLElement>("#activity-checkbox");
+const heading = document.querySelector<HTMLElement>('dso-shopping-cart [slot="heading"]');
+
+if (source && heading) {
+  source.addEventListener("dsoChange", (event) => {
+    const checked = (event as CustomEvent<{ checked: boolean }>).detail.checked;
+
+    if (!checked) {
+      cancelSwoopie(source);
+      return;
+    }
+
+    swoopie(createFlyingCheck(), source, heading);
+  });
+}
+```
+
+De animatie duurt ongeveer een halve seconde. Bij `prefers-reduced-motion` of wanneer de bron buiten de viewport valt, wordt de animatie overgeslagen. Ligt het doel buiten beeld, dan vliegt het vinkje uit beeld. Scrollen, resizen en `cancelSwoopie` annuleren een lopende animatie.
+
 ## Technische opmerkingen
 
 Zie de voorbeeldpagina's onder Patronen voor hoe de Shopping Cart samenwerkt met `<dso-grid-column>`.

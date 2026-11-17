@@ -47,14 +47,12 @@ const meta: Meta<ShoppingCartArgs> = {
 
 export default meta;
 
-export function createFlyingCheck(): HTMLElement {
+function createFlyingCheck(): HTMLElement {
   const target = document.createElement("dso-selectable");
 
   target.setAttribute("type", "checkbox");
   target.setAttribute("checked", "");
-  target.style.setProperty("--_dso-selectable-color", "#fff");
-  target.style.setProperty("--_dso-selectable-background-color", "#2b5780");
-  target.inert = true;
+  target.className = "shopping-cart-flying-check";
 
   return target;
 }

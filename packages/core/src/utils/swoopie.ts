@@ -2,15 +2,22 @@ const DURATION = 550;
 const STEPS = 24;
 const CHECK_SIZE = 24;
 const OFFSET_X = 4;
+const CURVE_HEIGHT = 80;
 
 type Point = { x: number; y: number };
 
 const activeAnimations = new WeakMap<HTMLElement, () => void>();
 
-const isVisible = (element: HTMLElement): boolean => {
-  const { width, height, right, bottom, left, top } = element.getBoundingClientRect();
+const isVisible = (rect: DOMRect): boolean => {
+  const { width, height, right, bottom, left, top } = rect;
 
   return width > 0 && height > 0 && right > 0 && bottom > 0 && left < window.innerWidth && top < window.innerHeight;
+};
+
+const hasSize = (rect: DOMRect): boolean => {
+  const { width, height } = rect;
+
+  return width > 0 && height > 0;
 };
 
 export const cancelSwoopie = (from: HTMLElement): void => {
@@ -18,19 +25,18 @@ export const cancelSwoopie = (from: HTMLElement): void => {
 };
 
 export function swoopie(target: HTMLElement, from: HTMLElement, to: HTMLElement): Promise<void> {
-  if (
-    typeof window === "undefined" ||
-    !window.matchMedia("(prefers-reduced-motion: no-preference)").matches ||
-    !isVisible(from) ||
-    !isVisible(to)
-  ) {
+  if (typeof window === "undefined" || !window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    return Promise.resolve();
+  }
+
+  const fromRect = from.getBoundingClientRect();
+  const toRect = to.getBoundingClientRect();
+
+  if (!isVisible(fromRect) || !hasSize(toRect)) {
     return Promise.resolve();
   }
 
   cancelSwoopie(from);
-
-  const fromRect = from.getBoundingClientRect();
-  const toRect = to.getBoundingClientRect();
 
   const start: Point = {
     x: fromRect.left + CHECK_SIZE / 2 + OFFSET_X,
@@ -51,6 +57,7 @@ export function swoopie(target: HTMLElement, from: HTMLElement, to: HTMLElement)
 
   const outer = document.createElement("div");
   outer.setAttribute("aria-hidden", "true");
+  outer.inert = true;
   outer.append(clone);
 
   Object.assign(outer.style, {
@@ -67,7 +74,7 @@ export function swoopie(target: HTMLElement, from: HTMLElement, to: HTMLElement)
   const dx = end.x - start.x;
   const control: Point = {
     x: start.x + dx * 0.5,
-    y: start.y + (end.y - start.y) * 0.25 - start.y * 0.5,
+    y: Math.min(start.y, end.y) - CURVE_HEIGHT,
   };
 
   const keyframes: Keyframe[] = Array.from({ length: STEPS + 1 }, (_, i) => {

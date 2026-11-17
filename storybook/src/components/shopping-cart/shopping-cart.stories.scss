@@ -1,5 +1,11 @@
 @use "dso-toolkit/src/variables/media-query-breakpoints";
+@use "dso-toolkit/src/variables/colors";
 @use "dso-toolkit/src/variables/units";
+
+.shopping-cart-flying-check {
+  --_dso-selectable-color: #{colors.$wit};
+  --_dso-selectable-background-color: #{colors.$donkerblauw};
+}
 
 .shopping-cart-animation {
   margin-block-start: units.$u4;
