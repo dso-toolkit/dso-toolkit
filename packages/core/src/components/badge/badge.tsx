@@ -154,7 +154,7 @@ export class Badge implements ComponentInterface {
             >
               <slot></slot>
             </span>
-            {this.label && <span class="sr-only">{this.label}</span>}
+            {this.label && [" ", <span class="sr-only">{this.label}</span>]}
           </button>
           <Tooltip
             tipElementRef={(element) => (this.tooltipElRef = element)}

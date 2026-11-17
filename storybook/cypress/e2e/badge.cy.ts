@@ -43,7 +43,7 @@ describe("Badge", () => {
       cy.injectAxe();
       cy.dsoCheckA11y("dso-badge.hydrated");
       getComponent().shadow().find(".toggletip-button").should("not.have.attr", "aria-label");
-      getComponent().shadow().find(".toggletip-button .sr-only").should("not.be.empty");
+      getComponent().shadow().find(".toggletip-button .sr-only").should("have.text", "Toon toelichting");
     });
 
     it("should show the tooltip on hover", () => {
