@@ -727,6 +727,23 @@ describe("Ozon Content", () => {
       figuurShadow().find(".dso-ozon-figuur .figuur-titel").should("not.exist");
     });
 
+    it("keeps Bron at the location of an empty Bijschrift", () => {
+      setFiguurContent(`
+        <Figuur eId="figuur">
+          <Illustratie naam="houtkachel-of-open-haard-infographic.jpg" breedte="720" hoogte="1124" dpi="400" />
+          <Bijschrift locatie="boven" />
+          <Bron>Gemeente Lochem</Bron>
+        </Figuur>
+      `);
+
+      figuurShadow()
+        .find(".dso-ozon-figuur > dso-image-overlay")
+        .prev(".figuur-bijschrift")
+        .should("have.text", "(bron: Gemeente Lochem)");
+      figuurShadow().find(".dso-ozon-figuur").should("have.class", "bijschrift-boven");
+      figuurShadow().find(".dso-ozon-figuur > dso-image-overlay ~ .figuur-bijschrift").should("not.exist");
+    });
+
     it("renders a Titel that only contains an InlineTekstAfbeelding", () => {
       setFiguurContent(`
         <Figuur eId="figuur">

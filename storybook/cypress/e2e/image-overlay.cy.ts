@@ -201,6 +201,34 @@ describe("Image Overlay", () => {
       .and("not.have.attr", "aria-labelledby");
   });
 
+  it("should update the label when the title is removed or added", () => {
+    cy.get('dso-image-overlay div[slot="titel"]').then(($titel) => $titel.remove());
+    openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("dialog.wrapper")
+      .should("have.attr", "aria-label", "Vergrote afbeelding")
+      .and("not.have.attr", "aria-labelledby");
+
+    cy.get("dso-image-overlay").shadow().find(".wrapper dso-icon-button.close").click();
+    cy.get("dso-image-overlay").shadow().find("dialog.wrapper").should("not.exist");
+
+    cy.get("dso-image-overlay").then(($overlay) => {
+      const titel = $overlay[0]!.ownerDocument.createElement("div");
+      titel.slot = "titel";
+      titel.textContent = "Nieuwe titel";
+      $overlay[0]!.append(titel);
+    });
+    openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("dialog.wrapper")
+      .should("have.attr", "aria-labelledby", "titel")
+      .and("not.have.attr", "aria-label");
+  });
+
   it("should render a custom title", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay&args=title:Eigen%20titel");
     cy.injectAxe();

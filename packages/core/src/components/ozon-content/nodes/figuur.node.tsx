@@ -15,7 +15,6 @@ type BijschriftProps = {
 
 interface IBijschrift {
   inhoud: NodeListOf<ChildNode>;
-  locatie: string;
 }
 
 interface Illustratie {
@@ -91,12 +90,10 @@ export class OzonContentFiguurNode implements OzonContentNode {
     if (illustratieNode instanceof Element) {
       const illustratie = this.mapIllustratieNode(illustratieNode);
 
+      const locatie = (bijschriftNode instanceof Element && bijschriftNode.getAttribute("locatie")) || "onder";
       const bijschrift =
         bijschriftNode instanceof Element && hasContent(bijschriftNode)
-          ? {
-              inhoud: bijschriftNode.childNodes,
-              locatie: bijschriftNode.getAttribute("locatie") ?? "onder",
-            }
+          ? { inhoud: bijschriftNode.childNodes }
           : undefined;
 
       const src =
@@ -105,11 +102,11 @@ export class OzonContentFiguurNode implements OzonContentNode {
       return (
         <div
           id={getEIdFromNode(node)}
-          class={`dso-ozon-figuur bijschrift-${bijschrift?.locatie ?? "onder"}`}
+          class={`dso-ozon-figuur bijschrift-${locatie}`}
           style={this.getStyle(illustratie)}
         >
           {titel && <span class="figuur-titel">{mapNodeToJsx(titel)}</span>}
-          {bijschrift?.locatie === "boven" && (
+          {locatie === "boven" && (bijschrift || bron) && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
           <dso-image-overlay wijzigactie={wijzigactie}>
@@ -125,7 +122,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
               </div>
             )}
           </dso-image-overlay>
-          {(bijschrift?.locatie === "onder" || (!bijschrift && bron)) && (
+          {locatie !== "boven" && (bijschrift || bron) && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
         </div>

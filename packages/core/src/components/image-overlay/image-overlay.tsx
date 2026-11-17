@@ -103,9 +103,7 @@ export class ImageOverlay implements ComponentInterface {
   }
 
   connectedCallback() {
-    this.titelSlot = this.host.querySelector<HTMLDivElement>("div[slot='titel']");
-
-    this.bijschriftSlot = this.host.querySelector<HTMLDivElement>("div[slot='bijschrift']");
+    this.updateSlots();
   }
 
   componentDidLoad() {
@@ -120,6 +118,10 @@ export class ImageOverlay implements ComponentInterface {
     );
 
     this.mutationObserver = new MutationObserver((e) => {
+      if (e.some((record) => record.type === "childList")) {
+        this.updateSlots();
+      }
+
       forceUpdate(this.host);
 
       if (e[0]?.type === "childList") {
@@ -152,6 +154,12 @@ export class ImageOverlay implements ComponentInterface {
       cancelAnimationFrame(this.zoomableFrameId);
       this.zoomableFrameId = undefined;
     }
+  }
+
+  private updateSlots(): void {
+    this.titelSlot = this.host.querySelector<HTMLDivElement>("div[slot='titel']");
+
+    this.bijschriftSlot = this.host.querySelector<HTMLDivElement>("div[slot='bijschrift']");
   }
 
   private initZoomableImage(): void {
