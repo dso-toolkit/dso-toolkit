@@ -10,7 +10,6 @@ import {
   Method,
   Prop,
   State,
-  forceUpdate,
   h,
 } from "@stencil/core";
 
@@ -275,12 +274,8 @@ export class AccordionSection implements ComponentInterface {
     return this.host.querySelector("dso-accordion") !== null;
   }
 
-  componentWillLoad() {
-    this.accordion?._getState().then((state) => {
-      this.accordionState = state;
-
-      forceUpdate(this.host);
-    });
+  async componentWillLoad() {
+    this.accordionState = await this.accordion?._getState();
   }
 
   get isNeutral() {
