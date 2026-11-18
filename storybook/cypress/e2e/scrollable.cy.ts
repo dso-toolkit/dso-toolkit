@@ -56,25 +56,26 @@ describe("Scrollable", () => {
   it("should update scroll state with dynamic content", () => {
     cy.visit("http://localhost:45000/iframe.html?args=&id=core-scrollable--dynamic-content");
 
-    const getScrollContainer = () => cy.get("dso-scrollable").shadow().find(".dso-scroll-container");
-    const getSection = () => cy.get("dso-accordion-section");
+    cy.get("dso-scrollable").as("scrollable");
+    cy.get("dso-accordion-section").as("section");
 
-    getSection().should("have.class", "hydrated").and("have.class", "dso-accordion-compact");
+    cy.get("@section").should("have.class", "hydrated").and("have.class", "dso-accordion-compact");
 
-    getScrollContainer().then(($container) => {
-      const contentHeight = $container[0].scrollHeight;
-      cy.viewport(1000, contentHeight + 50);
+    cy.get("@scrollable").shadow().find(".dso-scroll-container").as("container");
+
+    cy.get("@container").then(($container) => {
+      cy.viewport(1000, $container[0].scrollHeight + 50);
     });
 
-    getScrollContainer().should("not.have.class", "dso-scroll-top");
+    cy.get("@container").should("not.have.class", "dso-scroll-top");
 
-    getSection().invoke("prop", "open", true);
+    cy.get("@section").invoke("prop", "open", true);
 
-    getScrollContainer().should(($el) => {
+    cy.get("@container").should(($el) => {
       const el = $el[0];
       expect(el.scrollHeight).to.be.greaterThan(el.clientHeight);
     });
 
-    getScrollContainer().should("have.class", "dso-scroll-top");
+    cy.get("@container").should("have.class", "dso-scroll-top");
   });
 });
