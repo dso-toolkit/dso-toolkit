@@ -11,7 +11,7 @@ catalog:
   "@types/node": "^24.19.2"
   "@types/react": "^19.3.0"
   "@types/react-dom": "^19.3.0"
-  axe-core: 4.13.0
+  axe-core: 4.14.0
   clsx: "^2.1.1"
   concurrently: ^10.0.6
   escape-string-regexp: "^5.0.0"
@@ -60,7 +60,7 @@ overrides:
   "@babel/core": "^7.29.6"
   "@hono/node-server": "^2.0.5"
   "@stencil/eslint-plugin>jsdom": "~25"
-  axe-core: 4.13.0
+  axe-core: 4.14.0
   axios: "^1.18.0"
   body-parser: "^2.3.0"
   esbuild: ">=0.28.1"

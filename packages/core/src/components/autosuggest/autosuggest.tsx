@@ -37,10 +37,9 @@ const Option: FunctionalComponent<{
   mouseLeave: () => void;
   click: (e: MouseEvent) => void;
   selected: string;
-  suggestion: Suggestion;
   markedSuggestion: MarkedSuggestion;
   ref: (element: HTMLDivElement | undefined) => void;
-}> = ({ id, mouseEnter, mouseLeave, click, selected, suggestion, ref, markedSuggestion }) => (
+}> = ({ id, mouseEnter, mouseLeave, click, selected, ref, markedSuggestion }) => (
   <div
     class="option"
     role="option"
@@ -49,21 +48,19 @@ const Option: FunctionalComponent<{
     onMouseLeave={mouseLeave}
     onClick={click}
     aria-selected={selected}
-    aria-label={suggestion.value}
     ref={ref}
   >
     <div class="suggestion-row">
       <span class="value">{markedSuggestion.value}</span>
-      {markedSuggestion.type ? <span class="type">{markedSuggestion.type}</span> : undefined}
+      {markedSuggestion.type ? [" ", <span class="type">{markedSuggestion.type}</span>] : undefined}
     </div>
     {markedSuggestion.extras &&
-      markedSuggestion.extras.map((markedChunk) => (
+      markedSuggestion.extras.map((markedChunk) => [
+        " ",
         <div class="suggestion-row">
-          {markedChunk.map((extra) => (
-            <span class="extra">{extra}</span>
-          ))}
-        </div>
-      ))}
+          {markedChunk.map((extra, index) => [index > 0 && " ", <span class="extra">{extra}</span>])}
+        </div>,
+      ])}
   </div>
 );
 
@@ -786,7 +783,6 @@ export class Autosuggest {
                         mouseLeave={() => this.resetSelectedSuggestion()}
                         click={this.onOptionClick}
                         selected={(suggestion === this.selectedSuggestion).toString()}
-                        suggestion={suggestion}
                         ref={(element) => element && this.listboxItems.push(element)}
                         markedSuggestion={this.getMarkedSuggestions(suggestion)}
                       />
@@ -813,7 +809,6 @@ export class Autosuggest {
                                 mouseLeave={() => this.resetSelectedSuggestion()}
                                 click={this.onOptionClick}
                                 selected={(suggestion === this.selectedSuggestion).toString()}
-                                suggestion={suggestion}
                                 ref={(element) => element && this.listboxItems.push(element)}
                                 markedSuggestion={this.getMarkedSuggestions(suggestion)}
                               />
