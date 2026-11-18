@@ -5,9 +5,10 @@ date: 2026-12-01
 
 # DSO Toolkit v105.0.0 🐣
 
-Deze release bevat **breaking** changes voor het volgende component:
+Deze release bevat **breaking** changes voor de volgende componenten:
 
 - Highlight Box
+- List
 
 <!-- truncate -->
 
@@ -30,4 +31,25 @@ Deze release bevat **breaking** changes voor het volgende component:
   <img src="..." slot="image" alt="..." />
   <div class="dso-rich-content">...</div>
 </dso-highlight-box>
+```
+
+## List
+
+**Breaking:** De selector `ol.dso-list-ordered-action` in het HTML/CSS-component `List` is verwijderd. Deze was
+deprecated sinds [v100.3.0](./2026-08-31-dso-toolkit-100.3.0.mdx).
+
+### Migratiepad
+
+Gebruik de `ol.dso-action-list` selector van de `List`.
+
+```html
+❌
+<ol class="dso-list-ordered-action">
+  <li>...</li>
+</ol>
+
+✅
+<ol class="dso-action-list">
+  <li>...</li>
+</ol>
 ```
