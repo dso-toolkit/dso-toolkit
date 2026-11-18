@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* **BREAKING** Highlight Box: With Banner Image aanpassen ([#3924](https://github.com/dso-toolkit/dso-toolkit/issues/3924))
+
 ## 🔦 Release 104.0.0 - 2026-11-12
 
 ### Added

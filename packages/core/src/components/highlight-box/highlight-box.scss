@@ -78,7 +78,7 @@
   @include step-counter.icon();
 }
 
-::slotted(img.dso-highlight-box-banner) {
+::slotted([slot="image"]) {
   --_dso-image-margin-inline: #{units.$u2 * -1 units.$u2 * -1};
   --_dso-image-margin-block: #{units.$u2 * -1 units.$u1};
 

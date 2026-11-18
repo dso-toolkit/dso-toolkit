@@ -17,10 +17,11 @@
 
 ## Slots
 
-| Slot     | Description                                                                 |
-| -------- | --------------------------------------------------------------------------- |
-|          | A slot to place content inside the highlight box.                           |
-| `"icon"` | A slot to display an icon inside the step counter instead of a step number. |
+| Slot      | Description                                                                 |
+| --------- | --------------------------------------------------------------------------- |
+|           | A slot to place content inside the highlight box.                           |
+| `"icon"`  | A slot to display an icon inside the step counter instead of a step number. |
+| `"image"` | A slot to display an `<img>` at the top of the highlight box.               |
 
 
 ----------------------------------------------

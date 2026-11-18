@@ -34,7 +34,7 @@ export const MeerdereHighlightBoxes: StoryObj = {
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
-              bannerImage: true,
+              image: true,
               content: richContentTemplate({
                 children: html`
                   <h2>Vergunning aanvragen of melding doen</h2>
@@ -52,7 +52,7 @@ export const MeerdereHighlightBoxes: StoryObj = {
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
-              bannerImage: true,
+              image: true,
               content: richContentTemplate({
                 children: html`
                   <h2>Vergunning aanvragen of melding doen</h2>
@@ -70,7 +70,7 @@ export const MeerdereHighlightBoxes: StoryObj = {
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
-              bannerImage: true,
+              image: true,
               content: richContentTemplate({
                 children: html`
                   <h2>Vergunning aanvragen of melding doen</h2>
@@ -90,7 +90,7 @@ export const MeerdereHighlightBoxes: StoryObj = {
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
-              bannerImage: true,
+              image: true,
               content: richContentTemplate({
                 children: html`
                   <h2>Vergunning aanvragen of melding doen</h2>
@@ -108,7 +108,7 @@ export const MeerdereHighlightBoxes: StoryObj = {
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
-              bannerImage: true,
+              image: true,
               content: richContentTemplate({
                 children: html`
                   <h2>Vergunning aanvragen of melding doen</h2>

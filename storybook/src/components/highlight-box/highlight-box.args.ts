@@ -14,7 +14,7 @@ export interface HighlightBoxArgs {
   border: boolean;
   step?: number;
   icon?: IconAlias;
-  bannerImage?: boolean;
+  image?: boolean;
 }
 
 export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
@@ -60,7 +60,7 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
       type: "select",
     },
   },
-  bannerImage: {
+  image: {
     control: {
       type: "boolean",
     },
@@ -82,6 +82,6 @@ export function highlightBoxArgsMapper(
     green: a.green,
     icon: a.icon,
     step: a.step,
-    bannerImage: a.bannerImage,
+    image: a.image,
   };
 }

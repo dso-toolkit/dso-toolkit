@@ -2,6 +2,7 @@ import { Component, Element, Host, Prop, h } from "@stencil/core";
 
 /**
  * @slot - A slot to place content inside the highlight box.
+ * @slot image - A slot to display an `<img>` at the top of the highlight box.
  * @slot icon - A slot to display an icon inside the step counter instead of a step number.
  */
 @Component({
@@ -59,6 +60,7 @@ export class HighlightBox {
             {this.step ?? <slot name="icon"></slot>}
           </div>
         )}
+        <slot name="image"></slot>
         <slot></slot>
       </Host>
     );
