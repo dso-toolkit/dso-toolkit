@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Highlight Box: With Banner Image aanpassen ([#3924](https://github.com/dso-toolkit/dso-toolkit/issues/3924))
 * Packages: Update axe-core naar 4.14.0 en los WCAG-fouten op ([#4040](https://github.com/dso-toolkit/dso-toolkit/issues/4040))
 
+### Fixed
+* Header & Dropdown Menu: Menu sluit al bij mousedown, waardoor de klik op een menu-item verloren gaat ([#4093](https://github.com/dso-toolkit/dso-toolkit/issues/4093))
+
 ### Removed
 * **BREAKING** List: Remove `ol.dso-list-ordered-action` selector ([#3954](https://github.com/dso-toolkit/dso-toolkit/issues/3954))
 
