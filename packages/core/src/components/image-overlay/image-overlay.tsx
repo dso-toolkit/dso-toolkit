@@ -28,12 +28,20 @@ const Dimmer: FunctionalComponent<{
   close: (e: Event) => void;
   click: () => void;
   titel?: JSX.Element;
+  titelIsLabel: boolean;
   bijschrift?: JSX.Element;
   editactionLabel?: JSX.Element;
-}> = ({ active, src, alt, ref, close, click, titel, bijschrift, editactionLabel }) =>
+}> = ({ active, src, alt, ref, close, click, titel, titelIsLabel, bijschrift, editactionLabel }) =>
   active &&
   src && (
-    <dialog class="wrapper" ref={ref} onClose={close} onClick={close}>
+    <dialog
+      class="wrapper"
+      ref={ref}
+      onClose={close}
+      onClick={close}
+      aria-labelledby={titelIsLabel ? "titel" : undefined}
+      aria-label={titelIsLabel ? undefined : "Vergrote afbeelding"}
+    >
       <div onClick={close}>
         {editactionLabel}
         <div class="figure">
@@ -90,32 +98,36 @@ export class ImageOverlay implements ComponentInterface {
 
   @Listen("load", { capture: true })
   loadListener(event: Event) {
-    if (event.target instanceof HTMLImageElement) {
+    if (event.target instanceof HTMLImageElement && event.target === this.getImage()) {
       this.scheduleZoomableUpdate(event.target);
     }
   }
 
   connectedCallback() {
-    this.titelSlot = this.host.querySelector<HTMLDivElement>("div[slot='titel']");
-
-    this.bijschriftSlot = this.host.querySelector<HTMLDivElement>("div[slot='bijschrift']");
+    this.updateSlots();
   }
 
   componentDidLoad() {
     this.resizeObserver = new ResizeObserver(
       debounce(() => {
-        const imgElement = this.host.querySelector("img");
+        const imgElement = this.getImage();
 
-        if (imgElement instanceof HTMLImageElement) {
+        if (imgElement) {
           this.setZoomable(imgElement);
         }
       }, 200),
     );
 
     this.mutationObserver = new MutationObserver((e) => {
+      const childListChanged = e.some((record) => record.type === "childList");
+
+      if (childListChanged) {
+        this.updateSlots();
+      }
+
       forceUpdate(this.host);
 
-      if (e[0]?.type === "childList") {
+      if (childListChanged) {
         this.resizeObserver?.disconnect();
         // <img> is gone or a new element.
         this.initZoomableImage();
@@ -127,6 +139,7 @@ export class ImageOverlay implements ComponentInterface {
       subtree: true,
       attributeFilter: ["src", "alt"],
       childList: true,
+      characterData: true,
     });
 
     this.initZoomableImage();
@@ -147,10 +160,30 @@ export class ImageOverlay implements ComponentInterface {
     }
   }
 
-  private initZoomableImage(): void {
-    const imgElement = this.host.querySelector("img");
+  private updateSlots(): void {
+    this.titelSlot = this.host.querySelector<HTMLDivElement>("div[slot='titel']");
 
-    if (!(imgElement instanceof HTMLImageElement)) {
+    this.bijschriftSlot = this.host.querySelector<HTMLDivElement>("div[slot='bijschrift']");
+  }
+
+  // A titel with only decorative content (e.g. an image with an empty alt) can't be used as accessible name.
+  private hasAccessibleTitel(): boolean {
+    return (
+      !!this.titelSlot &&
+      (!!this.titelSlot.textContent?.trim() ||
+        Array.from(this.titelSlot.querySelectorAll("img")).some((img) => !!img.getAttribute("alt")?.trim()))
+    );
+  }
+
+  // Only the direct child image is the zoomable image, the titel and bijschrift slots can contain images too.
+  private getImage(): HTMLImageElement | null {
+    return this.host.querySelector<HTMLImageElement>(":scope > img");
+  }
+
+  private initZoomableImage(): void {
+    const imgElement = this.getImage();
+
+    if (!imgElement) {
       return;
     }
 
@@ -206,13 +239,14 @@ export class ImageOverlay implements ComponentInterface {
   }
 
   render() {
-    const { src, alt } = this.host.querySelector("img") ?? {};
+    const { src, alt } = this.getImage() ?? {};
+    const titelIsLabel = this.hasAccessibleTitel();
 
     const editActionLabel: string | undefined =
       (this.wijzigactie && this.isWijzigactie(this.wijzigactie) && wijzigactieLabels[this.wijzigactie]) || undefined;
 
     const titel = this.titelSlot ? (
-      <div class="title">
+      <div class="title" id="titel">
         <slot name="titel" />
       </div>
     ) : undefined;
@@ -247,6 +281,7 @@ export class ImageOverlay implements ComponentInterface {
               close={this.dialogCloseEventListener}
               click={() => this.closeZoomedImage()}
               titel={titel}
+              titelIsLabel={titelIsLabel}
               bijschrift={bijschrift}
               editactionLabel={<div class="editaction-label">{editActionLabel}:</div>}
             />
@@ -270,6 +305,7 @@ export class ImageOverlay implements ComponentInterface {
               close={this.dialogCloseEventListener}
               click={() => this.closeZoomedImage()}
               titel={titel}
+              titelIsLabel={titelIsLabel}
               bijschrift={bijschrift}
               editactionLabel={<div class="editaction-label">{editActionLabel}:</div>}
             />
@@ -290,6 +326,7 @@ export class ImageOverlay implements ComponentInterface {
           close={this.dialogCloseEventListener}
           click={() => this.closeZoomedImage()}
           titel={titel}
+          titelIsLabel={titelIsLabel}
           bijschrift={bijschrift}
         />
         <slot />

@@ -15,7 +15,7 @@ export class OzonContentInlineTekstAfbeeldingNode implements OzonContentNode {
     return (
       <img
         src={src ?? undefined}
-        alt={naam ?? undefined}
+        alt={node.getAttribute("alt") ?? ""}
         height={node.getAttribute("hoogte") ?? undefined}
         width={node.getAttribute("breedte") ?? undefined}
       />
