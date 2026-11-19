@@ -97,7 +97,7 @@ export class ImageOverlay implements ComponentInterface {
 
   @Listen("load", { capture: true })
   loadListener(event: Event) {
-    if (event.target instanceof HTMLImageElement) {
+    if (event.target instanceof HTMLImageElement && event.target === this.getImage()) {
       this.scheduleZoomableUpdate(event.target);
     }
   }
@@ -109,9 +109,9 @@ export class ImageOverlay implements ComponentInterface {
   componentDidLoad() {
     this.resizeObserver = new ResizeObserver(
       debounce(() => {
-        const imgElement = this.host.querySelector("img");
+        const imgElement = this.getImage();
 
-        if (imgElement instanceof HTMLImageElement) {
+        if (imgElement) {
           this.setZoomable(imgElement);
         }
       }, 200),
@@ -162,10 +162,15 @@ export class ImageOverlay implements ComponentInterface {
     this.bijschriftSlot = this.host.querySelector<HTMLDivElement>("div[slot='bijschrift']");
   }
 
-  private initZoomableImage(): void {
-    const imgElement = this.host.querySelector("img");
+  // Only the direct child image is the zoomable image, the titel and bijschrift slots can contain images too.
+  private getImage(): HTMLImageElement | null {
+    return this.host.querySelector<HTMLImageElement>(":scope > img");
+  }
 
-    if (!(imgElement instanceof HTMLImageElement)) {
+  private initZoomableImage(): void {
+    const imgElement = this.getImage();
+
+    if (!imgElement) {
       return;
     }
 
@@ -221,7 +226,7 @@ export class ImageOverlay implements ComponentInterface {
   }
 
   render() {
-    const { src, alt } = this.host.querySelector("img") ?? {};
+    const { src, alt } = this.getImage() ?? {};
 
     const editActionLabel: string | undefined =
       (this.wijzigactie && this.isWijzigactie(this.wijzigactie) && wijzigactieLabels[this.wijzigactie]) || undefined;

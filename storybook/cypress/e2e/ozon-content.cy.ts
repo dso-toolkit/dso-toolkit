@@ -746,12 +746,23 @@ describe("Ozon Content", () => {
     it("renders a Titel that only contains an InlineTekstAfbeelding", () => {
       setFiguurContent(`
         <Figuur eId="figuur">
-          <Titel><InlineTekstAfbeelding naam="icon.png" alt="Icoon" /></Titel>
-          <Illustratie naam="houtkachel-of-open-haard-infographic.jpg" breedte="720" hoogte="1124" dpi="400" />
+          <Titel><InlineTekstAfbeelding naam="images/icon-tree.png" alt="Icoon" /></Titel>
+          <Illustratie naam="houtkachel-of-open-haard-infographic.jpg" breedte="720" hoogte="1124" dpi="400" alt="Infographic" />
         </Figuur>
       `);
 
       figuurShadow().find(".figuur-titel img").should("have.attr", "alt", "Icoon");
+      figuurShadow().find('dso-image-overlay div[slot="titel"] img').should("have.attr", "alt", "Icoon");
+
+      figuurShadow().find("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").click();
+
+      figuurShadow()
+        .find("dso-image-overlay")
+        .shadow()
+        .find(".wrapper .content > img")
+        .should("be.visible")
+        .and("have.attr", "alt", "Infographic")
+        .and(($img) => expect($img.attr("src")).to.match(/\/images\/houtkachel-of-open-haard-infographic\.jpg$/));
     });
   });
 
