@@ -53,24 +53,29 @@ describe("Scrollable", () => {
       .should("not.have.class", "dso-scroll-top");
   });
 
-  // enable via #3775
-  it.skip("should update scroll state with dynamic content", () => {
+  it("should update scroll state with dynamic content", () => {
     cy.visit("http://localhost:45000/iframe.html?args=&id=core-scrollable--dynamic-content");
-    const scrollContainer = () => cy.get("dso-scrollable.hydrated").shadow().find(".dso-scroll-container");
 
-    scrollContainer()
-      .should("not.have.class", "dso-scroll-top")
-      .and("not.have.class", "dso-scroll-middle")
-      .and("not.have.class", "dso-scroll-bottom");
+    cy.get("dso-scrollable").as("scrollable");
+    cy.get("dso-accordion-section").as("section");
 
-    cy.get<HTMLDsoAccordionSectionElement>("dso-scrollable.hydrated > dso-accordion > dso-accordion-section").then(
-      ([section]) =>
-        new Cypress.Promise<void>((resolve) => {
-          section.addEventListener("dsoAnimationEnd", () => resolve(), { once: true });
-          section.open = true;
-        }),
-    );
+    cy.get("@section").should("have.class", "hydrated").and("have.class", "dso-accordion-compact");
 
-    scrollContainer().should("have.class", "dso-scroll-top");
+    cy.get("@scrollable").shadow().find(".dso-scroll-container").as("container");
+
+    cy.get("@container").then(($container) => {
+      cy.viewport(1000, $container[0].scrollHeight + 50);
+    });
+
+    cy.get("@container").should("not.have.class", "dso-scroll-top");
+
+    cy.get("@section").invoke("prop", "open", true);
+
+    cy.get("@container").should(($el) => {
+      const el = $el[0];
+      expect(el.scrollHeight).to.be.greaterThan(el.clientHeight);
+    });
+
+    cy.get("@container").should("have.class", "dso-scroll-top");
   });
 });

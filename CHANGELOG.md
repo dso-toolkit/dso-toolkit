@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Removed
 * **BREAKING** List: Remove `ol.dso-list-ordered-action` selector ([#3954](https://github.com/dso-toolkit/dso-toolkit/issues/3954))
 
+### Task
+* Scrollable: Flaky test ([#3775](https://github.com/dso-toolkit/dso-toolkit/issues/3775))
+
 ## 🔦 Release 104.0.0 - 2026-11-12
 
 ### Added
