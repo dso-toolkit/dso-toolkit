@@ -724,6 +724,20 @@ describe("Ozon Content", () => {
 
       figuurShadow().find(".dso-ozon-figuur .figuur-bijschrift").should("not.exist");
       figuurShadow().find(".dso-ozon-figuur .figuur-titel").should("not.exist");
+
+      setFiguurContent(`
+        <Figuur eId="lege-elementen">
+          <Titel><i /></Titel>
+          <Illustratie naam="houtkachel-of-open-haard-infographic.jpg" breedte="720" hoogte="1124" dpi="400" />
+          <Bijschrift locatie="onder"><br /></Bijschrift>
+          <Bron><b> </b></Bron>
+        </Figuur>
+      `);
+
+      figuurShadow().find("#lege-elementen").should("exist");
+      figuurShadow().find(".dso-ozon-figuur .figuur-bijschrift").should("not.exist");
+      figuurShadow().find(".dso-ozon-figuur .figuur-titel").should("not.exist");
+      figuurShadow().find('dso-image-overlay div[slot="titel"]').should("not.exist");
     });
 
     it("keeps Bron at the location of an empty Bijschrift", () => {

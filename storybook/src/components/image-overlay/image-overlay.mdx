@@ -12,7 +12,7 @@ import * as Stories from "./image-overlay.stories";
 
 Dit component verwacht één (default) slotted `<img>` element als direct kind. Afbeeldingen in de slots `titel` en `bijschrift` worden niet vergroot. Het component gebruikt de attributen `src` en `alt` van dit element voor de vergrote weergave. Zonder `src` werkt de overlay niet. Een lege `alt` (`alt=""`) is toegestaan.
 
-De vergrote weergave krijgt als toegankelijke naam de inhoud van het slot `titel`. Zonder titel is de naam "Vergrote afbeelding".
+De vergrote weergave krijgt als toegankelijke naam de inhoud van het slot `titel`. Zonder titel, of als de titel geen tekst of afbeelding met `alt`-tekst bevat, is de naam "Vergrote afbeelding".
 
 ## Zoomgedrag
 

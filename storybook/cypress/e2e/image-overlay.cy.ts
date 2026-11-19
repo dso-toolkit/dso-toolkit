@@ -131,6 +131,32 @@ describe("Image Overlay", () => {
       .should("exist");
   });
 
+  it("should observe a replaced image when the mutations start with an attribute change", () => {
+    cy.viewport(1200, 1000);
+
+    cy.get("dso-image-overlay img").then(($img) => {
+      const img = $img[0]!;
+      const newImg = img.ownerDocument.createElement("img");
+      newImg.src = "images/houtkachel-of-open-haard-infographic.jpg";
+      newImg.alt = "Nieuwe afbeelding";
+      newImg.width = 720; // Natural width is 720px
+      newImg.style.maxWidth = "100%";
+
+      img.alt = "Gewijzigd";
+      img.replaceWith(newImg);
+    });
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("dso-icon-button.open")
+      .should("not.exist")
+      .viewport(500, 750)
+      .get("dso-image-overlay")
+      .shadow()
+      .find("dso-icon-button.open")
+      .should("exist");
+  });
+
   it("should have a title and a caption", () => {
     openOverlay();
 
@@ -221,6 +247,44 @@ describe("Image Overlay", () => {
       $overlay[0]!.append(titel);
     });
     openOverlay();
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("dialog.wrapper")
+      .should("have.attr", "aria-labelledby", "titel")
+      .and("not.have.attr", "aria-label");
+  });
+
+  it("should only label the overlay with a title that has accessible text", () => {
+    openOverlay();
+
+    cy.get('dso-image-overlay div[slot="titel"] span').then(($span) => {
+      const text = Array.from($span[0]!.childNodes).find(
+        (node): node is Text => node.nodeType === Node.TEXT_NODE && !!node.textContent?.trim(),
+      );
+      text!.data = " ";
+    });
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("dialog.wrapper")
+      .should("have.attr", "aria-label", "Vergrote afbeelding")
+      .and("not.have.attr", "aria-labelledby");
+
+    cy.get('dso-image-overlay div[slot="titel"] span').then(($span) => {
+      const img = $span[0]!.ownerDocument.createElement("img");
+      img.src = "images/icon-tree.png";
+      img.alt = "";
+      $span[0]!.append(img);
+    });
+
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("dialog.wrapper")
+      .should("have.attr", "aria-label", "Vergrote afbeelding")
+      .and("not.have.attr", "aria-labelledby");
+
+    cy.get('dso-image-overlay div[slot="titel"] img').invoke("attr", "alt", "Icoon");
 
     cy.get("dso-image-overlay")
       .shadow()

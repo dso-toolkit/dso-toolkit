@@ -28,9 +28,10 @@ const Dimmer: FunctionalComponent<{
   close: (e: Event) => void;
   click: () => void;
   titel?: JSX.Element;
+  titelIsLabel: boolean;
   bijschrift?: JSX.Element;
   editactionLabel?: JSX.Element;
-}> = ({ active, src, alt, ref, close, click, titel, bijschrift, editactionLabel }) =>
+}> = ({ active, src, alt, ref, close, click, titel, titelIsLabel, bijschrift, editactionLabel }) =>
   active &&
   src && (
     <dialog
@@ -38,8 +39,8 @@ const Dimmer: FunctionalComponent<{
       ref={ref}
       onClose={close}
       onClick={close}
-      aria-labelledby={titel ? "titel" : undefined}
-      aria-label={titel ? undefined : "Vergrote afbeelding"}
+      aria-labelledby={titelIsLabel ? "titel" : undefined}
+      aria-label={titelIsLabel ? undefined : "Vergrote afbeelding"}
     >
       <div onClick={close}>
         {editactionLabel}
@@ -118,13 +119,15 @@ export class ImageOverlay implements ComponentInterface {
     );
 
     this.mutationObserver = new MutationObserver((e) => {
-      if (e.some((record) => record.type === "childList")) {
+      const childListChanged = e.some((record) => record.type === "childList");
+
+      if (childListChanged) {
         this.updateSlots();
       }
 
       forceUpdate(this.host);
 
-      if (e[0]?.type === "childList") {
+      if (childListChanged) {
         this.resizeObserver?.disconnect();
         // <img> is gone or a new element.
         this.initZoomableImage();
@@ -136,6 +139,7 @@ export class ImageOverlay implements ComponentInterface {
       subtree: true,
       attributeFilter: ["src", "alt"],
       childList: true,
+      characterData: true,
     });
 
     this.initZoomableImage();
@@ -160,6 +164,15 @@ export class ImageOverlay implements ComponentInterface {
     this.titelSlot = this.host.querySelector<HTMLDivElement>("div[slot='titel']");
 
     this.bijschriftSlot = this.host.querySelector<HTMLDivElement>("div[slot='bijschrift']");
+  }
+
+  // A titel with only decorative content (e.g. an image with an empty alt) can't be used as accessible name.
+  private hasAccessibleTitel(): boolean {
+    return (
+      !!this.titelSlot &&
+      (!!this.titelSlot.textContent?.trim() ||
+        Array.from(this.titelSlot.querySelectorAll("img")).some((img) => !!img.getAttribute("alt")?.trim()))
+    );
   }
 
   // Only the direct child image is the zoomable image, the titel and bijschrift slots can contain images too.
@@ -227,6 +240,7 @@ export class ImageOverlay implements ComponentInterface {
 
   render() {
     const { src, alt } = this.getImage() ?? {};
+    const titelIsLabel = this.hasAccessibleTitel();
 
     const editActionLabel: string | undefined =
       (this.wijzigactie && this.isWijzigactie(this.wijzigactie) && wijzigactieLabels[this.wijzigactie]) || undefined;
@@ -267,6 +281,7 @@ export class ImageOverlay implements ComponentInterface {
               close={this.dialogCloseEventListener}
               click={() => this.closeZoomedImage()}
               titel={titel}
+              titelIsLabel={titelIsLabel}
               bijschrift={bijschrift}
               editactionLabel={<div class="editaction-label">{editActionLabel}:</div>}
             />
@@ -290,6 +305,7 @@ export class ImageOverlay implements ComponentInterface {
               close={this.dialogCloseEventListener}
               click={() => this.closeZoomedImage()}
               titel={titel}
+              titelIsLabel={titelIsLabel}
               bijschrift={bijschrift}
               editactionLabel={<div class="editaction-label">{editActionLabel}:</div>}
             />
@@ -310,6 +326,7 @@ export class ImageOverlay implements ComponentInterface {
           close={this.dialogCloseEventListener}
           click={() => this.closeZoomedImage()}
           titel={titel}
+          titelIsLabel={titelIsLabel}
           bijschrift={bijschrift}
         />
         <slot />
