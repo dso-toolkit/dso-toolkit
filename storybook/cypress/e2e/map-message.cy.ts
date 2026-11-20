@@ -47,15 +47,11 @@ function assertAssignedSlotText(slotName: string, assertion: (text: string) => v
 }
 
 function observeLiveRegion(win: Cypress.AUTWindow, mount: (doc: Document) => void) {
-  return new Cypress.Promise<RegionState[]>((resolve, reject) => {
+  return new Cypress.Promise<RegionState[]>((resolve) => {
     const states: RegionState[] = [];
     let frame = 0;
     let settled = false;
-    let animationFrame: number | undefined;
-    const timeout = win.setTimeout(() => {
-      cleanup();
-      reject(new Error("Timed out waiting for the map message live region to receive text"));
-    }, 5000);
+    let animationFrame: number;
     let observer: MutationObserver | undefined;
     const originalAttachShadow = win.Element.prototype.attachShadow;
 
@@ -64,13 +60,7 @@ function observeLiveRegion(win: Cypress.AUTWindow, mount: (doc: Document) => voi
       observer?.disconnect();
       win.Element.prototype.attachShadow = originalAttachShadow;
 
-      if (animationFrame !== undefined) {
-        win.cancelAnimationFrame(animationFrame);
-      }
-
-      if (timeout !== undefined) {
-        win.clearTimeout(timeout);
-      }
+      win.cancelAnimationFrame(animationFrame);
     };
 
     const countFrames = () => {
@@ -207,8 +197,6 @@ describe("dso-map-message - Storybook slot rendering", () => {
 
   variants.forEach(({ name: variant, hasActions, hasIcon }) => {
     it(`should render visually correct for ${variant} variant`, () => {
-      cy.viewport(1000, 600);
-
       visitStory(variant);
 
       waitForComponents();
@@ -217,11 +205,10 @@ describe("dso-map-message - Storybook slot rendering", () => {
       assertAssignedSlotText("message", (text) => expect(text).to.not.equal(""));
 
       mapMessageContent().should(hasActions ? "have.class" : "not.have.class", "has-actions");
-      const icon = cy.get(mapMessageSelector).shadow().find("dso-icon.map-message-icon");
       if (hasIcon) {
-        icon.should("have.class", "hydrated");
+        cy.get(mapMessageSelector).shadow().find("dso-icon.map-message-icon").should("have.class", "hydrated");
       } else {
-        icon.should("not.exist");
+        cy.get(mapMessageSelector).shadow().find("dso-icon.map-message-icon").should("not.exist");
       }
 
       cy.get(mapMessageSelector).matchImageSnapshot(`dso-map-message-${variant}`);
