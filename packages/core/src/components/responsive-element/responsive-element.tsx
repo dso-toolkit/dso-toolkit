@@ -38,7 +38,7 @@ export class ResponsiveElement implements ComponentInterface {
   /**
    * Emitted when size has changed
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoSizeChange!: EventEmitter<ResponsiveElementSize>;
 
   /**

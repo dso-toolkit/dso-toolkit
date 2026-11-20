@@ -56,7 +56,7 @@ export class Pagination implements ComponentInterface {
   /**
    * Emitted on page select
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoSelectPage!: EventEmitter<PaginationSelectPageEvent>;
 
   /**

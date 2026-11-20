@@ -76,7 +76,7 @@ export class Modal implements ComponentInterface {
    * - dismisses the Modal with the Escape button
    * - clicks or taps outside the Modal
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoClose!: EventEmitter<ModalCloseEvent>;
 
   get hasFooter() {

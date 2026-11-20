@@ -45,7 +45,7 @@ export class Alert {
   /**
    * Emitted when the user closes the Alert.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoClose!: EventEmitter<AlertCloseEvent>;
 
   private text = i18n(() => this.host, translations);

@@ -36,7 +36,7 @@ export class DocumentCard implements ComponentInterface {
   /**
    * Emitted when the DocumentCard heading is clicked.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoDocumentCardClick!: EventEmitter<DocumentCardClickEvent>;
 
   private mutationObserver?: MutationObserver;

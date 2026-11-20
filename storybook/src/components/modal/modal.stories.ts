@@ -8,6 +8,7 @@ import {
   confirmBody,
   confirmFooter,
   datePickerBody,
+  infoBody,
   loadingBody,
   passiveBody,
   passiveFooter,
@@ -81,4 +82,12 @@ export const WithDatepicker: ModalStory = {
     modalTitle: "Zet een datum",
   },
   render: (args) => modalTemplate(modalArgsMapper(args, datePickerBody())),
+};
+
+export const WithInfo: ModalStory = {
+  args: {
+    role: "dialog",
+    modalTitle: "Met toelichting",
+  },
+  render: (args) => modalTemplate(modalArgsMapper(args, infoBody())),
 };

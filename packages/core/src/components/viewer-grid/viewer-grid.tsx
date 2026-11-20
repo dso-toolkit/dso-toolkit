@@ -117,37 +117,37 @@ export class ViewerGrid {
   /**
    * Emitted when user wants to close the overlay.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoCloseOverlay!: EventEmitter<ViewerGridCloseOverlayEvent>;
 
   /**
    * Emitted when user wants to close the filter panel.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoCloseFilterPanel!: EventEmitter<ViewerGridCloseFilterPanelEvent>;
 
   /**
    * Emitted when user applies filter panel options.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoActiveTabSwitch!: EventEmitter<ViewerGridActiveTabSwitchEvent>;
 
   /**
    * Emitted after main size animation.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoMainSizeChangeAnimationEnd!: EventEmitter<ViewerGridChangeSizeAnimationEndEvent>;
 
   /**
    * Emitted on interaction with sizing buttons.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoDocumentPanelSizeChange!: EventEmitter<ViewerGridChangeSizeEvent>;
 
   /**
    * Emitted after main size animation.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoDocumentPanelSizeChangeAnimationEnd!: EventEmitter<ViewerGridChangeSizeAnimationEndEvent>;
 
   /**
@@ -155,7 +155,7 @@ export class ViewerGrid {
    *
    * Also emitted by scripting when the panels do not fit anymore.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoMainPanelToggle!: EventEmitter<ViewerGridMainToggleEvent>;
 
   @Element()

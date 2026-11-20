@@ -52,7 +52,7 @@ export class SlideToggle implements ComponentInterface {
   /**
    * Emitted when user checks or unchecks the Slide Toggle.
    */
-  @Event({ composed: false })
+  @Event({ bubbles: false, composed: false })
   dsoActiveChange!: EventEmitter<SlideToggleActiveEvent>;
 
   private handleSwitch(e: Event): void {

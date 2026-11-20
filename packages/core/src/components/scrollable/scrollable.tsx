@@ -80,7 +80,7 @@ export class Scrollable {
   /**
    * Event emitted when the scrollbar has reached top or bottom.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoScrollEnd!: EventEmitter<DsoScrollEndEvent>;
 
   @State()

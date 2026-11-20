@@ -97,4 +97,27 @@ describe("Table", () => {
       .get('dso-table a[href="#fabien"]')
       .should("be.focused");
   });
+
+  it("should not let dsoClose of the table modal bubble", () => {
+    cy.get("dso-table")
+      .parent()
+      .then(($parent) => $parent.on("dsoClose", cy.stub().as("parentCloseListener")));
+
+    cy.get("dso-table")
+      .as("dsoTable")
+      .find("> .open-modal-button")
+      .click()
+      .get("@dsoTable")
+      .shadow()
+      .find("dso-modal")
+      .shadow()
+      .find("#close-modal")
+      .click()
+      .get("@dsoTable")
+      .shadow()
+      .find("dso-modal")
+      .should("not.exist");
+
+    cy.get("@parentCloseListener").should("not.have.been.called");
+  });
 });

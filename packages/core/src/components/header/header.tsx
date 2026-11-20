@@ -128,7 +128,7 @@ export class Header implements ComponentInterface {
    *
    * `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoHeaderClick!: EventEmitter<HeaderEvent>;
 
   @State()

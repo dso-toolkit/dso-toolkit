@@ -57,6 +57,20 @@ describe("Map Layer", () => {
         .should("have.been.calledOnce");
     });
 
+    it("does not let ActiveChange event bubble to Map Layer", () => {
+      cy.get("@dsoMapLayer")
+        .then(($element) => $element.on("dsoActiveChange", cy.stub().as("mapLayerActiveChangeListener")))
+        .get("@dsoMapLayerObject")
+        .then(($element) => $element.on("dsoActiveChange", cy.stub().as("activeChangeListener")))
+        .shadow()
+        .find(".slide-toggle-container dso-slide-toggle")
+        .click()
+        .get("@activeChangeListener")
+        .should("have.been.calledOnce")
+        .get("@mapLayerActiveChangeListener")
+        .should("not.have.been.called");
+    });
+
     it("emits dsoMouseEnter and dsoMouseLeave events", () => {
       cy.get("@dsoMapLayerObject")
         .then(($element) => $element.on("dsoMouseEnter", cy.stub().as("mouseEnterListener")))

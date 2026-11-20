@@ -42,7 +42,7 @@ export class MapLayer implements ComponentInterface {
   /**
    * Emitted when user activates or deactivates the Map Layer.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoActiveChange!: EventEmitter<MapLayerActiveChangeEvent>;
 
   private handleActiveChange = (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => {
