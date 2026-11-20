@@ -34,7 +34,7 @@ export class MapOverlays implements ComponentInterface {
   /**
    * Emitted when the user selects a different overlay.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoToggleOverlay!: EventEmitter<OverlayChangeEvent>;
 
   private overlayChangeHandler(overlay: Overlay, e: CustomEvent<SelectableChangeEvent>) {

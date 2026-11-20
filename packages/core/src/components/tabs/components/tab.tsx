@@ -36,7 +36,7 @@ export class Tab {
   /**
    * Emitted when the user activates tab via click or arrow keys followed by space or enter.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoTabSwitch!: EventEmitter<TabsSwitchEvent>;
 
   /**

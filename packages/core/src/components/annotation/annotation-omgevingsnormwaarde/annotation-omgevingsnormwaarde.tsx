@@ -31,7 +31,7 @@ export class AnnotationOmgevingsnormwaarde implements ComponentInterface {
   /**
    * Een optionele event listener voor wijzigingen aan de status van de annotatie.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoActiveChange!: EventEmitter<AnnotationActiveChangeEvent>;
 
   /**

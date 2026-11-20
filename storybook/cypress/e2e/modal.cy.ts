@@ -198,3 +198,19 @@ it("should wrap all sections in a single scrollable container on mobile layout",
 
   cy.get("dso-modal").shadow().find(".dso-dialog > dso-scrollable .dso-footer").should("exist");
 });
+
+describe("Modal - with Info", () => {
+  it("should not emit dsoClose when an Info in the Modal is closed", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--with-info");
+
+    cy.get("dso-modal.hydrated").then(($modal) => $modal.on("dsoClose", cy.stub().as("modalCloseListener")));
+    cy.get("dso-modal.hydrated dso-info.hydrated").then(($info) =>
+      $info.on("dsoClose", cy.stub().as("infoCloseListener")),
+    );
+
+    cy.get("dso-modal.hydrated dso-info.hydrated").shadow().find("dso-icon-button").shadow().find("button").click();
+
+    cy.get("@infoCloseListener").should("have.been.calledOnce");
+    cy.get("@modalCloseListener").should("not.have.been.called");
+  });
+});

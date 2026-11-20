@@ -73,7 +73,7 @@ export class InfoButton implements ComponentInterface {
   /**
    * Emitted when the user activates the Info Button.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoToggle!: EventEmitter<InfoButtonToggleEvent>;
 
   @State()

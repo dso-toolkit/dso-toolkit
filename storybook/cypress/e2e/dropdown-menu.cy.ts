@@ -346,6 +346,26 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@menuitems").should("not.be.visible");
   });
+
+  it("should emit dsoClick on the menu item without bubbling", () => {
+    cy.get("@menuitems")
+      .eq(1)
+      .then(($menuItem) => {
+        $menuItem.on("click", (e) => e.preventDefault());
+        $menuItem.on("dsoClick", cy.stub().as("menuItemClickListener"));
+      });
+
+    cy.get("dso-dropdown-menu").then(($dropdownMenu) =>
+      $dropdownMenu.on("dsoClick", cy.stub().as("dropdownMenuClickListener")),
+    );
+
+    cy.get("@button").should("be.visible").focus().click();
+    cy.get("@menuitems").eq(1).shadow().find("a").click();
+    cy.get("@menuitems").should("not.be.visible");
+
+    cy.get("@menuItemClickListener").should("have.been.calledOnce");
+    cy.get("@dropdownMenuClickListener").should("not.have.been.called");
+  });
 });
 
 describe("Dropdown menu - buttons", () => {

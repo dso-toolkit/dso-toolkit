@@ -53,13 +53,13 @@ export class MapControls implements ComponentInterface {
   /**
    * Emitted when the user activates the zoom in button.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoZoomIn!: EventEmitter<MouseEvent>;
 
   /**
    * Emitted when the user activates the zoom out button.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoZoomOut!: EventEmitter<MouseEvent>;
 
   /**
@@ -68,7 +68,7 @@ export class MapControls implements ComponentInterface {
    * - `event.detail.originalEvent` contains the original `MouseEvent / KeyboardEvent` when the panel is toggled by clicking the visibility button or the close button.
    * - `event.detail.open` is true when the panel opens and false when the panel closes.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoToggle!: EventEmitter<MapControlsToggleEvent>;
 
   @State()

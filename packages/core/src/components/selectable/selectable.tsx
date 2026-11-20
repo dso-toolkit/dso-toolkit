@@ -128,7 +128,7 @@ export class Selectable implements ComponentInterface {
   /**
    * Emitted when the user checks or unchecks the Selectable.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoChange!: EventEmitter<SelectableChangeEvent>;
 
   @Element()

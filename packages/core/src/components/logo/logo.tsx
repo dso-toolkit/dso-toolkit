@@ -74,13 +74,13 @@ export class Logo implements ComponentInterface {
   /**
    * Emitted when the logo is clicked (only when logoUrl is set).
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoLogoClick!: EventEmitter<LogoClickEvent>;
 
   /**
    * Emitted when the label in the logo is clicked (only when labelUrl is set).
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoLabelClick!: EventEmitter<LogoLabelClickEvent>;
 
   private handleLogoClick = (e: MouseEvent) => {

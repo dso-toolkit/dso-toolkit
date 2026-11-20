@@ -72,10 +72,8 @@ export class DropdownMenu implements ComponentInterface {
   @State()
   open = false;
 
-  @Listen("dsoClick")
+  @Listen("dsoClick", { capture: true })
   dsoClickHandler(event: CustomEvent<DropdownMenuItemClickEvent>) {
-    event.stopPropagation();
-
     if (this.open && event.target instanceof HTMLElement) {
       this.toggleOptions(false);
     }

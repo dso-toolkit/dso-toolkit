@@ -149,20 +149,20 @@ export class Autosuggest {
    * Emitted when a suggestion is selected.
    * The `detail` property of the `CustomEvent` will contain the selected suggestion.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoSelect!: EventEmitter<Suggestion>;
 
   /**
    * This is emitted debounced for every change for the slotted input type=text element.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoChange!: EventEmitter<string>;
 
   /**
    * Emitted when enter is pressed.
    * The `detail` property of the `CustomEvent` will contain the input text.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoSearch!: EventEmitter<string>;
 
   @Element()

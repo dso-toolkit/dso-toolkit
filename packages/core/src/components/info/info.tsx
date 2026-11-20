@@ -36,7 +36,7 @@ export class Info {
    * `previousActiveElement` contains the element that had focus when the Info was activated. Use it to return focus
    * after closing the Info.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoClose!: EventEmitter<InfoCloseEvent>;
 
   private previousActiveElement?: HTMLElement;
