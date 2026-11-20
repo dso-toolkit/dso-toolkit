@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Scrollable: Flaky test ([#3775](https://github.com/dso-toolkit/dso-toolkit/issues/3775))
+* Map Message: Flaky test ([#3776](https://github.com/dso-toolkit/dso-toolkit/issues/3776))
 
 ## 🔦 Release 104.0.0 - 2026-11-12
 
