@@ -34,11 +34,27 @@ export function waitForComponents() {
       }
     });
 
-  // Wacht tot alle (async ge-preloade) webfonts geladen zijn. De cursieve Asap-variant
-  // wordt gebruikt in de disclaimer boven de footer; als die pas na de snapshot laadt,
-  // verschuift de footer verticaal en ontstaat er een diff.
-  cy.document().then((doc) => doc.fonts.ready);
-  cy.document().its("fonts.status").should("equal", "loaded");
+  // Wacht tot alle eindige CSS transitions/animaties (ook in shadow roots) klaar zijn. Een full-page
+  // screenshot meet de paginahoogte vooraf; als de pagina tijdens het scrollen nog van hoogte verandert,
+  // verschuift het laatste blok en ontstaat er een diff.
+  cy.document().should((doc) => {
+    expect(runningAnimations(doc), "running CSS transitions/animations").to.deep.equal([]);
+  });
+}
+
+function runningAnimations(root: Document | ShadowRoot): string[] {
+  const finiteRunning = root
+    .getAnimations()
+    .filter((a) => a.playState === "running" && Number.isFinite(a.effect?.getComputedTiming().endTime))
+    .map((a) =>
+      a instanceof CSSTransition ? a.transitionProperty : a instanceof CSSAnimation ? a.animationName : a.id,
+    );
+
+  const shadowRoots = Array.from(root.querySelectorAll("*"))
+    .map((el) => el.shadowRoot)
+    .filter((shadowRoot): shadowRoot is ShadowRoot => !!shadowRoot);
+
+  return finiteRunning.concat(...shadowRoots.map(runningAnimations));
 }
 
 function prettyPrintResults(dsoComponents: Element[]) {

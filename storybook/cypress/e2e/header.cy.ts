@@ -67,9 +67,14 @@ describe("Header", () => {
   /**
    * Waits for the header's ResizeObserver layout pass to settle so a viewport
    * change doesn't flush late and close the menu right before a click.
+   *
+   * After a screenshot (matchImageSnapshot) Electron throttles subsequent pages
+   * to ~1 frame per second, so two frames take ~2s and can exceed the default
+   * command timeout on a busy CI runner.
    */
   function waitForResizeSettled() {
     cy.window().then(
+      { timeout: 10000 },
       (win) =>
         new Cypress.Promise<void>((resolve) => {
           win.requestAnimationFrame(() => win.requestAnimationFrame(() => resolve()));

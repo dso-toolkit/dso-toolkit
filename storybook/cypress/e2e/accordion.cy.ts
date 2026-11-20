@@ -456,6 +456,19 @@ describe("Accordion", () => {
       cy.visit("http://localhost:45000/iframe.html?id=core-accordion--compact");
     });
 
+    it("renders every section in the variant of the accordion", () => {
+      cy.get("dso-accordion.hydrated")
+        .find("dso-accordion-section")
+        .then(($sections) => {
+          // Bewust zonder retry: de variant moet al bij de eerste render aanwezig zijn.
+          expect($sections).to.have.length.greaterThan(0);
+          $sections.each((_, section) => {
+            expect(section).to.have.class("dso-accordion-compact");
+            expect(section).not.to.have.attr("hidden");
+          });
+        });
+    });
+
     it("shows h2, h3 and h4 with color: colors.grijs-90", () => {
       cy.injectAxe();
       cy.dsoCheckA11y("dso-accordion.hydrated");
