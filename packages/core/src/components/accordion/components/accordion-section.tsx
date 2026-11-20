@@ -274,7 +274,7 @@ export class AccordionSection implements ComponentInterface {
     return this.host.querySelector("dso-accordion") !== null;
   }
 
-  async componentWillLoad() {
+  async componentWillLoad(): Promise<void> {
     this.accordionState = await this.accordion?._getState();
   }
 
