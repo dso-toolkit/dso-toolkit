@@ -8,7 +8,7 @@ import { ShoppingCartArgs, shoppingCartArgTypes, shoppingCartArgsMapper } from "
 type ShoppingCartStory = StoryObj<ShoppingCartArgs>;
 
 const meta: Meta<ShoppingCartArgs> = {
-  title: "HTML|CSS/Shopping Cart",
+  title: "HTML|CSS/Shopping Cart (Deprecated)",
   argTypes: shoppingCartArgTypes,
   args: {
     _implementation: "html/css",
