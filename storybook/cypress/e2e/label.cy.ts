@@ -99,14 +99,26 @@ describe("Label", () => {
     "verwijderd",
   ];
 
+  function setStatus(status: string | undefined) {
+    if (status) {
+      cy.get("@dsoLabel").invoke("attr", "status", status);
+    }
+
+    // Wait for the re-render, otherwise the snapshot is taken of the default Label.
+    cy.get("@dsoLabelShadow")
+      .find(".dso-label")
+      .should("have.attr", "class", status ? `dso-label dso-label-${status}` : "dso-label");
+  }
+
   statuses.forEach((status) => {
     it(`Label with status "${status}" is accessible`, () => {
+      setStatus(status);
       cy.injectAxe();
       cy.dsoCheckA11y("dso-label.hydrated");
     });
 
     it(`matches snapshots for status "${status}"`, () => {
-      cy.get("@dsoLabel").invoke("attr", "status", status);
+      setStatus(status);
       cy.get("@dsoLabel").matchImageSnapshot();
     });
   });

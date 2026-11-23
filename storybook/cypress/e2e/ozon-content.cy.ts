@@ -459,13 +459,19 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
 
     cy.get("dso-ozon-content.hydrated").then((c) => {
-      c.prop("content", "<Illustratie naam='afbeelding.jpg' hoogte='12' breedte='34' />");
+      c.prop("content", "<Illustratie naam='klimaatambities_agv_infographic_002_1.jpg' hoogte='206' breedte='366' />");
     });
 
     cy.get("dso-ozon-content.hydrated")
       .shadow()
-      .find("img[src = 'images/afbeelding.jpg'][height = '12'][width = '34']")
-      .should("exist");
+      .find("img[src = 'images/klimaatambities_agv_infographic_002_1.jpg'][height = '206'][width = '366']")
+      .should("exist")
+      .and(($img) => {
+        const img = $img[0] as HTMLImageElement;
+        expect(img.complete).to.equal(true);
+        expect(img.naturalWidth).to.be.greaterThan(0);
+      })
+      .then(($img) => ($img[0] as HTMLImageElement).decode());
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
@@ -948,16 +954,16 @@ describe("Ozon Content", () => {
       c.prop("content", "<abbr title='Alfa Beta Gamma'>ABG</abbr>");
     });
 
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content.hydrated");
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
-
     cy.get("dso-ozon-content.hydrated")
       .shadow()
       .find("span.od-abbr")
       .should("exist")
       .and("have.text", "ABG (Alfa Beta Gamma)");
     cy.get("dso-ozon-content.hydrated").shadow().find("abbr").should("exist").and("have.text", "ABG");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("renders <abbr> without title between parentheses", () => {
@@ -967,12 +973,12 @@ describe("Ozon Content", () => {
       c.prop("content", "<abbr>XYZ</abbr>");
     });
 
+    cy.get("dso-ozon-content.hydrated").shadow().find("span.od-abbr").should("exist").and("not.have.text");
+    cy.get("dso-ozon-content.hydrated").shadow().find("abbr").should("exist").and("have.text", "XYZ");
+
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
-
-    cy.get("dso-ozon-content.hydrated").shadow().find("span.od-abbr").should("exist").and("not.have.text");
-    cy.get("dso-ozon-content.hydrated").shadow().find("abbr").should("exist").and("have.text", "XYZ");
   });
 
   function testRenvooiInKop(element: "Label" | "Nummer" | "Opschrift") {
@@ -980,17 +986,19 @@ describe("Ozon Content", () => {
 
     const baseXml = (wijzigactieElement: string, wijzigactie: "voegtoe" | "verwijder") =>
       `<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label ${wijzigactieElement === "Label" ? `wijzigactie='${wijzigactie}'` : ""}>Artikel</Label><Nummer ${wijzigactieElement === "Nummer" ? `wijzigactie='${wijzigactie}'` : ""}>13.12c</Nummer><Opschrift ${wijzigactieElement === "Opschrift" ? `wijzigactie='${wijzigactie}'` : ""}>NootInKop III</Opschrift></Kop>`;
-    cy.get("dso-ozon-content.hydrated")
-      .then((c) => {
-        c.prop("content", baseXml(element, "verwijder"));
-      })
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- verwijder`);
+    const text = { Label: "Artikel", Nummer: "13.12c", Opschrift: "NootInKop III" }[element];
 
-    cy.get("dso-ozon-content.hydrated")
-      .then((c) => {
-        c.prop("content", baseXml(element, "voegtoe"));
-      })
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- voegtoe`);
+    cy.get("dso-ozon-content.hydrated").then((c) => {
+      c.prop("content", baseXml(element, "verwijder"));
+    });
+    cy.get("dso-ozon-content.hydrated").shadow().find("del").should("have.text", text);
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- verwijder`);
+
+    cy.get("dso-ozon-content.hydrated").then((c) => {
+      c.prop("content", baseXml(element, "voegtoe"));
+    });
+    cy.get("dso-ozon-content.hydrated").shadow().find("ins").should("have.text", text);
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- voegtoe`);
   }
 
   it(`should show a kop with renvooi 'wijzigactie="voegtoe | verwijder"' in the Label`, () => {

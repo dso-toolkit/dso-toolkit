@@ -5,13 +5,30 @@ describe("Info Button", () => {
 
   const getComponent = () => cy.get("dso-info-button.hydrated");
 
-  const openAndAssert = () => {
+  const openAndAssert = (side: "top" | "bottom" | "left" | "right") => {
     getComponent()
       .realClick()
       .shadow()
       .find("> .dso-tooltip")
       .should("have.css", "visibility", "visible")
       .should("have.css", "opacity", "1");
+
+    getComponent()
+      .shadow()
+      .find("> .dso-tooltip")
+      .should(($tooltip) => {
+        const tooltip = $tooltip[0].getBoundingClientRect();
+        const button = ($tooltip[0].getRootNode() as ShadowRoot).host.getBoundingClientRect();
+
+        const placement = {
+          top: tooltip.bottom <= button.top,
+          bottom: tooltip.top >= button.bottom,
+          left: tooltip.right <= button.left,
+          right: tooltip.left >= button.right,
+        };
+
+        expect(placement[side], `toggletip on ${side}`).to.equal(true);
+      });
 
     cy.matchImageSnapshot(Cypress.currentTest.title);
 
@@ -44,18 +61,20 @@ describe("Info Button", () => {
       getComponent().realHover().shadow().find("dso-icon-button").shadow().find(".dso-tooltip").should("be.visible");
     });
 
-    const placements = [
-      { label: "top (default)" },
-      { label: "bottom", attr: "bottom" },
-      { label: "left", attr: "left" },
-      { label: "right", attr: "right" },
+    const placements: { label: string; attr?: string; side: "top" | "bottom" | "left" | "right" }[] = [
+      { label: "top (default)", side: "top" },
+      { label: "bottom", attr: "bottom", side: "bottom" },
+      { label: "left", attr: "left", side: "left" },
+      { label: "right", attr: "right", side: "right" },
     ];
 
-    placements.forEach(({ label, attr }) => {
+    placements.forEach(({ label, attr, side }) => {
       it(`should show the toggletip on ${label} on click`, () => {
-        getComponent().invoke("attr", "toggletip-placement", attr);
+        if (attr) {
+          getComponent().invoke("attr", "toggletip-placement", attr);
+        }
 
-        openAndAssert();
+        openAndAssert(side);
       });
     });
 

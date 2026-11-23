@@ -31,6 +31,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Voorbeeldpagina: Fix snapshot-diff footer van Vergunningscheck - Resultaat ([#3944](https://github.com/dso-toolkit/dso-toolkit/issues/3944))
 * Map Message: Flaky test ([#3776](https://github.com/dso-toolkit/dso-toolkit/issues/3776))
 * Cypress: afhandelen van `uncaught:exceptions` ([#3288](https://github.com/dso-toolkit/dso-toolkit/issues/3288))
+* Label: Baseline snapshots varianten in master kloppen niet ([#3452](https://github.com/dso-toolkit/dso-toolkit/issues/3452))
 
 ## 🔦 Release 104.0.0 - 2026-11-12
 
