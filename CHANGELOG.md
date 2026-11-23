@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Highlight Box: With Banner Image aanpassen ([#3924](https://github.com/dso-toolkit/dso-toolkit/issues/3924))
 * Packages: Update axe-core naar 4.14.0 en los WCAG-fouten op ([#4040](https://github.com/dso-toolkit/dso-toolkit/issues/4040))
 
+### Docs
+* Deprecation Policy: Borgen oude features ([#3803](https://github.com/dso-toolkit/dso-toolkit/issues/3803))
+
 ### Fixed
 * Ozon Content: Lege alt-tekst meegegeven aan Image Overlay ([#4080](https://github.com/dso-toolkit/dso-toolkit/issues/4080))
 

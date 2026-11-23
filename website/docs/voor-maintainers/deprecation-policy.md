@@ -18,4 +18,5 @@ Wat betekent dit voor DSO Toolkit?
   - Pas ook in `storybook/cypress/fixtures/image-snapshot-components.json` de property `name` van het betreffende component aan.
   - Pas ook in de e2e-test de url van `cy.visit` aan, bijv. voor `Tooltip` in `storybook/cypress/e2e/tooltip.cy.ts`: `cy.visit("http://localhost:45000/iframe.html?id=core-tooltip-deprecated--as-child");`.
 - In de lit-html template van het betreffende component in Storybook voegen we 2 HTML comments toe: aan het begin `<!-- START DEPRECATED: use [hier de verwijzing naar het alternatief] -->` en aan het eind `<!-- END DEPRECATED -->`.
+- We blijven deprecated functionaliteit ondersteunen en borgen totdat deze in een major release wordt verwijderd. Storybook-stories, Cypress E2E-tests en visuele snapshots van deprecated functionaliteit blijven daarom behouden, zodat regressies opvallen.
 - We maken een nieuw issue aan om de functionaliteit (het component) in de toekomst te verwijderen.
