@@ -23,12 +23,6 @@ import "cypress-real-events";
 
 import { addMatchImageSnapshotCommand } from "@simonsmith/cypress-image-snapshot/command";
 
-// Todo: In 3288 gaan we onderstaande afvang van "uncaught:exception" oplossen.
-Cypress.on("uncaught:exception", (_err, _runnable) => {
-  // returning false here prevents Cypress from failing the test
-  return false;
-});
-
 addMatchImageSnapshotCommand({
   failureThreshold: 0.04,
   failureThresholdType: "percent",
