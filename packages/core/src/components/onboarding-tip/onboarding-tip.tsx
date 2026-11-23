@@ -38,7 +38,7 @@ export class OnboardingTip implements ComponentInterface {
   /**
    * Emitted when the user closes the Onboarding Tip.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoClose!: EventEmitter<OnboardingTipCloseEvent>;
 
   @State()

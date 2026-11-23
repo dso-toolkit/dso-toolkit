@@ -25,7 +25,7 @@ export class Skiplink implements ComponentInterface {
   /**
    * Emitted when the Skiplink is clicked.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoSkiplinkClick!: EventEmitter<SkiplinkClickEvent>;
 
   private clickEventHandler(e: MouseEvent) {

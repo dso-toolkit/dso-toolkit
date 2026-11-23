@@ -35,19 +35,19 @@ export class MapLayerObject implements ComponentInterface {
   /**
    * Emitted when user activates or deactivates the Map Layer Object.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoActiveChange!: EventEmitter<MapLayerObjectActiveChangeEvent>;
 
   /**
    * Emitted when the mouse enters the Map Layer Object.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoMouseEnter!: EventEmitter;
 
   /**
    * Emitted when the mouse leaves the Map Layer Object.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoMouseLeave!: EventEmitter;
 
   private handleActiveChange = (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => {

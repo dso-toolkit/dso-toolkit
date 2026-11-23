@@ -23,7 +23,7 @@ export class TreeView implements ComponentInterface {
    * root to the item that is emitting the open event. The consumer of the event is responsible for updating
    * the TreeView's collection (usually set the open state on the last TreeViewItem in path).
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoOpenItem!: EventEmitter<TreeViewItem[]>;
 
   /**
@@ -32,7 +32,7 @@ export class TreeView implements ComponentInterface {
    * root to the item that is emitting the close event. The consumer of the event is responsible for updating
    * the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoCloseItem!: EventEmitter<TreeViewItem[]>;
 
   /**
@@ -43,7 +43,7 @@ export class TreeView implements ComponentInterface {
    * The consumer of the event is responsible for updating the TreeView's collection (usually set the active
    * state on the last TreeViewItem in path and clear all other active item states).
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoClickItem!: EventEmitter<TreeViewPointerEvent>;
 
   /**

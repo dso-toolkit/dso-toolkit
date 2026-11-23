@@ -35,7 +35,7 @@ export class Label implements ComponentInterface {
   truncate?: boolean;
 
   /** Emitted when the user activates the remove button. */
-  @Event()
+  @Event({ bubbles: false })
   dsoRemoveClick!: EventEmitter<MouseEvent>;
 
   @State()

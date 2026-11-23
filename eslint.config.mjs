@@ -179,6 +179,14 @@ export default [
       "no-shadow": 0,
       "react/jsx-no-bind": 0,
       "@typescript-eslint/no-shadow": 2,
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector:
+            "Decorator > CallExpression[callee.name='Event']:not(:has(Property[key.name='bubbles'][value.value=false]))",
+          message: "@Event() krijgt { bubbles: false }, zie werk-afspraken.md",
+        },
+      ],
       "stencil/strict-boolean-conditions": 0,
       "stencil/own-props-must-be-private": "error",
       "stencil/ban-side-effects": 0,

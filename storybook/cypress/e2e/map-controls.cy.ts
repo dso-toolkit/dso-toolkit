@@ -11,8 +11,8 @@ describe("Map Controls", () => {
         $mapControls.on("dsoZoomIn", cy.stub().as("dsoZoomIn"));
         $mapControls.on("dsoZoomOut", cy.stub().as("dsoZoomOut"));
         $mapControls.on("dsoToggle", cy.stub().as("dsoToggle"));
-        $mapControls.on("dsoBaseLayerChange", cy.stub().as("dsoBaseLayerChange"));
-        $mapControls.on("dsoToggleOverlay", cy.stub().as("dsoToggleOverlay"));
+        $mapControls.find("dso-map-base-layers").on("dsoBaseLayerChange", cy.stub().as("dsoBaseLayerChange"));
+        $mapControls.find("dso-map-overlays").on("dsoToggleOverlay", cy.stub().as("dsoToggleOverlay"));
       })
       .shadow()
       .as("dsoMapControlsShadow")

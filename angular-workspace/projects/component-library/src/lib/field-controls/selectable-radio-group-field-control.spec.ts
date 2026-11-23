@@ -32,7 +32,7 @@ class TestRadioGroupComponent {
 
 function createRadioChangeEvent(value: string, checked = true): CustomEvent<SelectableChangeEvent> {
   return new CustomEvent("dsoChange", {
-    bubbles: true,
+    bubbles: false,
     detail: { checked, value, originalEvent: new Event("change") },
   });
 }

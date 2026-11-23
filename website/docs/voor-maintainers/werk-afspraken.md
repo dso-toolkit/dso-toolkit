@@ -84,8 +84,17 @@ We nesten media queries altijd in de selector waarop ze van toepassing zijn en g
 ### Events
 
 - @Event() voorzien we altijd van \{ bubbles: false \}
+  - Onze events melden iets over het component zelf, zoals `dsoClose`, `dsoActiveChange` en `dsoToggle`. Net als native
+    `close` van `<dialog>` en `toggle` van `<details>` geldt zo'n event niet voor de ancestors. Zonder opties zet Stencil
+    `bubbles` op `true`: een Info in een Modal zou dan bij sluiten ook de `dsoClose` van de Modal triggeren.
+  - Wie toch op een ancestor wil luisteren (event delegation), gebruikt een capture-listener:
+    `@Listen("dsoClick", { capture: true })` of `addEventListener("dsoClick", handler, { capture: true })`.
+  - De ESLint-regel `no-restricted-syntax` in `eslint.config.mjs` borgt deze afspraak.
+  - Alleen als een component in de shadow DOM van een ander component wordt gebruikt dat een event met dezelfde naam
+    emit, gebruiken we daarnaast `composed: false`. Zo komt het interne event niet (retargeted) op de shadow host
+    terecht. Voorbeeld: `dsoActiveChange` van `dso-slide-toggle` binnen o.a. `dso-legend-item` en `dso-map-layer`.
 - We namespacen event names van custom elements niet met de naam van de component, alleen met de prefix dso
-- De event interface is altijd de genamespaced met de naam van het componen (en niet met Dso)
+- De event interface is altijd genamespaced met de naam van het component (en niet met Dso)
 - Native events die door onze custom elements worden gemaakt laten we niet uit het custom element "ontsnappen", dmv.
   stopPropagation.
 

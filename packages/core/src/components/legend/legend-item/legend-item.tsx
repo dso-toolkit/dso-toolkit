@@ -63,7 +63,7 @@ export class LegendItem implements ComponentInterface {
   /**
    * Emitted when user checks or unchecks the Slide Toggle.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoActiveChange!: EventEmitter<LegendItemActiveChangeEvent>;
 
   /**
@@ -75,13 +75,13 @@ export class LegendItem implements ComponentInterface {
   /**
    * Emitted when the mouse enters the Legend Item
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoMouseEnter!: EventEmitter;
 
   /**
    * Emitted when the mouse leaves the Legend Item
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoMouseLeave!: EventEmitter;
 
   @State()

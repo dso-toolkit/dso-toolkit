@@ -21,7 +21,7 @@ export class MapBaseLayers implements ComponentInterface {
   /**
    * Emitted when the user checks or unchecks a base layer.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoBaseLayerChange!: EventEmitter<BaseLayerChangeEvent>;
 
   /**

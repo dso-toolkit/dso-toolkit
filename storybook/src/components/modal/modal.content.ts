@@ -2,6 +2,7 @@ import { html } from "lit-html";
 
 import { buttonTemplate } from "../button/button.template.js";
 import { datePickerTemplate } from "../date-picker/date-picker.template.js";
+import { infoTemplate } from "../info/info.template.js";
 import { infoButtonTemplate } from "../info-button/info-button.template.js";
 import { linkTemplate } from "../link/link.template.js";
 import { listTemplate } from "../list/list.template.js";
@@ -94,4 +95,14 @@ export function loadingBody() {
 
 export function datePickerBody() {
   return datePickerTemplate({ id: "modal-id", disabled: false });
+}
+
+export function infoBody() {
+  return html`
+    <p>Vul hieronder de gegevens van de werkzaamheid in.</p>
+    ${infoTemplate({
+      active: true,
+      content: richContentTemplate({ children: html`<p>Extra informatie over deze werkzaamheid.</p>` }),
+    })}
+  `;
 }

@@ -152,4 +152,21 @@ describe("Selectable", () => {
 
     cy.get("dso-selectable").find('input[type="checkbox"]').should("be.checked");
   });
+
+  it("should not let dsoClose of the Info bubble", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-selectable--with-info");
+
+    cy.get("dso-selectable.hydrated").then(($selectable) => {
+      $selectable.on("dsoClose", cy.stub().as("selectableCloseListener"));
+      $selectable.parent().on("dsoClose", cy.stub().as("parentCloseListener"));
+    });
+
+    cy.get<HTMLDsoSelectableElement>("dso-selectable.hydrated").then(($s) => $s[0]!.toggleInfo(true));
+    cy.get("dso-selectable.hydrated dso-info").should("have.attr", "active");
+    cy.get("dso-selectable.hydrated dso-info").shadow().find("dso-icon-button").shadow().find("button").realClick();
+    cy.get("dso-selectable.hydrated dso-info").should("not.have.attr", "active");
+
+    cy.get("@selectableCloseListener").should("not.have.been.called");
+    cy.get("@parentCloseListener").should("not.have.been.called");
+  });
 });

@@ -62,7 +62,7 @@ export class PlekinfoCard implements ComponentInterface {
   /**
    * Emitted when the PlekinfoCard heading is clicked.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoPlekinfoCardClick!: EventEmitter<PlekinfoCardClickEvent>;
 
   private mutationObserver?: MutationObserver;

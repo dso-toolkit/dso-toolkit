@@ -42,7 +42,7 @@ export class Card implements ComponentInterface {
   /**
    * Emitted when the Card heading is clicked.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoCardClick!: EventEmitter<CardClickEvent>;
 
   private mutationObserver?: MutationObserver;

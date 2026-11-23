@@ -34,7 +34,7 @@ export class Panel implements ComponentInterface {
   /**
    * Emitted when the user click the close button.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoCloseClick!: EventEmitter<PanelCloseEvent>;
 
   private text = i18n(() => this.host, translations);

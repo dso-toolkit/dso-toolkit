@@ -84,7 +84,7 @@ export class ListButton implements ComponentInterface {
   /**
    * Emitted when the user changes the count.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoCountChange!: EventEmitter<ListButtonChangeEvent>;
 
   /**
@@ -92,7 +92,7 @@ export class ListButton implements ComponentInterface {
    *
    * Does not fire when the user activates the count controls.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoSelectedChange!: EventEmitter<ListButtonSelectedEvent>;
 
   connectedCallback() {

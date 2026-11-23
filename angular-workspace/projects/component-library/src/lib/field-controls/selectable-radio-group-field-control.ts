@@ -1,4 +1,5 @@
 import {
+  DestroyRef,
   Directive,
   ElementRef,
   HostListener,
@@ -58,7 +59,16 @@ export class DsoSelectableRadioGroupFieldControl implements FormValueControl<str
 
   private readonly options = contentChildren(DsoSelectable, { descendants: true, read: ElementRef });
 
-  constructor(private readonly elementRef: ElementRef<HTMLFieldSetElement>) {
+  constructor(
+    private readonly elementRef: ElementRef<HTMLFieldSetElement>,
+    destroyRef: DestroyRef,
+  ) {
+    // dsoChange does not bubble, so listen in the capture phase to receive it from the radios in this fieldset.
+    const fieldset = elementRef.nativeElement;
+    const dsoChangeListener = (event: Event) => this.onDsoChange(event);
+    fieldset.addEventListener("dsoChange", dsoChangeListener, { capture: true });
+    destroyRef.onDestroy(() => fieldset.removeEventListener("dsoChange", dsoChangeListener, { capture: true }));
+
     afterRenderEffect({
       write: () => {
         const selectedValue = this.value();
@@ -96,7 +106,6 @@ export class DsoSelectableRadioGroupFieldControl implements FormValueControl<str
     });
   }
 
-  @HostListener("dsoChange", ["$event"])
   onDsoChange(event: Event) {
     const radio = event.target;
     if (

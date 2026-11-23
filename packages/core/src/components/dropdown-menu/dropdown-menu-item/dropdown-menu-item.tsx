@@ -52,7 +52,7 @@ export class DropdownMenuItem implements ComponentInterface {
   /**
    * Emitted when the user clicks the Dropdown Menu Item.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoClick!: EventEmitter<DropdownMenuItemClickEvent>;
 
   /**

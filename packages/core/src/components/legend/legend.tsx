@@ -28,13 +28,13 @@ export class Legend implements ComponentInterface {
   /**
    * Emitted when a tabItem is pressed.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoContentSwitch!: EventEmitter<LegendContentSwitchEvent>;
 
   /**
    * Emitted when the user closes the Legend.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoClose!: EventEmitter<LegendCloseEvent>;
 
   private text = i18n(() => this.host, translations);

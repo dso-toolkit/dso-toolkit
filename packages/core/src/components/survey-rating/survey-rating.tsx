@@ -13,13 +13,13 @@ export class SurveyRating implements ComponentInterface {
   /**
    * Emitted when the user submits the Survey Rating.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoSubmit!: EventEmitter<SurveyRatingSubmitEvent>;
 
   /**
    * Emitted when the user wants to close the  Survey Rating.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoClose!: EventEmitter<SurveyRatingCloseEvent>;
 
   private handleForm(e: Event): void {

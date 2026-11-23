@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Shopping Cart: Animatie van inkomend vinkje ([#4051](https://github.com/dso-toolkit/dso-toolkit/issues/4051))
+* Core: Events niet meer bubblen ([#4094](https://github.com/dso-toolkit/dso-toolkit/issues/4094))
 
 ### Changed
 * **BREAKING** Highlight Box: With Banner Image aanpassen ([#3924](https://github.com/dso-toolkit/dso-toolkit/issues/3924))

@@ -94,31 +94,31 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Event emitted when a date is selected.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoDateChange!: EventEmitter<DatePickerChangeEvent>;
 
   /**
    * Event emitted the date picker input is blurred.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoBlur!: EventEmitter<DatePickerBlurEvent>;
 
   /**
    * Event emitted on key up in the date picker input.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoKeyUp!: EventEmitter<DatePickerKeyboardEvent>;
 
   /**
    * Event emitted on key down in the date picker input.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoKeyDown!: EventEmitter<DatePickerKeyboardEvent>;
 
   /**
    * Event emitted the date picker input is focused.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoFocus!: EventEmitter<DatePickerFocusEvent>;
 
   private handleBlur = (e: FocusEvent) => {

@@ -256,7 +256,7 @@ export class AccordionSection implements ComponentInterface {
   /**
    * An optional event listener for changes on the value of property `active`.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoActiveChange!: EventEmitter<AccordionSectionActiveChangeEvent>;
 
   /**
