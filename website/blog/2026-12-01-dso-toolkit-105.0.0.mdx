@@ -10,6 +10,10 @@ Deze release bevat **breaking** changes voor de volgende componenten:
 - Highlight Box
 - List
 
+Deze release bevat een **deprecation** voor het volgende component:
+
+- Shopping Cart (HTML/CSS implementatie)
+
 <!-- truncate -->
 
 ## Highlight Box
@@ -52,4 +56,25 @@ Gebruik de `ol.dso-action-list` selector van de `List`.
 <ol class="dso-action-list">
   <li>...</li>
 </ol>
+```
+
+## Shopping Cart (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Shopping Cart` is deprecated. De alternatieve implementatie `<dso-shopping-cart>` is uitgebracht in 🪅 Release 100.2.0.
+
+### Migratiepad
+
+Gebruik de Web Component `<dso-shopping-cart>`.
+
+```html
+❌
+<div class="dso-shopping-cart">
+  <div class="dso-contents">...</div>
+</div>
+
+✅
+<dso-shopping-cart mode="main|side" ...>
+  <h3 slot="heading">Gekozen activiteiten</h3>
+  <dso-shopping-cart-item ...> ... </dso-shopping-cart-item>
+</dso-shopping-cart>
 ```

@@ -41,6 +41,7 @@ export function shoppingCartTemplate({
   title,
 }: ShoppingCart) {
   return html`
+    <!-- START DEPRECATED: use <dso-shopping-cart> -->
     ${titleTag === "h2" ? html`<h2>${title}</h2>` : html`<h3>${title}</h3>`}
 
     <div class="dso-shopping-cart">
@@ -203,5 +204,6 @@ export function shoppingCartTemplate({
           : nothing
       }
     </div>
+    <!-- END DEPRECATED -->
   `;
 }

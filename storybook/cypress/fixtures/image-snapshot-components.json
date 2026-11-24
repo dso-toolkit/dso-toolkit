@@ -221,7 +221,7 @@
     "failureThreshold": 0
   },
   {
-    "name": "shopping-cart",
+    "name": "shopping-cart-deprecated",
     "selector": ".dso-shopping-cart ",
     "stories": [
       "default",
