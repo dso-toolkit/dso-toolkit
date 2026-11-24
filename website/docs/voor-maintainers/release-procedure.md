@@ -42,9 +42,8 @@ Dit is de release procedure:
 
    De verwijzing in het bericht naar de blogpost is optioneel.
 
-8. Controleer vervolgens of `What's Changed`-sectie van de [release tag](https://github.
-   com/dso-toolkit/dso-toolkit/releases/tag/v67.0.0) in github volledig is. Is dit niet het geval  
-   dan moet deze nog handmatig worden aangevuld.
+8. Controleer vervolgens of `What's Changed`-sectie van de [release tag](https://github.com/dso-toolkit/dso-toolkit/releases/tag/v67.0.0)
+   in GitHub volledig is. Is dit niet het geval dan moet deze nog handmatig worden aangevuld.
 9. Als laatste kan de Github milestone gesloten worden door op
    https://github.com/dso-toolkit/dso-toolkit/milestones van milestone `67.0.0` eerst op "edit" te klikken,
    de Due date in te vullen en vervolgens op "Close milestone" te klikken.
@@ -128,5 +127,5 @@ automatisch publiceren wanneer het geen `latest` tag heeft.
 
 ### Branch release goed bevonden
 
-- Drop de release commit waarin de versie naar de betreffende github issue is gezet. Bijv `67.0.0-ghi-2345`.
+- Drop de release commit waarin de versie naar de betreffende GitHub issue is gezet. Bijv `67.0.0-ghi-2345`.
 - Bied de code via een PR aan zodat deze mee gaat in het reguliere release proces.
