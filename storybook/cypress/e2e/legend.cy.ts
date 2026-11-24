@@ -105,6 +105,17 @@ describe("Legend", () => {
       cy.get("@dsoLegendGroupModeChangeListener").should("have.been.calledOnce");
     });
 
+    it("should vertically center the heading and the mode button of a legend group", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-group", "Geselecteerde kenmerken")
+        .then(($group) => {
+          const heading = $group[0].querySelector("[slot='heading']")!.getBoundingClientRect();
+          const button = $group[0].shadowRoot!.querySelector("dso-icon-button")!.getBoundingClientRect();
+
+          expect(button.top + button.height / 2).to.be.closeTo(heading.top + heading.height / 2, 1);
+        });
+    });
+
     describe("Legend Item", () => {
       it("should show label and symbol", () => {
         cy.get("@dsoLegend")
