@@ -126,21 +126,6 @@ describe("Modal", () => {
     cy.get("@close").should("not.have.been.called");
   });
 
-  it("should have keyboard accessible body container on desktop layout", () => {
-    cy.viewport(1200, 800);
-    cy.visit("http://localhost:45000/iframe.html?id=core-modal--passive");
-
-    cy.get("dso-modal.hydrated").shadow().find(".dso-body").as("modalBody");
-
-    cy.get("dso-modal.hydrated").shadow().find(".dso-dialog > dso-scrollable > .dso-body").should("exist");
-
-    cy.get("@modalBody").should("have.attr", "tabindex", 0);
-
-    cy.get("dso-modal.hydrated").shadow().find("#close-modal").should("have.focus");
-    cy.realPress("Tab");
-    cy.get("@modalBody").should("have.focus");
-  });
-
   it("should return focus to previous element", () => {
     cy.visit("http://localhost:45000/iframe.html?id=patronen-modal-return-focus--modal-return-focus");
 
@@ -197,6 +182,26 @@ it("should wrap all sections in a single scrollable container on mobile layout",
   cy.get("dso-modal").shadow().find(".dso-dialog > dso-scrollable .dso-body").should("exist");
 
   cy.get("dso-modal").shadow().find(".dso-dialog > dso-scrollable .dso-footer").should("exist");
+});
+
+describe("Modal - keyboard", () => {
+  it("should have keyboard accessible body container on desktop layout", () => {
+    cy.viewport(1200, 800);
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--passive");
+
+    cy.get("dso-modal.hydrated").shadow().as("dsoModal");
+
+    cy.get("@dsoModal").find("dialog.dso-modal").should("have.prop", "open", true);
+    cy.get("@dsoModal").find(".dso-dialog").should("have.css", "opacity", "1");
+
+    cy.get("@dsoModal").find(".dso-dialog > dso-scrollable > .dso-body").should("have.attr", "tabindex", "0");
+
+    cy.get("@dsoModal").find("#close-modal.hydrated").should("have.focus").shadow().find("button").should("have.focus");
+
+    cy.realPress("Tab");
+
+    cy.get("@dsoModal").find(".dso-dialog > dso-scrollable > .dso-body").should("have.focus");
+  });
 });
 
 describe("Modal - with Info", () => {
