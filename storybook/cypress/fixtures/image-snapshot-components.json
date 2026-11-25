@@ -213,10 +213,15 @@
       "hidden-label-without-icon",
       "with-value",
       "invalid",
-      "hidden-button",
-      "with-results-message",
-      "with-hidden-results-message"
+      "hidden-button"
     ],
+    "type": "html-css",
+    "failureThreshold": 0
+  },
+  {
+    "name": "search-bar",
+    "selector": "#storybook-root",
+    "stories": ["with-results-message", "with-hidden-results-message"],
     "type": "html-css",
     "failureThreshold": 0
   },
