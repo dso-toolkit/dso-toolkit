@@ -34,6 +34,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Modal: Flaky test ([#3454](https://github.com/dso-toolkit/dso-toolkit/issues/3454))
 * Cypress: afhandelen van `uncaught:exceptions` ([#3288](https://github.com/dso-toolkit/dso-toolkit/issues/3288))
 * Label: Baseline snapshots varianten in master kloppen niet ([#3452](https://github.com/dso-toolkit/dso-toolkit/issues/3452))
+* Skiplink: E2E-test toetst niet langer of de link verborgen is ([#3999](https://github.com/dso-toolkit/dso-toolkit/issues/3999))
 
 ## 🔦 Release 104.0.0 - 2026-11-12
 
