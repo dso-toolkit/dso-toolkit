@@ -53,6 +53,26 @@ describe("Label", () => {
     cy.get("@dsoLabelShadow").find("dso-truncate").shadow().find(".dso-tooltip").should("not.be.visible");
   });
 
+  it("matches snapshot when truncated and removable", () => {
+    cy.get("@dsoLabel")
+      .then(($element) => $element.wrap('<div style="max-width: 100px">'))
+      .invoke("prop", "truncate", true)
+      .invoke("prop", "removable", true);
+
+    cy.get("@dsoLabelShadow").find("dso-icon-button.hydrated").should("exist");
+
+    cy.get("@dsoLabelShadow")
+      .find("dso-truncate.hydrated")
+      .shadow()
+      .as("dsoTruncateShadow")
+      .find(".dso-truncate-content")
+      .should("have.attr", "tabindex", "0");
+
+    cy.get("@dsoTruncateShadow").find(".dso-tooltip").should("not.be.visible");
+
+    cy.get("@dsoLabel").matchImageSnapshot();
+  });
+
   it("should emit removeClick event", () => {
     cy.get("@dsoLabel").then(($element) => {
       $element.on("dsoRemoveClick", cy.stub().as("removeClickListener"));
