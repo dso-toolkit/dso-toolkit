@@ -2,6 +2,10 @@
   "name": "@dso-toolkit/core",
   "version": "105.0.0",
   "description": "DSO Toolkit Web Components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dso-toolkit/dso-toolkit.git"
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/components/index.js",
   "es2015": "dist/esm/index.mjs",
