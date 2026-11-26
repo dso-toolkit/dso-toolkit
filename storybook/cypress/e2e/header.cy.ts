@@ -155,6 +155,17 @@ describe("Header", () => {
       .matchImageSnapshot();
   });
 
+  it("uses a semibold toggle in compact mode", () => {
+    cy.viewport(1000, 660)
+      .get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .then(($header) => setMenuItems($header, defaultMenuItems))
+      .invoke("prop", "compact", "always")
+      .get("dso-header[is-compact]")
+      .shadow()
+      .find(".dropdown-menu > button")
+      .should("have.css", "font-weight", "600");
+  });
+
   it("should show and remove dropdownmenu", () => {
     cy.get("@dsoHeaderShadow")
       .find("nav")
@@ -506,6 +517,17 @@ describe("Header", () => {
   });
 
   describe('"overflowMenu" dropdown menu', () => {
+    it("uses the normal font weight for the overflow menu toggle", () => {
+      cy.viewport(1000, 660);
+
+      cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+        .then(($header) => setMenuItems($header, defaultMenuItems))
+        .shadow()
+        .find(".dso-nav-main.ready .dropdown-menu-item .dropdown-menu > button")
+        .should("be.visible")
+        .and("have.css", "font-weight", "400");
+    });
+
     const overflowMenuItemEvents: TestHeaderClickMenuItemEvent[] = [
       {
         isModifiedEvent: false,

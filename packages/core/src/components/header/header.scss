@@ -177,7 +177,7 @@ div[popover] {
     display: flex;
     font-family: typography.$font-family-base;
     font-size: typography.$font-size-base;
-    font-weight: 600;
+    font-weight: 400;
     line-height: normal;
     letter-spacing: inherit;
     position: relative;
@@ -291,6 +291,10 @@ div[popover] {
 
   .dropdown-menu {
     position: static;
+
+    > button {
+      font-weight: 600;
+    }
 
     .dropdown-menu-options {
       inset-inline-end: 0;

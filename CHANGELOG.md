@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Header: Meer-knop is dikgedrukt, waardoor hij op een actief menu-item lijkt ([#4116](https://github.com/dso-toolkit/dso-toolkit/issues/4116))
+
 ## 🐣 Release 105.0.0 - 2026-11-26
 
 ### Added
