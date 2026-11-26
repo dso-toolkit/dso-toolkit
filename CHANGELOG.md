@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Deploy: Trusted publishing for npm packages ([#3807](https://github.com/dso-toolkit/dso-toolkit/issues/3807))
+
 ## 🐣 Release 105.0.0 - 2026-11-26
 
 ### Added

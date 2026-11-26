@@ -16,8 +16,6 @@ azcopy sync --from-to=LocalBlob --delete-destination=true ./packages/core/ "http
 
 if [[ -n ${DT_DIST_TAG+x} && $DT_DIST_TAG == "latest" ]]
 then
-  pnpm config set //registry.npmjs.org/:_authToken "${DT_DEPLOY_NPM_TOKEN}"
-
   pnpm --filter dso-toolkit publish --access public --no-git-checks
   pnpm --filter @dso-toolkit/core publish --access public --no-git-checks
   pnpm --filter @dso-toolkit/react publish --access public --no-git-checks
