@@ -8,6 +8,7 @@ import {
   Fragment,
   Host,
   JSX,
+  Listen,
   Prop,
   State,
   Watch,
@@ -240,8 +241,10 @@ export class Header implements ComponentInterface {
   private userHomeMenuItemElementRef: HTMLLIElement | undefined;
 
   private popoverElement: HTMLDivElement | undefined;
+  private dropdownOptionsElement: HTMLElement | undefined;
   private dropdownButtonElement: HTMLButtonElement | undefined;
   private cleanUp: TooltipClean | undefined;
+  private pointerDownOutside = false;
 
   private text = i18n(() => this.host, translations);
 
@@ -366,6 +369,10 @@ export class Header implements ComponentInterface {
       this.visibleMenuItemsCount = this.calculateOverflowMenuItemCount(this.navElement);
     }
 
+    if (this.open && !this.popoverElement?.matches(":popover-open")) {
+      this.toggleOptions(false);
+    }
+
     // Only position the popover while it is open. autoUpdate runs on its own ResizeObserver;
     // keeping it active on a closed (hidden) popover computes bogus constraints that force a
     // same-frame correction on the next open.
@@ -468,10 +475,53 @@ export class Header implements ComponentInterface {
     return withButton ? tabbables : tabbables.filter((element) => element !== this.dropdownButtonElement);
   }
 
+  private isOnToggleOrOptions(event: Event): boolean {
+    const path = event.composedPath();
+
+    return [this.dropdownButtonElement, this.dropdownOptionsElement].some(
+      (element) => !!element && path.includes(element),
+    );
+  }
+
+  @Listen("pointerdown", { target: "document", capture: true })
+  onDocumentPointerDown(event: PointerEvent) {
+    this.pointerDownOutside = this.open && !this.isOnToggleOrOptions(event);
+  }
+
+  @Listen("pointercancel", { target: "document", capture: true })
+  onDocumentPointerCancel() {
+    this.pointerDownOutside = false;
+  }
+
+  @Listen("pointerup", { target: "document", capture: true })
+  onDocumentPointerUp() {
+    if (this.open && this.pointerDownOutside) {
+      this.toggleOptions(false);
+    }
+
+    this.pointerDownOutside = false;
+  }
+
+  @Listen("blur", { target: "window" })
+  onWindowBlur() {
+    if (this.open) {
+      this.toggleOptions(false);
+    }
+  }
+
+  @Listen("keydown", { target: "document" })
+  onDocumentKeyDown(event: KeyboardEvent) {
+    if (this.open && event.key === "Escape" && !event.defaultPrevented) {
+      event.preventDefault();
+      this.escape();
+    }
+  }
+
   private focusOutListener = (event: FocusEvent) => {
     if (
       this.open &&
-      (!(event.relatedTarget instanceof HTMLElement) || !this.tabbables(true).includes(event.relatedTarget))
+      event.relatedTarget !== null &&
+      !this.tabbables(true).some((element) => element === event.relatedTarget)
     ) {
       this.toggleOptions(false);
     }
@@ -593,6 +643,7 @@ export class Header implements ComponentInterface {
                 role="menu"
                 aria-labelledby={this.dropdownButtonElement?.id}
                 onKeyDown={this.keyDownHandler}
+                ref={(element) => (this.dropdownOptionsElement = element)}
               >
                 <ul role="group">
                   {this.mainMenu.map((menuItem) => (
@@ -695,6 +746,7 @@ export class Header implements ComponentInterface {
                         role="menu"
                         aria-labelledby={this.dropdownButtonElement?.id}
                         onKeyDown={this.keyDownHandler}
+                        ref={(element) => (this.dropdownOptionsElement = element)}
                       >
                         <ul>
                           {this.hiddenMainMenuItems.map((menuItem) => (

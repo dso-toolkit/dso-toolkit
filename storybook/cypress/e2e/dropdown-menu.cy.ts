@@ -1,3 +1,27 @@
+import { blurActiveElement, emulateSafariMouseFocus } from "../support/focus-emulation";
+
+function addOutsideContent(document: Document) {
+  const content = document.createElement("div");
+  content.id = "outside-content";
+  content.textContent = "Inhoud buiten het menu";
+  Object.assign(content.style, {
+    position: "fixed",
+    insetBlockEnd: "0",
+    insetInlineEnd: "0",
+    inlineSize: "300px",
+    blockSize: "150px",
+    zIndex: "99999",
+  });
+  document.body.appendChild(content);
+}
+
+function addScrollSpace(document: Document) {
+  const space = document.createElement("div");
+  space.id = "scroll-space";
+  space.style.blockSize = "3000px";
+  document.body.appendChild(space);
+}
+
 describe("Dropdown menu - anchors", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--anchors");
@@ -342,7 +366,7 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@menuitems").should("be.visible");
 
-    cy.get("@menuitems").eq(1).click({ force: true });
+    cy.get("@menuitems").eq(1).shadow().find("a").click({ force: true });
 
     cy.get("@menuitems").should("not.be.visible");
   });
@@ -365,6 +389,100 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@menuItemClickListener").should("have.been.calledOnce");
     cy.get("@dropdownMenuClickListener").should("not.have.been.called");
+  });
+
+  it("selects an item when the clicked item does not take focus", { browser: "!firefox" }, () => {
+    cy.get("@menuitems")
+      .eq(1)
+      .then(($menuItem) => {
+        $menuItem.get(0)!.addEventListener("click", (e) => {
+          e.preventDefault();
+        });
+
+        $menuItem.on("dsoClick", cy.stub().as("menuItemClick"));
+      });
+
+    cy.get("@button").should("be.visible").realClick();
+
+    cy.get("@menuitems").eq(0).should("have.focus");
+
+    cy.get("@menuitems").eq(1).then(emulateSafariMouseFocus).realClick();
+
+    cy.get("@menuItemClick").should("have.been.called");
+  });
+
+  it("closes the menu on a click in an iframe", { browser: "!firefox" }, () => {
+    cy.document().then((document) => {
+      const iframe = document.createElement("iframe");
+      iframe.id = "outside-iframe";
+      iframe.title = "Inhoud in een iframe";
+      iframe.srcdoc = "<p>Inhoud in een iframe</p>";
+      Object.assign(iframe.style, {
+        position: "fixed",
+        insetBlockEnd: "0",
+        insetInlineEnd: "0",
+        inlineSize: "300px",
+        blockSize: "150px",
+        border: "0",
+        zIndex: "99999",
+      });
+      document.body.appendChild(iframe);
+    });
+
+    cy.get<HTMLIFrameElement>("#outside-iframe").its("0.contentDocument.body").should("not.be.empty");
+
+    cy.get("@button").should("be.visible").realClick();
+
+    cy.get("@menuitems").eq(0).should("have.focus");
+
+    cy.get("#outside-iframe").realClick();
+
+    cy.get("@options").should("not.be.visible");
+  });
+
+  it("closes the menu on a tap outside", { browser: "!firefox" }, () => {
+    cy.document().then(addOutsideContent);
+
+    cy.get("@button").should("be.visible").realClick();
+
+    cy.get("@options").should("be.visible");
+
+    cy.get("#outside-content").realTouch();
+
+    cy.get("@options").should("not.be.visible");
+  });
+
+  it("keeps the menu open when a swipe outside scrolls the page", { browser: "!firefox" }, () => {
+    cy.document().then((document) => {
+      addOutsideContent(document);
+      addScrollSpace(document);
+    });
+
+    cy.get("@button").should("be.visible").realClick();
+
+    cy.get("@options").should("be.visible");
+
+    cy.get("#outside-content").realSwipe("toTop", { length: 200 });
+
+    cy.window().its("scrollY").should("be.greaterThan", 0);
+
+    cy.get("@options").should("be.visible");
+  });
+
+  it("closes the menu with Escape when focus left the menu without a new target", { browser: "!firefox" }, () => {
+    cy.get("@button").should("be.visible").realClick();
+
+    cy.get("@menuitems").eq(0).should("have.focus");
+
+    cy.document().then(blurActiveElement);
+
+    cy.get("@options").should("be.visible");
+
+    cy.realPress("Escape");
+
+    cy.get("@options").should("not.be.visible");
+
+    cy.get("@button").should("have.focus");
   });
 });
 

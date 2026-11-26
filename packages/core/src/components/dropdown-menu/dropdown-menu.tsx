@@ -79,6 +79,40 @@ export class DropdownMenu implements ComponentInterface {
     }
   }
 
+  @Listen("pointerdown", { target: "document", capture: true })
+  onDocumentPointerDown(event: PointerEvent) {
+    this.pointerDownOutside = this.open && !event.composedPath().includes(this.host);
+  }
+
+  @Listen("pointercancel", { target: "document", capture: true })
+  onDocumentPointerCancel() {
+    this.pointerDownOutside = false;
+  }
+
+  @Listen("pointerup", { target: "document", capture: true })
+  onDocumentPointerUp() {
+    if (this.open && this.pointerDownOutside) {
+      this.toggleOptions(false);
+    }
+
+    this.pointerDownOutside = false;
+  }
+
+  @Listen("blur", { target: "window" })
+  onWindowBlur() {
+    if (this.open) {
+      this.toggleOptions(false);
+    }
+  }
+
+  @Listen("keydown", { target: "document" })
+  onDocumentKeyDown(event: KeyboardEvent) {
+    if (this.open && event.key === "Escape" && !event.defaultPrevented) {
+      event.preventDefault();
+      this.escape();
+    }
+  }
+
   /**
    * @internal
    */
@@ -91,6 +125,7 @@ export class DropdownMenu implements ComponentInterface {
   private popoverElement: HTMLDivElement | undefined;
   private popoverFrameId?: number;
   private pendingPopoverConstraints?: { availableWidth: number; availableHeight: number };
+  private pointerDownOutside = false;
 
   private dropdownMenuTabbables(withButton: boolean): DropdownMenuTabbable[] {
     const menuItems = this.host.isConnected
@@ -208,12 +243,12 @@ export class DropdownMenu implements ComponentInterface {
   }
 
   private focusOutListener = (event: FocusEvent) => {
-    if (this.open && !this.isInsideDropdownMenu(event.relatedTarget)) {
+    if (this.open && event.relatedTarget !== null && !this.isInsideDropdownMenu(event.relatedTarget)) {
       this.toggleOptions(false);
     }
   };
 
-  private isInsideDropdownMenu(element: EventTarget | null): boolean {
+  private isInsideDropdownMenu(element: EventTarget): boolean {
     return element instanceof Node && (this.host.contains(element) || !!this.host.shadowRoot?.contains(element));
   }
 
