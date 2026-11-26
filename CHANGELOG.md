@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🐣 Release 105.0.0 - 2026-11-26
+
 ### Added
 * Shopping Cart: Animatie van inkomend vinkje ([#4051](https://github.com/dso-toolkit/dso-toolkit/issues/4051))
 * Core: Events niet meer bubblen ([#4094](https://github.com/dso-toolkit/dso-toolkit/issues/4094))
