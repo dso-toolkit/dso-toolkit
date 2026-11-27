@@ -18,6 +18,11 @@
 .dso-date__input {
   @include form-control.root();
 
+  @supports (-webkit-touch-callout: none) {
+    // iOS Safari forces content-box sizing on the native date input.
+    appearance: none;
+  }
+
   &::-webkit-calendar-picker-indicator {
     position: relative;
     inset-inline-end: -8px;

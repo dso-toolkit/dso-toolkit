@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Datepicker: Op mobiel is de ingevulde datum niet in het midden uitgelijnd ([#3649](https://github.com/dso-toolkit/dso-toolkit/issues/3649))
+
 ## 🐣 Release 105.0.0 - 2026-11-26
 
 ### Added
